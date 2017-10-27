@@ -1,0 +1,292 @@
+---
+title: "Long-Term Dormancy"
+author: "Stuart E. Jones and Jay T. Lennon"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+## OVERVIEW
+In January 2013, we started an experiment using ~24 strains of bacteria -- some "lab" strains others enviornmental strains -- to estimate survivorship during long-term starvation. Each strain was grown un into logarithmic phase and harvested. The cells were pelleted and washed 5x before being put in replicate 50 mL Falcon tubes. Subsamples were taken on overtime and plated onto R2A plates for enumeration as CFUs. After looking at plots of the data, in became apparent that CFUs were declining at a non-constant rate on semi-log plots. Here, we test whether or not the Weibull function can help explain variation in death curves.  
+
+## 1) SET WORKING DIRECTORY, LOAD DATA, LOAD PACKAGE
+
+```{r}
+## Retrieve and Set Your Working Directory
+rm(list = ls())
+getwd()
+setwd("~/GitHub/Dimensions/Aim1/")
+require("bbmle")
+```
+
+##2) LOAD DATA
+
+```{r}
+## Load Data
+obs <- read.csv("data/longtermdormancy_20170620_nocomments.csv", 
+                header = TRUE, stringsAsFactors = FALSE)
+
+## Adding 1 to deal with log(0) observations
+obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
+strains <- sort(unique(obs$Strain))
+strains <- strains[table(obs$Strain)>10]
+obs <- obs[obs$Strain%in%strains,]
+
+## Time
+time <- (as.numeric(strptime(obs$Firstread_date,format="%d-%b-%y",tz = "EST")) - 
+        as.numeric(strptime(obs$Dormstart_date,format="%d-%b-%y",tz="EST")))/(3600*24)
+time <- ifelse(time == 0, 1, time)
+obs <- data.frame(obs, time)
+
+## Adding 1 to deal with log(0) observations
+obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
+strains <- sort(unique(obs$Strain))
+strains <- strains[table(obs$Strain)>10]
+obs <- obs[obs$Strain%in%strains,]
+```
+
+## 3) PICK REPRESENTATIVE STRAINS
+
+```{r}
+KBS0701 <- obs[(obs$Strain == "KBS0701"),] # Arthrobacter
+KBS0714 <- obs[(obs$Strain == "KBS0714"),] # Micrococcus
+KBS0802 <- obs[(obs$Strain == "KBS0802"),] # Pseudomonas
+KBS0812 <- obs[(obs$Strain == "KBS0812"),] # Bacillus
+```
+
+## 4) FOUR-PANEL PLOT WITHOUT FUNCTIONS
+
+```{r}
+png(filename="~/GitHub/Dimensions/Aim1/output/death.wo.fitting.png",
+    width = 2400, height = 2400, res = 96*2)
+
+# par(mfrow=c(2,2))
+# par(mar = c(5, 7, 5, 7))
+# par(oma = c(5,4,0,0))
+
+par(mfrow = c(2,2),
+          oma = c(5,4,0,0) + 0.5,
+          mar = c(0,3,3,1) + 0.5)
+
+# KBS0701
+plot(KBS0701$time, KBS0701$Abund, pch = 22, 
+          bg = "white", col = "black", lwd = 6, cex = 6, log = "y", xlab = NA, ylab = NA,
+          xlim = c(-100, 1050), ylim = c(1, 100000000), yaxt = "n", xaxt = "n")
+box(lwd = 6)
+
+axis(side = 2, lwd.ticks = 6, cex.axis = 3, las = 1,
+     labels = expression(10^0, 10^2, 10^4, 10^6, 10^8),
+     at = c(10^0, 10^2, 10^4, 10^6, 10^8))
+ 
+axis(side = 4, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at=c(10^0, 10^2, 10^4, 10^6, 10^8), labels = F)
+ 
+axis(side = 1, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+axis(side = 3, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+# KBS0714
+plot(KBS0714$time, KBS0714$Abund, pch = 22, 
+          bg = "white", col = "black", lwd = 6, cex = 6, log = "y", xlab = NA, ylab = NA,
+          xlim = c(-100, 1050), ylim = c(1, 1000000000), yaxt = "n", xaxt = "n")
+box(lwd = 6)
+
+axis(side = 2, lwd.ticks = 6, cex.axis = 3, las = 1,
+     at=c(10^0, 10^2, 10^4, 10^6, 10^8), labels = F)
+ 
+axis(side = 4, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at=c(10^0, 10^2, 10^4, 10^6, 10^8), labels = F)
+ 
+axis(side = 1, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+axis(side = 3, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+# KBS0802
+plot(KBS0802$time, KBS0802$Abund, pch = 22, 
+          bg = "white", col = "black", lwd = 6, cex = 6, log = "y", xlab = NA, ylab = NA,
+          xlim = c(-100, 1050), ylim = c(1, 1000000000), yaxt = "n", xaxt = "n")
+box(lwd = 6)
+
+axis(side = 2, lwd.ticks = 6, cex.axis = 3, las = 1,
+     labels = expression(10^0, 10^2, 10^4, 10^6, 10^8),
+     at = c(10^0, 10^2, 10^4, 10^6, 10^8))
+ 
+axis(side = 4, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at=c(10^0, 10^2, 10^4, 10^6, 10^8), labels = F)
+ 
+axis(side = 1, lwd.ticks = 6, cex.axis = 3, las = 1, mgp = c(3, 3, 0),
+    labels = c(0, 500, 1000), at = c(0, 500, 1000))
+
+axis(side = 3, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+# KBS0812
+plot(KBS0812$time, KBS0812$Abund, pch = 22, 
+          bg = "white", col = "black", lwd = 6, cex = 6, log = "y", xlab = NA, ylab = NA,
+          xlim = c(-100, 1050), ylim = c(1, 1000000000), yaxt = "n", xaxt = "n")
+box(lwd = 6)
+
+axis(side = 2, lwd.ticks = 6, cex.axis = 3, las = 1,
+ at=c(10^0, 10^2, 10^4, 10^6, 10^8), labels = F)
+ 
+axis(side = 4, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at=c(10^0, 10^2, 10^4, 10^6, 10^8), labels = F)
+ 
+axis(side = 1, lwd.ticks = 6, cex.axis = 3, las = 1, mgp = c(3, 3, 0),
+    labels = c(0, 500, 1000), at = c(0, 500, 1000))
+
+axis(side = 3, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+dev.off()
+graphics.off()
+```
+
+## 5) WEIBULL FUNCTIONS
+```{r, results='hide', warning=FALSE, message=FALSE}
+
+## KBS0701
+# Initial parameters
+A = 1000 # Initial death (larger = slower) 
+B = 0.9 # Bend (upper = 1 = first-order decay)
+C = 6 # intercept
+Z = 2 # Error
+
+fit.0701 <- mle2(log10(Abund) ~ dnorm(mean = c * (time / a)^(b-1) * exp(-1*(time/a)^b), sd = z), 
+            start = list(a = A, b = B, c = C, z = Z), data = KBS0701) 
+
+## KBS0714
+# Initial parameters
+A = 100 # Initial death (larger = slower) 
+B = 1 # Bend (upper = 1 = first-order decay)
+C = 7 # intercept
+Z = 2 # Error
+
+fit.0714 <- mle2(log10(Abund) ~ dnorm(mean = c * (time / a)^(b-1) * exp(-1*(time/a)^b), sd = z), 
+            start = list(a = A, b = B, c = C, z = Z), data = KBS0714) 
+
+## KBS0802
+# Initial parameters
+A = 400 # Initial death (larger = slower) 
+B = 0.8 # Bend (upper = 1 = first-order decay)
+C = 4 # intercept
+Z = 10 # Error
+
+fit.0802 <- mle2(log10(Abund) ~ dnorm(mean = c * (time / a)^(b-1) * exp(-1*(time/a)^b), sd = z), 
+            start = list(a = A, b = B, c = C, z = Z), data = KBS0802) 
+
+## KBS0812
+# Initial parameters
+A = 9100 # Initial death (larger = slower) 3000
+B = 1.1 # Bend (upper = 1 = first-order decay) 1.1
+C = 7 # intercept 8 
+Z = 100 # Error 10
+fit.0812 <- mle2(log10(Abund) ~ dnorm(mean = c * (time / a)^(b-1) * exp(-1*(time/a)^b), sd = z), 
+            start = list(a = A, b = B, c = C, z = Z), data = KBS0812) 
+
+```
+
+## 6) FOUR-PANEL PLOT WITHOUT FUNCTIONS
+```{r}
+png(filename="~/GitHub/Dimensions/Aim1/output/death.weibull.fitting.png",
+    width = 2400, height = 2400, res = 96*2)
+
+par(mfrow = c(2,2),
+          oma = c(5,4,0,0) + 0.5,
+          mar = c(0,3,3,1) + 0.5)
+
+# KBS0701
+plot(KBS0701$time, log10(KBS0701$Abund), pch = 22, 
+          bg = "white", col = "black", lwd = 6, cex = 6, xlab = NA, ylab = NA,
+          xlim = c(-100, 1050), ylim = c(0, 8.5), yaxt = "n", xaxt = "n")
+box(lwd = 6)
+
+axis(side = 2, lwd.ticks = 6, cex.axis = 3, las = 1,
+     labels = expression(10^0, 10^2, 10^4, 10^6, 10^8),
+     at = c(0, 2, 4, 6, 8))
+ 
+axis(side = 4, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at=c(0, 2, 4, 6, 8), labels = F)
+ 
+axis(side = 1, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+axis(side = 3, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+curve(coef(fit.0701)[[3]] * (x / coef(fit.0701)[[1]])^(coef(fit.0701)[[2]]-1) * exp(-1*(x/coef(fit.0701)[[1]])^coef(fit.0701)[[2]]), 
+      from = 1, to = 1000, add = TRUE, lwd = 10, lty = 1, col = "red") 
+
+# KBS0714
+plot(KBS0714$time, log10(KBS0714$Abund), pch = 22, 
+          bg = "white", col = "black", lwd = 6, cex = 6, xlab = NA, ylab = NA,
+          xlim = c(-100, 1050), ylim = c(0, 8.5), yaxt = "n", xaxt = "n")
+box(lwd = 6)
+
+axis(side = 2, lwd.ticks = 6, cex.axis = 3, las = 1,
+     at = c(0, 2, 4, 6, 8), labels = F)
+ 
+axis(side = 4, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at=c(0, 2, 4, 6, 8), labels = F)
+ 
+axis(side = 1, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+axis(side = 3, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+curve(coef(fit.0714)[[3]] * (x / coef(fit.0714)[[1]])^(coef(fit.0714)[[2]]-1) * exp(-1*(x/coef(fit.0714)[[1]])^coef(fit.0714)[[2]]), 
+      from = 10, to = 275, add = TRUE, lwd = 10, lty = 1, col = "red") 
+
+# KBS0802
+plot(KBS0802$time, log10(KBS0802$Abund), pch = 22, 
+          bg = "white", col = "black", lwd = 6, cex = 6, xlab = NA, ylab = NA,
+          xlim = c(-100, 1050), ylim = c(0, 8.5), yaxt = "n", xaxt = "n")
+box(lwd = 6)
+
+axis(side = 2, lwd.ticks = 6, cex.axis = 3, las = 1,
+     labels = expression(10^0, 10^2, 10^4, 10^6, 10^8),
+     at = c(0, 2, 4, 6, 8))
+ 
+axis(side = 4, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at=c(0, 2, 4, 6, 8), labels = F)
+ 
+axis(side = 1, lwd.ticks = 6, cex.axis = 3, las = 1, mgp = c(3, 3, 0),
+    labels = c(0, 500, 1000), at = c(0, 500, 1000))
+
+axis(side = 3, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+curve(coef(fit.0802)[[3]] * (x / coef(fit.0802)[[1]])^(coef(fit.0802)[[2]]-1) * exp(-1*(x/coef(fit.0802)[[1]])^coef(fit.0802)[[2]]), 
+      from = 1, to = 1000, add = TRUE, lwd = 10, lty = 1, col = "red") 
+
+# KBS0812
+plot(KBS0812$time, log10(KBS0812$Abund), pch = 22, 
+          bg = "white", col = "black", lwd = 6, cex = 6, xlab = NA, ylab = NA,
+          xlim = c(-100, 1050), ylim = c(0, 8.5), yaxt = "n", xaxt = "n")
+box(lwd = 6)
+
+axis(side = 2, lwd.ticks = 6, cex.axis = 3, las = 1,
+     at = c(0, 2, 4, 6, 8), labels = F)
+ 
+axis(side = 4, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at=c(0, 2, 4, 6, 8), labels = F)
+ 
+axis(side = 1, lwd.ticks = 6, cex.axis = 3, las = 1, mgp = c(3, 2, 0),
+    labels = c(0, 500, 1000), at = c(0, 500, 1000))
+
+axis(side = 3, lwd.ticks = 6, cex.axis = 3, las = 1,
+    at = c(0, 500, 1000), labels = F)
+
+curve(coef(fit.0812)[[3]] * (x / coef(fit.0812)[[1]])^(coef(fit.0812)[[2]]-1) * exp(-1*(x/coef(fit.0812)[[1]])^coef(fit.0812)[[2]]), 
+      from = 1, to = 1000, add = TRUE, lwd = 10, lty = 1, col = "red") 
+
+dev.off()
+graphics.off()
+```

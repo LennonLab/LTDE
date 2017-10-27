@@ -1,0 +1,44 @@
+
+
+WARNING: RAxML is not checking sequences for duplicate seqs and sites with missing data!
+
+
+
+This is RAxML version 8.1.20 released by Alexandros Stamatakis on April 18 2015.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+
+RAxML Bipartition Computation: Drawing support values from trees in file RAxML_bootstrap.persisetence.good.filter.silva.raxmlBS onto tree in file RAxML_bestTree.persistence.good.filter.silva.raxml.tre
+
+
+RAxML was called as follows:
+
+raxmlHPC-AVX -m GTRCAT -p 12345 -f b -t RAxML_bestTree.persistence.good.filter.silva.raxml.tre -z RAxML_bootstrap.persisetence.good.filter.silva.raxmlBS -n persistence.good.filter.silva.SupportValued 
+
+
+
+
+Found 1 tree in File RAxML_bestTree.persistence.good.filter.silva.raxml.tre
+
+
+
+Found 100 trees in File RAxML_bootstrap.persisetence.good.filter.silva.raxmlBS
+
+
+
+Found 1 tree in File RAxML_bestTree.persistence.good.filter.silva.raxml.tre
+
+
+
+Time for Computation of Bipartitions 0.017177
+Tree with bipartitions written to file:  /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/silva_RAxML/RAxML_bipartitions.persistence.good.filter.silva.SupportValued
+Tree with bipartitions as branch labels written to file:  /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/silva_RAxML/RAxML_bipartitionsBranchLabels.persistence.good.filter.silva.SupportValued
+Execution information file written to :  /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/silva_RAxML/RAxML_info.persistence.good.filter.silva.SupportValued

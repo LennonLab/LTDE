@@ -1,0 +1,411 @@
+---
+title: "Long-term dormancy: bet-hedging"
+author: "Stuart E. Jones and Jay T. Lennon"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+geometry: margin = 2.54cm
+---
+
+## Overview
+We measured the single cell activity on cells from different populations under conditions with freshly supplied media after 1 vs. 1000 days. 
+Single cell staining classified cells as either active (+ CTC), dead (+ SYTOX Green), or dormant (- CTC and - SYTOX Green).
+
+## 1) SETUP
+
+### A. Retrieve and Set Working Directory
+
+```{r, results = 'hide'}
+rm(list = ls())
+getwd()
+setwd("~/GitHub/Dimensions/Aim1/")
+require(ks)
+```
+
+## 2) LOAD AND WRANLE DATA
+
+```{r, results = 'hide'}
+all <- read.table("data/staining.all.txt", header = TRUE, sep = "\t", 
+    stringsAsFactors = FALSE)
+
+# Parse ancestral and derived measures
+anc <- all[all$hist == "anc",]
+der <- all[all$hist == "der",]
+```
+
+Create new traits based on single-cell metabolic counts at the two time points
+```{r}
+# Create dataframe to hold new traits
+newTraits = der
+
+# Percent of non-CTC stained cells at day 1
+newTraits$betHedge = NA
+
+# Difference in CTC cells between day 1 and 1000
+newTraits$deltaActive = NA
+
+# Difference in Sytox Green cells between day 1 and 1000
+newTraits$deltaDead = NA
+
+# Difference in Sytox Green cells between day 1 and 1000
+newTraits$deltaDormant = NA
+
+newTraits = newTraits[,-(3:6)]
+
+# Calculate traits --> NOTE: no ancestral measures for KBS0727
+
+for(i in 1:nrow(der)){
+	acur = anc[anc$strain == der$strain[i],]
+	newTraits[i,3] = acur[1,6]
+	newTraits[i,4:6] = der[i,4:6] - acur[1,4:6]
+}
+
+newTraits <- na.omit(newTraits)
+```
+
+## 3) STATISTICS
+
+```{r}
+# Are delta activities different from zero?
+t.test.bet <- t.test(newTraits$betHedge, mu=0)
+t.test.act <- t.test (newTraits$deltaActive, mu=0)
+t.test.dead <- t.test (newTraits$deltaDead, mu=0)
+t.test.dorm <- t.test (newTraits$deltaDormant, mu=0)
+```
+
+## 4) PLOT KERNEL DENSTIES
+
+```{r, results = 'hide'}
+# Proportion of dormant cells at time zero
+h_hedge <- hns(newTraits$betHedge,deriv.order=1)
+bet.hedge.kern <- density(newTraits$betHedge, h_hedge)
+mean(newTraits$betHedge)
+
+h_act <- hns(newTraits$deltaActive,deriv.order=1)
+delta.act.kern <- density(newTraits$deltaActive, bw = h_act)
+
+h_dead <- hns(newTraits$deltaDead,deriv.order=1)
+delta.dead.kern <- density(newTraits$deltaDead, bw = h_dead)
+
+h_dorm <- hns(newTraits$deltaActive,deriv.order=1)
+delta.dorm.kern <- density(newTraits$deltaDormant, bw = h_dorm)
+
+# https://stats.stackexchange.com/questions/33918/is-there-an-optimal-bandwidth-for-a-kernel-density-estimator-of-derivatives
+
+# Used site above to estimate h, which was used as bandwidth for kernels
+
+png(filename="~/GitHub/Dimensions/Aim1/output/KernelShift.png",
+    width = 600, height = 1200, res = 96*2)
+
+layout <- layout(rbind(1, 2, 3)) 
+
+# par(mai = c(0.5, 1.0, 0.5, 1.0))
+
+# Plotting Delta Active
+par(mar = c(2,7,4,4))
+plot(delta.act.kern, xaxt = "n", yaxt = "n", main = NA, cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 1.5), type = "l", 
+     lty = 1, lwd = 3, col = "black")
+
+     axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+        labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 1.5, las = 1,
+          labels = c("0", "0.5", "1.0", "1.5"), at = c(0, 0.5, 1.0, 1.5))
+
+     axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0, 1.5), labels = F)
+
+box(lwd = 2.25)
+
+mtext("Density", side = 2, line = 4, cex = 1.5)
+mtext("Active", side = 3, line = 1, cex = 1.25, col = "black")
+abline(v = 0, lty = 2, lwd = 2)
+
+# Plotting Delta Dead
+par(mar = c(2,7,4,4))
+plot(delta.dead.kern, main = NA, xaxt = "n", yaxt = "n", cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 1.5), type = "l", 
+     lty = 1, lwd = 3, col = "black")
+
+     axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+        labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 1.5, las = 1,
+          labels = c("0", "0.5", "1.0", "1.5"), at = c(0, 0.5, 1.0, 1.5))
+
+     axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0, 1.5), labels = F)
+
+box(lwd = 2.25)
+
+mtext("Density", side = 2, line = 4, cex = 1.5)
+mtext("Dead", side = 3, line = 1, cex = 1.25, col = "black")
+abline(v = 0, lty = 2, lwd = 2)
+
+# Plotting Delta Dormant
+par(mar = c(2,7,4,4))
+plot(delta.dorm.kern, main = NA, xaxt = "n", yaxt = "n", cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 1.5), type = "l", 
+     lty = 1, lwd = 3, col = "black")
+
+     axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+        labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 1.5, las = 1,
+          labels = c("0", "0.5", "1.0", "1.5"), at = c(0, 0.5, 1.0, 1.5))
+
+     axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0, 1.5), labels = F)
+
+box(lwd = 2.25)
+
+mtext("Density", side = 2, line = 4, cex = 1.5)
+mtext("Dormant", side = 3, line = 1, cex = 1.25, col = "black")
+abline(v = 0, lty = 2, lwd = 2)
+
+dev.off() # this writes plot to folder
+graphics.off() # shuts down open devices
+```
+
+## 5) CALCULATE STRAIN MEANS
+```{r, results = 'hide'}
+#
+meanTraits <- newTraits[1:length(unique(der$strain)),]
+meanTraits <- meanTraits[,-2]
+meanTraits$strain = sort(unique(der$strain))
+meanTraits <- meanTraits[which(meanTraits$strain !="KBS0727" & meanTraits$strain !="KBS0725"),]
+
+for(i in 2:5){
+	curMeans <- tapply(newTraits[,(i+1)], newTraits$strain, FUN = mean)
+	meanTraits[,i] = curMeans[order(names(curMeans))]
+}
+write.table(meanTraits, "~/GitHub/Dimensions/Aim1/data/bet.hedge.table.txt", 
+            sep = "\t") 
+```
+
+
+## 6) PLOT KERNEL DENSTIES (INCLUDING BET-HEDGING) FOR TALKS
+
+```{r, results = 'hide'}
+
+png(filename="~/GitHub/Dimensions/Aim1/output/KernelShift-4.png",
+    width = 900, height = 900, res = 96*2)
+
+# Plotting Delta Active
+
+par(mfrow = c(2,2),
+          oma = c(5,4,0,0) + 0.5,
+          mar = c(0,0,3,1) + 0.5)
+
+plot(delta.act.kern, xaxt = "n", yaxt = "n", main = NA, cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 2.0), type = "l", 
+     lty = 1, lwd = 3, col = "black")
+
+     # axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+     #    labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 1, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 1.5, las = 1,
+          labels = c("0", "1", "2"), at = c(0, 1.0, 2.0))
+
+     axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 1.0, 2.0), labels = F)
+
+box(lwd = 2.25)
+
+#mtext("Density", side = 2, line = 4, cex = 1.5, adj = 0.5)
+mtext("Active", side = 3, line = 1, cex = 1.25, col = "black")
+abline(v = 0, lty = 2, lwd = 2)
+mtext("Density", side = 2, cex = 2, line = 3, at = -0.5)
+
+# Plotting Delta Dead
+
+plot(delta.dead.kern, main = NA, xaxt = "n", yaxt = "n", cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 2), type = "l", 
+     lty = 1, lwd = 3, col = "black")
+
+     # axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+     #    labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 1, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     # axis(side = 2, lwd.ticks = 2.25, cex.axis = 1.5, las = 1,
+     #      labels = c("0", "1", "2"), at = c(0, 1.0, 2.0))
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 1.0, 2.0), labels = F)
+     
+     axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 1.0, 2.0), labels = F)
+
+box(lwd = 2.25)
+
+#mtext("Density", side = 2, line = 4, cex = 1.5)
+mtext("Dead", side = 3, line = 1, cex = 1.25, col = "black")
+abline(v = 0, lty = 2, lwd = 2)
+
+# Plotting Delta Dormant
+
+plot(delta.dorm.kern, main = NA, xaxt = "n", yaxt = "n", cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 2), type = "l", 
+     lty = 1, lwd = 3, col = "black")
+
+     axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+        labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 1.5, las = 1,
+          labels = c("0","1", "2"), at = c(0, 1.0, 2.0))
+
+     axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 1.0, 2.0), labels = F)
+
+box(lwd = 2.25)
+
+#mtext("Density", side = 2, line = 4, cex = 1.5)
+mtext("Dormant", side = 3, line = 1, cex = 1.25, col = "black")
+abline(v = 0, lty = 2, lwd = 2)
+
+# Plotting Bet-Hedging
+
+plot(bet.hedge.kern, main = NA, xaxt = "n", yaxt = "n", cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 2.0), type = "l", 
+     lty = 1, lwd = 3, col = "black")
+
+     axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+        labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+     
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 1.5, las = 1,
+          at = c(0, 1.0, 2.0), labels = F)
+
+     # axis(side = 2, lwd.ticks = 2.25, cex.axis = 1.5, las = 1,
+     #      labels = c("0","1", "2"), at = c(0, 1.0, 2.0))
+
+     axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 1.0, 2.0), labels = F)
+
+box(lwd = 2.25)
+
+# mtext("Density", side = 2, line = 4, cex = 1.5)
+mtext("Bet-hedging", side = 3, line = 1, cex = 1.25, col = "black")
+abline(v = 0, lty = 2, lwd = 2)
+
+
+
+dev.off() # this writes plot to folder
+graphics.off() # shuts down open devices
+```
+
+## 7) PLOT ROW-WISE
+```{r}
+
+png(filename="~/GitHub/Dimensions/Aim1/output/KernelShift.row.png",
+    width = 1200, height = 600, res = 96*2)
+plot.new()
+layout <- layout(cbind(1, 2, 3), height = c(1, 1, 1)) 
+par(mar = c(6, 0.5, 5, 0.5) + 0.5)
+par(oma = c(1, 5, 1, 2) + 0.5)
+
+# par(mfrow = c(2,2),
+#           oma = c(5,4,0,0) + 0.5,
+#           mar = c(0,0,3,1) + 0.5)
+
+# ACTIVE
+plot(delta.act.kern, xaxt = "n", yaxt = "n", main = NA, cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 1.5), type = "l", 
+     lty = 1, lwd = 3.5, col = "red")
+
+     axis(side = 1, lwd.ticks = 3.5, cex.axis = 1.5, las = 1,
+        labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 3, lwd.ticks = 3.5, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 2, lwd.ticks = 3.5, cex.axis = 1.5, las = 1,
+          labels = c("0.0", "0.5", "1.0", "1.5"), at = c(0, 0.5, 1.0, 1.5))
+
+     axis(side = 4, lwd.ticks = 3.5, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0, 1.5), labels = F)
+
+mtext("Active", side = 3, line = 1, cex = 1.75, col = "black")
+abline(v = 0, lty = 2, lwd = 3.5)
+mtext("Density", side = 2, cex = 2, line = 4, at = 0.75)
+     
+box(lwd = 3.5)
+
+
+# DEAD 
+plot(delta.dead.kern, xaxt = "n", yaxt = "n", main = NA, cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 1.5), type = "l", 
+     lty = 1, lwd = 3.5, col = "chartreuse3")
+
+     axis(side = 1, lwd.ticks = 3.5, cex.axis = 1.5, las = 1,
+        labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 3, lwd.ticks = 3.5, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 2, lwd.ticks = 3.5, cex.axis = 1.5, las = 1,
+           at = c(0, 0.5, 1.0, 1.5), labels = F)
+
+     axis(side = 4, lwd.ticks = 3.5, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0, 1.5), labels = F)
+
+mtext("Dead", side = 3, line = 1, cex = 1.75, col = "black")
+abline(v = 0, lty = 2, lwd = 3.5)
+
+     
+box(lwd = 3.5)
+
+# DORMANT 
+plot(delta.dorm.kern, xaxt = "n", yaxt = "n", main = NA, cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-1.5, 1.5), ylim = c(0, 1.5), type = "l", 
+     lty = 1, lwd = 3.5, col = "blue")
+
+     axis(side = 1, lwd.ticks = 3.5, cex.axis = 1.5, las = 1,
+        labels = c("-1", "0", "1"), at = c(-1, 0, 1))
+
+     axis(side = 3, lwd.ticks = 3.5, cex.axis = 2, las = 1,
+        at = c(-1, 0, 1), labels = F)
+
+     axis(side = 2, lwd.ticks = 3.5, cex.axis = 1.5, las = 1,
+           at = c(0, 0.5, 1.0, 1.5), labels = F)
+
+     axis(side = 4, lwd.ticks = 3.5, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0, 1.5), labels = F)
+
+mtext("Dormant", side = 3, line = 1, cex = 1.75, col = "black")
+abline(v = 0, lty = 2, lwd = 3.5)
+
+     
+box(lwd = 3.5)
+
+dev.off() # this writes plot to folder
+graphics.off() # shuts down open devices
+
+```

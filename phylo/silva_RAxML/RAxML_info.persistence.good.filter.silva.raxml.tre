@@ -1,0 +1,139 @@
+
+
+IMPORTANT WARNING: Sequences KBS0702 and KBS0703 are exactly identical
+
+
+IMPORTANT WARNING: Sequences KBS0725B and KBS0727B are exactly identical
+
+IMPORTANT WARNING
+Found 2 sequences that are exactly identical to other sequences in the alignment.
+Normally they should be excluded from the analysis.
+
+Just in case you might need it, an alignment file with 
+sequence duplicates removed is printed to file persistence.good.filter.silva.afa.reduced
+
+
+Using BFGS method to optimize GTR rate parameters, to disable this specify "--no-bfgs" 
+
+
+
+This is RAxML version 8.1.20 released by Alexandros Stamatakis on April 18 2015.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+
+Alignment has 163 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 1.82%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 20 inferences on the original alignment using 20 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 163
+Name: No Name Provided
+DataType: DNA
+Substitution Matrix: GTR
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC-AVX -m GTRGAMMA -p 12345 -# 20 -s persistence.good.filter.silva.afa -n persistence.good.filter.silva.raxml.tre 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.254 0.208 0.337 0.201 
+
+Inference[0]: Time 1.600677 GAMMA-based likelihood -2731.857720, best rearrangement setting 5
+alpha[0]: 0.336208 rates[0] ac ag at cg ct gt: 0.440517 1.300510 0.916323 0.285140 2.621778 1.000000 
+Inference[1]: Time 1.649196 GAMMA-based likelihood -2731.849940, best rearrangement setting 5
+alpha[0]: 0.336138 rates[0] ac ag at cg ct gt: 0.440971 1.301971 0.917468 0.285442 2.624285 1.000000 
+Inference[2]: Time 1.427005 GAMMA-based likelihood -2731.569334, best rearrangement setting 5
+alpha[0]: 0.314679 rates[0] ac ag at cg ct gt: 0.446519 1.406170 0.976567 0.325780 2.746497 1.000000 
+Inference[3]: Time 1.408888 GAMMA-based likelihood -2731.593789, best rearrangement setting 5
+alpha[0]: 0.314713 rates[0] ac ag at cg ct gt: 0.444928 1.401010 0.972084 0.324091 2.737679 1.000000 
+Inference[4]: Time 1.400648 GAMMA-based likelihood -2731.594720, best rearrangement setting 5
+alpha[0]: 0.314734 rates[0] ac ag at cg ct gt: 0.444787 1.400786 0.972098 0.324015 2.737204 1.000000 
+Inference[5]: Time 1.607482 GAMMA-based likelihood -2731.782941, best rearrangement setting 5
+alpha[0]: 0.336827 rates[0] ac ag at cg ct gt: 0.446273 1.312438 0.922687 0.290927 2.645228 1.000000 
+Inference[6]: Time 1.608998 GAMMA-based likelihood -2731.781861, best rearrangement setting 5
+alpha[0]: 0.336829 rates[0] ac ag at cg ct gt: 0.446343 1.312649 0.922823 0.290985 2.645585 1.000000 
+Inference[7]: Time 1.310009 GAMMA-based likelihood -2731.832588, best rearrangement setting 5
+alpha[0]: 0.336852 rates[0] ac ag at cg ct gt: 0.441919 1.303713 0.918284 0.287793 2.628064 1.000000 
+Inference[8]: Time 1.400649 GAMMA-based likelihood -2731.632100, best rearrangement setting 5
+alpha[0]: 0.313924 rates[0] ac ag at cg ct gt: 0.440568 1.397656 0.965525 0.320435 2.721722 1.000000 
+Inference[9]: Time 1.413005 GAMMA-based likelihood -2731.577767, best rearrangement setting 5
+alpha[0]: 0.314686 rates[0] ac ag at cg ct gt: 0.446013 1.404366 0.974977 0.325193 2.743395 1.000000 
+Inference[10]: Time 1.691202 GAMMA-based likelihood -2731.588193, best rearrangement setting 5
+alpha[0]: 0.314664 rates[0] ac ag at cg ct gt: 0.445348 1.402237 0.973088 0.324447 2.739844 1.000000 
+Inference[11]: Time 1.386158 GAMMA-based likelihood -2731.587219, best rearrangement setting 5
+alpha[0]: 0.314677 rates[0] ac ag at cg ct gt: 0.445406 1.402398 0.973224 0.324505 2.740096 1.000000 
+Inference[12]: Time 1.611651 GAMMA-based likelihood -2731.784290, best rearrangement setting 5
+alpha[0]: 0.336747 rates[0] ac ag at cg ct gt: 0.446290 1.312518 0.921974 0.290737 2.645995 1.000000 
+Inference[13]: Time 1.327298 GAMMA-based likelihood -2731.825983, best rearrangement setting 5
+alpha[0]: 0.336696 rates[0] ac ag at cg ct gt: 0.442223 1.304980 0.919283 0.288042 2.630668 1.000000 
+Inference[14]: Time 1.403090 GAMMA-based likelihood -2731.584711, best rearrangement setting 5
+alpha[0]: 0.314713 rates[0] ac ag at cg ct gt: 0.445491 1.402894 0.973764 0.324730 2.740870 1.000000 
+Inference[15]: Time 1.314160 GAMMA-based likelihood -2731.821185, best rearrangement setting 5
+alpha[0]: 0.336802 rates[0] ac ag at cg ct gt: 0.442628 1.305733 0.919815 0.288398 2.631682 1.000000 
+Inference[16]: Time 1.404349 GAMMA-based likelihood -2731.591359, best rearrangement setting 5
+alpha[0]: 0.314665 rates[0] ac ag at cg ct gt: 0.445021 1.401501 0.972661 0.324217 2.738497 1.000000 
+Inference[17]: Time 1.610221 GAMMA-based likelihood -2731.785615, best rearrangement setting 5
+alpha[0]: 0.336764 rates[0] ac ag at cg ct gt: 0.446221 1.312237 0.921790 0.290684 2.645462 1.000000 
+Inference[18]: Time 1.406844 GAMMA-based likelihood -2731.574385, best rearrangement setting 5
+alpha[0]: 0.314675 rates[0] ac ag at cg ct gt: 0.446125 1.405077 0.975748 0.325408 2.744603 1.000000 
+Inference[19]: Time 1.394711 GAMMA-based likelihood -2731.577484, best rearrangement setting 5
+alpha[0]: 0.314688 rates[0] ac ag at cg ct gt: 0.445079 1.411528 0.972592 0.325561 2.734605 1.000000 
+
+
+Conducting final model optimizations on all 20 trees under GAMMA-based models ....
+
+Inference[0] final GAMMA-based Likelihood: -2731.429364 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.0
+Inference[1] final GAMMA-based Likelihood: -2731.429364 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.1
+Inference[2] final GAMMA-based Likelihood: -2731.138181 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.2
+Inference[3] final GAMMA-based Likelihood: -2731.138180 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.3
+Inference[4] final GAMMA-based Likelihood: -2731.138180 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.4
+Inference[5] final GAMMA-based Likelihood: -2731.429364 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.5
+Inference[6] final GAMMA-based Likelihood: -2731.429364 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.6
+Inference[7] final GAMMA-based Likelihood: -2731.429364 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.7
+Inference[8] final GAMMA-based Likelihood: -2731.138180 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.8
+Inference[9] final GAMMA-based Likelihood: -2731.138180 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.9
+Inference[10] final GAMMA-based Likelihood: -2731.138400 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.10
+Inference[11] final GAMMA-based Likelihood: -2731.138180 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.11
+Inference[12] final GAMMA-based Likelihood: -2731.429364 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.12
+Inference[13] final GAMMA-based Likelihood: -2731.429272 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.13
+Inference[14] final GAMMA-based Likelihood: -2731.138180 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.14
+Inference[15] final GAMMA-based Likelihood: -2731.429364 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.15
+Inference[16] final GAMMA-based Likelihood: -2731.138180 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.16
+Inference[17] final GAMMA-based Likelihood: -2731.429363 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.17
+Inference[18] final GAMMA-based Likelihood: -2731.138180 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.18
+Inference[19] final GAMMA-based Likelihood: -2731.138400 tree written to file /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_result.persistence.good.filter.silva.raxml.tre.RUN.19
+
+
+Starting final GAMMA-based thorough Optimization on tree 3 likelihood -2731.138180 .... 
+
+Final GAMMA-based Score of best tree -2731.138180
+
+Program execution info written to /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_info.persistence.good.filter.silva.raxml.tre
+Best-scoring ML tree written to: /Users/stuartjones/Documents/Research/DimensionsBiodiversity/Dimensions/Aim1/DeathCurves/Phylo/RAxML_bestTree.persistence.good.filter.silva.raxml.tre
+
+Overall execution time: 30.249575 secs or 0.008403 hours or 0.000350 days
+

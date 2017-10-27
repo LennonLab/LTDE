@@ -1,0 +1,163 @@
+---
+title: "Long-Term Dormancy"
+author: "Stuart E. Jones and Jay T. Lennon"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+## OVERVIEW
+In January 2013, we started an experiment using ~24 strains of bacteria -- some "lab" strains others enviornmental strains -- to estimate survivorship during long-term starvation. Each strain was grown un into logarithmic phase and harvested. The cells were pelleted and washed 5x before being put in replicate 50 mL Falcon tubes. Subsamples were taken on overtime and plated onto R2A plates for enumeration as CFUs. After looking at plots of the data, in became apparent that CFUs were declining at a non-constant rate on semi-log plots. Here, we test whether or not the Weibull function can help explain variation in death curves.  
+
+## 1) SET WORKING DIRECTORY, LOAD DATA, LOAD PACKAGE
+```{r}
+## Retrieve and Set Your Working Directory
+rm(list = ls())
+getwd()
+setwd("~/GitHub/Dimensions/Aim1/")
+require("bbmle")
+require("survival")
+```
+
+##2) LOAD DATA
+Using KBS0703 as a test. 
+Ran into problems where following error was generated:
+"initial value in 'vmmin' is not finite"
+I think this was due to having time points where time = 0
+
+```{r, results='hide', warning=FALSE, message=FALSE}
+KBS0703 <- read.table("data/KBS0703.txt", header = TRUE)
+#KBS0703 <- data.frame(KBS0703[,4],KBS0703[,9:10])
+KBS0703.1 <- KBS0703[KBS0703$Rep==3,]
+KBS0703.1$time[KBS0703.1$time == 0] <- 1 # replace time 0 with time 0.1
+KBS0703.1$logabund <- log10(KBS0703.1$Abund)
+KBS0703.1$prop <- KBS0703.1$logabund/KBS0703.1$logabund[1]
+#KBS0703 <- data.frame(KBS0703, logabund, prop)
+#colnames(KBS0703) <-c("rep","abund","time", "logabund", "prop")
+```
+
+
+## 3) WEIBULL FUNCTION
+
+To quantify how the death rate changes over time we'll be using the Weibull function. To apply the Weibull function to the data we'll be borrowing statistical techniques used in survival analysis. In survival analysis you examine how the proportion of surviving indviduals declines over time. To quantify this relationship you use what's called the *survival function* ($S(t)$). The survival function is defined as one minus the *cumulative distribution function* ($F(t)$), so:
+
+
+$S(t) = 1 - F(t)$
+
+and $F(t)$ for the Weibull distribution is:
+
+$1 - e^{-(t / \lambda)^{k}}$
+
+meaning that $S(t)$ is: 
+
+$- e^{-(t / \lambda)^{k}}$
+
+which is the function we'll fit to the data.
+
+
+```{r, results='hide', warning=FALSE, message=FALSE}
+
+# Initial parameters
+A = 500 # Initial death (larger = slower) 500
+B = 1 # Bend (upper = 1 = first-order decay)
+C = 1 # intercept
+Z = 10 # Error
+
+# Abundance function
+fit <- mle2(logabund ~ dnorm(mean = c * (time / a)^(b-1) * exp(-1*(time/a)^b), sd = z), 
+            start = list(a = A, b = B, c = C, z = Z), data = KBS0703) 
+
+# Proportion function # A = 100, B = 0
+#fit.cdf <- mle2(KBS0703$prop ~ dnorm(mean = exp( (-KBS0703$time*a)^b), 
+#            sd = z), start = list(a = A, b = B, z = Z), data = KBS0703)                  
+fit.cdf <- mle2(prop ~ dnorm(mean = exp( -1 * ((time / a)^ b)),  
+            sd = z), start = list(a = A, b = B, z = Z), data = KBS0703.1)   
+```
+
+## 4) PLOT CDF DATA AND FUNCTION
+
+```{r}
+par(mar = c(3, 3, 3, 3))
+plot(KBS0703.1$time, KBS0703.1$prop, pch = 22, 
+          bg = "white", col = "black", lwd = 2, cex.axis = 1.25, xlab = NA, ylab = NA,
+          xlim = c(-50, 1000), ylim = c(0, 1), yaxt = "n", xaxt = "n")
+box(lwd = 2)
+
+# Major Axes
+axis(side = 2, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    labels = c("0", "0.2", "0.4", "0.6", "0.8", "1.0"), at = c(0, 0.2, 0.4, 0.6, 0.8, 1.0))
+ 
+axis(side = 4, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    at=c(0, 0.2, 0.4, 0.6, 0.8, 1.0), labels = F)
+ 
+axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    labels = c(0, 250, 500, 750, 1000), at = c(0, 250, 500, 750, 1000))
+
+axis(side = 3, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    at = c(0, 250, 500, 750, 1000), labels = F)
+
+# Plot function
+#curve(coef(fit)[[3]] * (x / coef(fit)[[1]])^(coef(fit)[[2]]-1) * exp(-1*(x/coef(fit)[[1]])^coef(fit)[[2]]), 
+#      from = 0.1, to = 1000, add = TRUE, lty = 2, lwd = 4, col = "red")
+#coef(fit.cdf)[['a']]
+curve( exp( -1 * ((x / coef(fit.cdf)[['a']] ) ^ coef(fit.cdf)[['b']])), 
+      from = 0.1, to = 1000, add = TRUE, lty = 2, lwd = 4, col = "red") 
+
+```
+
+
+## 4)  PLOT LOGABUND DATA AND FUNCTION
+```{r}
+par(mar = c(5, 7, 5, 7))
+
+plot(KBS0703$time, KBS0703$logabund, pch = 22, 
+          bg = "white", col = "black", lwd = 2, cex.axis = 1.25, xlab = NA, ylab = NA,
+          xlim = c(-50, 1000), ylim = c(3, 9), yaxt = "n", xaxt = "n")
+box(lwd = 2)
+
+# Major Axes
+axis(side = 2, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    labels = c("10^3", "10^4", "10^5", "10^6", "10^7", "10^8", "10^9"), at = c(3, 4, 5, 6, 7, 8, 9))
+ 
+axis(side = 4, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    at=c(3, 4, 5, 6, 7, 8, 9), labels = F)
+ 
+axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    labels = c(0, 250, 500, 750, 1000), at = c(0, 250, 500, 750, 1000))
+
+axis(side = 3, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    at = c(0, 250, 500, 750, 1000), labels = F)
+
+# Plot function
+curve(coef(fit)[[3]] * (x / coef(fit)[[1]])^(coef(fit)[[2]]-1) * exp(-1*(x/coef(fit)[[1]])^coef(fit)[[2]]), 
+      from = 0.1, to = 1000, add = TRUE, lty = 2, lwd = 4, col = "red") 
+```
+
+## 4)  PLOT PROPORTION AND FUNCTION
+```{r}
+par(mar = c(5, 7, 5, 7))
+
+plot(KBS0703$time, KBS0703$prop, pch = 22, 
+          bg = "white", col = "black", lwd = 2, cex.axis = 1.25, xlab = NA, ylab = NA,
+          xlim = c(-50, 1000), ylim = c(-0.2, 1.7), yaxt = "n", xaxt = "n")
+box(lwd = 2)
+
+# Major Axes
+axis(side = 2, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    labels = c("0.0", "0.5", "1.0"), at = c(0, 0.5, 1))
+ 
+axis(side = 4, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    at=c(0, 0.5, 1), labels = F)
+ 
+axis(side = 1, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    labels = c(0, 250, 500, 750, 1000), at = c(0, 250, 500, 750, 1000))
+
+axis(side = 3, lwd.ticks = 2, cex.axis = 1.5, las = 1,
+    at = c(0, 250, 500, 750, 1000), labels = F)
+
+# cdf function
+curve(1 -exp(-1*(x/coef(fit.cdf)[[1]])^coef(fit.cdf)[[2]]),from = 0.1, to = 900, 
+      add = TRUE, lty = 2, lwd = 4, col = "red") 
+```
