@@ -1,0 +1,121 @@
+---
+title: "Comparative Longevity"
+author: "Jay T. Lennon"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+## 1) SETUP
+
+### A. Retrieve and Set Your Working Directory
+
+```{r, results = 'hide'}
+rm(list = ls())
+getwd()
+setwd("~/GitHub/Dimensions/Aim1/data")
+```
+
+
+## 2) LOAD DATA
+
+```{r}
+# http://genomics.senescence.info/download.html#anage
+data <- read.table("long.scale.txt", sep="\t", header=TRUE)
+log.mass <- log10(data$weight.g)
+log.long <- log10(data$max.long.yr)
+```
+
+## 3) PLOT NON-MICROBIAL DATA
+```{r}
+png(filename="~/GitHub/Dimensions/Aim1/output/comparative.long.png",
+     width = 1200, height = 900, res = 96*2)
+
+par(mar = c(5, 7, 5, 7))
+
+plot(log.mass,log.long,
+     xlim = c(-1.5, 9.5), ylim = c(-0.2, 3),
+     pch = 22, bg = "white", lwd = 2, bty = "n",
+     cex = 2.5, yaxt = "n", xaxt = "n", cex.lab = 1, cex.axis = 1.5,
+     las = 1, ylab = "", xlab = "")
+box(lwd = 3)
+
+mtext(side = 1, 'Body mass (g)', line = 3.5, cex = 2)
+mtext(side = 2, 'Max lifespan (yr)',outer = TRUE, cex = 2, 
+      line = -2.5, adj = 0.5)
+
+# Major Axes
+axis(side = 1, lwd.ticks = 3, cex.axis = 1.5, las = 1,
+     labels = expression(10^0, 10^2, 10^4, 10^6, 10^8),
+     at = c(0, 2, 4, 6, 8))
+
+axis(side = 3, lwd.ticks = 3, cex.axis = 1.5, las = 1,
+   labels = F, at = c(0, 2, 4, 6, 8))
+
+axis(side = 2, lwd.ticks = 3, cex.axis = 1.5, las = 1,
+     labels = expression(10^0, 10^1, 10^2, 10^3),
+     at = c(0, 1, 2, 3))
+
+axis(side = 4, lwd.ticks = 3, cex.axis = 1.5, las = 1,
+    at = c(0, 1, 2, 3), labels = F)
+
+fit <- lm(log.long ~ log.mass)
+new.mass <- seq(-1, 9, 0.1)
+regline <- predict(fit, newdata = data.frame(log.mass = new.mass))
+lines(new.mass, regline, lwd = 4, lty = 1, col = "red")
+conf95 <- predict(fit, newdata = data.frame(log.mass = new.mass),
+                  interval = c("prediction"), level = 0.90, type = "response")
+matlines(new.mass, conf95[, c("lwr", "upr")], type="l", lty = 2, lwd = 4, col = "red")
+
+dev.off()
+graphics.off()
+```
+
+
+## 4) PLOT WITH MICROBIAL SCALE
+```{r}
+png(filename="~/GitHub/Dimensions/Aim1/output/comparative.long.microscale.png",
+     width = 1200, height = 900, res = 96*2)
+
+par(mar = c(5, 7, 5, 7))
+
+plot(log.mass,log.long,
+     xlim = c(-17, 11), ylim = c(-2, 6),
+     pch = 22, bg = "white", lwd = 2, bty = "n",
+     cex = 2.5, yaxt = "n", xaxt = "n", cex.lab = 1, cex.axis = 1.5,
+     las = 1, ylab = "", xlab = "")
+box(lwd = 3)
+
+mtext(side = 1, 'Body mass (g)', line = 3.5, cex = 2)
+mtext(side = 2, 'Max lifespan (yr)',outer = TRUE, cex = 2, 
+      line = -2.5, adj = 0.5)
+
+
+# Major Axes
+axis(side = 1, lwd.ticks = 3, cex.axis = 1.5, las = 1,
+     labels = expression(10^-15, 10^-10, 10^-5, 10^0, 10^5, 10^10),
+     at = c(-15, -10, -5, 0, 5, 10))
+
+axis(side = 3, lwd.ticks = 3, cex.axis = 1.5, las = 1,
+   labels = F, at = c(-15, -10, -5, 0, 5, 10))
+
+axis(side = 2, lwd.ticks = 3, cex.axis = 1.5, las = 1,
+     labels = expression(10^-2, 10^0, 10^2, 10^4,10^6),
+     at = c(-2, 0, 2, 4, 6))
+
+axis(side = 4, lwd.ticks = 3, cex.axis = 1.5, las = 1,
+    at = c(-2, -1, 0, 1, 2, 3, 4, 5, 6), labels = F)
+
+fit <- lm(log.long ~ log.mass)
+new.mass <- seq(-15, 8.5, 0.1)
+regline <- predict(fit, newdata = data.frame(log.mass = new.mass))
+lines(new.mass, regline, lwd = 4, lty = 1, col = "red")
+conf95 <- predict(fit, newdata = data.frame(log.mass = new.mass),
+                  interval = c("prediction"), level = 0.90, type = "response")
+matlines(new.mass, conf95[, c("lwr", "upr")], type="l", lty = 2, lwd = 4, col = "red")
+
+dev.off()
+graphics.off()
+```

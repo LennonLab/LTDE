@@ -1,0 +1,199 @@
+---
+title: "Long-term dormancy - proportion active"
+author: "Jay T. Lennon"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+Estimating distribution of activity among samples at end of experiment
+
+```{r}
+rm(list=ls())
+getwd()
+setwd("/Users/lennonj/GitHub/Dimensions/Aim1/DeathCurves")
+```
+
+```{r}
+require("png")
+```
+
+## Load Data
+
+```{r}
+stain.der <- read.table("data/staining.derived.txt", head = TRUE, sep = "\t")
+stain.anc <- read.table("data/staining.ancestor.txt", head = TRUE, sep = "\t")
+stain.all <- read.table("data/staining.all.txt", head = TRUE, sep = "\t")
+```
+
+## Take time differences
+```{r}
+
+strain.anc <- stain.all[which(stain.all$hist == "anc"), ]
+strain.der <- stain.all[which(stain.all$hist == "der"), ]
+
+try <- stain.all[which(stain.all$hist == "der" & stain.all$strain =="KBS0701"), 4] - stain.all[which(stain.all$hist == "anc" & stain.all$strain=="KBS0701"), 4]
+
+for (row in 1:nrow(df)) { 
+    df$newvar[row] <- testFunc(df$x[row], df$z[row]) 
+}
+
+
+try<- apply(stain.all[which(stain.all$hist == "der"), 4], 2, function (x) sum(x))
+
+
+
+rich.rep.ave <- ddply(stain.all, .(strain, treat, qPCR.match), 
+                      summarize, rich = mean(rich.mean))
+
+rich.rep.ave <- ddply(eDNA.div, .(strain), 
+                      summarize, diff = (rich.mean))
+
+stain.all$hist == anc - stain.all$     by strain
+## Make Kernels
+```{r}
+kern.der.act <- density(stain.der$Active, bw = 0.1) 
+kern.der.dead <- density(stain.der$Dead, bw = 0.1)
+kern.der.dorm <- density(stain.der$Dormant, bw = 0.1)
+kern.anc.act <- density(stain.anc$Active, bw = 0.1) 
+kern.anc.dead <- density(stain.anc$Dead, bw = 0.1) 
+kern.anc.dorm <- density(stain.anc$Dormant, bw = 0.1) 
+```
+
+## Make Figure for Derived Srtains
+```{r}
+# Set-up for printing 
+png(filename="/Users/lennonj/GitHub/Dimensions/Aim1/DeathCurves/figures/stain.derived.kernel.png",width = 1200, height = 900, res = 96*2)
+
+# Set plotting parameters
+plot.new()
+par(mar = c(7, 7, 5, 7))
+layout <- layout(cbind(1, 2, 3), height = c(2, 2, 2)) 
+plot(kern.der.act, main = NA, xaxt = "n", yaxt = "n", cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-0.1, 1.1), ylim = c(0, 4.5), type = "l", lwd = 3, col = "red")
+
+points(kern.der.dead, type = "l", lwd = 3, col = "darkgreen")
+points(kern.der.dorm, type = "l", lwd = 3, col = "blue")
+
+mtext('Density', side = 2, outer = TRUE, cex = 2.25, 
+      line = -3, adj = 0.55)
+
+mtext(expression('Metabolic Status (%)'), side = 1, outer = TRUE, 
+      cex = 2.25, line = -3, adj = 0.5)
+     
+    axis(side = 1, lwd.ticks = 2, cex.axis = 2, las = 1,
+        labels = c("0", "50", "100"), at = c(0, 0.5, 1.0))
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0), labels = F)
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 2, 4), labels = T)
+
+    axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 2, 4), labels = F)
+
+box(lwd = 2.25)
+
+dev.off() # this writes plot to folder
+graphics.off() # shuts down open devices
+```
+
+## Make 3-panel Figure for Ancestor vs. Derived Srtains
+```{r}
+# Set-up for printing 
+png(filename="/Users/lennonj/GitHub/Dimensions/Aim1/DeathCurves/figures/stain.ancestor.derived.kernel.png", width = 1200, height = 600, res = 96*2)
+
+layout <- layout(cbind(1, 2, 3), height = c(1, 1, 1)) 
+#layout.show(layout)
+
+# Plotting Active
+#par(mar = c(7, 4, 2, 0.5), oma = c(1,1,1,1))
+par(mar = c(6, 0.5, 5, 0.5))
+par(oma = c(1, 5, 1, 2))
+plot(kern.anc.act, xaxt = "n", yaxt = "n", main = NA, cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-0.1, 1.20), ylim = c(0, 4.5), type = "l", 
+     lty = 1, lwd = 3, col = "red")
+
+points(kern.der.act, type = "l", lty = 2, lwd = 3, col = "red")
+
+     axis(side = 1, lwd.ticks = 2, cex.axis = 2, las = 1,
+        labels = c("0", "50", "100"), at = c(0, 0.5, 1.0))
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0), labels = F)
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 2, 4), labels = F)
+
+    # axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+     #   at = c(0, 2, 4), labels = F)
+
+box(lwd = 2.25)
+
+mtext("Density", side = 2, line = 2, cex = 2)
+mtext("Active", side = 3, line = 1, cex = 1.25, col = "red")
+
+legend("topright", c("ancestor", "derived"), bty = "n", y.intersp = 1, lty = c(1,2), 
+       lwd = 2.5, seg.len = 2.75, col = "red", cex = 1)
+
+# Add Dead
+
+plot(kern.anc.dead, main = NA, xaxt = "n", yaxt = "n", cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-0.1, 1.20), ylim = c(0, 4.5), type = "l", 
+     lty = 1, lwd = 3, col = "darkgreen")
+
+points(kern.der.dead, type = "l", lty = 2, lwd = 3, col = "darkgreen")
+
+axis(side = 1, lwd.ticks = 2, cex.axis = 2, las = 1,
+        labels = c("0", "50", "100"), at = c(0, 0.5, 1.0))
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0), labels = F)
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 2, 4), labels = F)
+
+  #  axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+   #     at = c(0, 2, 4), labels = F)
+
+box(lwd = 2.25)
+
+mtext("Dead", side = 3, line = 1, cex = 1.25, col = "darkgreen")
+mtext("Individuals (%)", side = 1, line = 5, cex = 2)
+
+legend("topright", c("ancestor", "derived"), bty = "n", y.intersp = 1, lty = c(1,2), 
+       lwd = 2.5, seg.len = 2.5, col = "darkgreen", cex = 1)
+
+# Add Dormant
+
+plot(kern.anc.dorm, main = NA, xaxt = "n", yaxt = "n", cex.lab = 1.5, ylab = "",
+     xlab = "", xlim = c(-0.1, 1.20), ylim = c(0, 4.5), type = "l", 
+     lty = 1, lwd = 3, col = "blue")
+
+points(kern.der.dorm, type = "l", lty = 2, lwd = 3, col = "blue")
+
+axis(side = 1, lwd.ticks = 2, cex.axis = 2, las = 1,
+        labels = c("0", "50", "100"), at = c(0, 0.5, 1.0))
+
+     axis(side = 3, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 0.5, 1.0), labels = F)
+
+     axis(side = 2, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 2, 4), labels = F)
+
+    axis(side = 4, lwd.ticks = 2.25, cex.axis = 2, las = 1,
+        at = c(0, 2, 4), labels = F)
+
+box(lwd = 2.25)
+
+mtext("Dormant", side = 3, line = 1, cex = 1.25, col = "blue")
+
+legend("topright", c("ancestor", "derived"), bty = "n", y.intersp = 1, lty = c(1,2), 
+       lwd = 2.5, seg.len = 2.75, col = "blue", cex = 1)
+
+dev.off() # this writes plot to folder
+graphics.off() # shuts down open devices
+```

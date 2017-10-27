@@ -1,0 +1,144 @@
+---
+title: "Modeling death curves"
+author: "SE Jones, WR Shoemaker,  JT Lennon"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+  - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+  
+## 1) SET WORKING DIRECTORY, LOAD PACKAGES, LOAD DATA
+```{r}
+rm(list = ls())
+getwd()
+setwd("~/GitHub/Dimensions/Aim1/")
+library('bbmle')
+
+obs <- read.csv("data/longtermdormancy_20170620_nocomments.csv", 
+                header = TRUE, stringsAsFactors = FALSE)
+
+## Adding 1 to deal with log(0) observations
+obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
+strains <- sort(unique(obs$Strain))
+strains <- strains[table(obs$Strain)>10]
+obs <- obs[obs$Strain%in%strains,]
+
+# Create matrix to population with output
+summ <- matrix(NA,length(strains)*max(obs$Rep),12)
+```
+
+## 2) RUN WEIBULL MODEL
+```{r}
+pdf('output/decayFitsWeibull.pdf') # Uncomment to create pdf that will plot data and fits
+counter <- 1
+
+for(i in 1:length(strains)){
+  strainObs=obs[obs$Strain==strains[i],]
+  # pulling out strains one at a time
+  reps=unique(strainObs$Rep)
+  for(j in 1:length(reps)){
+    # pulling out reps for a strain one at a time
+    repObs=strainObs[strainObs$Rep==reps[j],]
+    # minimum of 10 data points
+    if(nrow(repObs)>10){
+      start=repObs[1,1]
+      time=(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
+              as.numeric(strptime(start,format="%d-%b-%y",tz="EST")))/(3600*24)
+  
+      repObs["time"] <- time + 1 #time on log scale; get rid of zeroes
+      repObs["logabund"] <- log10(repObs$Abund)
+      # if (repObs["logabund"][[1]][2] - repObs["logabund"][[1]][1] > 1){
+      #   repObs <- repObs[-c(1), ]
+      # }
+      # # above: maybe getting rid of this; time when we were thinking about obs t+1 >> t0 as problem
+      
+
+      # Initial parameters
+      #A = 200 # Initial death (larger = slower) 
+      #B = 1 # Bend (upper = 1 = first-order decay)
+      #C = round(max(repObs$logabund),1) # intercept
+      #Z = 6 # Error
+      # optimization follows:
+      grids<-list(a=c(1,10,50,100,200),b=c(0.1,0.5,1,1.1,1.5),z=c(0.1,1,10))
+      start<-list(a=NA,b=NA,c=round(max(repObs$logabund),1),z=NA)
+      #start<-list(a=NA, b=NA, z=NA)
+      grid.starts<-as.matrix(expand.grid(grids))
+      ncombos<-dim(grid.starts)[[1]]
+      # cycle through each combo
+      # res.mat = matrix of starting values
+      res.mat<-matrix(NA,nrow=ncombos,ncol=I(length(start)+1))
+      
+      # blank list that modesl get added to one at a time used eventually for AIC
+      res.mod<-list()
+      for(k in 1:dim(grid.starts)[[1]]){
+        #some how need to match grid parameters to start lists.
+        mod.start<-as.list(grid.starts[k,])	
+        new.start<-start
+        new.start[names(start) %in% names(mod.start)]<-mod.start
+        pscale<-as.numeric(new.start)
+        names(pscale)<-names(new.start)
+        #print(repObs$time)
+        #print(repObs$logabund)
+        fit <- mle2(minuslogl=logabund ~ dnorm(mean = c * (time / a)^(b-1) * exp(-1*(time/a)^b), sd = z), 
+                                start = new.start, data = repObs, 
+                                control=list(parscale=pscale, maxit=1000), 
+                                method="Nelder-Mead", hessian = T)
+
+        res.mat[k,]<-c(coef(fit),AIC(fit))		
+        res.mod[[k]]<-fit
+      }
+      colnames(res.mat)<-c(names(coef(fit)),"AIC")
+      
+      # used below to determine best fit
+      best.fit<-res.mod[[which(res.mat[,'AIC']==min(res.mat[,'AIC']))[1]]]
+      #print(slotNames(best.fit) )
+      summ[counter,1]=strains[i]
+      summ[counter,2]=reps[j]
+      #CIs <- confint( profile(best.fit))
+      # a
+      summ[counter,3]=coef(best.fit)[1]
+      # b
+      summ[counter,4]=coef(best.fit)[2]
+      # c
+      summ[counter,5]=coef(best.fit)[3]
+      #summ[counter,5]= round(max(repObs$logabund),1)
+      # z
+      summ[counter,6]=coef(best.fit)[4]
+      summ[counter,7]=AIC(best.fit)
+      summ[counter,8]=length(repObs$time)
+      summ[counter,9]=summary(best.fit)@coef["b","Std. Error"]
+      summ[counter,10]= (coef(best.fit)[2] + (1.96 * summary(best.fit)@coef["b","Std. Error"]))
+      summ[counter,11]= (coef(best.fit)[2] - (1.96 * summary(best.fit)@coef["b","Std. Error"]))
+      summ[counter,12]= coef(best.fit)[2] - (1.96 * summary(best.fit)@coef["b","Std. Error"]) <= 1 & coef(best.fit)[2] + (1.96 * summary(best.fit)@coef["b","Std. Error"]) >= 1
+      
+      ### *** Comment/Uncomment following code to make pdf figs*** ###
+      title=paste(strains[i],"  rep ",reps[j])
+      plot(repObs$time,repObs$logabund,main=title,ylim=c(0,9))
+      predTime=seq(0,max(repObs$time))
+      print(strains[i])
+      print(reps[j])
+      lines(repObs$time, coef(best.fit)[3] * (repObs$time / coef(best.fit)[1])^(coef(best.fit)[2]-1) * exp(-1*(repObs$time/coef(best.fit)[1])^coef(best.fit)[2]), 
+              lwd=4, lty=2, col = "red")
+      counter=counter+1
+    }
+  }
+}
+
+dev.off() 
+summ=summ[!is.na(summ[,1]),]
+colnames(summ)=c('strain','rep','a','b','c','z','AIC', 'N.obs', 'std.err', 'UL', 'LL', 'b.diff')
+
+# How many tubes deviate from first-order decay?
+# Do we really have exactly 100 tubes?
+sum.out <- as.data.frame(summ, options(max.print=1000000))
+table(sum.out$b.diff)["TRUE"]/nrow(sum.out)
+# One rep of KBS0706
+# All reps of 0714 Micrococcus (extinct) 
+# All reps of 0725
+# Three reps of 0727 (same as 0725...nice confirmation)
+# All reps of KBS0812
+
+
+write.csv(summ,"data/weibull_results.csv")
+```
