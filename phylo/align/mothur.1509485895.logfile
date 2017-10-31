@@ -1,0 +1,80 @@
+Linux version
+
+Using ReadLine
+
+Running 64Bit Version
+
+mothur v.1.38.1
+Last updated: 8/9/2016
+
+by
+Patrick D. Schloss
+
+Department of Microbiology & Immunology
+University of Michigan
+pschloss@umich.edu
+http://www.mothur.org
+
+When using, please cite:
+Schloss, P.D., et al., Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol, 2009. 75(23):7537-41.
+
+Distributed under the GNU General Public License
+
+Type 'help()' for information on the commands that are available
+
+Type 'quit()' to exit program
+Batch Mode
+
+
+mothur > summary.seqs(fasta=persistence_707_712_721.align)
+
+Using 1 processors.
+
+		Start	End	NBases	Ambigs	Polymer	NumSeqs
+Minimum:	1125	11965	278	0	3	1
+2.5%-tile:	1125	11965	278	0	3	1
+25%-tile:	1125	11965	278	0	4	7
+Median: 	1125	11965	278	0	5	13
+75%-tile:	1125	11965	278	0	5	19
+97.5%-tile:	1125	11965	279	0	6	25
+Maximum:	1125	11965	279	0	6	25
+Mean:	1125	11965	278.16	0	4.68
+# of Seqs:	25
+
+Output File Names: 
+persistence_707_712_721.summary
+
+It took 0 secs to summarize 25 sequences.
+
+mothur > screen.seqs(fasta=persistence_707_712_721.align, minlength=200)
+
+Using 1 processors.
+
+Output File Names: 
+persistence_707_712_721.good.align
+persistence_707_712_721.bad.accnos
+
+
+It took 0 secs to screen 25 sequences.
+
+mothur > filter.seqs(fasta=persistence_707_712_721.good.align, vertical=T, trump=.)
+
+Using 1 processors.
+Creating Filter... 
+
+
+Running Filter... 
+
+
+
+Length of filtered alignment: 284
+Number of columns removed: 12716
+Length of the original alignment: 13000
+Number of sequences used to construct filter: 25
+
+Output File Names: 
+persistence_707_712_721.filter
+persistence_707_712_721.good.filter.fasta
+
+
+mothur > quit()

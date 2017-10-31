@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -k o
 #PBS -l nodes=2:ppn=8,vmem=100gb,walltime=5:00:00
-#PBS -M lennonj@indiana.edu
+#PBS -M wrshoema@indiana.edu
 #PBS -m abe
 #PBS -j oe
 
@@ -9,9 +9,9 @@ module load raxml/8.0.26
 
 # cd into the directory with your alignment
 
-cd /N/dc2/projects/Lennon_Sequences/LTDE_Tree/June2017
+cd /N/dc2/projects/Lennon_Sequences/LTDE_Tree/tree
 
-raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o Methanosarcina -# autoMRE -s ./June2017.clustal.afa.fasta -n LTDE.ML
+raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o Methanosarcina -# autoMRE -s ./persistence_707_712_721.good.filter.fasta -n LTDE.ML
 
 # -T = number of threads
 # -f = specifies bootstrapping algorithm with ML generating tree at same time

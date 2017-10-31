@@ -1,0 +1,120 @@
+---
+title: "Long-term Dormancy Experiment - Phylogeny"
+author: "Jay T. Lennon, Stuart E. Jones, and William R. Shoemaker"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+## 1) SETUP
+### A. Retrieve and Set Your Working Directory
+
+```{r, results = 'hide'}
+rm(list = ls())
+getwd()
+setwd("~/GitHub/LTDE/phylo")
+```
+
+
+### B. Load Packages 
+
+```{r, results = 'hide', message = FALSE, warning = FALSE} 
+require("seqinr")
+require("ape")
+require("phylobase")
+require("adephylo")
+require("geiger") 
+require("picante")
+require("RColorBrewer")
+require("caper")
+```
+
+
+## 2) Use mothur to align the sequences using `silva.v4.fasta` as a reference. 
+
+The code below is run on Mason as the shell script `persistence_707_712_721.sh`
+```{bash, eval = FALSE}
+#!/bin/bash
+#PBS -k o
+#PBS -l nodes=1:ppn=8,vmem=100gb,walltime=0:30:00
+#PBS -M wrshoema@indiana.edu
+#PBS -m abe
+#PBS -j oe
+
+module load gcc/4.9.2
+module load boost/1.52.0
+module load openmpi
+module load mothur/1.38.1
+
+cd /N/dc2/projects/Lennon_Sequences/LTDE_Tree
+
+mothur persistence_707_712_721.batch
+```
+
+that calls the `persistence_707_712_721.batch` file, which contains the following lines
+```{bash, eval = FALSE}
+align.seqs(fasta=persistence_707_712_721.fasta, reference=silva.v4.fasta, flip=T, processors=4)
+summary.seqs(fasta=persistence_707_712_721.align)
+screen.seqs(fasta=persistence_707_712_721.align, minlength=200)
+filter.seqs(fasta=persistence_707_712_721.good.align, vertical=T, trump=.)
+```
+
+
+
+## 3) Visualize alignments
+```{r}
+# Read mothur alignment file {seqinr}
+read.aln.M <- read.alignment(file = "./align/persistence_707_712_721.good.filter.fasta", format = 'fasta')
+# Convert Alignment File to DNAbin Object {ape}
+p.DNAbin.M <- as.DNAbin(read.aln.M) 
+
+# Identify Base Pair Region of 16S rRNA Gene to Visuzlize (adjust range)
+window.M <- p.DNAbin.M
+
+# Command to Visusalize Sequence Alignment {ape}
+image.DNAbin(window.M, cex.lab = 0.50) 
+```
+
+
+
+## 4) Generate a ML tree with bootstrap support using RAxML
+```{bash, eval = FALSE}
+raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o Methanosarcina -# autoMRE \
+    -s /Users/WRShoemaker/GitHub/LTDE/phylo/tree/persistence_707_712_721.good.filter.fasta \
+    -n T20 -w /Users/WRShoemaker/GitHub/LTDE/phylo/tree
+```
+
+## 5) Read in maximum likelihood tree
+```{r}
+# Read tree
+ml.tree <- read.tree("./tree/RAxML_bipartitionsBranchLabels.T20")
+
+# Identify Outgroup Sequence
+outgroup <- match("Methanosarcina", ml.tree$tip.label)
+
+# Root the Tree {ape}
+ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
+
+# Load phylo taxonomy data
+tax <- read.table("persistence.phylo.txt", sep = "\t", header = TRUE)
+rownames(tax) <- tax$Code
+tax.2 <- tax[ml.tree$tip.label, ]
+tax.name <- paste(tax.2$Code, tax.2$Genus)
+tax.name[15] <- "DSM2834 Methanosarcina"
+
+# Plot the Rooted Tree{ape}
+par(mar = c(1,1,2,1) + 0.1)
+plot.phylo(ml.rooted, main = "ML Fast Tree", 
+           "phylogram", use.edge.length = FALSE, direction = "right",
+           cex = 0.6, label.offset = 1, show.tip.label = FALSE, x.lim = 30)
+           
+tiplabels(tax.name, adj = c(0,0.5), cex = 0.5, frame = "none",
+          pch = NULL, thermo = NULL, pie = NULL, piecol = NULL,
+          col = NULL, bg = NULL)
+
+nodelabels(ml.rooted$node.label, font = 2, bg = "white", frame = "r", cex = 0.5)
+add.scale.bar(cex = 0.7)
+```
+
