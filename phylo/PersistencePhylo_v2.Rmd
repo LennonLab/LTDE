@@ -17,9 +17,7 @@ getwd()
 setwd("~/GitHub/LTDE/phylo")
 ```
 
-
 ### B. Load Packages 
-
 ```{r, results = 'hide', message = FALSE, warning = FALSE} 
 require("seqinr")
 require("ape")
@@ -30,7 +28,6 @@ require("picante")
 require("RColorBrewer")
 require("caper")
 ```
-
 
 ## 2) Use mothur to align the sequences using `silva.v4.fasta` as a reference. 
 
@@ -61,8 +58,6 @@ screen.seqs(fasta=persistence_707_712_721.align, minlength=200)
 filter.seqs(fasta=persistence_707_712_721.good.align, vertical=T, trump=.)
 ```
 
-
-
 ## 3) Visualize alignments
 ```{r}
 # Read mothur alignment file {seqinr}
@@ -76,8 +71,6 @@ window.M <- p.DNAbin.M
 # Command to Visusalize Sequence Alignment {ape}
 image.DNAbin(window.M, cex.lab = 0.50) 
 ```
-
-
 
 ## 4) Generate a ML tree with bootstrap support using RAxML
 ```{bash, eval = FALSE}
@@ -118,3 +111,70 @@ nodelabels(ml.rooted$node.label, font = 2, bg = "white", frame = "r", cex = 0.5)
 add.scale.bar(cex = 0.7)
 ```
 
+## 6) Map traits onto tree
+```{r}
+# Keep Rooted but Drop Outgroup Branch
+ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
+ml.rooted <- drop.tip(ml.rooted, "Methanosarcina")
+
+# Define Color Palette
+mypalette <- colorRampPalette(brewer.pal(9, "YlOrRd"))
+
+par(mar=c(1,5,1,5) + 0.1)
+
+decay <- as.matrix(log10(tax[1:24,7]))
+#rownames(decay) <- tax[1:24,6]
+rownames(decay) <- tax[1:24,1]
+colnames(decay) <- c("Decay")
+x.decay <- phylo4d(ml.rooted, decay, check.node.labels = "drop")
+
+table.phylo4d(x.decay, treetype = "phylo", symbol = "colors", show.node = TRUE, 
+              cex.label = 0.5, scale = FALSE, use.edge.length = FALSE, 
+              edge.color = "black", edge.width = 2, box = FALSE, 
+              col=mypalette(25), pch = 15, cex.symbol = 1.25, var.label=("       decay"),
+              ratio.tree = 0.90, cex.legend = 1.5, center = FALSE)
+```
+
+## 7) Look at alpha (initial death) and beta (shape) parameters
+```{r}
+traits <- tax[,7:17]
+fold.decay <- max(traits$Decay, na.rm = TRUE)/min(traits$Decay, na.rm = TRUE)
+# 16,159.9 fold range; four orders of magnitude
+
+par(mfrow=c(1,2),mar = c(4, 6, 3, 5))
+decay.kern <- density(log10(traits$Decay), na.rm = TRUE) 
+evol.kern <- density(log10((traits$Evol*-1)+0.000001), na.rm = TRUE) 
+plot(decay.kern, main = NA, xlab = "Decay rate", ylab = "Density", cex.lab = 1.5) 
+plot(evol.kern, main = NA, xlab = "Evol rate", ylab = "Density", cex.lab = 1.5)
+
+# any correlations with other traits?
+traits.log <- data.frame(log10(traits[,1]), traits[,2:11])
+colnames(traits.log)[1] <- "Decay"
+corr.test(traits.log, method = "pearson")
+```
+
+
+
+
+
+
+```{r}
+ml.lambda.0 <- rescale(ml.rooted, "lambda", 0)
+fitContinuous(ml.rooted, decay, model = "lambda")
+fitContinuous(ml.lambda.0, decay, model = "lambda")
+
+
+p.phylosignal <- matrix(NA, 6, 18)
+colnames(p.phylosignal) <- colnames(p.growth.std)
+rownames(p.phylosignal) <- c("K", "PIC.var.obs", "PIC.var.mean", 
+                             "PIC.var.P", "PIC.var.z", "PIC.P.BH")
+
+# Use a For Loop to Calculate Blomberg's K for Each Resource
+for (i in 1:18){
+  x <- as.matrix(p.growth.std[ ,i, drop = FALSE])
+  out <- phylosignal(x, nj.rooted)
+  p.phylosignal[1:5, i] <- round(t(out), 3)
+}
+
+# Use the BH Correction on P-values: 
+p.phylosignal[6, ] <- round(p.adjust(p.phylosignal[4, ], method = "BH"), 3)
