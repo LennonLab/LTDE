@@ -56,6 +56,15 @@ longev.traits <- aggregate(longev.traits.full[,4:6], by = list(longev.traits.ful
 colnames(longev.traits)[1] <- "strain"
 longev.traits <- longev.traits[which (longev.traits$strain !="KBS0727" & longev.traits$strain !="KBS0711W"),]
 
+fold.alpha <- max(longev.traits$a, na.rm = TRUE)/min(longev.traits$a, na.rm = TRUE)
+# 2434-fold range; three orders of magnitude
+
+par(mfrow=c(1,2),mar = c(4, 6, 3, 5))
+alpha.kern <- density(log10(longev.traits$a), na.rm = TRUE) 
+beta.kern <- density(longev.traits$b, na.rm = TRUE) 
+plot(alpha.kern, main = NA, xlab = "Alpha", ylab = "Density", cex.lab = 1.5) 
+plot(beta.kern, main = NA, xlab = "Beta", ylab = "Density", cex.lab = 1.5)
+
 # Merge physiological, bet-hedging, and longevity into a single dataframe
 m1 <- merge(phys.traits, bet.hedge, by = "strain")
 m2 <- merge(m1, longev.traits, by = "strain")
@@ -159,73 +168,97 @@ table.phylo4d(x, treetype = "phylo", symbol = "colors", show.node = TRUE,
 ```{r}
 # Data wrangling to make a and b separate dataframes
 #init.death <- traits$a
-init.death <- 1/traits$a
-names(init.death) <-rownames(traits)
-names(init.death)[18] <- "KBS0725B"
+alpha <- 1/traits$a
+names(alpha) <-rownames(traits)
+names(alpha)[18] <- "KBS0725B"
+log.alpha <- log10(alpha)
 
-bend.death <- traits$b
-names(bend.death) <-rownames(traits)
-names(bend.death)[18] <- "KBS0725B"
+beta <- traits$b
+names(beta) <-rownames(traits)
+names(beta)[18] <- "KBS0725B"
+log.beta <- log10(beta)
 
 # Rescale tree
 ml.lambda.0 <-  geiger::rescale(ml.rooted, "lambda", 0)
 
-sapply(ml.rooted, class)
-
-# Pagel for initial death
-lambda.a.model <- fitContinuous(ml.rooted, init.death, model = "lambda")
-brownian.a.model <- fitContinuous(ml.rooted, init.death)
-nosig.a.model <- fitContinuous(ml.lambda.0, init.death)
+# Pagel for alpha
+lambda.a.model <- fitContinuous(ml.rooted, alpha, model = "lambda")
+brownian.a.model <- fitContinuous(ml.rooted, alpha)
+nosig.a.model <- fitContinuous(ml.lambda.0, alpha)
 a.AIC <- c(lambda.a.model$opt$aicc, brownian.a.model$opt$aicc, nosig.a.model$opt$aicc)
 # lambda is better than Brownian and no signal, but not by tons
-# suggest there is signal
+# suggests there is signal
 
-# Pagel for bend
-lambda.b.model <- fitContinuous(ml.rooted, bend.death, model = "lambda")
-brownian.b.model <- fitContinuous(ml.rooted, bend.death)
-nosig.b.model <- fitContinuous(ml.lambda.0, bend.death)
+# Pagel for log10-transformed alpha
+lambda.log.a.model <- fitContinuous(ml.rooted, log.alpha, model = "lambda")
+brownian.log.a.model <- fitContinuous(ml.rooted, log.alpha)
+nosig.log.a.model <- fitContinuous(ml.lambda.0, log.alpha)
+log.a.AIC <- c(lambda.log.a.model$opt$aicc, brownian.log.a.model$opt$aicc, nosig.log.a.model$opt$aicc)
+# lambda is better than Brownian and no signal, but not by tons
+# suggests there is signal
+
+# Pagel for beta
+lambda.b.model <- fitContinuous(ml.rooted, beta, model = "lambda")
+brownian.b.model <- fitContinuous(ml.rooted, beta)
+nosig.b.model <- fitContinuous(ml.lambda.0, beta)
 b.AIC <- c(lambda.b.model$opt$aicc, brownian.b.model$opt$aicc, nosig.b.model$opt$aicc)
-# no signal model is better than Brownian and lambda
+# no signal model is a little better than Brownian and lambda, but not by tons
+# suggest there is no signal
+
+# Pagel for log10-transformed beta
+lambda.log.b.model <- fitContinuous(ml.rooted, log.beta, model = "lambda")
+brownian.log.b.model <- fitContinuous(ml.rooted, log.beta)
+nosig.log.b.model <- fitContinuous(ml.lambda.0, log.beta)
+log.b.AIC <- c(lambda.log.b.model$opt$aicc, brownian.log.b.model$opt$aicc, nosig.log.b.model$opt$aicc)
+# no signal model is a little better than Brownian and lambda, but not by tons
 # suggest there is no signal
 ```
 
 ### Blomberg's K
 ```{r}
-# Blomberg for initial death
-blom.a <- phylosignal(init.death, ml.rooted)
-blom.a.test <- phylosig(ml.rooted, init.death, method = "K", test = T)
-# K is 0.112 suggesting less signal than expected under Brownian
-# However, P-value us 0.596, suggesting no signal
+# Blomberg for alpha
+blom.a <- phylosignal(alpha, ml.rooted)
+blom.a.test <- phylosig(ml.rooted, alpha, method = "K", test = T)
+# K is 9.32e-05 suggesting less signal than expected under Brownian
+# However, P-value us 0.576, suggesting no signal
 
-# Blomberg for bend
-blom.b <- phylosignal(bend.death, ml.rooted)
-blom.b.test <- phylosig(ml.rooted, bend.death, method = "K", test = T)
-# K is 0.005 suggesting there is far less signal than expected under Brownian
-# However, P-value is 0.076 suggesting marginal effect
+# Blomberg for log10-transformed alpha
+blom.log.a <- phylosignal(log.alpha, ml.rooted)
+blom.log.a.test <- phylosig(ml.rooted, log.alpha, method = "K", test = T)
+# K is 0.00037 suggesting less signal than expected under Brownian
+# However, P-value us 0.495, suggesting no signal
+
+# Blomberg for beta
+blom.b <- phylosignal(beta, ml.rooted)
+blom.b.test <- phylosig(ml.rooted, beta, method = "K", test = T)
+# K is 9.887e-06 suggesting there is far less signal than expected under Brownian
+# However, P-value is 0.974 suggesting marginal effect
+
+# Blomberg for log10-transformed beta
+blom.log.b <- phylosignal(log.beta, ml.rooted)
+blom.log.b.test <- phylosig(ml.rooted, log.beta, method = "K", test = T)
+# K is 2.375e-05 suggesting there is far less signal than expected under Brownian
+# However, P-value is 0.924 suggesting marginal effect
 ```
 
-### C. Correlations of intial death and bend with other traits
+### C. Correlations of alpha and beta with other traits
 
 ```{r}
 # Log transform initial death, which spans > 4 orders of magnitude
-L <- function(x) log10(x)
-#log.traits <- cbind(traits[,1:11], apply(traits[12:12], 2, L), traits[,13:14])
-log.traits <- cbind(traits[,1:11], log10(init.death), traits[,13:14])
-colnames(log.traits)[12]<- "a"
+log.traits <- cbind(traits[,1:11], log10(traits$a), traits[,13:14])
+colnames(log.traits)[12]<- "log.a"
   
 # Run correlation on new dataframe  
 cor.traits <- cor(traits.norm.na, use = "complete.obs")
-print(cor.traits[,12]) # initial death, i.e., alpha
-print(cor.traits[,13]) # bend death, i.e., beta
+print(cor.traits[,12]) # alpha
+# Strong cor w/ Wopt, Breadth, Mpamin, Biof
+# Wopt, Breadth, Mpamin driven by outlier
+# Biof may be worth looking into
+plot(log.traits$log.a, log.traits$Biof)
 
-
-cor.traits <- cor(na.omit(log.traits))
-print(cor.traits[,12]) # initial death, i.e., alpha
-print(cor.traits[,13]) # bend death, i.e., beta
-
-# plot(log.traits$b, log.traits$Lag) # r = 0.51
-# plot(log.traits$b, log.traits$A) # r = 0.47 
-
+print(cor.traits[,13]) # beta
+# Moderate cor w/ A, Lag
+# But neither very strong
 ```
 
 ### Simple linear regression
