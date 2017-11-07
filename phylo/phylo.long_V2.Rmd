@@ -168,7 +168,7 @@ names(bend.death) <-rownames(traits)
 names(bend.death)[18] <- "KBS0725B"
 
 # Rescale tree
-ml.lambda.0 <- rescale(ml.rooted, "lambda", 0)
+ml.lambda.0 <-  geiger::rescale(ml.rooted, "lambda", 0)
 
 sapply(ml.rooted, class)
 
@@ -280,6 +280,8 @@ matlines(new.A, conf95[, c("lwr", "upr")], type="l", lty = 3, lwd = 3, col = "re
 # A for KBS0801 is NA, remove it
 log.traits.red0801 <- log.traits[rownames(traits) != "KBS0801", ]
 ml.rooted.red0801 <- drop.tip(ml.rooted, c('KBS0801'))
+rownames(log.traits.red0801)[18] <- "KBS0725B"
+
 
 # set bootstrap to 0 if you're in a hurry
 fit.phy.a <- phylolm(a ~ A, data = log.traits.red0801, 
