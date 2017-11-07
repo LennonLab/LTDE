@@ -1,6 +1,6 @@
 rm(list = ls())
 getwd()
-setwd("~/GitHub/Dimensions/Aim1/")
+setwd("~/GitHub/LTDE/")
 
 library('bbmle')
 
@@ -35,7 +35,7 @@ for(i in 1:length(strains)){
         repObs <- repObs[-c(1), ]
       }
       #repObs["prop"] <- repObs$logabund / repObs$logabund[1]
-      repObs["prop"] <- log(repObs$Abund / repObs$Abund[1])
+      repObs["prop"] <- repObs$Abund / repObs$Abund[1]
       #KBS0703.1$prop <- KBS0703.1$logabund/KBS0703.1$logabund[1]
       # Initial parameters
       #A = 200 # Initial death (larger = slower) 
@@ -57,14 +57,14 @@ for(i in 1:length(strains)){
         new.start[names(start) %in% names(mod.start)]<-mod.start
         pscale<-as.numeric(new.start)
         names(pscale)<-names(new.start)
-        #fit <- mle2(minuslogl=prop ~ dnorm(mean = exp( -1 * ((time / a)^ b)), sd = z), 
-        #                        start = new.start, data = repObs, 
-        #                        control=list(parscale=pscale, maxit=1000), 
-        #                         method="Nelder-Mead", hessian = T)
-        fit <- mle2(minuslogl=prop ~ dnorm(mean =  -1 * ((time / a)^ b), sd = z), 
+        fit <- mle2(minuslogl=prop ~ dnorm(mean = exp( -1 * ((time / a)^ b)), sd = z), 
                                 start = new.start, data = repObs, 
                                 control=list(parscale=pscale, maxit=1000), 
                                  method="Nelder-Mead", hessian = T)
+        #fit <- mle2(minuslogl=prop ~ dnorm(mean =  -1 * ((time / a)^ b), sd = z), 
+        #                        start = new.start, data = repObs, 
+        #                        control=list(parscale=pscale, maxit=1000), 
+        #                         method="Nelder-Mead", hessian = T)
         res.mat[k,]<-c(coef(fit),AIC(fit))		
         res.mod[[k]]<-fit
       }
@@ -96,16 +96,16 @@ for(i in 1:length(strains)){
 
       ### *** Comment/Uncomment following code to make pdf figs*** ###
       title=paste(strains[i],"  rep ",reps[j])
-      plot(repObs$time,repObs$prop,main=title,ylim=c(min(repObs$prop),0))
+      plot(repObs$time,repObs$prop,main=title,ylim=c(0,1))
       predTime=seq(0,max(repObs$time))
       print(strains[i])
       print(reps[j])
       #exp( -1 * ((time / a)^ b))
       #coef(best.fit)[3] 
-      #lines(repObs$time, exp( -1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
-      #        lwd=4, lty=2, col = "red")
-      lines(repObs$time, (-1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
+      lines(repObs$time, exp( -1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
               lwd=4, lty=2, col = "red")
+      #lines(repObs$time, (-1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
+      #        lwd=4, lty=2, col = "red")
       counter=counter+1
     }
   }
