@@ -52,8 +52,9 @@ bet.hedge[nrow(bet.hedge) + 1,] = c("KBS0714", NA)
 
 # Load longevity traits and remove strains w/o physiological or bet-hedging data
 longev.traits.full <- read.csv("../data/weibull_log_results.csv", sep =",", header = TRUE)
-longev.traits <- aggregate(longev.traits.full[,4:6], by = list(longev.traits.full$strain), mean)
+longev.traits <- aggregate(longev.traits.full[,c(4,5,9)], by = list(longev.traits.full$strain), mean)
 colnames(longev.traits)[1] <- "strain"
+colnames(longev.traits)[4] <- "half"
 longev.traits <- longev.traits[which (longev.traits$strain !="KBS0727" & longev.traits$strain !="KBS0711W"),]
 
 fold.alpha <- max(longev.traits$a, na.rm = TRUE)/min(longev.traits$a, na.rm = TRUE)
@@ -178,6 +179,11 @@ names(beta) <-rownames(traits)
 names(beta)[18] <- "KBS0725B"
 log.beta <- log10(beta)
 
+half <- traits$half
+names(half) <-rownames(traits)
+names(half)[18] <- "KBS0725B"
+log.half <- log10(half)
+
 # Rescale tree
 ml.lambda.0 <-  geiger::rescale(ml.rooted, "lambda", 0)
 
@@ -212,6 +218,22 @@ nosig.log.b.model <- fitContinuous(ml.lambda.0, log.beta)
 log.b.AIC <- c(lambda.log.b.model$opt$aicc, brownian.log.b.model$opt$aicc, nosig.log.b.model$opt$aicc)
 # no signal model is a little better than Brownian and lambda, but not by tons
 # suggest there is no signal
+
+# Pagel for half
+lambda.half.model <- fitContinuous(ml.rooted, half, model = "lambda")
+brownian.half.model <- fitContinuous(ml.rooted, half)
+nosig.half.model <- fitContinuous(ml.lambda.0, half)
+half.AIC <- c(lambda.half.model$opt$aicc, brownian.half.model$opt$aicc, nosig.half.model$opt$aicc)
+# non singal model is best model, but Brownina is close
+# suggest there is weak signal
+
+# Pagel for log10-transformed beta
+lambda.log.half.model <- fitContinuous(ml.rooted, log.half, model = "lambda")
+brownian.log.half.model <- fitContinuous(ml.rooted, log.half)
+nosig.log.half.model <- fitContinuous(ml.lambda.0, log.half)
+log.half.AIC <- c(lambda.log.half.model$opt$aicc, brownian.log.half.model$opt$aicc, nosig.log.half.model$opt$aicc)
+# no signal model is a little better than  lambda, but not by tons
+# suggest there is no signal
 ```
 
 ### Blomberg's K
@@ -239,27 +261,50 @@ blom.log.b <- phylosignal(log.beta, ml.rooted)
 blom.log.b.test <- phylosig(ml.rooted, log.beta, method = "K", test = T)
 # K is 0.007179149 suggesting there is far less signal than expected under Brownian
 # However, P-value is 0.054 suggesting marginal effect
+
+# Blomberg for half
+blom.half <- phylosignal(half, ml.rooted)
+blom.half.test <- phylosig(ml.rooted, half, method = "K", test = T)
+# K is 1.06 suggesting Browning (null) distribution
+# However, P-value is 0.154 suggesting no effect
+
+# Blomberg for log10-transformed beta
+blom.log.half <- phylosignal(log.half, ml.rooted)
+blom.log.half.test <- phylosig(ml.rooted, log.half, method = "K", test = T)
+# K is 0.0015 suggesting there is far less signal than expected under Brownian
+# However, P-value is 0.251 suggesting no effect
 ```
 
-### C. Correlations of alpha and beta with other traits
+### C. Correlations of alpha, beta, and hafl with other traits
 
 ```{r}
 # Log transform initial death, which spans > 4 orders of magnitude
-log.traits <- cbind(traits[,1:11], log10(traits$a), traits[,13:14])
+log.traits <- cbind(traits[,1:11], log10(traits$a), log10(traits$half), traits[,13:14])
 colnames(log.traits)[12]<- "log.a"
+colnames(log.traits)[13]<- "log.half"
+
+# remove Bacillus as potential outlier
+log.traits <- log.traits[which (row.names(log.traits) !="KBS0812"),]
   
-# Run alpha correlation on new dataframe  
+# Run correlations on new dataframe  
 cor.traits <- cor(traits.norm.na, use = "complete.obs")
+
+# alpha (log)
 print(cor.traits[,12])
 # Strong cor w/ Wopt, Breadth, Mpamin, Biof
 # Wopt, Breadth, Mpamin driven by outlier
 # Biof may be worth looking into
 plot(log.traits$log.a, log.traits$Biof)
 
+# beta
 print(cor.traits[,13]) # beta
 plot(log.traits$b, log.traits$Lag)
 # Strong positive cor w/ A, Lag
 # But neither very strong
+
+# half-life (log)
+print(cor.traits[,14]) # beta
+plot(log.traits$log.half, log.traits$Biof)
 ```
 
 ### Simple linear regression
