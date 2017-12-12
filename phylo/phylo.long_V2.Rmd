@@ -51,13 +51,14 @@ bet.hedge[nrow(bet.hedge) + 1,] = c("KBS0725", NA)
 bet.hedge[nrow(bet.hedge) + 1,] = c("KBS0714", NA)
 
 # Load longevity traits and remove strains w/o physiological or bet-hedging data
-longev.traits.full <- read.csv("../data/weibull_results.csv", sep =",", header = TRUE)
-longev.traits <- aggregate(longev.traits.full[,4:6], by = list(longev.traits.full$strain), mean)
+longev.traits.full <- read.csv("../data/weibull_log_results.csv", sep =",", header = TRUE)
+longev.traits <- aggregate(longev.traits.full[,c(4,5,9)], by = list(longev.traits.full$strain), mean)
 colnames(longev.traits)[1] <- "strain"
+colnames(longev.traits)[4] <- "half"
 longev.traits <- longev.traits[which (longev.traits$strain !="KBS0727" & longev.traits$strain !="KBS0711W"),]
 
 fold.alpha <- max(longev.traits$a, na.rm = TRUE)/min(longev.traits$a, na.rm = TRUE)
-# 2434-fold range; three orders of magnitude
+# 1.382455e+13-fold range
 
 par(mfrow=c(1,2),mar = c(4, 6, 3, 5))
 alpha.kern <- density(log10(longev.traits$a), na.rm = TRUE) 
@@ -178,6 +179,11 @@ names(beta) <-rownames(traits)
 names(beta)[18] <- "KBS0725B"
 log.beta <- log10(beta)
 
+half <- traits$half
+names(half) <-rownames(traits)
+names(half)[18] <- "KBS0725B"
+log.half <- log10(half)
+
 # Rescale tree
 ml.lambda.0 <-  geiger::rescale(ml.rooted, "lambda", 0)
 
@@ -186,24 +192,24 @@ lambda.a.model <- fitContinuous(ml.rooted, alpha, model = "lambda")
 brownian.a.model <- fitContinuous(ml.rooted, alpha)
 nosig.a.model <- fitContinuous(ml.lambda.0, alpha)
 a.AIC <- c(lambda.a.model$opt$aicc, brownian.a.model$opt$aicc, nosig.a.model$opt$aicc)
-# lambda is better than Brownian and no signal, but not by tons
-# suggests there is signal
+# nonsig model is best, but comparable to lambda
+# suggests no signal
 
 # Pagel for log10-transformed alpha
 lambda.log.a.model <- fitContinuous(ml.rooted, log.alpha, model = "lambda")
 brownian.log.a.model <- fitContinuous(ml.rooted, log.alpha)
 nosig.log.a.model <- fitContinuous(ml.lambda.0, log.alpha)
 log.a.AIC <- c(lambda.log.a.model$opt$aicc, brownian.log.a.model$opt$aicc, nosig.log.a.model$opt$aicc)
-# lambda is better than Brownian and no signal, but not by tons
-# suggests there is signal
+# lambda is better than Brownian and no signal, but not by much
+# suggests weak signal
 
 # Pagel for beta
 lambda.b.model <- fitContinuous(ml.rooted, beta, model = "lambda")
 brownian.b.model <- fitContinuous(ml.rooted, beta)
 nosig.b.model <- fitContinuous(ml.lambda.0, beta)
 b.AIC <- c(lambda.b.model$opt$aicc, brownian.b.model$opt$aicc, nosig.b.model$opt$aicc)
-# no signal model is a little better than Brownian and lambda, but not by tons
-# suggest there is no signal
+# lambda is best model, but nonsig is close
+# suggest there is weak signal
 
 # Pagel for log10-transformed beta
 lambda.log.b.model <- fitContinuous(ml.rooted, log.beta, model = "lambda")
@@ -212,6 +218,22 @@ nosig.log.b.model <- fitContinuous(ml.lambda.0, log.beta)
 log.b.AIC <- c(lambda.log.b.model$opt$aicc, brownian.log.b.model$opt$aicc, nosig.log.b.model$opt$aicc)
 # no signal model is a little better than Brownian and lambda, but not by tons
 # suggest there is no signal
+
+# Pagel for half
+lambda.half.model <- fitContinuous(ml.rooted, half, model = "lambda")
+brownian.half.model <- fitContinuous(ml.rooted, half)
+nosig.half.model <- fitContinuous(ml.lambda.0, half)
+half.AIC <- c(lambda.half.model$opt$aicc, brownian.half.model$opt$aicc, nosig.half.model$opt$aicc)
+# non singal model is best model, but Brownina is close
+# suggest there is weak signal
+
+# Pagel for log10-transformed beta
+lambda.log.half.model <- fitContinuous(ml.rooted, log.half, model = "lambda")
+brownian.log.half.model <- fitContinuous(ml.rooted, log.half)
+nosig.log.half.model <- fitContinuous(ml.lambda.0, log.half)
+log.half.AIC <- c(lambda.log.half.model$opt$aicc, brownian.log.half.model$opt$aicc, nosig.log.half.model$opt$aicc)
+# no signal model is a little better than  lambda, but not by tons
+# suggest there is no signal
 ```
 
 ### Blomberg's K
@@ -219,46 +241,70 @@ log.b.AIC <- c(lambda.log.b.model$opt$aicc, brownian.log.b.model$opt$aicc, nosig
 # Blomberg for alpha
 blom.a <- phylosignal(alpha, ml.rooted)
 blom.a.test <- phylosig(ml.rooted, alpha, method = "K", test = T)
-# K is 9.32e-05 suggesting less signal than expected under Brownian
-# However, P-value us 0.576, suggesting no signal
+# K is 0.1120563 suggesting less signal than expected under Brownian
+# However, P-value us 0.606, suggesting no signal
 
 # Blomberg for log10-transformed alpha
 blom.log.a <- phylosignal(log.alpha, ml.rooted)
 blom.log.a.test <- phylosig(ml.rooted, log.alpha, method = "K", test = T)
-# K is 0.00037 suggesting less signal than expected under Brownian
-# However, P-value us 0.495, suggesting no signal
+# K is 0.002772696 suggesting less signal than expected under Brownian
+# However, P-value us 0.232, suggesting no signal
 
 # Blomberg for beta
 blom.b <- phylosignal(beta, ml.rooted)
 blom.b.test <- phylosig(ml.rooted, beta, method = "K", test = T)
-# K is 9.887e-06 suggesting there is far less signal than expected under Brownian
-# However, P-value is 0.974 suggesting marginal effect
+# K is 0.002772696 suggesting there is far less signal than expected under Brownian
+# However, P-value is 0.232 suggesting marginal effect
 
 # Blomberg for log10-transformed beta
 blom.log.b <- phylosignal(log.beta, ml.rooted)
 blom.log.b.test <- phylosig(ml.rooted, log.beta, method = "K", test = T)
-# K is 2.375e-05 suggesting there is far less signal than expected under Brownian
-# However, P-value is 0.924 suggesting marginal effect
+# K is 0.007179149 suggesting there is far less signal than expected under Brownian
+# However, P-value is 0.054 suggesting marginal effect
+
+# Blomberg for half
+blom.half <- phylosignal(half, ml.rooted)
+blom.half.test <- phylosig(ml.rooted, half, method = "K", test = T)
+# K is 1.06 suggesting Browning (null) distribution
+# However, P-value is 0.154 suggesting no effect
+
+# Blomberg for log10-transformed beta
+blom.log.half <- phylosignal(log.half, ml.rooted)
+blom.log.half.test <- phylosig(ml.rooted, log.half, method = "K", test = T)
+# K is 0.0015 suggesting there is far less signal than expected under Brownian
+# However, P-value is 0.251 suggesting no effect
 ```
 
-### C. Correlations of alpha and beta with other traits
+### C. Correlations of alpha, beta, and hafl with other traits
 
 ```{r}
 # Log transform initial death, which spans > 4 orders of magnitude
-log.traits <- cbind(traits[,1:11], log10(traits$a), traits[,13:14])
+log.traits <- cbind(traits[,1:11], log10(traits$a), log10(traits$half), traits[,13:14])
 colnames(log.traits)[12]<- "log.a"
+colnames(log.traits)[13]<- "log.half"
+
+# remove Bacillus as potential outlier
+log.traits <- log.traits[which (row.names(log.traits) !="KBS0812"),]
   
-# Run correlation on new dataframe  
+# Run correlations on new dataframe  
 cor.traits <- cor(traits.norm.na, use = "complete.obs")
-print(cor.traits[,12]) # alpha
+
+# alpha (log)
+print(cor.traits[,12])
 # Strong cor w/ Wopt, Breadth, Mpamin, Biof
 # Wopt, Breadth, Mpamin driven by outlier
 # Biof may be worth looking into
 plot(log.traits$log.a, log.traits$Biof)
 
+# beta
 print(cor.traits[,13]) # beta
-# Moderate cor w/ A, Lag
+plot(log.traits$b, log.traits$Lag)
+# Strong positive cor w/ A, Lag
 # But neither very strong
+
+# half-life (log)
+print(cor.traits[,14]) # beta
+plot(log.traits$log.half, log.traits$Biof)
 ```
 
 ### Simple linear regression
@@ -271,64 +317,63 @@ png(filename="non-phylo-tradeoffs.png",
 #par(mar = c(1, 6.5, 0.5, 1), oma = c(6, 2, 1.5, 1))
 par(mar = c(5, 7, 5, 7))
 
-# Plotting yield panel
-plot(log.traits$A,log.traits$a,
-     xlim = c(-0.5, 4.1), ylim = c(-7.5, -0.5),
+# Plotting Lag panel
+plot(log.traits$Lag,log.traits$b,
+     xlim = c(-5, 35), ylim = c(0, 1),
      pch = 22, bg = "white", lwd = 3, bty = "n",
      cex = 2.5, yaxt = "n", xaxt = "n", cex.lab = 2, cex.axis = 1.5,
      las = 1, ylab = "", xlab = "")
 box(lwd = 3)
 
-mtext(side = 1, expression('Yield (a'[600]*')'), line = 3.5, cex = 2)
-mtext(expression('Death rate (d'^-1*')'), side = 2, outer = TRUE, cex = 2, 
+mtext("Lag time (d)", side = 1, line = 3.5, cex = 2)
+mtext("Beta", side = 2, outer = TRUE, cex = 2, 
       line = -2.5, adj = 0.5)
-
 
 # Major Axes
 axis(side = 1, lwd.ticks = 3, cex.axis = 1.5, las = 1,
-    labels = T, at = c(0, 2, 4))
+    labels = T, at = c(0, 10, 20, 30))
 
 axis(side = 3, lwd.ticks = 3, cex.axis = 1.5, las = 1,
-   labels = F, at = c(0, 2, 4))
+   labels = F, at = c(0, 10, 20, 30))
 
 axis(side = 2, lwd.ticks = 3, cex.axis = 1.5, las = 1,
-     labels = expression(10^-7, 10^-5, 10^-3, 10^-1),
-     at = c(-7, -5, -3, -1))
+     labels = expression("0.0", "0.5", "1.0"),
+     at = c(0, 0.5, 1.0))
 
 axis(side = 4, lwd.ticks = 3, cex.axis = 1.5, las = 1,
-    at = c(-7, -5, -3, -1), labels = F)
+    at = c(0, 0.5, 1.0), labels = F)
 
-# Yield: non-phylo-corrected regression and 95% CIs
-fit.a <- lm(a ~ A, data = log.traits)
-new.A <- seq(min(log.traits$A, na.rm = TRUE), max(log.traits$A, na.rm = TRUE), 0.2)
-regline.a <- predict(fit.a, newdata = data.frame(A = new.A))
-#lines(new.A, regline.a, lwd = 2, lty = 5)
+# Lag: non-phylo-corrected regression and 95% CIs
+fit.b <- lm(b ~ Lag, data = log.traits)
+new.lag <- seq(min(log.traits$Lag, na.rm = TRUE), max(log.traits$Lag, na.rm = TRUE), 0.2)
+regline.b <- predict(fit.b, newdata = data.frame(Lag = new.lag))
+#lines(new.b, regline.a, lwd = 2, lty = 5)
 
-conf95 <- predict(fit.a, newdata = data.frame(A = new.A),
+conf95 <- predict(fit.b, newdata = data.frame(Lag = new.lag),
                   interval = c("confidence"), level = 0.95, type = "response")
-matlines(new.A, conf95[, c("lwr", "upr")], type="l", lty = 3, lwd = 3, col = "red")
+matlines(new.lag, conf95[, c("lwr", "upr")], type="l", lty = 3, lwd = 3, col = "red")
 
-# Yield: phylo-corrected regression
+# Lag: phylo-corrected regression
 
 # A for KBS0801 is NA, remove it
-log.traits.red0801 <- log.traits[rownames(traits) != "KBS0801", ]
-ml.rooted.red0801 <- drop.tip(ml.rooted, c('KBS0801'))
-rownames(log.traits.red0801)[18] <- "KBS0725B"
+# log.traits.red0801 <- log.traits[rownames(traits) != "KBS0801", ]
+# ml.rooted.red0801 <- drop.tip(ml.rooted, c('KBS0801'))
+rownames(log.traits)[18] <- "KBS0725B"
 
 
 # set bootstrap to 0 if you're in a hurry
-fit.phy.a <- phylolm(a ~ A, data = log.traits.red0801, 
-                   ml.rooted.red0801, model = 'lambda', boot = 1000)
+fit.phy.b <- phylolm(b ~ Lag, data = log.traits, 
+                   ml.rooted, model = 'lambda', boot = 1000)
 
-new.A.phy <- seq(min(log.traits.red0801$A, na.rm = TRUE), max(log.traits.red0801$A, na.rm = TRUE), 0.2)
+new.lag.phy <- seq(min(log.traits$Lag, na.rm = TRUE), max(log.traits$Lag, na.rm = TRUE), 0.2)
 
-regline.a.phy <- predict(fit.phy.a, newdata = data.frame(A = new.A.phy))
+regline.b.phy <- predict(fit.phy.b, newdata = data.frame(Lag = new.lag.phy))
 
-phy.a.lines <- cbind(new.A.phy, regline.a.phy)
+phy.b.lines <- cbind(new.lag.phy, regline.b.phy)
 
-colnames(phy.a.lines) <- c("A", "a")
+colnames(phy.b.lines) <- c("Lag", "b")
 
-lines(phy.a.lines[,1], phy.a.lines[,2], lwd = 3, lty = 1, col = "red")
+lines(phy.b.lines[,1], phy.b.lines[,2], lwd = 3, lty = 1, col = "red")
 
 #conf95 <- predict(fit.phy.a, newdata = data.frame(A = new.A.phy),
 #                  interval = c("confidence"), level = 0.95, type = "response")
