@@ -373,14 +373,11 @@ ConsenTrait <- function(tree = "", traits = "", cutoff = 0.9,
   return(data.out)
 }
 
-ConsenTrait <- function(tree = "", traits = "", cutoff = 0.9,
-                        status = TRUE){
-ConsenTrait(ml.rooted,traits$b)
-d
-d```
+ConsenTrait(tree = ml.rooted, traits = log.alpha)
+```
 
 
-### C. Correlations of alpha, beta, and hafl with other traits
+### C. Correlations of alpha, beta, and half-life with other traits
 
 ```{r}
 # Log transform initial death, which spans > 4 orders of magnitude
