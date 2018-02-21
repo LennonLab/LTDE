@@ -5,7 +5,7 @@ setwd("~/GitHub/LTDE/")
 library('bbmle')
 
 ## Load Data
-obs <- read.csv("data/longtermdormancy_20170620_nocomments.csv", 
+obs <- read.csv("data/demography/longtermdormancy_20170620_nocomments.csv", 
                 header = TRUE, stringsAsFactors = FALSE)
 ## Adding 1 to deal with log(0) observations
 obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
@@ -14,7 +14,7 @@ strains <- strains[table(obs$Strain)>10]
 obs <- obs[obs$Strain%in%strains,]
 summ <- matrix(NA,length(strains)*max(obs$Rep),7)
 
-pdf('output/decayFitsWeibull.pdf') # Uncomment to create pdf that will plot data and fits
+pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 
 for(i in 1:length(strains)){
@@ -34,15 +34,13 @@ for(i in 1:length(strains)){
       if (repObs["logabund"][[1]][2] - repObs["logabund"][[1]][1] > 1){
         repObs <- repObs[-c(1), ]
       }
-      #repObs["prop"] <- repObs$logabund / repObs$logabund[1]
-      repObs["prop"] <- repObs$Abund / repObs$Abund[1]
-      #KBS0703.1$prop <- KBS0703.1$logabund/KBS0703.1$logabund[1]
+      repObs["prop"] <- log(repObs$Abund / repObs$Abund[1])
       # Initial parameters
       #A = 200 # Initial death (larger = slower) 
       #B = 1 # Bend (upper = 1 = first-order decay)
       #C = round(max(repObs$logabund),1) # intercept
       #Z = 6 # Error
-      grids<-list(a=c(1,10,50,100,200),b=c(0.1,0.5,1,1.1,1.5),z=c(0.1,1,10))
+      grids<-list(a=c(1,10,50,100,200),b=c(0.05,0.1,0.5,1,1.1,1.5),z=c(0.1,1,10))
       #start<-list(a=NA,b=NA,c=round(max(repObs$logabund),1),z=NA)
       start<-list(a=NA,b=NA,z=NA)
       grid.starts<-as.matrix(expand.grid(grids))
@@ -57,14 +55,10 @@ for(i in 1:length(strains)){
         new.start[names(start) %in% names(mod.start)]<-mod.start
         pscale<-as.numeric(new.start)
         names(pscale)<-names(new.start)
-        fit <- mle2(minuslogl=prop ~ dnorm(mean = exp( -1 * ((time / a)^ b)), sd = z), 
+        fit <- mle2(minuslogl=prop ~ dnorm(mean =  -1 * ((time / a)^ b), sd = z), 
                                 start = new.start, data = repObs, 
                                 control=list(parscale=pscale, maxit=1000), 
                                  method="Nelder-Mead", hessian = T)
-        #fit <- mle2(minuslogl=prop ~ dnorm(mean =  -1 * ((time / a)^ b), sd = z), 
-        #                        start = new.start, data = repObs, 
-        #                        control=list(parscale=pscale, maxit=1000), 
-        #                         method="Nelder-Mead", hessian = T)
         res.mat[k,]<-c(coef(fit),AIC(fit))		
         res.mod[[k]]<-fit
       }
@@ -96,16 +90,15 @@ for(i in 1:length(strains)){
 
       ### *** Comment/Uncomment following code to make pdf figs*** ###
       title=paste(strains[i],"  rep ",reps[j])
-      plot(repObs$time,repObs$prop,main=title,ylim=c(0,1))
+      plot(repObs$time,repObs$prop,main=title,ylim=c(min(repObs$prop),0))
       predTime=seq(0,max(repObs$time))
       print(strains[i])
       print(reps[j])
-      #exp( -1 * ((time / a)^ b))
       #coef(best.fit)[3] 
-      lines(repObs$time, exp( -1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
-              lwd=4, lty=2, col = "red")
-      #lines(repObs$time, (-1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
+      #lines(repObs$time, exp( -1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
       #        lwd=4, lty=2, col = "red")
+      lines(repObs$time, (-1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
+              lwd=4, lty=2, col = "red")
       counter=counter+1
     }
   }
@@ -114,6 +107,6 @@ for(i in 1:length(strains)){
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
 #colnames(summ)=c('strain','rep','a','b','c','z','AIC', 'a.CI.2.5', 'a.CI.97.5', 'b.CI.2.5', 'b.CI.97.5', 'c.CI.2.5', 'c.CI.97.5', 'z.CI.2.5', 'z.CI.97.5')
-colnames(summ)=c('strain','rep','a','b','z','AIC', 'N.obs')
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs')
 
-write.csv(summ,"data/weibull_results.csv")
+write.csv(summ,"data/demography/weibull_results.csv")
