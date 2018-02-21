@@ -118,9 +118,9 @@ def merge_maple_all_strains():
 
     dfs_concat_050 = dfs_concat.loc[dfs_concat['query(coverage)'] >= 0.5]
     module_by_taxon = pd.crosstab(dfs_concat_050.Pathway_ID, dfs_concat_050.Strain)
-    module_by_taxon_no_redundant = module_by_taxon[(module_by_taxon.T != 1).any()]
+    #module_by_taxon_no_redundant = module_by_taxon[(module_by_taxon.T != 1).any()]
     OUT_path = mydir + 'data/module_by_taxon.txt'
-    module_by_taxon_no_redundant.to_csv(OUT_path, sep = '\t', index = True)
+    module_by_taxon.to_csv(OUT_path, sep = '\t', index = True)
 
 
 def run_all_strains():
@@ -130,4 +130,4 @@ def run_all_strains():
         merge_maple(strain)
 
 #run_all_strains()
-#merge_maple_all_strains()
+merge_maple_all_strains()

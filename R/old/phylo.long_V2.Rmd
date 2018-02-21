@@ -18,20 +18,7 @@ getwd()
 setwd("~/GitHub/LTDE/phylo")
 ```
 
-### B. Load Packages 
-
-The `require()` function in `R` returns `TRUE` if the package was successfully loaded or `FALSE` if the package failed to load. 
-This `for` loop loads each package and installs the package when `require()` returns `FALSE`.
-
-```{r, results = 'hide', message = FALSE, warning = FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60)} 
-package.list <- c('ape', 'seqinr', 'phylobase', 'adephylo', 'geiger', 'picante', 'stats', 'RColorBrewer', 'caper', 'phylolm', 'pmc', 'ggplot2', 'tidyr', 'dplyr', 'phangorn', 'pander', 'phytools', 'psych') 
-for (package in package.list) {
-  if (!require(package, character.only=TRUE, quietly=TRUE)) {
-    install.packages(package)
-    library(package, character.only=TRUE)
-  }
-}
-```
+q
 
 ## 2) CREATE TRAIT DATABASE
 
