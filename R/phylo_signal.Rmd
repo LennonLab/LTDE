@@ -1,0 +1,158 @@
+---
+title: "Test LTDE phylogenetic signal"
+author: "William R. Shoemaker, Jordan Bird, Stuart E. Jones, and Jay T. Lennon"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+
+## Overview
+  
+
+  
+
+## 1) Set working directory and load packages
+```{r}
+# setup
+## Retrieve and Set Your Working Directory
+rm(list = ls())
+getwd()
+setwd("~/GitHub/LTDE/")
+#knitr::opts_knit$set(root.dir = '~/GitHub/LTDE/')
+
+
+library('pracma')
+library('ape')
+library('pmc')
+```
+
+
+##2) Load population data
+```{r, results='hide', warning=FALSE, message=FALSE}
+df <- read.table("data/weibull_results.csv", header = TRUE, sep = ",", row.names = 1)
+# rename mis-named reps
+df$rep[df$strain == "KBS0711W" & df$rep == "1"] <- 5
+df$rep[df$strain == "KBS0711W" & df$rep == "2"] <- 6
+df$rep[df$strain == "KBS0711W" & df$rep == "3"] <- 7
+df$rep[df$strain == "KBS0711W" & df$rep == "4"] <- 8
+# rename mis-named strain 
+df$strain[df$strain == "KBS0711W"] <- "KBS0711"
+```
+
+##3) Calculate Weibull survival function half-life and death rate
+
+Because no energy is entering our experimental system, it is fair to assume that the rate of death ($d$) is much higher than the rate of birth ($b$). That is, $d>>b$. Based off of this assumption, we chose to analyze the death rates of our experimental population using survival analysis. Survival analysis primarily focuses on estimating the probability that the time of death of a system is later than some specified time $t$. This probability is characterized by the survival function:
+
+$$S(t) = \mathrm{Pr}(T>t)$$
+
+where $T$ is random variable representing the time of death of the system, $t$ is some period of time, and $\mathrm{Pr}$ stands for probability. Because $S(t)$ is defined a probility, its value starts at $0$ and eventually reaches $1$, meaning that $S(t)$ can be defined as the complement of a probability density function ($F(t)$) of our choice:
+
+$$S(t) = \mathrm{Pr}(T>t) = 1 - \mathrm{Pr}(T\leq t) = 1 - F(t)$$
+
+Because our death curves display a non-linear decay on a log scale, we chose to use the Weibull distribution. The survival function of the Weibull distribution is:
+
+$$S(t) = e^{-(t/\beta)^{\alpha}}$$
+
+where $\alpha > 0$ is the shape parameter and $\beta > 0$ is the scale parameter. If $\alpha = 1$ then the failure rate of the system is constant and $S(t)$ reduces to an exponential distribution. However, a value of $\alpha <1$ indicates that the failure rate decreases over time, the opposite being true for $\alpha > 1$.
+
+Using this distribution we calculated the average length of time until a population goes extinct, often referred in the survival analysis literature as Mean Time To Failure ($\textrm{MTTF}$). For a given $S(t)$, $\textrm{MTTF}$ is just the area under the curve of the survival function
+
+$$\textrm{MTTF} = \int_{0}^{\infty} S(t)dt$$
+
+This function can be converted into a simpler form as follows. First, we add a term to the right hand side of the equation that is equal to zero
+
+$$\textrm{MTTF} = [-tS(t)]\mid_{0}^{\infty}  +  \int_{0}^{\infty} S(t)dt$$
+
+where the right hand side of the equation can now be interpreted as the integral of the derivative of the survival function multiplied by time
+
+$$\textrm{MTTF} =-\int_{0}^{\infty}t\,d[S(t)]$$
+
+Using our definition of the survival function, we can replace $S(t)$ with its complement
+
+
+$$\textrm{MTTF} =-\int_{0}^{\infty}t\,d[1-F(t)]$$
+
+$$ = \int_{0}^{\infty}t\,dF(t)$$
+
+since the cumulative distribution function is the integral of the probability density function, we get
+
+$$\textrm{MTTF} = \int_{0}^{\infty}t\,f(t)dt$$
+
+Which is just the expected value ($E[t]$) of the Weibull distribution
+
+$$\textrm{MTTF} = \beta\,\Gamma \left ( 1 + 1/\alpha \right )$$
+
+where $\Gamma(x)$ is the gamma function. 
+
+The average length of time before half the population dies ($t_{1/2}$) for the Weibull survival function is: $$\beta \ast  (-\mathrm{ln}(0.5))^{\alpha^{-1}}$$
+
+```{r, results='hide', warning=FALSE, message=FALSE}
+# get MTTF
+weibull_mean <- function(alpha, beta){
+  return(beta * gamma(1 + (1/alpha)))
+}
+df$weibull_mean <- weibull_mean(df$alpha, df$beta)
+# get half-life for Weibull survival function
+weibull_half_life <- function(alpha, beta){
+  return(beta *  ((-log(0.5)) ^ (1/alpha))  )
+}
+df$weibull_half_life <- weibull_half_life(df$alpha, df$beta)
+# setting alpha = 1, determne MTTF if death rate doesn't change with time
+df$exp_mean <-  df$beta
+# log base 10 transform the parameters
+df$weibull_mean_log10 <- log10(df$weibull_mean)
+df$exp_mean_log10 <- log10(df$exp_mean)
+```
+
+
+##4) Load phylogenetic data
+
+
+```{r}
+# Load ML tree
+ml.tree <- read.tree("phylo/tree/RAxML_bipartitionsBranchLabels.T20")
+
+# Define the outgroup
+outgroup <- match("Methanosarcina", ml.tree$tip.label)
+# Create a rooted tree {ape} using the outgroup
+ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
+# Keep rooted but drop outgroup branch 
+# Also drop other taxa lacking trait data
+#ml.rooted <- drop.tip(ml.rooted, c("Methanosarcina", "KBS0816", "KBS0704", "KBS0727B"))
+ml.rooted <- drop.tip(ml.rooted, c("Methanosarcina"))
+ml.rooted$tip.label['KBS0725B']<-"KBS0725"
+ml.rooted$tip.label['KBS0727B']<-"KBS0727"
+```
+
+##4) Test for phylogenetic signal
+
+```{r}
+#is.ultrametric(ml.rooted)
+#ml.rooted.um  <- chronos(nj.rooted)
+
+
+```
+
+
+
+
+
+
+
+
+##5) Perform linear and quadratic regression 
+
+do for death rate when alpha = 1 (exponential decay)
+
+
+
+##6) Merge trait data....
+
+
+
+
+
+

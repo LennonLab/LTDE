@@ -1,0 +1,121 @@
+---
+title: "Phylogenetic analysis of half-life and metabolic potential"
+author: "Jay T. Lennon and William Shoemaker"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+## 1) SETUP
+
+### A. Retrieve and Set Your Working Directory
+
+```{r, results = 'hide'}
+rm(list = ls())
+getwd()
+setwd("~/GitHub/LTDE")
+```
+
+
+### B. Load Packages 
+
+The `require()` function in `R` returns `TRUE` if the package was successfully loaded or `FALSE` if the package failed to load. 
+This `for` loop loads each package and installs the package when `require()` returns `FALSE`.
+
+```{r, results = 'hide', message = FALSE, warning = FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60)} 
+package.list <- c('ape', 'seqinr', 'phylobase', 'adephylo', 'geiger', 'picante', 'stats', 'RColorBrewer', 'caper', 'phylolm', 'pmc', 'ggplot2', 'tidyr', 'dplyr', 'phangorn', 'pander', 'phytools', 'psych', 'viridis') 
+for (package in package.list) {
+  if (!require(package, character.only=TRUE, quietly=TRUE)) {
+    install.packages(package)
+    library(package, character.only=TRUE)
+  }
+}
+```
+
+
+## 2) CREATE DISTANCE MATRIX AND PCOA
+
+```{r, results='hide', warning=FALSE, message=FALSE}
+
+metab <- read.table("data/module_by_taxon.txt", header = TRUE, sep = "\t", skip = 0)
+metab <- t(metab[,-1])
+metab.ds <- vegdist(metab, method = "bray", binary = TRUE)
+
+metab.pcoa <- cmdscale(metab.ds, eig = TRUE, k = 3) 
+
+explainvar1 <- round(metab.pcoa$eig[1] / sum(metab.pcoa$eig), 3) * 100
+explainvar2 <- round(metab.pcoa$eig[2] / sum(metab.pcoa$eig), 3) * 100
+explainvar3 <- round(metab.pcoa$eig[3] / sum(metab.pcoa$eig), 3) * 100
+sum.eig <- sum(explainvar1, explainvar2, explainvar3)
+
+# Define Plot Parameters
+par(mar = c(5, 5, 1, 2) + 0.1)
+
+# Initiate Plot
+plot(metab.pcoa$points[ ,1], metab.pcoa$points[ ,2], ylim = c(-0.2, 0.7),
+     xlab = paste("PCoA 1 (", explainvar1, "%)", sep = ""),
+     ylab = paste("PCoA 2 (", explainvar2, "%)", sep = ""),
+     pch = 16, cex = 2.0, type = "n", cex.lab = 1.5, cex.axis = 1.2, axes = FALSE)
+
+# Add Axes
+axis(side = 1, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
+axis(side = 2, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
+abline(h = 0, v = 0, lty = 3)
+box(lwd = 2)
+
+# Add Points & Labels
+points(metab.pcoa$points[ ,1], metab.pcoa$points[ ,2],
+       pch = 19, cex = 3, bg = "gray", col = "gray")
+text(metab.pcoa$points[ ,1], metab.pcoa$points[ ,2], 
+     labels = row.names(metab.pcoa$points))
+
+```
+
+
+## 3) CLEAN SURVIVORSHIP DATA
+
+
+```{r,  results='hide', warning=FALSE, message=FALSE}
+df <-  read.table("data/weibull_log_results.csv", header = TRUE, sep = ",", skip = 0)
+df$strain[df$strain == "KBS0711W"] <- "KBS0711"
+
+df['Half_life_log10'] <- log10(df$Half_life)
+
+df<-df[!(df$strain=="KBS0713"),]
+df<-df[!(df$strain=="KBS0727"),]
+df.mean <- aggregate(.~strain, data=df, mean)
+metab.pcoa.1 <-  metab.pcoa$points[ ,1]
+
+
+# Biplot of S and PD
+par(mar = c(5, 5, 4, 1) + 0.1)
+
+plot(metab.pcoa.1, df.mean$Half_life_log10, 
+     pch = 20, col = "red", las = 1,
+     xlab = "1st PCoA axis", ylab = "Half-life, log10", cex.main = 1)
+
+# Test of power-law relationship
+fit <- lm('df.mean$Half_life_log10 ~ metab.pcoa.1')
+abline(fit, col = "red", lw = 2)
+exponent <- round(coefficients(fit)[2], 2)
+legend("topleft", legend=paste("Scaling exponent = ", exponent, sep = ""), 
+       bty = "n", lw = 2, col = "red") 
+
+
+# Biplot of S and PD
+par(mar = c(5, 5, 4, 1) + 0.1)
+
+plot(metab.pcoa.1, df.mean$b, 
+     pch = 20, col = "red", las = 1,
+     xlab = "1st PCoA axis", ylab = "Weibull shape parameter, (alpha)", cex.main = 1)
+
+# Test of power-law relationship
+fit <- lm('df.mean$b ~ metab.pcoa.1')
+abline(fit, col = "red", lw = 2)
+exponent <- round(coefficients(fit)[2], 2)
+
+
+
+```

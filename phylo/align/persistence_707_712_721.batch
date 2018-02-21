@@ -1,5 +1,0 @@
-#align.seqs(fasta=persistence_707_712_721.fasta, reference=silva.v4.fasta, flip=T, processors=4)
-#align.seqs(fasta=persistence.fasta, reference=silva.bacteria.rdp.tax, flip=T, processors=4)
-summary.seqs(fasta=persistence_707_712_721.align)
-screen.seqs(fasta=persistence_707_712_721.align, minlength=200)
-filter.seqs(fasta=persistence_707_712_721.good.align, vertical=T, trump=.)
