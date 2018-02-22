@@ -20,19 +20,21 @@ geometry: margin=2.54cm
 ## Retrieve and Set Your Working Directory
 rm(list = ls())
 getwd()
-setwd("~/GitHub/LTDE/")
-#knitr::opts_knit$set(root.dir = '~/GitHub/LTDE/')
+#setwd("~/GitHub/LTDE/")
+knitr::opts_knit$set(root.dir = '~/GitHub/LTDE/')
 
 
 library('pracma')
 library('ape')
 library('pmc')
+library('lmtest')
+library('lme4') 
 ```
 
 
 ##2) Load population data
 ```{r, results='hide', warning=FALSE, message=FALSE}
-df <- read.table("data/weibull_results.csv", header = TRUE, sep = ",", row.names = 1)
+df <- read.table("data/demography/weibull_results.csv", header = TRUE, sep = ",", row.names = 1)
 # rename mis-named reps
 df$rep[df$strain == "KBS0711W" & df$rep == "1"] <- 5
 df$rep[df$strain == "KBS0711W" & df$rep == "2"] <- 6
@@ -113,7 +115,7 @@ df$exp_mean_log10 <- log10(df$exp_mean)
 
 ```{r}
 # Load ML tree
-ml.tree <- read.tree("phylo/tree/RAxML_bipartitionsBranchLabels.T20")
+ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.T20")
 
 # Define the outgroup
 outgroup <- match("Methanosarcina", ml.tree$tip.label)
@@ -148,11 +150,81 @@ ml.rooted$tip.label['KBS0727B']<-"KBS0727"
 do for death rate when alpha = 1 (exponential decay)
 
 
+```{r,  warning=FALSE, message=FALSE}
+# try with no bacillus
+#df.noB <- df[!df$strain=="KBS0812",]
+df.noB <- df
+linear.re.inter <- lmer(weibull_mean_log10 ~ exp_mean_log10 + (1 | strain), data=df.noB)
+quad.re.inter <- lmer(weibull_mean_log10 ~ exp_mean_log10 + I(exp_mean_log10^2) + (1 | strain), data=df.noB)
+# significant lrt, keep random slopes
+lrtest(quad.re.inter, linear.re.inter)
+a <- fixef(quad.re.inter)
+linear.re.inter.ci <- confint(linear.re.inter)
+quad.re.inter.ci <-  confint(quad.re.inter)
+
+# make plot
+x_y <- df.noB[c("strain","exp_mean_log10","weibull_mean_log10")]
+x_y.mean <- aggregate(.~strain, data=x_y, mean)
+colnames(x_y.mean)[colnames(x_y.mean)=="exp_mean_log10"] <- "exp_mean_log10_mean"
+colnames(x_y.mean)[colnames(x_y.mean)=="weibull_mean_log10"] <- "weibull_mean_log10_mean"
+x_y.sd <- aggregate(.~strain, data=x_y, sd)
+colnames(x_y.sd)[colnames(x_y.sd)=="exp_mean_log10"] <- "exp_mean_log10_sd"
+colnames(x_y.sd)[colnames(x_y.sd)=="weibull_mean_log10"] <- "weibull_mean_log10_sd"
+x_y.len <- aggregate(.~strain, data=x_y, length)
+colnames(x_y.len)[colnames(x_y.len)=="exp_mean_log10"] <- "n"
+x_y.len<-x_y.len[ , !(names(x_y.len) %in% c('weibull_mean_log10'))]
+
+merge.1 <- merge(x_y.mean, x_y.sd, by = "strain")
+merge.final <- merge(merge.1, x_y.len, by = "strain")
+merge.final$exp_error <- qt(0.975,df=merge.final$n-1) *  merge.final$exp_mean_log10_sd/sqrt(merge.final$n)
+merge.final$weib_error <- qt(0.975,df=merge.final$n-1) * merge.final$weibull_mean_log10_sd/sqrt(merge.final$n)
+merge.final$exp_CI.L <- merge.final$exp_mean_log10_mean - merge.final$exp_error
+merge.final$exp_CI.U <- merge.final$exp_mean_log10_mean + merge.final$exp_error
+merge.final$weib_CI.L <- merge.final$weibull_mean_log10_mean - merge.final$weib_error
+merge.final$weib_CI.U <- merge.final$weibull_mean_log10_mean + merge.final$weib_error
+
+par(mar = c(4, 4, 1, 1))
+plot(merge.final$exp_mean_log10_mean, merge.final$weibull_mean_log10_mean, ylab = "", xlab = "")
+arrows(x0 = merge.final$exp_mean_log10_mean, y0 = merge.final$weibull_mean_log10_mean, y1 = merge.final$weib_CI.L, angle = 90, length = 0.1, lwd = 1)
+arrows(x0 = merge.final$exp_mean_log10_mean, y0 = merge.final$weibull_mean_log10_mean, y1 = merge.final$weib_CI.U, angle = 90, length = 0.1, lwd = 1)
+
+arrows(x0 = merge.final$exp_mean_log10_mean, x1 = merge.final$exp_CI.L, y0 = merge.final$weibull_mean_log10_mean, angle = 90, length = 0.1, lwd = 1)
+arrows(x0 = merge.final$exp_mean_log10_mean, x1 = merge.final$exp_CI.U, y0 = merge.final$weibull_mean_log10_mean, angle = 90, length = 0.1, lwd = 1)
+
+abline(0, 1, lw = 2) 
+#abline(fixef(linear.re.inter),col="red")
+# plot linear and quadratic fits +/- 95% CIs
+minMax <- range(merge.final$exp_mean_log10_mean)
+xVals <- seq(minMax[1], minMax[2], len = 100) 
+yVals.lin <- a['(Intercept)'] + xVals * a['exp_mean_log10']
+lines(xVals, yVals.lin, col = 'red', lw = 2)
+lines(xVals, yVals.lin-linear.re.inter.ci['exp_mean_log10','2.5 %'], col = 'red', lty = 'dashed')
+lines(xVals, yVals.lin+linear.re.inter.ci['exp_mean_log10','97.5 %'], col = 'red', lty = 'dashed')
+
+yVals.quad <- a['(Intercept)'] + xVals * a['exp_mean_log10'] + (xVals^2) * a['I(exp_mean_log10^2)']
+lines(xVals, yVals.quad, col = 'blue', lw = 2)
+lines(xVals, yVals.quad-quad.re.inter.ci['exp_mean_log10','2.5 %'], col = 'blue', lty = 'dashed')
+lines(xVals, yVals.quad+quad.re.inter.ci['exp_mean_log10','97.5 %'], col = 'blue', lty = 'dashed')
+
+mtext(expression('Mean time to extinction, log 10, alpha = 1'), side = 1,
+      outer = FALSE, cex = 1, line = 2.6, adj = 0.7)
+
+mtext(expression('Mean time to extinction, log 10, alpha != 1'), side = 2,
+      outer = FALSE, cex = 1, line = 2, adj = 0.5)
+
+
+
+```
+
 
 ##6) Merge trait data....
 
 
 
+```{r}
+# calculate average doubling time (i.e., average birth rate)
+# ln(2) / umax
 
+```
 
 
