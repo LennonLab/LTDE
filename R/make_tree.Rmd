@@ -79,6 +79,7 @@ p.DNAbin <- as.DNAbin(read.aln)
 #window.M <- p.DNAbin.M[, 1:200] 
 # Command to Visusalize Sequence Alignment {ape}
 image.DNAbin(p.DNAbin, cex.lab = 0.50) 
+
 ```
 
 
@@ -88,8 +89,8 @@ We then build the filtered FASTA formatted alignment file using RAxML
 
 ```{bash, eval = FALSE}
 raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o Methanosarcina -# autoMRE \
-    -s /Users/WRShoemaker/GitHub/LTDE/phylo/tree/persistence_707_712_721.good.filter.fasta \
-    -n T20 -w /Users/WRShoemaker/GitHub/LTDE/phylo/tree
+    -s ~/GitHub/LTDE/data/align/persistence_707_712_721.good.filter.fasta \
+    -n T20 -w ~/GitHub/LTDE/data/tree
 
 # -T = number of threads
 # -f = specifies bootstrapping algorithm with ML generating tree at same time
@@ -117,10 +118,10 @@ ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
 
 # Load phylo taxonomy data
 tax <- read.table("data/traits/persistence.phylo.txt", sep = "\t", header = TRUE)
-rownames(tax) <- tax$Code
-tax.2 <- tax[ml.tree$tip.label, ]
-tax.name <- paste(tax.2$Code, tax.2$Genus)
-tax.name[15] <- "DSM2834 Methanosarcina"
+#rownames(tax) <- tax$Code
+#tax.2 <- tax[ml.tree$tip.label, ]
+#tax.name <- paste(tax.2$Code, tax.2$Genus)
+#tax.name[15] <- "DSM2834 Methanosarcina"
 
 # Plot the Rooted Tree{ape}
 par(mar = c(1,1,2,1) + 0.1)
@@ -128,12 +129,12 @@ plot.phylo(ml.rooted, main = "RAXML Tree",
            "phylogram", use.edge.length = FALSE, direction = "right",
            cex = 0.6, label.offset = 1, show.tip.label = FALSE, x.lim = 30)
            
-tiplabels(tax.name, adj = c(0,0.5), cex = 0.5, frame = "none",
+tiplabels(ml.rooted$tip.label, adj = c(0,0.5), cex = 0.5, frame = "none",
           pch = NULL, thermo = NULL, pie = NULL, piecol = NULL,
           col = NULL, bg = NULL)
 
 nodelabels(ml.rooted$node.label, font = 2, bg = "white", frame = "r", cex = 0.5)
-add.scale.bar(cex = 0.7)
+add.scale.bar(0.4, 0.4, cex = 0.7)
 ```
 
 
