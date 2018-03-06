@@ -308,7 +308,7 @@ traits <- read.table("data/traits/persistence.phylo.txt", sep = "\t", header = T
 rownames(traits) <- traits$Code
 traits <- traits[re.ml.rooted.um$tip.label, ]
 # doubling time = log(2) / umax
-# what units are umax in?
+# umax are in units h^-1
 traits$T_birth <- log(2) / traits$umax
 
 # calculate average doubling time (i.e., average birth rate)
