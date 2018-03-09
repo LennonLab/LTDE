@@ -1,0 +1,1 @@
+type	number	misc	seq_id	start	finish	zero1	zero2	left_inside_cov	left_outside_cov	right_inside_cov	right_outside_cov	gene_list	gene_name	gene_position	gene_product	locus_tag
