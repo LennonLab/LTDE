@@ -1,0 +1,1 @@
+type	number	misc	seq_id	start	finish
