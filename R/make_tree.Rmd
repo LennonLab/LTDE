@@ -16,7 +16,7 @@ geometry: margin=2.54cm
 ```{r, results = 'hide'}
 rm(list = ls())
 getwd()
-#setwd("~/GitHub/LTDE/")
+setwd("~/GitHub/LTDE/")
 knitr::opts_knit$set(root.dir = '~/GitHub/LTDE/')
 ```
 
@@ -124,6 +124,17 @@ tax <- read.table("data/traits/persistence.phylo.txt", sep = "\t", header = TRUE
 #tax.name[15] <- "DSM2834 Methanosarcina"
 
 # Plot the Rooted Tree{ape}
+
+par(mar = c(0.1,0.1,0.2,0.1) + 0.1)
+plot.phylo(ml.rooted, main = "RAXML Tree", 
+           "phylogram", use.edge.length = TRUE, direction = "right",
+           cex = 0.6, label.offset = 0.1, show.tip.label = FALSE, x.lim = 3)
+tiplabels(ml.rooted$tip.label, adj = c(0,0.5), cex = 0.5, frame = "none",
+          pch = NULL, thermo = NULL, pie = NULL, piecol = NULL,
+          col = NULL, bg = NULL)
+nodelabels(ml.rooted$node.label, font = 2, bg = "white", frame = "r", cex = 0.5)
+
+
 par(mar = c(1,1,2,1) + 0.1)
 plot.phylo(ml.rooted, main = "RAXML Tree", 
            "phylogram", use.edge.length = FALSE, direction = "right",

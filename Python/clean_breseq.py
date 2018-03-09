@@ -1,8 +1,24 @@
 from __future__ import division
 import os, re
+import numpy as np
 import pandas as pd
 
 mydir = os.path.expanduser("~/GitHub/LTDE/")
+
+
+
+merged_on = ['seq_id', 'position', 'gene_list', \
+    'gene_name', 'gene_position', 'gene_product', \
+    'locus_tag', 'gene_strand', 'transl_table', 'reference']
+
+to_rename = ['mutation', 'codon_ref_seq', 'codon_new_seq', 'codon_number', \
+    'codon_position', 'aa_position', 'aa_ref_seq', 'aa_new_seq', \
+    'frequency', 'total_cov', 'number', 'file_number', \
+    'prediction', 'consensus_score', 'polymorphism_score', \
+    'fisher_strand_p_value', 'ks_quality_p_value', 'bias_e_value', \
+    'bias_p_value', 'reject', 'snp_type', 'type', \
+    'major_base', 'minor_base', 'sample']
+
 
 class cleanBreseq_annotated:
 
@@ -290,26 +306,91 @@ def get_variant_annotated(variant_type, strain):
             IN_merged.to_csv(out_path + '/' + variant_type +'.txt', sep = '\t', index = False)
 
 
+def merge_variant_annotated(strain, variant_type):
+    count = 0
+    rootdir = mydir + 'data/breseq/breseq_essentials_split_clean/'
+    for folder in os.listdir(rootdir):
+        if strain not in folder:
+            continue
+        path = rootdir  + folder + '/' + variant_type +'.txt'
+        IN = pd.read_csv(path, sep = '\t', header = 'infer')
+        renamed = []
+        for x in to_rename:
+            x_renamed = x + '_' + folder
+            IN = IN.rename(columns = {x : x_renamed})
+            renamed.append(x_renamed)
 
-def run_everything(variant_type = 'INS'):
+        if count == 0:
+            merged = IN
+            frequency = 'frequency_' + folder
+            merged_freq = merged[frequency]
+            merged.drop(labels=[frequency], axis=1,inplace = True)
+            merged.insert(len(merged.columns)-1, frequency, merged_freq)
+        else:
+            merged_keep = renamed + merged_on
+            merged = pd.merge(merged, IN[merged_keep], \
+                    how='outer', on = merged_on)
+        count += 1
+        test = merged.columns.tolist()
+        for i, column in enumerate(merged_on):
+            test.remove(column)
+            test.insert(i, column)
+        merged = merged.reindex_axis(test, axis=1)
+    sample_freqs = [x for x in merged.columns if 'frequency_' in x]
+    merged_freqs = merged[sample_freqs]
+    samples = merged_freqs.shape[1]
+    NoDups = merged_freqs[merged_freqs.apply(lambda x:  x.isnull().sum() == samples - 1, 1)]
+    NoDups_index = NoDups.index.values
+    merged_unique = merged.ix[NoDups_index]
+    if merged_unique.shape[0] == 0:
+        return
+
+    OUT_path = mydir + 'data/breseq/breseq_essentials_split_clean_split/' + strain
+    if not os.path.exists(OUT_path):
+        os.makedirs(OUT_path)
+
+    reps = [x.split('_')[1] for x in merged_unique.columns if 'frequency_' in x]
+    for rep in reps:
+        to_rename_rep = [x + '_' + rep for x in to_rename]
+        to_slice = merged_on + to_rename_rep
+        merged_unique_rep = merged_unique[to_slice]
+        set_p =  list(set(merged_unique_rep['bias_p_value_' + rep].values))
+        if (len(set_p)) == 1 and (np.isnan(set_p[0]) == True):
+            continue
+
+        merged_unique_rep = merged_unique_rep[np.isfinite(merged_unique_rep['bias_p_value_' + rep])]
+        OUT_path_rep = OUT_path + '/' + rep + '_' + variant_type +'.txt'
+        merged_unique_rep.to_csv(OUT_path_rep, sep = '\t', index = False)
+
+
+    #OUT_name = OUT_path + '/' + variant_type + '.txt'
+    #merged_unique.to_csv(OUT_name, sep = '\t', index = False)
+
+
+def run_everything():
+    strains = []
+    variants = ['SNP','INS','DEL']
     rootdir = mydir + 'data/breseq/breseq_essentials'
     for filename in os.listdir(rootdir):
-        annotated_path = rootdir + '/' + filename + '/annotated.gd'
+        if filename == '.DS_Store':
+            continue
+        #annotated_path = rootdir + '/' + filename + '/annotated.gd'
         #cleanBreseq_annotated(annotated_path).split_annotated()
-        print(filename)
-        get_variant_annotated(variant_type, strain = filename)
-    #for subdir, dirs, files in os.walk(rootdir):
-    #    #annotated_path = subdir + '/annotated.gd'
-    #    print(dirs)
-    #    #cleanBreseq_annotated(annotated_path).split_annotated()
-    #        #print(os.path.join(subdir, f))
-    #        annotated_path =
-    #        cleanBreseq_annotated(annotated_path).split_annotated()
-    #
-    #        if os.path.exists(evidence_path) == True:
-    #            cleanBreseq_annotated(annotated_path).split_annotated()
-    #    if get_variants == True:
-    #        get_variant_annotated(day, strain, treatments, reps, variant_type)
+        #for variant in variants:
+        #    get_variant_annotated(variant, strain = filename)
+        strains.append(filename.split('-')[0])
+
+    strains = list(set(strains))
+    for strain in strains:
+        print(strain)
+        for variant in variants:
+            merge_variant_annotated(strain, variant)
+    # split the merged file into reps
+    #if unique_mutations == True:
+    #    #print "unique_mutations"
+    #    get_unique_mutations(day, strain, variant_type)
+
+
 
 
 run_everything()

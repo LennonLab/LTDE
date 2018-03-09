@@ -269,7 +269,7 @@ re.ml.rooted.um.prunned <- drop.tip(re.ml.rooted.um,
 #                   re.ml.rooted.um.prunned, model = 'lambda', boot = 0)
 ```
 
-
+## 6) edge length 
 
 
 ##6) Determine if metabolic pathways explain death rate
