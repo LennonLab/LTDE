@@ -30,7 +30,10 @@ This `for` loop loads each package and installs the package when `require()` ret
 #package.list <- c('ape', 'seqinr', 'phylobase', 'adephylo', 'geiger', 'picante', 'stats', 'RColorBrewer', #'caper', 'phylolm', 'pmc', 'ggplot2', 'tidyr', 'dplyr', 'phangorn', 'pander', 'phytools', 'psych') 
 library('ape')
 library('seqinr')
-
+#library('phytools')
+#source("https://bioconductor.org/biocLite.R")
+#biocLite("ggtree")
+library('ggtree')
 ```
 
 
@@ -73,12 +76,13 @@ filter.seqs(fasta=persistence_707_712_721.good.align, vertical=T, trump=.)
 
 
 ```{r, warning=FALSE, message=FALSE}
-read.aln <- read.alignment(file = "data/align/persistence_707_712_721.good.filter.fasta", format = "fasta") 
+#read.aln <- read.alignment(file = "data/align/persistence_707_712_721.good.filter.fasta", format = "fasta") 
+read.aln <- read.alignment(file = "data/align/persistence_prochlorococcus_genomes.good.filter.fasta", format = "fasta") 
 p.DNAbin <- as.DNAbin(read.aln) 
 # Identify Base Pair Region of 16S rRNA Gene to Visuzlize (adjust range)
 #window.M <- p.DNAbin.M[, 1:200] 
 # Command to Visusalize Sequence Alignment {ape}
-image.DNAbin(p.DNAbin, cex.lab = 0.50) 
+image.DNAbin(p.DNAbin, cex.lab = 0.4) 
 
 ```
 
@@ -107,17 +111,24 @@ raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o Methanosarcina -# a
 ## 5) Visualize the tree
 
 ```{r, warning=FALSE, message=FALSE}
+
+ml.tree <- read.raxml("data/tree/RAxML_bipartitionsBranchLabels.OutProGen")
+ggtree(ml.tree, branch.length='none') + geom_tiplab(size = 2.5) + geom_label2(aes(label = bootstrap), size=2.5, label.size = 0.1, label.padding= unit(0.1, "lines")) + geom_rootpoint() + ggplot2::xlim(0, 10)
+
+
+
+
 # Read tree
-ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.T20")
+#ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.OutProGen")
 
 # Identify Outgroup Sequence
-outgroup <- match("Methanosarcina", ml.tree$tip.label)
+#outgroup <- match("NC_005042.1_353331-354795", ml.tree$tip.label)
 
 # Root the Tree {ape}
-ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
+#ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
 
 # Load phylo taxonomy data
-tax <- read.table("data/traits/persistence.phylo.txt", sep = "\t", header = TRUE)
+#tax <- read.table("data/traits/persistence.phylo.txt", sep = "\t", header = TRUE)
 #rownames(tax) <- tax$Code
 #tax.2 <- tax[ml.tree$tip.label, ]
 #tax.name <- paste(tax.2$Code, tax.2$Genus)
@@ -125,14 +136,16 @@ tax <- read.table("data/traits/persistence.phylo.txt", sep = "\t", header = TRUE
 
 # Plot the Rooted Tree{ape}
 
-par(mar = c(0.1,0.1,0.2,0.1) + 0.1)
+par(mar = c(1,1,1,1) + 0.1)
 plot.phylo(ml.rooted, main = "RAXML Tree", 
            "phylogram", use.edge.length = TRUE, direction = "right",
            cex = 0.6, label.offset = 0.1, show.tip.label = FALSE, x.lim = 3)
 tiplabels(ml.rooted$tip.label, adj = c(0,0.5), cex = 0.5, frame = "none",
           pch = NULL, thermo = NULL, pie = NULL, piecol = NULL,
           col = NULL, bg = NULL)
-nodelabels(ml.rooted$node.label, font = 2, bg = "white", frame = "r", cex = 0.5)
+nodelabels()
+
+#nodelabels(ml.rooted$node.label, font = 2, bg = "white", frame = "r", cex = 0.5)
 
 
 par(mar = c(1,1,2,1) + 0.1)
