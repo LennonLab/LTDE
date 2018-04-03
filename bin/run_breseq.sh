@@ -1,8 +1,8 @@
 #!/bin/bash
 
-OUT_breseq="/N/dc2/projects/muri2/Task2/LTDE/data/breseq_output/"
+OUT_breseq="/N/dc2/projects/muri2/Task2/LTDE/data/breseq_output_v32/"
 mkdir -p $OUT_breseq
-breseq_bash="/N/dc2/projects/muri2/Task2/LTDE/bin/breseq/"
+breseq_bash="/N/dc2/projects/muri2/Task2/LTDE/bin/breseq_v32/"
 mkdir -p $breseq_bash
 
 for folder in "/N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/"*

@@ -3,7 +3,6 @@ getwd()
 setwd("~/GitHub/LTDE/")
 
 library('bbmle')
-
 ## Load Data
 obs <- read.csv("data/demography/longtermdormancy_20170620_nocomments.csv", 
                 header = TRUE, stringsAsFactors = FALSE)
@@ -13,7 +12,6 @@ strains <- sort(unique(obs$Strain))
 strains <- strains[table(obs$Strain)>10]
 obs <- obs[obs$Strain%in%strains,]
 summ <- matrix(NA,length(strains)*max(obs$Rep),7)
-
 pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 
@@ -86,11 +84,11 @@ for(i in 1:length(strains)){
       #summ[counter,14]=CIs[4,1]
       #summ[counter,15]=CIs[4,2]
       summ[counter,7]=length(repObs$time)
-      
 
       ### *** Comment/Uncomment following code to make pdf figs*** ###
       title=paste(strains[i],"  rep ",reps[j])
-      plot(repObs$time,repObs$prop,main=title,ylim=c(min(repObs$prop),0))
+      plot(repObs$time,repObs$prop,main=title,ylim=c(min(repObs$prop),0), 
+           xlab = 'Time (days)', ylab = 'Proportion surviving, log' )
       predTime=seq(0,max(repObs$time))
       print(strains[i])
       print(reps[j])
@@ -108,5 +106,4 @@ dev.off()
 summ=summ[!is.na(summ[,1]),]
 #colnames(summ)=c('strain','rep','a','b','c','z','AIC', 'a.CI.2.5', 'a.CI.97.5', 'b.CI.2.5', 'b.CI.97.5', 'c.CI.2.5', 'c.CI.97.5', 'z.CI.2.5', 'z.CI.97.5')
 colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs')
-
 write.csv(summ,"data/demography/weibull_results.csv")
