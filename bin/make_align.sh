@@ -5,9 +5,7 @@
 #PBS -m abe
 #PBS -j oe
 
-
 module load mothur
-
 
 cd /N/dc2/projects/Lennon_Sequences/LTDE_Tree
 
@@ -15,7 +13,5 @@ cd /N/dc2/projects/Lennon_Sequences/LTDE_Tree
 #wget https://www.mothur.org/w/images/7/71/Silva.seed_v132.tgz
 #tar -xzvf Silva.seed_v132.tgz
 #mv Trainset16_022016.rdp.tgz silva.v4.fasta
-
-
 
 mothur make_align.batch
