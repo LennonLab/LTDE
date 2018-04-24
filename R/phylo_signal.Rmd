@@ -20,18 +20,20 @@ geometry: margin=2.54cm
 ## Retrieve and Set Your Working Directory
 rm(list = ls())
 getwd()
-#setwd("~/GitHub/LTDE/")
+setwd("~/GitHub/LTDE/")
 knitr::opts_knit$set(root.dir = '~/GitHub/LTDE/')
 
+library('lme4') 
 library('pracma')
 library('ape')
 library('phylolm')
 library('phytools')
-library('lmtest')
-library('lme4') 
+#library('lmtest')
+library('lmerTest')
 require("png")
 require("grid")
 require("vegan")
+library('adephylo')
 ```
 
 
@@ -125,8 +127,13 @@ do for death rate when alpha = 1 (exponential decay)
 
 ```{r,  warning=FALSE, message=FALSE}
 # try with no bacillus
-#df.noB <- df[!df$strain=="KBS0812",]
-df.noB <- df
+df.noB <- df[!df$strain=="KBS0812",]
+#df.noB <- df
+# remove missing taxa that are being sequenced
+#df <- df[!(df$strain=="KBS0710") & !(df$strain=="KBS0721"),]
+#df.noB <- df.noB[!(df.noB$strain=="KBS0710") & !(df.noB$strain=="KBS0721"),]
+
+#df.noB <- df
 linear.re.inter <- lmer(weibull_mean_log10 ~ exp_mean_log10 + (1 | strain), data=df.noB)
 quad.re.inter <- lmer(weibull_mean_log10 ~ exp_mean_log10 
                       + I(exp_mean_log10^2) + (1 | strain), data=df.noB)
@@ -208,10 +215,7 @@ graphics.off()
 # Show Plot
 img <- readPNG(paste(c("figs/exp_weib_T_d.png"), collapse = ''))
 grid.raster(img)
-
 ```
-
-
 
 
 
@@ -220,23 +224,118 @@ grid.raster(img)
 
 ```{r}
 # Load ML tree
-ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.T20")
+ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde_seqs")
 # Define the outgroup
-outgroup <- match("Methanosarcina", ml.tree$tip.label)
+outgroup <- match("NC_005042.1_353331-354795", ml.tree$tip.label)
 # Create a rooted tree {ape} using the outgroup
 ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
+
+
+#ml.rooted.rtt[!rownames(ml.rooted.rtt)%in%"NC_005042.1_353331-354795",]
+
 # Plot the Rooted Tree{ape}
 par(mar = c(1,1,2,1) + 0.1)
 plot.phylo(ml.rooted, main = "raxml", 
-           "phylogram", use.edge.length = FALSE, direction = "right",
+           "phylogram", use.edge.length = F, direction = "right",
            cex = 0.6, label.offset = 1, show.tip.label = FALSE, x.lim = 30)
            
 tiplabels(ml.rooted$tip.label, adj = c(0,0.5), cex = 0.5, frame = "none",
           pch = NULL, thermo = NULL, pie = NULL, piecol = NULL,
           col = NULL, bg = NULL)
 
-nodelabels(ml.rooted$node.label, font = 2, bg = "white", frame = "r", cex = 0.5)
 add.scale.bar(1, 0.4, cex = 0.7)
+
+par(mar = c(1,1,1,1) + 0.1)
+plot.phylo(ml.rooted, main = "RAXML Tree", 
+           "phylogram", use.edge.length = TRUE, direction = "right",
+           cex = 0.6, label.offset = 0.1, show.tip.label = FALSE, x.lim = 0.6)
+tiplabels(ml.rooted$tip.label, adj = c(0,0.5), cex = 0.5, frame = "none",
+          pch = NULL, thermo = NULL, pie = NULL, piecol = NULL,
+          col = NULL, bg = NULL)
+
+```
+
+
+
+Generation time effect
+```{r}
+# root-to-tip distance
+ml.rooted.rtt <- as.data.frame(distRoot(ml.tree, method = 'patristic'))
+colnames(ml.rooted.rtt)[1] <- 'root_to_tip'
+ml.rooted.rtt$strain <- rownames(ml.rooted.rtt)
+
+# plot with bacillus
+df.rtt.B <- merge(df, ml.rooted.rtt, by="strain")
+x_y.rtt.B <- df.rtt.B[c("strain","weibull_mean_log10", "root_to_tip")]
+x_y.rtt.B.mean <- aggregate(.~strain, data=x_y.rtt.B, mean)
+
+png(filename = paste(c("figs/weib_rtt.png"), collapse = ''),
+    width = 1200, height = 1200, res = 96*2)
+par(mar = c(4, 4, 1, 1))
+plot(x_y.rtt.B.mean$root_to_tip, x_y.rtt.B.mean$weibull_mean_log10, ylab = "", xlab = "")
+mtext(expression('Branch length sum (root-to-tip distance)'), side = 1,
+      outer = FALSE, cex = 1, line = 2.6, adj = 0.7)
+mtext(expression('Average time until death [days], log10'), side = 2,
+      outer = FALSE, cex = 1, line = 2, adj = 0.5)
+# Close Plot Device
+dev.off()
+graphics.off()
+# Show Plot
+img <- readPNG(paste(c("figs/weib_rtt.png"), collapse = ''))
+grid.raster(img)
+
+
+
+
+# no bacillus
+df.noB.rtt <- merge(df.noB, ml.rooted.rtt, by="strain")
+x_y.rtt <- df.noB.rtt[c("strain","weibull_mean_log10", "root_to_tip")]
+weib.rtt.lmer <- lmer(weibull_mean_log10 ~ root_to_tip + (1 | strain), data=x_y.rtt)
+# significant lrt, keep random slopes
+weib.rtt.lmer.ci <- confint(weib.rtt.lmer)
+a.rtt <- fixef(weib.rtt.lmer)
+# make plot
+x_y.rtt.mean <- aggregate(.~strain, data=x_y.rtt, mean)
+colnames(x_y.rtt.mean)[colnames(x_y.rtt.mean)=="root_to_tip"] <- "root_to_tip_mean"
+colnames(x_y.rtt.mean)[colnames(x_y.rtt.mean)=="weibull_mean_log10"] <- "weibull_mean_log10_mean"
+x_y.rtt.sd <- aggregate(.~strain, data=x_y.rtt, sd)
+colnames(x_y.rtt.sd)[colnames(x_y.rtt.sd)=="weibull_mean_log10"] <- "weibull_mean_log10_sd"
+x_y.rtt.sd <- x_y.rtt.sd[c('strain', 'weibull_mean_log10_sd')]
+x_y.rtt.len <- aggregate(.~strain, data=x_y.rtt, length)
+colnames(x_y.rtt.len)[colnames(x_y.rtt.len)=="root_to_tip"] <- "n"
+x_y.rtt.len<-x_y.rtt.len[ , !(names(x_y.rtt.len) %in% c('weibull_mean_log10'))]
+
+merge.rtt.1 <- merge(x_y.rtt.mean, x_y.rtt.sd, by = "strain")
+merge.rtt.final <- merge(merge.rtt.1, x_y.rtt.len, by = "strain")
+merge.rtt.final$weib_error <- qt(0.975,df=merge.rtt.final$n-1) *
+  merge.rtt.final$weibull_mean_log10_sd/sqrt(merge.rtt.final$n)
+merge.rtt.final$weib_CI.L <- merge.rtt.final$weibull_mean_log10_mean - merge.rtt.final$weib_error
+merge.rtt.final$weib_CI.U <- merge.rtt.final$weibull_mean_log10_mean + merge.rtt.final$weib_error
+
+png(filename = paste(c("figs/weib_rtt_noB.png"), collapse = ''),
+    width = 1200, height = 1200, res = 96*2)
+par(mar = c(4, 4, 1, 1))
+plot(merge.rtt.final$root_to_tip_mean, merge.rtt.final$weibull_mean_log10_mean, ylab = "", xlab = "")
+# plot linear and quadratic fits +/- 95% CIs
+minMax <- range(merge.rtt.final$root_to_tip_mean)
+xVals <- seq(minMax[1], minMax[2], len = 100) 
+yVals.lin <- a.rtt['(Intercept)'] + xVals * a.rtt['root_to_tip']
+lines(xVals, yVals.lin, col = 'black', lw = 2)
+#lines(xVals, yVals.lin-weib.rtt.lmer.ci['root_to_tip','2.5 %'], 
+#      col = 'black', lty = 'dashed')
+#lines(xVals, yVals.lin+weib.rtt.lmer.ci['root_to_tip','97.5 %'], 
+#      col = 'black', lty = 'dashed')
+
+mtext(expression('Branch length sum (root-to-tip distance)'), side = 1,
+      outer = FALSE, cex = 1, line = 2.6, adj = 0.7)
+mtext(expression('Average time until death [days], log10'), side = 2,
+      outer = FALSE, cex = 1, line = 2, adj = 0.5)
+# Close Plot Device
+dev.off()
+graphics.off()
+# Show Plot
+img <- readPNG(paste(c("figs/weib_rtt_noB.png"), collapse = ''))
+grid.raster(img)
 ```
 
 
@@ -244,7 +343,7 @@ add.scale.bar(1, 0.4, cex = 0.7)
 
 ```{r}
 # Keep rooted but drop outgroup branch
-ml.rooted <- drop.tip(ml.rooted, c("Methanosarcina"))
+ml.rooted <- drop.tip(ml.rooted, c("NC_005042.1_353331-354795"))
 is.ultrametric(ml.rooted)
 ml.rooted.um  <- chronos(ml.rooted)
 is.ultrametric(ml.rooted.um)
@@ -254,38 +353,37 @@ write.tree(ml.rooted.um, file = "data/tree/test.txt")
 re.ml.rooted.um <- read.tree("data/tree/test.txt")
 
 
-rownames(merge.final) <- merge.final$strain
+rownames(merge.rtt.final) <- merge.rtt.final$strain
 #merge.final[,c("weibull_mean_log10_mean")]
 #weib <- as.matrix(merge.final$weibull_mean_log10_mean)
 #rownames(weib) <-  merge.final$strain
 
 re.ml.rooted.um.prunned <- drop.tip(re.ml.rooted.um, 
-                                    re.ml.rooted.um$tip.label[na.omit(match(c('KBS0816', 'KBS0704'),
+                                    re.ml.rooted.um$tip.label[na.omit(match(c('KBS0812'),
                                     re.ml.rooted.um$tip.label))])
-
-
+# df.noB
 # Run a phylogeny-corrected regression with no bootstrap replicates
-#fit.phy <- phylolm(weibull_mean_log10_mean ~ exp_mean_log10_mean, data = merge.final, 
-#                   re.ml.rooted.um.prunned, model = 'lambda', boot = 0)
+fit.phy <- phylolm(weibull_mean_log10_mean ~ root_to_tip_mean, data = merge.rtt.final, 
+                   re.ml.rooted.um.prunned, model = 'lambda', boot = 0)
 ```
-
-## 6) edge length 
 
 
 ##6) Determine if metabolic pathways explain death rate
 
 
 ```{r}
-#df.met <- read.table("data/metab_paths/module_by_taxon.txt", 
-#                 header = TRUE, sep = "\t", row.names = 1)
-# remove rows with all ones
-#df.met<- t(df.met[apply(df.met[,-1], 1, function(x) !all(x==1)),])
+df.met <- read.table("data/metab_paths/module_by_taxon.txt", 
+                 header = TRUE, sep = "\t", row.names = 1)
+df.met <- subset(df.met, select = -c(KBS0812, KBS0710, KBS0721))
 
+# remove rows with all ones
+df.met<- t(df.met[apply(df.met[,-1], 1, function(x) !all(x==1)),])
+
+
+ml.rooted.noOut.noBac <- drop.tip(ml.rooted, c('NC_005042.1_353331-354795', 'KBS0812'))
 #df.met.db <- vegdist(df.met, method = "bray", upper = TRUE, diag = TRUE, binary=TRUE)
 #df.met.pcoa <- cmdscale(df.met.db, eig = TRUE, k = 2) 
-
-
-#df.met.pca <- phyl.pca(re.ml.rooted.um, df.met, method = "lambda")
+df.met.pca <- phyl.pca(ml.rooted.noOut.noBac, df.met, method = "lambda")
 # df.met.pca$S
 # merge rownames
 #df.met.merge <- merge(merge.final, df.met.pcoa$point, by="row.names")
@@ -304,19 +402,18 @@ re.ml.rooted.um.prunned <- drop.tip(re.ml.rooted.um,
 
 
 ```{r}
-traits <- read.table("data/traits/persistence.phylo.txt", sep = "\t", header = TRUE)
+traits <- read.table("data/traits/traits.txt", sep = "\t", header = TRUE)
 rownames(traits) <- traits$Code
-traits <- traits[re.ml.rooted.um$tip.label, ]
+traits <- traits[ml.rooted.noOut.noBac$tip.label, ]
 # doubling time = log(2) / umax
 # umax are in units h^-1
-traits$T_birth <- log(2) / traits$umax
-
+#traits$T_birth <- log(2) / traits$umax
 # calculate average doubling time (i.e., average birth rate)
 
+rownames(x_y.rtt.B.mean) <- x_y.rtt.B.mean$strain
 
+df.rtt.B <- merge(traits, x_y.rtt.B.mean, by="row.names")
 
-
-
-
+plot(df.rtt.B$A, df.rtt.B$root_to_tip)
 
 ```
