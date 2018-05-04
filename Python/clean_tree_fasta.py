@@ -200,13 +200,13 @@ def align_proteins():
         subprocess.call(['muscle', '-in', fasta, '-out', align, '-log', log])
 
 
-
 def clean_concat_alignment():
     # first. SORT THE Alignments
     read_fasta = ltde_tools.classFASTA(mydir + 'data/align/ribosomal_protein_seqs_merged/' \
                 + proteins[0] + '_merged.fa').readFASTA()
     sort_ref = []
     taxon_dict = {}
+    out_concat = open(mydir + 'data/align/ribosomal_protein_seqs_align_concat.fa', 'w+')
     for i, protein in enumerate(proteins):
         protein_path = mydir + 'data/align/ribosomal_protein_seqs_merged_align/' + protein + '_merged_aligned.fa'
         read_fasta_protein = ltde_tools.classFASTA(protein_path).readFASTA()
@@ -222,7 +222,13 @@ def clean_concat_alignment():
     seqs_zip_clean = [x for x in seqs_zip if (x.count('-') / number_taxa ) < 0.95]
     dict_keys = taxon_dict.keys()
     seqs_unzip_clean = zip(*seqs_zip_clean)
-    # now print them to a file, then make a treee!!!!!!!
+    for i, key in enumerate(dict_keys):
+        print>> out_concat, '>' + key
+        split = ltde_tools.split_by_n(seqs_unzip_clean[i], 60)
+        for split_seq_i in split:
+            print>> out_concat, split_seq_i
+    out_concat.close()
+
 
 
 
