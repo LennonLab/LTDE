@@ -1,9 +1,13 @@
 from __future__ import division
-import os, re
+import os, re, glob, subprocess
 from Bio import Phylo
+import ltde_tools
+from shutil import copyfile
 
 mydir = os.path.expanduser("~/GitHub/LTDE/")
 
+proteins = ['L2', 'L3', 'L4', 'L5', 'L6', 'L14', 'L16', 'L18', 'L22', \
+                'L24', 'S3', 'S8', 'S10', 'S17', 'S19']
 
 to_replace = [('_delta/epsilon_', '_delta_epsilon_'),
                 ('_Bacteroidetes/Chlorobi_', '_Bacteroidetes_Chlorobi_'),
@@ -60,46 +64,11 @@ to_replace = [('_delta/epsilon_', '_delta_epsilon_'),
                 ('Bacteria_CP-TM6-GWF2_TM6_37_49', 'Bacteria_CP_TM6-GWF2_TM6_37_49')]
 
 
-class classFASTA:
-
-    def __init__(self, fileFASTA):
-        self.fileFASTA = fileFASTA
-
-    def readFASTA(self):
-        '''Checks for fasta by file extension'''
-        file_lower = self.fileFASTA.lower()
-        '''Check for three most common fasta file extensions'''
-        if file_lower.endswith('.txt') or file_lower.endswith('.fa') or \
-        file_lower.endswith('.fasta') or file_lower.endswith('.fna'):
-            with open(self.fileFASTA, "r") as f:
-                return self.ParseFASTA(f)
-        else:
-            print("Not in FASTA format.")
-
-    def ParseFASTA(self, fileFASTA):
-        '''Gets the sequence name and sequence from a FASTA formatted file'''
-        fasta_list=[]
-        for line in fileFASTA:
-            if line[0] == '>':
-                try:
-                    fasta_list.append(current_dna)
-            	#pass if an error comes up
-                except UnboundLocalError:
-                    #print "Inproper file format."
-                    pass
-                current_dna = [line.lstrip('>').rstrip('\n'),'']
-            else:
-                current_dna[1] += "".join(line.split())
-        fasta_list.append(current_dna)
-        '''Returns fasa as nested list, containing line identifier \
-            and sequence'''
-        return fasta_list
-
 
 
 def clean_msa_names():
     tree = Phylo.read(mydir + 'data/tree/nmicrobiol201648-s8.txt', 'newick')
-    read_fasta = classFASTA(mydir + 'data/align/nmicrobiol201648-s7.txt')
+    read_fasta = ltde_tools.classFASTA(mydir + 'data/align/nmicrobiol201648-s7.txt')
     OUT = open(mydir + 'data/align/nmicrobiol201648-s7_clean.txt','w+')
     tree_names = []
 
@@ -133,6 +102,135 @@ def remove_bootstrap_values():
         print>> tree_out, line_clean
     tree_out.close()
     #Phylo.write(tree, mydir + 'data/tree/nmicrobiol201648-s8_clean.txt', 'newick')
-    #print tree
 
-remove_bootstrap_values()
+def get_ribosomal_proteins():
+    # we're missing L15 from KBS0715, so we're not going to use that gene
+    strains = ltde_tools.strain_list()
+    number_strains = len(strains)
+    for protein in proteins:
+        count = 0
+        protein_path = mydir + 'data/align/ribosomal_protein_seqs_ltde/' + protein + '.fa'
+        protein_file = open(protein_path, 'w+')
+        for strain in strains:
+            gbk_path = mydir + 'data/genomes/*/' + strain + '/G-Chr1.faa'
+            read_fasta = ltde_tools.classFASTA(glob.glob(gbk_path)[0])
+            for x in read_fasta.readFASTA():
+                header = x[0].split()
+                if (protein in header) and (len(header) == 5):
+                    # don't count this copy in strain KBS0702 b/c the sequence
+                    # is incomplete
+                    if (protein == 'L16') and (strain == 'KBS0702') and (len(x[1]) == 70):
+                        continue
+                    print>> protein_file, '>' + strain + '_' + '_'.join(header)
+                    split_seq = ltde_tools.split_by_n(x[1], 60)
+                    for split_seq_i in split_seq:
+                        print>> protein_file, split_seq_i
+                    print>> protein_file, '\n'
+        protein_file.close()
+
+
+def clean_ribosomal_proteins():
+    tags = ['-', '.', '/', "'", ':', ';']
+    taxon_dict = {}
+    for protein in proteins:
+        protein_path = mydir + 'data/align/ribosomal_protein_seqs_hug/rp' + protein + '_3domains_August2715.fasta'
+        read_fasta = ltde_tools.classFASTA(protein_path)
+        for x in read_fasta.readFASTA():
+            taxon = x[0]
+            if ('Eukaryota' in taxon):
+                continue
+            for tag in tags:
+                taxon = taxon.replace(tag, '_')
+            if taxon in taxon_dict:
+                taxon_dict[taxon] += 1
+            else:
+                taxon_dict[taxon] = 1
+    to_keep = []
+    for taxon, count in taxon_dict.iteritems():    # for name, age in list.items():  (for Python 3.x)
+        if count == len(proteins):
+            to_keep.append(taxon)
+    for protein in proteins:
+        protein_path = mydir + 'data/align/ribosomal_protein_seqs_hug/rp' + protein + '_3domains_August2715.fasta'
+        read_fasta = ltde_tools.classFASTA(protein_path)
+        out_file_path = mydir + 'data/align/ribosomal_protein_seqs_hug/rp' + protein + '_2domains_August2715.fasta'
+        out_file = open(out_file_path, 'w+')
+        keep_list = []
+        for x in read_fasta.readFASTA():
+            taxon = x[0]
+            if ('Eukaryota' in taxon):
+                continue
+            for tag in tags:
+                taxon = taxon.replace(tag, '_')
+            if taxon in to_keep:
+                keep_list.append([taxon, x[1]])
+
+        #print keep_list.sort(key=lambda x:x[0].lower())
+        sort_keep = sorted(keep_list, key=lambda item: (int(item[0].partition(' ')[0])
+                               if item[0][0].isdigit() else float('inf'), item[0]))
+        for i in sort_keep:
+            print>> out_file, '>' + i[0]
+            split_seq = ltde_tools.split_by_n(i[1], 60)
+            for split_seq_i in split_seq:
+                print>> out_file, split_seq_i
+        out_file.close()
+
+
+def merge_proteins():
+    for protein in proteins:
+        hug_path = mydir + 'data/align/ribosomal_protein_seqs_hug/rp' + protein + '_2domains_August2715.fasta'
+        hug_copy_path = mydir + 'data/align/ribosomal_protein_seqs_merged/' + protein + '_merged.fa'
+        copyfile(hug_path, hug_copy_path)
+        hug_copy = open(hug_copy_path, 'a+')
+        ltde_path = mydir + 'data/align/ribosomal_protein_seqs_ltde/' + protein + '.fa'
+        read_fasta = ltde_tools.classFASTA(ltde_path)
+        for x in read_fasta.readFASTA():
+            print>> hug_copy, '>' + x[0]
+            split_seq = ltde_tools.split_by_n(x[1], 60)
+            for split_seq_i in split_seq:
+                print>> hug_copy, split_seq_i
+        hug_copy.close()
+
+
+def align_proteins():
+    # MUSCLE v3.8.1551
+    for protein in proteins:
+        fasta = mydir + 'data/align/ribosomal_protein_seqs_merged/' + protein + '_merged.fa'
+        align = mydir + 'data/align/ribosomal_protein_seqs_merged_align/' + protein + '_merged_aligned.fa'
+        log = mydir + 'data/align/ribosomal_protein_seqs_merged_align/' + protein + '_merged_aligned.txt'
+        subprocess.call(['muscle', '-in', fasta, '-out', align, '-log', log])
+
+
+
+def clean_concat_alignment():
+    # first. SORT THE Alignments
+    read_fasta = ltde_tools.classFASTA(mydir + 'data/align/ribosomal_protein_seqs_merged/' \
+                + proteins[0] + '_merged.fa').readFASTA()
+    sort_ref = []
+    taxon_dict = {}
+    for i, protein in enumerate(proteins):
+        protein_path = mydir + 'data/align/ribosomal_protein_seqs_merged_align/' + protein + '_merged_aligned.fa'
+        read_fasta_protein = ltde_tools.classFASTA(protein_path).readFASTA()
+        read_fasta_protein_split = [[x[0].split('_')[0], x[1]] if x[0].split('_')[0] in ltde_tools.strain_list() else x for x in read_fasta_protein ]
+        for x in read_fasta_protein_split:
+            if i == 0:
+                taxon_dict[x[0]] = x[1]
+            else:
+                taxon_dict[x[0]] += x[1]
+    seqs_zip = zip(*taxon_dict.values())
+    number_taxa = len(seqs_zip[0])
+    # remove columns with more than 95% gaps
+    seqs_zip_clean = [x for x in seqs_zip if (x.count('-') / number_taxa ) < 0.95]
+    dict_keys = taxon_dict.keys()
+    seqs_unzip_clean = zip(*seqs_zip_clean)
+    # now print them to a file, then make a treee!!!!!!!
+
+
+
+
+
+
+#get_ribosomal_proteins()
+#clean_ribosomal_proteins()
+#merge_proteins()
+#align_proteins()
+clean_concat_alignment()

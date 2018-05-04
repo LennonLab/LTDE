@@ -1,16 +1,11 @@
 from __future__ import division
 import os
+import ltde_tools
 
 mydir = os.path.expanduser("~/GitHub/LTDE/")
 
 alignments = ['KBS0710_NR_024911', 'KBS0721_NR_114994']
 
-
-def split_by_n( seq, n ):
-    """A generator to divide a sequence into chunks of n units."""
-    while seq:
-        yield seq[:n]
-        seq = seq[n:]
 
 def generate_16S_consenus(alignment):
     mpileup = mydir + 'data/align/' + alignment + '.pileup'
@@ -51,7 +46,7 @@ def generate_16S_consenus(alignment):
     seq_str = ''.join(seq)
     print>> out_fasta, '\n'
     print>> out_fasta, '>' + strain
-    split_seq = split_by_n(seq_str, 60)
+    split_seq = ltde_tools.split_by_n(seq_str, 60)
     for split_seq_i in split_seq:
         print>> out_fasta, split_seq_i
     out_fasta.close()

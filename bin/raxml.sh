@@ -12,6 +12,12 @@ raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o NC_005042.1_353331-
     -s /Users/WRShoemaker/GitHub/LTDE/data/align/ltde_seqs.good.filter.fasta \
     -n ltde_seqs -w /Users/WRShoemaker/GitHub/LTDE/data/tree
 
+# for the protein tree..........
+raxmlHPC-PTHREADS -T 4 -f a -m PROTGAMMALG -p 12345 -x 12345 -# autoMRE \
+    -s \
+    -n \
+    -w
+
 # -T = number of threads
 # -f = specifies bootstrapping algorithm with ML generating tree at same time
 # -m = substitution model, generalized time reversible gamma
