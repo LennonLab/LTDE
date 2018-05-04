@@ -203,14 +203,34 @@ def align_proteins():
 
 def clean_concat_alignment():
     # first. SORT THE Alignments
-    
-
-    # trim Alignments to remove ambiguously aligned C and N termini
+    read_fasta = ltde_tools.classFASTA(mydir + 'data/align/ribosomal_protein_seqs_merged/' \
+                + proteins[0] + '_merged.fa').readFASTA()
+    sort_ref = []
+    taxon_dict = {}
+    for i, protein in enumerate(proteins):
+        protein_path = mydir + 'data/align/ribosomal_protein_seqs_merged_align/' + protein + '_merged_aligned.fa'
+        read_fasta_protein = ltde_tools.classFASTA(protein_path).readFASTA()
+        read_fasta_protein_split = [[x[0].split('_')[0], x[1]] if x[0].split('_')[0] in ltde_tools.strain_list() else x for x in read_fasta_protein ]
+        for x in read_fasta_protein_split:
+            if i == 0:
+                taxon_dict[x[0]] = x[1]
+            else:
+                taxon_dict[x[0]] += x[1]
+    seqs_zip = zip(*taxon_dict.values())
+    number_taxa = len(seqs_zip[0])
     # remove columns with more than 95% gaps
-    # Taxa were removed if their available sequence data represented less than 50% of the expected alignment columns (90% of taxa had more than 80% of the expected alignment columns).
-    print 'dfdf'
+    seqs_zip_clean = [x for x in seqs_zip if (x.count('-') / number_taxa ) < 0.95]
+    dict_keys = taxon_dict.keys()
+    seqs_unzip_clean = zip(*seqs_zip_clean)
+    # now print them to a file, then make a treee!!!!!!!
+
+
+
+
+
 
 #get_ribosomal_proteins()
 #clean_ribosomal_proteins()
 #merge_proteins()
 #align_proteins()
+clean_concat_alignment()
