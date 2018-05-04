@@ -1,16 +1,12 @@
 from __future__ import division
-import os, re, glob
+import os, re
 import pandas as pd
 import numpy as np
-from Bio import SeqIO
 
 mydir = os.path.expanduser("~/GitHub/LTDE/")
 
 
-strains = ['ATCC13985', 'ATCC43928', 'KBS0701', 'KBS0702', 'KBS0703', 'KBS0705', \
-            'KBS0706', 'KBS0707', 'KBS0710', 'KBS0711', 'KBS0712', 'KBS0713', 'KBS0714', \
-            'KBS0715', 'KBS0721', 'KBS0722', 'KBS0724', 'KBS0725', 'KBS0727', 'KBS0801', \
-            'KBS0802', 'KBS0812']
+
 
 def module_to_KO(strain):
     kaas_directory = mydir + 'data/metab_paths/MAPLE/' + strain + '_MAPLE_result/KAAS'
@@ -133,8 +129,8 @@ def run_all_strains():
 
 
 
-run_all_strains()
-merge_maple_all_strains()
+#run_all_strains()
+#merge_maple_all_strains()
 # yes
 # L2
 # no

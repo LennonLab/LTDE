@@ -9,6 +9,7 @@ module load bwa
 module load samtools
 module load bedtools
 module load spades
+module load python
 
 # get RNA read
 KBS0710="/N/dc2/projects/muri2/Task2/LTDE/data/align/KBS0710_NR_024911.fa"
@@ -53,8 +54,6 @@ KBS0721_pileup="/N/dc2/projects/muri2/Task2/LTDE/data/align/KBS0721_NR_114994.pi
 
 samtools mpileup -q 30 -f $KBS0710 -o $KBS0710_pileup $KBS0710_bam
 samtools mpileup -q 30 -f $KBS0721 -o $KBS0721_pileup $KBS0721_bam
-
-
 
 
 #bedtools bamtofastq -i $KBS0710_bam \
