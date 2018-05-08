@@ -1,0 +1,61 @@
+
+
+IMPORTANT WARNING: Sequences Bacteria_TA06_uncultured_SMTZ1_40 and Bacteria_TA06_uncultured_SMTZ_40 are exactly identical
+
+IMPORTANT WARNING
+Found 1 sequence that is exactly identical to other sequences in the alignment.
+Normally they should be excluded from the analysis.
+
+An alignment file with sequence duplicates removed has already
+been printed to file /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_align_concat.fa.reduced
+
+
+This is RAxML version 8.2.11 released by Alexandros Stamatakis on June 2017.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 2902 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 20.75%
+
+RAxML rapid bootstrapping and subsequent ML search
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+
+Executing 1000 rapid bootstrap inferences and thereafter a thorough ML search 
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heterogeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 2902
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: LG
+Using fixed base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC-PTHREADS -T 4 -f a -m PROTGAMMALG -p 12345 -x 12345 -# autoMRE -s /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_align_concat.fa -n test_protein -w /Users/WRShoemaker/GitHub/LTDE/data/align 
+
+
+
+Time for BS model parameter optimization 1077.613656
