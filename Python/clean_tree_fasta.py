@@ -224,14 +224,16 @@ def clean_concat_alignment():
     seqs_unzip_clean = zip(*seqs_zip_clean)
     for i, key in enumerate(dict_keys):
         print>> out_concat, '>' + key
-        split = ltde_tools.split_by_n(seqs_unzip_clean[i], 60)
+        split = ltde_tools.split_by_n(''.join(seqs_unzip_clean[i]), 60)
         for split_seq_i in split:
             print>> out_concat, split_seq_i
     out_concat.close()
 
 
-
-
+def build_fasttree():
+    fasta = mydir + 'data/align/ribosomal_protein_seqs_align_concat.fa'
+    tree = mydir + 'data/tree/ribosomal_protein_fasttree'
+    subprocess.call(['fasttree', '-lg', '-gamma', '-out', tree, fasta])
 
 
 
@@ -239,4 +241,5 @@ def clean_concat_alignment():
 #clean_ribosomal_proteins()
 #merge_proteins()
 #align_proteins()
-clean_concat_alignment()
+#clean_concat_alignment()
+build_fasttree()
