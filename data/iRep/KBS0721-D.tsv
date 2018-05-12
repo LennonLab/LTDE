@@ -1,0 +1,36 @@
+## index of replication (iRep) - thresholds: min cov. = 5, min wins. = 0.98, min r^2 = 0.9, max fragments/Mbp = 175, GC correction min r^2 = 0.0
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	1.476434593203801
+#
+## un-filtered index of replication (iRep)
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	1.476434593203801
+#
+## raw index of replication (no GC bias correction)
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	1.5229064749181798
+#
+## r^2
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	0.9897220456419551
+#
+## coverage
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	92.11884532357463
+#
+## % windows passing filter
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	99.99
+#
+## fragments/Mbp
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	13
+#
+## GC bias
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	-23.6667106483359
+#
+## GC r^2
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	0.11623812794867283
+#
