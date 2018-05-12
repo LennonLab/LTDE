@@ -1,3 +1,8 @@
+import os
+
+def get_path():
+    return os.path.expanduser("~/GitHub/LTDE")
+
 class classFASTA:
 
     def __init__(self, fileFASTA):
