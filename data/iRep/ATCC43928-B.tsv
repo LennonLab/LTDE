@@ -1,0 +1,36 @@
+## index of replication (iRep) - thresholds: min cov. = 5, min wins. = 0.98, min r^2 = 0.9, max fragments/Mbp = 175, GC correction min r^2 = 0.0
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC43928-B.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC43928/G-Chr1.fna	1.7177925532528313
+#
+## un-filtered index of replication (iRep)
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC43928-B.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC43928/G-Chr1.fna	1.7177925532528313
+#
+## raw index of replication (no GC bias correction)
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC43928-B.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC43928/G-Chr1.fna	1.9075871645508724
+#
+## r^2
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC43928-B.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC43928/G-Chr1.fna	0.9833623309024557
+#
+## coverage
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC43928-B.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC43928/G-Chr1.fna	64.63544385705796
+#
+## % windows passing filter
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC43928-B.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC43928/G-Chr1.fna	99.57
+#
+## fragments/Mbp
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC43928-B.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC43928/G-Chr1.fna	50
+#
+## GC bias
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC43928-B.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC43928/G-Chr1.fna	-624.3060790352945
+#
+## GC r^2
+# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC43928-B.sam
+/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC43928/G-Chr1.fna	0.6792272517081824
+#
