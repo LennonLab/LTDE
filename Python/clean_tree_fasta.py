@@ -231,6 +231,13 @@ def clean_concat_alignment():
 
 
 def build_fasttree():
+    # install the software using brew
+    # installing treepl via brew
+    # brew unlink gcc
+    # brew link gcc
+    # brew install --build-from-source fasttree
+    # brew install --build-from-source treepl
+    # brew test -v treepl
     fasta = mydir + 'data/align/ribosomal_protein_seqs_align_concat.fa'
     tree = mydir + 'data/tree/ribosomal_protein_fasttree'
     subprocess.call(['fasttree', '-lg', '-gamma', '-out', tree, fasta])
