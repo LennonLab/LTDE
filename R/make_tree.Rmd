@@ -112,14 +112,23 @@ raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o Methanosarcina -# a
 
 ```{r, warning=FALSE, message=FALSE}
 
-ml.tree <- read.raxml("data/tree/RAxML_bipartitionsBranchLabels.ltde_seqs")
+ml.tree <- read.raxml("data/tree/ribosomal_protein_fasttree")
 ggtree(ml.tree, branch.length='none') + geom_tiplab(size = 2.5) + geom_label2(aes(label = bootstrap), size=2.5, label.size = 0.1, label.padding= unit(0.1, "lines")) + geom_rootpoint() + ggplot2::xlim(0, 10)
 
 
 
 
 # Read tree
-#ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.OutProGen")
+tree <- read.tree("data/tree/ribosomal_protein_fasttree")
+par(mar = c(1,1,1,1) + 0.1)
+plot.phylo(tree, main = "FastTree", 
+           "phylogram", use.edge.length = TRUE, direction = "right",
+           cex = 0.6, label.offset = 0.1, show.tip.label = FALSE, x.lim = 3)
+tiplabels(tree$tip.label, adj = c(0,0.5), cex = 0.5, frame = "none",
+          pch = NULL, thermo = NULL, pie = NULL, piecol = NULL,
+          col = NULL, bg = NULL)
+nodelabels()
+
 
 # Identify Outgroup Sequence
 #outgroup <- match("NC_005042.1_353331-354795", ml.tree$tip.label)
