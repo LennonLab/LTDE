@@ -1,0 +1,11 @@
+treefile = /Users/WRShoemaker/GitHub/LTDE/data/tree/ribosomal_protein_fasttree_midpoint.tre
+smooth = 100
+numsites = 2950
+mrca = EUDICOT Archaea_DPANN_Pacearchaeota_RBG_16_Pacearchaeota_35_8
+min = EUDICOT 3800
+max = EUDICOT 4200
+outfile = /Users/WRShoemaker/GitHub/LTDE/data/tree/ribosomal_protein_fasttree_midpoint_treepl.tre
+plsimaniter = 150000
+opt = 1
+optad = 5
+optcvad = 0
