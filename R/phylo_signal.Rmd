@@ -118,8 +118,6 @@ df$exp_mean_log10 <- log10(df$exp_mean)
 
 
 
-
-
 ##4) Perform linear and quadratic regression 
 
 do for death rate when alpha = 1 (exponential decay)
@@ -220,6 +218,121 @@ grid.raster(img)
 
 
 ##5) Load phylogenetic data
+
+
+```{r}
+# Load fasttree dated with TreePL
+tree <- read.tree("data/tree/ribosomal_protein_fasttree_midpoint_treepl.tre.r8s")
+# keep only the LTDE taxa
+tree.LTDE <- drop.tip(tree, tree$tip.label[-match(merge.final$strain, tree$tip.label)])
+# get root to tip distance
+tree.LTDE.rtt <- as.data.frame(distRoot(tree.LTDE, method = 'patristic'))
+# Plot the Rooted Tree{ape}
+par(mar = c(1,1,2,1) + 0.1)
+plot.phylo(tree.LTDE, main = "raxml", 
+           "phylogram", use.edge.length = T, direction = "right",
+           cex =1, label.offset = 1, show.tip.label = FALSE, x.lim = 0.01)
+           
+tiplabels(tree.LTDE$tip.label, adj = c(0,0.5), cex = 0.5, frame = "none",
+          pch = NULL, thermo = NULL, pie = NULL, piecol = NULL,
+          col = NULL, bg = NULL)
+
+add.scale.bar(1, 0.4, cex = 0.7)
+
+
+
+
+# root-to-tip distance
+colnames(tree.LTDE.rtt)[1] <- 'rate'
+tree.LTDE.rtt$strain <- rownames(tree.LTDE.rtt)
+
+# plot with bacillus
+df.rtt.B <- merge(df, tree.LTDE.rtt, by="strain")
+x_y.rtt.B <- df.rtt.B[c("strain","weibull_mean_log10", "rate")]
+x_y.rtt.B.mean <- aggregate(.~strain, data=x_y.rtt.B, mean)
+
+png(filename = paste(c("figs/weib_rtt.png"), collapse = ''),
+    width = 1200, height = 1200, res = 96*2)
+par(mar = c(4, 4, 1, 1))
+plot(x_y.rtt.B.mean$rate, x_y.rtt.B.mean$weibull_mean_log10, ylab = "", xlab = "")
+mtext(expression('Branch length sum (root-to-tip distance)'), side = 1,
+      outer = FALSE, cex = 1, line = 2.6, adj = 0.7)
+mtext(expression('Average time until death [days], log10'), side = 2,
+      outer = FALSE, cex = 1, line = 2, adj = 0.5)
+# Close Plot Device
+dev.off()
+graphics.off()
+# Show Plot
+img <- readPNG(paste(c("figs/weib_rtt.png"), collapse = ''))
+grid.raster(img)
+
+
+
+# no bacillus
+df.noB.rtt <- merge(df.noB, tree.LTDE.rtt, by="strain")
+x_y.rtt <- df.noB.rtt[c("strain","weibull_mean_log10", "rate")]
+weib.rtt.lmer <- lmer(weibull_mean_log10 ~ rate + (1 | strain), data=x_y.rtt)
+# significant lrt, keep random slopes
+weib.rtt.lmer.ci <- confint(weib.rtt.lmer)
+a.rtt <- fixef(weib.rtt.lmer)
+# make plot
+x_y.rtt.mean <- aggregate(.~strain, data=x_y.rtt, mean)
+colnames(x_y.rtt.mean)[colnames(x_y.rtt.mean)=="rate"] <- "rate_mean"
+colnames(x_y.rtt.mean)[colnames(x_y.rtt.mean)=="weibull_mean_log10"] <- "weibull_mean_log10_mean"
+x_y.rtt.sd <- aggregate(.~strain, data=x_y.rtt, sd)
+colnames(x_y.rtt.sd)[colnames(x_y.rtt.sd)=="weibull_mean_log10"] <- "weibull_mean_log10_sd"
+x_y.rtt.sd <- x_y.rtt.sd[c('strain', 'weibull_mean_log10_sd')]
+x_y.rtt.len <- aggregate(.~strain, data=x_y.rtt, length)
+colnames(x_y.rtt.len)[colnames(x_y.rtt.len)=="rate"] <- "n"
+x_y.rtt.len<-x_y.rtt.len[ , !(names(x_y.rtt.len) %in% c('weibull_mean_log10'))]
+
+merge.rtt.1 <- merge(x_y.rtt.mean, x_y.rtt.sd, by = "strain")
+merge.rtt.final <- merge(merge.rtt.1, x_y.rtt.len, by = "strain")
+merge.rtt.final$weib_error <- qt(0.975,df=merge.rtt.final$n-1) *
+  merge.rtt.final$weibull_mean_log10_sd/sqrt(merge.rtt.final$n)
+merge.rtt.final$weib_CI.L <- merge.rtt.final$weibull_mean_log10_mean - merge.rtt.final$weib_error
+merge.rtt.final$weib_CI.U <- merge.rtt.final$weibull_mean_log10_mean + merge.rtt.final$weib_error
+
+png(filename = paste(c("figs/weib_rtt_noB.png"), collapse = ''),
+    width = 1200, height = 1200, res = 96*2)
+par(mar = c(4, 4, 1, 1))
+plot(merge.rtt.final$rate_mean, merge.rtt.final$weibull_mean_log10_mean, ylab = "", xlab = "")
+# plot linear and quadratic fits +/- 95% CIs
+minMax <- range(merge.rtt.final$rate_mean)
+xVals <- seq(minMax[1], minMax[2], len = 100) 
+yVals.lin <- a.rtt['(Intercept)'] + xVals * a.rtt['rate']
+lines(xVals, yVals.lin, col = 'black', lw = 2)
+#lines(xVals, yVals.lin-weib.rtt.lmer.ci['root_to_tip','2.5 %'], 
+#      col = 'black', lty = 'dashed')
+#lines(xVals, yVals.lin+weib.rtt.lmer.ci['root_to_tip','97.5 %'], 
+#      col = 'black', lty = 'dashed')
+
+mtext(expression('rate'), side = 1,
+      outer = FALSE, cex = 1, line = 2.6, adj = 0.7)
+mtext(expression('Average time until death [days], log10'), side = 2,
+      outer = FALSE, cex = 1, line = 2, adj = 0.5)
+# Close Plot Device
+dev.off()
+graphics.off()
+# Show Plot
+img <- readPNG(paste(c("figs/weib_rtt_noB.png"), collapse = ''))
+grid.raster(img)
+
+
+```
+
+
+
+
+#### figure out PIC
+
+
+
+
+
+
+
+
 
 
 ```{r}
