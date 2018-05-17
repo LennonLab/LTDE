@@ -1,0 +1,92 @@
+Wills-MacBook-Pro:bin WRShoemaker$ treepl treepl_config.txt
+outfile: /Users/WRShoemaker/GitHub/LTDE/data/tree/ribosomal_protein_fasttree_midpoint_treepl.tre
+pl number of simulated annealing iterations: 150000
+setting opt: 1
+setting optad: 5
+setting optcvad: 0
+finished reading config file
+using system clock for random number seed = 1526527004
+tiny branch length at Bacteria_Proteobacteria_Gammaproteobacteria_Enterobacteriales_Enterobacteriaceae_Escherichia_coli_K12__W3110. setting to 0.00033898305
+tiny branch length at Bacteria_Proteobacteria_Gammaproteobacteria_Xanthomonadales_Xanthomonadaceae_Wohlfahrtiimonas_chitiniclastica_DSM_18708. setting to 0.00033898305
+tiny branch length at KBS0725. setting to 0.00033898305
+tiny branch length at Bacteria_CP_NKB19_candidate_division_NKB19_bacterium_JGI_0000039_J10_Combined_Assembly_NKB19_1__NKB19. setting to 0.00033898305
+tiny branch length at Bacteria_TA06_uncultured_SMTZ1_40. setting to 0.00033898305
+tiny branch length at Bacteria_TA06_uncultured_SMTZ_40. setting to 0.00033898305
+tiny branch length at Bacteria_Marine_group_A_SAR406_SAR406_cluster_bacterium_JGI_0000039_D08_TAsludge_001_149. setting to 0.00033898305
+tiny branch length at Bacteria_Marine_group_A_SAR406_SAR406_cluster_bacterium_JGI_0000059_L03_TAbiofilm_001_169. setting to 0.00033898305
+tiny branch length at internal node. setting to 0.00033898305
+setting ROOT min: 3800
+setting ROOT max: 4200
+preorder prep
+calculating character durations
+setting min and max
+setting up all constraints
+getting feasible start dates
+start rate 0.0025252927
+numparams:2093
+initial calc: 18804248
+LF SIM
+exit siman: 1109805
+setting NLOPT: LD_LBFGS
+result: 5
+after opt calc1: 169884.62
+setting NLOPT : LN_SBPLX
+result: 5
+after opt calc2: 156869.67
+LF SIM
+exit siman: 139642.8
+setting NLOPT: LD_LBFGS
+result: 3
+after opt calc1: 91584.044
+setting NLOPT : LN_SBPLX
+result: 5
+after opt calc2: 91584.044
+LF SIM
+exit siman: 91584.044
+setting NLOPT: LD_LBFGS
+result: 3
+after opt calc1: 91584.044
+setting NLOPT : LN_SBPLX
+result: 5
+after opt calc2: 91584.044
+exited lf converged :1
+lf calc: 91584.044
+numparams:6276
+smoothing:100
+91584.044
+exit siman: 81048.45
+setting NLOPT: LD_LBFGS
+result: 5
+after opt calc1: 29436.285
+setting NLOPT : LN_SBPLX
+result: 5
+after opt calc2: 29435.443
+exit siman: 29424.638
+setting NLOPT: LD_LBFGS
+result: 5
+after opt calc1: 27928.217
+setting NLOPT : LN_SBPLX
+result: 5
+after opt calc2: 27928.104
+exit siman: 27925.014
+setting NLOPT: LD_LBFGS
+result: 5
+after opt calc1: 27568.714
+setting NLOPT : LN_SBPLX
+result: 5
+after opt calc2: 27568.654
+exit siman: 27568.131
+setting NLOPT: LD_LBFGS
+result: 5
+after opt calc1: 27472.514
+setting NLOPT : LN_SBPLX
+result: 5
+after opt calc2: 27472.512
+exit siman: 27472.43
+setting NLOPT: LD_LBFGS
+result: 5
+after opt calc1: 27444.692
+setting NLOPT : LN_SBPLX
+result: 5
+after opt calc2: 27444.691
+after opt calc: 27444.691
