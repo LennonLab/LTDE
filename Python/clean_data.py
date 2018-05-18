@@ -1,10 +1,9 @@
 from __future__ import division
 import ltde_tools as lt
-import glob, re, os, subprocess
+import glob, re, os, subprocess, math
 
 def get_iRep():
     directory = os.fsencode(lt.get_path() + '/data/bwa_sam')
-
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
         if (filename.endswith('C1.sam') == True) or (filename.endswith('C2.sam') == True):
@@ -19,24 +18,55 @@ def get_iRep():
 
 
 def clean_iRep():
+    to_remove = ['KBS0705', 'KBS0706']
     directory = os.fsencode(lt.get_path() + '/data/iRep')
     df_out = open(lt.get_path() + '/data/iRep_clean.txt', 'w')
-    header = ['Sample', 'Strain', 'Replicate' ,'iRep']
+    header = ['Sample', 'strain', 'rep' ,'iRep']
     df_out.write('\t'.join(header) + '\n')
+    iRep_corrected_dict = {}
+    iRep_uncorrected_dict = {}
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
-        if filename.endswith('-100.txt'):
-            bPTR_path = sam = os.path.join(str(directory, 'utf-8'), filename)
-            for i, line in enumerate(open(bPTR_path, 'r')):
-                if i == 0:
-                    continue
-                f_clean = filename.split('.')[0]
-                f_clean_split = re.split(r'[-_]+', f_clean)
-                out_line = [f_clean, f_clean_split[1][2],  f_clean_split[1][1],
-                            f_clean_split[1][3], f_clean_split[2],  line.split()[-1]]
-                df_out.write('\t'.join(out_line) + '\n')
-                print(f_clean)
+        if filename.endswith('.tsv'):
+            iRep_path = sam = os.path.join(str(directory, 'utf-8'), filename)
+            strain = re.split(r'[.-]+', filename)[0]
+            strain_rep = re.split(r'[.]+', filename)[0]
+            if strain in to_remove:
+                continue
+            if 'WA' in strain_rep:
+                strain_rep = 'KBS0711-5'
+            elif 'WB' in strain_rep:
+                strain_rep = 'KBS0711-6'
+            elif 'WC' in strain_rep:
+                strain_rep = 'KBS0711-7'
+            else:
+                strain_rep = strain_rep[:-1] + str(lt.rename_rep()[strain_rep[-1]])
+            for i, line in enumerate(open(iRep_path, 'r')):
+                if i == 2:
+                    last_item = line.strip().split()[-1]
+                    if last_item == 'n/a':
+                        iRep_corrected = float('nan')
+                    else:
+                        iRep_corrected = float(last_item)
+                    iRep_corrected_dict[strain_rep] = [iRep_corrected]
+                elif i == 6:
+                    iRep_uncorrected = float(line.strip().split()[-1])
+                    iRep_uncorrected_dict[strain_rep] = [iRep_uncorrected]
+    for key, value in iRep_corrected_dict.items():
+        value.extend(iRep_uncorrected_dict[key])
+    for key, value in iRep_corrected_dict.items():
+        if value[1] > 11:
+            continue
+
+        if math.isnan(value[0]) == True:
+            iRep = value[1]
+        else:
+            iRep = value[0]
+        out_line = [key, key.split('-')[0], key.split('-')[1], str(iRep)]
+        df_out.write('\t'.join(out_line) + '\n')
+
+
     df_out.close()
 
 
-get_iRep()
+clean_iRep()
