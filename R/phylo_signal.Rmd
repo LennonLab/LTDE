@@ -221,7 +221,12 @@ grid.raster(img)
 
 
 ```{r}
-# Load fasttree dated with TreePL
+# load fasttree with standardized edge lengths
+tree.equal <- read.tree("data/tree/ribosomal_protein_fasttree_midpoint_treepl.tre")
+tree.equal.LTDE <- drop.tip(tree.equal, tree.equal$tip.label[-match(merge.final$strain, tree.equal$tip.label)])
+tree.equal.LTDE.noBS <- drop.tip(tree.equal.LTDE, 'KBS0812')
+
+# Load fasttree with rates dated with TreePL
 tree <- read.tree("data/tree/ribosomal_protein_fasttree_midpoint_treepl.tre.r8s")
 # keep only the LTDE taxa
 tree.LTDE <- drop.tip(tree, tree$tip.label[-match(merge.final$strain, tree$tip.label)])
@@ -231,14 +236,13 @@ tree.LTDE.rtt <- as.data.frame(distRoot(tree.LTDE, method = 'patristic'))
 par(mar = c(1,1,2,1) + 0.1)
 plot.phylo(tree.LTDE, main = "raxml", 
            "phylogram", use.edge.length = T, direction = "right",
-           cex =1, label.offset = 1, show.tip.label = FALSE, x.lim = 0.01)
+           cex =1, label.offset = 1, show.tip.label = FALSE, x.lim = 0.03)
            
 tiplabels(tree.LTDE$tip.label, adj = c(0,0.5), cex = 0.5, frame = "none",
           pch = NULL, thermo = NULL, pie = NULL, piecol = NULL,
           col = NULL, bg = NULL)
 
 add.scale.bar(1, 0.4, cex = 0.7)
-
 
 
 
@@ -327,6 +331,29 @@ grid.raster(img)
 #### figure out PIC
 
 
+```{r}
+X <- merge.rtt.final$weibull_mean_log10_mean
+Y <- merge.rtt.final$rate_mean
+plot(X , Y)
+names(X) <- names(Y) <- merge.rtt.final$strain
+pic.X <- pic(X, tree.equal.LTDE.noBS)
+pic.Y <- pic(Y, tree.equal.LTDE.noBS)
+cor.test(pic.X, pic.Y)
+# remove outlier
+pic.X.noOutlier <- pic.X[-12]
+pic.Y.noOutlier <- pic.Y[-12]
+
+plot(pic.X , pic.Y, xlab= 'PIC-corrected average time to death', ylab = 'PIC-corrected substitution rate')
+abline(lm(pic.Y ~ pic.X ))
+summary(lm(pic.Y ~ pic.X ))
+
+```
+
+
+
+
+
+
 
 
 
@@ -369,87 +396,6 @@ tiplabels(ml.rooted$tip.label, adj = c(0,0.5), cex = 0.5, frame = "none",
 ```
 
 
-
-Generation time effect
-```{r}
-# root-to-tip distance
-ml.rooted.rtt <- as.data.frame(distRoot(ml.tree, method = 'patristic'))
-colnames(ml.rooted.rtt)[1] <- 'root_to_tip'
-ml.rooted.rtt$strain <- rownames(ml.rooted.rtt)
-
-# plot with bacillus
-df.rtt.B <- merge(df, ml.rooted.rtt, by="strain")
-x_y.rtt.B <- df.rtt.B[c("strain","weibull_mean_log10", "root_to_tip")]
-x_y.rtt.B.mean <- aggregate(.~strain, data=x_y.rtt.B, mean)
-
-png(filename = paste(c("figs/weib_rtt.png"), collapse = ''),
-    width = 1200, height = 1200, res = 96*2)
-par(mar = c(4, 4, 1, 1))
-plot(x_y.rtt.B.mean$root_to_tip, x_y.rtt.B.mean$weibull_mean_log10, ylab = "", xlab = "")
-mtext(expression('Branch length sum (root-to-tip distance)'), side = 1,
-      outer = FALSE, cex = 1, line = 2.6, adj = 0.7)
-mtext(expression('Average time until death [days], log10'), side = 2,
-      outer = FALSE, cex = 1, line = 2, adj = 0.5)
-# Close Plot Device
-dev.off()
-graphics.off()
-# Show Plot
-img <- readPNG(paste(c("figs/weib_rtt.png"), collapse = ''))
-grid.raster(img)
-
-
-
-
-# no bacillus
-df.noB.rtt <- merge(df.noB, ml.rooted.rtt, by="strain")
-x_y.rtt <- df.noB.rtt[c("strain","weibull_mean_log10", "root_to_tip")]
-weib.rtt.lmer <- lmer(weibull_mean_log10 ~ root_to_tip + (1 | strain), data=x_y.rtt)
-# significant lrt, keep random slopes
-weib.rtt.lmer.ci <- confint(weib.rtt.lmer)
-a.rtt <- fixef(weib.rtt.lmer)
-# make plot
-x_y.rtt.mean <- aggregate(.~strain, data=x_y.rtt, mean)
-colnames(x_y.rtt.mean)[colnames(x_y.rtt.mean)=="root_to_tip"] <- "root_to_tip_mean"
-colnames(x_y.rtt.mean)[colnames(x_y.rtt.mean)=="weibull_mean_log10"] <- "weibull_mean_log10_mean"
-x_y.rtt.sd <- aggregate(.~strain, data=x_y.rtt, sd)
-colnames(x_y.rtt.sd)[colnames(x_y.rtt.sd)=="weibull_mean_log10"] <- "weibull_mean_log10_sd"
-x_y.rtt.sd <- x_y.rtt.sd[c('strain', 'weibull_mean_log10_sd')]
-x_y.rtt.len <- aggregate(.~strain, data=x_y.rtt, length)
-colnames(x_y.rtt.len)[colnames(x_y.rtt.len)=="root_to_tip"] <- "n"
-x_y.rtt.len<-x_y.rtt.len[ , !(names(x_y.rtt.len) %in% c('weibull_mean_log10'))]
-
-merge.rtt.1 <- merge(x_y.rtt.mean, x_y.rtt.sd, by = "strain")
-merge.rtt.final <- merge(merge.rtt.1, x_y.rtt.len, by = "strain")
-merge.rtt.final$weib_error <- qt(0.975,df=merge.rtt.final$n-1) *
-  merge.rtt.final$weibull_mean_log10_sd/sqrt(merge.rtt.final$n)
-merge.rtt.final$weib_CI.L <- merge.rtt.final$weibull_mean_log10_mean - merge.rtt.final$weib_error
-merge.rtt.final$weib_CI.U <- merge.rtt.final$weibull_mean_log10_mean + merge.rtt.final$weib_error
-
-png(filename = paste(c("figs/weib_rtt_noB.png"), collapse = ''),
-    width = 1200, height = 1200, res = 96*2)
-par(mar = c(4, 4, 1, 1))
-plot(merge.rtt.final$root_to_tip_mean, merge.rtt.final$weibull_mean_log10_mean, ylab = "", xlab = "")
-# plot linear and quadratic fits +/- 95% CIs
-minMax <- range(merge.rtt.final$root_to_tip_mean)
-xVals <- seq(minMax[1], minMax[2], len = 100) 
-yVals.lin <- a.rtt['(Intercept)'] + xVals * a.rtt['root_to_tip']
-lines(xVals, yVals.lin, col = 'black', lw = 2)
-#lines(xVals, yVals.lin-weib.rtt.lmer.ci['root_to_tip','2.5 %'], 
-#      col = 'black', lty = 'dashed')
-#lines(xVals, yVals.lin+weib.rtt.lmer.ci['root_to_tip','97.5 %'], 
-#      col = 'black', lty = 'dashed')
-
-mtext(expression('Branch length sum (root-to-tip distance)'), side = 1,
-      outer = FALSE, cex = 1, line = 2.6, adj = 0.7)
-mtext(expression('Average time until death [days], log10'), side = 2,
-      outer = FALSE, cex = 1, line = 2, adj = 0.5)
-# Close Plot Device
-dev.off()
-graphics.off()
-# Show Plot
-img <- readPNG(paste(c("figs/weib_rtt_noB.png"), collapse = ''))
-grid.raster(img)
-```
 
 
 ##6) Run phylogenetic corrected regression
