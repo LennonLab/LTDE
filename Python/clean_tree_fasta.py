@@ -249,4 +249,4 @@ def build_fasttree():
 #merge_proteins()
 #align_proteins()
 #clean_concat_alignment()
-build_fasttree()
+#build_fasttree()

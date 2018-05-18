@@ -48,6 +48,10 @@ df$rep[df$strain == "KBS0711W" & df$rep == "3"] <- 7
 df$rep[df$strain == "KBS0711W" & df$rep == "4"] <- 8
 # rename mis-named strain 
 df$strain[df$strain == "KBS0711W"] <- "KBS0711"
+
+irep <- read.table("data/iRep_clean.txt", 
+                 header = TRUE, sep = "\t", row.names = 1)
+df <- merge(df, irep, by=c("strain","rep"), all = TRUE) # NA's match
 ```
 
 ##3) Calculate Weibull survival function half-life and death rate
@@ -142,7 +146,7 @@ linear.re.inter.ci <- confint(linear.re.inter)
 quad.re.inter.ci <-  confint(quad.re.inter)
 
 # make plot
-x_y <- df.noB[c("strain","exp_mean_log10","weibull_mean_log10")]
+x_y <- df.noB[c("strain","exp_mean_log10","weibull_mean_log10", 'iRep')]
 x_y.mean <- aggregate(.~strain, data=x_y, mean)
 colnames(x_y.mean)[colnames(x_y.mean)=="exp_mean_log10"] <- "exp_mean_log10_mean"
 colnames(x_y.mean)[colnames(x_y.mean)=="weibull_mean_log10"] <- "weibull_mean_log10_mean"
@@ -340,14 +344,32 @@ pic.X <- pic(X, tree.equal.LTDE.noBS)
 pic.Y <- pic(Y, tree.equal.LTDE.noBS)
 cor.test(pic.X, pic.Y)
 # remove outlier
-pic.X.noOutlier <- pic.X[-12]
-pic.Y.noOutlier <- pic.Y[-12]
+#pic.X.noOutlier <- pic.X[-12]
+#pic.Y.noOutlier <- pic.Y[-12]
 
 plot(pic.X , pic.Y, xlab= 'PIC-corrected average time to death', ylab = 'PIC-corrected substitution rate')
 abline(lm(pic.Y ~ pic.X ))
 summary(lm(pic.Y ~ pic.X ))
 
 ```
+
+
+
+##### iRep
+
+```{r}
+
+
+plot(irep.df$weibull_mean_log10, irep.df$iRep)
+
+
+```
+
+
+
+
+
+
 
 
 

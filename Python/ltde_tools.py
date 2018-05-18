@@ -47,6 +47,9 @@ def strain_list():
                 'KBS0802', 'KBS0812']
     return strains
 
+def rename_rep():
+    return {'A':1, 'B':2, 'C':3, 'C1':3, 'D':4, 'E':5, 'F':6, 'K':10, 'L':11}
+
 def split_by_n( seq, n ):
     """A generator to divide a sequence into chunks of n units."""
     while seq:
