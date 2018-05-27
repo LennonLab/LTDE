@@ -146,7 +146,7 @@ linear.re.inter.ci <- confint(linear.re.inter)
 quad.re.inter.ci <-  confint(quad.re.inter)
 
 # make plot
-x_y <- df.noB[c("strain","exp_mean_log10","weibull_mean_log10", 'iRep')]
+x_y <- df.noB[c("strain","exp_mean_log10","weibull_mean_log10", 'iRep', 'alpha')]
 x_y.mean <- aggregate(.~strain, data=x_y, mean)
 colnames(x_y.mean)[colnames(x_y.mean)=="exp_mean_log10"] <- "exp_mean_log10_mean"
 colnames(x_y.mean)[colnames(x_y.mean)=="weibull_mean_log10"] <- "weibull_mean_log10_mean"
@@ -234,6 +234,8 @@ tree.equal.LTDE.noBS <- drop.tip(tree.equal.LTDE, 'KBS0812')
 tree <- read.tree("data/tree/ribosomal_protein_fasttree_midpoint_treepl.tre.r8s")
 # keep only the LTDE taxa
 tree.LTDE <- drop.tip(tree, tree$tip.label[-match(merge.final$strain, tree$tip.label)])
+tree.LTDE.noBS <- drop.tip(tree.LTDE, 'KBS0812')
+
 # get root to tip distance
 tree.LTDE.rtt <- as.data.frame(distRoot(tree.LTDE, method = 'patristic'))
 # Plot the Rooted Tree{ape}
@@ -278,7 +280,7 @@ grid.raster(img)
 
 # no bacillus
 df.noB.rtt <- merge(df.noB, tree.LTDE.rtt, by="strain")
-x_y.rtt <- df.noB.rtt[c("strain","weibull_mean_log10", "rate")]
+x_y.rtt <- df.noB.rtt[c("strain","weibull_mean_log10", "rate", "alpha")]
 weib.rtt.lmer <- lmer(weibull_mean_log10 ~ rate + (1 | strain), data=x_y.rtt)
 # significant lrt, keep random slopes
 weib.rtt.lmer.ci <- confint(weib.rtt.lmer)
@@ -360,9 +362,10 @@ summary(lm(pic.Y ~ pic.X ))
 ```{r}
 
 
-plot(irep.df$weibull_mean_log10, irep.df$iRep)
-
-
+#plot(x_y.mean$alpha, x_y.mean$iRep)
+#abline(lm( x_y.mean$iRep ~ x_y.mean$alpha ))
+fit.phy <- phylolm(iRep ~ alpha, data = x_y.mean, 
+                   tree.LTDE.noBS, model = 'lambda', boot = 0)
 ```
 
 
