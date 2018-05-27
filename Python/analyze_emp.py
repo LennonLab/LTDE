@@ -77,7 +77,6 @@ def get_all_genus():
 
 
 
-
 def plot_rel_N():
     directory = lt.get_path() + '/data/EMP/EMP-clean/processed_data'
     for filename in os.listdir(directory):
@@ -98,5 +97,38 @@ def plot_rel_N():
             plt.close()
 
 
+def get_CIs(iter = 10000):
+    N_soil = 255.6 * (10**27)
+    directory = lt.get_path() + '/data/EMP/EMP-clean/processed_data'
+    df_out = open(lt.get_path() + '/data/EMP/EMP-clean/estimated_cell_counts.txt', 'w')
+    header = ['Genus', 'Number_sites', 'Sample_mean_rel_abund', 'CI025_mean_rel_abund', 'CI975_mean_rel_abund', 'Sample_mean_N', 'CI025_mean_N', 'CI975_mean_N']
+    df_out.write('\t'.join(header) + '\n')
+    for filename in os.listdir(directory):
+        if filename.endswith(".txt"):
+            df_path = os.path.join(directory, filename)
+            genus = re.split(r'[./]+', df_path)[-2]
+            df = pd.read_csv(df_path, sep = '\t', index_col = 0)
+            df = df[df['N'] >= 10]
+            rel_abund_log = np.log10(df['N_genus'].values / df['N'].values)
+            bs_delta = []
+            sample_mean = np.mean(rel_abund_log)
+            for i in range(iter):
+                delta = np.mean(np.random.choice(rel_abund_log, size=len(rel_abund_log), replace=True)) - sample_mean
+                bs_delta.append(delta)
+
+            sample_mean_sorted = sorted(bs_delta)
+            sample_mean_CI025 = 10 ** (sample_mean - sample_mean_sorted[int(len(sample_mean_sorted) * 0.975)])
+            sample_mean_CI975 = 10 ** (sample_mean - sample_mean_sorted[int(len(sample_mean_sorted) * 0.025)])
+            number_sites = len(rel_abund_log)
+            mean_rel_abund = 10 ** sample_mean
+
+            line_out = [genus, number_sites, mean_rel_abund, sample_mean_CI025, sample_mean_CI975, str(mean_rel_abund*N_soil), str(sample_mean_CI025*N_soil), str(sample_mean_CI975*N_soil)]
+            line_out = [str(x) for x in line_out]
+            df_out.write('\t'.join(line_out) + '\n')
+
+    df_out.close()
+
+
 #get_all_genus()
-plot_rel_N()
+#plot_rel_N()
+get_CIs()
