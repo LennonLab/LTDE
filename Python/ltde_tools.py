@@ -1,7 +1,28 @@
-import os
+import os, math
 
 def get_path():
     return os.path.expanduser("~/GitHub/LTDE")
+
+def weibull_mean(alpha, beta):
+    return beta * math.gamma(1 + (1/alpha))
+
+def weibull_variance(alpha, beta):
+    return (beta ** 2) * (math.gamma(1 + (2/alpha)) -  (math.gamma(1 + (1/alpha)) ** 2))
+
+def weibull_CIs(mean, sd, n, lower = True, pooled = False):
+    # alpha of 0.05, so z_(alpha/2) = 1.96
+    if pooled == True:
+        # pass list of sample sizes
+        n_pooled = math.sqrt( sum(1 / n) )
+        se_g1 = (sd * n_pooled) / mean
+    else:
+        se_g1 = (sd / math.sqrt(n)) / mean
+    if lower == True:
+        CI = math.exp( math.log(mean) - (1.96 * se_g1))
+    else:
+        CI = math.exp( math.log(mean) + (1.96 * se_g1))
+    return CI
+
 
 class classFASTA:
 
