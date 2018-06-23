@@ -6,14 +6,7 @@ import  matplotlib.pyplot as plt
 import ltde_tools as lt
 
 
-def get_mean_time_death():
-    df_path = lt.get_path() + '/data/demography/weibull_results.csv'
-    df = pd.read_csv(df_path, sep = ',', index_col = 0)
-    df['mean_days_death'] = df.apply(lambda row: lt.weibull_mean(alpha = row['alpha'], beta = row['beta']), axis=1)
-    df['sd_days_death'] = df.apply(lambda row: math.sqrt(lt.weibull_variance(alpha = row['alpha'], beta = row['beta'])), axis=1)
-    df['CI025_mean_days_death'] = df.apply(lambda row: lt.weibull_CIs(mean = row['mean_days_death'], sd = row['sd_days_death'], n= row['N.obs'], lower = True ) , axis=1)
-    df['CI975_mean_days_death'] = df.apply(lambda row: lt.weibull_CIs(mean = row['mean_days_death'], sd = row['sd_days_death'], n= row['N.obs'], lower = False ) , axis=1)
-    return(df)
+
 
 
 def get_weighted_mean_time_death():
@@ -29,11 +22,14 @@ def get_weighted_mean_time_death():
         n = group['N.obs'].values
         weighted_mean = sum(group['N.obs'].values * group.mean_days_death.values) /  sum(group['N.obs'].values)
         pooled_sd =  math.sqrt(sum((group['N.obs'].values -1) * (group.sd_days_death.values ** 2)) / sum(group['N.obs'].values -1))
+        print(name, weighted_mean, pooled_sd)
         CI025_weighted_mean_days_death = lt.weibull_CIs(mean = weighted_mean, sd = pooled_sd, n =n, lower = True, pooled = True)
         CI975_weighted_mean_days_death = lt.weibull_CIs(mean = weighted_mean, sd = pooled_sd, n =n, lower = False, pooled = True)
         line = [name, str(group.shape[0]), str(weighted_mean), str(CI025_weighted_mean_days_death), str(CI975_weighted_mean_days_death)]
         df_out.write('\t'.join(line) + '\n')
+
     df_out.close()
+
 
 def plot_weighted_mean():
     # merge trait dataset with mean death time
@@ -61,10 +57,10 @@ def plot_weighted_mean():
         #div_time_starv_CI975 = np.log10(row['division_time_starv_CI975']* 365 * (3.8 * (10**12) ))
         #div_time_starv_mean = np.log10(row['division_time_starv_mean']* 365 * (3.8 * (10**12) ))
 
-        div_time = np.log10((row['division_time_days'] / 365) * (3.8 * (10**12) ))
-        div_time_starv_CI025 = np.log10( (row['division_time_starv_CI025']/ 365) * (3.8 * (10**12) ))
-        div_time_starv_CI975 = np.log10( (row['division_time_starv_CI975']/ 365) * (3.8 * (10**12) ))
-        div_time_starv_mean = np.log10(  (row['division_time_starv_mean'] / 365) * (3.8 * (10**12) ))
+        div_time = np.log10(   ( 1 / (row['division_time_days'] / 365)) * (3.8 * (10**12) ))
+        div_time_starv_CI025 = np.log10( (1 / (row['division_time_starv_CI025']/ 365)) * (3.8 * (10**12) ))
+        div_time_starv_CI975 = np.log10( (1 / (row['division_time_starv_CI975']/ 365)) * (3.8 * (10**12) ))
+        div_time_starv_mean = np.log10(  (1 / (row['division_time_starv_mean'] / 365)) * (3.8 * (10**12) ))
 
         plt.hlines(count, div_time, div_time_starv_CI025, linestyles = ':')
         plt.hlines(count, div_time_starv_CI025, div_time_starv_CI975, linestyles = '-')
@@ -81,9 +77,11 @@ def plot_weighted_mean():
     fig.savefig(fig_name, bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
-    df_emp_path = lt.get_path() + '/data/EMP/EMP-clean/estimated_cell_counts.txt'
-    df_emp = pd.read_csv(df_emp_path, sep = '\t', index_col = 0)
-    print(df_emp)
+    #df_emp_path = lt.get_path() + '/data/EMP/EMP-clean/estimated_cell_counts.txt'
+    #df_emp = pd.read_csv(df_emp_path, sep = '\t', index_col = 0)
+    #print(df_emp)
+
+    # figure out how to calculate confidence intervals
 
 
 
