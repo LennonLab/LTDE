@@ -48,6 +48,7 @@ def weibull_CIs(mean, sd, n, lower = True, pooled = False):
 def get_mean_time_death():
     df_path = get_path() + '/data/demography/weibull_results.csv'
     df = pd.read_csv(df_path, sep = ',', index_col = 0)
+    df = clean_demography_df(df)
     df['mean_days_death'] = df.apply(lambda row: weibull_mean(alpha = row['alpha'], beta = row['beta']), axis=1)
     df['sd_days_death'] = df.apply(lambda row: math.sqrt(weibull_variance(alpha = row['alpha'], beta = row['beta'])), axis=1)
     df['CI025_mean_days_death'] = df.apply(lambda row: weibull_CIs(mean = row['mean_days_death'], sd = row['sd_days_death'], n= row['N.obs'], lower = True ) , axis=1)
