@@ -61,7 +61,7 @@ def fig1():
 
 
     ax1 = plt.subplot2grid((3, 3), (0, 0), colspan=1)
-    ax1.scatter(days_KBS0714, df_KBS0714.N, alpha=0.3, color = '#1f77b4', zorder=1)
+    ax1.scatter(days_KBS0714, df_KBS0714.N, alpha=0.1, color = '#1f77b4', zorder=1)
     ax1.plot(weib_x, weib_y_714, c = 'k', zorder=2, linestyle = '--')
     ax1.set_yscale("log")
     ax1.set_xlim([-100,1100])
@@ -74,7 +74,7 @@ def fig1():
 
 
     ax2 = plt.subplot2grid((3, 3), (0, 1), colspan=1)
-    ax2.scatter(days_KBS0715, df_KBS0715.N, alpha=0.3, color = '#1f77b4', zorder=1)
+    ax2.scatter(days_KBS0715, df_KBS0715.N, alpha=0.1, color = '#1f77b4', zorder=1)
     ax2.plot(weib_x, weib_y_715, c = 'k', zorder=2, linestyle = '--')
     ax2.set_xlim([-100,1100])
     ax2.set_ylim(y_axis_range)
@@ -88,7 +88,7 @@ def fig1():
     #print(df_mean_death_KBS0715_beta)
 
     ax3 = plt.subplot2grid((3, 3), (0, 2), colspan=1)
-    ax3.scatter(days_KBS0812, df_KBS0812.N, alpha=0.3, color = '#1f77b4', zorder=1)
+    ax3.scatter(days_KBS0812, df_KBS0812.N, alpha=0.1, color = '#1f77b4', zorder=1)
     ax3.plot(weib_x, weib_y_812, c = 'k', zorder=2, linestyle = '--')
     ax3.set_xlim([-100,1100])
     ax3.set_ylim(y_axis_range)
