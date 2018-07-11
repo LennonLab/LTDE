@@ -48,11 +48,14 @@ def weibull_CIs(mean, sd, n, lower = True, pooled = False):
 def get_mean_time_death():
     df_path = get_path() + '/data/demography/weibull_results.csv'
     df = pd.read_csv(df_path, sep = ',', index_col = 0)
+    df = clean_demography_df(df)
     df['mean_days_death'] = df.apply(lambda row: weibull_mean(alpha = row['alpha'], beta = row['beta']), axis=1)
     df['sd_days_death'] = df.apply(lambda row: math.sqrt(weibull_variance(alpha = row['alpha'], beta = row['beta'])), axis=1)
     df['CI025_mean_days_death'] = df.apply(lambda row: weibull_CIs(mean = row['mean_days_death'], sd = row['sd_days_death'], n= row['N.obs'], lower = True ) , axis=1)
     df['CI975_mean_days_death'] = df.apply(lambda row: weibull_CIs(mean = row['mean_days_death'], sd = row['sd_days_death'], n= row['N.obs'], lower = False ) , axis=1)
     df['half_life'] = df.apply(lambda row: weibull_half_life(alpha = row['alpha'], beta = row['beta']), axis=1)
+    out_path = get_path() + '/data/demography/weibull_results_half_life.txt'
+    df.to_csv(out_path, sep = '\t',  index = True)
     return df
 
 

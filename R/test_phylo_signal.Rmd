@@ -1,0 +1,88 @@
+---
+title: "Test LTDE phylogenetic signal"
+author: "William R. Shoemaker, Stuart E. Jones, and Jay T. Lennon"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+
+## 1) Set working directory and load packages
+```{r, warning=FALSE, message=FALSE}
+# setup
+## Retrieve and Set Your Working Directory
+rm(list = ls())
+getwd()
+setwd("~/GitHub/LTDE/")
+#knitr::opts_knit$set(root.dir = '~/GitHub/LTDE/')
+
+
+library('ape')
+require("geiger") 
+library("pmc")
+
+#library('latex2exp')
+```
+
+
+
+
+##2) Load data
+```{r, results='hide', warning=FALSE, message=FALSE}
+# half life data
+df <- read.table("data/demography/weibull_results_half_life.txt", 
+                 header = TRUE, sep = "\t", row.names = 1)
+df$half_life <- log10(df$half_life)
+half_life_mean <- tapply(df$half_life, df$strain, mean)
+
+# Load ML tree
+ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde_seqs")
+# Define the outgroup
+outgroup <- match("NC_005042.1_353331-354795", ml.tree$tip.label)
+# Create a rooted tree {ape} using the outgroup
+ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
+# drop outgroup
+ml.rooted.noOutgroup <- drop.tip(ml.rooted, "NC_005042.1_353331-354795")
+```
+
+
+
+
+##3) Pagel's lambda
+
+```{r}
+#ml.lambda.0 <- rescale(ml.rooted, "lambda", 0)
+#fitContinuous(ml.rooted, df$half_life, model = "lambda")
+#fitContinuous(ml.lambda.0, decay, model = "lambda")
+
+out.ltde <- pmc(ml.rooted.noOutgroup, half_life_mean, "BM", "lambda", nboot = 100)
+dists.ltde <- data.frame(null = out.ltde$null, test = out.ltde$test)
+null.ltde <- density(dists.ltde$null)
+test.ltde <- density(dists.ltde$test)
+
+#plot(null.ltde, main="KDE", xlim=c(0,150))
+plot(test.ltde, col = 'blue', main= 'Comparison of Brownian Motion \n to Pagels lambda', xlab="Likelihood ratio")
+lines(null.ltde, col = 'red')
+
+#plot(test.ltde)
+abline(v = out.ltde$lr)
+
+
+
+
+phy <- sim.bdtree(n=10)
+dat <- sim.char(rescale(phy, "lambda", .5), 1)[,1,]
+out <- pmc(phy, dat, "BM", "lambda", nboot = 50)
+dists <- data.frame(null = out$null, test = out$test)
+d.out <- density(dists$null)
+plot(d.out, main="Kernel Density of Miles Per Gallon")
+abline(v = out$lr)
+
+
+```
+
+
+
+
