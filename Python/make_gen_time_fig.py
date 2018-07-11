@@ -10,7 +10,7 @@ import ltde_tools as lt
 
 
 def get_weighted_mean_time_death():
-    df = get_mean_time_death()
+    df = lt.get_mean_time_death()
     df['strain'] = df['strain'].str.replace('KBS0711W','KBS0711')
     # get rid of the insanely out there bacillus estimate
     df = df.drop(df.index[[96, 99]])
@@ -22,7 +22,7 @@ def get_weighted_mean_time_death():
         n = group['N.obs'].values
         weighted_mean = sum(group['N.obs'].values * group.mean_days_death.values) /  sum(group['N.obs'].values)
         pooled_sd =  math.sqrt(sum((group['N.obs'].values -1) * (group.sd_days_death.values ** 2)) / sum(group['N.obs'].values -1))
-        print(name, weighted_mean, pooled_sd)
+        #print(name, weighted_mean, pooled_sd)
         CI025_weighted_mean_days_death = lt.weibull_CIs(mean = weighted_mean, sd = pooled_sd, n =n, lower = True, pooled = True)
         CI975_weighted_mean_days_death = lt.weibull_CIs(mean = weighted_mean, sd = pooled_sd, n =n, lower = False, pooled = True)
         line = [name, str(group.shape[0]), str(weighted_mean), str(CI025_weighted_mean_days_death), str(CI975_weighted_mean_days_death)]
@@ -86,5 +86,5 @@ def plot_weighted_mean():
 
 
 
-#get_weighted_mean_time_death()
-plot_weighted_mean()
+get_weighted_mean_time_death()
+#plot_weighted_mean()
