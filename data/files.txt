@@ -1,0 +1,3 @@
+/N/dc2/projects/muri2/Task2/LTDE/SoilGenomes_Annotate20161212.tar.gz
+/N/dc2/projects/muri2/Task2/LTDE/GSF966.tar.gz
+/N/dc2/projects/muri2/Task2/LTDE/LTDE_data.tar.gz

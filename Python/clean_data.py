@@ -1,6 +1,7 @@
 from __future__ import division
 import ltde_tools as lt
 import glob, re, os, subprocess, math
+import pandas as pd
 
 def get_iRep():
     directory = os.fsencode(lt.get_path() + '/data/bwa_sam')
@@ -69,4 +70,30 @@ def clean_iRep():
     df_out.close()
 
 
-clean_iRep()
+def clean_COGs():
+    directory = os.fsencode(lt.get_path() + '/data/COGs')
+    cog_dict = {}
+    for file in os.listdir(directory):
+        filename = os.fsdecode(file)
+        if filename.endswith('_hmms.hits.txt'):
+            cog_path = sam = os.path.join(str(directory, 'utf-8'), filename)
+            df = pd.read_csv(cog_path, sep = ',')
+            strain = filename.split('_')[0]
+            cog_dict[strain] = {}
+            cog_list = [x for x in df.gene_hmm_id.tolist() if x != '-']
+            for cog in cog_list:
+                cog_dict[strain][cog] = 1
+
+    df_cogs = pd.DataFrame.from_dict(cog_dict)
+    df_cogs = df_cogs.fillna(0)
+    #df_cogs = df_cogs[(df_cogs.T != 1).any()]
+    #df_cogs = df_cogs[(df_cogs != 1).any()]
+    #print(df_cogs)
+    df_cogs = df_cogs[(df_cogs.T != 1).any()].T
+    df_out = lt.get_path() + '/data/COGs/cog_by_genome.txt'
+    df_cogs.to_csv(df_out, sep = '\t', index = True)
+
+
+
+#clean_iRep()
+clean_COGs()
