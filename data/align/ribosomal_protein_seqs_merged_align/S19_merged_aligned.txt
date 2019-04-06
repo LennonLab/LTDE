@@ -1,3 +1,0 @@
-Started Fri May  4 10:58:23 2018
-muscle -in /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_merged/S19_merged.fa -out /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_merged_align/S19_merged_aligned.fa -log /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_merged_align/S19_merged_aligned.txt 
-Finished Fri May  4 11:17:17 2018
