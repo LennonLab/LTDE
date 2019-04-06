@@ -59,17 +59,32 @@ re.ml.rooted.um.prunned <- drop.tip(re.ml.rooted.um,
                                                                             re.ml.rooted.um$tip.label))])
 # Run a phylogeny-corrected regression with no bootstrap replicates
 fit.phy <- phylolm(alpha.mean  ~ log10(beta.mean), data = df.species.no_812, 
-                   re.ml.rooted.um.prunned, model = 'lambda', boot = 0)
+                   re.ml.rooted.um.prunned, model = 'lambda', boot = 10)
 
+# include confidence intervals
+CI.2.5.inter <- fit.phy$bootconfint95[1,1]
+CI.97.5.inter <- fit.phy$bootconfint95[2,1]
+CI.2.5.slope <- fit.phy$bootconfint95[1,2]
+CI.97.5.slope <- fit.phy$bootconfint95[2,2]
+slope_diff <-fit.phy$coefficients[2] - CI.2.5.slope
 #r2 = format(R2(fit.phy, phy=re.ml.rooted.um.prunned)[2], digits = 3)
 phylo.params <- ggplot(data = df.species.no_812, aes(x = log10(beta.mean), y = alpha.mean)) +
                 geom_point(color='blue', alpha = 0.6, size=4) +
                 xlab(TeX("$\\bar{\\beta}$,  $\\log_{10}$") ) + 
                 ylab(TeX("$\\bar{\\alpha}$")) +
                 stat_function(fun = function(x) fit.phy$coefficients[1] + fit.phy$coefficients[2] * x) + 
+                # how to plot CIs for this?
+                #stat_function(fun = function(x) CI.2.5.inter + CI.2.5.slope  * log(x) + 
+                scale_y_continuous(limits = c(0, 1)) +
                 theme_bw()
+
 phylo.params <- phylo.params + theme(axis.title.x = element_text(color="black", size=14), 
                             axis.title.y = element_text(color="black", size=14))
+
+
+
+
+#CI.2.5.y <- seq(min(beta.mean))
 
 
 #### make boxplot ggplot

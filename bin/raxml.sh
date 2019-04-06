@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -k o
-#PBS -l nodes=1:ppn=8,vmem=100gb,walltime=1000:00:00
-#PBS -M wrshoema@indiana.edu
+#PBS -l nodes=1:ppn=8,vmem=100gb,walltime=24:00:00
+#PBS -M wrshoema@iu.edu
 #PBS -m abe
 #PBS -j oe
 
@@ -13,15 +13,21 @@ module load raxml
 #    -n ltde_seqs_test -w /Users/WRShoemaker/GitHub/LTDE/data/tree
 
 # test for the protein tree..........
-raxmlHPC-PTHREADS -T 4 -f a -m PROTGAMMALG -p 12345 -x 12345 -# autoMRE \
-    -s /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_align_concat.fa \
-    -n test_protein \
-    -w /Users/WRShoemaker/GitHub/LTDE/data/align
+#raxmlHPC-PTHREADS -T 4 -f a -m PROTGAMMALG -p 12345 -x 12345 -# autoMRE \
+#    -s /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_align_concat.fa \
+#    -n test_protein \
+#    -w /Users/WRShoemaker/GitHub/LTDE/data/align
 
-raxmlHPC-PTHREADS -T 4 -f a -m PROTGAMMALG -p 12345 -x 12345 -# autoMRE \
-    -s /N/dc2/projects/muri2/Task2/LTDE/data/align/ribosomal_protein_seqs_align_concat.fa \
-    -n protein_tree \
-    -w /N/dc2/projects/muri2/Task2/LTDE/data/tree
+#raxmlHPC-PTHREADS -T 4 -f a -m PROTGAMMALG -p 12345 -x 12345 -# autoMRE \
+#    -s /N/dc2/projects/muri2/Task2/LTDE/data/align/ribosomal_protein_seqs_align_concat.fa \
+#    -n protein_tree \
+#    -w /N/dc2/projects/muri2/Task2/LTDE/data/tree
+
+
+raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 \
+    -o NC_005042.1.353331-354795 -# autoMRE \
+    -s /N/dc2/projects/muri2/Task2/LTDE/data/arb-silva.de_2019-04-06_id632523.fasta \
+    -n ltde_neighbor -w /N/dc2/projects/muri2/Task2/LTDE/data/tree
 
 
 # -T = number of threads
