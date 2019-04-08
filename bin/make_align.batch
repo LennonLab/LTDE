@@ -1,4 +1,0 @@
-align.seqs(fasta=ltde_seqs.fasta, reference=silva.seed_v132.align, flip=T, processors=4)
-summary.seqs(fasta=ltde_seqs.align)
-screen.seqs(fasta=ltde_seqs.align, minlength=200)
-filter.seqs(fasta=ltde_seqs.good.align, vertical=T, trump=.)

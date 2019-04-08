@@ -22,8 +22,14 @@ setwd("~/GitHub/LTDE/")
 library('ape')
 require("geiger") 
 library("pmc")
+library("phytools")
+library("lattice")
+library("vegan")
 
 #library('latex2exp')
+#install.packages("PerformanceAnalytics")
+library("PerformanceAnalytics")
+
 ```
 
 
@@ -61,28 +67,90 @@ out.ltde <- pmc(ml.rooted.noOutgroup, half_life_mean, "BM", "lambda", nboot = 10
 dists.ltde <- data.frame(null = out.ltde$null, test = out.ltde$test)
 null.ltde <- density(dists.ltde$null)
 test.ltde <- density(dists.ltde$test)
-
 #plot(null.ltde, main="KDE", xlim=c(0,150))
 plot(test.ltde, col = 'blue', main= 'Comparison of Brownian Motion \n to Pagels lambda', xlab="Likelihood ratio")
 lines(null.ltde, col = 'red')
-
 #plot(test.ltde)
 abline(v = out.ltde$lr)
 
 
-
-
-phy <- sim.bdtree(n=10)
-dat <- sim.char(rescale(phy, "lambda", .5), 1)[,1,]
-out <- pmc(phy, dat, "BM", "lambda", nboot = 50)
-dists <- data.frame(null = out$null, test = out$test)
-d.out <- density(dists$null)
-plot(d.out, main="Kernel Density of Miles Per Gallon")
-abline(v = out$lr)
-
+# Test without bacillus
+half_life_mean.noB <- head( half_life_mean, -1)
+ml.rooted.noOutgroup.noB <- drop.tip(ml.rooted.noOutgroup, "KBS0812")
+out.ltde.noB <- pmc(ml.rooted.noOutgroup.noB, half_life_mean.noB, "BM", "lambda", nboot = 100)
+dists.ltde.noB <- data.frame(null = out.ltde.noB$null, test = out.ltde.noB$test)
+null.ltde.noB <- density(dists.ltde.noB$null)
+test.ltde.noB <- density(dists.ltde.noB$test)
+#plot(null.ltde, main="KDE", xlim=c(0,150))
+plot(test.ltde.noB, col = 'blue', main= 'Comparison of Brownian Motion \n to Pagels lambda', xlab="Likelihood ratio")
+lines(null.ltde.noB, col = 'red')
+#plot(test.ltde)
+abline(v = out.ltde.noB$lr)
 
 ```
 
 
+
+##4) Phylogenetic PCA
+```{r}
+cogs <- read.table("data/COGs/cog_by_genome.txt", header = TRUE, sep = "\t")
+rownames(cogs) <- cogs$X
+cogs <- subset(cogs, select = -c(X) )
+
+# add constant b/c of small branch lengths
+ml.rooted.noOutgroup$edge.length <- ml.rooted.noOutgroup$edge.length + 1
+ppca <- phyl.pca(ml.rooted.noOutgroup, cogs, method = "BM", mode="cov")
+# Define Plot Parameters
+par(mar = c(5, 5, 1, 2) + 0.1)
+eig.values <- diag(ppca$Eval)
+explainvar1 <- round(eig.values[1] / sum(eig.values), 3) * 100
+explainvar2 <- round(eig.values[2] / sum(eig.values), 3) * 100
+explainvar3 <- round(eig.values[3] / sum(eig.values), 3) * 100
+sum.eig <- sum(explainvar1, explainvar2, explainvar3)
+
+# Initiate Plot
+plot(ppca$S[ ,1], ppca$S[ ,2], xlim = c(-3, 3), ylim = c(-3, 3),
+     xlab = paste("PCA 1 (", explainvar1, "%)", sep = ""),
+     ylab = paste("PCA 2 (", explainvar2, "%)", sep = ""),
+     pch = 16, cex = 2.0, type = "n", cex.lab = 1.5, cex.axis = 1.2, axes = FALSE)
+# Add Axes
+axis(side = 1, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
+axis(side = 2, labels = T, lwd.ticks = 2, cex.axis = 1.2, las = 1)
+abline(h = 0, v = 0, lty = 3)
+box(lwd = 2)
+# Add Points & Labels
+points(ppca$S[ ,1], ppca$S[ ,2],
+       pch = 19, cex = 3, bg = "gray", col = "gray")
+text(ppca$S[ ,1], ppca$S[ ,2], 
+     labels = row.names(ppca$S))
+
+
+
+ppca$S[ ,1]
+half_life_mean
+plot(ppca$S[ ,1], half_life_mean, xlab = 'PC1', ylab = 'half-life, log10')
+abline(lm(half_life_mean ~ ppca$S[ ,1]))
+
+test.lm <- lm(half_life_mean ~ ppca$S[ ,1])
+summary(test.lm) 
+
+```
+
+
+## Traits
+
+
+```{r}
+df.traits <- read.table("data/traits/traits.txt", 
+                 header = TRUE, sep = "\t", row.names = 1)
+df.traits <- df.traits[c("Rmax", "Wopt", "Breadth", "Mpamin", "O2tol", "A", "umax", "Lag", "Biof", "Mot")]
+df.traits$Breadth <- log10(df.traits$Breadth)
+df.traits$Biof <- log10(df.traits$Biof)
+df.traits$Mot <- log10(df.traits$Mot)
+
+#chart.Correlation(df.traits, histogram=TRUE, pch=19)
+# run phylostep
+
+```
 
 
