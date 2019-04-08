@@ -36,9 +36,11 @@ kde.plot <- ggplot(df.no_812, aes(log10(mttf))) +
             geom_vline(xintercept=mean(log10(df.no_812$mttf)), linetype = "longdash") + 
             theme_bw()
             
-kde.plot = kde.plot + theme(axis.title.x = element_text(color="black", size=14), 
-                            axis.title.y = element_text(color="black", size=14)) +
-          scale_x_continuous(breaks = c(0, 1, 2), labels = c(1, 10, 100))
+kde.plot <- kde.plot + theme(axis.title.x = element_text(color="black", size=14), 
+                            axis.title.y = element_text(color="black", size=14), 
+                            panel.grid.major = element_blank(), 
+                            panel.grid.minor = element_blank())
+          #scale_x_continuous(breaks = c(0, 1, 2), labels = c(1, 10, 100))
 
 ##### ggplot parameter regression
 # Load ML tree
@@ -81,10 +83,9 @@ phylo.params <- ggplot(data = df.species.no_812, aes(x = log10(beta.mean), y = a
                 theme_bw()
 
 phylo.params <- phylo.params + theme(axis.title.x = element_text(color="black", size=14), 
-                            axis.title.y = element_text(color="black", size=14))
-
-
-
+                            axis.title.y = element_text(color="black", size=14), 
+                            panel.grid.major = element_blank(), 
+                            panel.grid.minor = element_blank())
 
 
 
@@ -95,10 +96,15 @@ boxplot <- ggplot(data = df.species.no_812) +
   geom_point(aes(x = reorder(Species, -mttf.mean), y = mttf.CI.97.5), shape=124,size=2.5 ) +
   geom_segment(aes(x = Species, y = mttf.mean, xend = Species, yend = mttf.CI.2.5), size = 0.5) +
   geom_segment(aes(x = Species, y = mttf.mean, xend = Species, yend = mttf.CI.97.5), size = 0.5) +
-  ylab(TeX("$\\T_{death}$ (days),  $\\log_{10}$") ) + 
+  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) + 
   scale_y_log10() + 
   coord_flip() +
-  theme_bw() + theme(axis.title.y=element_blank(), axis.text.y=element_text(size = 7), axis.title.x = element_text(color="black", size=14)) +
+  theme_bw() + 
+  theme(axis.title.y=element_blank(), 
+        axis.text.y=element_text(size = 7), 
+        axis.title.x = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()) +
   scale_x_discrete( position = "top",
     labels=c("KBS0707" = expression(paste(italic("Pseudomonas"), " sp. KBS0707")), 
              "KBS0702" = expression(paste(italic("Arthrobacter"), " sp. KBS0702")),
@@ -125,9 +131,9 @@ boxplot <- ggplot(data = df.species.no_812) +
 
 
 g <- ggarrange(boxplot,                                                 # First row with scatter plot
-          ggarrange(kde.plot, phylo.params, ncol = 2, labels = c("B", "C")), # Second row with box and dot plots
+          ggarrange(kde.plot, phylo.params, ncol = 2, labels = c("b", "c")), # Second row with box and dot plots
           nrow = 2, 
-          labels = "A"                                        # Labels of the scatter plot
+          labels = "a"                                        # Labels of the scatter plot
 ) 
 
 
