@@ -41,18 +41,18 @@ ml.rooted.um.prunned<-drop.tip(ml.rooted.um.prunned, ml.rooted.um.prunned$tip.la
 # Run a phylogeny-corrected regression with no bootstrap replicates
 fit.phy.mttf <- phylolm(iRep ~ mttf.mean, data = df.iRep.merge, 
                         ml.rooted.um.prunned, model = 'lambda', lower.bound = 0, upper.bound = 1, boot = 0)
-fit.phy.beta <- phylolm(iRep ~ beta.mean, data = df.iRep.merge, 
-                        ml.rooted.um.prunned, model = 'lambda', lower.bound = 0, upper.bound = 1, boot = 0)
+#fit.phy.beta <- phylolm(iRep ~ beta.mean, data = df.iRep.merge, 
+#                        ml.rooted.um.prunned, model = 'lambda', lower.bound = 0, upper.bound = 1, boot = 0)
 fit.phy.alpha <- phylolm(iRep ~ alpha.mean, data = df.iRep.merge, 
                          ml.rooted.um.prunned, model = 'lambda', lower.bound = 0, upper.bound = 1, boot = 0)
 
 
-phy.beta.plot <- ggplot(data = df.iRep.merge, aes(x = log10(beta.mean), y = iRep)) +
-  geom_point(color='blue', alpha = 0.6, size=4) +
-  xlab(TeX("$\\bar{\\beta}$,  $\\log_{10}$") ) + 
-  ylab(TeX("$\\bar{\\iRep}$")) +
-  #scale_y_continuous(limits = c(0, 1)) +
-  theme_bw()
+#phy.beta.plot <- ggplot(data = df.iRep.merge, aes(x = log10(beta.mean), y = iRep)) +
+#  geom_point(color='blue', alpha = 0.6, size=4) +
+#  xlab(TeX("$\\bar{\\beta}$,  $\\log_{10}$") ) + 
+#  ylab(TeX("$\\bar{\\iRep}$")) +
+#  #scale_y_continuous(limits = c(0, 1)) +
+#  theme_bw()
 
 phy.alpha.plot <- ggplot(data = df.iRep.merge, aes(x = alpha.mean, y = iRep)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
@@ -63,28 +63,33 @@ phy.alpha.plot <- ggplot(data = df.iRep.merge, aes(x = alpha.mean, y = iRep)) +
 
 phy.mttf.plot <- ggplot(data = df.iRep.merge, aes(x = mttf.mean, y = iRep)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
-  xlab(TeX("$\\T_{death}$ (days),  $\\log_{10}$") ) + 
+  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) + 
   ylab(TeX("$\\bar{\\iRep}$")) +
+  scale_x_log10() + 
   #scale_y_continuous(limits = c(0, 1)) +
   theme_bw()
 
 
-phy.beta.plot <- phy.beta.plot + theme(axis.title.x = element_text(color="black", size=14), 
-                                         axis.title.y = element_text(color="black", size=14))
+#phy.beta.plot <- phy.beta.plot + theme(axis.title.x = element_text(color="black", size=14), 
+#                                         axis.title.y = element_text(color="black", size=14))
 
 phy.alpha.plot <- phy.alpha.plot + theme(axis.title.x = element_text(color="black", size=14), 
-                                         axis.title.y = element_text(color="black", size=14))
+                                         axis.title.y = element_text(color="black", size=14), 
+                                         panel.grid.major = element_blank(), 
+                                         panel.grid.minor = element_blank())
 
 phy.mttf.plot <- phy.mttf.plot + theme(axis.title.x = element_text(color="black", size=14), 
-                                         axis.title.y = element_text(color="black", size=14))
+                                         axis.title.y = element_text(color="black", size=14), 
+                                      panel.grid.major = element_blank(), 
+                                       panel.grid.minor = element_blank())
 
 
-g <- ggarrange(phy.beta.plot, phy.alpha.plot, phy.mttf.plot,                                              # First row with scatter plot
+g <- ggarrange(phy.alpha.plot, phy.mttf.plot,                                              # First row with scatter plot
                # Second row with box and dot plots
-               ncol = 1, nrow = 3,
+               ncol = 1, nrow = 2,
                labels = "auto")#, label.y = c(1, 0.5, 0.25)                                     # Labels of the scatter plot
 #) 
 
 
-ggsave(file="figs/Fig2.png", g,width=5,height=15, units='in', dpi=600)
+ggsave(file="figs/Fig2.png", g,width=5,height=10, units='in', dpi=600)
 
