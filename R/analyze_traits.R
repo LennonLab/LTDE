@@ -47,3 +47,6 @@ fit.trait.beta.select <- phylostep(beta.mean ~ A + umax + Lag + umax:Lag, starti
 summary(fit.trait.mttf.select)
 summary(fit.trait.alpha.select)
 summary(fit.trait.beta.select)
+
+summary(lm(traits.merge$Lag ~traits.merge$umax))
+plot(traits.merge$umax, traits.merge$Lag)
