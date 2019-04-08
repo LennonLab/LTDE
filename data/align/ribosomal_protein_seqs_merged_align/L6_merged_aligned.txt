@@ -1,3 +1,0 @@
-Started Fri May  4 04:50:55 2018
-muscle -in /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_merged/L6_merged.fa -out /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_merged_align/L6_merged_aligned.fa -log /Users/WRShoemaker/GitHub/LTDE/data/align/ribosomal_protein_seqs_merged_align/L6_merged_aligned.txt 
-Finished Fri May  4 05:58:15 2018

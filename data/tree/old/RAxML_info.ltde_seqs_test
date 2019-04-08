@@ -1,0 +1,65 @@
+
+
+IMPORTANT WARNING: Sequences KBS0725 and KBS0727 are exactly identical
+
+IMPORTANT WARNING
+Found 1 sequence that is exactly identical to other sequences in the alignment.
+Normally they should be excluded from the analysis.
+
+An alignment file with sequence duplicates removed has already
+been printed to file /Users/WRShoemaker/GitHub/LTDE/data/align/16S_rRNA_seqs/ltde_seqs.good.filter.fasta.reduced
+
+
+Using BFGS method to optimize GTR rate parameters, to disable this specify "--no-bfgs" 
+
+
+
+This is RAxML version 8.2.11 released by Alexandros Stamatakis on June 2017.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 729 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 5.41%
+
+RAxML rapid bootstrapping and subsequent ML search
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+
+Executing 1000 rapid bootstrap inferences and thereafter a thorough ML search 
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heterogeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 729
+Name: No Name Provided
+DataType: DNA
+Substitution Matrix: GTR
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o NC_005042.1_353331-354795 -# autoMRE -s /Users/WRShoemaker/GitHub/LTDE/data/align/16S_rRNA_seqs/ltde_seqs.good.filter.fasta -n ltde_seqs_test -w /Users/WRShoemaker/GitHub/LTDE/data/tree 
+
+
+
+Time for BS model parameter optimization 0.481029
+Bootstrap[0]: Time 2.071138 seconds, bootstrap likelihood -12897.652778, best rearrangement setting 13
