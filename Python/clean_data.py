@@ -6,10 +6,6 @@ import pandas as pd
 
 def make_16S_fata():
 
-    # remove KBS0727 because it's identical to KBS0725
-
-    os.system(cat ~/GitHub/LTDE/data/align/ltde_seqs.fasta | awk '{if (substr($0,1) == ">KBS0727") censor=1; else if (substr($0,1,1) == ">") censor=0; if (censor==0) print $0}' > ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
-
     alignments = ['KBS0710_NR_024911', 'KBS0721_NR_114994']
 
     def generate_16S_consenus(alignment):
@@ -57,54 +53,19 @@ def make_16S_fata():
         out_fasta.close()
 
 
-
-    def remove_dups():
-        class_fa = ltde_tools.classFASTA(get_path()+'/data/align/ltde_neighbors/merged_neighbors.txt')
-        out_fasta = open(get_path()+'/data/align/ltde_neighbors/merged_neighbors_no_dups.txt', 'w+')
-
-        read_fa = class_fa.readFASTA()
-        names = [x[0] for x in read_fa]
-        def duplicates(lst, item):
-            return [i for i, x in enumerate(lst) if x == item]
-        dups = dict((x, duplicates(names, x)) for x in set(names) if names.count(x) > 1)
-        to_remove = []
-        for k, v in sorted(dups.items()):
-            to_remove.extend(v[1:])
-        # NR_042939.1 is identical to ATCC13985
-        to_remove.append('NR_042939.1')
-        read_fa_no_dups = [i for j, i in enumerate(read_fa) if j not in to_remove]
-
-        for x in read_fa_no_dups:
-
-            name = x[0]
-            out_fasta.write('>' + name + '\n')
-            seq = x[1]
-            n = 80
-            #seq_split = [seq[i:i+n] for i in range(0, len(seq), n)]
-            seq_split = lt.split_by_n(seq, n)
-            for seq_i in seq_split:
-                out_fasta.write(seq_i + '\n')
-            out_fasta.write('\n')
-        out_fasta.close()
-
-
     def run_alignments():
         for align in alignments:
             generate_16S_consenus(align)
 
-    # un-blank the commands to merge the sequence data
-    #os.system('cat ~/GitHub/LTDE/data/align/ltde_neighbors/*.txt > ~/GitHub/LTDE/data/align/ltde_neighbors/merged_neighbors.txt')
-    #remove_dups()
-    #os.system('cat ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta ~/GitHub/LTDE/data/align/ltde_neighbors/merged_neighbors_no_dups.txt > ~/GitHub/LTDE/data/align/ltde_neighbors_seqs.fasta')
-
+    # remove KBS0727 because it's identical to KBS0725
+    os.system(cat ~/GitHub/LTDE/data/align/ltde_seqs.fasta | awk '{if (substr($0,1) == ">KBS0727") censor=1; else if (substr($0,1,1) == ">") censor=0; if (censor==0) print $0}' > ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
+    run_alignments()
     # https://www.arb-silva.de/aligner/job/632523
     # NC_005042.1:353331-354795 renamed as NC_005042.1.353331-354795
-    #os.system(sed -i -e 's/NC_005042.1:353331-354795/NC_005042.1.353331-354795/g' ~/GitHub/LTDE/data/align/ltde_neighbors_seqs.fasta)
-
-    # remoe #KBS0727
+    os.system(sed -i -e 's/NC_005042.1:353331-354795/NC_005042.1.353331-354795/g' ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
 
     # ltde_neighbors_seqs.fasta uploaded to ARB and aligned
-    # alignment file = arb-silva.de_2019-04-06_id632523.fasta
+    # alignment file = arb-silva.de_2019-04-07_id632669.fasta
 
 
 
