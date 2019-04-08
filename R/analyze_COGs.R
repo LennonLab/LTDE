@@ -4,6 +4,7 @@ setwd("~/GitHub/LTDE/")
 
 library('phytools')
 library('ape')
+library('ggplot2')
 
 #source("http://www.phytools.org/utilities/v4.6/utilities.R")
 #source("http://www.phytools.org/phyl.pca/v0.5/phyl.pca.R")
@@ -38,41 +39,133 @@ ml.rooted.um.prunned <- drop.tip(ml.rooted.um,
 
 ltde.met.ppca <- phyl.pca(ml.rooted, df.met, method = "BM")
 ltde.cog.ppca <- phyl.pca(ml.rooted, df.cog, method = "BM")
-
-plot(ltde.met.ppca$S[,1], 
-     ltde.met.ppca$S[,2], ylab = "", xlab = "")
-
-plot(ltde.cog.ppca$S[,1], 
-     ltde.cog.ppca$S[,2], ylab = "", xlab = "")
-
-#diag(ltde.ppca$Eval)[1] / sum(diag(ltde.ppca$Eval))
-
-
 # run regression
-df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
-                         header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
-rownames(df.species) <- df.species$Species
+df.species <- read.table("data/traits/traits_weibull.txt", 
+                         header = TRUE, sep = "\t", 
+                         row.names = 1, stringsAsFactors = FALSE)
+#rownames(df.species) <- df.species$Species
 # remove bacillus
-df.species.no_812<-df.species[!(df.species$Species=="KBS0812"),]
-df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0727"),]
-rownames(df.species.no_812) <- lapply(rownames(df.species.no_812), as.character)
+#df.species.no_812<-df.species[!(df.species$Species=="KBS0812"),]
+#df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0727"),]
+rownames(df.species) <- lapply(rownames(df.species), as.character)
 rownames(ltde.met.ppca$S) <- lapply(rownames(ltde.met.ppca$S), as.character)
 
-df.PCA.met.merge <- merge(df.species.no_812, ltde.met.ppca$S,by="row.names")
-df.species.no_812.2 <- cbind(df.species.no_812)
-df.PCA.cog.merge <- merge(df.species.no_812.2, ltde.cog.ppca$S,by="row.names")
+df.PCA.met.merge <- merge(df.species, ltde.met.ppca$S,by="row.names")
+df.species.2 <- cbind(df.species)
+df.PCA.cog.merge <- merge(df.species.2, ltde.cog.ppca$S,by="row.names")
 
-plot(df.PCA.met.merge$PC1, df.PCA.met.merge$alpha.mean)
-summary(lm( df.PCA.met.merge$alpha.mean ~ df.PCA.met.merge$PC1))
+select.me <- c('Species', "alpha.mean", "mttf.mean","A","umax", "Lag", 'PC1', "PC2")
+df.PCA.met.merge.subset <- df.PCA.met.merge[,select.me]
+df.PCA.cog.merge.subset <- df.PCA.cog.merge[,select.me]
+
+met.explainvar1 <- round(diag(ltde.met.ppca$Eval)[1] / sum(diag(ltde.met.ppca$Eval)), 3) * 100
+met.explainvar2 <- round(diag(ltde.met.ppca$Eval)[2] / sum(diag(ltde.met.ppca$Eval)), 3) * 100
+cog.explainvar1 <- round(diag(ltde.cog.ppca$Eval)[1] / sum(diag(ltde.cog.ppca$Eval)), 3) * 100
+cog.explainvar2 <- round(diag(ltde.cog.ppca$Eval)[2] / sum(diag(ltde.cog.ppca$Eval)), 3) * 100
 
 
 
-plot(df.PCA.cog.merge$PC1, df.PCA.cog.merge$alpha.mean)
-summary(lm( df.PCA.cog.merge$alpha.mean ~ df.PCA.cog.merge$PC1))
+met.PCA <- ggplot(data = df.PCA.met.merge.subset, aes(x = PC1, y = PC2)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  xlab(paste("KEGG PC 1 (", met.explainvar1, "%)", sep = "")) + 
+  ylab(paste("KEGG PC 2 (", met.explainvar2, "%)", sep = "")) +
+  scale_x_continuous(limits = c(-4, 4)) +
+  scale_y_continuous(limits = c(-4, 4)) +
+  geom_vline(xintercept=0, linetype="dashed", color = "black") +
+  geom_hline(yintercept=0, linetype="dashed", color = "black") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+ 
+
+cog.PCA <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = PC2)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  xlab(paste("COG ", "PC 1 (", cog.explainvar1, "%)", sep = "")) + 
+  ylab(paste("COG ", "PC 2 (", cog.explainvar2, "%)", sep = "")) +
+  scale_x_continuous(limits = c(-3, 3)) +
+  scale_y_continuous(limits = c(-3, 3)) +
+  geom_vline(xintercept=0, linetype="dashed", color = "black") +
+  geom_hline(yintercept=0, linetype="dashed", color = "black") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 
-# work on figures
-# 2 x 2 for PCAs
-# 2 x 2 for PC regression
 
+g <- ggarrange(cog.PCA, met.PCA,
+               # First row with scatter plot
+               # Second row with box and dot plots
+               ncol = 2, nrow = 1,
+               labels = "auto")#, label.y = c(1, 0.5, 0.25)    
+
+
+ggsave(file="figs/pPCA.png", g, width=10,height=5, units='in', dpi=600)
+
+summary(lm(log10(df.PCA.cog.merge.subset$mttf.mean) ~ df.PCA.cog.merge.subset$PC1))
+summary(lm(df.PCA.cog.merge.subset$umax ~ df.PCA.cog.merge.subset$PC1))
+
+summary(lm(log10(df.PCA.met.merge.subset$mttf.mean) ~ df.PCA.met.merge.subset$PC1))
+summary(lm(df.PCA.met.merge.subset$umax ~ df.PCA.met.merge.subset$PC1))
+
+pc1.mttf.cog.plot <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = mttf.mean)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  scale_y_log10() + 
+  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) + 
+  xlab(paste("COG ", "PC 1 (", cog.explainvar1, "%)", sep = "")) + 
+  #scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+pc1.umax.cog.plot <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = umax)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  geom_smooth(method=lm, se=TRUE, color="black") +
+  ylab(TeX("$\\mu_{max}$")) +
+  xlab(paste("COG ", "PC 1 (", cog.explainvar1, "%)", sep = "")) + 
+  #scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+
+
+
+pc1.mttf.met.plot <- ggplot(data = df.PCA.met.merge.subset, aes(x = PC1, y = mttf.mean)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  scale_y_log10() + 
+  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) + 
+  xlab(paste("KEGG PC 1 (", cog.explainvar1, "%)", sep = "")) + 
+  #scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+pc1.umax.met.plot <- ggplot(data = df.PCA.met.merge.subset, aes(x = PC1, y = umax)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  geom_smooth(method=lm, se=TRUE, color="black") +
+  ylab(TeX("$\\mu_{max}$")) +
+  xlab(paste("KEGG PC 1 (", cog.explainvar1, "%)", sep = "")) + 
+  #scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+g.2 <- ggarrange(pc1.mttf.cog.plot, pc1.umax.cog.plot, pc1.mttf.met.plot, pc1.umax.met.plot,
+               # First row with scatter plot
+               # Second row with box and dot plots
+               ncol = 2, nrow = 2,
+               labels = "auto")#, label.y = c(1, 0.5, 0.25)    
+
+
+ggsave(file="figs/pPCR.png", g.2, width=10,height=10, units='in', dpi=600)
 
