@@ -19,7 +19,7 @@ strains <- strains[table(obs$Strain)>10]
 #print(strains[-c('KBS0714', 'KBS0715')])
 
 obs <- obs[obs$Strain%in%strains,]
-summ <- matrix(NA,length(strains)*max(obs$Rep),10)
+summ <- matrix(NA,length(strains)*max(obs$Rep),12)
 pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 for(i in 1:length(strains)){
@@ -68,9 +68,11 @@ for(i in 1:length(strains)){
       summ[counter,1]=strains[i]
       summ[counter,2]=reps[j]
       # beta
-      summ[counter,3]=coef(best.fit)[1]
+      beta <- coef(best.fit)[1]
+      summ[counter,3]=beta
       # alpha
-      summ[counter,4]=coef(best.fit)[2]
+      alpha <- coef(best.fit)[2]
+      summ[counter,4]=alpha
       # z
       summ[counter,5]=coef(best.fit)[3]
       summ[counter,6]=AIC(best.fit)
@@ -84,6 +86,14 @@ for(i in 1:length(strains)){
       summ[counter,9]=best.fit.summary@coef[2,2]
       # S.E. z
       summ[counter,10]=best.fit.summary@coef[3,2]
+      
+      # MTTF 
+      summ[counter,11] <- coef(best.fit)[1] * gamma(1 + (1/coef(best.fit)[2]))
+      
+      dT_dBeta <- gamma(1 + (1/alpha))
+      dT_dAlpha <- -1* (beta/ (alpha**2)) * gamma(1 + (1/alpha)) * digamma(1 + (1/alpha))
+      dT_vector <- c(dT_dBeta, dT_dAlpha)
+      summ[counter,12] <- sqrt(t(dT_vector) %*% best.fit@vcov[1:2,1:2] %*% dT_vector)
       
       # 2.5% beta
       #summ[counter,8]=CIs[1,1]
@@ -107,7 +117,7 @@ for(i in 1:length(strains)){
       print(reps[j])
       #lines(repObs$time, exp( -1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
       #        lwd=4, lty=2, col = "red")
-      lines(repObs$time, (-1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
+      lines(repObs$time, (-1 * ((repObs$time /beta )^ alpha )), 
               lwd=4, lty=2, col = "red")
       counter=counter+1
     }
@@ -117,8 +127,10 @@ for(i in 1:length(strains)){
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
 #colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'alpha.CI.2.5', 'alpha.CI.97.5', 'beta.CI.2.5', 'beta.CI.97.5', 'z.CI.2.5', 'z.CI.97.5')
-colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.S.E.', 'alpha.S.E.', 'z.S.E.')
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.S.E.', 'alpha.S.E.', 'z.S.E.', 'mttf', 'mttf.sd')
 write.csv(summ,"data/demography/weibull_results.csv")
+
+
 
 
 df <- read.table("data/demography/weibull_results.csv", 
@@ -130,13 +142,10 @@ df$rep[df$strain == "KBS0711W" & df$rep == "3"] <- 7
 df$rep[df$strain == "KBS0711W" & df$rep == "4"] <- 8
 # rename mis-named strain 
 df$strain[df$strain == "KBS0711W"] <- "KBS0711"
-df$mttf <- df$beta * gamma(1 + (1/df$alpha))
 write.csv(df, file = "data/demography/weibull_results_clean.csv")
 
 
 # get mean time to failure and CIs
-
-
 df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf')], list(df$strain), mean)
 df.species.sd <- aggregate(df[, c('beta', 'alpha', 'mttf')], list(df$strain), sd)
 df.species <- merge(df.species.mean, df.species.sd,by="Group.1")
