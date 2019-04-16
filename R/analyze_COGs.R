@@ -5,6 +5,8 @@ setwd("~/GitHub/LTDE/")
 library('phytools')
 library('ape')
 library('ggplot2')
+library('phylolm')
+
 
 #source("http://www.phytools.org/utilities/v4.6/utilities.R")
 #source("http://www.phytools.org/phyl.pca/v0.5/phyl.pca.R")
@@ -99,16 +101,27 @@ g <- ggarrange(cog.PCA, met.PCA,
 
 ggsave(file="figs/pPCA.png", g, width=10,height=5, units='in', dpi=600)
 
+#fit.phy <- phylolm(alpha  ~ log10(beta), data = df.species.no_812, 
+#                   ml.rooted.um.prunned, model = 'OUrandomRoot', boot = 10)
+
+
 summary(lm(log10(df.PCA.cog.merge.subset$mttf.mean) ~ df.PCA.cog.merge.subset$PC1))
 summary(lm(df.PCA.cog.merge.subset$umax ~ df.PCA.cog.merge.subset$PC1))
+#ml.rooted.um.prunned.prunned<-drop.tip(ml.rooted.um.prunned, ml.rooted.um.prunned$tip.label[-match(df.PCA.cog.merge.subset$Species, ml.rooted.um.prunned$tip.label)])
+
+
 
 summary(lm(log10(df.PCA.met.merge.subset$mttf.mean) ~ df.PCA.met.merge.subset$PC1))
 summary(lm(df.PCA.met.merge.subset$umax ~ df.PCA.met.merge.subset$PC1))
 
 pc1.mttf.cog.plot <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = mttf.mean)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
-  scale_y_log10() + 
-  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) + 
+  #scale_y_log10() + 
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  ylab(TeX("$\\bar{T}_{d}$ (days)") ) + 
   xlab(paste("COG ", "PC 1 (", cog.explainvar1, "%)", sep = "")) + 
   #scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
@@ -136,9 +149,12 @@ pc1.umax.cog.plot <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = uma
 
 pc1.mttf.met.plot <- ggplot(data = df.PCA.met.merge.subset, aes(x = PC1, y = mttf.mean)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
-  scale_y_log10() + 
-  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) + 
-  xlab(paste("KEGG PC 1 (", cog.explainvar1, "%)", sep = "")) + 
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  ylab(TeX("$\\bar{T}_{d}$ (days)") ) + 
+  xlab(paste("KEGG PC 1 (", met.explainvar1, "%)", sep = "")) + 
   #scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
   theme(axis.title.x = element_text(color="black", size=14), 
@@ -151,7 +167,7 @@ pc1.umax.met.plot <- ggplot(data = df.PCA.met.merge.subset, aes(x = PC1, y = uma
   geom_point(color='blue', alpha = 0.6, size=4) +
   geom_smooth(method=lm, se=TRUE, color="black") +
   ylab(TeX("$\\mu_{max}$")) +
-  xlab(paste("KEGG PC 1 (", cog.explainvar1, "%)", sep = "")) + 
+  xlab(paste("KEGG PC 1 (", met.explainvar1, "%)", sep = "")) + 
   #scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
   theme(axis.title.x = element_text(color="black", size=14), 

@@ -21,26 +21,28 @@ rownames(df.species) <- df.species$Species
 # remove bacillus
 df.species.no_812<-df.species[!(df.species$Species=="KBS0812"),]
 df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0727"),]
-
 rownames(df.species.no_812) <- df.species.no_812$Species
 
-
 ###### ggplot KDE
-bw <- bw.CV(log10(df$mttf), method="LCV", lower=0, upper=20)
+bw <- bw.CV(log10(df$mttf), method="LCV", lower=0, upper=100)
 
-kde.plot <- ggplot(df.no_812, aes(log10(mttf))) +
-            #scale_x_log10() + 
-            xlab(TeX("$\\T_{death}$ (days),  $\\log_{10}$") ) + 
+kde.plot <- ggplot(df.no_812, aes(mttf)) +
+            xlab(TeX("$\\bar{T}_{d}$ (days)") ) + 
             ylab('Density') +
             geom_density(fill = "blue", alpha = 0.2) +
-            geom_vline(xintercept=mean(log10(df.no_812$mttf)), linetype = "longdash") + 
-            theme_bw()
-            
+            theme_bw() +
+            scale_x_log10(
+              breaks = scales::trans_breaks("log10", function(x) 10^x),
+              labels = scales::trans_format("log10", scales::math_format(10^.x))
+            ) +
+            geom_vline(xintercept= 10**mean(log10(df.no_812$mttf)), linetype = "longdash") 
+  
+
 kde.plot <- kde.plot + theme(axis.title.x = element_text(color="black", size=14), 
                             axis.title.y = element_text(color="black", size=14), 
                             panel.grid.major = element_blank(), 
                             panel.grid.minor = element_blank())
-          #scale_x_continuous(breaks = c(0, 1, 2), labels = c(1, 10, 100))
+
 
 ##### ggplot parameter regression
 # Load ML tree
@@ -62,8 +64,8 @@ ml.rooted.um.prunned <- drop.tip(ml.rooted.um,
                                     ml.rooted.um$tip.label[na.omit(match(c('KBS0812'),
                                                                          ml.rooted.um$tip.label))])
 # Run a phylogeny-corrected regression with no bootstrap replicates
-fit.phy <- phylolm(alpha.mean  ~ log10(beta.mean), data = df.species.no_812, 
-                   ml.rooted.um.prunned, model = 'lambda', boot = 10)
+fit.phy <- phylolm(alpha  ~ log10(beta), data = df.species.no_812, 
+                   ml.rooted.um.prunned, model = 'OUrandomRoot', boot = 10)
 
 # include confidence intervals
 CI.2.5.inter <- fit.phy$bootconfint95[1,1]
@@ -72,14 +74,17 @@ CI.2.5.slope <- fit.phy$bootconfint95[1,2]
 CI.97.5.slope <- fit.phy$bootconfint95[2,2]
 slope_diff <-fit.phy$coefficients[2] - CI.2.5.slope
 #r2 = format(R2(fit.phy, phy=re.ml.rooted.um.prunned)[2], digits = 3)
-phylo.params <- ggplot(data = df.species.no_812, aes(x = log10(beta.mean), y = alpha.mean)) +
+phylo.params <- ggplot(data = df.species.no_812, aes(x = beta, y = alpha)) +
                 geom_point(color='blue', alpha = 0.6, size=4) +
-                xlab(TeX("$\\bar{\\beta}$,  $\\log_{10}$") ) + 
-                ylab(TeX("$\\bar{\\alpha}$")) +
-                stat_function(fun = function(x) fit.phy$coefficients[1] + fit.phy$coefficients[2] * x) + 
-                # how to plot CIs for this?
-                #stat_function(fun = function(x) CI.2.5.inter + CI.2.5.slope  * log(x) + 
-                scale_y_continuous(limits = c(0, 1)) +
+                xlab(TeX("$\\bar{\\lambda}$") ) + 
+                ylab(TeX("$\\bar{k}$")) +
+                scale_y_continuous(limits = c(0, 1.05)) +
+                scale_x_log10(
+                  breaks = scales::trans_breaks("log10", function(x) 10^x),
+                  labels = scales::trans_format("log10", scales::math_format(10^.x))
+                ) +
+                stat_function(fun = function(x) (fit.phy$coefficients[1]) + ((log10(x) * fit.phy$coefficients[2]) ) ) +
+                geom_hline(yintercept= 1, linetype = "longdash") +
                 theme_bw()
 
 phylo.params <- phylo.params + theme(axis.title.x = element_text(color="black", size=14), 
@@ -91,13 +96,16 @@ phylo.params <- phylo.params + theme(axis.title.x = element_text(color="black", 
 
 #### make boxplot ggplot
 boxplot <- ggplot(data = df.species.no_812) +
-  geom_point(aes(x = reorder(Species, -mttf.mean), y = mttf.mean), color='blue', alpha = 0.6, size=2.2) +
-  geom_point(aes(x = reorder(Species, -mttf.mean), y = mttf.CI.2.5), shape=124,size=2.5 ) +
-  geom_point(aes(x = reorder(Species, -mttf.mean), y = mttf.CI.97.5), shape=124,size=2.5 ) +
-  geom_segment(aes(x = Species, y = mttf.mean, xend = Species, yend = mttf.CI.2.5), size = 0.5) +
-  geom_segment(aes(x = Species, y = mttf.mean, xend = Species, yend = mttf.CI.97.5), size = 0.5) +
-  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) + 
-  scale_y_log10() + 
+  geom_point(aes(x = reorder(Species, -mttf), y = mttf), color='blue', alpha = 0.6, size=2.2) +
+  geom_point(aes(x = reorder(Species, -mttf), y = mttf- (1.96*pooled.mttf.se)), shape=124,size=2.5 ) +
+  geom_point(aes(x = reorder(Species, -mttf), y = mttf+ (1.96*pooled.mttf.se)), shape=124,size=2.5 ) +
+  geom_segment(aes(x = Species, y = mttf, xend = Species, yend = mttf- (1.96*pooled.mttf.se)), size = 0.5) +
+  geom_segment(aes(x = Species, y = mttf, xend = Species, yend = mttf+ (1.96*pooled.mttf.se)), size = 0.5) +
+  ylab(TeX("$\\bar{T}_{d}$ (days)") ) + 
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
   coord_flip() +
   theme_bw() + 
   theme(axis.title.y=element_blank(), 
@@ -133,26 +141,8 @@ boxplot <- ggplot(data = df.species.no_812) +
 g <- ggarrange(boxplot,                                                 # First row with scatter plot
           ggarrange(kde.plot, phylo.params, ncol = 2, labels = c("b", "c")), # Second row with box and dot plots
           nrow = 2, 
-          labels = "a"                                        # Labels of the scatter plot
-) 
+          labels = "a", label.x = 0.02,  label.y = 0.95) 
 
 
 ggsave(file="figs/Fig1.png", g, units='in', dpi=600)
-
-
-
-summary(fit.phy)
-
-# Move to a new page
-#grid.newpage()
-# Create layout : nrow = 3, ncol = 2
-#pushViewport(viewport(layout = grid.layout(nrow = 2, ncol = 2)))
-# A helper function to define a region on the layout
-#define_region <- function(row, col){
-#  viewport(layout.pos.row = row, layout.pos.col = col)
-#} 
-# Arrange the plots
-#print(boxplot, vp = define_region(row = 1, col = 1:2))   # Span over two columns
-#print(kde.plot, vp = define_region(row = 2, col = 1))
-#print(phylo.params, vp = define_region(row = 2, col = 2))
 
