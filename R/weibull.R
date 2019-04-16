@@ -86,7 +86,6 @@ for(i in 1:length(strains)){
       summ[counter,9]=best.fit.summary@coef[2,2]
       # S.E. z
       summ[counter,10]=best.fit.summary@coef[3,2]
-      
       # MTTF 
       summ[counter,11] <- coef(best.fit)[1] * gamma(1 + (1/coef(best.fit)[2]))
       
@@ -95,6 +94,8 @@ for(i in 1:length(strains)){
       dT_vector <- c(dT_dBeta, dT_dAlpha)
       summ[counter,12] <- sqrt(t(dT_vector) %*% best.fit@vcov[1:2,1:2] %*% dT_vector)
       
+      # 2.5% beta
+      #summ[counter,13]
       # 2.5% beta
       #summ[counter,8]=CIs[1,1]
       ## 97.5% beta
@@ -113,10 +114,7 @@ for(i in 1:length(strains)){
       plot(repObs$time,repObs$prop,main=title,ylim=c(min(repObs$prop),0), 
            xlab = 'Time (days)', ylab = 'Proportion surviving, log' )
       predTime=seq(0,max(repObs$time))
-      print(strains[i])
-      print(reps[j])
-      #lines(repObs$time, exp( -1 * ((repObs$time / coef(best.fit)[1] )^ coef(best.fit)[2])), 
-      #        lwd=4, lty=2, col = "red")
+      print(strains[i], reps[j])
       lines(repObs$time, (-1 * ((repObs$time /beta )^ alpha )), 
               lwd=4, lty=2, col = "red")
       counter=counter+1
@@ -127,44 +125,63 @@ for(i in 1:length(strains)){
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
 #colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'alpha.CI.2.5', 'alpha.CI.97.5', 'beta.CI.2.5', 'beta.CI.97.5', 'z.CI.2.5', 'z.CI.97.5')
-colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.S.E.', 'alpha.S.E.', 'z.S.E.', 'mttf', 'mttf.sd')
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.S.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd')
 write.csv(summ,"data/demography/weibull_results.csv")
 
-
-
-
+# clean the results file
 df <- read.table("data/demography/weibull_results.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
+df <- df[!(df$strain=="KBS0711W"),]
+
 # rename mis-named reps
-df$rep[df$strain == "KBS0711W" & df$rep == "1"] <- 5
-df$rep[df$strain == "KBS0711W" & df$rep == "2"] <- 6
-df$rep[df$strain == "KBS0711W" & df$rep == "3"] <- 7
-df$rep[df$strain == "KBS0711W" & df$rep == "4"] <- 8
+#df$rep[df$strain == "KBS0711W" & df$rep == "1"] <- 5
+#df$rep[df$strain == "KBS0711W" & df$rep == "2"] <- 6
+#df$rep[df$strain == "KBS0711W" & df$rep == "3"] <- 7
+#df$rep[df$strain == "KBS0711W" & df$rep == "4"] <- 8
 # rename mis-named strain 
-df$strain[df$strain == "KBS0711W"] <- "KBS0711"
+#df$strain[df$strain == "KBS0711W"] <- "KBS0711"
 write.csv(df, file = "data/demography/weibull_results_clean.csv")
 
 
 # get mean time to failure and CIs
 df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf')], list(df$strain), mean)
-df.species.sd <- aggregate(df[, c('beta', 'alpha', 'mttf')], list(df$strain), sd)
-df.species <- merge(df.species.mean, df.species.sd,by="Group.1")
-names(df.species)[names(df.species) == 'Group.1'] <- 'Species'
-names(df.species)[names(df.species) == 'beta.x'] <- 'beta.mean'
-names(df.species)[names(df.species) == 'alpha.x'] <- 'alpha.mean'
-names(df.species)[names(df.species) == 'mttf.x'] <- 'mttf.mean'
-names(df.species)[names(df.species) == 'beta.y'] <- 'beta.sd'
-names(df.species)[names(df.species) == 'alpha.y'] <- 'alpha.sd'
-names(df.species)[names(df.species) == 'mttf.y'] <- 'mttf.sd'
+colnames(df.species.mean)[1] <- "Species"
 
+# function to calculate pooled standard error
+get.pooled.se <- function(strains){
+  df.strain.new <- data.frame()
+  for (strain in strains)
+  {
+    df.strain <- df[ which(df$strain==strain), ]
+    # remove rows with NAs
+    df.strain <- df.strain[complete.cases(df.strain), ]
+    N.reps <- nrow(df.strain)
+    pooled.mttf.var <- sum((df.strain$N.obs-1) * (df.strain$mttf.sd ** 2)) / sum(df.strain$N.obs-1)
+    pooled.beta.var <- sum((df.strain$N.obs-1) * (df.strain$beta.sd ** 2)) / sum(df.strain$N.obs-1)
+    pooled.alpha.var <- sum((df.strain$N.obs-1) * (df.strain$alpha.sd ** 2)) / sum(df.strain$N.obs-1)
+    
+    pooled.mttf.se <- sqrt(pooled.mttf.var) / sqrt(N.reps)
+    pooled.beta.se <- sqrt(pooled.beta.var) / sqrt(N.reps)
+    pooled.alpha.se <- sqrt(pooled.alpha.var) / sqrt(N.reps)
+    df.strain.new.row <- data.frame(strain, pooled.mttf.se, pooled.beta.se, pooled.alpha.se)
+    df.strain.new <- rbind(df.strain.new, df.strain.new.row)
+  }
+  return(df.strain.new)
+}
+
+pooled.se <- get.pooled.se(unique(df$strain))
+colnames(pooled.se)[1] <- "Species"
+
+#df.species.sd <- aggregate(df[, c('beta', 'alpha', 'mttf')], list(df$strain), sd)
+df.species <- merge(df.species.mean, pooled.se,by="Species")
 
 #df.species$mttf <- df.species$beta * gamma(1 + (1/df.species$alpha))
-df.species$SE.g1 <- sqrt( ((1/df.species$mttf.mean)**2) *   (df.species$mttf.sd**2)  )
-df.species$mttf.CI.2.5 <- exp( log(df.species$mttf.mean) - (df.species$SE.g1*1.96 )  )
-df.species$mttf.CI.97.5 <- exp( log(df.species$mttf.mean) + (df.species$SE.g1*1.96 )  )
+#df.species$SE.g1 <- sqrt( ((1/df.species$mttf.mean)**2) *   (df.species$mttf.sd**2)  )
+#df.species$mttf.CI.2.5 <- exp( log(df.species$mttf.mean) - (df.species$SE.g1*1.96 )  )
+#df.species$mttf.CI.97.5 <- exp( log(df.species$mttf.mean) + (df.species$SE.g1*1.96 )  )
 # null model
-df.species$SE.g1.n0 <- sqrt( ((1/df.species$beta.mean)**2) * (df.species$beta.sd**2))
-df.species$mttf.n0.CI.2.5 <- exp( log(df.species$beta.mean) - (df.species$SE.g1.n0*1.96 )  )
-df.species$mttf.n0.CI.97.5 <- exp( log(df.species$beta.mean) + (df.species$SE.g1.n0*1.96 )  )
+#df.species$SE.g1.n0 <- sqrt( ((1/df.species$beta.mean)**2) * (df.species$beta.sd**2))
+#df.species$mttf.n0.CI.2.5 <- exp( log(df.species$beta.mean) - (df.species$SE.g1.n0*1.96 )  )
+#df.species$mttf.n0.CI.97.5 <- exp( log(df.species$beta.mean) + (df.species$SE.g1.n0*1.96 )  )
 write.csv(df.species, file = "data/demography/weibull_results_clean_species.csv")
 

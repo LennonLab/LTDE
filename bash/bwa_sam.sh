@@ -25,7 +25,7 @@ do
   #samtools faidx $ref
   #bwa_sam_out=/N/dc2/projects/muri2/Task2/LTDE/data/bwa_sam/${strain_rep}.sam
   #bwa mem -t 4 $ref $R1 $R2 | samtools view -F 4 -bT $ref - \
-      | samtools sort -o - | samtools view -h -o $bwa_sam_out
+  #    | samtools sort -o - | samtools view -h -o $bwa_sam_out
 done
 
 
