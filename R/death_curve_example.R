@@ -48,32 +48,31 @@ KBS0812.R4.fxn <- function(x) -1 * ((x/KBS0812.R4.beta) ** KBS0812.R4.alpha)
 KBS0714.R3.fxn <- function(x) -1 * ((x/KBS0714.R3.beta) ** KBS0714.R3.alpha)
 KBS0715.R4.fxn <- function(x) -1 * ((x/KBS0715.R4.beta) ** KBS0715.R4.alpha)
 
+#stat_function(fun = KBS0812.R4.fxn, size=1.5, lty=2, col = "black") +
 KBS0812.R4.plot <- ggplot(KBS0812.R4.df, aes(x=time, y=logRel)) + 
                   geom_point(color='blue', alpha = 0.6, size=4) +
                   ylab(TeX("Log Survivorship, $ln(S(t))$")) +
                   xlab(TeX("Days, $t$")) + 
                   #scale_y_continuous(limits = c(0, 1)) +
                   theme_bw() +
+                  annotate("text", x=300, y=1, label=expression(paste(italic("Bacillus"), " sp. KBS0812"))) +
                   theme(axis.title.x = element_text(color="black", size=14), 
                         axis.title.y = element_text(color="black", size=14), 
                         panel.grid.major = element_blank(), 
-                        panel.grid.minor = element_blank()) +
-                  stat_function(fun = KBS0812.R4.fxn, size=1.5, lty=2, col = "black") +
-                  annotate("text", x=200,y=0,parse=TRUE, label=TeX("Days, $t$"))
-
-
-
+                        panel.grid.minor = element_blank())
+                  
+                  
+                  
 KBS0714.R3.plot <- ggplot(KBS0714.R3.df, aes(x=time, y=logRel)) + 
   geom_point(color='blue', alpha = 0.6, size=4) +
   ylab(TeX("Log Survivorship, $ln(S(t))$")) +
   xlab(TeX("Days, $t$")) + 
-  #scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
+  annotate("text", x=100, y=1, label=expression(paste(italic("Arthrobacter"), " sp. KBS0714"))) +
   theme(axis.title.x = element_text(color="black", size=14), 
         axis.title.y = element_text(color="black", size=14), 
         panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank()) +
-  stat_function(fun = KBS0714.R3.fxn, size=1.5, lty=2, col = "black")
+        panel.grid.minor = element_blank())
 
 
 
@@ -81,23 +80,21 @@ KBS0715.R4.plot <- ggplot(KBS0715.R4.df, aes(x=time, y=logRel)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
   ylab(TeX("Log Survivorship, $ln(S(t))$")) +
   xlab(TeX("Days, $t$")) + 
-  #scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
+  annotate("text", x=450, y=1, label=expression(paste(italic("Curtobacterium"), " sp. KBS0715"))) +
   theme(axis.title.x = element_text(color="black", size=14), 
         axis.title.y = element_text(color="black", size=14), 
         panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank()) +
-  stat_function(fun = KBS0715.R4.fxn, size=1.5, lty=2, col = "black")
+        panel.grid.minor = element_blank())
 
 
 g <- ggarrange(KBS0812.R4.plot, KBS0714.R3.plot, KBS0715.R4.plot,                                              # First row with scatter plot
                # Second row with box and dot plots
                ncol = 3, nrow = 1,
-               labels = "auto")#, label.y = c(1, 0.5, 0.25)                                     # Labels of the scatter plot
-#) 
+               labels = "auto")
 
 
-ggsave(file="figs/death_curve_example.png", g, width=15,height=5, units='in', dpi=600)
+ggsave(file="figs/death_curve_example.png", g, width=9.3,height=3.1, units='in', dpi=600)
 
 
 

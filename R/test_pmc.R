@@ -36,7 +36,7 @@ mttf <- log10(df$mttf)
 names(mttf) <- df$Species
 alpha <- df$alpha
 names(alpha) <- df$Species
-iter <- 5
+iter <- 1000
 BM.OU.mttf <- pmc(ml.rooted.um.prunned, mttf, "BM", "OU", nboot = iter)
 BM.OU.alpha <- pmc(ml.rooted.um.prunned, alpha, "BM", "OU", nboot = iter)
 BM.GBM.mttf <- pmc(ml.rooted.um.prunned, mttf, "BM", "trend", nboot = iter)
