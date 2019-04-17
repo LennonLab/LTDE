@@ -77,7 +77,6 @@ for(i in 1:length(strains)){
       summ[counter,5]=coef(best.fit)[3]
       summ[counter,6]=AIC(best.fit)
       summ[counter,7]=length(repObs$time)
-      #print(precis(best.fit, prob=0.95))
       #CIs <- confint(profile(best.fit))
       best.fit.summary <- summary(best.fit)
       # S.E. beta
@@ -132,12 +131,6 @@ write.csv(summ,"data/demography/weibull_results.csv")
 df <- read.table("data/demography/weibull_results.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 df <- df[!(df$strain=="KBS0711W"),]
-
-# rename mis-named reps
-#df$rep[df$strain == "KBS0711W" & df$rep == "1"] <- 5
-#df$rep[df$strain == "KBS0711W" & df$rep == "2"] <- 6
-#df$rep[df$strain == "KBS0711W" & df$rep == "3"] <- 7
-#df$rep[df$strain == "KBS0711W" & df$rep == "4"] <- 8
 # rename mis-named strain 
 #df$strain[df$strain == "KBS0711W"] <- "KBS0711"
 write.csv(df, file = "data/demography/weibull_results_clean.csv")
@@ -172,16 +165,8 @@ get.pooled.se <- function(strains){
 pooled.se <- get.pooled.se(unique(df$strain))
 colnames(pooled.se)[1] <- "Species"
 
-#df.species.sd <- aggregate(df[, c('beta', 'alpha', 'mttf')], list(df$strain), sd)
 df.species <- merge(df.species.mean, pooled.se,by="Species")
 
-#df.species$mttf <- df.species$beta * gamma(1 + (1/df.species$alpha))
-#df.species$SE.g1 <- sqrt( ((1/df.species$mttf.mean)**2) *   (df.species$mttf.sd**2)  )
-#df.species$mttf.CI.2.5 <- exp( log(df.species$mttf.mean) - (df.species$SE.g1*1.96 )  )
-#df.species$mttf.CI.97.5 <- exp( log(df.species$mttf.mean) + (df.species$SE.g1*1.96 )  )
-# null model
-#df.species$SE.g1.n0 <- sqrt( ((1/df.species$beta.mean)**2) * (df.species$beta.sd**2))
-#df.species$mttf.n0.CI.2.5 <- exp( log(df.species$beta.mean) - (df.species$SE.g1.n0*1.96 )  )
-#df.species$mttf.n0.CI.97.5 <- exp( log(df.species$beta.mean) + (df.species$SE.g1.n0*1.96 )  )
+
 write.csv(df.species, file = "data/demography/weibull_results_clean_species.csv")
 
