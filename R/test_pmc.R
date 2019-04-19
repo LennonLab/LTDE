@@ -41,6 +41,7 @@ BM.OU.mttf <- pmc(ml.rooted.um.prunned, mttf, "BM", "OU", nboot = iter)
 BM.OU.alpha <- pmc(ml.rooted.um.prunned, alpha, "BM", "OU", nboot = iter)
 BM.GBM.mttf <- pmc(ml.rooted.um.prunned, mttf, "BM", "trend", nboot = iter)
 BM.GBM.alpha <- pmc(ml.rooted.um.prunned, alpha, "BM", "trend", nboot = iter)
+# run after this
 OU.GBM.mttf <- pmc(ml.rooted.um.prunned, mttf, "OU", "trend", nboot = iter)
 OU.GBM.alpha <- pmc(ml.rooted.um.prunned, alpha, "OU", "trend", nboot = iter)
 
@@ -65,12 +66,6 @@ write.csv(df.summary, file = "data/pmc/pmc_summary.csv")
 
 
 # get p-value for log-likelihood 
-#ll.merged <- do.call(c, list(pmc.mttf.df$BM, pmc.mttf.df$OU))
-#label <- do.call(c, list(replicate(iter, "BM"), replicate(iter, "OU")))
-#pmc.alpha.df.reshape <- data.frame(ll = ll.merged, model = label)
-
-
-
 
               
 g1 <- ggplot(pmc.alpha.df.reshape, aes(x=ll, fill=model)) + 
