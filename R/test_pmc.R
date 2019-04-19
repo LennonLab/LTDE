@@ -11,6 +11,7 @@ library("ape")
 library("ggplot2")
 library("reshape")
 library("latex2exp")
+library('ggpubr')
 
 df <- read.table("data/demography/weibull_results_clean_species.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
@@ -62,20 +63,18 @@ df.summary <- cbind(parameter=c("mttf","mttf","mttf","alpha","alpha","alpha"),
                     test=c("BM_OU","BM_GBM", "OU_GBM", "BM_OU","BM_GBM", "OU_GBM"), 
                     llr=c(BM.OU.mttf$lr, BM.GBM.mttf$lr, OU.GBM.mttf$lr, BM.OU.alpha$lr, BM.GBM.alpha$lr, OU.GBM.alpha$lr))
 df.summary <- as.data.frame(df.summary)
+df.summary$llr <- as.numeric(as.character(df.summary$llr))
 write.csv(df.summary, file = "data/pmc/pmc_summary.csv")
 
 
 # get p-value for log-likelihood 
 
-              
-g1 <- ggplot(pmc.alpha.df.reshape, aes(x=ll, fill=model)) + 
+BM_OU.mttf <- ggplot(mttf.df[mttf.df$test == "BM_OU", c("llr", "model")], aes(x=llr, fill=model)) + 
   geom_density(alpha=0.7) +
   ylab("Density") +
   xlab(TeX("Log-likelihood difference, $\\delta$")) +
   theme_bw() +
-  geom_vline(xintercept=pmc.mttf$lr, linetype="dashed", color = "black") +
-
-  
+  geom_vline(xintercept= df.summary[df.summary$parameter == "mttf" & df.summary$test == "BM_OU" ,]$llr, linetype="dashed", color = "black") +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme(axis.title.x = element_text(color="black", size=14), 
         axis.title.y = element_text(color="black", size=14), 
@@ -87,12 +86,32 @@ g1 <- ggplot(pmc.alpha.df.reshape, aes(x=ll, fill=model)) +
   
 
 
+BM_GBM.mttf <- ggplot(mttf.df[mttf.df$test == "BM_GBM", c("llr", "model")], aes(x=llr, fill=model)) + 
+  geom_density(alpha=0.7) +
+  ylab("Density") +
+  xlab(TeX("Log-likelihood difference, $\\delta$")) +
+  theme_bw() +
+  geom_vline(xintercept= df.summary[df.summary$parameter == "mttf" & df.summary$test == "BM_GBM" ,]$llr, linetype="dashed", color = "black") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  ggtitle(TeX("\\bar{T}_{d},  log_{10}")) +
+  scale_fill_brewer(palette="Set1", name="Model", 
+                    labels=c("Brownian motion", "Geometric Brownian motion"))
 
 
-#ggsave(file="figs/PMC.png", g1, width=10,height=10, units='in', dpi=600)
+ggsave(file="figs/test_pmc1.png", BM_OU.mttf, units='in', dpi=600)
+ggsave(file="figs/test_pmc2.png", BM_GBM.mttf, units='in', dpi=600)
 
 
+g <- ggarrange(BM_OU.mttf, BM_GBM.mttf,                                              # First row with scatter plot
+               nrow = 1, ncol =2,
+               labels = "auto") 
 
+
+ggsave(file="figs/test_pmc.png", g, units='in', dpi=600)
 
 
 
