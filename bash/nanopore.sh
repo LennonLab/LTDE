@@ -44,7 +44,7 @@ out_dir_run3=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled/run3
 #    -f FLO-MIN106 \
 #    --config $cfg
 
-
+# --enable_trimming is on by default, so we don't have to include it
 
 #Barcoding/demultiplexing within specific kits
 out_dir_bc_run2=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled_bc/run2
@@ -52,8 +52,8 @@ out_dir_bc_run3=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled_bc/run
 
 bc_cfg=/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/data/barcoding/configuration.cfg
 /N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_barcoder \
-    --input_path $out_dir_run2
-    --save_path $out_dir_bc_run2
+    --input_path $out_dir_run2 \
+    --save_path $out_dir_bc_run2 \
     --config $bc_cfg
 
 
@@ -61,6 +61,11 @@ bc_cfg=/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/data/barcoding/configurati
 #    --input_path $out_dir_run3
 #    --save_path $out_dir_bc_run3
 #    --config $bc_cfg
+
+
+# run fastqc on each nanopore file
+
+# clean up, do I need porechop?
 
 # clean fasta reads
 # then assemble with spades
