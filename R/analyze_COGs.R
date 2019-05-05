@@ -6,7 +6,7 @@ library('phytools')
 library('ape')
 library('ggplot2')
 library('phylolm')
-
+library('latex2exp')
 
 #source("http://www.phytools.org/utilities/v4.6/utilities.R")
 #source("http://www.phytools.org/phyl.pca/v0.5/phyl.pca.R")
@@ -18,7 +18,9 @@ df.met <- subset(df.met, select = -c(KBS0812, KBS0727))#, KBS0710, KBS0721))
 # remove rows with all ones
 df.met<- t(df.met[apply(df.met[,-1], 1, function(x) !all(x==1)),])
 
-df.cog <- read.table("data/COGs/cog_by_genome.txt", 
+#df.cog <- read.table("data/COGs/cog_by_genome.txt", 
+#                     header = TRUE, sep = "\t", row.names = 1)
+df.cog <- read.table("data/genomes/nanopore_hybrid_annotated_cogs.txt", 
                      header = TRUE, sep = "\t", row.names = 1)
 df.cog <- subset(t(df.cog), select = -c(KBS0812, KBS0727))#, KBS0710, KBS0721))
 # remove rows with all ones
@@ -83,8 +85,8 @@ cog.PCA <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = PC2)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
   xlab(paste("COG ", "PC 1 (", cog.explainvar1, "%)", sep = "")) + 
   ylab(paste("COG ", "PC 2 (", cog.explainvar2, "%)", sep = "")) +
-  scale_x_continuous(limits = c(-3, 3)) +
-  scale_y_continuous(limits = c(-3, 3)) +
+  #scale_x_continuous(limits = c(-3, 3)) +
+  #scale_y_continuous(limits = c(-3, 3)) +
   geom_vline(xintercept=0, linetype="dashed", color = "black") +
   geom_hline(yintercept=0, linetype="dashed", color = "black") +
   theme_bw() +
@@ -108,7 +110,8 @@ ggsave(file="figs/pPCA.png", g, width=10,height=5, units='in', dpi=600)
 summary(lm(log10(df.PCA.cog.merge.subset$mttf.mean) ~ df.PCA.cog.merge.subset$PC1))
 summary(lm(df.PCA.cog.merge.subset$umax ~ df.PCA.cog.merge.subset$PC1))
 #ml.rooted.um.prunned.prunned<-drop.tip(ml.rooted.um.prunned, ml.rooted.um.prunned$tip.label[-match(df.PCA.cog.merge.subset$Species, ml.rooted.um.prunned$tip.label)])
-
+# remove outliers
+df.PCA.cog.merge.subset.noOut <- df.PCA.cog.merge.subset[-c(1,2, 8), ]
 
 
 summary(lm(log10(df.PCA.met.merge.subset$mttf.mean) ~ df.PCA.met.merge.subset$PC1))
