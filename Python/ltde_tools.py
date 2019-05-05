@@ -13,8 +13,6 @@ def get_strain_genus_dict():
 
 
 
-
-
 class classFASTA:
 
     def __init__(self, fileFASTA):
