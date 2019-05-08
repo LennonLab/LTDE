@@ -5,7 +5,6 @@ import pandas as pd
 
 
 def make_16S_fata():
-
     alignments = ['KBS0710_NR_024911', 'KBS0721_NR_114994']
 
     def generate_16S_consenus(alignment):
@@ -58,15 +57,13 @@ def make_16S_fata():
             generate_16S_consenus(align)
 
     # remove KBS0727 because it's identical to KBS0725
-    os.system(cat ~/GitHub/LTDE/data/align/ltde_seqs.fasta | awk '{if (substr($0,1) == ">KBS0727") censor=1; else if (substr($0,1,1) == ">") censor=0; if (censor==0) print $0}' > ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
-    run_alignments()
+    #os.system(cat ~/GitHub/LTDE/data/align/ltde_seqs.fasta | awk '{if (substr($0,1) == ">KBS0727") censor=1; else if (substr($0,1,1) == ">") censor=0; if (censor==0) print $0}' > ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
+    #run_alignments()
     # https://www.arb-silva.de/aligner/job/632523
     # NC_005042.1:353331-354795 renamed as NC_005042.1.353331-354795
-    os.system(sed -i -e 's/NC_005042.1:353331-354795/NC_005042.1.353331-354795/g' ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
-
+    #os.system(sed -i -e 's/NC_005042.1:353331-354795/NC_005042.1.353331-354795/g' ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
     # ltde_neighbors_seqs.fasta uploaded to ARB and aligned
     # alignment file = arb-silva.de_2019-04-07_id632669.fasta
-
 
 
 def get_iRep():
@@ -137,29 +134,82 @@ def clean_iRep():
 
 
 def clean_COGs():
-    directory = os.fsencode(lt.get_path() + '/data/COGs')
+    directory = os.fsencode(lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_cogs')
     cog_dict = {}
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
-        if filename.endswith('_hmms.hits.txt'):
-            cog_path = sam = os.path.join(str(directory, 'utf-8'), filename)
-            df = pd.read_csv(cog_path, sep = ',')
+        if filename.endswith('_reformat.txt'):
+            cog_path = os.path.join(str(directory, 'utf-8'), filename)
+            df = pd.read_csv(cog_path, sep = '\t')
+            df_cogs = df.loc[df['source'] == 'COG_FUNCTION']
+            cogs = df.accession.values
+            cogs = [cog.split('!!!')[0] for cog in cogs if 'COG' in cog]
             strain = filename.split('_')[0]
             cog_dict[strain] = {}
-            cog_list = [x for x in df.gene_hmm_id.tolist() if x != '-']
-            for cog in cog_list:
+            for cog in cogs:
                 cog_dict[strain][cog] = 1
 
     df_cogs = pd.DataFrame.from_dict(cog_dict)
     df_cogs = df_cogs.fillna(0)
-    #df_cogs = df_cogs[(df_cogs.T != 1).any()]
-    #df_cogs = df_cogs[(df_cogs != 1).any()]
-    #print(df_cogs)
+    df_cogs = df_cogs[(df_cogs.T != 1).any()]
     df_cogs = df_cogs[(df_cogs.T != 1).any()].T
-    df_out = lt.get_path() + '/data/COGs/cog_by_genome.txt'
+    df_out = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_cogs.txt'
     df_cogs.to_csv(df_out, sep = '\t', index = True)
 
 
+
+
+def merge_maple(strain):
+    maple_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple/'
+    IN_maple_sign_path = maple_path + strain + '_MAPLE_result/' + 'module_signature.tsv'
+    IN_maple_sign = pd.read_csv(IN_maple_sign_path, sep = '\t')
+    IN_maple_cmplx_path = maple_path + strain + '_MAPLE_result/' + 'module_complex.tsv'
+    IN_maple_cmplx = pd.read_csv(IN_maple_cmplx_path, sep = '\t')
+    IN_maple_pthwy_path = maple_path + strain + '_MAPLE_result/' + 'module_pathway.tsv'
+    IN_maple_pthwy = pd.read_csv(IN_maple_pthwy_path, sep = '\t')
+    IN_maple_fxn_path = maple_path + strain + '_MAPLE_result/' + 'module_function.tsv'
+    IN_maple_fxn = pd.read_csv(IN_maple_fxn_path, sep = '\t')
+    df_list = [IN_maple_cmplx, IN_maple_pthwy, IN_maple_sign]
+    df_merged = IN_maple_fxn.append(df_list)
+    # add column with pathway ID
+    df_merged['Pathway_ID'] = df_merged['ID'].apply(lambda x: x.split('_')[0])
+    df_merged_no_dup = df_merged.drop_duplicates(subset='Pathway_ID', keep="last")
+    df_merged_no_dup = df_merged_no_dup.reset_index(drop=True)
+    # median = median MCR
+    OUT_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple_clean/' + strain + '_maple_modules.txt'
+    df_merged_no_dup.to_csv(OUT_path, sep = '\t', index = False)
+
+
+
+def merge_maple_all_strains():
+    dfs = []
+    maple_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple_clean/'
+    for filename in os.listdir(maple_path):
+        if filename.endswith("_maple_modules.txt"):
+            df = pd.read_csv(maple_path + filename, sep = '\t')
+            strain = filename.split('_')[0]
+            df['Strain'] = strain
+            dfs.append(df)
+
+    dfs_concat = pd.concat(dfs)
+    dfs_concat = dfs_concat.reset_index(drop=True)
+    # remove rows that are less than 50% complete
+    # query(coverage) = MCR % (ITR)
+    #query(coverage/max) = MCR % (WC)
+    #query(coverage/mode) = Q-value
+    dfs_concat_050 = dfs_concat.loc[dfs_concat['query(coverage)'] >= 0.5]
+    module_by_taxon = pd.crosstab(dfs_concat_050.Pathway_ID, dfs_concat_050.Strain)
+    module_by_taxon_no_redundant = module_by_taxon[(module_by_taxon.T != 1).any()]
+    OUT_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple.txt'
+    module_by_taxon.to_csv(OUT_path, sep = '\t', index = True)
+
+
+
+
+#for strain in lt.strain_list():
+#    merge_maple(strain)
+
+#merge_maple_all_strains()
 
 #clean_iRep()
 #clean_COGs()
