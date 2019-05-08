@@ -176,14 +176,14 @@ def merge_maple(strain):
     df_merged_no_dup = df_merged.drop_duplicates(subset='Pathway_ID', keep="last")
     df_merged_no_dup = df_merged_no_dup.reset_index(drop=True)
     # median = median MCR
-    OUT_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple/' + strain + '_maple_modules.txt'
+    OUT_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple_clean/' + strain + '_maple_modules.txt'
     df_merged_no_dup.to_csv(OUT_path, sep = '\t', index = False)
 
 
 
 def merge_maple_all_strains():
     dfs = []
-    maple_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple/'
+    maple_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple_clean/'
     for filename in os.listdir(maple_path):
         if filename.endswith("_maple_modules.txt"):
             df = pd.read_csv(maple_path + filename, sep = '\t')
@@ -198,7 +198,6 @@ def merge_maple_all_strains():
     #query(coverage/max) = MCR % (WC)
     #query(coverage/mode) = Q-value
     dfs_concat_050 = dfs_concat.loc[dfs_concat['query(coverage)'] >= 0.5]
-    print(dfs_concat_050)
     module_by_taxon = pd.crosstab(dfs_concat_050.Pathway_ID, dfs_concat_050.Strain)
     module_by_taxon_no_redundant = module_by_taxon[(module_by_taxon.T != 1).any()]
     OUT_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple.txt'
@@ -210,7 +209,7 @@ def merge_maple_all_strains():
 #for strain in lt.strain_list():
 #    merge_maple(strain)
 
-merge_maple_all_strains()
+#merge_maple_all_strains()
 
 #clean_iRep()
 #clean_COGs()
