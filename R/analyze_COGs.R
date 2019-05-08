@@ -7,12 +7,13 @@ library('ape')
 library('ggplot2')
 library('phylolm')
 library('latex2exp')
+library('ggpubr')
 
 #source("http://www.phytools.org/utilities/v4.6/utilities.R")
 #source("http://www.phytools.org/phyl.pca/v0.5/phyl.pca.R")
 #require("corpcor")
 
-df.met <- read.table("data/metab_paths/module_by_taxon.txt", 
+df.met <- read.table("data//genomes/nanopore_hybrid_annotated_maple.txt", 
                      header = TRUE, sep = "\t", row.names = 1)
 df.met <- subset(df.met, select = -c(KBS0812, KBS0727))#, KBS0710, KBS0721))
 # remove rows with all ones
@@ -103,19 +104,19 @@ g <- ggarrange(cog.PCA, met.PCA,
 
 ggsave(file="figs/pPCA.png", g, width=10,height=5, units='in', dpi=600)
 
-#fit.phy <- phylolm(alpha  ~ log10(beta), data = df.species.no_812, 
-#                   ml.rooted.um.prunned, model = 'OUrandomRoot', boot = 10)
 
 
 summary(lm(log10(df.PCA.cog.merge.subset$mttf.mean) ~ df.PCA.cog.merge.subset$PC1))
 summary(lm(df.PCA.cog.merge.subset$umax ~ df.PCA.cog.merge.subset$PC1))
 #ml.rooted.um.prunned.prunned<-drop.tip(ml.rooted.um.prunned, ml.rooted.um.prunned$tip.label[-match(df.PCA.cog.merge.subset$Species, ml.rooted.um.prunned$tip.label)])
 # remove outliers
-df.PCA.cog.merge.subset.noOut <- df.PCA.cog.merge.subset[-c(1,2, 8), ]
+df.PCA.met.merge.subset.noOut <- df.PCA.met.merge.subset[-c(1,2, 8), ]
 
+plot(df.PCA.met.merge.subset$PC1, log10(df.PCA.met.merge.subset$mttf.mean))
 
-summary(lm(log10(df.PCA.met.merge.subset$mttf.mean) ~ df.PCA.met.merge.subset$PC1))
-summary(lm(df.PCA.met.merge.subset$umax ~ df.PCA.met.merge.subset$PC1))
+#summary(lm(log10(df.PCA.met.merge.subset$umax) ~ df.PCA.met.merge.subset$PC1))
+#summary(lm(log10(df.PCA.met.merge.subset.noOut$umax) ~ df.PCA.met.merge.subset.noOut$PC1))
+
 
 pc1.mttf.cog.plot <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = mttf.mean)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
