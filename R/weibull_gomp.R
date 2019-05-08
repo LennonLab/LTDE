@@ -15,11 +15,11 @@ obs <- read.csv("data/demography/longtermdormancy_20170620_nocomments.csv",
 obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
 strains <- sort(unique(obs$Strain))
 strains <- strains[table(obs$Strain)>10]
-#strains <- c('KBS0721')
+strains <- c('KBS0721')
 #print(strains[-c('KBS0714', 'KBS0715')])
 
 obs <- obs[obs$Strain%in%strains,]
-summ <- matrix(NA,length(strains)*max(obs$Rep),14)
+summ <- matrix(NA,length(strains)*max(obs$Rep),12)
 pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 for(i in 1:length(strains)){
@@ -66,6 +66,38 @@ for(i in 1:length(strains)){
       colnames(res.mat)<-c(names(coef(fit)),"AIC")
       best.fit<-res.mod[[which(res.mat[,'AIC']==min(res.mat[,'AIC']))[1]]]
       
+      # Gomp fits
+      # Initial parameters
+      #Z = Error
+      grids.gomp<-list(b=c(0.001, 0.005),eta=c(0.001),z=c(0.1,1,10))
+      start.gomp<-list(b=NA,eta=NA,z=NA)
+      grid.starts.gomp<-as.matrix(expand.grid(grids.gomp))
+      ncombos.gomp<-dim(grid.starts.gomp)[[1]]
+      # cycle through each combo
+      res.mat.gomp<-matrix(NA,nrow=ncombos.gomp,ncol=I(length(start.gomp)+1))
+      res.mod.gomp<-list()
+      for(k.gomp in 1:dim(grid.starts.gomp)[[1]]){
+        #some how need to match grid parameters to start lists.
+        mod.start.gomp<-as.list(grid.starts.gomp[k.gomp,])	
+        new.start.gomp<-start.gomp
+        new.start.gomp[names(start.gomp) %in% names(mod.start.gomp)]<-mod.start.gomp
+        print(new.start.gomp)
+        pscale.gomp<-as.numeric(new.start.gomp)
+        names(pscale.gomp)<-names(new.start.gomp)
+        print(pscale.gomp)
+        
+        fit.gomp <- mle2(minuslogl=prop ~ dnorm(mean = -1 * (eta/b) * (exp(b*time)-1), sd = z), 
+                         start = new.start.gomp, data = repObs,# optimizer ="constrOptim",
+                         control=list(parscale=pscale.gomp, maxit=1000), lower=c(b=0,eta=0), 
+                         method="L-BFGS-B", hessian = T)
+        print(summary(fit.gomp) )
+        res.mat.gomp[k.gomp,]<-c(coef(fit.gomp), AIC(fit.gomp))		
+        res.mat.gomp[[k.gomp]]<-fit.gomp
+      }
+      colnames(res.mat.gomp)<-c(names(coef(fit.gomp)),"AIC")
+      best.fit.gomp<-res.mod.gomp[[which(res.mat.gomp[,'AIC']==min(res.mat.gomp[,'AIC']))[1]]]      
+      print(best.fit.gomp)
+      
       
       summ[counter,1]=strains[i]
       summ[counter,2]=reps[j]
@@ -94,11 +126,6 @@ for(i in 1:length(strains)){
       dT_dAlpha <- -1* (beta/ (alpha**2)) * gamma(1 + (1/alpha)) * digamma(1 + (1/alpha))
       dT_vector <- c(dT_dBeta, dT_dAlpha)
       summ[counter,12] <- sqrt(t(dT_vector) %*% best.fit@vcov[1:2,1:2] %*% dT_vector)
-      summ[counter,13] <- sqrt( (beta**2) * (gamma(1 + (2/alpha)) - (gamma(1 + (1/alpha)) **2)) )
-      dV_dBeta <- 2 * beta * (gamma(1 + (2/alpha)) - (gamma(1 + (1/alpha)) **2))
-      dV_dAlpha <- (beta**2) * (gamma(1 + (2/alpha)) * digamma(1 + (2/alpha)) - (2*gamma(1 + (1/alpha)) * gamma(1 + (1/alpha)) * digamma(1 + (1/alpha)))  )
-      dV_vector <- c(dV_dBeta, dV_dAlpha)
-      summ[counter,14] <- sqrt(t(dV_vector) %*% best.fit@vcov[1:2,1:2] %*% dV_vector)
       
       # 2.5% beta
       #summ[counter,13]
@@ -131,7 +158,7 @@ for(i in 1:length(strains)){
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
 #colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'alpha.CI.2.5', 'alpha.CI.97.5', 'beta.CI.2.5', 'beta.CI.97.5', 'z.CI.2.5', 'z.CI.97.5')
-colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', "sd.ttf", "sd.ttf.sd")
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.S.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd')
 write.csv(summ,"data/demography/weibull_results.csv")
 
 # clean the results file
