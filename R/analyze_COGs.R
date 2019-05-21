@@ -2,12 +2,15 @@ rm(list = ls())
 getwd()
 setwd("~/GitHub/LTDE/")
 
+set.seed(123456)
+
 library('phytools')
 library('ape')
 library('ggplot2')
 library('phylolm')
 library('latex2exp')
 library('ggpubr')
+
 
 #source("http://www.phytools.org/utilities/v4.6/utilities.R")
 #source("http://www.phytools.org/phyl.pca/v0.5/phyl.pca.R")
@@ -42,16 +45,30 @@ ml.rooted.um.prunned <- drop.tip(ml.rooted.um,
                                  ml.rooted.um$tip.label[na.omit(match(c('KBS0812'),
                                                                       ml.rooted.um$tip.label))])
 
-ltde.met.ppca <- phyl.pca(ml.rooted, df.met, method = "BM")
-ltde.cog.ppca <- phyl.pca(ml.rooted, df.cog, method = "BM")
+# remove columns with all zeros
+df.met.no0 <-  df.met[, colSums(df.met != 0) > 0]
+df.cog.no0 <-  df.cog[, colSums(df.cog != 0) > 0]
+
+#df.met.no0.dup.cols <- duplicated(t(df.met.no0))
+#df.met.no0.noDups <- df.met.no0[, !df.met.no0.dup.cols]
+
+#df.cog.no0.dup.cols <- duplicated(t(df.cog.no0))
+#df.cog.no0.noDups <- df.cog.no0[, !df.cog.no0.dup.cols]
+
+ltde.met.ppca <- phyl.pca(ml.rooted, df.met.no0, method = "BM", mode = "corr")
+ltde.cog.ppca <- phyl.pca(ml.rooted, df.cog.no0, method = "BM", mode = "corr")
+
+# export these, clean data tables with Python
+ltde.met.ppca.PC1.L <- ltde.met.ppca$L[,1]
+
+
+
 # run regression
 df.species <- read.table("data/traits/traits_weibull.txt", 
                          header = TRUE, sep = "\t", 
                          row.names = 1, stringsAsFactors = FALSE)
 #rownames(df.species) <- df.species$Species
 # remove bacillus
-#df.species.no_812<-df.species[!(df.species$Species=="KBS0812"),]
-#df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0727"),]
 rownames(df.species) <- lapply(rownames(df.species), as.character)
 rownames(ltde.met.ppca$S) <- lapply(rownames(ltde.met.ppca$S), as.character)
 
@@ -59,7 +76,7 @@ df.PCA.met.merge <- merge(df.species, ltde.met.ppca$S,by="row.names")
 df.species.2 <- cbind(df.species)
 df.PCA.cog.merge <- merge(df.species.2, ltde.cog.ppca$S,by="row.names")
 
-select.me <- c('Species', "alpha.mean", "mttf.mean","A","umax", "Lag", 'PC1', "PC2")
+select.me <- c('Species', "alpha", "mttf","A","umax", "Lag", 'PC1', "PC2")
 df.PCA.met.merge.subset <- df.PCA.met.merge[,select.me]
 df.PCA.cog.merge.subset <- df.PCA.cog.merge[,select.me]
 
@@ -74,8 +91,8 @@ met.PCA <- ggplot(data = df.PCA.met.merge.subset, aes(x = PC1, y = PC2)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
   xlab(paste("KEGG PC 1 (", met.explainvar1, "%)", sep = "")) + 
   ylab(paste("KEGG PC 2 (", met.explainvar2, "%)", sep = "")) +
-  scale_x_continuous(limits = c(-4, 4)) +
-  scale_y_continuous(limits = c(-4, 4)) +
+  scale_x_continuous(limits = c(-11, 11)) +
+  scale_y_continuous(limits = c(-11, 11)) +
   geom_vline(xintercept=0, linetype="dashed", color = "black") +
   geom_hline(yintercept=0, linetype="dashed", color = "black") +
   theme_bw() +
@@ -106,19 +123,26 @@ ggsave(file="figs/pPCA.png", g, width=10,height=5, units='in', dpi=600)
 
 
 
-summary(lm(log10(df.PCA.cog.merge.subset$mttf.mean) ~ df.PCA.cog.merge.subset$PC1))
-summary(lm(df.PCA.cog.merge.subset$umax ~ df.PCA.cog.merge.subset$PC1))
-#ml.rooted.um.prunned.prunned<-drop.tip(ml.rooted.um.prunned, ml.rooted.um.prunned$tip.label[-match(df.PCA.cog.merge.subset$Species, ml.rooted.um.prunned$tip.label)])
+summary(lm(log10(df.PCA.met.merge.subset$mttf) ~ df.PCA.met.merge.subset$PC1))
+summary(lm(df.PCA.met.merge.subset$umax ~ df.PCA.met.merge.subset$PC1))
 # remove outliers
 df.PCA.met.merge.subset.noOut <- df.PCA.met.merge.subset[-c(1,2, 8), ]
+rownames(df.PCA.met.merge.subset.noOut) <- df.PCA.met.merge.subset.noOut$Species
+ml.rooted.um.prunned.prunned<-drop.tip(ml.rooted.um.prunned, ml.rooted.um.prunned$tip.label[-match(df.PCA.met.merge.subset.noOut$Species, ml.rooted.um.prunned$tip.label)])
 
-plot(df.PCA.met.merge.subset$PC1, log10(df.PCA.met.merge.subset$mttf.mean))
+
+phylo.test <- phylolm(PC1 ~ umax, data = df.PCA.met.merge.subset.noOut, 
+        ml.rooted.um.prunned.prunned, model = 'BM', boot = 0)
+summary(phylo.test)
+plot(df.PCA.met.merge.subset.noOut$PC1, df.PCA.met.merge.subset.noOut$umax)
+
+# not significant with phylolm.....
 
 #summary(lm(log10(df.PCA.met.merge.subset$umax) ~ df.PCA.met.merge.subset$PC1))
 #summary(lm(log10(df.PCA.met.merge.subset.noOut$umax) ~ df.PCA.met.merge.subset.noOut$PC1))
 
 
-pc1.mttf.cog.plot <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = mttf.mean)) +
+pc1.mttf.cog.plot <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = mttf)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
   #scale_y_log10() + 
   scale_y_log10(
@@ -151,7 +175,7 @@ pc1.umax.cog.plot <- ggplot(data = df.PCA.cog.merge.subset, aes(x = PC1, y = uma
 
 
 
-pc1.mttf.met.plot <- ggplot(data = df.PCA.met.merge.subset, aes(x = PC1, y = mttf.mean)) +
+pc1.mttf.met.plot <- ggplot(data = df.PCA.met.merge.subset, aes(x = PC1, y = mttf)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
   scale_y_log10(
     breaks = scales::trans_breaks("log10", function(x) 10^x),
