@@ -19,12 +19,13 @@ strains <- strains[table(obs$Strain)>10]
 #print(strains[-c('KBS0714', 'KBS0715')])
 
 obs <- obs[obs$Strain%in%strains,]
-summ <- matrix(NA,length(strains)*max(obs$Rep),14)
+summ <- matrix(NA,length(strains)*max(obs$Rep),15)
 pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 for(i in 1:length(strains)){
   strainObs=obs[obs$Strain==strains[i],]
   reps=unique(strainObs$Rep)
+  print(strains[i])
   for(j in 1:length(reps)){
     repObs=strainObs[strainObs$Rep==reps[j],]
     # minimum of 10 data points
@@ -38,6 +39,7 @@ for(i in 1:length(strains)){
         repObs <- repObs[-c(1), ]
       }
       repObs["prop"] <- log(repObs$Abund / repObs$Abund[1])
+      N_0 <- repObs$Abund[1]
       # Initial parameters
       #beta = Initial death (larger = slower) 
       #alpha = 1 # Bend (upper = 1 = first-order decay)
@@ -99,28 +101,13 @@ for(i in 1:length(strains)){
       dV_dAlpha <- (beta**2) * (gamma(1 + (2/alpha)) * digamma(1 + (2/alpha)) - (2*gamma(1 + (1/alpha)) * gamma(1 + (1/alpha)) * digamma(1 + (1/alpha)))  )
       dV_vector <- c(dV_dBeta, dV_dAlpha)
       summ[counter,14] <- sqrt(t(dV_vector) %*% best.fit@vcov[1:2,1:2] %*% dV_vector)
-      
-      # 2.5% beta
-      #summ[counter,13]
-      # 2.5% beta
-      #summ[counter,8]=CIs[1,1]
-      ## 97.5% beta
-      #summ[counter,9]=CIs[1,2]
-      # 2.5% alpha
-      #summ[counter,10]=CIs[2,1]
-      # 97.5% alpha
-      #summ[counter,11]=CIs[2,2]
-      # 2.5% z
-      #summ[counter,12]=CIs[3,1]
-      # 97.5% z
-      #summ[counter,13]=CIs[3,2]
+      summ[counter,15] <- N_0
       
       ### *** Comment/Uncomment following code to make pdf figs*** ###
       title=paste(strains[i],"  rep ",reps[j])
       plot(repObs$time,repObs$prop,main=title,ylim=c(min(repObs$prop),0), 
            xlab = 'Time (days)', ylab = 'Proportion surviving, log' )
       predTime=seq(0,max(repObs$time))
-      print(strains[i], reps[j])
       lines(repObs$time, (-1 * ((repObs$time /beta )^ alpha )), 
             lwd=4, lty=2, col = "red")
       counter=counter+1
@@ -131,7 +118,7 @@ for(i in 1:length(strains)){
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
 #colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'alpha.CI.2.5', 'alpha.CI.97.5', 'beta.CI.2.5', 'beta.CI.97.5', 'z.CI.2.5', 'z.CI.97.5')
-colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', "sd.ttf", "sd.ttf.sd")
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', "sd.ttf", "sd.ttf.sd", "N_0")
 write.csv(summ,"data/demography/weibull_results.csv")
 
 # clean the results file
@@ -144,7 +131,7 @@ write.csv(df, file = "data/demography/weibull_results_clean.csv")
 
 
 # get mean time to failure and CIs
-df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf')], list(df$strain), mean)
+df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0')], list(df$strain), mean)
 colnames(df.species.mean)[1] <- "Species"
 
 # function to calculate pooled standard error
@@ -156,6 +143,8 @@ get.pooled.se <- function(strains){
     # remove rows with NAs
     df.strain <- df.strain[complete.cases(df.strain), ]
     N.reps <- nrow(df.strain)
+    N_0.se <- sd(df.strain$N_0) / sqrt(N.reps)
+    
     pooled.mttf.var <- sum((df.strain$N.obs-1) * (df.strain$mttf.sd ** 2)) / sum(df.strain$N.obs-1)
     pooled.beta.var <- sum((df.strain$N.obs-1) * (df.strain$beta.sd ** 2)) / sum(df.strain$N.obs-1)
     pooled.alpha.var <- sum((df.strain$N.obs-1) * (df.strain$alpha.sd ** 2)) / sum(df.strain$N.obs-1)
@@ -163,7 +152,7 @@ get.pooled.se <- function(strains){
     pooled.mttf.se <- sqrt(pooled.mttf.var) / sqrt(N.reps)
     pooled.beta.se <- sqrt(pooled.beta.var) / sqrt(N.reps)
     pooled.alpha.se <- sqrt(pooled.alpha.var) / sqrt(N.reps)
-    df.strain.new.row <- data.frame(strain, pooled.mttf.se, pooled.beta.se, pooled.alpha.se)
+    df.strain.new.row <- data.frame(strain, pooled.mttf.se, pooled.beta.se, pooled.alpha.se, N_0.se)
     df.strain.new <- rbind(df.strain.new, df.strain.new.row)
   }
   return(df.strain.new)
