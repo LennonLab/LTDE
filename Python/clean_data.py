@@ -204,8 +204,28 @@ def merge_maple_all_strains():
     module_by_taxon.to_csv(OUT_path, sep = '\t', index = True)
 
 
+def get_assembly_coverage():
+    df_out = open(lt.get_path() + '/data/genomes/assembly_coverage.txt', 'w')
+    df_out.write('\t'.join(['strain', 'mean_coverage']) + '\n')
+    assembly_path = lt.get_path() + '/data/genomes/nanopore_hybrid/'
+    for file in os.listdir(assembly_path):
+        filename = os.fsdecode(file)
+        if filename.endswith('.fasta'):
+            strain = filename.split('.')[0]
+            print(strain)
+            fa = lt.classFASTA(assembly_path+filename).readFASTA()
+            fa_headers = [x[0].split('_') for x in fa]
+            fa_headers = [x for x in fa_headers if int(x[3]) > 200]
+            size = sum(int(x[3]) for x in fa_headers)
+            weighted_mean_cov = (sum( [int(x[3]) * float(x[5]) for x in fa_headers]) / size)
+            df_out.write('\t'.join([ strain, str(round(weighted_mean_cov, 3)) ]) + '\n')
+
+    df_out.close()
 
 
+
+
+#get_assembly_coverage()
 #for strain in lt.strain_list():
 #    merge_maple(strain)
 

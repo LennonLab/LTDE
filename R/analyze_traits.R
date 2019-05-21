@@ -16,6 +16,7 @@ df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0801"),]
 
 df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0727"),]
 
+
 traits <-  read.table("data/traits/traits.txt", 
                       header = TRUE, sep = "\t", row.names = 1, stringsAsFactors = FALSE)
 
@@ -50,6 +51,17 @@ ml.rooted.um.prunned <- drop.tip(ml.rooted.um,
                                  ml.rooted.um$tip.label[na.omit(match(c('KBS0812', 'KBS0801'),
                                                                       ml.rooted.um$tip.label))])
 ml.rooted.um.prunned<-drop.tip(ml.rooted.um.prunned, ml.rooted.um.prunned$tip.label[-match(traits.merge$Row.names, ml.rooted.um.prunned$tip.label)])
+
+
+
+plot(log10(df.species.no_812$N_0), df.species.no_812$alpha, xlab = "Initial population size, log10", ylab = "shape parameter")
+
+
+testtttt <- phylolm(alpha  ~ log10(N_0), data = df.species.no_812, 
+        ml.rooted.um.prunned, model = 'OUrandomRoot', boot = 10)
+
+summary(testtttt)
+
 
 traits.merge$mttf.mean.log10 <- log10(traits.merge$mttf.mean)
 

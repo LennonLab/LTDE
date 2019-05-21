@@ -81,6 +81,34 @@ bc_cfg=/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/data/barcoding/configurati
 #    --config $bc_cfg
 
 
+
+BARCODE_DIR2=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled_pcbc/run2
+BARCODE_DIR3=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled_pcbc/run3
+BARCODE_DIR4=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled_pcbc/run4
+
+#$PC -i $out_dir_run2 --format fastq \
+#      -b $BARCODE_DIR2 \
+#      --barcode_threshold 75 \
+#      --barcode_diff 5 \
+#      --require_two_barcodes \
+#      --discard_middle
+
+#$PC -i $out_dir_run3 --format fastq \
+#      -b $BARCODE_DIR3 \
+#      --barcode_threshold 75 \
+#      --barcode_diff 5 \
+#      --require_two_barcodes \
+#      --discard_middle
+
+#$PC -i $out_dir_run4 --format fastq \
+#      -b $BARCODE_DIR4 \
+#      --barcode_threshold 75 \
+#      --barcode_diff 5 \
+#      --require_two_barcodes \
+#      --discard_middle
+
+
+
 # merge files
 data_path=/N/dc2/projects/muri2/Task2/LTDE/data
 #cat "${data_path}/nanopore_basecalled_bc/run2/barcode01/fastq_runid_"*".fastq" > "${data_path}/nanopore_basecalled_bc_merged/KBS0710.fastq"
@@ -109,13 +137,50 @@ data_path=/N/dc2/projects/muri2/Task2/LTDE/data
 #cat "${data_path}/nanopore_basecalled_bc/run4/barcode06/fastq_runid_"*".fastq" > "${data_path}/nanopore_basecalled_bc_merged/KBS0706.fastq"
 #cat "${data_path}/nanopore_basecalled_bc/run4/barcode07/fastq_runid_"*".fastq" > "${data_path}/nanopore_basecalled_bc_merged/PHB12.fastq"
 
+cp "${data_path}/nanopore_basecalled_pcbc/run2/BC01.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0710.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run2/BC02.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0711.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run2/BC03.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0712.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run2/BC04.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0713.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run2/BC05.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0714.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run2/BC06.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0715.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run2/BC07.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0721.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run2/BC08.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0722.fastq"
+
+cp "${data_path}/nanopore_basecalled_pcbc/run3/BC01.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/ATCC13985.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run3/BC02.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/ATCC43928.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run3/BC03.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0701.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run3/BC04.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0702.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run3/BC05.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0703.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run3/BC06.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0705.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run3/BC07.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0707.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run3/BC08.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0724.fastq"
+
+cp "${data_path}/nanopore_basecalled_pcbc/run4/BC01.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0725.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run4/BC02.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0727.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run4/BC03.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0801.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run4/BC04.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0802.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run4/BC05.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0812.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run4/BC06.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0706.fastq"
+cp "${data_path}/nanopore_basecalled_pcbc/run4/BC07.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/PHB12.fastq"
+
+
+#NanoFilt=/N/u/wrshoema/Carbonate/.local/lib/python3.6/site-packages/nanofilt/NanoFilt.py
+#for filename in "${data_path}/nanopore_basecalled_bc_merged/"*".fastq"; do
+#  if [[ $filename != *"_clean.fastq" ]]; then
+#    strain="$( echo $filename | rev | cut -d/ -f1 | rev | cut -d. -f1 )"
+#    #fastqc $filename > "${data_path}/nanopore_basecalled_bc_merged/${strain}_results.out"
+#    python $NanoFilt -q 10 -l 1000 --headcrop 100 $filename > "${data_path}/nanopore_basecalled_bc_merged/${strain}_clean.fastq"
+#    #fastqc "${data_path}/nanopore_basecalled_bc_merged/${strain}_clean.fastq" > "${data_path}/nanopore_basecalled_bc_merged/${strain}_clean_results.out"
+#  fi
+#done
+
 
 NanoFilt=/N/u/wrshoema/Carbonate/.local/lib/python3.6/site-packages/nanofilt/NanoFilt.py
-for filename in "${data_path}/nanopore_basecalled_bc_merged/"*".fastq"; do
+for filename in "${data_path}/nanopore_basecalled_pcbc_rn/"*".fastq"; do
   if [[ $filename != *"_clean.fastq" ]]; then
     strain="$( echo $filename | rev | cut -d/ -f1 | rev | cut -d. -f1 )"
     #fastqc $filename > "${data_path}/nanopore_basecalled_bc_merged/${strain}_results.out"
-    python $NanoFilt -q 10 -l 500 --headcrop 100 $filename > "${data_path}/nanopore_basecalled_bc_merged/${strain}_clean.fastq"
+    python $NanoFilt -q 10 -l 1000 --headcrop 100 $filename > "${data_path}/nanopore_basecalled_pcbc_rn/${strain}_clean.fastq"
     #fastqc "${data_path}/nanopore_basecalled_bc_merged/${strain}_clean.fastq" > "${data_path}/nanopore_basecalled_bc_merged/${strain}_clean_results.out"
   fi
 done
