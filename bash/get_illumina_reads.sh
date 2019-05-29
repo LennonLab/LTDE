@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -k o
-#PBS -l nodes=1:ppn=8,vmem=100gb,walltime=8:00:00
+#PBS -l nodes=1:ppn=8,vmem=100gb,walltime=4:00:00
 #PBS -M wrshoema@iu.edu
 #PBS -m abe
 #PBS -j oe
@@ -10,16 +10,11 @@
 module load python/2.7.13
 module load fastqc
 module load cutadapt/intel/1.16
-module load bwa
-module load samtools
-
-REF=/N/dc2/projects/muri2/Task2/LTDE/data/contaim_genomes/contam.fasta
 
 
 for folder in /N/dc2/projects/muri2/Task2/LTDE/illumina_data/*/
 do
   if [[ $folder == *"D400_100"* ]]; then
-    #continue
     sample_sheet="${folder}SampleSheet.csv"
     adapt1="$(sed '2q;d' ${sample_sheet} | cut -d"," -f5 | cut -d"-" -f1)"
     adapt2="$(sed '2q;d' ${sample_sheet} | cut -d"," -f5 | cut -d"-" -f2)"
@@ -34,20 +29,27 @@ do
     R1_name="$( echo $R1 | cut -d "." -f1-1 )"
     R2_name="$( echo $R2 | cut -d "." -f1-1 )"
 
-    if [ $folder == *"ATCC13985_D400_100"* ]; then
+    if [[ $folder == *"ATCC13985_D400_100"* ]]; then
         #-g file:"${folder}barcodes_unique.fa" \
         cutadapt -q 30,30 -u 20 -a $adapt1 -A $adapt2 \
-                  -b file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_ATCC13985.fasta \
-                  --minimum-length 20 -o "${R1_name}_clean.fastq" \
+                  -a file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_ATCC13985.fasta \
+                  -A file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_ATCC13985.fasta \
+                  --minimum-length 20 \
+                  -n 3 \
+                  -o "${R1_name}_clean.fastq" \
                   -p "${R2_name}_clean.fastq" $R1 $R2
 
-    elif [ $folder == *"KBS0712_D400_100"* ]; then
+    elif [[ $folder == *"KBS0712_D400_100"* ]]; then
         cutadapt -q 30,30 -u 20 -a $adapt1 -A $adapt2 \
-                  -b file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0712.fasta \
-                  --minimum-length 20 -o "${R1_name}_clean.fastq" \
+                  -a file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0712.fasta \
+                  -A file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0712.fasta \
+                  --minimum-length 20 \
+                  -n 3 \
+                  -o "${R1_name}_clean.fastq" \
                   -p "${R2_name}_clean.fastq" $R1 $R2
 
     else
+        continue
         cutadapt -q 30,30 -u 20 -a $adapt1 -A $adapt2 \
                   --minimum-length 20 -o "${R1_name}_clean.fastq" \
                   -p "${R2_name}_clean.fastq" $R1 $R2
@@ -55,7 +57,6 @@ do
 
 
   elif [[ $folder == *"_2015_SoilGenomes"* ]]; then
-    #continue
     adapt1="AGATCGGAAGAGC"
     adapt2="AGATCGGAAGAGC"
     R1="${folder}"*"_R1.fastq"
@@ -71,9 +72,21 @@ do
     R2_name="$( echo $R2 | cut -d "." -f1-1 )"
 
     #-g file:"${folder}barcodes_unique.fa" \
-    cutadapt -q 30,30 -u 20 -a $adapt1 -A $adapt2 \
-              --minimum-length 20 -o "${R1_name}_clean.fastq" \
-              -p "${R2_name}_clean.fastq" $R1 $R2
+    if [[ $folder == *"KBS0721_2015_SoilGenomes"* ]]; then
+        cutadapt -q 30,30 -u 20 -a $adapt1 -A $adapt2 \
+                  -a file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0721.fasta \
+                  -A file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0721.fasta \
+                  --minimum-length 20 \
+                  -n 3 \
+                  -o "${R1_name}_clean.fastq" \
+                  -p "${R2_name}_clean.fastq" $R1 $R2
+
+    else
+        continue
+        cutadapt -q 30,30 -u 20 -a $adapt1 -A $adapt2 \
+                  --minimum-length 20 -o "${R1_name}_clean.fastq" \
+                  -p "${R2_name}_clean.fastq" $R1 $R2
+    fi
 
 
   elif [[ $folder == *"_GSF911"* ]]; then
@@ -85,37 +98,39 @@ do
     R2_name="$( echo $R2 | cut -d "." -f1-1 )"
     #adapt=/N/dc2/projects/muri2/Task2/LTDE/bash/GSF911_adapters.fasta
 
-    if [ $folder == *"KBS0703_GSF911"* ]; then
+    if [[ $folder == *"KBS0703_GSF911"* ]]; then
         cutadapt -q 30,30 -u 20 \
                   -a file:/N/dc2/projects/muri2/Task2/LTDE/bash/GSF911_adapters.fasta \
-                  -b file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0703.fasta \
-                  --minimum-length 20 -o "${R1_name}_clean.fastq" \
+                  -a file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0703.fasta \
+                  -A file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0703.fasta \
+                  --minimum-length 20 \
+                  -n 3 \
+                  -o "${R1_name}_clean.fastq" \
                   -p "${R2_name}_clean.fastq" $R1 $R2
 
-    elif [ $folder == *"KBS0721_GSF911"* ]; then
+    elif [[ $folder == *"KBS0721_GSF911"* ]]; then
         cutadapt -q 30,30 -u 20 \
                   -a file:/N/dc2/projects/muri2/Task2/LTDE/bash/GSF911_adapters.fasta \
-                  -b file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0721.fasta \
-                  --minimum-length 20 -o "${R1_name}_clean.fastq" \
+                  -a file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0721.fasta \
+                  -A file:/N/dc2/projects/muri2/Task2/LTDE/bash/adapters_KBS0721.fasta \
+                  --minimum-length 20 \
+                  -n 3 \
+                  -o "${R1_name}_clean.fastq" \
                   -p "${R2_name}_clean.fastq" $R1 $R2
 
     else
+        continue
         cutadapt -q 30,30 -u 20 \
                   -a file:/N/dc2/projects/muri2/Task2/LTDE/bash/GSF911_adapters.fasta \
                   --minimum-length 20 -o "${R1_name}_clean.fastq" \
                   -p "${R2_name}_clean.fastq" $R1 $R2
     fi
 
-
-
   else
     continue
 
   #fastqc $R1 > "${folder}"R1_results.out
   #fastqc $R2 > "${folder}"R2_results.out
-
-  bwa mem $REF "${R1_name}_clean.fastq" "${R2_name}_clean.fastq" | samtools fastq -n -f 4 -1 "${R1_name}_clean_noContam.fastq" -2 "${R2_name}_clean_noContam.fastq"
-
 
   #fastqc "${R1_name}_clean.fastq.gz" > "${folder}"R1_clean_results.out
   #fastqc "${R2_name}_clean.fastq.gz" > "${folder}"R2_clean_results.out
