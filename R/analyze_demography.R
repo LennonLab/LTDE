@@ -23,6 +23,11 @@ df.species.no_812<-df.species[!(df.species$Species=="KBS0812"),]
 df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0727"),]
 rownames(df.species.no_812) <- df.species.no_812$Species
 
+
+
+
+
+
 ###### ggplot KDE
 bw <- bw.CV(log10(df$mttf), method="LCV", lower=0, upper=100)
 
@@ -126,7 +131,7 @@ boxplot <- ggplot(data = df.species.no_812) +
              "KBS0711" = expression(paste(italic("Janthinobacterium"), " sp. KBS0711")),
              "KBS0712" = expression(paste(italic("Variovorax"), " sp. KBS0712")),
              "KBS0713" = expression(paste(italic("Yersinia"), " sp. KBS0713")),
-             "KBS0714" = expression(paste(italic("Arthrobacter"), " sp. KBS0714")),
+             "KBS0714" = expression(paste(italic("Micrococcus"), " sp. KBS0714")),
              "KBS0715" = expression(paste(italic("Curtobacterium"), " sp. KBS0715")),
              "KBS0721" = expression(paste(italic("Flavobacterium"), " sp. KBS0721")),
              "KBS0722" = expression(paste(italic("Oerskovia"), " sp. KBS0722")),
