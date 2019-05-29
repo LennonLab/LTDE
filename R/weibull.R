@@ -12,11 +12,13 @@ library('devtools')
 obs <- read.csv("data/demography/longtermdormancy_20170620_nocomments.csv", 
                 header = TRUE, stringsAsFactors = FALSE)
 ## Adding 1 to deal with log(0) observations
-obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
+#obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
+obs$Abund <- (as.numeric(obs$Colonies) +1)* (1000 / as.numeric(obs$Inoculum )) * ( 10 ^  as.numeric(obs$Dilution) )
 strains <- sort(unique(obs$Strain))
 strains <- strains[table(obs$Strain)>10]
 #strains <- c('KBS0721')
 #print(strains[-c('KBS0714', 'KBS0715')])
+
 
 obs <- obs[obs$Strain%in%strains,]
 summ <- matrix(NA,length(strains)*max(obs$Rep),15)
@@ -117,7 +119,6 @@ for(i in 1:length(strains)){
 
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
-#colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'alpha.CI.2.5', 'alpha.CI.97.5', 'beta.CI.2.5', 'beta.CI.97.5', 'z.CI.2.5', 'z.CI.97.5')
 colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', "sd.ttf", "sd.ttf.sd", "N_0")
 write.csv(summ,"data/demography/weibull_results.csv")
 
@@ -125,8 +126,13 @@ write.csv(summ,"data/demography/weibull_results.csv")
 df <- read.table("data/demography/weibull_results.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 df <- df[!(df$strain=="KBS0711W"),]
-# rename mis-named strain 
-#df$strain[df$strain == "KBS0711W"] <- "KBS0711"
+# remove KBS0711 replicates 10, 11, and 12
+# these samples were only sampled starting at day 100
+# We don't have time to re-do them, so just remove them
+df <- df[!(df$strain == "KBS0711" & df$rep == 10 ),] 
+df <- df[!(df$strain == "KBS0711" & df$rep == 11 ),] 
+df <- df[!(df$strain == "KBS0711" & df$rep == 12 ),] 
+
 write.csv(df, file = "data/demography/weibull_results_clean.csv")
 
 

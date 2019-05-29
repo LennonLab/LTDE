@@ -32,22 +32,23 @@ out_dir_run3=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled/run3
 fast5_dir_run4=/N/dc2/projects/muri2/Task2/LTDE/GSF2099-set4/1/20190422_1815_MN22062_FAK67864_08d7efdf/fast5_pass
 out_dir_run4=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled/run4
 
+#/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
+#    -i $fast5_dir_run2 \
+#    -t 12 \
+#    -s $out_dir_run2 \
+#    -k SQK-LSK109 \
+#    -f FLO-MIN106 \
+#    --config $cfg \
+#    --fast5_out
+
 /N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
-    -i $fast5_dir_run2 \
+    -i $fast5_dir_run3 \
     -t 12 \
-    -s $out_dir_run2 \
+    -s $out_dir_run3 \
     -k SQK-LSK109 \
     -f FLO-MIN106 \
     --config $cfg \
     --fast5_out
-
-#/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
-#    -i $fast5_dir_run3 \
-#    -t 12 \
-#    -s $out_dir_run3 \
-#    -k SQK-LSK109 \
-#    -f FLO-MIN106 \
-#    --config $cfg
 
 #/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
 #    -i $fast5_dir_run4 \
@@ -143,6 +144,16 @@ cp "${data_path}/nanopore_basecalled_pcbc/run4/BC05.fastq" "${data_path}/nanopor
 cp "${data_path}/nanopore_basecalled_pcbc/run4/BC06.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/KBS0706.fastq"
 cp "${data_path}/nanopore_basecalled_pcbc/run4/BC07.fastq" "${data_path}/nanopore_basecalled_pcbc_rn/PHB12.fastq"
 
+
+#NanoFilt=/N/u/wrshoema/Carbonate/.local/lib/python3.6/site-packages/nanofilt/NanoFilt.py
+#for filename in "${data_path}/nanopore_basecalled_bc_merged/"*".fastq"; do
+#  if [[ $filename != *"_clean.fastq" ]]; then
+#    strain="$( echo $filename | rev | cut -d/ -f1 | rev | cut -d. -f1 )"
+#    #fastqc $filename > "${data_path}/nanopore_basecalled_bc_merged/${strain}_results.out"
+#    python $NanoFilt -q 10 -l 1000 --headcrop 100 $filename > "${data_path}/nanopore_basecalled_bc_merged/${strain}_clean.fastq"
+#    #fastqc "${data_path}/nanopore_basecalled_bc_merged/${strain}_clean.fastq" > "${data_path}/nanopore_basecalled_bc_merged/${strain}_clean_results.out"
+#  fi
+#done
 
 
 #NanoFilt=/N/u/wrshoema/Carbonate/.local/lib/python3.6/site-packages/nanofilt/NanoFilt.py
