@@ -23,11 +23,6 @@ df.species.no_812<-df.species[!(df.species$Species=="KBS0812"),]
 df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0727"),]
 rownames(df.species.no_812) <- df.species.no_812$Species
 
-
-
-
-
-
 ###### ggplot KDE
 bw <- bw.CV(log10(df$mttf), method="LCV", lower=0, upper=100)
 
@@ -58,18 +53,15 @@ outgroup <- match("NC_005042.1.353331-354795", ml.tree$tip.label)
 ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
 # Keep rooted but drop outgroup branch
 ml.rooted <- drop.tip(ml.rooted, c("NC_005042.1.353331-354795"))
-
 is.ultrametric(ml.rooted)
 ml.rooted.um  <- chronos(ml.rooted)
-
 is.ultrametric(ml.rooted.um)
-
 
 ml.rooted.um.prunned <- drop.tip(ml.rooted.um, 
                                     ml.rooted.um$tip.label[na.omit(match(c('KBS0812'),
                                                                          ml.rooted.um$tip.label))])
 # Run a phylogeny-corrected regression with no bootstrap replicates
-fit.phy <- phylolm(alpha  ~ log10(beta), data = df.species.no_812, 
+fit.phy <- phylolm(alpha  ~ beta.log10, data = df.species.no_812, 
                    ml.rooted.um.prunned, model = 'OUrandomRoot', boot = 10)
 
 # include confidence intervals
@@ -79,11 +71,18 @@ CI.2.5.slope <- fit.phy$bootconfint95[1,2]
 CI.97.5.slope <- fit.phy$bootconfint95[2,2]
 slope_diff <-fit.phy$coefficients[2] - CI.2.5.slope
 #r2 = format(R2(fit.phy, phy=re.ml.rooted.um.prunned)[2], digits = 3)
-phylo.params <- ggplot(data = df.species.no_812, aes(x = beta, y = alpha)) +
+phylo.params <- ggplot(data = df.species.no_812, aes(x = 10**beta.log10, y = alpha)) +
                 geom_point(color='blue', alpha = 0.6, size=4) +
+                geom_point(aes(x = 10**beta.log10, y = alpha-(1.96*pooled.alpha.se)), shape=95,size=4 ) +
+                geom_point(aes(x = 10**beta.log10, y = alpha+(1.96*pooled.alpha.se)), shape=95,size=4 ) +
+                geom_point(aes(x = 10**beta.log10.lowCI, y = alpha), shape=124,size=2.5 ) +
+                geom_point(aes(x = 10**beta.log10.highCI, y = alpha), shape=124,size=2.5 ) +
+                
+                geom_segment(aes(x = 10**beta.log10 , y = alpha-(1.96*pooled.alpha.se), xend = 10**beta.log10, yend = alpha + (1.96*pooled.alpha.se)), size = 0.5) +
+                geom_segment(aes(x = 10 ** beta.log10.lowCI, y = df.species.no_812$alpha, xend = 10 ** beta.log10.highCI, yend = df.species.no_812$alpha), size = 0.5) +
                 xlab(TeX("$\\bar{\\lambda}$") ) + 
                 ylab(TeX("$\\bar{k}$")) +
-                scale_y_continuous(limits = c(0, 1.05)) +
+                scale_y_continuous(limits = c(0, 1.1)) +
                 scale_x_log10(
                   breaks = scales::trans_breaks("log10", function(x) 10^x),
                   labels = scales::trans_format("log10", scales::math_format(10^.x))
@@ -98,6 +97,7 @@ phylo.params <- phylo.params + theme(axis.title.x = element_text(color="black", 
                             panel.grid.minor = element_blank())
 
 
+plot()
 
 #### make boxplot ggplot
 boxplot <- ggplot(data = df.species.no_812) +

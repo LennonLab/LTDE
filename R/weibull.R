@@ -4,6 +4,7 @@ setwd("~/GitHub/LTDE/")
 
 library('bbmle')
 library('devtools')
+library('plotrix')
 #install_github("rmcelreath/rethinking")
 #library('rethinking')
 
@@ -33,8 +34,11 @@ for(i in 1:length(strains)){
     # minimum of 10 data points
     if(nrow(repObs)>10){
       start=repObs[1,1]
+      #time=(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
+      #        as.numeric(strptime(start,format="%d-%b-%y",tz="EST")))/(3600*24)
       time=(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
               as.numeric(strptime(start,format="%d-%b-%y",tz="EST")))/(3600*24)
+      
       repObs["time"] <- time + 1
       repObs["logabund"] <- log10(repObs$Abund)
       if (repObs["logabund"][[1]][2] - repObs["logabund"][[1]][1] > 1){
@@ -137,8 +141,17 @@ write.csv(df, file = "data/demography/weibull_results_clean.csv")
 
 
 # get mean time to failure and CIs
-df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0')], list(df$strain), mean)
+df$beta.log10 <- log10(df$beta)
+df$mttf.log10 <- log10(df$mttf)
+df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'beta.log10','mttf.log10')], list(df$strain), mean)
 colnames(df.species.mean)[1] <- "Species"
+
+df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10')], list(df$strain), std.error)
+colnames(df.species.log10.se) <-  c("Species", "beta.log10.se", "mttf.log10.se")
+df.species <- merge(df.species.mean, df.species.log10.se,by="Species")
+df.species$beta.log10.lowCI <- df.species$beta.log10 - (df.species$beta.log10.se * 1.96)
+df.species$beta.log10.highCI <- df.species$beta.log10 + (df.species$beta.log10.se * 1.96)
+
 
 # function to calculate pooled standard error
 get.pooled.se <- function(strains){
@@ -166,9 +179,7 @@ get.pooled.se <- function(strains){
 
 pooled.se <- get.pooled.se(unique(df$strain))
 colnames(pooled.se)[1] <- "Species"
+df.species.pool <- merge(df.species, pooled.se,by="Species")
 
-df.species <- merge(df.species.mean, pooled.se,by="Species")
-
-
-write.csv(df.species, file = "data/demography/weibull_results_clean_species.csv")
+write.csv(df.species.pool, file = "data/demography/weibull_results_clean_species.csv")
 
