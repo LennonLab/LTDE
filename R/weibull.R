@@ -8,18 +8,15 @@ library('plotrix')
 #install_github("rmcelreath/rethinking")
 #library('rethinking')
 
-#library('rethinking')
 ## Load Data
-obs <- read.csv("data/demography/longtermdormancy_20170620_nocomments.csv", 
+obs <- read.csv("data/demography/longtermdormancy_20190528_nocomments.csv", 
                 header = TRUE, stringsAsFactors = FALSE)
 ## Adding 1 to deal with log(0) observations
-#obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
 obs$Abund <- (as.numeric(obs$Colonies) +1)* (1000 / as.numeric(obs$Inoculum )) * ( 10 ^  as.numeric(obs$Dilution) )
 strains <- sort(unique(obs$Strain))
-strains <- strains[table(obs$Strain)>10]
-#strains <- c('KBS0721')
+#strains <- strains[table(obs$Strain)>10]
+#strains <- c('KBS0812')
 #print(strains[-c('KBS0714', 'KBS0715')])
-
 
 obs <- obs[obs$Strain%in%strains,]
 summ <- matrix(NA,length(strains)*max(obs$Rep),15)
@@ -34,21 +31,26 @@ for(i in 1:length(strains)){
     # minimum of 10 data points
     if(nrow(repObs)>10){
       start=repObs[1,1]
+      time<-(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
+              as.numeric(strptime(repObs$Dormstart_date,format="%d-%b-%y",tz="EST")))/(3600*24)
       #time=(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
       #        as.numeric(strptime(start,format="%d-%b-%y",tz="EST")))/(3600*24)
-      time=(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
-              as.numeric(strptime(start,format="%d-%b-%y",tz="EST")))/(3600*24)
-      
+      # sort the data
+      index <- order(time)
+      time <- time[index]
+      abund <- repObs$Abund[index]
+      # add one to each day to avoid multiplication by zero error
       repObs["time"] <- time + 1
-      repObs["logabund"] <- log10(repObs$Abund)
+      repObs["logabund"] <- log10(abund)
       if (repObs["logabund"][[1]][2] - repObs["logabund"][[1]][1] > 1){
         repObs <- repObs[-c(1), ]
       }
-      repObs["prop"] <- log(repObs$Abund / repObs$Abund[1])
-      N_0 <- repObs$Abund[1]
+
+      N_0 <- abund[1]
+      repObs["prop"] <- log(abund / N_0)
       # Initial parameters
       #beta = Initial death (larger = slower) 
-      #alpha = 1 # Bend (upper = 1 = first-order decay)
+      #alpha = Bend (upper = 1 = first-order decay)
       #Z = Error
       grids<-list(beta=c(1,10,50,100,200),alpha=c(0.05,0.1,0.5,1,1.1,1.5),z=c(0.1,1,10))
       start<-list(beta=NA,alpha=NA,z=NA)
@@ -73,7 +75,6 @@ for(i in 1:length(strains)){
       }
       colnames(res.mat)<-c(names(coef(fit)),"AIC")
       best.fit<-res.mod[[which(res.mat[,'AIC']==min(res.mat[,'AIC']))[1]]]
-      
       
       summ[counter,1]=strains[i]
       summ[counter,2]=reps[j]
