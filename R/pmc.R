@@ -13,10 +13,12 @@ library("reshape")
 library("latex2exp")
 library('ggpubr')
 
+library("tidyr")
+library("dplyr")
+
 df <- read.table("data/demography/weibull_results_clean_species.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
-df<-df[!(df$Species=="KBS0812"),]
-df<-df[!(df$Species=="KBS0727"),]
+df<-df[!(df$Species=="KBS0727" | df$Species=="KBS0812"),]
 rownames(df) <- df$Species
 
 # Load ML tree
@@ -33,10 +35,32 @@ is.ultrametric(ml.rooted.um)
 ml.rooted.um.prunned <- drop.tip(ml.rooted.um, 
                                  ml.rooted.um$tip.label[na.omit(match(c('KBS0812'),
                                                                       ml.rooted.um$tip.label))])
-mttf <- log10(df$mttf)
+
+
+mttf <- df$mttf.log10
 names(mttf) <- df$Species
 alpha <- df$alpha
 names(alpha) <- df$Species
+
+test.mttf <- pmc(ml.rooted.um.prunned, mttf, "lambda", "OU", nboot = 100)
+test.alpha <- pmc(ml.rooted.um.prunned, alpha, "lambda", "OU", nboot = 100)
+
+length(test.mttf$null[test.mttf$null > test.mttf$lr]) /100
+length(test.alpha$null[test.alpha$null > test.alpha$lr]) /100
+
+
+dists <- data.frame(null = test.mttf$null, test = test.mttf$test)
+
+dists %>% 
+  gather(dist, value) %>%
+  ggplot(aes(value, fill = dist)) + 
+  geom_density(alpha = 0.5) + 
+  geom_vline(xintercept = test.mttf$lr)
+
+length(dists$null[dists$null > test.mttf$lr]) /100
+
+
+
 iter <- 1000
 BM.OU.mttf <- pmc(ml.rooted.um.prunned, mttf, "BM", "OU", nboot = iter)
 BM.OU.alpha <- pmc(ml.rooted.um.prunned, alpha, "BM", "OU", nboot = iter)
@@ -65,6 +89,8 @@ df.summary <- cbind(parameter=c("mttf","mttf","mttf","alpha","alpha","alpha"),
 df.summary <- as.data.frame(df.summary)
 df.summary$llr <- as.numeric(as.character(df.summary$llr))
 write.csv(df.summary, file = "data/pmc/pmc_summary.csv")
+
+
 
 
 # get p-value for log-likelihood 
