@@ -18,7 +18,7 @@ library("dplyr")
 
 df <- read.table("data/demography/weibull_results_clean_species.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
-df<-df[!(df$Species=="KBS0727" | df$Species=="KBS0812"),]
+df<-df[!(df$Species=="KBS0727"),]
 rownames(df) <- df$Species
 
 # Load ML tree
@@ -32,18 +32,14 @@ ml.rooted <- drop.tip(ml.rooted, c("NC_005042.1.353331-354795"))
 is.ultrametric(ml.rooted)
 ml.rooted.um  <- chronos(ml.rooted)
 is.ultrametric(ml.rooted.um)
-ml.rooted.um.prunned <- drop.tip(ml.rooted.um, 
-                                 ml.rooted.um$tip.label[na.omit(match(c('KBS0812'),
-                                                                      ml.rooted.um$tip.label))])
-
 
 mttf <- df$mttf.log10
 names(mttf) <- df$Species
 alpha <- df$alpha
 names(alpha) <- df$Species
 
-test.mttf <- pmc(ml.rooted.um.prunned, mttf, "lambda", "OU", nboot = 100)
-test.alpha <- pmc(ml.rooted.um.prunned, alpha, "lambda", "OU", nboot = 100)
+test.mttf <- pmc(ml.rooted.um, mttf, "lambda", "OU", nboot = 100)
+test.alpha <- pmc(ml.rooted.um, alpha, "lambda", "OU", nboot = 100)
 
 length(test.mttf$null[test.mttf$null > test.mttf$lr]) /100
 length(test.alpha$null[test.alpha$null > test.alpha$lr]) /100
@@ -62,13 +58,14 @@ length(dists$null[dists$null > test.mttf$lr]) /100
 
 
 iter <- 1000
-BM.OU.mttf <- pmc(ml.rooted.um.prunned, mttf, "BM", "OU", nboot = iter)
-BM.OU.alpha <- pmc(ml.rooted.um.prunned, alpha, "BM", "OU", nboot = iter)
-BM.GBM.mttf <- pmc(ml.rooted.um.prunned, mttf, "BM", "trend", nboot = iter)
-BM.GBM.alpha <- pmc(ml.rooted.um.prunned, alpha, "BM", "trend", nboot = iter)
+BM.OU.mttf <- pmc(ml.rooted.um, mttf, "BM", "OU", nboot = iter)
+BM.OU.alpha <- pmc(ml.rooted.um, alpha, "BM", "OU", nboot = iter)
+BM.GBM.mttf <- pmc(ml.rooted.um, mttf, "BM", "trend", nboot = iter)
+BM.GBM.alpha <- pmc(ml.rooted.um, alpha, "BM", "trend", nboot = iter)
 # run after this
-OU.GBM.mttf <- pmc(ml.rooted.um.prunned, mttf, "OU", "trend", nboot = iter)
-OU.GBM.alpha <- pmc(ml.rooted.um.prunned, alpha, "OU", "trend", nboot = iter)
+OU.GBM.mttf <- pmc(ml.rooted.um, mttf, "OU", "trend", nboot = iter)
+OU.GBM.alpha <- pmc(ml.rooted.um, alpha, "OU", "trend", nboot = iter)
+
 
 mttf.ll <- do.call(c, list(BM.OU.mttf$null, BM.OU.mttf$test, BM.GBM.mttf$null, BM.GBM.mttf$test, OU.GBM.mttf$null, OU.GBM.mttf$test))
 mttf.test <- do.call(c, list(replicate(iter*2, "BM_OU"), replicate(iter*2, "BM_GBM"), replicate(iter*2, "OU_GBM")))

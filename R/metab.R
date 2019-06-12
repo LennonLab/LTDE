@@ -7,7 +7,7 @@ library('phylolm')
 library('latex2exp')
 
 
-df.metab <- read.table("data/metab_stain/staining.all.txt", sep="\t", 
+df.metab <- read.table("data/metab_stain/staining.all.new.txt", sep="\t", 
                                  header=TRUE, stringsAsFactors = FALSE)
 
 df.metab.noNA <- df.metab[complete.cases(df.metab), ]
@@ -29,20 +29,26 @@ rownames(df.metab.mean.merge) <- df.metab.mean.merge$strain
 df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
                          header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 rownames(df.species) <- df.species$Species
-# remove bacillus
-df.species<-df.species[!(df.species$Species=="KBS0727"),]
+df.species<-df.species[!(df.species$Species=="KBS0727") ,]
+df.species<-df.species[!(df.species$Species=="KBS0812") ,]
 
 x <- merge(df.metab.mean.merge,df.species,by="row.names",all.x=TRUE)
 rownames(x) <- x$Row.names
-x <- x[!(x$strain=="KBS0711W" |  x$strain=="KBS0711"),]
+x <- x[!(x$strain=="KBS0711W" ),]
+x <- x[!(x$strain=="KBS0812" ),]
 
 
 plot(x$rel.met.diff, x$mttf.log10, xlab = "Change in proportion of active cells", ylab = "mean time to death, log10")
 abline(lm(x$mttf.log10 ~ x$rel.met.diff))
 
-plot(x$rel.met.diff, x$alpha, xlab = "Change in proportion of active cells", ylab = "alpha")
+plot(x$rel.met.diff, x$alpha, xlab = "Change in proportion of active cells", ylab = "shape param")
 abline(lm(x$alpha ~ x$rel.met.diff))
 summary(lm(x$alpha ~ x$rel.met.diff))
+
+
+plot(x$rel.met.diff, x$beta.log10, xlab = "Change in proportion of active cells", ylab = "scale param")
+abline(lm(x$beta.log10 ~ x$rel.met.diff))
+summary(lm(x$beta.log10 ~ x$rel.met.diff))
 
 
 
