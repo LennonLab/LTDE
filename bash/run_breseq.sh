@@ -1,6 +1,11 @@
 #!/bin/bash
 
-OUT_breseq="/N/dc2/projects/muri2/Task2/LTDE/data/breseq_output_v32/"
+
+declare -a samples=("ATCC43928-A" "ATCC43928-A" "300" "400" "500" "600" "700" "800" "900" "1000")
+
+
+
+OUT_breseq="/N/dc2/projects/muri2/Task2/LTDE/data/breseq/"
 mkdir -p $OUT_breseq
 breseq_bash="/N/dc2/projects/muri2/Task2/LTDE/bin/breseq_v32/"
 mkdir -p $breseq_bash
