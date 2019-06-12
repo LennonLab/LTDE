@@ -4,11 +4,12 @@ setwd("~/GitHub/LTDE/")
 
 library('ggplot2')
 library('ggpubr')
+library('latex2exp')
 
-obs <- read.csv("data/demography/longtermdormancy_20170620_nocomments.csv", 
+obs <- read.csv("data/demography/longtermdormancy_20190528_nocomments.csv", 
                 header = TRUE, stringsAsFactors = FALSE)
 ## Adding 1 to deal with log(0) observations
-obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
+obs$Abund <- (as.numeric(obs$Colonies) +1)* (1000 / as.numeric(obs$Inoculum )) * ( 10 ^  as.numeric(obs$Dilution) )
 strains <- sort(unique(obs$Strain))
 strains <- strains[table(obs$Strain)>10]
 
@@ -17,17 +18,17 @@ KBS0714.R3 <- obs[(obs$Strain =='KBS0714') & (obs$Rep ==4),]
 KBS0715.R4 <- obs[(obs$Strain =='KBS0715') & (obs$Rep ==4),]
 
 KBS0812.R4.time <-(as.numeric(strptime(KBS0812.R4$Firstread_date,format="%d-%b-%y",tz="EST"))-
-        as.numeric(strptime(KBS0812.R4$Firstread_date[1],format="%d-%b-%y",tz="EST")))/(3600*24)
+                     as.numeric(strptime(KBS0812.R4$Dormstart_date,format="%d-%b-%y",tz="EST")))/(3600*24)
 
 KBS0714.R3.time <-(as.numeric(strptime(KBS0714.R3$Firstread_date,format="%d-%b-%y",tz="EST"))-
-                     as.numeric(strptime(KBS0714.R3$Firstread_date[1],format="%d-%b-%y",tz="EST")))/(3600*24)
+                     as.numeric(strptime(KBS0714.R3$Dormstart_date,format="%d-%b-%y",tz="EST")))/(3600*24)
 
 KBS0715.R4.time <-(as.numeric(strptime(KBS0715.R4$Firstread_date,format="%d-%b-%y",tz="EST"))-
-                     as.numeric(strptime(KBS0715.R4$Firstread_date[1],format="%d-%b-%y",tz="EST")))/(3600*24)
+                     as.numeric(strptime(KBS0715.R4$Dormstart_date,format="%d-%b-%y",tz="EST")))/(3600*24)
 
-KBS0812.R4.time.logRel <- log(KBS0812.R4$Abund / KBS0812.R4$Abund[1])
-KBS0714.R3.time.logRel <- log(KBS0714.R3$Abund / KBS0714.R3$Abund[1])
-KBS0715.R4.time.logRel <- log(KBS0715.R4$Abund / KBS0715.R4$Abund[1])
+KBS0812.R4.time.logRel <- log(KBS0812.R4$Abund / max(KBS0812.R4$Abund))
+KBS0714.R3.time.logRel <- log(KBS0714.R3$Abund / max(KBS0714.R3$Abund))
+KBS0715.R4.time.logRel <- log(KBS0715.R4$Abund / max(KBS0715.R4$Abund))
 
 KBS0812.R4.df <- do.call(rbind, Map(data.frame, time=KBS0812.R4.time, logRel=KBS0812.R4.time.logRel))
 KBS0714.R3.df <- do.call(rbind, Map(data.frame, time=KBS0714.R3.time, logRel=KBS0714.R3.time.logRel))
