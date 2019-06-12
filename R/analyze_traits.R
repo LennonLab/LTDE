@@ -9,18 +9,10 @@ library('ggplot2')
 df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
                          header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 rownames(df.species) <- df.species$Species
-# remove bacillus
-# and KBS0801, since there's no yield parameter
-df.species.no_812<-df.species[!(df.species$Species=="KBS0812"),]
-df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0801"),]
-
-df.species.no_812<-df.species.no_812[!(df.species.no_812$Species=="KBS0727"),]
-
-
 traits <-  read.table("data/traits/traits.txt", 
                       header = TRUE, sep = "\t", row.names = 1, stringsAsFactors = FALSE)
 
-traits.merge <- merge(df.species.no_812, traits, by="row.names")
+traits.merge <- merge(df.species, traits, by="row.names")
 rownames(traits.merge) <- traits.merge$Species
 # save table
 traits.merge <- traits.merge[, !(colnames(traits.merge) %in% c("Row.names"))]
@@ -47,40 +39,48 @@ ml.rooted <- drop.tip(ml.rooted, c("NC_005042.1.353331-354795"))
 is.ultrametric(ml.rooted)
 ml.rooted.um  <- chronos(ml.rooted)
 is.ultrametric(ml.rooted.um)
-ml.rooted.um.prunned <- drop.tip(ml.rooted.um, 
-                                 ml.rooted.um$tip.label[na.omit(match(c('KBS0812', 'KBS0801'),
-                                                                      ml.rooted.um$tip.label))])
-ml.rooted.um.prunned<-drop.tip(ml.rooted.um.prunned, ml.rooted.um.prunned$tip.label[-match(traits.merge$Row.names, ml.rooted.um.prunned$tip.label)])
 
+traits.merge$min.T.birth.log10 <- log10(1/traits.merge$umax)
+#KBS0801 does not have a yield measurement
+traits.merge.modelSel <- traits.merge[!(row.names(traits.merge) %in% c('KBS0801')), ]
+ml.rooted.um.modelSel <- drop.tip(ml.rooted.um, c("KBS0801"))
 
-
-plot(log10(df.species.no_812$N_0), df.species.no_812$alpha, xlab = "Initial population size, log10", ylab = "shape parameter")
-
-
-testtttt <- phylolm(alpha  ~ log10(N_0), data = df.species.no_812, 
-        ml.rooted.um.prunned, model = 'OUrandomRoot', boot = 10)
-
-summary(testtttt)
-
-
-traits.merge$mttf.mean.log10 <- log10(traits.merge$mttf.mean)
-
-fit.trait.mttf.select <- phylostep(mttf.mean.log10 ~ A + umax + Lag, starting.formula=NULL, data= traits.merge, phy=ml.rooted.um.prunned, model = 'lambda', lower.bound = 0, upper.bound = 1)
-fit.trait.alpha.select <- phylostep(alpha.mean ~ A + umax + Lag, starting.formula=NULL, data= traits.merge, phy=ml.rooted.um.prunned, model = 'lambda', lower.bound = 0, upper.bound = 1)
-#fit.trait.beta.select <- phylostep(beta.mean ~ A + umax + Lag, starting.formula=NULL, data= traits.merge, phy=ml.rooted.um.prunned, model = 'lambda', lower.bound = 0, upper.bound = 1)
+fit.trait.mttf.select <- phylostep(mttf.log10 ~ A + min.T.birth.log10 + Lag, starting.formula=NULL, data= traits.merge.modelSel, phy=ml.rooted.um.modelSel, model = 'lambda', lower.bound = 0, upper.bound = 1)
+fit.trait.alpha.select <- phylostep(alpha ~ A + min.T.birth.log10 + Lag, starting.formula=NULL, data= traits.merge.modelSel, phy=ml.rooted.um.modelSel, model = 'lambda', lower.bound = 0, upper.bound = 1)
 
 summary(fit.trait.mttf.select)
 summary(fit.trait.alpha.select)
 
-fit.trait.alpha.phylo <- phylolm(alpha.mean ~ A + Lag, data = traits.merge, 
-                                 ml.rooted.um.prunned, model = 'lambda', lower.bound = 0, upper.bound = 1, boot = 100)
+fit.trait.alpha.phylo <- phylolm(alpha ~ A + Lag, data = traits.merge.modelSel, 
+                                 ml.rooted.um.modelSel, model = 'BM', lower.bound = 0, upper.bound = 1, boot = 100)
 summary(fit.trait.alpha.phylo)
 
-phy.mttf.umax.plot <- ggplot(data = traits.merge, aes(x = umax, y = mttf.mean)) +
+phy.mttf.umax.plot <- ggplot(data = traits.merge.modelSel, aes(x = min.T.birth.log10, y = 10** mttf.log10)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
-  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) +  
-  xlab(TeX("$\\mu_{max}$")) +
-  scale_y_log10() + 
+  ylab(TeX("Mean time to death, $\\bar{T}_{d}$ (days)") ) + 
+  xlab(TeX("Min. time to birth $\\T_{b, min}$ (hours)") ) + 
+  #scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  theme(axis.title.x = element_text(color="black", size=14),
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())#,
+        #axis.text.x=element_blank(),
+        #axis.title.x=element_blank())
+
+
+phy.mttf.yield.plot <- ggplot(data = traits.merge, aes(x = A, y = 10**mttf.log10)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  ylab(TeX("Mean time to death, $\\bar{T}_{d}$ (days)") ) + 
+  xlab(TeX("Yield, $OD_{600}$")) +
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
   #scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
   theme(axis.title.x = element_text(color="black", size=14),
@@ -91,27 +91,15 @@ phy.mttf.umax.plot <- ggplot(data = traits.merge, aes(x = umax, y = mttf.mean)) 
         #axis.title.x=element_blank())
 
 
-phy.mttf.yield.plot <- ggplot(data = traits.merge, aes(x = A, y = mttf.mean)) +
+
+phy.mttf.lag.plot <- ggplot(data = traits.merge, aes(x = Lag, y = 10**mttf.log10)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
-  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) + 
-  xlab(TeX("Yield")) +
-  scale_y_log10() + 
-  #scale_y_continuous(limits = c(0, 1)) +
-  theme_bw() +
-  theme(axis.title.x = element_text(color="black", size=14),
-        axis.title.y = element_text(color="black", size=14), 
-        panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank())#,
-        #axis.text.x=element_blank(),
-        #axis.title.x=element_blank())
-
-
-
-phy.mttf.lag.plot <- ggplot(data = traits.merge, aes(x = Lag, y = mttf.mean)) +
-  geom_point(color='blue', alpha = 0.6, size=4) +
-  ylab(TeX("$\\bar{\\T_{death}$} (days),  $\\log_{10}$") ) + 
-  xlab(TeX("Lag Time")) +
-  scale_y_log10() + 
+  ylab(TeX("Mean time to death, $\\bar{T}_{d}$ (days)") ) + 
+  xlab(TeX("Lag time (hours)")) +
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
   #scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
   theme(axis.title.x = element_text(color="black", size=14), 
@@ -121,10 +109,10 @@ phy.mttf.lag.plot <- ggplot(data = traits.merge, aes(x = Lag, y = mttf.mean)) +
 
 
 
-phy.alpha.umax.plot <- ggplot(data = traits.merge, aes(x = umax, y = alpha.mean)) +
+phy.alpha.umax.plot <- ggplot(data = traits.merge, aes(x = umax, y = alpha)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
-  ylab(TeX("$\\bar{\\alpha}$") ) + 
-  xlab(TeX("$\\mu_{max}$")) +
+  ylab(TeX("Mean shape paramater, $\\bar{k}$")) +
+  xlab(TeX("Min. time to birth $\\T_{b, min}$ (hours)") ) + 
   #scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
   theme(axis.title.x = element_text(color="black", size=14), 
@@ -133,10 +121,10 @@ phy.alpha.umax.plot <- ggplot(data = traits.merge, aes(x = umax, y = alpha.mean)
         panel.grid.minor = element_blank())
 
 
-phy.alpha.yield.plot <- ggplot(data = traits.merge, aes(x = A, y = alpha.mean)) +
+phy.alpha.yield.plot <- ggplot(data = traits.merge, aes(x = A, y = alpha)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
-  ylab(TeX("$\\bar{\\alpha}$") ) + 
-  xlab(TeX("Yield")) +
+  ylab(TeX("Mean shape paramater, $\\bar{k}$")) +
+  xlab(TeX("Yield, $OD_{600}$")) +
   #scale_y_continuous(limits = c(0, 1)) +
   stat_function(fun = function(x) fit.trait.alpha.phylo$coefficients[1] + fit.trait.alpha.phylo$coefficients[2] * x) + 
   theme_bw() +
@@ -146,10 +134,10 @@ phy.alpha.yield.plot <- ggplot(data = traits.merge, aes(x = A, y = alpha.mean)) 
         panel.grid.minor = element_blank())
 
 
-phy.alpha.lag.plot <- ggplot(data = traits.merge, aes(x = Lag, y = alpha.mean)) +
+phy.alpha.lag.plot <- ggplot(data = traits.merge, aes(x = Lag, y = alpha)) +
   geom_point(color='blue', alpha = 0.6, size=4) +
-  ylab(TeX("$\\bar{\\alpha}$") ) + 
-  xlab(TeX("Lag Time")) +
+  ylab(TeX("Mean shape paramater, $\\bar{k}$")) +
+  xlab(TeX("Lag time (hours)")) +
   #scale_y_continuous(limits = c(0, 1)) +
   stat_function(fun = function(x) fit.trait.alpha.phylo$coefficients[1] + fit.trait.alpha.phylo$coefficients[3] * x) + 
   theme_bw() +

@@ -4,24 +4,21 @@ setwd("~/GitHub/LTDE/")
 
 library('bbmle')
 library('devtools')
+library('plotrix')
 #install_github("rmcelreath/rethinking")
 #library('rethinking')
 
-#library('rethinking')
 ## Load Data
-obs <- read.csv("data/demography/longtermdormancy_20170620_nocomments.csv", 
+obs <- read.csv("data/demography/longtermdormancy_20190528_nocomments.csv", 
                 header = TRUE, stringsAsFactors = FALSE)
 ## Adding 1 to deal with log(0) observations
-#obs$Abund <- as.numeric(obs$Colonies) * 10 ^ as.numeric(obs$Dilution) + 1
 obs$Abund <- (as.numeric(obs$Colonies) +1)* (1000 / as.numeric(obs$Inoculum )) * ( 10 ^  as.numeric(obs$Dilution) )
 strains <- sort(unique(obs$Strain))
-strains <- strains[table(obs$Strain)>10]
-#strains <- c('KBS0721')
-#print(strains[-c('KBS0714', 'KBS0715')])
-
+#strains <- strains[table(obs$Strain)>10]
+#strains <- c('KBS0703', 'KBS0812')
 
 obs <- obs[obs$Strain%in%strains,]
-summ <- matrix(NA,length(strains)*max(obs$Rep),15)
+summ <- matrix(NA,length(strains)*max(obs$Rep),14)
 pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 for(i in 1:length(strains)){
@@ -33,18 +30,26 @@ for(i in 1:length(strains)){
     # minimum of 10 data points
     if(nrow(repObs)>10){
       start=repObs[1,1]
-      time=(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
-              as.numeric(strptime(start,format="%d-%b-%y",tz="EST")))/(3600*24)
+      time<-(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
+              as.numeric(strptime(repObs$Dormstart_date,format="%d-%b-%y",tz="EST")))/(3600*24)
+      #time=(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
+      #        as.numeric(strptime(start,format="%d-%b-%y",tz="EST")))/(3600*24)
+      # sort the data
+      index <- order(time)
+      time <- time[index]
+      abund <- repObs$Abund[index]
+      # add one to each day to avoid multiplication by zero error
       repObs["time"] <- time + 1
-      repObs["logabund"] <- log10(repObs$Abund)
+      repObs["logabund"] <- log10(abund)
       if (repObs["logabund"][[1]][2] - repObs["logabund"][[1]][1] > 1){
         repObs <- repObs[-c(1), ]
       }
-      repObs["prop"] <- log(repObs$Abund / repObs$Abund[1])
-      N_0 <- repObs$Abund[1]
+
+      N_0 <- abund[1]
+      repObs["prop"] <- log(abund / N_0)
       # Initial parameters
       #beta = Initial death (larger = slower) 
-      #alpha = 1 # Bend (upper = 1 = first-order decay)
+      #alpha = Bend (upper = 1 = first-order decay)
       #Z = Error
       grids<-list(beta=c(1,10,50,100,200),alpha=c(0.05,0.1,0.5,1,1.1,1.5),z=c(0.1,1,10))
       start<-list(beta=NA,alpha=NA,z=NA)
@@ -69,8 +74,7 @@ for(i in 1:length(strains)){
       }
       colnames(res.mat)<-c(names(coef(fit)),"AIC")
       best.fit<-res.mod[[which(res.mat[,'AIC']==min(res.mat[,'AIC']))[1]]]
-      
-      
+
       summ[counter,1]=strains[i]
       summ[counter,2]=reps[j]
       # beta
@@ -94,16 +98,18 @@ for(i in 1:length(strains)){
       # MTTF 
       summ[counter,11] <- coef(best.fit)[1] * gamma(1 + (1/coef(best.fit)[2]))
       
+      
       dT_dBeta <- gamma(1 + (1/alpha))
       dT_dAlpha <- -1* (beta/ (alpha**2)) * gamma(1 + (1/alpha)) * digamma(1 + (1/alpha))
       dT_vector <- c(dT_dBeta, dT_dAlpha)
       summ[counter,12] <- sqrt(t(dT_vector) %*% best.fit@vcov[1:2,1:2] %*% dT_vector)
-      summ[counter,13] <- sqrt( (beta**2) * (gamma(1 + (2/alpha)) - (gamma(1 + (1/alpha)) **2)) )
-      dV_dBeta <- 2 * beta * (gamma(1 + (2/alpha)) - (gamma(1 + (1/alpha)) **2))
-      dV_dAlpha <- (beta**2) * (gamma(1 + (2/alpha)) * digamma(1 + (2/alpha)) - (2*gamma(1 + (1/alpha)) * gamma(1 + (1/alpha)) * digamma(1 + (1/alpha)))  )
-      dV_vector <- c(dV_dBeta, dV_dAlpha)
-      summ[counter,14] <- sqrt(t(dV_vector) %*% best.fit@vcov[1:2,1:2] %*% dV_vector)
-      summ[counter,15] <- N_0
+
+      dlog10T_dBeta <-log10(exp(1)) * (beta**-1)
+      dlog10T_dAlpha <- -1*(alpha**-2)*log10(exp(1)) * digamma(1 + (1/alpha))
+      dlog10T_vector <- c(dlog10T_dBeta, dlog10T_dAlpha)
+      summ[counter,13] <- sqrt(t(dlog10T_vector) %*% best.fit@vcov[1:2,1:2] %*% dlog10T_vector)
+      
+      summ[counter,14] <- N_0
       
       ### *** Comment/Uncomment following code to make pdf figs*** ###
       title=paste(strains[i],"  rep ",reps[j])
@@ -119,7 +125,7 @@ for(i in 1:length(strains)){
 
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
-colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', "sd.ttf", "sd.ttf.sd", "N_0")
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0")
 write.csv(summ,"data/demography/weibull_results.csv")
 
 # clean the results file
@@ -137,8 +143,14 @@ write.csv(df, file = "data/demography/weibull_results_clean.csv")
 
 
 # get mean time to failure and CIs
-df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0')], list(df$strain), mean)
+df$beta.log10 <- log10(df$beta)
+df$mttf.log10 <- log10(df$mttf)
+df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'beta.log10','mttf.log10')], list(df$strain), mean)
 colnames(df.species.mean)[1] <- "Species"
+
+df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10')], list(df$strain), std.error)
+colnames(df.species.log10.se) <-  c("Species", "beta.log10.se", "mttf.log10.se")
+df.species <- merge(df.species.mean, df.species.log10.se,by="Species")
 
 # function to calculate pooled standard error
 get.pooled.se <- function(strains){
@@ -146,19 +158,25 @@ get.pooled.se <- function(strains){
   for (strain in strains)
   {
     df.strain <- df[ which(df$strain==strain), ]
-    # remove rows with NAs
-    df.strain <- df.strain[complete.cases(df.strain), ]
     N.reps <- nrow(df.strain)
-    N_0.se <- sd(df.strain$N_0) / sqrt(N.reps)
+    log10.N_0.se <- sd(log10(df.strain$N_0)) / sqrt(N.reps)
+    log10.N_0 <- mean(log10(df.strain$N_0))
+    # remove rows with NAs
+    if(strain == "KBS0812"){
+      pooled.log10.mttf.se <- sd(df.strain$mttf.log10) / sqrt(N.reps)
+      pooled.alpha.se <- sd(df.strain$alpha) / sqrt(N.reps)
+    }
+    else {
+      df.strain <- df.strain[complete.cases(df.strain), ]
+      
+      pooled.log10.mttf.var <- sum((df.strain$N.obs-1) * (df.strain$log10.mttf.sd ** 2)) / sum(df.strain$N.obs-1)
+      pooled.alpha.var <- sum((df.strain$N.obs-1) * (df.strain$alpha.sd ** 2)) / sum(df.strain$N.obs-1)
+      
+      pooled.log10.mttf.se <- sqrt(pooled.log10.mttf.var) / sqrt(N.reps)
+      pooled.alpha.se <- sqrt(pooled.alpha.var) / sqrt(N.reps)
+    }
     
-    pooled.mttf.var <- sum((df.strain$N.obs-1) * (df.strain$mttf.sd ** 2)) / sum(df.strain$N.obs-1)
-    pooled.beta.var <- sum((df.strain$N.obs-1) * (df.strain$beta.sd ** 2)) / sum(df.strain$N.obs-1)
-    pooled.alpha.var <- sum((df.strain$N.obs-1) * (df.strain$alpha.sd ** 2)) / sum(df.strain$N.obs-1)
-    
-    pooled.mttf.se <- sqrt(pooled.mttf.var) / sqrt(N.reps)
-    pooled.beta.se <- sqrt(pooled.beta.var) / sqrt(N.reps)
-    pooled.alpha.se <- sqrt(pooled.alpha.var) / sqrt(N.reps)
-    df.strain.new.row <- data.frame(strain, pooled.mttf.se, pooled.beta.se, pooled.alpha.se, N_0.se)
+    df.strain.new.row <- data.frame(strain, pooled.log10.mttf.se, pooled.alpha.se, log10.N_0, log10.N_0.se)
     df.strain.new <- rbind(df.strain.new, df.strain.new.row)
   }
   return(df.strain.new)
@@ -166,9 +184,6 @@ get.pooled.se <- function(strains){
 
 pooled.se <- get.pooled.se(unique(df$strain))
 colnames(pooled.se)[1] <- "Species"
-
-df.species <- merge(df.species.mean, pooled.se,by="Species")
-
-
-write.csv(df.species, file = "data/demography/weibull_results_clean_species.csv")
+df.species.pool <- merge(df.species, pooled.se,by="Species")
+write.csv(df.species.pool, file = "data/demography/weibull_results_clean_species.csv")
 
