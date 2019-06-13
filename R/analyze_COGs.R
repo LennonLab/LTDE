@@ -59,9 +59,12 @@ rownames(ltde.cog.ppca$S) <- lapply(rownames(ltde.cog.ppca$S), as.character)
 df.PCA.met.merge <- merge(df.species, ltde.met.ppca$S,by="row.names")
 df.PCA.cog.merge <- merge(df.species, ltde.cog.ppca$S,by="row.names")
 
-select.me <- c('Species', "alpha", "mttf.log10","A","umax", "Lag", 'PC1', "PC2")
+select.me <- c('Species', "alpha", "beta.log10","A","umax", "Lag", 'PC1', "PC2")
 df.PCA.met.merge.subset <- df.PCA.met.merge[,select.me]
 df.PCA.cog.merge.subset <- df.PCA.cog.merge[,select.me]
+
+plot(df.PCA.met.merge.subset$PC1, df.PCA.met.merge.subset$beta.log10)
+plot(df.PCA.met.merge.subset$PC1, df.PCA.met.merge.subset$alpha)
 
 met.explainvar1 <- round(diag(ltde.met.ppca$Eval)[1] / sum(diag(ltde.met.ppca$Eval)), 3) * 100
 met.explainvar2 <- round(diag(ltde.met.ppca$Eval)[2] / sum(diag(ltde.met.ppca$Eval)), 3) * 100
@@ -106,8 +109,13 @@ ggsave(file="figs/pPCA.png", g, width=10,height=5, units='in', dpi=600)
 
 
 
-summary(lm(df.PCA.met.merge.subset$mttf.log10 ~ df.PCA.met.merge.subset$PC1))
+summary(lm(df.PCA.met.merge.subset$beta.log10 ~ df.PCA.met.merge.subset$PC1))
+summary(lm(df.PCA.met.merge.subset$alpha ~ df.PCA.met.merge.subset$PC1))
+
+plot( df.PCA.met.merge.subset$PC1, df.PCA.met.merge.subset$umax)
 summary(lm(df.PCA.met.merge.subset$umax ~ df.PCA.met.merge.subset$PC1))
+summary(lm(df.PCA.met.merge.subset$Lag ~ df.PCA.met.merge.subset$PC1))
+summary(lm(df.PCA.met.merge.subset$A ~ df.PCA.met.merge.subset$PC1))
 
 
 # remove outliers
