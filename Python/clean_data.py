@@ -1,7 +1,9 @@
 from __future__ import division
 import ltde_tools as lt
-import glob, re, os, subprocess, math
+import glob, re, os, subprocess, math, json
 import pandas as pd
+import numpy as np
+from collections import Counter
 
 
 def make_16S_fata():
@@ -66,45 +68,34 @@ def make_16S_fata():
     # alignment file = arb-silva.de_2019-04-07_id632669.fasta
 
 
-def get_iRep():
-    directory = os.fsencode(lt.get_path() + '/data/bwa_sam')
-    for file in os.listdir(directory):
-        filename = os.fsdecode(file)
-        if (filename.endswith('C1.sam') == True) or (filename.endswith('C2.sam') == True):
-            continue
-        if filename.endswith('.sam'):
-            strain = re.split(r'[.-]+', filename)[0]
-            print(filename)
-            fna_path = glob.glob(lt.get_path() + '/data/genomes/*/' + strain + '/G-Chr1.fna')[0]
-            out_file = lt.get_path() + '/data/iRep/' + filename.split('.')[0]
-            sam = os.path.join(str(directory, 'utf-8'), filename)
-            subprocess.call(['iRep', '-f', fna_path, '-s', sam, '-o', str(out_file)])
 
 
 def clean_iRep():
+    # very low coverage for these taxa
     to_remove = ['KBS0705', 'KBS0706']
     directory = os.fsencode(lt.get_path() + '/data/iRep')
     df_out = open(lt.get_path() + '/data/iRep_clean.txt', 'w')
-    header = ['Sample', 'strain', 'rep' ,'iRep']
+    header = ['Sample', 'Species', 'rep' ,'iRep']
     df_out.write('\t'.join(header) + '\n')
     iRep_corrected_dict = {}
     iRep_uncorrected_dict = {}
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
         if filename.endswith('.tsv'):
-            iRep_path = sam = os.path.join(str(directory, 'utf-8'), filename)
+            iRep_path = os.path.join(str(directory, 'utf-8'), filename)
             strain = re.split(r'[.-]+', filename)[0]
             strain_rep = re.split(r'[.]+', filename)[0]
             if strain in to_remove:
                 continue
-            if 'WA' in strain_rep:
-                strain_rep = 'KBS0711-5'
-            elif 'WB' in strain_rep:
-                strain_rep = 'KBS0711-6'
-            elif 'WC' in strain_rep:
-                strain_rep = 'KBS0711-7'
-            else:
-                strain_rep = strain_rep[:-1] + str(lt.rename_rep()[strain_rep[-1]])
+            if 'W' in strain_rep:
+                continue
+            #    strain_rep = 'KBS0711-5'
+            #elif 'WB' in strain_rep:
+            #    strain_rep = 'KBS0711-6'
+            #elif 'WC' in strain_rep:
+            #    strain_rep = 'KBS0711-7'
+            #else:
+            strain_rep = strain_rep[:-1] + str(lt.rename_rep()[strain_rep[-1]])
             for i, line in enumerate(open(iRep_path, 'r')):
                 if i == 2:
                     last_item = line.strip().split()[-1]
@@ -128,7 +119,6 @@ def clean_iRep():
             iRep = value[0]
         out_line = [key, key.split('-')[0], key.split('-')[1], str(iRep)]
         df_out.write('\t'.join(out_line) + '\n')
-
 
     df_out.close()
 
@@ -160,7 +150,7 @@ def clean_COGs():
 
 
 def merge_maple(strain):
-    maple_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple/'
+    maple_path = lt.get_path() + '/data/genomes/genomes_ncbi_maple/'
     IN_maple_sign_path = maple_path + strain + '_MAPLE_result/' + 'module_signature.tsv'
     IN_maple_sign = pd.read_csv(IN_maple_sign_path, sep = '\t')
     IN_maple_cmplx_path = maple_path + strain + '_MAPLE_result/' + 'module_complex.tsv'
@@ -176,14 +166,14 @@ def merge_maple(strain):
     df_merged_no_dup = df_merged.drop_duplicates(subset='Pathway_ID', keep="last")
     df_merged_no_dup = df_merged_no_dup.reset_index(drop=True)
     # median = median MCR
-    OUT_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple_clean/' + strain + '_maple_modules.txt'
+    OUT_path = lt.get_path() + '/data/genomes/genomes_ncbi_maple_clean/' + strain + '_maple_modules.txt'
     df_merged_no_dup.to_csv(OUT_path, sep = '\t', index = False)
 
 
 
 def merge_maple_all_strains():
     dfs = []
-    maple_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple_clean/'
+    maple_path = lt.get_path() + '/data/genomes/genomes_ncbi_maple_clean/'
     for filename in os.listdir(maple_path):
         if filename.endswith("_maple_modules.txt"):
             df = pd.read_csv(maple_path + filename, sep = '\t')
@@ -197,10 +187,10 @@ def merge_maple_all_strains():
     # query(coverage) = MCR % (ITR)
     #query(coverage/max) = MCR % (WC)
     #query(coverage/mode) = Q-value
-    dfs_concat_050 = dfs_concat.loc[dfs_concat['query(coverage)'] >= 0.5]
+    dfs_concat_050 = dfs_concat.loc[dfs_concat['query(coverage)'] >= 0.8]
     module_by_taxon = pd.crosstab(dfs_concat_050.Pathway_ID, dfs_concat_050.Strain)
     module_by_taxon_no_redundant = module_by_taxon[(module_by_taxon.T != 1).any()]
-    OUT_path = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_maple.txt'
+    OUT_path = lt.get_path() + '/data/genomes/genomes_ncbi_maple.txt'
     module_by_taxon.to_csv(OUT_path, sep = '\t', index = True)
 
 
@@ -223,13 +213,76 @@ def get_assembly_coverage():
     df_out.close()
 
 
+def get_breseq_samples_to_ignore():
+    json_path = lt.get_path() + '/data/breseq/summary/'
+    to_keep = []
+    for filename in os.listdir(json_path):
+        if filename.endswith(".json") == False:
+            continue
+        with open(json_path + filename) as f:
+            data = json.load(f)
+            contigs = list(data['references']['reference'].keys())
+            coverages = []
+            for contig in contigs:
+                if data['references']['reference'][contig]['length'] < 300:
+                    continue
+                coverages.append(data['references']['reference'][contig]['coverage_average'] )
+            mean_cov = np.mean(coverages)
+            if mean_cov > 20:
+                to_keep.append(filename.split('.')[0])
+    return to_keep
 
 
+
+
+
+def clean_breseq():
+    output_to_keep = ['INS', 'DEL', 'SNP']
+    to_keep_samples = get_breseq_samples_to_ignore()
+    evidence_path = lt.get_path() + '/data/breseq/output/'
+    # get list of taxa to analyze
+    to_keep_taxa = list(set([ x.split('-')[0] for x in to_keep_samples ]))
+    for taxon in to_keep_taxa:
+        taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
+        if len(taxon_samples) < 3:
+            to_keep_taxa.remove(taxon)
+    to_keep_taxa = ['KBS0715']
+    for taxon in to_keep_taxa:
+        taxon_sites = []
+        taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
+        for taxon_sample in taxon_samples:
+            for i, line in enumerate(open(evidence_path + taxon_sample + '.gd', 'r')):
+                line_split = line.strip().split('\t')
+                if line_split[0] in output_to_keep:
+                    if line_split[4] == '1':
+                        continue
+                    taxon_sites.append( line_split[3] + '_' + str(line_split[4]))
+
+        count_dict = Counter(taxon_sites)
+        counts = list(count_dict.values())
+        count_dict_4 = dict((k, v) for k, v in count_dict.items() if v >= 3)
+        sites = list(count_dict_4.keys())
+        #print(sites)
+        for taxon_sample in taxon_samples:
+            for i, line in enumerate(open(evidence_path + taxon_sample + '.gd', 'r')):
+                line_split = line.strip().split('\t')
+                if line_split[0] in output_to_keep:
+                    if line_split[4] == '1':
+                        continue
+                    if line_split[3] + '_' + str(line_split[4]) in sites:
+                        print(line_split)
+
+
+        for i in list(range(1,5)):
+        print(taxon, i, counts.count(i)/len(counts))
+
+
+
+
+#clean_iRep()
 #get_assembly_coverage()
 #for strain in lt.strain_list():
 #    merge_maple(strain)
-
 #merge_maple_all_strains()
 
-#clean_iRep()
-#clean_COGs()
+clean_breseq()

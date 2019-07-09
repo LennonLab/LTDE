@@ -12,6 +12,8 @@ library('gridExtra')
 library('ggpubr')
 library('grid')
 
+set.seed(123456789)
+
 df <- read.csv("data/demography/weibull_results_clean.csv", 
                header = TRUE, stringsAsFactors = FALSE)
 df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
@@ -36,7 +38,7 @@ kde.plot <- ggplot(df.species, aes(10** mttf.log10)) +
             geom_vline(xintercept= 10**mean(df.species$mttf.log10), linetype = "longdash") 
   
 
-kde.plot <- kde.plot + theme(axis.title.x = element_text(color="black", size=11), 
+kde.plot <- kde.plot + theme(axis.title.x = element_text(color="black", size=10), 
                             axis.title.y = element_text(color="black", size=14), 
                             panel.grid.major = element_blank(), 
                             panel.grid.minor = element_blank())
@@ -44,19 +46,19 @@ kde.plot <- kde.plot + theme(axis.title.x = element_text(color="black", size=11)
 
 
 f <- function(x,a,b) {a * exp(b * x)}
-fit <- nls(alpha ~ f(beta.log10 * -1, a, b), data=df.species,start = c(a=1, b=1)) 
+fit <- nls(alpha ~ f(beta.log10, a, b), data=df.species,start = c(a=1, b=1)) 
 co <- coef(fit)
-x.line <- df.species$beta.log10 *-1
-x.line <- seq(-2.5, 6, length.out = 1000)
+x.line <- df.species$beta.log10 
+x.line <- seq(-6, 2.5, length.out = 1000) 
 y.line <- coef(fit)[1]* exp(coef(fit)[2] * x.line)
 
-phylo.params <- ggplot(data = df.species, aes(x = 10**(beta.log10 * -1), y = alpha)) +
+phylo.params <- ggplot(data = df.species, aes(x = 10**(beta.log10 ), y = alpha)) +
                 geom_point(color='blue', alpha = 0.6, size=4) +
-                xlab(TeX("Mean scale paramater, $\\bar{\\lambda} ^{-1}$") ) + 
+                xlab(TeX("Mean scale paramater, $\\bar{\\lambda}$") ) + 
                 ylab(TeX("Mean shape paramater, $\\bar{k}$")) +
                 scale_y_continuous(limits = c(0, 1.05)) +
                 scale_x_log10(
-                  limits = c(0.001, 10000000),
+                  limits = c(0.000001, 10000),
                   breaks = scales::trans_breaks("log10", function(x) 10^x),
                   labels = scales::trans_format("log10", scales::math_format(10^.x))
                 ) +
@@ -65,10 +67,10 @@ phylo.params <- ggplot(data = df.species, aes(x = 10**(beta.log10 * -1), y = alp
                 theme_bw() +
                 geom_line(aes(y = y, x = x), size=0.75, data=data.frame(x=10**x.line, y=y.line))
 
-phylo.params <- phylo.params + theme(axis.title.x = element_text(color="black", size=11), 
-                            axis.title.y = element_text(color="black", size=11), 
+phylo.params <- phylo.params + theme(axis.title.x = element_text(color="black", size=10), 
+                            axis.title.y = element_text(color="black", size=10), 
                             panel.grid.major = element_blank(), 
-                            panel.grid.minor = element_blank())
+                            panel.grid.minor = element_blank()) + scale_y_reverse()
 
 
 
@@ -120,7 +122,7 @@ boxplot <- ggplot(data = df.species) +
 g <- ggarrange(boxplot,                                                 # First row with scatter plot
           ggarrange(kde.plot, phylo.params, ncol = 2, labels = c("b", "c")), # Second row with box and dot plots
           nrow = 2, 
-          labels = "a", label.x = 0.02,  label.y = 0.94) 
+          labels = "a", label.x = 0.02,  label.y = 0.93) 
 
 
 ggsave(file="figs/Fig1.png", g, units='in', dpi=600)
