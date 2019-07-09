@@ -1,1 +1,0 @@
-type	number	misc	seq_id	position	change	reference	sample	total_cov	new_cov	ref_cov	major_cov	minor_cov	major_base	minor_base	prediction	frequency	polymorphism_frequency	major_frequency	consensus_score	polymorphism_score	fisher_strand_p_value	ks_quality_p_value	bias_e_value	reject	snp_type	locus_tag	gene_product	gene_position	gene_list	gene_name	bias_p_value

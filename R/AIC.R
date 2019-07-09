@@ -3,6 +3,7 @@ getwd()
 setwd("~/GitHub/LTDE/")
 
 library(ggplot2)
+library('latex2exp')
 
 df.weib <- read.table("data/demography/weibull_results_clean.csv", 
                       header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)

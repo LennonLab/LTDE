@@ -1,16 +1,16 @@
 #!/bin/bash
 
 breseq_essentials="/N/dc2/projects/muri2/Task2/LTDE/data/breseq_essentials"
-mkdir -p $breseq_essentials
+mkdir -p /N/dc2/projects/muri2/Task2/LTDE/data/breseq/evidence
+mkdir -p /N/dc2/projects/muri2/Task2/LTDE/data/breseq/annotated
+mkdir -p /N/dc2/projects/muri2/Task2/LTDE/data/breseq/output
+mkdir -p /N/dc2/projects/muri2/Task2/LTDE/data/breseq/summary
 
-for folder in "/N/dc2/projects/muri2/Task2/LTDE/data/breseq_output/"*
+for folder in "/N/dc2/projects/muri2/Task2/LTDE/data/breseq/"*
 do
   strain="$(  echo "$folder" | cut -d"/" -f10-10)"
-  mkdir -p "${breseq_essentials}/$strain"
-  annotated="${folder}/output/evidence/annotated.gd"
-  evidence="${folder}/output/evidence/evidence.gd"
-  output="${folder}/output/output.gd"
-  cp $annotated "${breseq_essentials}/$strain/annotated.gd"
-  cp $evidence "${breseq_essentials}/$strain/evidence.gd"
-  cp $output "${breseq_essentials}/$strain/output.gd"
+  #cp "${folder}/output/evidence/annotated.gd" "/N/dc2/projects/muri2/Task2/LTDE/data/breseq/annotated/${strain}.gd"
+  #cp "${folder}/output/evidence/evidence.gd" "/N/dc2/projects/muri2/Task2/LTDE/data/breseq/evidence/${strain}.gd"
+  #cp "${folder}/output/output.gd" "/N/dc2/projects/muri2/Task2/LTDE/data/breseq/output/${strain}.gd"
+  cp "${folder}/data/summary.json" "/N/dc2/projects/muri2/Task2/LTDE/data/breseq/summary/${strain}.json"
 done

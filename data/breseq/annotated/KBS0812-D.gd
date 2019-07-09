@@ -1,0 +1,92 @@
+#=GENOME_DIFF	1.0
+INS	1	4	NZ_VCBS01000001	601081	A	frequency=1	gene_name=FFE90_RS03205	gene_position=pseudogene (204/1208 nt)	gene_product=MFS transporter	gene_strand=>	genes_inactivated=FFE90_RS03205	html_gene_name=<i>FFE90_RS03205</i>&nbsp;&rarr;	insert_position=1	locus_tag=FFE90_RS03205	locus_tags_inactivated=FFE90_RS03205	mutation_category=small_indel	repeat_length=1	repeat_new_copies=8	repeat_ref_copies=7	repeat_seq=A
+SNP	2	5	NZ_VCBS01000001	2560833	T	aa_new_seq=K	aa_position=101	aa_ref_seq=Q	codon_new_seq=AAA	codon_number=101	codon_position=1	codon_ref_seq=CAA	frequency=7.54218102e-02	gene_name=cotB	gene_position=301	gene_product=spore coat protein CotB	gene_strand=<	genes_overlapping=cotB	html_gene_name=<i>cotB</i>&nbsp;&larr;	locus_tag=FFE90_RS13610	locus_tags_overlapping=FFE90_RS13610	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	3	6	NZ_VCBS01000002	393492	A	aa_new_seq=Q	aa_position=50	aa_ref_seq=Q	codon_new_seq=CAA	codon_number=50	codon_position=3	codon_ref_seq=CAG	frequency=1.36022091e-01	gene_name=FFE90_RS18440	gene_position=150	gene_product=glucose starvation-inducible protein B	gene_strand=>	genes_overlapping=FFE90_RS18440	html_gene_name=<i>FFE90_RS18440</i>&nbsp;&rarr;	locus_tag=FFE90_RS18440	locus_tags_overlapping=FFE90_RS18440	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+RA	4	.	NZ_VCBS01000001	601074	1	.	A	bias_e_value=4290650	bias_p_value=1	consensus_score=182.6	fisher_strand_p_value=1	frequency=1	gene_name=FFE90_RS03205	gene_position=pseudogene (197/1208 nt)	gene_product=MFS transporter	gene_strand=>	html_gene_name=<i>FFE90_RS03205</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFE90_RS03205	major_base=A	major_cov=34/20	major_frequency=9.64358330e-01	minor_base=.	minor_cov=1/1	new_cov=34/20	polymorphism_frequency=9.64358330e-01	polymorphism_reject=SCORE_CUTOFF,FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE,INDEL_HOMOPOLYMER	polymorphism_score=-1.0	prediction=consensus	ref_cov=1/1	snp_type=pseudogene	total_cov=35/21
+RA	5	.	NZ_VCBS01000001	2560833	0	G	T	aa_new_seq=K	aa_position=101	aa_ref_seq=Q	bias_e_value=10625.6	bias_p_value=0.00247644	codon_new_seq=AAA	codon_number=101	codon_position=1	codon_ref_seq=CAA	consensus_score=633.1	fisher_strand_p_value=0.000268519	frequency=7.54218102e-02	gene_name=cotB	gene_position=301	gene_product=spore coat protein CotB	gene_strand=<	html_gene_name=<i>cotB</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFE90_RS13610	major_base=G	major_cov=83/108	major_frequency=9.24578190e-01	minor_base=T	minor_cov=16/2	new_cov=16/2	new_seq=T	polymorphism_frequency=7.54218102e-02	polymorphism_score=7.2	prediction=polymorphism	ref_cov=83/108	ref_seq=G	snp_type=nonsynonymous	total_cov=99/110	transl_table=11
+RA	6	.	NZ_VCBS01000002	393492	0	G	A	aa_new_seq=Q	aa_position=50	aa_ref_seq=Q	bias_e_value=2221820	bias_p_value=0.517828	codon_new_seq=CAA	codon_number=50	codon_position=3	codon_ref_seq=CAG	consensus_score=159.7	fisher_strand_p_value=0.197488	frequency=1.36022091e-01	gene_name=FFE90_RS18440	gene_position=150	gene_product=glucose starvation-inducible protein B	gene_strand=>	html_gene_name=<i>FFE90_RS18440</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFE90_RS18440	major_base=G	major_cov=44/28	major_frequency=8.63977909e-01	minor_base=A	minor_cov=10/2	new_cov=10/2	new_seq=A	polymorphism_frequency=1.36022091e-01	polymorphism_score=10.9	prediction=polymorphism	ref_cov=44/28	ref_seq=G	snp_type=synonymous	total_cov=57/39	transl_table=11
+MC	7	.	NZ_VCBS01000004	1	47	46	0	gene_name=–/FFE90_RS22420	gene_position=intergenic (–/-193)	gene_product=–/protein CsfB	html_gene_name=–&nbsp;/&nbsp;&rarr;&nbsp;<i>FFE90_RS22420</i>	left_inside_cov=0	left_outside_cov=NA	locus_tag=–/FFE90_RS22420	right_inside_cov=47	right_outside_cov=49
+UN	8	.	NZ_VCBS01000001	1	8
+UN	9	.	NZ_VCBS01000001	716385	716447
+UN	10	.	NZ_VCBS01000001	812954	812986
+UN	11	.	NZ_VCBS01000001	813761	813892
+UN	12	.	NZ_VCBS01000001	813896	813896
+UN	13	.	NZ_VCBS01000001	814019	814020
+UN	14	.	NZ_VCBS01000001	814022	814036
+UN	15	.	NZ_VCBS01000001	814157	814191
+UN	16	.	NZ_VCBS01000001	823796	823824
+UN	17	.	NZ_VCBS01000001	824555	824670
+UN	18	.	NZ_VCBS01000001	824750	824888
+UN	19	.	NZ_VCBS01000001	825201	825219
+UN	20	.	NZ_VCBS01000001	825558	825558
+UN	21	.	NZ_VCBS01000001	825569	825670
+UN	22	.	NZ_VCBS01000001	826085	826102
+UN	23	.	NZ_VCBS01000001	826223	826287
+UN	24	.	NZ_VCBS01000001	839171	839251
+UN	25	.	NZ_VCBS01000001	839981	840056
+UN	26	.	NZ_VCBS01000001	840181	840389
+UN	27	.	NZ_VCBS01000001	841006	841106
+UN	28	.	NZ_VCBS01000001	841497	841527
+UN	29	.	NZ_VCBS01000001	841652	841652
+UN	30	.	NZ_VCBS01000001	841654	841710
+UN	31	.	NZ_VCBS01000001	1006881	1006941
+UN	32	.	NZ_VCBS01000001	1092013	1092207
+UN	33	.	NZ_VCBS01000001	1092409	1092434
+UN	34	.	NZ_VCBS01000001	1092559	1092575
+UN	35	.	NZ_VCBS01000001	1424762	1424762
+UN	36	.	NZ_VCBS01000001	2017803	2017841
+UN	37	.	NZ_VCBS01000001	2018514	2018515
+UN	38	.	NZ_VCBS01000001	2018517	2018566
+UN	39	.	NZ_VCBS01000001	2019093	2019191
+UN	40	.	NZ_VCBS01000001	2019330	2021808
+UN	41	.	NZ_VCBS01000001	2021885	2022161
+UN	42	.	NZ_VCBS01000001	2022355	2023718
+UN	43	.	NZ_VCBS01000001	2023854	2023900
+UN	44	.	NZ_VCBS01000001	2511731	2511753
+UN	45	.	NZ_VCBS01000001	2518749	2518771
+UN	46	.	NZ_VCBS01000001	2701534	2701621
+UN	47	.	NZ_VCBS01000001	2701623	2701623
+UN	48	.	NZ_VCBS01000001	2701784	2701879
+UN	49	.	NZ_VCBS01000001	3070621	3072224
+UN	50	.	NZ_VCBS01000001	3072226	3072226
+UN	51	.	NZ_VCBS01000001	3072553	3072822
+UN	52	.	NZ_VCBS01000001	3072897	3075615
+UN	53	.	NZ_VCBS01000001	3091173	3091211
+UN	54	.	NZ_VCBS01000002	1	17
+UN	55	.	NZ_VCBS01000002	20	20
+UN	56	.	NZ_VCBS01000002	59758	64477
+UN	57	.	NZ_VCBS01000002	64967	65018
+UN	58	.	NZ_VCBS01000002	65235	70089
+UN	59	.	NZ_VCBS01000002	70237	75111
+UN	60	.	NZ_VCBS01000002	283615	283622
+UN	61	.	NZ_VCBS01000002	283755	283789
+UN	62	.	NZ_VCBS01000002	283909	283968
+UN	63	.	NZ_VCBS01000002	284631	284647
+UN	64	.	NZ_VCBS01000002	284915	284915
+UN	65	.	NZ_VCBS01000002	284918	284991
+UN	66	.	NZ_VCBS01000002	285156	285192
+UN	67	.	NZ_VCBS01000002	294377	294388
+UN	68	.	NZ_VCBS01000002	294526	294555
+UN	69	.	NZ_VCBS01000002	294683	294725
+UN	70	.	NZ_VCBS01000002	295395	295427
+UN	71	.	NZ_VCBS01000002	295682	295755
+UN	72	.	NZ_VCBS01000002	295927	295947
+UN	73	.	NZ_VCBS01000002	455593	455614
+UN	74	.	NZ_VCBS01000002	455739	455764
+UN	75	.	NZ_VCBS01000002	455967	455967
+UN	76	.	NZ_VCBS01000002	455971	456160
+UN	77	.	NZ_VCBS01000002	534410	539027
+UN	78	.	NZ_VCBS01000002	845490	847520
+UN	79	.	NZ_VCBS01000002	847587	850112
+UN	80	.	NZ_VCBS01000002	850854	850892
+UN	81	.	NZ_VCBS01000002	1053683	1053691
+UN	82	.	NZ_VCBS01000003	1	5
+UN	83	.	NZ_VCBS01000003	84286	84292
+UN	84	.	NZ_VCBS01000004	1	13
+UN	85	.	NZ_VCBS01000004	55215	56805
+UN	86	.	NZ_VCBS01000004	56877	60013
+UN	87	.	NZ_VCBS01000004	60540	60597
+UN	88	.	NZ_VCBS01000004	60715	60786
+UN	89	.	NZ_VCBS01000004	61037	61177
+UN	90	.	NZ_VCBS01000005	1	8
+UN	91	.	NZ_VCBS01000005	277	282
