@@ -1,36 +1,36 @@
 ## index of replication (iRep) - thresholds: min cov. = 5, min wins. = 0.98, min r^2 = 0.9, max fragments/Mbp = 175, GC correction min r^2 = 0.0
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC13985-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC13985/G-Chr1.fna	2.666680752604084
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC13985-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC13985/GCF_006322025.1_ASM632202v1_genomic.fna	2.68545107496
 #
 ## un-filtered index of replication (iRep)
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC13985-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC13985/G-Chr1.fna	2.666680752604084
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC13985-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC13985/GCF_006322025.1_ASM632202v1_genomic.fna	2.68545107496
 #
 ## raw index of replication (no GC bias correction)
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC13985-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC13985/G-Chr1.fna	2.944025944103364
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC13985-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC13985/GCF_006322025.1_ASM632202v1_genomic.fna	2.97951397586
 #
 ## r^2
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC13985-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC13985/G-Chr1.fna	0.9705867950597409
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC13985-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC13985/GCF_006322025.1_ASM632202v1_genomic.fna	0.975191568579
 #
 ## coverage
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC13985-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC13985/G-Chr1.fna	62.0414742274652
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC13985-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC13985/GCF_006322025.1_ASM632202v1_genomic.fna	68.8451605337
 #
 ## % windows passing filter
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC13985-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC13985/G-Chr1.fna	98.29
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC13985-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC13985/GCF_006322025.1_ASM632202v1_genomic.fna	98.31
 #
 ## fragments/Mbp
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC13985-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC13985/G-Chr1.fna	88
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC13985-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC13985/GCF_006322025.1_ASM632202v1_genomic.fna	37
 #
 ## GC bias
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC13985-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC13985/G-Chr1.fna	-579.8322181869916
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC13985-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC13985/GCF_006322025.1_ASM632202v1_genomic.fna	-651.985930636
 #
 ## GC r^2
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/ATCC13985-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2016_KBSGenomes_Annotate/ATCC13985/G-Chr1.fna	0.6254852984954149
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC13985-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC13985/GCF_006322025.1_ASM632202v1_genomic.fna	0.635658564579
 #

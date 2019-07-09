@@ -1,36 +1,36 @@
 ## index of replication (iRep) - thresholds: min cov. = 5, min wins. = 0.98, min r^2 = 0.9, max fragments/Mbp = 175, GC correction min r^2 = 0.0
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	1.476434593203801
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0721-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0721/GCF_002007065.2_ASM200706v2_genomic.fna	1.4789144591
 #
 ## un-filtered index of replication (iRep)
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	1.476434593203801
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0721-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0721/GCF_002007065.2_ASM200706v2_genomic.fna	1.4789144591
 #
 ## raw index of replication (no GC bias correction)
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	1.5229064749181798
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0721-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0721/GCF_002007065.2_ASM200706v2_genomic.fna	1.52124668692
 #
 ## r^2
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	0.9897220456419551
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0721-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0721/GCF_002007065.2_ASM200706v2_genomic.fna	0.98979936383
 #
 ## coverage
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	92.11884532357463
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0721-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0721/GCF_002007065.2_ASM200706v2_genomic.fna	102.37060013
 #
 ## % windows passing filter
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	99.99
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0721-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0721/GCF_002007065.2_ASM200706v2_genomic.fna	100.00
 #
 ## fragments/Mbp
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	13
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0721-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0721/GCF_002007065.2_ASM200706v2_genomic.fna	1
 #
 ## GC bias
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	-23.6667106483359
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0721-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0721/GCF_002007065.2_ASM200706v2_genomic.fna	-24.4020973011
 #
 ## GC r^2
-# genome	/Users/WRShoemaker/GitHub/LTDE/data/bwa_sam/KBS0721-D.sam
-/Users/WRShoemaker/GitHub/LTDE/data/genomes/2015_SoilGenomes_Annotate/KBS0721/G-Chr1.fna	0.11623812794867283
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0721-D.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0721/GCF_002007065.2_ASM200706v2_genomic.fna	0.117716624164
 #
