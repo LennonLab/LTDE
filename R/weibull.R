@@ -5,6 +5,7 @@ setwd("~/GitHub/LTDE/")
 library('bbmle')
 library('devtools')
 library('plotrix')
+library('pracma')
 #install_github("rmcelreath/rethinking")
 #library('rethinking')
 
@@ -15,10 +16,9 @@ obs <- read.csv("data/demography/longtermdormancy_20190528_nocomments.csv",
 obs$Abund <- (as.numeric(obs$Colonies) +1)* (1000 / as.numeric(obs$Inoculum )) * ( 10 ^  as.numeric(obs$Dilution) )
 strains <- sort(unique(obs$Strain))
 #strains <- strains[table(obs$Strain)>10]
-#strains <- c('KBS0703', 'KBS0812')
-
+#strains <- c('KBS0812')
 obs <- obs[obs$Strain%in%strains,]
-summ <- matrix(NA,length(strains)*max(obs$Rep),14)
+summ <- matrix(NA,length(strains)*max(obs$Rep),15)
 pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 for(i in 1:length(strains)){
@@ -46,6 +46,7 @@ for(i in 1:length(strains)){
       }
 
       N_0 <- abund[1]
+      N_final <- abund[length(abund)]
       repObs["prop"] <- log(abund / N_0)
       # Initial parameters
       #beta = Initial death (larger = slower) 
@@ -110,6 +111,7 @@ for(i in 1:length(strains)){
       summ[counter,13] <- sqrt(t(dlog10T_vector) %*% best.fit@vcov[1:2,1:2] %*% dlog10T_vector)
       
       summ[counter,14] <- N_0
+      summ[counter,15] <- N_final
       
       ### *** Comment/Uncomment following code to make pdf figs*** ###
       title=paste(strains[i],"  rep ",reps[j])
@@ -125,7 +127,7 @@ for(i in 1:length(strains)){
 
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
-colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0")
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0", "N_final")
 write.csv(summ,"data/demography/weibull_results.csv")
 
 # clean the results file
@@ -145,7 +147,7 @@ write.csv(df, file = "data/demography/weibull_results_clean.csv")
 # get mean time to failure and CIs
 df$beta.log10 <- log10(df$beta)
 df$mttf.log10 <- log10(df$mttf)
-df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'beta.log10','mttf.log10')], list(df$strain), mean)
+df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10')], list(df$strain), mean)
 colnames(df.species.mean)[1] <- "Species"
 
 df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10')], list(df$strain), std.error)

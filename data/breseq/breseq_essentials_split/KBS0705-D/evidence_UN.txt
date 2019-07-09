@@ -1,2 +1,0 @@
-type	number	misc	seq_id	start	finish
-UN	37	.	G_contig000016	1	268

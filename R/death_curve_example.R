@@ -89,13 +89,13 @@ KBS0715.R4.plot <- ggplot(KBS0715.R4.df, aes(x=time, y=logRel)) +
         panel.grid.minor = element_blank())
 
 
-g <- ggarrange(KBS0812.R4.plot, KBS0714.R3.plot, KBS0715.R4.plot,                                              # First row with scatter plot
+g <- ggarrange(KBS0714.R3.plot, KBS0715.R4.plot,                                              # First row with scatter plot
                # Second row with box and dot plots
-               ncol = 3, nrow = 1,
+               ncol = 2, nrow = 1,
                labels = "auto")
 
 
-ggsave(file="figs/death_curve_example.png", g, width=9.3,height=3.1, units='in', dpi=600)
-
+#ggsave(file="figs/death_curve_example.png", g, width=9.3,height=3.1, units='in', dpi=600)
+ggsave(file="figs/death_curve_example.png", g, width=6.2,height=3.1, units='in', dpi=600)
 
 
