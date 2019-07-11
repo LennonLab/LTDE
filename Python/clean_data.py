@@ -254,6 +254,7 @@ def clean_breseq():
             for i, line in enumerate(open(evidence_path + taxon_sample + '.gd', 'r')):
                 line_split = line.strip().split('\t')
                 if line_split[0] in output_to_keep:
+                    # a lot of mutations at the first base of each contig, ignore these
                     if line_split[4] == '1':
                         continue
                     taxon_sites.append( line_split[3] + '_' + str(line_split[4]))
@@ -261,6 +262,7 @@ def clean_breseq():
         count_dict = Counter(taxon_sites)
         counts = list(count_dict.values())
         count_dict_4 = dict((k, v) for k, v in count_dict.items() if v >= 3)
+        print(count_dict_4)
         sites = list(count_dict_4.keys())
         #print(sites)
         for taxon_sample in taxon_samples:
@@ -274,7 +276,7 @@ def clean_breseq():
 
 
         for i in list(range(1,5)):
-        print(taxon, i, counts.count(i)/len(counts))
+            print(taxon, i, counts.count(i)/len(counts))
 
 
 

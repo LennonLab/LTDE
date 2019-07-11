@@ -47,8 +47,8 @@ names(alpha.no812) <- df.no812$Species
 
 
 iter <- 1000
-BM.PL.beta.log10 <- pmc(ml.rooted.um, beta.log10, "BM", "lambda", nboot = iter)
-BM.PL.alpha <- pmc(ml.rooted.um, alpha, "BM", "lambda", nboot = iter)
+BM.PL.beta.log10 <- pmc(ml.rooted.um, beta.log10, "BM", "lambda", nboot = 2)
+BM.PL.alpha <- pmc(ml.rooted.um, alpha, "BM", "lambda", nboot = 2)
 
 BM.PL.beta.log10.no812 <- pmc(ml.rooted.no812.um, beta.log10.no812, "BM", "lambda", nboot = iter)
 BM.PL.alpha.no812 <- pmc(ml.rooted.no812.um, alpha.no812, "BM", "lambda", nboot = iter)
