@@ -155,4 +155,8 @@ cp "${data_path}/nanopore_basecalled_pcbc/run4/BC07.fastq" "${data_path}/nanopor
 #  fi
 #done
 
+
+
+
+
 # then assemble with spades
