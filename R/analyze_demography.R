@@ -61,15 +61,12 @@ chull.alpha <- df.species.order.alpha[chull.idx]
 Fxn <- approxfun(x=chull.beta, chull.alpha)
 null.pareto.test <- function(betas, alphas){
   num.above.line.sims <- c()
-  for (i in seq(1, 1000)){
+  for (i in seq(1, 10000)){
     beta.rndm <- sample(betas)
     alpha.rndm <- sample(alphas)
     num.above.line <- 0
     for (j in seq(1, length(beta.rndm))){
-      #print("new")
-      #print(beta.rndm[j])
-      #print(alpha.rndm[j])
-      #print(Fxn(beta.rndm[j]))
+
       # the lower the alpha, the higher the mean time to death
       # so to test for the Pareto front, we want to see if the 
       # simlated alpha is less than the alpha we get from Fxn
@@ -79,11 +76,10 @@ null.pareto.test <- function(betas, alphas){
     }
     num.above.line.sims <- c(num.above.line.sims, num.above.line)
   }
-  print(num.above.line.sims)
   return(length(num.above.line.sims[num.above.line.sims==0]) / length(num.above.line.sims))
 }
 
-null.pareto.test(df.species.order.beta, df.species.order.alpha)
+p.value <- null.pareto.test(df.species.order.beta, df.species.order.alpha)
 
 
 

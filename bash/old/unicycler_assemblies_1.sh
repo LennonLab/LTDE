@@ -19,8 +19,8 @@ unicycler \
 
 
 unicycler \
-    -1 "${ltde}/illumina_data/ATCC43928_D400_100/Ev43828_TAAGGCGAATCT-ACTGCATA_L002_R1_001_clean.fastq.gz" \
-    -2 "${ltde}/illumina_data/ATCC43928_D400_100/Ev43828_TAAGGCGAATCT-ACTGCATA_L002_R2_001_clean.fastq.gz" \
+    -1 "${ltde}/illumina_data/ATCC43928_D400_100/Ev43828_TAAGGCGAATCT-ACTGCATA_L002_R1_001_clean.fastq" \
+    -2 "${ltde}/illumina_data/ATCC43928_D400_100/Ev43828_TAAGGCGAATCT-ACTGCATA_L002_R1_001_clean.fastq" \
     -l "${ltde}/data/nanopore_basecalled_bc_merged/ATCC43928_clean.fastq" \
     -o "${ltde}/data/unicycler_assemblies/ATCC43928"
 

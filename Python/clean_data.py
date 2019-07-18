@@ -4,9 +4,9 @@ import glob, re, os, subprocess, math, json
 import pandas as pd
 import numpy as np
 from collections import Counter
+from Bio import SeqIO
 
-
-def make_16S_fata():
+def make_16S_fasta():
     alignments = ['KBS0710_NR_024911', 'KBS0721_NR_114994']
 
     def generate_16S_consenus(alignment):
@@ -66,6 +66,27 @@ def make_16S_fata():
     #os.system(sed -i -e 's/NC_005042.1:353331-354795/NC_005042.1.353331-354795/g' ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
     # ltde_neighbors_seqs.fasta uploaded to ARB and aligned
     # alignment file = arb-silva.de_2019-04-07_id632669.fasta
+
+
+
+def get_16S_copy_number():
+    genome_path = lt.get_path() + '/data/genomes/genomes_ncbi/'
+    df_out = open(lt.get_path() + '/data/count_16S.txt', 'w')
+    header = ['Species', 'Number_16S']
+    df_out.write('\t'.join(header) + '\n')
+    for subdir, dirs, files in os.walk(genome_path):
+        for file in files:
+            if file.endswith('.gbff'):
+                strain = subdir.split('/')[-1]
+                count_16S = 0
+                with open(os.path.join(subdir, file), "rU") as input_handle:
+                    for record in SeqIO.parse(input_handle, "genbank"):
+                            for feature in record.features:
+                                if feature.type == 'rRNA':
+                                    if feature.qualifiers['product'][0] == '16S ribosomal RNA':
+                                        count_16S+=1
+                df_out.write('\t'.join([strain, str(count_16S)]) + '\n')
+    df_out.close()
 
 
 
@@ -262,7 +283,6 @@ def clean_breseq():
         count_dict = Counter(taxon_sites)
         counts = list(count_dict.values())
         count_dict_4 = dict((k, v) for k, v in count_dict.items() if v >= 3)
-        print(count_dict_4)
         sites = list(count_dict_4.keys())
         #print(sites)
         for taxon_sample in taxon_samples:
@@ -287,4 +307,4 @@ def clean_breseq():
 #    merge_maple(strain)
 #merge_maple_all_strains()
 
-clean_breseq()
+get_16S_copy_number()
