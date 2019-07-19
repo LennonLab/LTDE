@@ -234,7 +234,7 @@ def get_assembly_coverage():
     df_out.close()
 
 
-def get_breseq_samples_to_ignore():
+def get_breseq_samples_to_keep():
     json_path = lt.get_path() + '/data/breseq/summary/'
     to_keep = []
     for filename in os.listdir(json_path):
@@ -259,7 +259,7 @@ def get_breseq_samples_to_ignore():
 
 def clean_breseq():
     output_to_keep = ['INS', 'DEL', 'SNP']
-    to_keep_samples = get_breseq_samples_to_ignore()
+    to_keep_samples = get_breseq_samples_to_keep()
     evidence_path = lt.get_path() + '/data/breseq/output/'
     # get list of taxa to analyze
     to_keep_taxa = list(set([ x.split('-')[0] for x in to_keep_samples ]))
@@ -267,7 +267,8 @@ def clean_breseq():
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
         if len(taxon_samples) < 3:
             to_keep_taxa.remove(taxon)
-    to_keep_taxa = ['KBS0715']
+    print(to_keep_taxa)
+    #to_keep_taxa = ['KBS0715']
     for taxon in to_keep_taxa:
         taxon_sites = []
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
@@ -291,12 +292,15 @@ def clean_breseq():
                 if line_split[0] in output_to_keep:
                     if line_split[4] == '1':
                         continue
-                    if line_split[3] + '_' + str(line_split[4]) in sites:
-                        print(line_split)
+                    #if line_split[3] + '_' + str(line_split[4]) in sites:
+                    #    print(line_split)
 
 
-        for i in list(range(1,5)):
-            print(taxon, i, counts.count(i)/len(counts))
+        #for i in list(range(1,5)):
+        #    print(taxon, i, counts.count(i)/len(counts))
+        #print(counts.count(1))
+        N_muts = counts.count(1)
+        print(taxon, N_muts)
 
 
 
@@ -306,5 +310,6 @@ def clean_breseq():
 #for strain in lt.strain_list():
 #    merge_maple(strain)
 #merge_maple_all_strains()
+#get_16S_copy_number()
 
-get_16S_copy_number()
+clean_breseq()
