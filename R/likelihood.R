@@ -2,42 +2,53 @@ rm(list = ls())
 getwd()
 setwd("~/GitHub/LTDE/")
 
-library(ggplot2)
+library('ggplot2')
 library('latex2exp')
-
+library('reshape2')
+#library('cowplot')
+library('ggpubr')
 df.weib <- read.table("data/demography/weibull_results_clean.csv", 
                       header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
-colnames(df.weib)[6] <- "AIC_weib"
-df.weib <- df.weib[c("strain", "rep", "AIC_weib")]
 
-df.gomp <- read.table("data/demography/gompertz_results_clean.csv", 
-                 header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
-colnames(df.gomp)[6] <- "AIC_gomp"
-df.gomp <- df.gomp[c("strain", "rep", "AIC_gomp")]
+lr.plot <- ggplot(data = df.weib) +
+  geom_hline(yintercept=1, linetype = "longdash", size=2) +
+  geom_point(aes(x = reorder(strain, LR), y = LR), color='blue', alpha = 0.6, size=8) +
+  ylab(TeX("Likelihood-ratio") ) + 
+  ylim(-10, 250) +
+  coord_flip() +
+  theme_bw() + 
+  annotate("text", x=22, y=250, label= "a", size = 12) +
+  theme(axis.title.y=element_blank(), 
+        axis.ticks.y=element_blank(),
+        #axis.text.y=element_text(size = 9), 
+        axis.text.y=element_blank(),
+        axis.text.x=element_text(size = 18),
+        #axis.title.x = element_blank(),
+        axis.title.x = element_text(color="black", size=20),#, size=11, vjust=0, hjust=0.5), 
+        #axis.title.y = theme_text(vjust=-0.5),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()) 
 
-df.merge <- merge(df.weib, df.gomp, by=c("strain","rep")) # NA's match
-df.merge <- transform(df.merge, min = pmin(AIC_weib, AIC_gomp))
-df.merge$aic_log_likelihood <- (df.merge$min - df.merge$AIC_gomp ) /2
-
-df.merge <- df.merge[!(df.merge$strain == "KBS0711" & df.merge$rep == 1 ),] 
-df.merge <- df.merge[!(df.merge$strain == "KBS0711" & df.merge$rep == 2 ),] 
-df.merge <- df.merge[!(df.merge$strain == "KBS0711" & df.merge$rep == 3 ),] 
-
-
-
-aic.plot <- ggplot(data = df.merge) +
-  geom_point(aes(x = reorder(strain, aic_log_likelihood), y = aic_log_likelihood), color='blue', alpha = 0.6, size=2.2) +
-  ylab(TeX("Relative log likelihood \n of Gompertz distribution") ) + 
-  ylim(-275, 10) +
-  geom_hline(yintercept= 0, linetype = "longdash") +
+p.value.plot <- ggplot(data = df.weib) +
+  geom_hline(yintercept= 0.05, linetype = "longdash", size=2) +
+  geom_point(aes(x = reorder(strain, LR), y = p.value.BH), color='blue', alpha = 0.6, size=8) +
+  ylab(TeX("Benjamini-Hochberg corrected p-value") ) + 
+  #ylim(-10, 250) +
+  
   coord_flip() +
   theme_bw() + 
   theme(axis.title.y=element_blank(), 
-        axis.text.y=element_text(size = 9), 
-        axis.title.x = element_text(color="black", size=11, vjust=-2.5), 
+        axis.text.y=element_text(size = 18), 
+        axis.title.x = element_text(color="black", size=20, vjust=0, hjust=0.5), 
+        axis.text.x = element_text(size=16),
         #axis.title.y = theme_text(vjust=-0.5),
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank()) +
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  annotate("text", x=22, y=1e-5, label= "b", size = 12) +
   scale_x_discrete( position = "top",
                     labels=c("KBS0707" = expression(paste(italic("Pseudomonas"), " sp. KBS0707")), 
                              "KBS0702" = expression(paste(italic("Arthrobacter"), " sp. KBS0702")),
@@ -62,6 +73,15 @@ aic.plot <- ggplot(data = df.merge) +
                              "KBS0802" = expression(paste(italic("Pseudomonas"), " sp. KBS0802")),
                              "KBS0812" = expression(paste(italic("Bacillus"), " sp. KBS0812")))) 
 
-ggsave(file="figs/aic.png", aic.plot, units='in', dpi=600)
+
+g.2 <- plot_grid(lr.plot, p.value.plot, labels = c('a', 'b'), 
+                 label_size = 12, label_x = c(40,100), 
+                 label_y = c(1000,2),align = "h", 
+                 nrow = 1, rel_widths = c(0.4, 0.6))
+
+
+ggsave(file="figs/exp_vs_weib.png", g.2, width=15,height=10,units='in', dpi=600)
+
+
 
 

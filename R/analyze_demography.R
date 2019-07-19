@@ -166,8 +166,8 @@ boxplot <- ggplot(data = df.species) +
 g <- ggarrange(boxplot,                                                 # First row with scatter plot
           ggarrange(kde.plot, phylo.params, ncol = 2, labels = c("b", "c")), # Second row with box and dot plots
           nrow = 2, 
-          labels = "a", label.x = 0.02,  label.y = 0.93) 
+          labels = "auto")
 
 
-ggsave(file="figs/Fig1.png", g, units='in', dpi=600)
+ggsave(file="figs/demography.png", g, units='in', dpi=600)
 

@@ -16,9 +16,9 @@ obs <- read.csv("data/demography/longtermdormancy_20190528_nocomments.csv",
 obs$Abund <- (as.numeric(obs$Colonies) +1)* (1000 / as.numeric(obs$Inoculum )) * ( 10 ^  as.numeric(obs$Dilution) )
 strains <- sort(unique(obs$Strain))
 #strains <- strains[table(obs$Strain)>10]
-#strains <- c('KBS0812')
+#strains <- c('KBS0713')
 obs <- obs[obs$Strain%in%strains,]
-summ <- matrix(NA,length(strains)*max(obs$Rep),15)
+summ <- matrix(NA,length(strains)*max(obs$Rep),17)
 pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 for(i in 1:length(strains)){
@@ -70,19 +70,49 @@ for(i in 1:length(strains)){
                     start = new.start, data = repObs,
                     control=list(parscale=pscale, maxit=1000), 
                     method="Nelder-Mead", hessian = T)
-        res.mat[k,]<-c(coef(fit),AIC(fit))		
+        res.mat[k,]<-c(coef(fit),AIC(fit))	
         res.mod[[k]]<-fit
       }
+      
+      # same thing for null model
+      grids.exp<-list(beta=c(1,10,50,100,200),z=c(0.1,1,10))
+      start.exp<-list(beta=NA,z=NA)
+      grid.starts.exp<-as.matrix(expand.grid(grids.exp))
+      ncombos.exp<-dim(grid.starts.exp)[[1]]
+      # cycle through each combo
+      res.mat.exp<-matrix(NA,nrow=ncombos.exp,ncol=I(length(start.exp)+1))
+      res.mod.exp<-list()
+      for(k in 1:dim(grid.starts.exp)[[1]]){
+        #some how need to match grid parameters to start lists.
+        mod.start.exp<-as.list(grid.starts.exp[k,])	
+        new.start.exp<-start.exp
+        new.start.exp[names(start.exp) %in% names(mod.start.exp)]<-mod.start.exp
+        pscale.exp<-as.numeric(new.start.exp)
+        names(pscale.exp)<-names(new.start.exp)
+        fit.exp <- mle2(minuslogl=prop ~ dnorm(mean =  -1 * ((time / beta)), sd = z), 
+                    start = new.start.exp, data = repObs,
+                    control=list(parscale=pscale.exp, maxit=1000), 
+                    method="Nelder-Mead", hessian = T)
+        res.mat.exp[k,]<-c(coef(fit.exp),AIC(fit.exp))	
+        res.mod.exp[[k]]<-fit.exp
+      }
+      
       colnames(res.mat)<-c(names(coef(fit)),"AIC")
       best.fit<-res.mod[[which(res.mat[,'AIC']==min(res.mat[,'AIC']))[1]]]
-
+      
+      colnames(res.mat.exp)<-c(names(coef(fit.exp)),"AIC")
+      best.fit.exp<-res.mod.exp[[which(res.mat.exp[,'AIC']==min(res.mat.exp[,'AIC']))[1]]]
+      LLR <- -2* (as.numeric(logLik(best.fit.exp) - logLik(best.fit)))
+      p.value <- pchisq(LLR,df=1,lower.tail=FALSE)
+      
+      beta <- coef(best.fit)[1]
+      alpha <- coef(best.fit)[2]
+  
       summ[counter,1]=strains[i]
       summ[counter,2]=reps[j]
       # beta
-      beta <- coef(best.fit)[1]
       summ[counter,3]=beta
       # alpha
-      alpha <- coef(best.fit)[2]
       summ[counter,4]=alpha
       # z
       summ[counter,5]=coef(best.fit)[3]
@@ -112,6 +142,8 @@ for(i in 1:length(strains)){
       
       summ[counter,14] <- N_0
       summ[counter,15] <- N_final
+      summ[counter,16] <- LLR
+      summ[counter,17] <- p.value
       
       ### *** Comment/Uncomment following code to make pdf figs*** ###
       title=paste(strains[i],"  rep ",reps[j])
@@ -127,7 +159,7 @@ for(i in 1:length(strains)){
 
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
-colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0", "N_final")
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0", "N_final", "LR", "p.value")
 write.csv(summ,"data/demography/weibull_results.csv")
 
 # clean the results file
@@ -141,6 +173,8 @@ df <- df[!(df$strain == "KBS0711" & df$rep == 10 ),]
 df <- df[!(df$strain == "KBS0711" & df$rep == 11 ),] 
 df <- df[!(df$strain == "KBS0711" & df$rep == 12 ),] 
 
+# multiple testing correction 
+df$p.value.BH <- p.adjust(df$p.value, method = "BH", n = length(df$p.value))
 write.csv(df, file = "data/demography/weibull_results_clean.csv")
 
 
