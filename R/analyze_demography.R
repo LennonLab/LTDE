@@ -24,6 +24,12 @@ df.species<-df.species[!(df.species$Species=="KBS0727"),]
 
 ###### ggplot KDE
 bw <- bw.CV(df.species$mttf.log10, method="LCV", lower=0, upper=100)
+# mean of means
+10**mean(df.species$mttf.log10)
+# anova analysis
+aov <- aov(log10(mttf) ~ strain, data = df)
+summary(aov)
+# 21, 93
 
 kde.plot <- ggplot(df.species, aes(10** mttf.log10)) +
             xlab(TeX("Mean time to death, $\\bar{T}_{d}$ (days)") ) + 

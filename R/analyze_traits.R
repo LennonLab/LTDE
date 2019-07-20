@@ -180,8 +180,11 @@ g <- ggarrange(phy.beta.umax.plot, phy.beta.yield.plot, phy.beta.lag.plot,
 ggsave(file="figs/traits.png", g, width=15,height=10, units='in', dpi=600)
 
 
-
-
+phylo.alpha.lag <- phylolm(alpha ~ log10(Lag), data= traits.merge, phy=ml.rooted.um, model = 'lambda')
+summary(phylo.alpha.lag)
+lag.shape.summary <- summary(lm(alpha~log10(Lag), traits.merge))
+r2 <-lag.shape.summary$r.squared
+p.value <- lag.shape.summary$coefficients[8]
 phy.alpha.lag.plot.main <- ggplot(data = traits.merge, aes(x = Lag, y = alpha)) +
   geom_point(color='blue', alpha = 0.6, size=10) +
   ylab(TeX("Mean shape paramater, $\\bar{k}$")) +
@@ -195,6 +198,8 @@ phy.alpha.lag.plot.main <- ggplot(data = traits.merge, aes(x = Lag, y = alpha)) 
   ) +
   stat_smooth(method = "lm", color='black', size=2.5, linetype = "dashed") +
   #scale_y_continuous(limits = c(0, 1)) +
+  annotate("text", x=0.62, y=0.9, label=TeX(sprintf("$r^{2} = %g$", round(r2,2))), size = 9) +
+  annotate("text", x=0.7, y=0.82, label=TeX(sprintf("$p = %g$", round(p.value,4))), size = 9) +
   theme_bw() +
   theme(axis.title.x = element_text(color="black", size=28), 
         axis.title.y = element_text(color="black", size=28), 
