@@ -241,5 +241,5 @@ phy.alpha.lag.plot.main <- ggplot(data = traits.merge, aes(x = Lag, y = alpha)) 
 g <- ggarrange(phy.beta.lag.plot.main, phy.alpha.lag.plot.main,                                               # First row with scatter plot
                nrow = 1, ncol=2, 
                labels = "auto")
-ggsave(file="figs/shape__scale_lag.png", g, width=10,height=5, units='in', dpi=600)
+ggsave(file="figs/shape_scale_lag.png", g, width=10,height=5, units='in', dpi=600)
 
