@@ -4,9 +4,9 @@ import glob, re, os, subprocess, math, json
 import pandas as pd
 import numpy as np
 from collections import Counter
+from Bio import SeqIO
 
-
-def make_16S_fata():
+def make_16S_fasta():
     alignments = ['KBS0710_NR_024911', 'KBS0721_NR_114994']
 
     def generate_16S_consenus(alignment):
@@ -66,6 +66,27 @@ def make_16S_fata():
     #os.system(sed -i -e 's/NC_005042.1:353331-354795/NC_005042.1.353331-354795/g' ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
     # ltde_neighbors_seqs.fasta uploaded to ARB and aligned
     # alignment file = arb-silva.de_2019-04-07_id632669.fasta
+
+
+
+def get_16S_copy_number():
+    genome_path = lt.get_path() + '/data/genomes/genomes_ncbi/'
+    df_out = open(lt.get_path() + '/data/count_16S.txt', 'w')
+    header = ['Species', 'Number_16S']
+    df_out.write('\t'.join(header) + '\n')
+    for subdir, dirs, files in os.walk(genome_path):
+        for file in files:
+            if file.endswith('.gbff'):
+                strain = subdir.split('/')[-1]
+                count_16S = 0
+                with open(os.path.join(subdir, file), "rU") as input_handle:
+                    for record in SeqIO.parse(input_handle, "genbank"):
+                            for feature in record.features:
+                                if feature.type == 'rRNA':
+                                    if feature.qualifiers['product'][0] == '16S ribosomal RNA':
+                                        count_16S+=1
+                df_out.write('\t'.join([strain, str(count_16S)]) + '\n')
+    df_out.close()
 
 
 
@@ -196,7 +217,7 @@ def merge_maple_all_strains():
 
 def get_assembly_coverage():
     df_out = open(lt.get_path() + '/data/genomes/assembly_coverage.txt', 'w')
-    df_out.write('\t'.join(['strain', 'mean_coverage']) + '\n')
+    df_out.write('\t'.join(['Species', 'mean_coverage']) + '\n')
     assembly_path = lt.get_path() + '/data/genomes/nanopore_hybrid/'
     for file in os.listdir(assembly_path):
         filename = os.fsdecode(file)
@@ -213,7 +234,7 @@ def get_assembly_coverage():
     df_out.close()
 
 
-def get_breseq_samples_to_ignore():
+def get_breseq_samples_to_keep():
     json_path = lt.get_path() + '/data/breseq/summary/'
     to_keep = []
     for filename in os.listdir(json_path):
@@ -234,55 +255,220 @@ def get_breseq_samples_to_ignore():
 
 
 
+def calculate_synonymous_nonsynonymous_target_sizes(taxon):
+    #lines 308-334 from GitHub repo benjaminhgood/LTEE-metagenomic
+    # and is under a GPL v2 license
+    codon_table = { 'GCT': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A', 'CGT': 'R',
+                    'CGC': 'R', 'CGA':'R', 'CGG':'R', 'AGA':'R', 'AGG':'R',
+                    'AAT':'N', 'AAC':'N', 'GAT':'D', 'GAC':'D', 'TGT':'C',
+                    'TGC':'D', 'CAA':'Q', 'CAG':'Q', 'GAA':'E', 'GAG':'E',
+                    'GGT':'G', 'GGC':'G', 'GGA':'G', 'GGG':'G', 'CAT':'H',
+                    'CAC':'H', 'ATT':'I', 'ATC':'I', 'ATA':'I', 'TTA':'L',
+                    'TTG':'L', 'CTT':'L', 'CTC':'L', 'CTA':'L', 'CTG':'L',
+                    'AAA':'K', 'AAG':'K', 'ATG':'M', 'TTT':'F', 'TTC':'F',
+                    'CCT':'P', 'CCC':'P', 'CCA':'P', 'CCG':'P', 'TCT':'S',
+                    'TCC':'S', 'TCA':'S', 'TCG':'S', 'AGT':'S', 'AGC':'S',
+                    'ACT':'T', 'ACC':'T', 'ACA':'T', 'ACG':'T', 'TGG':'W',
+                    'TAT':'Y', 'TAC':'Y', 'GTT':'V', 'GTC':'V', 'GTA':'V',
+                    'GTG':'V', 'TAA':'!', 'TGA':'!', 'TAG':'!' }
+
+    # calculate number of synonymous opportunities for each codon
+    codon_synonymous_opportunity_table = {}
+    for codon in codon_table.keys():
+        codon_synonymous_opportunity_table[codon] = {}
+        for i in range(0,3):
+            codon_synonymous_opportunity_table[codon][i] = -1 # since G->G is by definition synonymous, but we don't want to count it
+            codon_list = list(codon)
+            for base in ['A','C','T','G']:
+                codon_list[i]=base
+                new_codon = "".join(codon_list)
+                if codon_table[codon]==codon_table[new_codon]:
+                    # synonymous!
+                    codon_synonymous_opportunity_table[codon][i]+=1
+
+    codon_synonymous_substitution_table = {}
+    codon_nonsynonymous_substitution_table = {}
+    for codon in codon_table.keys():
+        codon_synonymous_substitution_table[codon] = [[],[],[]]
+        codon_nonsynonymous_substitution_table[codon] = [[],[],[]]
+
+        for i in range(0,3):
+            reference_base = codon[i]
+
+            codon_list = list(codon)
+            for derived_base in ['A','C','T','G']:
+                if derived_base==reference_base:
+                    continue
+                substitution = '%s->%s' % (reference_base, derived_base)
+                codon_list[i]=derived_base
+                new_codon = "".join(codon_list)
+                if codon_table[codon]==codon_table[new_codon]:
+                    # synonymous!
+                    codon_synonymous_substitution_table[codon][i].append(substitution)
+                else:
+                    codon_nonsynonymous_substitution_table[codon][i].append(substitution)
+    bases = set(['A','C','T','G'])
+    substitutions = []
+    for b1 in bases:
+        for b2 in bases:
+            if b2==b1:
+                continue
+            substitutions.append( '%s->%s' % (b1,b2) )
+    substitution_specific_synonymous_sites = {substitution: 0 for substitution in substitutions}
+    substitution_specific_nonsynonymous_sites = {substitution: 0 for substitution in substitutions}
+    effective_gene_synonymous_sites = {}
+    effective_gene_nonsynonymous_sites = {}
+    gene_length_map = {}
+    genome_path = lt.get_path() + '/data/genomes/genomes_ncbi/' + taxon
+    for subdir, dirs, files in os.walk(genome_path):
+        for file in files:
+            if file.endswith('.gbff'):
+                with open(os.path.join(subdir, file), "rU") as input_handle:
+                    for record in SeqIO.parse(input_handle, "genbank"):
+                        for feature in record.features:
+                            if feature.type != 'CDS':
+                                continue
+                            #print(feature)
+                            if 'incomplete' in feature.qualifiers['note'][0]:
+                                continue
+                            if 'frameshifted' in feature.qualifiers['note'][0]:
+                                continue
+                            if 'internal stop' in feature.qualifiers['note'][0]:
+                                continue
+                            gene_name = feature.qualifiers['locus_tag'][0]
+
+                            if gene_name not in effective_gene_synonymous_sites:
+                                effective_gene_synonymous_sites[gene_name]=0
+                                effective_gene_nonsynonymous_sites[gene_name]=0
+                            aa_str = str(feature.qualifiers['translation'][0])
+                            nuc_str = str(feature.location.extract(record).seq[:-3])
+                            gene_length_map[gene_name] = len(nuc_str)
+                            for position in range(len(nuc_str)):
+                                codon_start = int(position/3)*3
+                                codon = nuc_str[codon_start:codon_start+3]
+                                if len(codon) <3:
+                                    continue
+                                position_in_codon = position%3
+
+                                effective_gene_synonymous_sites[gene_name] += codon_synonymous_opportunity_table[codon][position_in_codon]/3.0
+                                effective_gene_nonsynonymous_sites[gene_name] += 1-codon_synonymous_opportunity_table[codon][position_in_codon]/3.0
+
+                                for substitution in codon_synonymous_substitution_table[codon][position_in_codon]:
+                                    substitution_specific_synonymous_sites[substitution] += 1
+
+                                for substitution in codon_nonsynonymous_substitution_table[codon][position_in_codon]:
+                                    substitution_specific_nonsynonymous_sites[substitution] += 1
+
+    substitution_specific_synonymous_fraction = {substitution: substitution_specific_synonymous_sites[substitution]*1.0/(substitution_specific_synonymous_sites[substitution]+substitution_specific_nonsynonymous_sites[substitution]) for substitution in substitution_specific_synonymous_sites.keys()}
+    effective_gene_lengths = {gene_name: gene_length_map[gene_name]-effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()}
+    effective_gene_lengths['synonymous'] = sum([effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
+    effective_gene_lengths['nonsynonymous'] = sum([effective_gene_nonsynonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
+    effective_gene_lengths['noncoding'] = lt.get_genome_size_dict()[taxon] - effective_gene_lengths['synonymous']-effective_gene_lengths['nonsynonymous']
+
+    return effective_gene_lengths['synonymous'], effective_gene_lengths['nonsynonymous'], substitution_specific_synonymous_fraction
 
 
-def clean_breseq():
+
+def get_diversity_stats():
+    df_out = open(lt.get_path() + '/data/breseq/genetic_diversity.txt', 'w')
+    df_out.write('\t'.join(['Species', 'Sample', 'Pi', 'Theta', 'Tajimas_D', 'dN_dS_total', 'dN_dS_fixed']) + '\n')
+    # pass nest list with frequency, coverage of major, coverage of minor, taxon
     output_to_keep = ['INS', 'DEL', 'SNP']
-    to_keep_samples = get_breseq_samples_to_ignore()
-    evidence_path = lt.get_path() + '/data/breseq/output/'
+    to_keep_samples = get_breseq_samples_to_keep()
+    output_path = lt.get_path() + '/data/breseq/output/'
     # get list of taxa to analyze
     to_keep_taxa = list(set([ x.split('-')[0] for x in to_keep_samples ]))
     for taxon in to_keep_taxa:
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
         if len(taxon_samples) < 3:
             to_keep_taxa.remove(taxon)
-    to_keep_taxa = ['KBS0715']
+
     for taxon in to_keep_taxa:
+        Lsyn, Lnon, substitution_specific_synonymous_fraction = calculate_synonymous_nonsynonymous_target_sizes(taxon)
         taxon_sites = []
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
         for taxon_sample in taxon_samples:
-            for i, line in enumerate(open(evidence_path + taxon_sample + '.gd', 'r')):
+            for i, line in enumerate(open(output_path + taxon_sample + '.gd', 'r')):
                 line_split = line.strip().split('\t')
                 if line_split[0] in output_to_keep:
+                    # a lot of mutations at the first base of each contig, ignore these
                     if line_split[4] == '1':
                         continue
                     taxon_sites.append( line_split[3] + '_' + str(line_split[4]))
 
-        count_dict = Counter(taxon_sites)
-        counts = list(count_dict.values())
-        count_dict_4 = dict((k, v) for k, v in count_dict.items() if v >= 3)
-        sites = list(count_dict_4.keys())
-        #print(sites)
+        counts_across_reps_dict = Counter(taxon_sites)
+        counts_across_reps = list(counts_across_reps_dict.values())
+        count_dict_to_remove = dict((k, v) for k, v in counts_across_reps_dict.items() if v > 2)
+        sites_to_remove = list(count_dict_to_remove.keys())
+        genome_size = lt.get_genome_size_dict()[taxon]
+        taxon_sites = []
+        taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
         for taxon_sample in taxon_samples:
-            for i, line in enumerate(open(evidence_path + taxon_sample + '.gd', 'r')):
+            n_c = lt.get_final_pop_size(taxon_sample)
+            # get SNP identifiers
+            SNP_IDs = []
+            fixed_SNP_IDs = []
+            for i, line in enumerate(open(lt.get_path() + '/data/breseq/output/' + taxon_sample + '.gd', 'r')):
                 line_split = line.strip().split('\t')
-                if line_split[0] in output_to_keep:
-                    if line_split[4] == '1':
+                if line_split[0] == 'SNP':
+                    #print(line_split[3] + '_' + line_split[4] in sites_to_remove)
+                    if line_split[3] + '_' + line_split[4] in sites_to_remove:
                         continue
-                    if line_split[3] + '_' + str(line_split[4]) in sites:
-                        print(line_split)
+                    # fixed mutations don't count towards polymorphisms
+                    if float(line_split[6].split('=')[1]) == float(1):
+                        fixed_SNP_IDs.append(line_split[2])
+                    else:
+                        SNP_IDs.append(line_split[2])
+
+            # go back through the file again and get the coverage info from RA lines
+            freq_list = []
+            for i, line in enumerate(open(lt.get_path() + '/data/breseq/output/' + taxon_sample + '.gd', 'r')):
+                line_split = line.strip().split('\t')
+                if (line_split[0] == 'RA') and (line_split[1] in SNP_IDs):
+                    major_cov = int(line_split[15].split('=')[1].split('/')[0]) + int(line_split[15].split('=')[1].split('/')[1])
+                    minor_cov = int(line_split[18].split('=')[1].split('/')[0]) + int(line_split[18].split('=')[1].split('/')[1])
+                    total_cov = int(line_split[-1].split('=')[1].split('/')[0]) + int(line_split[-1].split('=')[1].split('/')[1])
+                    freq = float(line_split[16].split('=')[1])
+                    freq_list.append([freq, total_cov, major_cov, minor_cov])
+            pi = lt.get_pi(freq_list, n_c, genome_size)
+            theta = lt.get_theta(freq_list, n_c, genome_size)
+            TD = lt.get_TD(freq_list=freq_list, pi=pi, theta=theta, n_c=n_c)
+            non_total = 0
+            syn_total = 0
+            non_fixed = 0
+            syn_fixed = 0
+            for i, line in enumerate(open(lt.get_path() + '/data/breseq/annotated/' + taxon_sample + '.gd', 'r')):
+                line_split = line.strip().split('\t')
+                # don't count mutations that may be ancestral
+                # don't count mutations in non-coding regions or psuedoregions
+                if (line_split[0] != 'SNP') or ('frequency' in line_split[6]) or (line_split[3] + '_' + line_split[4] in sites_to_remove):
+                    continue
+                freq = float([s for s in line_split if 'frequency=' in s][0].split('=')[1])
+                if freq == float(1):
+                    if line_split[6].split('=')[1] == line_split[8].split('=')[1]:
+                        syn_fixed += 1
+                    else:
+                        non_fixed += 1
+                if line_split[6].split('=')[1] == line_split[8].split('=')[1]:
+                    syn_total += 1
+                else:
+                    non_total += 1
+
+            # add psuedocount of 1
+            dnds_total = ((non_total+1)/(syn_total+1))/((Lnon+1)/(Lsyn+1))
+            dnds_fixed = ((non_fixed+1)/(syn_fixed+1))/((Lnon+1)/(Lsyn+1))
+            print(taxon_sample, dnds_total, dnds_fixed)
+            df_out.write('\t'.join([ taxon, taxon_sample, str(pi), str(theta), str(TD), str(dnds_total), str(dnds_fixed)]) + '\n')
+
+    df_out.close()
 
 
-        for i in list(range(1,5)):
-        print(taxon, i, counts.count(i)/len(counts))
+
+#def run_parallelism_analysis():
+
+
+#calculate_synonymous_nonsynonymous_target_sizes('KBS0702')
 
 
 
-
-#clean_iRep()
-#get_assembly_coverage()
-#for strain in lt.strain_list():
-#    merge_maple(strain)
-#merge_maple_all_strains()
-
-clean_breseq()
+get_diversity_stats()
