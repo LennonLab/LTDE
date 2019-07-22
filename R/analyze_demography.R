@@ -24,6 +24,12 @@ df.species<-df.species[!(df.species$Species=="KBS0727"),]
 
 ###### ggplot KDE
 bw <- bw.CV(df.species$mttf.log10, method="LCV", lower=0, upper=100)
+# mean of means
+10**mean(df.species$mttf.log10)
+# anova analysis
+aov <- aov(log10(mttf) ~ strain, data = df)
+summary(aov)
+# 21, 93
 
 kde.plot <- ggplot(df.species, aes(10** mttf.log10)) +
             xlab(TeX("Mean time to death, $\\bar{T}_{d}$ (days)") ) + 
@@ -44,13 +50,44 @@ kde.plot <- kde.plot + theme(axis.title.x = element_text(color="black", size=10)
                             panel.grid.minor = element_blank())
 
 
+# reorder rows so that beta is in increasing order
+df.species.order <- df.species[rev(order(df.species$beta.log10)),]
+df.species.order.beta <- df.species.order$beta.log10
+names(df.species.order.beta) <- df.species.order$Species
+df.species.order.alpha <- df.species.order$alpha
+names(df.species.order.alpha) <- df.species.order$Species
 
-f <- function(x,a,b) {a * exp(b * x)}
-fit <- nls(alpha ~ f(beta.log10, a, b), data=df.species,start = c(a=1, b=1)) 
-co <- coef(fit)
-x.line <- df.species$beta.log10 
-x.line <- seq(-6, 2.5, length.out = 1000) 
-y.line <- coef(fit)[1]* exp(coef(fit)[2] * x.line)
+chull.idx <- chull(df.species.order.beta, df.species.order.alpha)
+# remove second to last object in list
+chull.idx <- chull.idx[-c(6)]
+chull.beta <- df.species.order.beta[chull.idx]
+chull.alpha <- df.species.order.alpha[chull.idx]
+
+# complete null test
+Fxn <- approxfun(x=chull.beta, chull.alpha)
+null.pareto.test <- function(betas, alphas){
+  num.above.line.sims <- c()
+  for (i in seq(1, 10000)){
+    beta.rndm <- sample(betas)
+    alpha.rndm <- sample(alphas)
+    num.above.line <- 0
+    for (j in seq(1, length(beta.rndm))){
+
+      # the lower the alpha, the higher the mean time to death
+      # so to test for the Pareto front, we want to see if the 
+      # simlated alpha is less than the alpha we get from Fxn
+      if (alpha.rndm[j] < Fxn(beta.rndm[j]) ){
+        num.above.line <- num.above.line + 1
+      }
+    }
+    num.above.line.sims <- c(num.above.line.sims, num.above.line)
+  }
+  return(length(num.above.line.sims[num.above.line.sims==0]) / length(num.above.line.sims))
+}
+
+p.value <- null.pareto.test(df.species.order.beta, df.species.order.alpha)
+
+
 
 phylo.params <- ggplot(data = df.species, aes(x = 10**(beta.log10 ), y = alpha)) +
                 geom_point(color='blue', alpha = 0.6, size=4) +
@@ -58,19 +95,32 @@ phylo.params <- ggplot(data = df.species, aes(x = 10**(beta.log10 ), y = alpha))
                 ylab(TeX("Mean shape paramater, $\\bar{k}$")) +
                 scale_y_continuous(limits = c(0, 1.05)) +
                 scale_x_log10(
-                  limits = c(0.000001, 10000),
+                  limits = c(0.000001, 200),
                   breaks = scales::trans_breaks("log10", function(x) 10^x),
                   labels = scales::trans_format("log10", scales::math_format(10^.x))
                 ) +
 
                 geom_hline(yintercept= 1, linetype = "longdash") +
                 theme_bw() +
-                geom_line(aes(y = y, x = x), size=0.75, data=data.frame(x=10**x.line, y=y.line))
+                geom_line(aes(y = y, x = x), size=0.75, data=data.frame(x=10**chull.beta, y=chull.alpha))
+                #geom_segment(aes(x=min(chull.beta), xend=max(chull.beta),y=min(chull.alpha),yend=min(chull.alpha)))
 
-phylo.params <- phylo.params + theme(axis.title.x = element_text(color="black", size=10), 
+
+phylo.params <- phylo.params + 
+                theme(axis.title.x = element_text(color="black", size=10), 
                             axis.title.y = element_text(color="black", size=10), 
                             panel.grid.major = element_blank(), 
-                            panel.grid.minor = element_blank()) + scale_y_reverse()
+                            panel.grid.minor = element_blank()) + 
+                scale_y_reverse() +
+                geom_line(aes(y = y, x = x), size=0.75, 
+                          data=data.frame(x=10**min(chull.beta):10**max(chull.beta), 
+                                          y=min(chull.alpha)), linetype = 'dotted') +
+                geom_line(aes(y = y, x = x), size=0.75, 
+                          data=data.frame(y=seq(from = min(chull.alpha), to = 1, length.out = 10), 
+                                          x=10**max(chull.beta)), linetype = 'dotted') +
+                geom_point(aes(x=10**max(chull.beta), y=min(chull.alpha)), colour="black")
+
+
 
 
 
@@ -122,8 +172,8 @@ boxplot <- ggplot(data = df.species) +
 g <- ggarrange(boxplot,                                                 # First row with scatter plot
           ggarrange(kde.plot, phylo.params, ncol = 2, labels = c("b", "c")), # Second row with box and dot plots
           nrow = 2, 
-          labels = "a", label.x = 0.02,  label.y = 0.93) 
+          labels = "auto")
 
 
-ggsave(file="figs/Fig1.png", g, units='in', dpi=600)
+ggsave(file="figs/demography.png", g, units='in', dpi=600)
 

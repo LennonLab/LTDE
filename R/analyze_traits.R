@@ -154,13 +154,14 @@ phy.alpha.lag.plot <- ggplot(data = traits.merge, aes(x = Lag, y = alpha)) +
   ylab(TeX("Mean shape paramater, $\\bar{k}$")) +
   xlab(TeX("Lag time (hours)")) +
   #stat_function(fun = function(x) fit.trait.alpha.select$coefficients[1] + fit.trait.alpha.select$coefficients[4] * x) + 
-  geom_line(aes(y = y, x = x), size=0.75, data=data.frame(x=10**phylo.alpha.lag.x.line, y=phylo.alpha.lag.y.line)) +
+  #geom_line(aes(y = y, x = x), size=0.75, data=data.frame(x=10**phylo.alpha.lag.x.line, y=phylo.alpha.lag.y.line)) +
 
   scale_x_log10(
     breaks = scales::trans_breaks("log10", function(x) 10^x),
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) +
-  scale_y_continuous(limits = c(0, 1)) +
+  stat_smooth(method = "lm") +
+  #scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
   theme(axis.title.x = element_text(color="black", size=14), 
         axis.title.y = element_text(color="black", size=14), 
@@ -175,6 +176,70 @@ g <- ggarrange(phy.beta.umax.plot, phy.beta.yield.plot, phy.beta.lag.plot,
                ncol = 3, nrow = 2,
                labels = "auto")#, label.y = c(1, 0.5, 0.25)    
 
+
 ggsave(file="figs/traits.png", g, width=15,height=10, units='in', dpi=600)
 
+
+
+
+
+# main figure
+phy.beta.lag.plot.main <- ggplot(data = traits.merge, aes(x =Lag, y = 10**beta.log10.se)) +
+  geom_point(color='blue', alpha = 0.6, size=6) +
+  ylab(TeX("Mean scale paramater, $\\bar{\\lambda}$") ) + 
+  xlab(TeX("Lag time (hours)")) +
+  #stat_function(fun = function(x) fit.trait.alpha.select$coefficients[1] + fit.trait.alpha.select$coefficients[4] * x) + 
+  #geom_line(aes(y = y, x = x), size=0.75, data=data.frame(x=10**phylo.alpha.lag.x.line, y=phylo.alpha.lag.y.line)) +
+  scale_x_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  #scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=23), 
+        axis.title.y = element_text(color="black", size=23), 
+        axis.text.x=element_text(size = 14),
+        axis.text.y=element_text(size = 14),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+
+
+phylo.alpha.lag <- phylolm(alpha ~ log10(Lag), data= traits.merge, phy=ml.rooted.um, model = 'lambda')
+summary(phylo.alpha.lag)
+lag.shape.summary <- summary(lm(alpha~log10(Lag), traits.merge))
+r2 <-lag.shape.summary$r.squared
+p.value <- lag.shape.summary$coefficients[8]
+phy.alpha.lag.plot.main <- ggplot(data = traits.merge, aes(x = Lag, y = alpha)) +
+  geom_point(color='blue', alpha = 0.6, size=6) +
+  ylab(TeX("Mean shape paramater, $\\bar{k}$")) +
+  xlab(TeX("Lag time (hours)")) +
+  #stat_function(fun = function(x) fit.trait.alpha.select$coefficients[1] + fit.trait.alpha.select$coefficients[4] * x) + 
+  #geom_line(aes(y = y, x = x), size=0.75, data=data.frame(x=10**phylo.alpha.lag.x.line, y=phylo.alpha.lag.y.line)) +
+  scale_x_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  stat_smooth(method = "lm", color='black', size=2, linetype = "dashed") +
+  #scale_y_continuous(limits = c(0, 1)) +
+  annotate("text", x=0.82, y=0.9, label=TeX(sprintf("$r^{2} = %g$", round(r2,2))), size = 6) +
+  annotate("text", x=0.99, y=0.82, label=TeX(sprintf("$p = %g$", round(p.value,4))), size = 6) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=23), 
+        axis.title.y = element_text(color="black", size=23), 
+        axis.text.x=element_text(size = 14),
+        axis.text.y=element_text(size = 14),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+g <- ggarrange(phy.beta.lag.plot.main, phy.alpha.lag.plot.main,                                               # First row with scatter plot
+               nrow = 1, ncol=2, 
+               labels = "auto")
+ggsave(file="figs/shape_scale_lag.png", g, width=10,height=5, units='in', dpi=600)
 

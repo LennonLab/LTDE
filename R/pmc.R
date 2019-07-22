@@ -48,7 +48,7 @@ names(alpha.no812) <- df.no812$Species
 
 iter <- 1000
 BM.PL.beta.log10 <- pmc(ml.rooted.um, beta.log10, "BM", "lambda", nboot = iter)
-BM.PL.alpha <- pmc(ml.rooted.um, alpha, "BM", "lambda", nboot = iter)
+BM.PL.alpha <- pmc(ml.rooted.um, alpha, "BM", "lambda", nboot = iter )
 
 BM.PL.beta.log10.no812 <- pmc(ml.rooted.no812.um, beta.log10.no812, "BM", "lambda", nboot = iter)
 BM.PL.alpha.no812 <- pmc(ml.rooted.no812.um, alpha.no812, "BM", "lambda", nboot = iter)
@@ -69,6 +69,11 @@ df.summary <- cbind(parameter=c("beta.log10","alpha"),
                     lambda=c(BM.PL.beta.log10$B$opt$lambda, BM.PL.alpha$B$opt$lambda)
 )
 
+df.summary <- as.data.frame(df.summary)
+df.summary$llr <- as.numeric(as.character(df.summary$llr))
+df.summary$p_value <- as.numeric(as.character(df.summary$p_value))
+write.csv(df.summary, file = "data/pmc/pmc_death_BM_PL_summary.csv")
+
 
 df.summary.no812 <- cbind(parameter=c("beta.log10","alpha"), 
                     test=c("BM_PL","BM_PL"), 
@@ -83,15 +88,29 @@ df.summary.no812 <- cbind(parameter=c("beta.log10","alpha"),
 df.summary.no812 <- as.data.frame(df.summary.no812)
 df.summary.no812$llr <- as.numeric(as.character(df.summary.no812$llr))
 df.summary.no812$p_value <- as.numeric(as.character(df.summary.no812$p_value))
-
-write.csv(df.summary.no812, file = "data/pmc/pmc_BM_PL_no812_summary.csv")
-
+write.csv(df.summary.no812, file = "data/pmc/pmc_death_BM_PL_no812_summary.csv")
 
 
-mttf.log10 <- df$mttf.log10
-names(mttf.log10) <- df$Species
 
-# re-do the analysis w/out bacillus?
+# do the same analysis for the three growth curve parameters
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # w/out bacillus
