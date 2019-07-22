@@ -181,7 +181,8 @@ write.csv(df, file = "data/demography/weibull_results_clean.csv")
 # get mean time to failure and CIs
 df$beta.log10 <- log10(df$beta)
 df$mttf.log10 <- log10(df$mttf)
-df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10')], list(df$strain), mean)
+df$delta_N.log10 <- log10(df$N_0 - df$N_final) 
+df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10', 'delta_N.log10')], list(df$strain), mean)
 colnames(df.species.mean)[1] <- "Species"
 
 df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10')], list(df$strain), std.error)
