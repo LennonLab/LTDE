@@ -1,6 +1,11 @@
 from __future__ import division
 import os, math, decimal
+import numpy as np
 import pandas as pd
+from scipy.stats import poisson
+from scipy.special import gammaln
+
+np.random.seed(123456789)
 
 def get_path():
     return os.path.expanduser("~/GitHub/LTDE")
@@ -24,6 +29,186 @@ def get_genome_size_dict():
                         'KBS0812':4299846}
 
     return genome_size_dict
+
+# NullMultiplicitySurvivalFunction class is modified from GitHub repo
+# benjaminhgood/LTEE-metagenomic under GPL v2
+class NullGeneMultiplicitySurvivalFunction(object):
+    # Null multiplicity distribution for genes
+
+    def __init__(self, Ls, ntot):
+        self.ntot = ntot
+        self.Ls = np.array(Ls)
+        self.Lavg = self.Ls.mean()
+        self.ps = self.Ls*1.0/self.Ls.sum()
+        self.expected_ns = self.ntot*self.ps
+
+    @classmethod
+    def from_parallelism_statistics(cls, gene_parallelism_statistics):
+
+        # calculate Ls
+        Ls = []
+        ntot = 0
+        for gene_name in gene_parallelism_statistics.keys():
+            Ls.append(gene_parallelism_statistics[gene_name]['length'])
+            ntot += gene_parallelism_statistics[gene_name]['observed']
+
+        return cls(Ls, ntot)
+
+    def __call__(self, m):
+        #lower_limits = np.ceil(m[:,None]*self.Ls[None,:]/self.Lavg)-1+0.1
+        #return (poisson.sf(lower_limits, self.expected_ns[None,:])).sum(axis=1)
+        lower_limits = np.ceil(m[:,None]*self.Ls[None,:]/self.Lavg)-2+0.1
+        return (poisson.sf(lower_limits, self.expected_ns[None,:])*self.ps[None,:]).sum(axis=1)
+
+# calculate_unnormalized_survival_from_vector function is modified from GitHub repo
+# benjaminhgood/LTEE-metagenomic under GPL v2
+def calculate_unnormalized_survival_from_vector(xs, min_x=None, max_x=None, min_p=1e-10):
+
+    if min_x==None:
+        min_x = xs.min()-1
+
+    if max_x==None:
+        max_x = xs.max()+1
+
+    unique_xs = set(xs)
+    unique_xs.add(min_x)
+    unique_xs.add(max_x)
+
+    xvalues = []
+    num_observations = []
+
+    for x in sorted(unique_xs):
+        xvalues.append(x)
+        num_observations.append( (xs>=x).sum() )
+
+    # So that we can plot CDF, SF on log scale
+    num_observations[0] -= min_p
+    num_observations[1] -= min_p
+    num_observations[-1] += min_p
+
+    return np.array(xvalues), np.array(num_observations)
+
+# calculate_G_scores function is modified from GitHub repo
+# benjaminhgood/LTEE-metagenomic under GPL v2
+def calculate_G_scores(gene_statistics, allowed_genes=None):
+    # Calculates the G score for the whole gene, i.e.
+    # n*g
+
+    gene_g_scores = calculate_g_scores(gene_statistics,allowed_genes)
+
+    gene_G_scores = {gene_name: gene_statistics[gene_name]['observed']*gene_g_scores[gene_name] for gene_name in gene_g_scores.keys()}
+
+    return gene_G_scores
+
+# calculate_total_parallelism function is modified from GitHub repo
+# benjaminhgood/LTEE-metagenomic under GPL v2
+def calculate_total_parallelism(gene_statistics, allowed_genes=None, num_bootstraps=10000):
+
+    if allowed_genes==None:
+        allowed_genes = gene_statistics.keys()
+
+    Ls = []
+    ns = []
+
+    for gene_name in allowed_genes:
+
+        Ls.append( gene_statistics[gene_name]['length'] )
+        ns.append( gene_statistics[gene_name]['observed'] )
+
+
+    Ls = np.array(Ls)
+    ns = np.array(ns)
+
+    Ltot = Ls.sum()
+    ntot = ns.sum()
+    ps = Ls*1.0/Ltot
+
+    gs = ns*np.log(ns/(ntot*ps)+(ns==0))
+
+    observed_G = gs.sum()/ns.sum()
+    bootstrapped_Gs = []
+    for bootstrap_idx in range(0,num_bootstraps):
+        bootstrapped_ns = np.random.multinomial(ntot,ps)
+        bootstrapped_gs = bootstrapped_ns*np.log(bootstrapped_ns/(ntot*ps)+(bootstrapped_ns==0))
+        bootstrapped_G = bootstrapped_gs.sum()/bootstrapped_ns.sum()
+
+        bootstrapped_Gs.append(bootstrapped_G)
+
+    bootstrapped_Gs = np.array(bootstrapped_Gs)
+
+    pvalue = ((bootstrapped_Gs>=observed_G).sum()+1.0)/(len(bootstrapped_Gs)+1.0)
+    return observed_G, pvalue
+
+
+def calculate_poisson_log_survival(ns, expected_ns):
+
+    survivals = poisson.sf(ns-0.1, expected_ns)
+
+    logsurvivals = np.zeros_like(survivals)
+    logsurvivals[survivals>1e-20] = -np.log(survivals[survivals>1e-20])
+    logsurvivals[survivals<=1e-20] = (-ns*np.log(ns/expected_ns+(ns==0))+ns-expected_ns)[survivals<=1e-20]
+
+    return logsurvivals
+
+def calculate_parallelism_logpvalues(gene_statistics):
+
+    gene_names = []
+    Ls = []
+    ns = []
+    expected_ns = []
+
+    for gene_name in gene_statistics.keys():
+        gene_names.append(gene_name)
+        ns.append(gene_statistics[gene_name]['observed'])
+        expected_ns.append(gene_statistics[gene_name]['expected'])
+
+    ns = np.array(ns)
+    expected_ns = np.array(expected_ns)
+
+    #print(list(zip(ns, expected_ns)))
+
+    logpvalues = calculate_poisson_log_survival(ns, expected_ns)
+
+    return {gene_name: logp for gene_name, logp in zip(gene_names, logpvalues)}
+
+
+
+class NullGeneLogpSurvivalFunction(object):
+    # Null distribution of -log p for each gene
+
+    def __init__(self, Ls, ntot,nmin=0):
+        self.ntot = ntot
+        self.Ls = np.array(Ls)*1.0
+        self.Lavg = self.Ls.mean()
+        self.ps = self.Ls/self.Ls.sum()
+        self.expected_ns = self.ntot*self.ps
+        self.nmin = nmin
+
+    @classmethod
+    def from_parallelism_statistics(cls, gene_parallelism_statistics,nmin=0):
+
+        # calculate Ls
+        Ls = []
+        ntot = 0
+        for gene_name in gene_parallelism_statistics.keys():
+            Ls.append(gene_parallelism_statistics[gene_name]['length'])
+            ntot += gene_parallelism_statistics[gene_name]['observed']
+
+        return cls(Ls, ntot, nmin)
+
+    def __call__(self, mlogps):
+
+        # Do sum by hand
+        ns = np.arange(0,400)*1.0
+
+        logpvalues = calculate_poisson_log_survival(ns[None,:], self.expected_ns[:,None])
+
+        logprobabilities = ns[None,:]*np.log(self.expected_ns)[:,None]-gammaln(ns+1)[None,:]-self.expected_ns[:,None]
+        probabilities = np.exp(logprobabilities)
+        survivals = np.array([ ((logpvalues>=mlogp)*(ns[None,:]>=self.nmin)*probabilities).sum() for mlogp in mlogps])
+        return survivals
+
+
 
 
 def get_final_pop_size(population):
