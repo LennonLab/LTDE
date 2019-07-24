@@ -5,15 +5,16 @@ import matplotlib.pyplot as plt
 import ltde_tools as lt
 from scipy import stats
 from decimal import Decimal
+import _pickle as pickle
 
 
-def plot_multiplicity_survival(taxon = 'KBS0711'):
+def plot_multiplicity_survival():
+    taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712']
+
     # taxa with at least five genes with a multiplicity greater than one
     #taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712', 'KBS0713', 'KBS0715', 'KBS0721', 'KBS0801']
     # don't include KBS0707 even though it has a significant G score, sicne there's
     # only one gene with a multiplicity greater than 1
-    taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0710', 'KBS0711', 'KBS0712', 'KBS0713']
-
     fig = plt.figure()
     fig.subplots_adjust(hspace=0.35, wspace=0.35)
     for i in range(0, len(taxa_to_plot)):
@@ -24,7 +25,7 @@ def plot_multiplicity_survival(taxon = 'KBS0711'):
         new_obs_y =[1.0] + df.Obs_fract.tolist() + [ 0.0001]
         new_null_y = [1.0] + df.Null_fract.tolist() + [ 0.0001]
 
-        ax = fig.add_subplot(2, 3, i+1)
+        ax = fig.add_subplot(2, 2, i+1)
         ax.plot(new_x, new_obs_y, '-', c='royalblue', lw=4, alpha = 0.8, zorder=1)
         ax.plot(new_x, new_null_y, '-', c='dimgrey', lw=4, alpha = 0.8, zorder=0)
         ax.set_xlim([0.25, max(new_x)+1])
@@ -69,7 +70,79 @@ def plot_multiplicity_survival(taxon = 'KBS0711'):
     plt.close()
 
 
+def plot_logpvalue_survival():
+    #taxa_to_plot = ['ATCC13985', 'KBS0711', 'KBS0712']
+    taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712']
+    fig = plt.figure()
+    fig.subplots_adjust(hspace=0.35, wspace=0.35)
+    pstar_dict = pickle.load(open(lt.get_path() + '/data/breseq/p_star.txt', 'rb'))
+    for i in range(0, len(taxa_to_plot)):
+        taxon = taxa_to_plot[i]
+        pstar_i = pstar_dict[taxon][1]
+        num_significant_i = pstar_dict[taxon][0]
+        df_path = lt.get_path() + '/data/breseq/logpvalues/' + taxon + '.txt'
+        df = pd.read_csv(df_path, sep = '\t', index_col=0)
+        new_x = df.P_value.tolist()
+        new_obs_y = df.Obs_num.tolist()
+        new_null_y = df.Null_num.tolist()
+
+        ax = fig.add_subplot(2, 2, i+1)
+
+
+        ax.plot(new_x, new_null_y, '-', c='dimgrey', lw=4, alpha = 0.8, zorder=0)
+        ax.plot(new_x, new_obs_y, '-', c='royalblue', lw=4, alpha = 0.8, zorder=1)
+        if pstar_i <0:
+            y_range = [f[1] for f in list(zip(new_x, new_obs_y)) if f[0] > 0]
+            ax.plot([1, 1],[5e-02,max(y_range)],'k-',linewidth=0.5, zorder=2)
+            ax.plot([-3,1],[max(y_range), max(y_range)],'k-',linewidth=0.5, zorder=3)
+            ax.plot([1], [max(y_range)], c='r', marker='o', zorder=4)
+        else:
+            ax.plot([pstar_i, pstar_i],[5e-02,num_significant_i],'k-',linewidth=0.5, zorder=2)
+            ax.plot([-3,pstar_i],[num_significant_i, num_significant_i],'k-',linewidth=0.5, zorder=3)
+            ax.plot([pstar_i], [num_significant_i], c='r', marker='o', zorder=4)
+
+
+
+
+        ax.set_xlim([0.25, max(new_x)+1])
+
+
+        if taxon == 'ATCC13985':
+            ax.title.set_text(r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{ATCC13985}$')
+        elif taxon == 'KBS0702':
+            ax.title.set_text(r'$\mathit{Arthrobacter} \, \mathrm{sp.} \, \mathrm{KBS0702}$')
+        elif taxon == 'KBS0711':
+            ax.title.set_text(r'$\mathit{Janthinobacterium} \, \mathrm{sp.} \, \mathrm{KBS0711}$')
+        elif taxon == 'KBS0712':
+            ax.title.set_text(r'$\mathit{Variovorax} \, \mathrm{sp.} \, \mathrm{KBS0712}$')
+        elif taxon == 'KBS0713':
+            ax.title.set_text(r'$\mathit{Yersinia} \, \mathrm{sp.} \, \mathrm{KBS0713}$')
+        elif taxon == 'KBS0715':
+            ax.title.set_text(r'$\mathit{Curtobacterium} \, \mathrm{sp.} \, \mathrm{KBS0715}$')
+        elif taxon == 'KBS0721':
+            ax.title.set_text(r'$\mathit{Flavobacterium} \, \mathrm{sp.} \, \mathrm{KBS0721}$')
+        elif taxon == 'KBS0801':
+            ax.title.set_text(r'$\mathit{Burkholderia} \, \mathrm{sp.} \, \mathrm{KBS0801}$')
+        elif taxon == 'KBS0710':
+            ax.title.set_text(r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{KBS0710}$')
+        else:
+            print("Taxon not recognized")
+
+        ax.title.set_fontsize(8.5)
+
+        #pvalue_axis.step(observed_ps/log(10), null_pvalue_survival(observed_ps),'-',label='Expected',color='k')
+
+        #pvalue_axis.step(observed_ps/log(10), observed_pvalue_survival,'b-',label='Observed')
+
+
+    fig.text(0.5, 0.02, '$-\mathrm{log}_{10}P$', ha='center', fontsize=16)
+    fig.text(0.02, 0.5, 'Number of genes', va='center', rotation='vertical', fontsize=16)
+
+    fig_name = lt.get_path() + '/figs/logpvalue_survival.png'
+    fig.savefig(fig_name, bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    plt.close()
 
 
 
 plot_multiplicity_survival()
+plot_logpvalue_survival()

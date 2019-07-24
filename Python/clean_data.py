@@ -467,22 +467,20 @@ def get_diversity_stats():
 
 
 
-def run_parallelism_analysis(nmin = 3, FDR = 0.05):
+def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
     output_path = lt.get_path() + '/data/breseq/output/'
     to_keep_samples = get_breseq_samples_to_keep()
-    #df_out = open(lt.get_path() + '/data/breseq/genetic_diversity.txt', 'w')
-    #df_out.write('\t'.join(['Species', 'Sample', 'Pi', 'Theta', 'Tajimas_D', 'dN_dS_total', 'dN_dS_fixed']) + '\n')
     # pass nest list with frequency, coverage of major, coverage of minor, taxon
     output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
     to_keep_samples = get_breseq_samples_to_keep()
-    #output_path = lt.get_path() + '/data/breseq/output/'
     # get list of taxa to analyze
     to_keep_taxa = list(set([ x.split('-')[0] for x in to_keep_samples ]))
     for taxon in to_keep_taxa:
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
-        if len(taxon_samples) < 3:
+        if len(taxon_samples) < nmin_reps:
             to_keep_taxa.remove(taxon)
-    #to_keep_taxa = ['KBS0711']
+    to_keep_taxa.sort()
+    #to_keep_taxa = ['KBS0712']
     p_star_dict = {}
     total_parallelism_path = lt.get_path() + '/data/breseq/total_parallelism.txt'
     total_parallelism = open(total_parallelism_path,"w")
@@ -504,7 +502,8 @@ def run_parallelism_analysis(nmin = 3, FDR = 0.05):
 
         counts_across_reps_dict = Counter(taxon_sites)
         counts_across_reps = list(counts_across_reps_dict.values())
-        count_dict_to_remove = dict((k, v) for k, v in counts_across_reps_dict.items() if v > 2)
+        # only keep mutations that are unique to a population
+        count_dict_to_remove = dict((k, v) for k, v in counts_across_reps_dict.items() if v > 1)
         sites_to_remove = list(count_dict_to_remove.keys())
         # keep insertion, deletions, and nonsynonymous SNPs
         # get size_dict
@@ -558,6 +557,10 @@ def run_parallelism_analysis(nmin = 3, FDR = 0.05):
         L_mean = np.mean(list(effective_gene_lengths.values()))
         L_tot = sum(list(effective_gene_lengths.values()))
         n_tot = sum(list(gene_count_dict.values()))
+        # don't include taxa with less than 20 mutations
+        print("N_total = " + str(n_tot))
+        if n_tot < 50:
+            continue
         N_genes = len(list(effective_gene_lengths.values()))
         # go back over and calculate multiplicity
         for locus_tag_i in gene_parallelism_statistics.keys():
@@ -595,6 +598,7 @@ def run_parallelism_analysis(nmin = 3, FDR = 0.05):
         gene_logpvalues = lt.calculate_parallelism_logpvalues(gene_parallelism_statistics)
         # remove zeros ...
         #gene_logpvalues = {key:val for key, val in gene_logpvalues.items() if val > 0}
+
         pooled_pvalues = []
         for gene_name in gene_logpvalues.keys():
             if gene_parallelism_statistics[gene_name]['observed']>= nmin:
@@ -606,30 +610,26 @@ def run_parallelism_analysis(nmin = 3, FDR = 0.05):
         observed_ps, observed_pvalue_survival = lt.calculate_unnormalized_survival_from_vector(pooled_pvalues, min_x=-4)
         # Pvalue version
         threshold_idx = np.nonzero((null_pvalue_survival(observed_ps)*1.0/observed_pvalue_survival)<FDR)[0][0]
+        #print(null_pvalue_survival(observed_ps)*1.0/observed_pvalue_survival)
         pstar = observed_ps[threshold_idx] # lowest value where this is true
         num_significant = observed_pvalue_survival[threshold_idx]
-        logpvalues_dict = {'P_value': observed_ps/np.log(10), 'Obs_num': observed_pvalue_survival, 'Null_num': null_pvalue_survival(observed_ps)}
+        # make it log base 10
+        logpvalues_dict = {'P_value': observed_ps/math.log(10), 'Obs_num': observed_pvalue_survival, 'Null_num': null_pvalue_survival(observed_ps)}
         logpvalues_df = pd.DataFrame(logpvalues_dict)
         logpvalues_df_out = lt.get_path() + '/data/breseq/logpvalues/' + taxon + '.txt'
         logpvalues_df.to_csv(logpvalues_df_out, sep = '\t', index = True)
 
-        #pvalue_axis.semilogy([pstar/log(10), pstar/log(10)],[5e-02,num_significant],'k-',linewidth=0.5)
-        #pvalue_axis.semilogy([-3,pstar/log(10)],[num_significant, num_significant],'k-',linewidth=0.5)
-        #pvalue_axis.semilogy([pstar/log(10)],[num_significant],'r.')
-
-        p_star_dict[taxon] = (num_significant, num_significant)
+        p_star_dict[taxon] = (num_significant, pstar/math.log(10))
 
         output_mult_gene_filename = lt.get_path() + '/data/breseq/mult_genes/' + taxon + '.txt'
         output_mult_gene = open(output_mult_gene_filename,"w")
         output_mult_gene.write(", ".join(["Gene", "Length", "Observed", "Expected", "Multiplicity", "-log10(P)"]))
         for gene_name in sorted(gene_parallelism_statistics, key=lambda x: gene_parallelism_statistics.get(x)['observed'],reverse=True):
+            #if gene_name in gene_logpvalues:
             if gene_logpvalues[gene_name] >= pstar and gene_parallelism_statistics[gene_name]['observed']>=nmin:
                 output_mult_gene.write("\n")
                 output_mult_gene.write("%s, %0.1f, %d, %0.2f, %0.2f, %g" % (gene_name, gene_parallelism_statistics[gene_name]['length'],  gene_parallelism_statistics[gene_name]['observed'], gene_parallelism_statistics[gene_name]['expected'], gene_parallelism_statistics[gene_name]['multiplicity'], abs(gene_logpvalues[gene_name])))
-
         output_mult_gene.close()
-
-
 
     G_score_list_p_vales = [i[2] for i in G_score_list]
     reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(G_score_list_p_vales, alpha=0.05, method='fdr_bh')
@@ -643,7 +643,6 @@ def run_parallelism_analysis(nmin = 3, FDR = 0.05):
         total_parallelism.write("\t".join([taxon_i, str(G_score_i), str(p_value_i), str(pvals_corrected_i)]))
 
     total_parallelism.close()
-
     with open(lt.get_path() + '/data/breseq/p_star.txt', 'wb') as file:
         file.write(pickle.dumps(p_star_dict)) # use `pickle.loads` to do the reverse
 
