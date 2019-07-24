@@ -1,0 +1,2 @@
+Gene, Length, Observed, Expected, Multiplicity, -log10(P)
+FFH21_RS19580, 5842.0, 27, 0.05, 3.36, 142.409
