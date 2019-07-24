@@ -7,6 +7,7 @@ from collections import Counter
 from Bio import SeqIO
 import _pickle as pickle
 from decimal import Decimal
+import statsmodels.stats.multitest as mt
 
 #np.random.seed(123456789)
 
@@ -486,6 +487,7 @@ def run_parallelism_analysis(nmin = 3, FDR = 0.05):
     total_parallelism_path = lt.get_path() + '/data/breseq/total_parallelism.txt'
     total_parallelism = open(total_parallelism_path,"w")
     total_parallelism.write("\t".join(["Taxon", "G_score", "p_value"]))
+    G_score_list = []
     for taxon in to_keep_taxa:
         print(taxon)
         effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = calculate_synonymous_nonsynonymous_target_sizes(taxon)
@@ -584,8 +586,7 @@ def run_parallelism_analysis(nmin = 3, FDR = 0.05):
 
         # get likelihood score and null test
         observed_G, pvalue = lt.calculate_total_parallelism(gene_parallelism_statistics)
-        total_parallelism.write("\n")
-        total_parallelism.write("\t".join([taxon, str(observed_G), str(pvalue)]))
+        G_score_list.append((taxon, observed_G, pvalue))
 
         print(observed_G, pvalue)
         if pvalue >= 0.05:
@@ -628,18 +629,22 @@ def run_parallelism_analysis(nmin = 3, FDR = 0.05):
 
         output_mult_gene.close()
 
+
+
+    G_score_list_p_vales = [i[2] for i in G_score_list]
+    reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(G_score_list_p_vales, alpha=0.05, method='fdr_bh')
+    for i in range(len(pvals_corrected)):
+        taxon_i = G_score_list[i][0]
+        G_score_i = G_score_list[i][1]
+        p_value_i = G_score_list[i][2]
+        pvals_corrected_i = pvals_corrected[i]
+
+        total_parallelism.write("\n")
+        total_parallelism.write("\t".join([taxon_i, str(G_score_i), str(p_value_i), str(pvals_corrected_i)]))
+
     total_parallelism.close()
 
     with open(lt.get_path() + '/data/breseq/p_star.txt', 'wb') as file:
         file.write(pickle.dumps(p_star_dict)) # use `pickle.loads` to do the reverse
-
-
-
-
-
-
-
-
-
 
 run_parallelism_analysis()

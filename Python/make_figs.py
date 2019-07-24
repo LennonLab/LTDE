@@ -9,11 +9,13 @@ from decimal import Decimal
 
 def plot_multiplicity_survival(taxon = 'KBS0711'):
     # taxa with at least five genes with a multiplicity greater than one
-    taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712', 'KBS0713', 'KBS0715', 'KBS0721', 'KBS0801']
-
+    #taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712', 'KBS0713', 'KBS0715', 'KBS0721', 'KBS0801']
+    # don't include KBS0707 even though it has a significant G score, sicne there's
+    # only one gene with a multiplicity greater than 1
+    taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0710', 'KBS0711', 'KBS0712', 'KBS0713']
 
     fig = plt.figure()
-    fig.subplots_adjust(hspace=0.45, wspace=0.35)
+    fig.subplots_adjust(hspace=0.35, wspace=0.35)
     for i in range(0, len(taxa_to_plot)):
         taxon = taxa_to_plot[i]
         df_path = lt.get_path() + '/data/breseq/mult_survival_curves/' + taxon + '.txt'
@@ -22,18 +24,17 @@ def plot_multiplicity_survival(taxon = 'KBS0711'):
         new_obs_y =[1.0] + df.Obs_fract.tolist() + [ 0.0001]
         new_null_y = [1.0] + df.Null_fract.tolist() + [ 0.0001]
 
-        ax = fig.add_subplot(3, 3, i+1)
+        ax = fig.add_subplot(2, 3, i+1)
         ax.plot(new_x, new_obs_y, '-', c='royalblue', lw=4, alpha = 0.8, zorder=1)
         ax.plot(new_x, new_null_y, '-', c='dimgrey', lw=4, alpha = 0.8, zorder=0)
-        ax.set_xlim([0.75, 11])
+        ax.set_xlim([0.25, max(new_x)+1])
 
-        D, p_value = stats.ks_2samp(df.Null_fract.tolist() , df.Obs_fract.tolist())
-
-        ax.annotate(r'$D= $'+ str(round(D, 3)), (5.2, 0.9), fontsize=8)
-        if np.log10(p_value) < -3:
-            ax.annotate(r'$p= $'+ str('%.2E' % Decimal(p_value)), (5.2, 0.75), fontsize=8)
-        else:
-            ax.annotate(r'$p= $'+ str(round(p_value,3)), (5.2, 0.75), fontsize=8)
+        #D, p_value = stats.ks_2samp(df.Null_fract.tolist() , df.Obs_fract.tolist())
+        #ax.annotate(r'$D= $'+ str(round(D, 3)), (5.2, 0.9), fontsize=8)
+        #if np.log10(p_value) < -3:
+        #    ax.annotate(r'$p= $'+ str('%.2E' % Decimal(p_value)), (5.2, 0.75), fontsize=8)
+        #else:
+        #    ax.annotate(r'$p= $'+ str(round(p_value,3)), (5.2, 0.75), fontsize=8)
 
         if taxon == 'ATCC13985':
             ax.title.set_text(r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{ATCC13985}$')
@@ -51,10 +52,13 @@ def plot_multiplicity_survival(taxon = 'KBS0711'):
             ax.title.set_text(r'$\mathit{Flavobacterium} \, \mathrm{sp.} \, \mathrm{KBS0721}$')
         elif taxon == 'KBS0801':
             ax.title.set_text(r'$\mathit{Burkholderia} \, \mathrm{sp.} \, \mathrm{KBS0801}$')
+        elif taxon == 'KBS0710':
+            ax.title.set_text(r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{KBS0710}$')
         else:
             print("Taxon not recognized")
 
         ax.title.set_fontsize(8.5)
+
     #fig.tight_layout()
 
     fig.text(0.5, 0.02, 'Gene multiplicity, ' + '$m$', ha='center', fontsize=16)
