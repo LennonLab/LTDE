@@ -482,9 +482,6 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
     to_keep_taxa.sort()
     #to_keep_taxa = ['KBS0712']
     p_star_dict = {}
-    total_parallelism_path = lt.get_path() + '/data/breseq/total_parallelism.txt'
-    total_parallelism = open(total_parallelism_path,"w")
-    total_parallelism.write("\t".join(["Taxon", "G_score", "p_value"]))
     G_score_list = []
     for taxon in to_keep_taxa:
         print(taxon)
@@ -633,6 +630,9 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
 
     G_score_list_p_vales = [i[2] for i in G_score_list]
     reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(G_score_list_p_vales, alpha=0.05, method='fdr_bh')
+    total_parallelism_path = lt.get_path() + '/data/breseq/total_parallelism.txt'
+    total_parallelism = open(total_parallelism_path,"w")
+    total_parallelism.write("\t".join(["Taxon", "G_score", "p_value", "p_value_BH"]))
     for i in range(len(pvals_corrected)):
         taxon_i = G_score_list[i][0]
         G_score_i = G_score_list[i][1]

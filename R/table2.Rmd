@@ -1,0 +1,24 @@
+---
+output: pdf_document
+---
+
+
+```{r, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+rm(list = ls())
+#getwd()
+setwd("~/GitHub/LTDE/")
+library(xtable)
+library(dplyr)
+
+df <- read.table("data/breseq/total_parallelism.txt", 
+                 header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+
+df$Taxon <- c("$\\mathit{Pseudomonas} \\, \\mathrm{sp. \\, ATCC13985}$","$\\mathit{Arthrobacter} \\, \\mathrm{sp. \\, KBS0702}$", "$\\mathit{Janthinobacterium} \\, \\mathrm{sp. \\, KBS0711}$", "$\\mathit{Variovorax} \\, \\mathrm{sp. \\, KBS0712}$")
+
+colnames(df) <- c("Taxon", "Likelihood ratio", "p-value", "BH-corrected p-value")
+
+mat <- xtable(df, display = c("s", "s","f", "g","g"), align=c("l" ,"l" ,"c","c","c"))
+
+print(mat, comment=FALSE, include.rownames=FALSE, math.style.exponents = TRUE, sanitize.text.function = function(x) {x})
+
+```
