@@ -17,6 +17,17 @@ df.no812 <- df[!(df$Species=="KBS0812" ),]
 rownames(df) <- df$Species
 rownames(df.no812) <- df.no812$Species
 
+
+traits <-  read.table("data/traits/traits.txt", 
+                      header = TRUE, sep = "\t", row.names = 1, stringsAsFactors = FALSE)
+traits$Species <- rownames(traits)
+traits.merge <- merge(df, traits, by="row.names")
+rownames(traits.merge) <- traits.merge$Species
+
+traits.no812 <- traits[!(traits$Species=="KBS0812" ),]
+traits.no812.merge <- merge(df.no812, traits.no812, by="row.names")
+rownames(traits.no812.merge) <- traits.no812.merge$Species
+
 # Load ML tree
 ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde")
 # Define the outgroup
@@ -37,13 +48,34 @@ is.ultrametric(ml.rooted.no812.um)
 
 beta.log10 <- df$beta.log10
 names(beta.log10) <- df$Species
+
 alpha <- df$alpha
 names(alpha) <- df$Species
 
+umax <- traits.merge$umax
+names(umax) <- traits.merge$Species
+
+lag <- log10(traits.merge$Lag)
+names(lag) <- traits.merge$Species
+
+yield <- traits.merge$A
+names(yield) <- traits.merge$Species
+
+# no KBS0812
 beta.log10.no812 <- df.no812$beta.log10
 names(beta.log10.no812) <- df.no812$Species
+
 alpha.no812 <- df.no812$alpha
 names(alpha.no812) <- df.no812$Species
+
+umax.no812 <- traits.no812.merge$umax
+names(umax.no812) <- traits.no812.merge$Species
+
+lag.no812 <- log10(traits.no812.merge$Lag)
+names(lag.no812) <- traits.no812.merge$Species
+
+yield.no812 <- traits.no812.merge$A
+names(yield.no812) <- traits.no812.merge$Species
 
 
 iter <- 1000
@@ -53,6 +85,12 @@ BM.PL.alpha <- pmc(ml.rooted.um, alpha, "BM", "lambda", nboot = iter )
 BM.PL.beta.log10.no812 <- pmc(ml.rooted.no812.um, beta.log10.no812, "BM", "lambda", nboot = iter)
 BM.PL.alpha.no812 <- pmc(ml.rooted.no812.um, alpha.no812, "BM", "lambda", nboot = iter)
 
+BM.PL.umax <- pmc(ml.rooted.um, umax, "BM", "lambda", nboot = iter)
+BM.PL.lag <- pmc(ml.rooted.um, lag, "BM", "lambda", nboot = iter)
+BM.PL.yield <- pmc(ml.rooted.um, yield, "BM", "lambda", nboot = iter)
+
+
+# get p values
 p_value.BM.PL.beta.log10 <- length(BM.PL.beta.log10$null[BM.PL.beta.log10$null > BM.PL.beta.log10$lr] ) / iter
 p_value.BM.PL.alpha <- length(BM.PL.alpha$null[BM.PL.alpha$null > BM.PL.alpha$lr] ) / iter
 
