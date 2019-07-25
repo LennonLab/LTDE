@@ -5,6 +5,11 @@ import pandas as pd
 import numpy as np
 from collections import Counter
 from Bio import SeqIO
+import _pickle as pickle
+from decimal import Decimal
+import statsmodels.stats.multitest as mt
+
+#np.random.seed(123456789)
 
 def make_16S_fasta():
     alignments = ['KBS0710_NR_024911', 'KBS0721_NR_114994']
@@ -328,7 +333,6 @@ def calculate_synonymous_nonsynonymous_target_sizes(taxon):
                         for feature in record.features:
                             if feature.type != 'CDS':
                                 continue
-                            #print(feature)
                             if 'incomplete' in feature.qualifiers['note'][0]:
                                 continue
                             if 'frameshifted' in feature.qualifiers['note'][0]:
@@ -361,11 +365,11 @@ def calculate_synonymous_nonsynonymous_target_sizes(taxon):
 
     substitution_specific_synonymous_fraction = {substitution: substitution_specific_synonymous_sites[substitution]*1.0/(substitution_specific_synonymous_sites[substitution]+substitution_specific_nonsynonymous_sites[substitution]) for substitution in substitution_specific_synonymous_sites.keys()}
     effective_gene_lengths = {gene_name: gene_length_map[gene_name]-effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()}
-    effective_gene_lengths['synonymous'] = sum([effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
-    effective_gene_lengths['nonsynonymous'] = sum([effective_gene_nonsynonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
-    effective_gene_lengths['noncoding'] = lt.get_genome_size_dict()[taxon] - effective_gene_lengths['synonymous']-effective_gene_lengths['nonsynonymous']
+    effective_gene_lengths_synonymous = sum([effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
+    effective_gene_lengths_nonsynonymous = sum([effective_gene_nonsynonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
+    effective_gene_lengths_noncoding = lt.get_genome_size_dict()[taxon] - effective_gene_lengths_synonymous-effective_gene_lengths_nonsynonymous
 
-    return effective_gene_lengths['synonymous'], effective_gene_lengths['nonsynonymous'], substitution_specific_synonymous_fraction
+    return effective_gene_lengths, effective_gene_lengths_synonymous, effective_gene_lengths_nonsynonymous, effective_gene_lengths_noncoding
 
 
 
@@ -384,7 +388,7 @@ def get_diversity_stats():
             to_keep_taxa.remove(taxon)
 
     for taxon in to_keep_taxa:
-        Lsyn, Lnon, substitution_specific_synonymous_fraction = calculate_synonymous_nonsynonymous_target_sizes(taxon)
+        effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = calculate_synonymous_nonsynonymous_target_sizes(taxon)
         taxon_sites = []
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
         for taxon_sample in taxon_samples:
@@ -453,7 +457,6 @@ def get_diversity_stats():
                     syn_total += 1
                 else:
                     non_total += 1
-
             # add psuedocount of 1
             dnds_total = ((non_total+1)/(syn_total+1))/((Lnon+1)/(Lsyn+1))
             dnds_fixed = ((non_fixed+1)/(syn_fixed+1))/((Lnon+1)/(Lsyn+1))
@@ -464,11 +467,183 @@ def get_diversity_stats():
 
 
 
-#def run_parallelism_analysis():
+def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
+    output_path = lt.get_path() + '/data/breseq/output/'
+    to_keep_samples = get_breseq_samples_to_keep()
+    # pass nest list with frequency, coverage of major, coverage of minor, taxon
+    output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
+    to_keep_samples = get_breseq_samples_to_keep()
+    # get list of taxa to analyze
+    to_keep_taxa = list(set([ x.split('-')[0] for x in to_keep_samples ]))
+    for taxon in to_keep_taxa:
+        taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
+        if len(taxon_samples) < nmin_reps:
+            to_keep_taxa.remove(taxon)
+    to_keep_taxa.sort()
+    #to_keep_taxa = ['KBS0712']
+    p_star_dict = {}
+    G_score_list = []
+    for taxon in to_keep_taxa:
+        print(taxon)
+        effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = calculate_synonymous_nonsynonymous_target_sizes(taxon)
+        taxon_sites = []
+        taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
+        for taxon_sample in taxon_samples:
+            for i, line in enumerate(open(output_path + taxon_sample + '.gd', 'r')):
+                line_split = line.strip().split('\t')
+                if line_split[0] in output_to_keep:
+                    # a lot of mutations at the first base of each contig, ignore these
+                    if line_split[4] == '1':
+                        continue
+                    taxon_sites.append( line_split[3] + '_' + str(line_split[4]))
 
+        counts_across_reps_dict = Counter(taxon_sites)
+        counts_across_reps = list(counts_across_reps_dict.values())
+        # only keep mutations that are unique to a population
+        count_dict_to_remove = dict((k, v) for k, v in counts_across_reps_dict.items() if v > 1)
+        sites_to_remove = list(count_dict_to_remove.keys())
+        # keep insertion, deletions, and nonsynonymous SNPs
+        # get size_dict
+        gene_count_dict = {}
+        for i, line in enumerate(open(lt.get_path() + '/data/breseq/annotated/' + taxon_sample + '.gd', 'r')):
+            line_split = line.strip().split('\t')
+            if (line_split[0] not in output_to_keep): #or ('frequency' in line_split[6]) or (line_split[3] + '_' + line_split[4] in sites_to_remove):
+                continue
+            if line_split[0] == 'SNP':
+                if [s for s in line_split if 'snp_type=' in s][0].split('=')[1] == 'nonsynonymous':
+                    locus_tag = [s for s in line_split if 'locus_tag=' in s][0].split('=')[1]
+                    if ';' in locus_tag:
+                        for locus_tag_j in locus_tag.split(';'):
+                            if locus_tag_j not in gene_count_dict:
+                                gene_count_dict[locus_tag_j] = 1
+                            else:
+                                gene_count_dict[locus_tag_j] += 1
+                    else:
+                        if locus_tag not in gene_count_dict:
+                            gene_count_dict[locus_tag] = 1
+                        else:
+                            gene_count_dict[locus_tag] += 1
+            else:
+                if len([s for s in line_split if 'gene_position=coding' in s]) >= 1:
+                    locus_tag = [s for s in line_split if 'locus_tag=' in s][0].split('=')[1]
+                    if ';' in locus_tag:
+                        for locus_tag_j in locus_tag.split(';'):
+                            if locus_tag_j not in gene_count_dict:
+                                gene_count_dict[locus_tag_j] = 1
+                            else:
+                                gene_count_dict[locus_tag_j] += 1
 
-#calculate_synonymous_nonsynonymous_target_sizes('KBS0702')
+                    else:
+                        if locus_tag not in gene_count_dict:
+                            gene_count_dict[locus_tag] = 1
+                        else:
+                            gene_count_dict[locus_tag] += 1
 
+        gene_parallelism_statistics = {}
+        for gene_i, length_i in effective_gene_lengths.items():
+            gene_parallelism_statistics[gene_i] = {}
+            gene_parallelism_statistics[gene_i]['length'] = length_i
+            gene_parallelism_statistics[gene_i]['observed'] = 0
+            gene_parallelism_statistics[gene_i]['multiplicity'] = 0
 
+        # save number of mutations and multiplicity
+        for locus_tag_i, n_i in gene_count_dict.items():
+            gene_parallelism_statistics[locus_tag_i]['observed'] = n_i
+        # remove all genes that don't acquire mutations, excess number of zeros
+        #gene_parallelism_statistics = {key:val for key, val in gene_parallelism_statistics.items() if val['observed'] > 0}
+        L_mean = np.mean(list(effective_gene_lengths.values()))
+        L_tot = sum(list(effective_gene_lengths.values()))
+        n_tot = sum(list(gene_count_dict.values()))
+        # don't include taxa with less than 20 mutations
+        print("N_total = " + str(n_tot))
+        if n_tot < 50:
+            continue
+        N_genes = len(list(effective_gene_lengths.values()))
+        # go back over and calculate multiplicity
+        for locus_tag_i in gene_parallelism_statistics.keys():
+            gene_parallelism_statistics[locus_tag_i]['multiplicity'] = gene_parallelism_statistics[locus_tag_i]['observed'] * L_mean / effective_gene_lengths[locus_tag_i]
+            gene_parallelism_statistics[locus_tag_i]['expected'] = n_tot*gene_parallelism_statistics[locus_tag_i]['length']/L_tot
 
-get_diversity_stats()
+        pooled_multiplicities = np.array([gene_parallelism_statistics[gene_name]['multiplicity'] for gene_name in gene_parallelism_statistics.keys() if gene_parallelism_statistics[gene_name]['multiplicity'] >=1])
+        pooled_multiplicities.sort()
+
+        pooled_tupe_multiplicities = np.array([(gene_parallelism_statistics[gene_name]['multiplicity'], gene_parallelism_statistics[gene_name]['observed']) for gene_name in gene_parallelism_statistics.keys() if gene_parallelism_statistics[gene_name]['multiplicity'] >=1])
+        pooled_tupe_multiplicities = sorted(pooled_tupe_multiplicities, key=lambda x: x[0])
+        pooled_tupe_multiplicities_x = [i[0] for i in pooled_tupe_multiplicities]
+        pooled_tupe_multiplicities_y = [i[1] for i in pooled_tupe_multiplicities]
+        pooled_tupe_multiplicities_y = [sum(pooled_tupe_multiplicities_y[i:]) / sum(pooled_tupe_multiplicities_y) for i in range(len(pooled_tupe_multiplicities_y))]
+
+        null_multiplicity_survival = lt.NullGeneMultiplicitySurvivalFunction.from_parallelism_statistics( gene_parallelism_statistics )
+        #observed_ms, observed_multiplicity_survival = lt.calculate_unnormalized_survival_from_vector(pooled_multiplicities)
+        null_multiplicity_survival_copy = null_multiplicity_survival(pooled_multiplicities)
+        null_multiplicity_survival_copy = [sum(null_multiplicity_survival_copy[i:]) / sum(null_multiplicity_survival_copy) for i in range(len(null_multiplicity_survival_copy)) ]
+        #threshold_idx = numpy.nonzero((null_multiplicity_survival(observed_ms)*1.0/observed_multiplicity_survival)<FDR)[0][0]
+
+        mult_survival_dict = {'Mult': pooled_multiplicities, 'Obs_fract': pooled_tupe_multiplicities_y, 'Null_fract': null_multiplicity_survival_copy}
+        mult_survival_df = pd.DataFrame(mult_survival_dict)
+        mult_survival_df_out = lt.get_path() + '/data/breseq/mult_survival_curves/' + taxon + '.txt'
+        mult_survival_df.to_csv(mult_survival_df_out, sep = '\t', index = True)
+
+        # get likelihood score and null test
+        observed_G, pvalue = lt.calculate_total_parallelism(gene_parallelism_statistics)
+        G_score_list.append((taxon, observed_G, pvalue))
+
+        print(observed_G, pvalue)
+        if pvalue >= 0.05:
+            continue
+        # Give each gene a p-value, get distribution
+        gene_logpvalues = lt.calculate_parallelism_logpvalues(gene_parallelism_statistics)
+        # remove zeros ...
+        #gene_logpvalues = {key:val for key, val in gene_logpvalues.items() if val > 0}
+
+        pooled_pvalues = []
+        for gene_name in gene_logpvalues.keys():
+            if gene_parallelism_statistics[gene_name]['observed']>= nmin:
+                pooled_pvalues.append( gene_logpvalues[gene_name] )
+        pooled_pvalues = np.array(pooled_pvalues)
+        pooled_pvalues.sort()
+
+        null_pvalue_survival = lt.NullGeneLogpSurvivalFunction.from_parallelism_statistics( gene_parallelism_statistics, nmin=nmin)
+        observed_ps, observed_pvalue_survival = lt.calculate_unnormalized_survival_from_vector(pooled_pvalues, min_x=-4)
+        # Pvalue version
+        threshold_idx = np.nonzero((null_pvalue_survival(observed_ps)*1.0/observed_pvalue_survival)<FDR)[0][0]
+        #print(null_pvalue_survival(observed_ps)*1.0/observed_pvalue_survival)
+        pstar = observed_ps[threshold_idx] # lowest value where this is true
+        num_significant = observed_pvalue_survival[threshold_idx]
+        # make it log base 10
+        logpvalues_dict = {'P_value': observed_ps/math.log(10), 'Obs_num': observed_pvalue_survival, 'Null_num': null_pvalue_survival(observed_ps)}
+        logpvalues_df = pd.DataFrame(logpvalues_dict)
+        logpvalues_df_out = lt.get_path() + '/data/breseq/logpvalues/' + taxon + '.txt'
+        logpvalues_df.to_csv(logpvalues_df_out, sep = '\t', index = True)
+
+        p_star_dict[taxon] = (num_significant, pstar/math.log(10))
+
+        output_mult_gene_filename = lt.get_path() + '/data/breseq/mult_genes/' + taxon + '.txt'
+        output_mult_gene = open(output_mult_gene_filename,"w")
+        output_mult_gene.write(", ".join(["Gene", "Length", "Observed", "Expected", "Multiplicity", "-log10(P)"]))
+        for gene_name in sorted(gene_parallelism_statistics, key=lambda x: gene_parallelism_statistics.get(x)['observed'],reverse=True):
+            #if gene_name in gene_logpvalues:
+            if gene_logpvalues[gene_name] >= pstar and gene_parallelism_statistics[gene_name]['observed']>=nmin:
+                output_mult_gene.write("\n")
+                output_mult_gene.write("%s, %0.1f, %d, %0.2f, %0.2f, %g" % (gene_name, gene_parallelism_statistics[gene_name]['length'],  gene_parallelism_statistics[gene_name]['observed'], gene_parallelism_statistics[gene_name]['expected'], gene_parallelism_statistics[gene_name]['multiplicity'], abs(gene_logpvalues[gene_name])))
+        output_mult_gene.close()
+
+    G_score_list_p_vales = [i[2] for i in G_score_list]
+    reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(G_score_list_p_vales, alpha=0.05, method='fdr_bh')
+    total_parallelism_path = lt.get_path() + '/data/breseq/total_parallelism.txt'
+    total_parallelism = open(total_parallelism_path,"w")
+    total_parallelism.write("\t".join(["Taxon", "G_score", "p_value", "p_value_BH"]))
+    for i in range(len(pvals_corrected)):
+        taxon_i = G_score_list[i][0]
+        G_score_i = G_score_list[i][1]
+        p_value_i = G_score_list[i][2]
+        pvals_corrected_i = pvals_corrected[i]
+
+        total_parallelism.write("\n")
+        total_parallelism.write("\t".join([taxon_i, str(G_score_i), str(p_value_i), str(pvals_corrected_i)]))
+
+    total_parallelism.close()
+    with open(lt.get_path() + '/data/breseq/p_star.txt', 'wb') as file:
+        file.write(pickle.dumps(p_star_dict)) # use `pickle.loads` to do the reverse
+
+run_parallelism_analysis()
