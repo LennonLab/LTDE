@@ -9,30 +9,30 @@ setwd("~/GitHub/LTDE/")
 library(xtable)
 library(dplyr)
 
-df <- read.table("data/pmc/pmc_death_BM_PL_summary.csv", 
+df <- read.table("data/pmc/pmc_death_BM_PL_no812_summary_old.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 drops <- c("test")
-df.no812 <- read.table("data/pmc/pmc_death_BM_PL_no812_summary.csv", 
-                 header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
+#df.no812 <- read.table("data/pmc/pmc_death_BM_PL_no812_summary.csv", 
+#                 header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 df <- df[ , !(names(df) %in% drops)]
-df.no812 <- df.no812[ , !(names(df.no812) %in% drops)]
+#df.no812 <- df.no812[ , !(names(df.no812) %in% drops)]
 df$lambda <- as.numeric(df$lambda)
-df.no812$lambda <- as.numeric(df.no812$lambda)
+#df.no812$lambda <- as.numeric(df.no812$lambda)
 
-df.bind <- bind_rows(df,df.no812)
-df.bind$parameter <- c("$\\overline{\\mathrm{log}_{10} \\lambda}$", "$\\overline{k}$", "$\\overline{\\mathrm{log}_{10} \\lambda}$", "$\\overline{k}$")
+#df.bind <- bind_rows(df,df.no812)
+#df.bind$parameter <- c("$\\overline{\\mathrm{log}_{10} \\lambda}$", "$\\overline{k}$", "$\\overline{\\mathrm{log}_{10} #\\lambda}$", "$\\overline{k}$")
+
+df$parameter <- c("$ \\lambda, \\mathrm{log}_{10}$", "$\\mathit{k}$", "$\\mu_{max}$", "$\\mathrm{Lag \\,time}, \\mathrm{log}_{10} $", "\\textup{Yield}")
 
 #"$\\overline{\\mathrm{log}_{10} \\lambda}$"
 
-bacillus.TF <- c("True", "True", "False", "False")
-df.bind <- cbind(bacillus.TF , df.bind)
+#bacillus.TF <- c("True", "True", "False", "False")
+#df.bind <- cbind(bacillus.TF , df.bind)
+
+colnames(df) <- c("Parameter", "Likelihood ratio", "p-value", "$\\sigma_{BM}$", "$\\sigma_{PL}$",  "$\\lambda_{PL}$")
 
 
-
-colnames(df.bind) <- c("Bacillus included", "Parameter", "Likelihood ratio", "p-value", "$\\sigma_{BM}$", "$\\sigma_{PL}$",  "$\\lambda_{PL}$")
-
-
-mat <- xtable(df.bind, display = c("s","s", "s","g","f", "f", "f", "g"), align=c("c" ,"c","c","c","c", "c","c","c"))
+mat <- xtable(df, display = c("s", "s","g","g", "f", "f", "g"), align=c("c","c","c","c", "c","c","c"))
 
 print(mat, comment=FALSE, include.rownames=FALSE, math.style.exponents = TRUE, sanitize.text.function = function(x) {x})
 
