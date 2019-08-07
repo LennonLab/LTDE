@@ -10,14 +10,22 @@ library('latex2exp')
 library('ggpubr')
 library('plotrix')
 
+plot(c(1,2,3,4), c(3,4,5,6))
+
 df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
                          header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 rownames(df.species) <- df.species$Species
 div <-  read.table("data/breseq/genetic_diversity_taxa.txt",sep = "\t",header = TRUE)
 df.merge <- merge(df.species, div,by="Species")
 
+# two sample t-test for beta and alpha b/w taxa with enough and not enough mutations
+rownames(df.merge) <- df.merge$Species
+nonsyn.f <- df.merge[c("KBS0802", "KBS0721", "KBS0812", "KBS0801", "KBS0707", "KBS0713", "KBS0715"),]
+nonsyn.t <- df.merge[c("ATCC13985", "KBS0702", "KBS0711", "KBS0712"),]
 
-plot(df.merge$Tajimas_D, df.merge$alpha)
+t.test(nonsyn.t$beta.log10, nonsyn.f$beta.log10, alternative = "greater", var.equal = FALSE)
+t.test(nonsyn.t$alpha, nonsyn.f$alpha, alternative = "greater", var.equal = FALSE)
+
 
 summary(lm(df.merge$beta.log10 ~ df.merge$mean_freq))
 summary(lm(df.merge$alpha ~ df.merge$mean_freq))
@@ -43,8 +51,8 @@ f.beta.plot <- ggplot(data = df.merge, aes(x = mean_freq, y = 10** beta.log10)) 
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) +
   theme_bw() +
-  theme(axis.title.x = element_text(color="black", size=14), 
-        axis.title.y = element_text(color="black", size=14), 
+  theme(axis.title.x = element_text(color="black", size=11), 
+        axis.title.y = element_text(color="black", size=12), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank()) #+ scale_y_reverse()
 
@@ -55,8 +63,8 @@ f.alpha.plot <- ggplot(data = df.merge, aes(x = mean_freq, y = alpha)) +
   xlab(TeX("Mean mutation frequency, $\\f$")) +
   scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
-  theme(axis.title.x = element_text(color="black", size=14), 
-        axis.title.y = element_text(color="black", size=14), 
+  theme(axis.title.x = element_text(color="black", size=11), 
+        axis.title.y = element_text(color="black", size=12), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())
 
@@ -74,8 +82,8 @@ theta.beta.plot <- ggplot(data = df.merge, aes(x = Theta, y = 10** beta.log10)) 
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) +
   theme_bw() +
-  theme(axis.title.x = element_text(color="black", size=14), 
-        axis.title.y = element_text(color="black", size=14), 
+  theme(axis.title.x = element_text(color="black", size=11), 
+        axis.title.y = element_text(color="black", size=12), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank()) #+ scale_y_reverse()
 
@@ -86,8 +94,8 @@ theta.alpha.plot <- ggplot(data = df.merge, aes(x = Theta, y = alpha)) +
   xlab(TeX("Number of mutated sites, $\\theta_{W} \\, (\\mathrm{bp}^{-1})$")) +
   scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
-  theme(axis.title.x = element_text(color="black", size=14), 
-        axis.title.y = element_text(color="black", size=14), 
+  theme(axis.title.x = element_text(color="black", size=11), 
+        axis.title.y = element_text(color="black", size=12), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())
 
@@ -109,8 +117,8 @@ pi.beta.plot <- ggplot(data = df.merge, aes(x = Pi, y = 10** beta.log10)) +
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) +
   theme_bw() +
-  theme(axis.title.x = element_text(color="black", size=14), 
-        axis.title.y = element_text(color="black", size=14), 
+  theme(axis.title.x = element_text(color="black", size=11), 
+        axis.title.y = element_text(color="black", size=12), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank()) #+ scale_y_reverse()
 
@@ -126,8 +134,8 @@ pi.alpha.plot <- ggplot(data = df.merge, aes(x = Pi, y = alpha)) +
   ) +
   scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
-  theme(axis.title.x = element_text(color="black", size=14), 
-        axis.title.y = element_text(color="black", size=14), 
+  theme(axis.title.x = element_text(color="black", size=11), 
+        axis.title.y = element_text(color="black", size=12), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())
 
@@ -149,8 +157,8 @@ td.beta.plot <- ggplot(data = df.merge, aes(x = Tajimas_D, y = 10** beta.log10))
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) +
   theme_bw() +
-  theme(axis.title.x = element_text(color="black", size=14), 
-        axis.title.y = element_text(color="black", size=14), 
+  theme(axis.title.x = element_text(color="black", size=11), 
+        axis.title.y = element_text(color="black", size=12), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank()) #+ scale_y_reverse()
 
@@ -166,8 +174,8 @@ td.alpha.plot <- ggplot(data = df.merge, aes(x = Tajimas_D, y = alpha)) +
   ) +
   scale_y_continuous(limits = c(0, 1)) +
   theme_bw() +
-  theme(axis.title.x = element_text(color="black", size=14), 
-        axis.title.y = element_text(color="black", size=14), 
+  theme(axis.title.x = element_text(color="black", size=11), 
+        axis.title.y = element_text(color="black", size=12), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())
 

@@ -10,6 +10,7 @@ from decimal import Decimal
 import statsmodels.stats.multitest as mt
 from scipy.stats import t
 
+MCR = 0.8
 
 #np.random.seed(123456789)
 
@@ -151,32 +152,6 @@ def clean_iRep():
     df_out.close()
 
 
-def clean_COGs():
-    directory = os.fsencode(lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_cogs')
-    cog_dict = {}
-    for file in os.listdir(directory):
-        filename = os.fsdecode(file)
-        if filename.endswith('_reformat.txt'):
-            cog_path = os.path.join(str(directory, 'utf-8'), filename)
-            df = pd.read_csv(cog_path, sep = '\t')
-            df_cogs = df.loc[df['source'] == 'COG_FUNCTION']
-            cogs = df.accession.values
-            cogs = [cog.split('!!!')[0] for cog in cogs if 'COG' in cog]
-            strain = filename.split('_')[0]
-            cog_dict[strain] = {}
-            for cog in cogs:
-                cog_dict[strain][cog] = 1
-
-    df_cogs = pd.DataFrame.from_dict(cog_dict)
-    df_cogs = df_cogs.fillna(0)
-    df_cogs = df_cogs[(df_cogs.T != 1).any()]
-    df_cogs = df_cogs[(df_cogs.T != 1).any()].T
-    df_out = lt.get_path() + '/data/genomes/nanopore_hybrid_annotated_cogs.txt'
-    df_cogs.to_csv(df_out, sep = '\t', index = True)
-
-
-
-
 def merge_maple(strain):
     maple_path = lt.get_path() + '/data/genomes/genomes_ncbi_maple/'
     IN_maple_sign_path = maple_path + strain + '_MAPLE_result/' + 'module_signature.tsv'
@@ -211,11 +186,11 @@ def merge_maple_all_strains():
 
     dfs_concat = pd.concat(dfs)
     dfs_concat = dfs_concat.reset_index(drop=True)
-    # remove rows that are less than 50% complete
+    # remove rows that are less than 80% complete
     # query(coverage) = MCR % (ITR)
     #query(coverage/max) = MCR % (WC)
     #query(coverage/mode) = Q-value
-    dfs_concat_050 = dfs_concat.loc[dfs_concat['query(coverage)'] >= 0.8]
+    dfs_concat_050 = dfs_concat.loc[dfs_concat['query(coverage)'] >= MCR]
     module_by_taxon = pd.crosstab(dfs_concat_050.Pathway_ID, dfs_concat_050.Strain)
     module_by_taxon_no_redundant = module_by_taxon[(module_by_taxon.T != 1).any()]
     OUT_path = lt.get_path() + '/data/genomes/genomes_ncbi_maple.txt'
@@ -403,8 +378,6 @@ def get_diversity_stats():
     df_out.close()
 
     reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(p_value_all, alpha=0.05, method='fdr_bh')
-    print(reject, pvals_corrected, alphacSidak, alphacBonf)
-
     # two files, one for dnds one for rest of diversity stats
     df_out_taxa = open(lt.get_path() + '/data/breseq/genetic_diversity_taxa.txt', 'w')
     df_out_taxa.write('\t'.join(['Species', 'n_muts', 'mean_freq', 'Theta', 'Pi', 'Tajimas_D']) + '\n')
@@ -602,5 +575,116 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
         file.write(pickle.dumps(p_star_dict)) # use `pickle.loads` to do the reverse
 
 
+
+def KO_to_module(strain, modules_to_keep = None):
+    kaas_directory = lt.get_path() + '/data/genomes/genomes_ncbi_maple/' + strain + '_MAPLE_result/KAAS'
+    bad_chars = '()-+,-'
+    rgx = re.compile('[%s]' % bad_chars)
+    kegg_maple_dict = {}
+    for filename in os.listdir(kaas_directory):
+        if filename.endswith("_matrix.txt"):
+            for line in open((os.path.join(kaas_directory, filename)), 'r'):
+                line_strip_split = line.strip().split()
+                if len(line_strip_split) > 2 and 'M' in line_strip_split[0]:
+                    if '_' in line_strip_split[0]:
+                        pathway = line_strip_split[0].split('_')[0]
+                    else:
+                        pathway = line_strip_split[0]
+                    # ignore modules that don't meet the MCR threshold
+                    if modules_to_keep != None:
+                        if pathway not in modules_to_keep:
+                            continue
+                    ko_genes = line_strip_split[2:]
+                    for ko_gene in ko_genes:
+                        test_set_member = [bad_char for bad_char in bad_chars if bad_char in ko_gene]
+                        if len(test_set_member) > 0:
+                            ko_gene_clean = rgx.sub('', ko_gene)
+                            ko_gene_clean_split =  ['K' + e for e in ko_gene_clean.split('K') if e]
+                            for split_gene in ko_gene_clean_split:
+                                if 'M' in split_gene:
+                                    continue
+                                if split_gene in kegg_maple_dict:
+                                    kegg_maple_dict[split_gene].append(pathway)
+                                else:
+                                    kegg_maple_dict[split_gene] = [pathway]
+                        else:
+                            if 'K' in ko_gene:
+                                if ko_gene in kegg_maple_dict:
+                                    kegg_maple_dict[ko_gene].append(pathway)
+                                else:
+                                    kegg_maple_dict[ko_gene] = [pathway]
+
+    return kegg_maple_dict
+
+
+
+def annotate_significant_genes():
+    total_parallelism = open(lt.get_path() + '/data/breseq/gene_annotation.txt', "w")
+    total_parallelism.write("\t".join(["Species", "locus_tag", "refseq_id", "annotation"]) +"\n" )
+    taxa = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712']
+    for taxon in taxa:
+        locus_tags = []
+        for line in open(lt.get_path() + '/data/breseq/mult_genes/' + taxon + '.txt', 'r'):
+            line_split = line.strip().split(',')
+            if line_split[0] == 'Gene':
+                continue
+            locus_tags.append(line_split[0])
+        # the refseq annotations don't map to KEGG annotated genes in the maple pathways
+        # can't complete that analysis, just focus on refseq annotations
+        # make refseq => KEGG dict
+        #refseq_kegg_dict = {}
+        #for line in open(lt.get_path() + '/data/genomes/genomes_ncbi_maple/' + taxon + '_MAPLE_result/query.fst.ko', 'r'):
+        #    line_split = line.strip().split('\t')
+        #    refseq_kegg_dict[line_split[0]] = line_split[1]
+        ## get list of MAPLe modules to keep
+        #df_modules = pd.read_csv(lt.get_path() + '/data/genomes/genomes_ncbi_maple_clean/' + taxon +'_maple_modules.txt', sep = '\t')
+        #df_modules_mcr = df_modules.loc[df_modules['query(coverage)'] >= MCR]
+        #modules_to_keep = df_modules_mcr.Pathway_ID.tolist()
+        ## make KEGG => MAPLE dict
+        #kegg_maple_dict = KO_to_module(taxon, modules_to_keep)
+        # make locus tag  => refseq dict
+        locus_tag_refseq_dict = {}
+        for subdir, dirs, files in os.walk(lt.get_path() + '/data/genomes/genomes_ncbi_old/' + taxon):
+            for file in files:
+                if file.endswith('.gbff'):
+                    with open(os.path.join(subdir, file), "rU") as input_handle:
+                        for record in SeqIO.parse(input_handle, "genbank"):
+                            for feature in record.features:
+                                if feature.type != 'CDS':
+                                    continue
+                                if 'incomplete' in feature.qualifiers['note'][0]:
+                                    continue
+                                if 'frameshifted' in feature.qualifiers['note'][0]:
+                                    continue
+                                if 'internal stop' in feature.qualifiers['note'][0]:
+                                    continue
+                                gene_name = feature.qualifiers['locus_tag'][0]
+                                inference = feature.qualifiers['inference'][0]
+                                product = feature.qualifiers['product'][0]
+                                if 'RefSeq' in inference:
+                                    locus_tag_refseq_dict[gene_name] = [inference.split(':')[-1], product]
+
+        # finally get maple annotation for the genes with significant # mutations
+        print(taxon)
+        for locus_tag in locus_tags:
+            if locus_tag not in locus_tag_refseq_dict:
+                continue
+            refseq_annotation = locus_tag_refseq_dict[locus_tag]
+
+            refseq_name = refseq_annotation[0].replace("_", "")
+
+            total_parallelism.write("\t".join([taxon, locus_tag, refseq_name, refseq_annotation[1]]) + '\n')
+    total_parallelism.close()
+
+
+
+
+
+
+
+
+
+
 #run_parallelism_analysis()
-get_diversity_stats()
+#get_diversity_stats()
+annotate_significant_genes()

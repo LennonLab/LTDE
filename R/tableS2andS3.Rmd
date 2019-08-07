@@ -1,0 +1,56 @@
+---
+output: pdf_document
+---
+
+```{r, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+rm(list = ls()) 
+#setwd("~/GitHub/LTDE/")
+library(xtable)
+library(dplyr)
+
+df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/pmc/pmc_mttf_BM_OU.csv", 
+                 header = TRUE, sep = ",", stringsAsFactors = FALSE)
+
+drops <- c("X", "test")
+
+df <- df[ , !(names(df) %in% drops)]
+
+df.reorder <- select(df, "Bacillus", "sigsq_BM", "sigsq_OU", "alpha", "llr", "p_value") 
+
+colnames(df.reorder) <- c("$Bacillus$","$\\sigma_{BM}$", "$\\sigma_{OU}$", "$\\theta_{OU}$", "$LR$", "$p$")
+                                
+                                
+mat <- xtable(df.reorder, display = c("s", "s", "f","f", "f", "f", "f"), align=c("c","c","c","c", "c","c","c"), digits=c(0, 0, 0, 2, 2, 2, 4))
+
+
+print(mat, comment=FALSE, include.rownames=FALSE, latex.environments="flushleft", math.style.exponents = TRUE,  sanitize.text.function = function(x) {x})
+
+```
+
+
+
+
+
+```{r, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+
+df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/pmc/pmc_mttf_BM_PL.csv", 
+                 header = TRUE, sep = ",", stringsAsFactors = FALSE)
+
+drops <- c("X", "test")
+
+df <- df[ , !(names(df) %in% drops)]
+
+df.reorder <- select(df, "Bacillus", "sigsq_BM", "sigsq_PL", "lambda", "llr", "p_value") 
+
+colnames(df.reorder) <- c("$Bacillus$","$\\sigma_{BM}$", "$\\sigma_{PL}$", "$\\lambda_{PL}$", "$LR$", "$p$")
+                                
+                                
+mat <- xtable(df.reorder, display = c("s", "s", "f","f", "g", "f", "f"), align=c("c","c","c","c", "c","c","c"), digits=c(0, 0, 2, 2, 3, 2, 4))
+
+
+print(mat, comment=FALSE, include.rownames=FALSE, latex.environments="flushleft", math.style.exponents = TRUE,  sanitize.text.function = function(x) {x})
+
+```
+
+
+
