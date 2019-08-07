@@ -1,0 +1,64 @@
+---
+output: pdf_document
+---
+
+```{r, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+rm(list = ls()) 
+#setwd("~/GitHub/LTDE/")
+library(xtable)
+library(dplyr)
+
+df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/breseq/genetic_diversity_taxa.txt", 
+                 header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+name.df <- data.frame(
+          Species = c("KBS0707", "KBS0702", "ATCC13985", "ATCC43928", "KBS0701",
+                      "KBS0703", "KBS0705", "KBS0706", "KBS0710", "KBS0711",
+                      "KBS0712", "KBS0713", "KBS0714", "KBS0715", "KBS0721",
+                      "KBS0722", "KBS0724", "KBS0725", "KBS0801", "KBS0802", 
+                      "KBS0812"), 
+          FullSpecies = c("$\\mathit{Pseudomonas} \\, \\mathrm{sp. \\, KBS0707}$",
+                          "$\\mathit{Arthrobacter} \\, \\mathrm{sp. \\, KBS0702}$",
+                          "$\\mathit{Pseudomonas} \\, \\mathrm{sp. \\, ATCC13985}$",
+                          "$\\mathit{Pseudomonas} \\, \\mathrm{sp. \\, ATCC43928}$",
+                          "$\\mathit{Pedobacter} \\, \\mathrm{sp. \\, KBS0701}$",
+                          "$\\mathit{Arthrobacter} \\, \\mathrm{sp. \\, KBS0703}$",
+                          "$\\mathit{Inquilinus} \\, \\mathrm{sp. \\, KBS0705}$",
+                          "$\\mathit{Mycobacterium} \\, \\mathrm{sp. \\, KBS0706}$",
+                          "$\\mathit{Pseudomonas} \\, \\mathrm{sp. \\, KBS0710}$",
+                          "$\\mathit{Janthinobacterium} \\, \\mathrm{sp. \\, KBS0711}$",
+                          "$\\mathit{Variovorax} \\, \\mathrm{sp. \\, KBS0712}$",
+                          "$\\mathit{Yersinia} \\, \\mathrm{sp. \\, KBS0713}$",
+                          "$\\mathit{Micrococcus} \\, \\mathrm{sp. \\, KBS0714}$",
+                          "$\\mathit{Curtobacterium} \\, \\mathrm{sp. \\, KBS0715}$",
+                          "$\\mathit{Flavobacterium} \\, \\mathrm{sp. \\, KBS0721}$",
+                          "$\\mathit{Oerskovia} \\, \\mathrm{sp. \\, KBS0722}$",
+                          "$\\mathit{Rhodococcus} \\, \\mathrm{sp. \\, KBS0724}$",
+                          "$\\mathit{Bradyrhizobium} \\, \\mathrm{sp. \\, KBS0725}$",
+                          "$\\mathit{Burkholderia} \\, \\mathrm{sp. \\, KBS0801}$",
+                          "$\\mathit{Pseudomonas} \\, \\mathrm{sp. \\, KBS0802}$",
+                          "$\\mathit{Bacillus} \\, \\mathrm{sp. \\, KBS0812}$"), 
+          stringsAsFactors = FALSE)
+
+df.merge <- merge(df, name.df, by="Species")
+
+drops <- c("Species")
+
+df.merge <- df.merge[ , !(names(df.merge) %in% drops)]
+
+df.merge.reorder <- select(df.merge, "FullSpecies", "n_muts", "mean_freq", "Theta", "Pi", "Tajimas_D") 
+
+colnames(df.merge.reorder) <- c("$\\mathrm{Taxon}$", "$n_{muts}$", "$f$", 
+                                "$\\theta_{W} \\, (\\mathrm{bp}^{-1})$", "$\\theta_{\\pi}\\, (\\mathrm{bp}^{-1})$", "$D_{T}$")
+                                
+mat <- xtable(df.merge.reorder, display = c("s", "s", "f","f", "g", "g", "g"), align=c("c","l","c","c", "c","c","c"), digits=c(0, 0, 0, 2, 2, 2, 2))
+
+
+print(mat, comment=FALSE, include.rownames=FALSE, latex.environments="flushleft", math.style.exponents = TRUE,  sanitize.text.function = function(x) {x})
+
+```
+
+
+
+
+
+
