@@ -22,6 +22,8 @@ colnames(df.metab.noNA.der.mean) <- c("Species", "Active.der", "Dead.der", "Dorm
 # merge
 df.metab.mean.merge <- merge(df.metab.noNA.anc.mean, df.metab.noNA.der.mean, by=c("Species"))
 df.metab.mean.merge$dorm.diff <- df.metab.mean.merge$Dormant.der - df.metab.mean.merge$Dormant.anc
+df.metab.mean.merge$dead.diff <- df.metab.mean.merge$Dead.der - df.metab.mean.merge$Dead.anc
+
 rownames(df.metab.mean.merge) <- df.metab.mean.merge$Species
 
 # Death curve
@@ -36,6 +38,8 @@ rownames(df.species.merge) <- df.species.merge$Row.names
 df.species.merge <- df.species.merge[!(df.species.merge$Species.x=="KBS0711W" ),]
 #x <- x[!(x$strain=="KBS0812" ),]
 
+
+plot(df.species.merge$dead.diff, df.species.merge$alpha)
 
 # Load ML tree
 ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde")

@@ -3,13 +3,13 @@ output: pdf_document
 ---
 
 ```{r, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-rm(list = ls()) 
+rm(list = ls())
 #setwd("~/GitHub/LTDE/")
 library(xtable)
 library(dplyr)
 
-df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/breseq/dN_dS_taxa.txt", 
-                 header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/demography/weibull_results_clean_species.csv", 
+                 header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 name.df <- data.frame(
           Species = c("KBS0707", "KBS0702", "ATCC13985", "ATCC43928", "KBS0701",
                       "KBS0703", "KBS0705", "KBS0706", "KBS0710", "KBS0711",
@@ -41,16 +41,26 @@ name.df <- data.frame(
 
 df.merge <- merge(df, name.df, by="Species")
 
-drops <- c("Species")
+drops <- c("beta", "mttf", "N_0", "N_final", "beta.log10.se",
+          "mttf.log10.se", "pooled.log10.mttf.se", "pooled.alpha.se", "log10.N_0.se", 
+          "log10.N_0", "Species", "N_final.log10")
 
 df.merge <- df.merge[ , !(names(df.merge) %in% drops)]
+df.merge$beta.log10 <- 10 ** df.merge$beta.log10
+df.merge$mttf.log10 <- 10 ** df.merge$mttf.log10
+df.merge$delta_N.log10 <- 10 ** df.merge$delta_N.log10
+df.merge$N_0.log10 <- 10 ** df.merge$N_0.log10
 
-df.merge.reorder <- select(df.merge, "FullSpecies", "n_reps", "n_syn_non_muts", "dN_dS_total", "t_stat", "p_BH") 
 
-colnames(df.merge.reorder) <- c("$\\mathrm{Taxon}$", "$n_{rep}$", "$n_{mut}$", 
-                                "$dN/dS$", "$t$", "$p_{BH}$")
+df.merge.reorder <- select(df.merge, "FullSpecies", "Last_date", "mttf.log10", "beta.log10", "alpha", "N_0.log10", "delta_N.log10", "LR", "p.value.BH") 
+
+df.merge.reorder$Last_date <- as.integer(df.merge.reorder$Last_date)
+
+colnames(df.merge.reorder) <- c("$\\mathrm{Taxon}$", "$\\mathrm{Time \\, (d)}$", "$\\bar{T}_{d}$", 
+                                "$\\lambda$", "$k$", "$N_{0}$", "$\\Delta N$", "$LR$", 
+                                "$p_{BH}$")
                                 
-mat <- xtable(df.merge.reorder, display = c("s", "s", "f","f", "f", "f", "g"), align=c("c","l","c","c", "c","c","c"), digits=c(0, 0, 0, 2, 2, 2, 2))
+mat <- xtable(df.merge.reorder, display = c("s", "s", "f","f", "g", "f", "g", "g", "f", "g"), align=c("c","l","c","c", "c","c","c","c","c","c"), digits=c(0, 0, 0, 2, 2, 2, 2, 2, 2, 2))
 
 
 print(mat, comment=FALSE, include.rownames=FALSE, latex.environments="flushleft", math.style.exponents = TRUE,  sanitize.text.function = function(x) {x})

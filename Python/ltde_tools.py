@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import poisson
 from scipy.special import gammaln
+from Bio import SeqIO
 
 np.random.seed(123456789)
 
@@ -139,7 +140,8 @@ def calculate_total_parallelism(gene_statistics, allowed_genes=None, num_bootstr
     pvalue = ((bootstrapped_Gs>=observed_G).sum()+1.0)/(len(bootstrapped_Gs)+1.0)
     return observed_G, pvalue
 
-
+# calculate_poisson_log_survival function is modified from GitHub repo
+# benjaminhgood/LTEE-metagenomic under GPL v2
 def calculate_poisson_log_survival(ns, expected_ns):
 
     survivals = poisson.sf(ns-0.1, expected_ns)
@@ -150,6 +152,8 @@ def calculate_poisson_log_survival(ns, expected_ns):
 
     return logsurvivals
 
+# calculate_parallelism_logpvalues function is modified from GitHub repo
+# benjaminhgood/LTEE-metagenomic under GPL v2
 def calculate_parallelism_logpvalues(gene_statistics):
 
     gene_names = []
@@ -172,7 +176,8 @@ def calculate_parallelism_logpvalues(gene_statistics):
     return {gene_name: logp for gene_name, logp in zip(gene_names, logpvalues)}
 
 
-
+# NullGeneLogpSurvivalFunction class is modified from GitHub repo
+# benjaminhgood/LTEE-metagenomic under GPL v2
 class NullGeneLogpSurvivalFunction(object):
     # Null distribution of -log p for each gene
 
@@ -207,6 +212,119 @@ class NullGeneLogpSurvivalFunction(object):
         probabilities = np.exp(logprobabilities)
         survivals = np.array([ ((logpvalues>=mlogp)*(ns[None,:]>=self.nmin)*probabilities).sum() for mlogp in mlogps])
         return survivals
+
+
+
+# calculate_synonymous_nonsynonymous_target_sizes function is modified from GitHub repo
+# benjaminhgood/LTEE-metagenomic under GPL v2
+def calculate_synonymous_nonsynonymous_target_sizes(taxon):
+    codon_table = { 'GCT': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A', 'CGT': 'R',
+                    'CGC': 'R', 'CGA':'R', 'CGG':'R', 'AGA':'R', 'AGG':'R',
+                    'AAT':'N', 'AAC':'N', 'GAT':'D', 'GAC':'D', 'TGT':'C',
+                    'TGC':'D', 'CAA':'Q', 'CAG':'Q', 'GAA':'E', 'GAG':'E',
+                    'GGT':'G', 'GGC':'G', 'GGA':'G', 'GGG':'G', 'CAT':'H',
+                    'CAC':'H', 'ATT':'I', 'ATC':'I', 'ATA':'I', 'TTA':'L',
+                    'TTG':'L', 'CTT':'L', 'CTC':'L', 'CTA':'L', 'CTG':'L',
+                    'AAA':'K', 'AAG':'K', 'ATG':'M', 'TTT':'F', 'TTC':'F',
+                    'CCT':'P', 'CCC':'P', 'CCA':'P', 'CCG':'P', 'TCT':'S',
+                    'TCC':'S', 'TCA':'S', 'TCG':'S', 'AGT':'S', 'AGC':'S',
+                    'ACT':'T', 'ACC':'T', 'ACA':'T', 'ACG':'T', 'TGG':'W',
+                    'TAT':'Y', 'TAC':'Y', 'GTT':'V', 'GTC':'V', 'GTA':'V',
+                    'GTG':'V', 'TAA':'!', 'TGA':'!', 'TAG':'!' }
+
+    # calculate number of synonymous opportunities for each codon
+    codon_synonymous_opportunity_table = {}
+    for codon in codon_table.keys():
+        codon_synonymous_opportunity_table[codon] = {}
+        for i in range(0,3):
+            codon_synonymous_opportunity_table[codon][i] = -1 # since G->G is by definition synonymous, but we don't want to count it
+            codon_list = list(codon)
+            for base in ['A','C','T','G']:
+                codon_list[i]=base
+                new_codon = "".join(codon_list)
+                if codon_table[codon]==codon_table[new_codon]:
+                    # synonymous!
+                    codon_synonymous_opportunity_table[codon][i]+=1
+
+    codon_synonymous_substitution_table = {}
+    codon_nonsynonymous_substitution_table = {}
+    for codon in codon_table.keys():
+        codon_synonymous_substitution_table[codon] = [[],[],[]]
+        codon_nonsynonymous_substitution_table[codon] = [[],[],[]]
+
+        for i in range(0,3):
+            reference_base = codon[i]
+
+            codon_list = list(codon)
+            for derived_base in ['A','C','T','G']:
+                if derived_base==reference_base:
+                    continue
+                substitution = '%s->%s' % (reference_base, derived_base)
+                codon_list[i]=derived_base
+                new_codon = "".join(codon_list)
+                if codon_table[codon]==codon_table[new_codon]:
+                    # synonymous!
+                    codon_synonymous_substitution_table[codon][i].append(substitution)
+                else:
+                    codon_nonsynonymous_substitution_table[codon][i].append(substitution)
+    bases = set(['A','C','T','G'])
+    substitutions = []
+    for b1 in bases:
+        for b2 in bases:
+            if b2==b1:
+                continue
+            substitutions.append( '%s->%s' % (b1,b2) )
+    substitution_specific_synonymous_sites = {substitution: 0 for substitution in substitutions}
+    substitution_specific_nonsynonymous_sites = {substitution: 0 for substitution in substitutions}
+    effective_gene_synonymous_sites = {}
+    effective_gene_nonsynonymous_sites = {}
+    gene_length_map = {}
+    genome_path = get_path() + '/data/genomes/genomes_ncbi_old/' + taxon
+    for subdir, dirs, files in os.walk(genome_path):
+        for file in files:
+            if file.endswith('.gbff'):
+                with open(os.path.join(subdir, file), "rU") as input_handle:
+                    for record in SeqIO.parse(input_handle, "genbank"):
+                        for feature in record.features:
+                            if feature.type != 'CDS':
+                                continue
+                            if 'incomplete' in feature.qualifiers['note'][0]:
+                                continue
+                            if 'frameshifted' in feature.qualifiers['note'][0]:
+                                continue
+                            if 'internal stop' in feature.qualifiers['note'][0]:
+                                continue
+                            gene_name = feature.qualifiers['locus_tag'][0]
+
+                            if gene_name not in effective_gene_synonymous_sites:
+                                effective_gene_synonymous_sites[gene_name]=0
+                                effective_gene_nonsynonymous_sites[gene_name]=0
+                            aa_str = str(feature.qualifiers['translation'][0])
+                            nuc_str = str(feature.location.extract(record).seq[:-3])
+                            gene_length_map[gene_name] = len(nuc_str)
+                            for position in range(len(nuc_str)):
+                                codon_start = int(position/3)*3
+                                codon = nuc_str[codon_start:codon_start+3]
+                                if len(codon) <3:
+                                    continue
+                                position_in_codon = position%3
+
+                                effective_gene_synonymous_sites[gene_name] += codon_synonymous_opportunity_table[codon][position_in_codon]/3.0
+                                effective_gene_nonsynonymous_sites[gene_name] += 1-codon_synonymous_opportunity_table[codon][position_in_codon]/3.0
+
+                                for substitution in codon_synonymous_substitution_table[codon][position_in_codon]:
+                                    substitution_specific_synonymous_sites[substitution] += 1
+
+                                for substitution in codon_nonsynonymous_substitution_table[codon][position_in_codon]:
+                                    substitution_specific_nonsynonymous_sites[substitution] += 1
+    substitution_specific_synonymous_fraction = {substitution: substitution_specific_synonymous_sites[substitution]*1.0/(substitution_specific_synonymous_sites[substitution]+substitution_specific_nonsynonymous_sites[substitution]) for substitution in substitution_specific_synonymous_sites.keys()}
+    effective_gene_lengths = {gene_name: gene_length_map[gene_name]-effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()}
+    effective_gene_lengths_synonymous = sum([effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
+    effective_gene_lengths_nonsynonymous = sum([effective_gene_nonsynonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
+    effective_gene_lengths_noncoding = get_genome_size_dict()[taxon] - effective_gene_lengths_synonymous-effective_gene_lengths_nonsynonymous
+
+    return effective_gene_lengths, effective_gene_lengths_synonymous, effective_gene_lengths_nonsynonymous, effective_gene_lengths_noncoding
+
 
 
 

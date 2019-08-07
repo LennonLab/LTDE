@@ -18,6 +18,16 @@ rownames(df) <- df$Species
 rownames(df.no812) <- df.no812$Species
 
 
+traits <-  read.table("data/traits/traits.txt", 
+                      header = TRUE, sep = "\t", row.names = 1, stringsAsFactors = FALSE)
+traits$Species <- rownames(traits)
+traits.merge <- merge(df, traits, by="row.names")
+rownames(traits.merge) <- traits.merge$Species
+
+traits.no812 <- traits[!(traits$Species=="KBS0812" ),]
+traits.no812.merge <- merge(df.no812, traits.no812, by="row.names")
+rownames(traits.no812.merge) <- traits.no812.merge$Species
+
 # Load ML tree
 ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde")
 # Define the outgroup
@@ -39,69 +49,46 @@ is.ultrametric(ml.rooted.no812.um)
 mttf.log10 <- df$mttf.log10
 names(mttf.log10) <- df$Species
 
+beta.log10 <- df$beta.log10
+names(beta.log10) <- df$Species
+
+
+
+test1 <- pmc(ml.rooted.um, mttf.log10, "trend", "OU", nboot = 2)
+test2 <- pmc(ml.rooted.no812.um, mttf.log10, "trend", "OU", nboot = 2)
+
+
+
+alpha <- df$alpha
+names(alpha) <- df$Species
+
+umax <- traits.merge$umax
+names(umax) <- traits.merge$Species
+
+lag <- log10(traits.merge$Lag)
+names(lag) <- traits.merge$Species
+
+yield <- traits.merge$A
+names(yield) <- traits.merge$Species
+
 # no KBS0812
-mttf.log10.no812 <- df.no812$mttf.log10
-names(mttf.log10.no812) <- df.no812$Species
+beta.log10.no812 <- df.no812$beta.log10
+names(beta.log10.no812) <- df.no812$Species
+
+alpha.no812 <- df.no812$alpha
+names(alpha.no812) <- df.no812$Species
+
+umax.no812 <- traits.no812.merge$umax
+names(umax.no812) <- traits.no812.merge$Species.x
+
+lag.no812 <- log10(traits.no812.merge$Lag)
+names(lag.no812) <- traits.no812.merge$Species.x
+
+yield.no812 <- traits.no812.merge$A
+names(yield.no812) <- traits.no812.merge$Species.x
+
 
 iter <- 1000
-
-BM.OU <- pmc(ml.rooted.um, mttf.log10, "BM", "OU", nboot = iter)
-BM.OU.no812 <- pmc(ml.rooted.no812.um, mttf.log10.no812, "BM", "OU", nboot = iter)
-
-BM.PL <- pmc(ml.rooted.um, mttf.log10, "BM", "lambda", nboot = iter)
-BM.PL.no812 <- pmc(ml.rooted.no812.um, mttf.log10.no812, "BM", "lambda", nboot = iter)
-
-
-
-p_value.BM.OU <- (length(BM.OU$null[BM.OU$null > BM.OU$lr] )+1) / (iter+1)
-p_value.BM.OU.no812 <- (length(BM.OU.no812$null[BM.OU.no812$null > BM.OU.no812$lr] )+1) / (iter+1)
-
-p_value.BM.PL <- (length(BM.PL$null[BM.PL$null > BM.PL$lr] )+1) / (iter+1)
-p_value.BM.PL.no812 <- (length(BM.PL.no812$null[BM.PL.no812$null > BM.PL.no812$lr] )+1) / (iter+1)
-
-df.BM.OU <- cbind(Bacillus=c("True","False"), 
-                    test=c("BM.OU","BM.OU"), 
-                    llr=c(BM.OU$lr, BM.OU.no812$lr),
-                    p_value=c(p_value.BM.OU, p_value.BM.OU.no812),
-                    sigsq_BM=c(BM.OU$A$opt$sigsq, BM.OU.no812$A$opt$sigsq),
-                    sigsq_OU=c(BM.OU$B$opt$sigsq, BM.OU.no812$B$opt$sigsq),
-                    alpha=c(BM.OU$B$opt$alpha, BM.OU.no812$B$opt$alpha)
-)
-df.BM.OU <- as.data.frame(df.BM.OU)
-df.BM.OU$llr <- as.numeric(as.character(df.BM.OU$llr))
-df.BM.OU$p_value <- as.numeric(as.character(df.BM.OU$p_value))
-df.BM.OU$sigsq_BM <- as.numeric(as.character(df.BM.OU$sigsq_BM))
-df.BM.OU$sigsq_OU <- as.numeric(as.character(df.BM.OU$sigsq_OU))
-df.BM.OU$alpha <- as.numeric(as.character(df.BM.OU$alpha))
-write.csv(df.BM.OU, file = "data/pmc/pmc_mttf_BM_OU.csv")
-
-
-
-df.BM.PL <- cbind(Bacillus=c("True","False"), 
-                  test=c("BM.PL","BM.PL"), 
-                  llr=c(BM.PL$lr, BM.PL.no812$lr),
-                  p_value=c(p_value.BM.PL, p_value.BM.PL.no812),
-                  sigsq_BM=c(BM.PL$A$opt$sigsq, BM.PL.no812$A$opt$sigsq),
-                  sigsq_PL=c(BM.PL$B$opt$sigsq, BM.PL.no812$B$opt$sigsq),
-                  lambda=c(BM.PL$B$opt$lambda, BM.PL.no812$B$opt$lambda)
-)
-
-df.BM.PL <- as.data.frame(df.BM.PL)
-df.BM.PL$llr <- as.numeric(as.character(df.BM.PL$llr))
-df.BM.PL$p_value <- as.numeric(as.character(df.BM.PL$p_value))
-df.BM.PL$sigsq_BM <- as.numeric(as.character(df.BM.PL$sigsq_BM))
-df.BM.PL$sigsq_PL <- as.numeric(as.character(df.BM.PL$sigsq_PL))
-df.BM.PL$lambda <- as.numeric(as.character(df.BM.PL$lambda))
-write.csv(df.BM.PL, file = "data/pmc/pmc_mttf_BM_PL.csv")
-
-
-
-
-
-
-
-
-BM.PL.beta.log10 <- pmc(ml.rooted.um, beta.log10, "BM", "lambda", nboot = iter)
 BM.PL.beta.log10 <- pmc(ml.rooted.um, beta.log10, "BM", "lambda", nboot = iter)
 BM.PL.alpha <- pmc(ml.rooted.um, alpha, "BM", "lambda", nboot = iter )
 BM.PL.umax <- pmc(ml.rooted.um, umax, "BM", "lambda", nboot = iter)

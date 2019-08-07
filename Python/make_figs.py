@@ -10,11 +10,11 @@ import _pickle as pickle
 
 def plot_multiplicity_survival():
     taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712']
-
+    df_par = pd.read_csv(lt.get_path() + '/data/breseq/total_parallelism.txt', sep = '\t' )
     # taxa with at least five genes with a multiplicity greater than one
-    #taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712', 'KBS0713', 'KBS0715', 'KBS0721', 'KBS0801']
     # don't include KBS0707 even though it has a significant G score, sicne there's
     # only one gene with a multiplicity greater than 1
+    annotate_x = [7.5, 3.75, 5.2, 9]
     fig = plt.figure()
     fig.subplots_adjust(hspace=0.35, wspace=0.35)
     for i in range(0, len(taxa_to_plot)):
@@ -29,6 +29,14 @@ def plot_multiplicity_survival():
         ax.plot(new_x, new_obs_y, '-', c='royalblue', lw=4, alpha = 0.8, zorder=1)
         ax.plot(new_x, new_null_y, '-', c='dimgrey', lw=4, alpha = 0.8, zorder=0)
         ax.set_xlim([0.25, max(new_x)+1])
+
+        taxon_par = df_par.loc[df_par['Taxon'] == taxon]
+
+        ax.annotate(r'$\Delta \ell= $'+ str(round(float(taxon_par.G_score), 3)), (annotate_x[i], 0.9), fontsize=8)
+        if np.log10(float(taxon_par.p_value_BH)) < -3:
+            ax.annotate(r'$\mathrm{p_{BH}} = $'+ str('%.2E' % Decimal(float(taxon_par.p_value_BH))), (annotate_x[i], 0.75), fontsize=8)
+        else:
+            ax.annotate(r'$\mathrm{p_{BH}} = $'+ str(round(float(taxon_par.p_value_BH),3)), (annotate_x[i], 0.75), fontsize=8)
 
         #D, p_value = stats.ks_2samp(df.Null_fract.tolist() , df.Obs_fract.tolist())
         #ax.annotate(r'$D= $'+ str(round(D, 3)), (5.2, 0.9), fontsize=8)
@@ -145,4 +153,4 @@ def plot_logpvalue_survival():
 
 
 plot_multiplicity_survival()
-plot_logpvalue_survival()
+#plot_logpvalue_survival()
