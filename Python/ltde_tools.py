@@ -279,7 +279,7 @@ def calculate_synonymous_nonsynonymous_target_sizes(taxon):
     effective_gene_synonymous_sites = {}
     effective_gene_nonsynonymous_sites = {}
     gene_length_map = {}
-    genome_path = get_path() + '/data/genomes/genomes_ncbi/' + taxon
+    genome_path = get_path() + '/data/genomes/genomes_ncbi_old/' + taxon
     for subdir, dirs, files in os.walk(genome_path):
         for file in files:
             if file.endswith('.gbff'):
@@ -317,7 +317,6 @@ def calculate_synonymous_nonsynonymous_target_sizes(taxon):
 
                                 for substitution in codon_nonsynonymous_substitution_table[codon][position_in_codon]:
                                     substitution_specific_nonsynonymous_sites[substitution] += 1
-
     substitution_specific_synonymous_fraction = {substitution: substitution_specific_synonymous_sites[substitution]*1.0/(substitution_specific_synonymous_sites[substitution]+substitution_specific_nonsynonymous_sites[substitution]) for substitution in substitution_specific_synonymous_sites.keys()}
     effective_gene_lengths = {gene_name: gene_length_map[gene_name]-effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()}
     effective_gene_lengths_synonymous = sum([effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()])

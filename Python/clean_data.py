@@ -8,6 +8,8 @@ from Bio import SeqIO
 import _pickle as pickle
 from decimal import Decimal
 import statsmodels.stats.multitest as mt
+from scipy.stats import t
+
 
 #np.random.seed(123456789)
 
@@ -274,8 +276,20 @@ def get_diversity_stats():
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
         if len(taxon_samples) < 3:
             to_keep_taxa.remove(taxon)
-
+    # all the diversity measures
+    taxa_all = []
+    n_muts_all = []
+    mean_freq_list_all = []
+    pi_list_all = []
+    theta_list_all = []
+    TD_list_all = []
+    dnds_total_list_all = []
+    tt_all = []
+    p_value_all = []
+    n_reps_all = []
+    n_syn_non_muts_all = []
     for taxon in to_keep_taxa:
+        print(taxon)
         effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = lt.calculate_synonymous_nonsynonymous_target_sizes(taxon)
         taxon_sites = []
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
@@ -293,8 +307,14 @@ def get_diversity_stats():
         count_dict_to_remove = dict((k, v) for k, v in counts_across_reps_dict.items() if v > 2)
         sites_to_remove = list(count_dict_to_remove.keys())
         genome_size = lt.get_genome_size_dict()[taxon]
-        taxon_sites = []
-        taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
+        # list of diversity statistics
+        mean_freq_list = []
+        pi_list = []
+        theta_list = []
+        TD_list = []
+        dnds_total_list = []
+        n_muts_list = []
+        n_syn_non_muts_list = []
         for taxon_sample in taxon_samples:
             n_c = lt.get_final_pop_size(taxon_sample)
             # get SNP identifiers
@@ -313,6 +333,7 @@ def get_diversity_stats():
 
             # go back through the file again and get the coverage info from RA lines
             freq_list = []
+            n_muts = 0
             for i, line in enumerate(open(lt.get_path() + '/data/breseq/output/' + taxon_sample + '.gd', 'r')):
                 line_split = line.strip().split('\t')
                 if (line_split[0] == 'RA') and (line_split[1] in SNP_IDs):
@@ -321,6 +342,10 @@ def get_diversity_stats():
                     total_cov = int(line_split[-1].split('=')[1].split('/')[0]) + int(line_split[-1].split('=')[1].split('/')[1])
                     freq = float(line_split[20].split('=')[1])
                     freq_list.append([freq, total_cov, major_cov, minor_cov])
+                    n_muts += 1
+
+            n_muts_list.append(n_muts)
+
             pi = lt.get_pi(freq_list, n_c, genome_size)
             theta = lt.get_theta(freq_list, n_c, genome_size)
             mean_freq = np.mean([ float(i[0]) for i in  freq_list])
@@ -329,6 +354,7 @@ def get_diversity_stats():
             syn_total = 0
             non_fixed = 0
             syn_fixed = 0
+            n_syn_non_muts = 0
             for i, line in enumerate(open(lt.get_path() + '/data/breseq/annotated/' + taxon_sample + '.gd', 'r')):
                 line_split = line.strip().split('\t')
                 # don't count mutations that may be ancestral
@@ -336,6 +362,7 @@ def get_diversity_stats():
                 if (line_split[0] != 'SNP') or ('frequency' in line_split[6]) or (line_split[3] + '_' + line_split[4] in sites_to_remove):
                     continue
                 freq = float([s for s in line_split if 'frequency=' in s][0].split('=')[1])
+                n_syn_non_muts += 1
                 if freq == float(1):
                     if line_split[6].split('=')[1] == line_split[8].split('=')[1]:
                         syn_fixed += 1
@@ -346,12 +373,52 @@ def get_diversity_stats():
                 else:
                     non_total += 1
             # add psuedocount of 1
+            n_syn_non_muts_list.append(n_syn_non_muts)
             dnds_total = ((non_total+1)/(syn_total+1))/((Lnon+1)/(Lsyn+1))
             dnds_fixed = ((non_fixed+1)/(syn_fixed+1))/((Lnon+1)/(Lsyn+1))
-            print(taxon_sample, dnds_total, dnds_fixed, mean_freq)
+
+            mean_freq_list.append(mean_freq)
+            pi_list.append(pi)
+            theta_list.append(theta)
+            TD_list.append(TD)
+            dnds_total_list.append(dnds_total)
             df_out.write('\t'.join([ taxon, taxon_sample, str(pi), str(theta), str(TD), str(dnds_total), str(dnds_fixed), str(mean_freq)]) + '\n')
 
+        # get taxon level stats
+        n_muts_all.append(np.mean(n_muts_list))
+        n_syn_non_muts_all.append(np.mean(n_syn_non_muts_list))
+        mean_freq_list_all.append(np.mean(mean_freq_list))
+        pi_list_all.append(np.mean(pi_list))
+        theta_list_all.append(np.mean(theta_list))
+        TD_list_all.append(np.mean(TD_list))
+        mean_dnds_total = np.mean(dnds_total_list)
+        dnds_total_list_all.append(mean_dnds_total)
+        taxa_all.append(taxon)
+        tt = (mean_dnds_total-1)/ (np.std(dnds_total_list) / np.sqrt(float(len(dnds_total_list))))
+        p_val = t.sf(np.abs(tt), len(dnds_total_list)-1) # left-tailed one-sided t-test, so use CDF
+        n_reps_all.append(len(dnds_total_list))
+        tt_all.append(tt)
+        p_value_all.append(p_val)
+
     df_out.close()
+
+    reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(p_value_all, alpha=0.05, method='fdr_bh')
+    print(reject, pvals_corrected, alphacSidak, alphacBonf)
+
+    # two files, one for dnds one for rest of diversity stats
+    df_out_taxa = open(lt.get_path() + '/data/breseq/genetic_diversity_taxa.txt', 'w')
+    df_out_taxa.write('\t'.join(['Species', 'n_muts', 'mean_freq', 'Theta', 'Pi', 'Tajimas_D']) + '\n')
+    for i in range(len(taxa_all)):
+        df_out_taxa.write('\t'.join([taxa_all[i], str(n_muts_all[i]), str(mean_freq_list_all[i]), str(theta_list_all[i]), str(pi_list_all[i]), str(TD_list_all[i])]) + '\n')
+    df_out_taxa.close()
+
+
+
+    df_dNdS_taxa = open(lt.get_path() + '/data/breseq/dN_dS_taxa.txt', 'w')
+    df_dNdS_taxa.write('\t'.join(['Species', 'n_reps', 'n_syn_non_muts', 'dN_dS_total', 't_stat', 'p_BH']) + '\n')
+    for i in range(len(taxa_all)):
+        df_dNdS_taxa.write('\t'.join([taxa_all[i], str(n_reps_all[i]), str(n_syn_non_muts_all[i]), str(dnds_total_list_all[i]), str(tt_all[i]), str(pvals_corrected[i])]) + '\n')
+    df_dNdS_taxa.close()
 
 
 
@@ -536,4 +603,4 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
 
 
 #run_parallelism_analysis()
-#get_diversity_stats()
+get_diversity_stats()

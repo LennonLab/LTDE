@@ -18,7 +18,7 @@ strains <- sort(unique(obs$Strain))
 #strains <- strains[table(obs$Strain)>10]
 #strains <- c('KBS0713')
 obs <- obs[obs$Strain%in%strains,]
-summ <- matrix(NA,length(strains)*max(obs$Rep),17)
+summ <- matrix(NA,length(strains)*max(obs$Rep),18)
 pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 for(i in 1:length(strains)){
@@ -144,6 +144,9 @@ for(i in 1:length(strains)){
       summ[counter,15] <- N_final
       summ[counter,16] <- LLR
       summ[counter,17] <- p.value
+      summ[counter,18] <- max(repObs["time"]-1)
+      
+      print(max(repObs["time"]-1))
       
       ### *** Comment/Uncomment following code to make pdf figs*** ###
       title=paste(strains[i],"  rep ",reps[j])
@@ -159,8 +162,10 @@ for(i in 1:length(strains)){
 
 dev.off() 
 summ=summ[!is.na(summ[,1]),]
-colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0", "N_final", "LR", "p.value")
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0", "N_final", "LR", "p.value", "Last_date")
 write.csv(summ,"data/demography/weibull_results.csv")
+
+
 
 # clean the results file
 df <- read.table("data/demography/weibull_results.csv", 
@@ -172,6 +177,8 @@ df <- df[!(df$strain=="KBS0711W"),]
 df <- df[!(df$strain == "KBS0711" & df$rep == 10 ),] 
 df <- df[!(df$strain == "KBS0711" & df$rep == 11 ),] 
 df <- df[!(df$strain == "KBS0711" & df$rep == 12 ),] 
+df <- df[!(df$strain=="KBS0727"),]
+
 
 # multiple testing correction 
 df$p.value.BH <- p.adjust(df$p.value, method = "BH", n = length(df$p.value))
@@ -181,8 +188,10 @@ write.csv(df, file = "data/demography/weibull_results_clean.csv")
 # get mean time to failure and CIs
 df$beta.log10 <- log10(df$beta)
 df$mttf.log10 <- log10(df$mttf)
+df$N_0.log10 <- log10(df$N_0)
+df$N_final.log10 <- log10(df$N_final)
 df$delta_N.log10 <- log10(df$N_0 - df$N_final) 
-df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10', 'delta_N.log10')], list(df$strain), mean)
+df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10', 'delta_N.log10', 'Last_date', 'LR', 'p.value.BH', 'N_0.log10', 'N_final.log10')], list(df$strain), mean)
 colnames(df.species.mean)[1] <- "Species"
 
 df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10')], list(df$strain), std.error)

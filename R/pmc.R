@@ -46,8 +46,18 @@ is.ultrametric(ml.rooted.no812)
 ml.rooted.no812.um  <- chronos(ml.rooted.no812)
 is.ultrametric(ml.rooted.no812.um)
 
+mttf.log10 <- df$mttf.log10
+names(mttf.log10) <- df$Species
+
 beta.log10 <- df$beta.log10
 names(beta.log10) <- df$Species
+
+
+
+test1 <- pmc(ml.rooted.um, mttf.log10, "trend", "OU", nboot = 2)
+test2 <- pmc(ml.rooted.no812.um, mttf.log10, "trend", "OU", nboot = 2)
+
+
 
 alpha <- df$alpha
 names(alpha) <- df$Species
