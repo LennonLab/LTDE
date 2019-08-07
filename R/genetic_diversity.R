@@ -13,68 +13,171 @@ library('plotrix')
 df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
                          header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 rownames(df.species) <- df.species$Species
-div <-  read.table("data/breseq/genetic_diversity.txt",sep = "\t",header = TRUE)
-div$Pi.log10 <- log10(div$Pi)
-div$Theta.log10 <- log10(div$Theta)
-div$TD.log10 <- log10(div$Tajimas_D)
-
-# get mean of log 10 transformed observations
-div.mean <- aggregate(div[, c('Pi.log10', 'Theta.log10', 'TD.log10', 'dN_dS_total', 'dN_dS_fixed', 'mean_freq')], list(div$Species), mean)
-colnames(div.mean)[1] <- "Species"
-colnames(div.mean)[2] <- "Pi.log10"
-colnames(div.mean)[3] <- "Theta.log10"
-colnames(div.mean)[4] <- "TD.log10"
-colnames(div.mean)[5] <- "dN_dS_total"
-colnames(div.mean)[6] <- "dN_dS_fixed"
-colnames(div.mean)[7] <- "mean_freq"
+div <-  read.table("data/breseq/genetic_diversity_taxa.txt",sep = "\t",header = TRUE)
+df.merge <- merge(df.species, div,by="Species")
 
 
-df.species <- merge(div.mean, df.species,by="Species")
-plot(df.species$mean_freq, df.species$alpha)
+plot(df.merge$Tajimas_D, df.merge$alpha)
 
-# make plots
+summary(lm(df.merge$beta.log10 ~ df.merge$mean_freq))
+summary(lm(df.merge$alpha ~ df.merge$mean_freq))
+
+summary(lm(df.merge$beta.log10 ~ df.merge$Theta))
+summary(lm(df.merge$alpha ~ df.merge$Theta))
+
+summary(lm(df.merge$beta.log10 ~ log10(df.merge$Pi)))
+summary(lm(df.merge$alpha ~ log10(df.merge$Pi)))
+
+summary(lm(df.merge$beta.log10 ~ log10(df.merge$Tajimas_D)))
+summary(lm(df.merge$alpha ~ log10(df.merge$Tajimas_D)))
 
 
-
-# plot diversity figures in supplement, maybe? idk....
-dN_dS.se <- aggregate(div[, c('dN_dS_total', 'dN_dS_fixed')], list(div$Species), std.error)
-colnames(dN_dS.se) <- c("Species", "dN_dS_total.se", "dN_dS_fixed.se" )
-div.dNdS.merge <- merge(df.species, dN_dS.se, by="Species")
-
-
-# make dN/dS plot
-boxplot.dNdS <- ggplot(data = div.dNdS.merge) +
-  geom_point(aes(x = reorder(Species, -dN_dS_total), y = dN_dS_total), color='blue', alpha = 0.6, size=8) +
-  geom_point(aes(x = reorder(Species, -dN_dS_total), y = (dN_dS_total-dN_dS_total.se)), shape=124,size=8 ) +
-  geom_point(aes(x = reorder(Species, -dN_dS_total), y = (dN_dS_total+dN_dS_total.se)), shape=124,size=8 ) +
-  geom_segment(aes(x = Species, y = dN_dS_total, xend = Species, yend = (dN_dS_total-dN_dS_total.se)), size = 1.5) +
-  geom_segment(aes(x = Species, y = dN_dS_total, xend = Species, yend = (dN_dS_total+dN_dS_total.se)), size = 1.5) +
-  geom_hline(yintercept= 1, linetype = "longdash", size=2) +
-  ylab(TeX("Ratio of nonsynonymous to synonymous mutations, $dN/dS$") ) + 
-  coord_flip() +
-  theme_bw() + 
-  theme(axis.title.y=element_blank(), 
-        axis.text.y=element_text(size = 18), 
-        axis.title.x = element_text(color="black", size=24, vjust=0, hjust=0.5), 
-        axis.text.x = element_text(size=18),
-        #axis.title.y = theme_text(vjust=-0.5),
+f.beta.plot <- ggplot(data = df.merge, aes(x = mean_freq, y = 10** beta.log10)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  xlab(TeX("Mean mutation frequency, $\\f$")) +
+  ylab(TeX("Scale paramater, $\\lambda$") ) + 
+  #scale_y_continuous(limits = c(0, 1)) +
+  scale_y_log10(
+    limits = c(0.000001, 2000),
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
         panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(),
-        legend.position = "none") +
-
-  scale_x_discrete( position = "top",
-                    labels=c("KBS0707" = expression(paste(italic("Pseudomonas"), " sp. KBS0707")), 
-                             "KBS0702" = expression(paste(italic("Arthrobacter"), " sp. KBS0702")),
-                             "ATCC13985" = expression(paste(italic("Pseudomonas"), " sp. ATCC13985")),
-                             "KBS0711" = expression(paste(italic("Janthinobacterium"), " sp. KBS0711")),
-                             "KBS0712" = expression(paste(italic("Variovorax"), " sp. KBS0712")),
-                             "KBS0713" = expression(paste(italic("Yersinia"), " sp. KBS0713")),
-                             "KBS0715" = expression(paste(italic("Curtobacterium"), " sp. KBS0715")),
-                             "KBS0721" = expression(paste(italic("Flavobacterium"), " sp. KBS0721")),
-                             "KBS0801" = expression(paste(italic("Burkholderia"), " sp. KBS0801")),
-                             "KBS0802" = expression(paste(italic("Pseudomonas"), " sp. KBS0802")),
-                             "KBS0812" = expression(paste(italic("Bacillus"), " sp. KBS0812"))))
+        panel.grid.minor = element_blank()) #+ scale_y_reverse()
 
 
-ggsave(file="figs/dNdS_total.png", boxplot.dNdS, width=13,height=10, units='in', dpi=600)
+f.alpha.plot <- ggplot(data = df.merge, aes(x = mean_freq, y = alpha)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  ylab(TeX("Shape paramater, $\\k$")) +
+  xlab(TeX("Mean mutation frequency, $\\f$")) +
+  scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+
+
+theta.beta.plot <- ggplot(data = df.merge, aes(x = Theta, y = 10** beta.log10)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  xlab(TeX("Number of mutated sites, $\\theta_{W} \\, (\\mathrm{bp}^{-1})$")) +
+  ylab(TeX("Scale paramater, $\\lambda$") ) + 
+  #scale_y_continuous(limits = c(0, 1)) +
+  scale_y_log10(
+    limits = c(0.000001, 2000),
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()) #+ scale_y_reverse()
+
+
+theta.alpha.plot <- ggplot(data = df.merge, aes(x = Theta, y = alpha)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  ylab(TeX("Shape paramater, $\\k$")) +
+  xlab(TeX("Number of mutated sites, $\\theta_{W} \\, (\\mathrm{bp}^{-1})$")) +
+  scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+
+pi.beta.plot <- ggplot(data = df.merge, aes(x = Pi, y = 10** beta.log10)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  xlab(TeX("Nucleotide diversity, $\\theta_{\\pi} \\, (\\mathrm{bp}^{-1})$")) +
+  ylab(TeX("Scale paramater, $\\lambda$") ) + 
+  #scale_y_continuous(limits = c(0, 1)) +
+  scale_x_log10(
+    limits = c(0.0000001, 0.0001),
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  scale_y_log10(
+    limits = c(0.000001, 2000),
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()) #+ scale_y_reverse()
+
+
+pi.alpha.plot <- ggplot(data = df.merge, aes(x = Pi, y = alpha)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  ylab(TeX("Shape paramater, $\\k$")) +
+  xlab(TeX("Nucleotide diversity, $\\theta_{\\pi} \\, (\\mathrm{bp}^{-1})$")) +
+  scale_x_log10(
+    limits = c(0.0000001, 0.0001),
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+
+td.beta.plot <- ggplot(data = df.merge, aes(x = Tajimas_D, y = 10** beta.log10)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  xlab(TeX("Difference between $\\theta_{\\pi}$ and  $\\theta_{W}$, $T_{D}$")) +
+  ylab(TeX("Scale paramater, $\\lambda$") ) + 
+  #scale_y_continuous(limits = c(0, 1)) +
+  scale_x_log10(
+    limits = c(0.0000005, 0.001),
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  scale_y_log10(
+    limits = c(0.000001, 2000),
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()) #+ scale_y_reverse()
+
+
+td.alpha.plot <- ggplot(data = df.merge, aes(x = Tajimas_D, y = alpha)) +
+  geom_point(color='blue', alpha = 0.6, size=4) +
+  ylab(TeX("Shape paramater, $\\k$")) +
+  xlab(TeX("Difference between $\\theta_{\\pi}$ and  $\\theta_{W}$, $T_{D}$")) +
+  scale_x_log10(
+    limits = c(0.0000005, 0.001),
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  scale_y_continuous(limits = c(0, 1)) +
+  theme_bw() +
+  theme(axis.title.x = element_text(color="black", size=14), 
+        axis.title.y = element_text(color="black", size=14), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+
+
+g <- ggarrange(f.beta.plot, theta.beta.plot, pi.beta.plot, td.beta.plot, 
+               f.alpha.plot, theta.alpha.plot, pi.alpha.plot, td.alpha.plot,     
+               # Second row with box and dot plots
+               ncol = 4, nrow = 2,
+               labels = "auto")#, label.y = c(1, 0.5, 0.25)                                     # Labels of the scatter plot
+
+ggsave(file="figs/genetic_diversity.png", g, width=12,height=8, units='in', dpi=600)
 

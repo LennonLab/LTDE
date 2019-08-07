@@ -29,7 +29,9 @@ bw <- bw.CV(df.species$mttf.log10, method="LCV", lower=0, upper=100)
 # anova analysis
 aov <- aov(log10(mttf) ~ strain, data = df)
 summary(aov)
-# 21, 93
+df_numerator <- nrow(df.species) - 1
+df_denominator <- nrow(df) - nrow(df.species)
+# 20, 73
 
 kde.plot <- ggplot(df.species, aes(10** mttf.log10)) +
             xlab(TeX("Mean time to death, $\\bar{T}_{d}$ (days)") ) + 
@@ -37,7 +39,7 @@ kde.plot <- ggplot(df.species, aes(10** mttf.log10)) +
             geom_density(fill = "blue", alpha = 0.2) +
             theme_bw() +
             scale_x_log10(
-              limits = c(0.1, 1000),
+              limits = c(0.1, 5000),
               breaks = scales::trans_breaks("log10", function(x) 10^x),
               labels = scales::trans_format("log10", scales::math_format(10^.x))
             ) +
@@ -91,8 +93,8 @@ p.value <- null.pareto.test(df.species.order.beta, df.species.order.alpha)
 
 phylo.params <- ggplot(data = df.species, aes(x = 10**(beta.log10 ), y = alpha)) +
                 geom_point(color='blue', alpha = 0.6, size=4) +
-                xlab(TeX("Mean scale paramater, $\\bar{\\lambda}$") ) + 
-                ylab(TeX("Mean shape paramater, $\\bar{k}$")) +
+                xlab(TeX("Scale paramater, $\\lambda$") ) + 
+                ylab(TeX("Shape paramater, $\\k$")) +
                 scale_y_continuous(limits = c(0, 1.05)) +
                 scale_x_log10(
                   limits = c(0.000001, 200),
