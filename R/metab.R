@@ -39,7 +39,7 @@ df.species.merge <- df.species.merge[!(df.species.merge$Species.x=="KBS0711W" ),
 #x <- x[!(x$strain=="KBS0812" ),]
 
 
-plot(df.species.merge$dead.diff, df.species.merge$alpha)
+plot(df.species.merge$Dead.der, df.species.merge$beta.log10)
 
 # Load ML tree
 ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde")
