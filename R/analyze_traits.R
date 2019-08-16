@@ -190,7 +190,7 @@ p.value.beta <- lag.scale.summary$coefficients[8]
 
 phy.beta.lag.plot.main <- ggplot(data = traits.merge, aes(x =Lag, y = 10**beta.log10)) +
   geom_point(color='blue', alpha = 0.6, size=6) +
-  ylab(TeX("Scale paramater, $\\lambda$") ) + 
+  ylab(TeX("Scale paramater, $\\mathit{\\lambda}$") ) + 
   xlab(TeX("Lag time (hours)")) +
   #stat_function(fun = function(x) fit.trait.alpha.select$coefficients[1] + fit.trait.alpha.select$coefficients[4] * x) + 
   #geom_line(aes(y = y, x = x), size=0.75, data=data.frame(x=10**phylo.alpha.lag.x.line, y=phylo.alpha.lag.y.line)) +
@@ -204,8 +204,8 @@ phy.beta.lag.plot.main <- ggplot(data = traits.merge, aes(x =Lag, y = 10**beta.l
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) +
   #scale_y_continuous(limits = c(0, 1)) +
-  annotate("text", x=15, y=0.0007, label=TeX(sprintf("$r^{2} = %g$", round(r2.beta,2))), size = 6) +
-  annotate("text", x=17.8, y=0.0001, label=TeX(sprintf("$p = %g$", round(p.value.beta,4))), size = 6) +
+  annotate("text", x=15, y=0.0007, label=TeX(sprintf("$\\mathit{r}^{2} = %g$", round(r2.beta,2))), size = 6) +
+  annotate("text", x=17.8, y=0.0001, label=TeX(sprintf("$\\mathit{p} = %g$", round(p.value.beta,4))), size = 6) +
   theme_bw() +
   theme(axis.title.x = element_text(color="black", size=23), 
         axis.title.y = element_text(color="black", size=23), 
@@ -224,7 +224,7 @@ r2 <-lag.shape.summary$r.squared
 p.value <- lag.shape.summary$coefficients[8]
 phy.alpha.lag.plot.main <- ggplot(data = traits.merge, aes(x = Lag, y = alpha)) +
   geom_point(color='blue', alpha = 0.6, size=6) +
-  ylab(TeX("Shape paramater, $\\k$")) +
+  ylab(TeX("Shape paramater, $\\mathit{\\k}$")) +
   xlab(TeX("Lag time (hours)")) +
   #stat_function(fun = function(x) fit.trait.alpha.select$coefficients[1] + fit.trait.alpha.select$coefficients[4] * x) + 
   #geom_line(aes(y = y, x = x), size=0.75, data=data.frame(x=10**phylo.alpha.lag.x.line, y=phylo.alpha.lag.y.line)) +
@@ -234,8 +234,8 @@ phy.alpha.lag.plot.main <- ggplot(data = traits.merge, aes(x = Lag, y = alpha)) 
   ) +
   stat_smooth(method = "lm", color='black', size=2, linetype = "dashed") +
   #scale_y_continuous(limits = c(0, 1)) +
-  annotate("text", x=0.82, y=0.9, label=TeX(sprintf("$r^{2} = %g$", round(r2,2))), size = 6) +
-  annotate("text", x=0.99, y=0.82, label=TeX(sprintf("$p = %g$", round(p.value,4))), size = 6) +
+  annotate("text", x=0.82, y=0.9, label=TeX(sprintf("$\\mathit{r}^{2} = %g$", round(r2,2))), size = 6) +
+  annotate("text", x=0.99, y=0.82, label=TeX(sprintf("$\\mathit{p} = %g$", round(p.value,4))), size = 6) +
   theme_bw() +
   theme(axis.title.x = element_text(color="black", size=23), 
         axis.title.y = element_text(color="black", size=23), 

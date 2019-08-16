@@ -6,6 +6,7 @@ import ltde_tools as lt
 from scipy import stats
 from decimal import Decimal
 import _pickle as pickle
+from matplotlib.ticker import FormatStrFormatter
 
 
 def plot_multiplicity_survival():
@@ -67,6 +68,13 @@ def plot_multiplicity_survival():
             print("Taxon not recognized")
 
         ax.title.set_fontsize(8.5)
+
+        ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
+
+
+
+
+        #ax.set_xticklabels(list(map(int, list(ax.get_xticklabels()))))
 
     #fig.tight_layout()
 
@@ -137,6 +145,8 @@ def plot_logpvalue_survival():
             print("Taxon not recognized")
 
         ax.title.set_fontsize(8.5)
+        #ax.set_xticklabels(tick_labels.astype(int))
+
 
         #pvalue_axis.step(observed_ps/log(10), null_pvalue_survival(observed_ps),'-',label='Expected',color='k')
 

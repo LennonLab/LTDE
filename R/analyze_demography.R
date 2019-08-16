@@ -12,7 +12,6 @@ library('gridExtra')
 library('ggpubr')
 library('grid')
 
-set.seed(123456789)
 
 df <- read.csv("data/demography/weibull_results_clean.csv", 
                header = TRUE, stringsAsFactors = FALSE)
@@ -34,7 +33,7 @@ df_denominator <- nrow(df) - nrow(df.species)
 # 20, 73
 
 kde.plot <- ggplot(df.species, aes(10** mttf.log10)) +
-            xlab(TeX("Mean time to death, $\\bar{T}_{d}$ (days)") ) + 
+            xlab(TeX("Mean time to death, $\\mathit{\\bar{T}}_{d}$ (days)") ) + 
             ylab('Density') +
             geom_density(fill = "blue", alpha = 0.2) +
             theme_bw() +
@@ -93,8 +92,8 @@ p.value <- null.pareto.test(df.species.order.beta, df.species.order.alpha)
 
 phylo.params <- ggplot(data = df.species, aes(x = 10**(beta.log10 ), y = alpha)) +
                 geom_point(color='blue', alpha = 0.6, size=4) +
-                xlab(TeX("Scale paramater, $\\lambda$") ) + 
-                ylab(TeX("Shape paramater, $\\k$")) +
+                xlab(TeX("Scale paramater, $\\mathit{\\lambda}$") ) + 
+                ylab(TeX("Shape paramater, $\\mathit{\\k}$")) +
                 scale_y_continuous(limits = c(0, 1.05)) +
                 scale_x_log10(
                   limits = c(0.000001, 200),
@@ -133,13 +132,14 @@ boxplot <- ggplot(data = df.species) +
   geom_point(aes(x = reorder(Species, -mttf.log10), y = 10**(mttf.log10+mttf.log10.se)), shape=124,size=2.5 ) +
   geom_segment(aes(x = Species, y = 10**mttf.log10, xend = Species, yend = 10**(mttf.log10-mttf.log10.se)), size = 0.5) +
   geom_segment(aes(x = Species, y = 10**mttf.log10, xend = Species, yend = 10**(mttf.log10+mttf.log10.se)), size = 0.5) +
-  ylab(TeX("Mean time to death, $\\bar{T}_{d}$ (days)") ) + 
+  ylab(TeX("Mean time to death, $\\mathit{\\bar{T}_{d}}$ (days)") ) + 
   scale_y_log10(
     breaks = scales::trans_breaks("log10", function(x) 10^x),
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) +
   coord_flip() +
   theme_bw() + 
+  annotate("text", x=19, y=1, label= "a", size = 5, fontface =2) +
   theme(axis.title.y=element_blank(), 
         axis.text.y=element_text(size = 7), 
         axis.title.x = element_text(color="black", size=14), 
@@ -174,8 +174,8 @@ boxplot <- ggplot(data = df.species) +
 g <- ggarrange(boxplot,                                                 # First row with scatter plot
           ggarrange(kde.plot, phylo.params, ncol = 2, labels = c("b", "c")), # Second row with box and dot plots
           nrow = 2, 
-          labels = "auto")
+          labels = NULL)
 
 
-ggsave(file="figs/demography.png", g, units='in', dpi=600)
+ggsave(file="figs/demography.png", g,  width=4.2,height=4.9, units='in', dpi=600)
 
