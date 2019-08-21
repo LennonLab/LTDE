@@ -65,22 +65,23 @@ out_dir_fast5_run4=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled_fas
 # get fast5 files for SRA submission
 #nanopore_basecalled_fast5
 
+#/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
+#    -i $fast5_dir_run2 \
+#    -t 12 \
+#    -s $out_dir_fast5_run2 \
+#    -k SQK-LSK109 \
+#    -f FLO-MIN106 \
+#    --config $cfg \
+#    --fast5_out
+
 /N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
-    -i $fast5_dir_run2 \
+    -i $fast5_dir_run3 \
     -t 12 \
-    -s $out_dir_fast5_run2 \
+    -s $out_dir_fast5_run3 \
     -k SQK-LSK109 \
     -f FLO-MIN106 \
     --config $cfg \
     --fast5_out
-
-#/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
-#    -i $fast5_dir_run3 \
-#    -t 12 \
-#    -s $out_dir_fast5_run3 \
-#    -k SQK-LSK109 \
-#    -f FLO-MIN106 \
-#    --config $cfg
 
 #/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
 #    -i $fast5_dir_run4 \
@@ -88,7 +89,9 @@ out_dir_fast5_run4=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled_fas
 #    -s $out_dir_fast5_run4 \
 #    -k SQK-LSK109 \
 #    -f FLO-MIN106 \
-#    --config $cfg
+#    --config $cfg \
+#    --fast5_out
+
 
 
 

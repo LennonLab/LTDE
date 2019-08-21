@@ -687,4 +687,8 @@ def annotate_significant_genes():
 
 #run_parallelism_analysis()
 #get_diversity_stats()
-annotate_significant_genes()
+#annotate_significant_genes()
+
+for strain in lt.strain_list():
+    merge_maple(strain)
+merge_maple_all_strains()
