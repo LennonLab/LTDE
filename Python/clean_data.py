@@ -10,9 +10,6 @@ from decimal import Decimal
 import statsmodels.stats.multitest as mt
 from scipy.stats import t
 
-MCR = 0.8
-
-#np.random.seed(123456789)
 
 def make_16S_fasta():
     alignments = ['KBS0710_NR_024911', 'KBS0721_NR_114994']
@@ -68,10 +65,10 @@ def make_16S_fasta():
 
     # remove KBS0727 because it's identical to KBS0725
     #os.system(cat ~/GitHub/LTDE/data/align/ltde_seqs.fasta | awk '{if (substr($0,1) == ">KBS0727") censor=1; else if (substr($0,1,1) == ">") censor=0; if (censor==0) print $0}' > ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
-    #run_alignments()
+    # run_alignments()
     # https://www.arb-silva.de/aligner/job/632523
     # NC_005042.1:353331-354795 renamed as NC_005042.1.353331-354795
-    #os.system(sed -i -e 's/NC_005042.1:353331-354795/NC_005042.1.353331-354795/g' ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
+    # os.system(sed -i -e 's/NC_005042.1:353331-354795/NC_005042.1.353331-354795/g' ~/GitHub/LTDE/data/align/ltde_seqs_clean.fasta)
     # ltde_neighbors_seqs.fasta uploaded to ARB and aligned
     # alignment file = arb-silva.de_2019-04-07_id632669.fasta
 
@@ -118,12 +115,6 @@ def clean_iRep():
                 continue
             if 'W' in strain_rep:
                 continue
-            #    strain_rep = 'KBS0711-5'
-            #elif 'WB' in strain_rep:
-            #    strain_rep = 'KBS0711-6'
-            #elif 'WC' in strain_rep:
-            #    strain_rep = 'KBS0711-7'
-            #else:
             strain_rep = strain_rep[:-1] + str(lt.rename_rep()[strain_rep[-1]])
             for i, line in enumerate(open(iRep_path, 'r')):
                 if i == 2:
@@ -174,7 +165,7 @@ def merge_maple(strain):
 
 
 
-def merge_maple_all_strains():
+def merge_maple_all_strains(MCR = 0.8):
     dfs = []
     maple_path = lt.get_path() + '/data/genomes/genomes_ncbi_maple_clean/'
     for filename in os.listdir(maple_path):
@@ -188,8 +179,8 @@ def merge_maple_all_strains():
     dfs_concat = dfs_concat.reset_index(drop=True)
     # remove rows that are less than 80% complete
     # query(coverage) = MCR % (ITR)
-    #query(coverage/max) = MCR % (WC)
-    #query(coverage/mode) = Q-value
+    # query(coverage/max) = MCR % (WC)
+    # query(coverage/mode) = Q-value
     dfs_concat_050 = dfs_concat.loc[dfs_concat['query(coverage)'] >= MCR]
     module_by_taxon = pd.crosstab(dfs_concat_050.Pathway_ID, dfs_concat_050.Strain)
     module_by_taxon_no_redundant = module_by_taxon[(module_by_taxon.T != 1).any()]
@@ -221,6 +212,8 @@ def get_breseq_samples_to_keep():
     to_keep = []
     for filename in os.listdir(json_path):
         if filename.endswith(".json") == False:
+            continue
+        if 'ATCC43928' in filename:
             continue
         with open(json_path + filename) as f:
             data = json.load(f)
@@ -395,9 +388,8 @@ def get_diversity_stats():
 
 
 
-def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
+def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05, n_nonsyn_min=50):
     output_path = lt.get_path() + '/data/breseq/output/'
-    to_keep_samples = get_breseq_samples_to_keep()
     # pass nest list with frequency, coverage of major, coverage of minor, taxon
     output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
     to_keep_samples = get_breseq_samples_to_keep()
@@ -408,12 +400,12 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
         if len(taxon_samples) < nmin_reps:
             to_keep_taxa.remove(taxon)
     to_keep_taxa.sort()
-    #to_keep_taxa = ['KBS0712']
+    #to_keep_taxa = ['KBS0722']
     p_star_dict = {}
     G_score_list = []
     for taxon in to_keep_taxa:
         print(taxon)
-        effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = calculate_synonymous_nonsynonymous_target_sizes(taxon)
+        effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = lt.calculate_synonymous_nonsynonymous_target_sizes(taxon)
         taxon_sites = []
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
         for taxon_sample in taxon_samples:
@@ -477,14 +469,12 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
         # save number of mutations and multiplicity
         for locus_tag_i, n_i in gene_count_dict.items():
             gene_parallelism_statistics[locus_tag_i]['observed'] = n_i
-        # remove all genes that don't acquire mutations, excess number of zeros
-        #gene_parallelism_statistics = {key:val for key, val in gene_parallelism_statistics.items() if val['observed'] > 0}
         L_mean = np.mean(list(effective_gene_lengths.values()))
         L_tot = sum(list(effective_gene_lengths.values()))
         n_tot = sum(list(gene_count_dict.values()))
         # don't include taxa with less than 20 mutations
         print("N_total = " + str(n_tot))
-        if n_tot < 50:
+        if n_tot < n_nonsyn_min:
             continue
         N_genes = len(list(effective_gene_lengths.values()))
         # go back over and calculate multiplicity
@@ -521,21 +511,20 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05):
             continue
         # Give each gene a p-value, get distribution
         gene_logpvalues = lt.calculate_parallelism_logpvalues(gene_parallelism_statistics)
-        # remove zeros ...
-        #gene_logpvalues = {key:val for key, val in gene_logpvalues.items() if val > 0}
-
         pooled_pvalues = []
         for gene_name in gene_logpvalues.keys():
             if gene_parallelism_statistics[gene_name]['observed']>= nmin:
                 pooled_pvalues.append( gene_logpvalues[gene_name] )
+
         pooled_pvalues = np.array(pooled_pvalues)
         pooled_pvalues.sort()
+        if len(pooled_pvalues) == 0:
+            continue
 
         null_pvalue_survival = lt.NullGeneLogpSurvivalFunction.from_parallelism_statistics( gene_parallelism_statistics, nmin=nmin)
         observed_ps, observed_pvalue_survival = lt.calculate_unnormalized_survival_from_vector(pooled_pvalues, min_x=-4)
         # Pvalue version
         threshold_idx = np.nonzero((null_pvalue_survival(observed_ps)*1.0/observed_pvalue_survival)<FDR)[0][0]
-        #print(null_pvalue_survival(observed_ps)*1.0/observed_pvalue_survival)
         pstar = observed_ps[threshold_idx] # lowest value where this is true
         num_significant = observed_pvalue_survival[threshold_idx]
         # make it log base 10
@@ -621,7 +610,7 @@ def KO_to_module(strain, modules_to_keep = None):
 def annotate_significant_genes():
     total_parallelism = open(lt.get_path() + '/data/breseq/gene_annotation.txt', "w")
     total_parallelism.write("\t".join(["Species", "locus_tag", "refseq_id", "annotation"]) +"\n" )
-    taxa = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712']
+    taxa = ['ATCC13985', 'KBS0711', 'KBS0712', 'KBS0715']
     for taxon in taxa:
         locus_tags = []
         for line in open(lt.get_path() + '/data/breseq/mult_genes/' + taxon + '.txt', 'r'):
@@ -644,7 +633,7 @@ def annotate_significant_genes():
         #kegg_maple_dict = KO_to_module(taxon, modules_to_keep)
         # make locus tag  => refseq dict
         locus_tag_refseq_dict = {}
-        for subdir, dirs, files in os.walk(lt.get_path() + '/data/genomes/genomes_ncbi_old/' + taxon):
+        for subdir, dirs, files in os.walk(lt.get_path() + '/data/genomes/genomes_ncbi/' + taxon):
             for file in files:
                 if file.endswith('.gbff'):
                     with open(os.path.join(subdir, file), "rU") as input_handle:
@@ -685,10 +674,12 @@ def annotate_significant_genes():
 
 
 
-#run_parallelism_analysis()
 #get_diversity_stats()
+#run_parallelism_analysis()
 #annotate_significant_genes()
 
-for strain in lt.strain_list():
-    merge_maple(strain)
-merge_maple_all_strains()
+#for strain in lt.strain_list():
+#    merge_maple(strain)
+#merge_maple_all_strains()
+
+#clean_iRep()

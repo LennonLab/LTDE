@@ -8,9 +8,9 @@ from decimal import Decimal
 import _pickle as pickle
 from matplotlib.ticker import FormatStrFormatter
 
+taxa_to_plot = ['ATCC13985', 'KBS0711', 'KBS0712', 'KBS0715']
 
 def plot_multiplicity_survival():
-    taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712']
     df_par = pd.read_csv(lt.get_path() + '/data/breseq/total_parallelism.txt', sep = '\t' )
     # taxa with at least five genes with a multiplicity greater than one
     # don't include KBS0707 even though it has a significant G score, sicne there's
@@ -32,6 +32,8 @@ def plot_multiplicity_survival():
         ax.set_xlim([0.25, max(new_x)+1])
 
         taxon_par = df_par.loc[df_par['Taxon'] == taxon]
+
+        print(taxon_par.G_score)
 
         ax.annotate(r'$\Delta \ell= $'+ str(round(float(taxon_par.G_score), 3)), (annotate_x[i], 0.9), fontsize=8)
         if np.log10(float(taxon_par.p_value_BH)) < -3:
@@ -87,8 +89,6 @@ def plot_multiplicity_survival():
 
 
 def plot_logpvalue_survival():
-    #taxa_to_plot = ['ATCC13985', 'KBS0711', 'KBS0712']
-    taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712']
     fig = plt.figure()
     fig.subplots_adjust(hspace=0.35, wspace=0.35)
     pstar_dict = pickle.load(open(lt.get_path() + '/data/breseq/p_star.txt', 'rb'))
@@ -163,4 +163,4 @@ def plot_logpvalue_survival():
 
 
 plot_multiplicity_survival()
-#plot_logpvalue_survival()
+plot_logpvalue_survival()
