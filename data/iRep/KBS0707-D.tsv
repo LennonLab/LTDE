@@ -1,36 +1,36 @@
 ## index of replication (iRep) - thresholds: min cov. = 5, min wins. = 0.98, min r^2 = 0.9, max fragments/Mbp = 175, GC correction min r^2 = 0.0
 # genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0707-D.sam
-/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945.1_ASM593794v1_genomic.fna	1.47557746547
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945_2_ASM593794v2_genomic.fna	1.45813676083
 #
 ## un-filtered index of replication (iRep)
 # genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0707-D.sam
-/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945.1_ASM593794v1_genomic.fna	1.47557746547
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945_2_ASM593794v2_genomic.fna	1.45813676083
 #
 ## raw index of replication (no GC bias correction)
 # genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0707-D.sam
-/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945.1_ASM593794v1_genomic.fna	1.39476480453
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945_2_ASM593794v2_genomic.fna	1.38922183365
 #
 ## r^2
 # genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0707-D.sam
-/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945.1_ASM593794v1_genomic.fna	0.9757324073
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945_2_ASM593794v2_genomic.fna	0.973205028661
 #
 ## coverage
 # genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0707-D.sam
-/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945.1_ASM593794v1_genomic.fna	82.7999900447
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945_2_ASM593794v2_genomic.fna	82.440112503
 #
 ## % windows passing filter
 # genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0707-D.sam
-/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945.1_ASM593794v1_genomic.fna	99.96
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945_2_ASM593794v2_genomic.fna	100.00
 #
 ## fragments/Mbp
 # genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0707-D.sam
-/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945.1_ASM593794v1_genomic.fna	3
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945_2_ASM593794v2_genomic.fna	0
 #
 ## GC bias
 # genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0707-D.sam
-/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945.1_ASM593794v1_genomic.fna	-10.144076996
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945_2_ASM593794v2_genomic.fna	-7.44125174808
 #
 ## GC r^2
 # genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/KBS0707-D.sam
-/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945.1_ASM593794v1_genomic.fna	0.0640625826473
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0707/GCF_005937945_2_ASM593794v2_genomic.fna	0.0534953928943
 #

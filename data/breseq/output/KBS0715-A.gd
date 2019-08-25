@@ -1,614 +1,1369 @@
 #=GENOME_DIFF	1.0
-#=CREATED	06:06:47 25 Jun 2019
+#=CREATED	16:17:25 14 Aug 2019
 #=PROGRAM	breseq 0.32.0 revision 6ff6de7d1b87
-#=COMMAND	breseq -j 8 -p -o /N/dc2/projects/muri2/Task2/LTDE/data/breseq/KBS0715-A -r /N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0715/GCF_005938005.1_ASM593800v1_genomic.gbff /N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0715-A_S19_R1_001_clean.fastq.gz /N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0715-A_S19_R2_001_clean.fastq.gz
-#=REFSEQ	/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0715/GCF_005938005.1_ASM593800v1_genomic.gbff
+#=COMMAND	breseq -j 8 -p -o /N/dc2/projects/muri2/Task2/LTDE/data/breseq/KBS0715-A -r /N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0715/GCF_005938005_2_ASM593800v2_genomic.gbff /N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0715-A_S19_R1_001_clean.fastq.gz /N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0715-A_S19_R2_001_clean.fastq.gz
+#=REFSEQ	/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0715/GCF_005938005_2_ASM593800v2_genomic.gbff
 #=READSEQ	/N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0715-A_S19_R1_001_clean.fastq.gz
 #=READSEQ	/N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0715-A_S19_R2_001_clean.fastq.gz
 #=CONVERTED-BASES	410126918
 #=CONVERTED-READS	6140590
 #=INPUT-BASES	410951316
 #=INPUT-READS	6151638
-#=MAPPED-BASES	405529267
-#=MAPPED-READS	6076915
-SNP	1	68	NZ_VCCA01000001	88524	G	frequency=2.10422039e-01
-SNP	2	69	NZ_VCCA01000001	145002	A	frequency=5.36079407e-02
-SNP	3	70	NZ_VCCA01000001	235140	G	frequency=2.69170284e-01
-SNP	4	71	NZ_VCCA01000001	242209	C	frequency=3.53334904e-01
-SNP	5	72	NZ_VCCA01000001	325410	A	frequency=1.27821922e-01
-INS	6	73	NZ_VCCA01000001	356008	G	frequency=1	insert_position=1
-SNP	7	74	NZ_VCCA01000001	369151	G	frequency=1.13162518e-01
-SNP	8	75	NZ_VCCA01000001	369753	A	frequency=1.51753426e-01
-SNP	9	76	NZ_VCCA01000001	408479	G	frequency=1.47453308e-01
-SNP	10	77	NZ_VCCA01000001	557729	T	frequency=9.62233543e-02
-SNP	11	78	NZ_VCCA01000001	1106232	C	frequency=1.80416584e-01
-SNP	12	79	NZ_VCCA01000001	1166980	T	frequency=1.53124332e-01
-SNP	13	80	NZ_VCCA01000001	1176616	C	frequency=2.51676083e-01
-DEL	14	164	NZ_VCCA01000001	1224788	3	frequency=1.54304752e-01	repeat_length=3	repeat_new_copies=5	repeat_ref_copies=6	repeat_seq=GCT
-SNP	15	81	NZ_VCCA01000001	1321990	G	frequency=1
-SUB	16	168	NZ_VCCA01000001	1509990	18	CTAATAATTAAAAAAAAA	frequency=1.01609923e-01
-INS	17	82	NZ_VCCA01000001	1548763	T	frequency=1	insert_position=1
-SNP	18	83	NZ_VCCA01000001	1548809	C	frequency=1
-INS	19	84	NZ_VCCA01000001	1720124	C	frequency=1	insert_position=1
-SNP	20	85	NZ_VCCA01000001	1750592	G	frequency=2.89351463e-01
-SNP	21	86	NZ_VCCA01000001	1750595	C	frequency=5.71669579e-01
-SNP	22	87	NZ_VCCA01000001	1750597	G	frequency=1
-SNP	23	88	NZ_VCCA01000001	2243365	C	frequency=1
-SUB	24	174	NZ_VCCA01000001	2617556	16	TTTTTTTTTTAATGAT	frequency=2.58823529e-01
-SNP	25	89	NZ_VCCA01000001	2656880	T	frequency=8.78047943e-02
-SNP	26	90	NZ_VCCA01000001	2657235	A	frequency=6.57224655e-02
-INS	27	91	NZ_VCCA01000001	2659410	C	frequency=1	insert_position=1
-SNP	28	92	NZ_VCCA01000002	232757	G	frequency=2.48811722e-01
-SNP	29	93	NZ_VCCA01000002	421278	G	frequency=1.94818020e-01
-SNP	30	94	NZ_VCCA01000002	421287	G	frequency=1.54492378e-01
-SNP	31	95	NZ_VCCA01000002	477851	G	frequency=1
-SNP	32	96	NZ_VCCA01000002	508109	C	frequency=2.09937572e-01
-SNP	33	97	NZ_VCCA01000002	508120	G	frequency=1.44944668e-01
-SNP	34	98	NZ_VCCA01000002	599718	G	frequency=1
-SNP	35	99	NZ_VCCA01000002	609448	G	frequency=2.63764858e-01
-SNP	36	100	NZ_VCCA01000002	682745	T	frequency=9.51886177e-02
-INS	37	101	NZ_VCCA01000002	720760	G	frequency=1	insert_position=1
-SNP	38	102	NZ_VCCA01000002	816611	G	frequency=1
-SNP	39	103	NZ_VCCA01000002	836502	G	frequency=1.71891212e-01
-SNP	40	104	NZ_VCCA01000002	858534	G	frequency=1
-SNP	41	105	NZ_VCCA01000003	6101	C	frequency=1
-SNP	42	106	NZ_VCCA01000003	28973	A	frequency=7.01308250e-02
-SNP	43	107	NZ_VCCA01000003	32314	G	frequency=1.01639271e-01
-SNP	44	108	NZ_VCCA01000003	74616	A	frequency=1.20148182e-01
-DEL	45	137	NZ_VCCA01000004	1	876	frequency=1
-DEL	46	138	NZ_VCCA01000005	1	543	frequency=1
-DEL	47	139	NZ_VCCA01000006	1	514	frequency=1
-DEL	48	140	NZ_VCCA01000007	1	265	frequency=1
-DEL	49	141	NZ_VCCA01000008	1	408	frequency=1
-DEL	50	142	NZ_VCCA01000009	1	376	frequency=1
-DEL	51	143	NZ_VCCA01000010	1	314	frequency=1
-DEL	52	144	NZ_VCCA01000011	1	281	frequency=1
-DEL	53	145	NZ_VCCA01000012	1	269	frequency=1
-DEL	54	146	NZ_VCCA01000013	1	264	frequency=1
-DEL	55	147	NZ_VCCA01000014	1	258	frequency=1
-DEL	56	148	NZ_VCCA01000015	1	246	frequency=1
-DEL	57	149	NZ_VCCA01000016	1	242	frequency=1
-DEL	58	150	NZ_VCCA01000017	1	238	frequency=1
-DEL	59	151	NZ_VCCA01000018	1	237	frequency=1
-DEL	60	152	NZ_VCCA01000019	1	232	frequency=1
-DEL	61	153	NZ_VCCA01000020	1	224	frequency=1
-DEL	62	154	NZ_VCCA01000021	1	219	frequency=1
-DEL	63	155	NZ_VCCA01000022	1	219	frequency=1
-DEL	64	156	NZ_VCCA01000023	1	215	frequency=1
-DEL	65	157	NZ_VCCA01000024	1	211	frequency=1
-DEL	66	158	NZ_VCCA01000025	1	206	frequency=1
-DEL	67	159	NZ_VCCA01000026	1	206	frequency=1
-RA	68	.	NZ_VCCA01000001	88524	0	T	G	bias_e_value=3678090	bias_p_value=1	consensus_score=63.4	fisher_strand_p_value=1	frequency=2.10422039e-01	ks_quality_p_value=1	major_base=T	major_cov=26/9	major_frequency=7.89577961e-01	minor_base=G	minor_cov=7/3	new_cov=7/3	polymorphism_frequency=2.10422039e-01	polymorphism_score=2.5	prediction=polymorphism	ref_cov=26/9	total_cov=33/12
-RA	69	.	NZ_VCCA01000001	145002	0	C	A	bias_e_value=2632650	bias_p_value=0.715766	consensus_score=647.6	fisher_strand_p_value=0.353978	frequency=5.36079407e-02	ks_quality_p_value=0.984272	major_base=C	major_cov=75/116	major_frequency=9.46392059e-01	minor_base=A	minor_cov=6/5	new_cov=6/5	polymorphism_frequency=5.36079407e-02	polymorphism_score=15.8	prediction=polymorphism	ref_cov=75/116	total_cov=81/122
-RA	70	.	NZ_VCCA01000001	235140	0	C	G	bias_e_value=428788	bias_p_value=0.116579	consensus_score=44.5	fisher_strand_p_value=0.0282761	frequency=2.69170284e-01	ks_quality_p_value=0.877979	major_base=C	major_cov=4/15	major_frequency=7.30829716e-01	minor_base=G	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=2.69170284e-01	polymorphism_score=17.2	prediction=polymorphism	ref_cov=4/15	total_cov=9/17
-RA	71	.	NZ_VCCA01000001	242209	0	A	C	bias_e_value=654501	bias_p_value=0.177946	consensus_score=59.6	fisher_strand_p_value=0.0428868	frequency=3.53334904e-01	ks_quality_p_value=1	major_base=A	major_cov=41/14	major_frequency=6.46665096e-01	minor_base=C	minor_cov=28/2	new_cov=28/2	polymorphism_frequency=3.53334904e-01	polymorphism_score=19.0	prediction=polymorphism	ref_cov=41/14	total_cov=72/16
-RA	72	.	NZ_VCCA01000001	325410	0	C	A	bias_e_value=24878.3	bias_p_value=0.00676391	consensus_score=181.3	fisher_strand_p_value=0.000836462	frequency=1.27821922e-01	ks_quality_p_value=1	major_base=C	major_cov=48/11	major_frequency=8.72178078e-01	minor_base=A	minor_cov=2/7	new_cov=2/7	polymorphism_frequency=1.27821922e-01	polymorphism_score=6.1	prediction=polymorphism	ref_cov=48/11	total_cov=50/18
-RA	73	.	NZ_VCCA01000001	356008	1	.	G	bias_e_value=0.00871124	bias_p_value=2.36841e-09	consensus_score=87.3	fisher_strand_p_value=9.85164e-11	frequency=1	ks_quality_p_value=1	major_base=G	major_cov=0/34	major_frequency=7.55580902e-01	minor_base=.	minor_cov=11/0	new_cov=0/34	polymorphism_frequency=7.55580902e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=34.5	prediction=consensus	ref_cov=11/0	total_cov=11/34
-RA	74	.	NZ_VCCA01000001	369151	0	T	G	bias_e_value=2.83502	bias_p_value=7.70785e-07	consensus_score=366.0	fisher_strand_p_value=4.29066e-08	frequency=1.13162518e-01	ks_quality_p_value=1	major_base=T	major_cov=30/97	major_frequency=8.86837482e-01	minor_base=G	minor_cov=17/2	new_cov=17/2	polymorphism_frequency=1.13162518e-01	polymorphism_score=3.6	prediction=polymorphism	ref_cov=30/97	total_cov=54/99
-RA	75	.	NZ_VCCA01000001	369753	0	C	A	bias_e_value=49833	bias_p_value=0.0135486	consensus_score=304.7	fisher_strand_p_value=0.00185912	frequency=1.51753426e-01	ks_quality_p_value=1	major_base=C	major_cov=35/62	major_frequency=8.48246574e-01	minor_base=A	minor_cov=17/6	new_cov=17/6	polymorphism_frequency=1.51753426e-01	polymorphism_score=12.8	prediction=polymorphism	ref_cov=35/62	total_cov=58/68
-RA	76	.	NZ_VCCA01000001	408479	0	T	G	bias_e_value=10536.4	bias_p_value=0.00286464	consensus_score=318.1	fisher_strand_p_value=0.000316217	frequency=1.47453308e-01	ks_quality_p_value=1	major_base=T	major_cov=57/74	major_frequency=8.52546692e-01	minor_base=G	minor_cov=21/4	new_cov=21/4	polymorphism_frequency=1.47453308e-01	polymorphism_score=9.5	prediction=polymorphism	ref_cov=57/74	total_cov=79/78
-RA	77	.	NZ_VCCA01000001	557729	0	G	T	bias_e_value=12204	bias_p_value=0.00331801	consensus_score=315.8	fisher_strand_p_value=0.000373073	frequency=9.62233543e-02	ks_quality_p_value=1	major_base=G	major_cov=23/69	major_frequency=9.03776646e-01	minor_base=T	minor_cov=9/2	new_cov=9/2	polymorphism_frequency=9.62233543e-02	polymorphism_score=8.0	prediction=polymorphism	ref_cov=23/69	total_cov=32/71
-RA	78	.	NZ_VCCA01000001	1106232	0	A	C	bias_e_value=3355610	bias_p_value=0.912323	consensus_score=100.1	fisher_strand_p_value=0.611627	frequency=1.80416584e-01	ks_quality_p_value=1	major_base=A	major_cov=36/5	major_frequency=8.19583416e-01	minor_base=C	minor_cov=8/2	new_cov=8/2	polymorphism_frequency=1.80416584e-01	polymorphism_score=2.9	prediction=polymorphism	ref_cov=36/5	total_cov=44/7
-RA	79	.	NZ_VCCA01000001	1166980	0	C	T	bias_e_value=3572500	bias_p_value=0.97129	consensus_score=186.2	fisher_strand_p_value=0.770151	frequency=1.53124332e-01	ks_quality_p_value=1	major_base=C	major_cov=44/32	major_frequency=8.46875668e-01	minor_base=T	minor_cov=7/7	new_cov=7/7	polymorphism_frequency=1.53124332e-01	polymorphism_score=18.5	prediction=polymorphism	ref_cov=44/32	total_cov=51/48
-RA	80	.	NZ_VCCA01000001	1176616	0	A	C	bias_e_value=695667	bias_p_value=0.189138	consensus_score=70.0	fisher_strand_p_value=0.0464875	frequency=2.51676083e-01	ks_quality_p_value=1	major_base=A	major_cov=17/16	major_frequency=7.48323917e-01	minor_base=C	minor_cov=2/10	new_cov=2/10	polymorphism_frequency=2.51676083e-01	polymorphism_score=3.3	prediction=polymorphism	ref_cov=17/16	total_cov=19/26
-RA	81	.	NZ_VCCA01000001	1321990	0	C	G	bias_e_value=999962	bias_p_value=0.27187	consensus_score=226.6	fisher_strand_p_value=0.0760062	frequency=1	ks_quality_p_value=1	major_base=G	major_cov=29/40	major_frequency=9.62632179e-01	minor_base=T	minor_cov=0/6	new_cov=29/40	polymorphism_frequency=9.62632179e-01	polymorphism_reject=SCORE_CUTOFF,FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=-4.0	prediction=consensus	ref_cov=0/0	total_cov=29/46
-RA	82	.	NZ_VCCA01000001	1548763	1	.	T	consensus_score=121.9	frequency=1	major_base=T	major_cov=0/38	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=0/38	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=0/38
-RA	83	.	NZ_VCCA01000001	1548809	0	G	C	consensus_score=42.1	frequency=1	major_base=C	major_cov=14/0	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=14/0	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=14/0
-RA	84	.	NZ_VCCA01000001	1720122	1	.	C	bias_e_value=3677520	bias_p_value=0.999845	consensus_score=125.7	fisher_strand_p_value=1	frequency=1	ks_quality_p_value=0.982437	major_base=C	major_cov=1/41	major_frequency=9.76758957e-01	minor_base=.	minor_cov=0/1	new_cov=1/41	polymorphism_frequency=9.76758957e-01	polymorphism_reject=SCORE_CUTOFF,FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=-2.9	prediction=consensus	ref_cov=0/1	total_cov=1/42
-RA	85	.	NZ_VCCA01000001	1750592	0	T	G	bias_e_value=3678090	bias_p_value=1	consensus_score=53.6	fisher_strand_p_value=1	frequency=2.89351463e-01	ks_quality_p_value=1	major_base=T	major_cov=16/38	major_frequency=7.10648537e-01	minor_base=G	minor_cov=7/16	new_cov=7/16	polymorphism_frequency=2.89351463e-01	polymorphism_score=11.8	prediction=polymorphism	ref_cov=16/38	total_cov=28/56
-RA	86	.	NZ_VCCA01000001	1750595	0	A	C	bias_e_value=7.91014	bias_p_value=2.15061e-06	consensus_score=-5.4	fisher_strand_p_value=1.03593e-05	frequency=5.71669579e-01	ks_quality_p_value=0.0123019	major_base=C	major_cov=5/35	major_frequency=5.71669579e-01	minor_base=A	minor_cov=20/11	new_cov=5/35	polymorphism_frequency=5.71669579e-01	polymorphism_score=44.5	prediction=polymorphism	ref_cov=20/11	total_cov=27/56
-RA	87	.	NZ_VCCA01000001	1750597	0	C	G	bias_e_value=1.48772e-10	bias_p_value=4.04482e-17	consensus_score=44.1	fisher_strand_p_value=1.64766e-12	frequency=1	ks_quality_p_value=5.77675e-07	major_base=G	major_cov=0/42	major_frequency=5.18082142e-01	minor_base=C	minor_cov=26/11	new_cov=0/42	polymorphism_frequency=5.18082142e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE,SURROUNDING_HOMOPOLYMER	polymorphism_score=88.8	prediction=consensus	ref_cov=26/11	total_cov=26/53
-RA	88	.	NZ_VCCA01000001	2243365	0	G	C	consensus_score=417.1	frequency=1	major_base=C	major_cov=65/59	major_frequency=1.00000000e+00	minor_base=A	minor_cov=1/0	new_cov=65/59	polymorphism_frequency=1.00000000e+00	polymorphism_reject=SCORE_CUTOFF,FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=-6.6	prediction=consensus	ref_cov=0/0	total_cov=66/59
-RA	89	.	NZ_VCCA01000001	2656880	0	G	T	bias_e_value=2289750	bias_p_value=0.622538	consensus_score=338.7	fisher_strand_p_value=0.344127	frequency=8.78047943e-02	ks_quality_p_value=0.782418	major_base=G	major_cov=64/52	major_frequency=9.12195206e-01	minor_base=T	minor_cov=4/7	new_cov=4/7	polymorphism_frequency=8.78047943e-02	polymorphism_score=14.1	prediction=polymorphism	ref_cov=64/52	total_cov=69/59
-RA	90	.	NZ_VCCA01000001	2657235	0	C	A	bias_e_value=3105690	bias_p_value=0.844376	consensus_score=351.1	fisher_strand_p_value=0.496843	frequency=6.57224655e-02	ks_quality_p_value=1	major_base=C	major_cov=62/65	major_frequency=9.34277534e-01	minor_base=A	minor_cov=3/6	new_cov=3/6	polymorphism_frequency=6.57224655e-02	polymorphism_score=2.1	prediction=polymorphism	ref_cov=62/65	total_cov=65/75
-RA	91	.	NZ_VCCA01000001	2659409	1	.	C	consensus_score=225.9	frequency=1	major_base=C	major_cov=5/62	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=5/62	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=5/62
-RA	92	.	NZ_VCCA01000002	232757	0	T	G	bias_e_value=18831.1	bias_p_value=0.00511981	consensus_score=95.8	fisher_strand_p_value=0.000609265	frequency=2.48811722e-01	ks_quality_p_value=1	major_base=T	major_cov=32/36	major_frequency=7.51188278e-01	minor_base=G	minor_cov=21/3	new_cov=21/3	polymorphism_frequency=2.48811722e-01	polymorphism_score=11.8	prediction=polymorphism	ref_cov=32/36	total_cov=53/39
-RA	93	.	NZ_VCCA01000002	421278	0	T	G	bias_e_value=657979	bias_p_value=0.178891	consensus_score=140.3	fisher_strand_p_value=0.0431874	frequency=1.94818020e-01	ks_quality_p_value=1	major_base=T	major_cov=36/39	major_frequency=8.05181980e-01	minor_base=G	minor_cov=15/5	new_cov=15/5	polymorphism_frequency=1.94818020e-01	polymorphism_score=9.7	prediction=polymorphism	ref_cov=36/39	total_cov=51/44
-RA	94	.	NZ_VCCA01000002	421287	0	T	G	bias_e_value=41810.1	bias_p_value=0.0113673	consensus_score=178.6	fisher_strand_p_value=0.00151753	frequency=1.54492378e-01	ks_quality_p_value=1	major_base=T	major_cov=41/44	major_frequency=8.45507622e-01	minor_base=G	minor_cov=16/2	new_cov=16/2	polymorphism_frequency=1.54492378e-01	polymorphism_score=4.5	prediction=polymorphism	ref_cov=41/44	total_cov=60/46
-RA	95	.	NZ_VCCA01000002	477851	0	C	G	consensus_score=231.9	frequency=1	major_base=G	major_cov=26/43	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=26/43	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=26/43
-RA	96	.	NZ_VCCA01000002	508109	0	A	C	bias_e_value=4562.35	bias_p_value=0.00124041	consensus_score=148.5	fisher_strand_p_value=0.000124112	frequency=2.09937572e-01	ks_quality_p_value=1	major_base=A	major_cov=46/50	major_frequency=7.90062428e-01	minor_base=C	minor_cov=24/3	new_cov=24/3	polymorphism_frequency=2.09937572e-01	polymorphism_score=9.1	prediction=polymorphism	ref_cov=46/50	total_cov=77/53
-RA	97	.	NZ_VCCA01000002	508120	0	T	G	bias_e_value=1592540	bias_p_value=0.432979	consensus_score=170.6	fisher_strand_p_value=0.149164	frequency=1.44944668e-01	ks_quality_p_value=1	major_base=T	major_cov=66/42	major_frequency=8.55055332e-01	minor_base=G	minor_cov=9/12	new_cov=9/12	polymorphism_frequency=1.44944668e-01	polymorphism_score=5.7	prediction=polymorphism	ref_cov=66/42	total_cov=75/55
-RA	98	.	NZ_VCCA01000002	599718	0	C	G	consensus_score=259.1	frequency=1	major_base=G	major_cov=45/32	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=45/32	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=45/32
-RA	99	.	NZ_VCCA01000002	609448	0	T	G	bias_e_value=89238.7	bias_p_value=0.0242622	consensus_score=155.9	fisher_strand_p_value=0.00367222	frequency=2.63764858e-01	ks_quality_p_value=1	major_base=T	major_cov=59/27	major_frequency=7.36235142e-01	minor_base=G	minor_cov=31/2	new_cov=31/2	polymorphism_frequency=2.63764858e-01	polymorphism_score=24.4	prediction=polymorphism	ref_cov=59/27	total_cov=91/29
-RA	100	.	NZ_VCCA01000002	682745	0	G	T	bias_e_value=78604.3	bias_p_value=0.0213709	consensus_score=248.4	fisher_strand_p_value=0.0037135	frequency=9.51886177e-02	ks_quality_p_value=0.851802	major_base=G	major_cov=71/5	major_frequency=9.04811382e-01	minor_base=T	minor_cov=4/4	new_cov=4/4	polymorphism_frequency=9.51886177e-02	polymorphism_score=13.3	prediction=polymorphism	ref_cov=71/5	total_cov=75/9
-RA	101	.	NZ_VCCA01000002	720758	1	.	G	consensus_score=10.1	frequency=1	major_base=G	major_cov=0/5	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=0/5	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=0/5
-RA	102	.	NZ_VCCA01000002	816611	0	C	G	consensus_score=232.0	frequency=1	major_base=G	major_cov=69/5	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=69/5	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=69/5
-RA	103	.	NZ_VCCA01000002	836502	0	T	G	bias_e_value=196.888	bias_p_value=5.35298e-05	consensus_score=186.6	fisher_strand_p_value=3.98495e-06	frequency=1.71891212e-01	ks_quality_p_value=1	major_base=T	major_cov=22/54	major_frequency=8.28108788e-01	minor_base=G	minor_cov=16/2	new_cov=16/2	polymorphism_frequency=1.71891212e-01	polymorphism_score=4.7	prediction=polymorphism	ref_cov=22/54	total_cov=39/56
-RA	104	.	NZ_VCCA01000002	858534	0	C	G	consensus_score=279.8	frequency=1	major_base=G	major_cov=39/44	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=39/44	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=39/44
-RA	105	.	NZ_VCCA01000003	6101	0	A	C	bias_e_value=7.75205e-22	bias_p_value=2.10763e-28	consensus_score=84.6	fisher_strand_p_value=1.83372e-16	frequency=1	ks_quality_p_value=1.66671e-14	major_base=C	major_cov=1/50	major_frequency=4.90591526e-01	minor_base=A	minor_cov=38/11	new_cov=1/50	polymorphism_frequency=4.90591526e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=138.0	prediction=consensus	ref_cov=38/11	total_cov=39/73
-RA	106	.	NZ_VCCA01000003	28973	0	G	A	bias_e_value=3665980	bias_p_value=0.996706	consensus_score=236.9	fisher_strand_p_value=1	frequency=7.01308250e-02	ks_quality_p_value=0.919942	major_base=G	major_cov=35/44	major_frequency=9.29869175e-01	minor_base=A	minor_cov=3/3	new_cov=3/3	polymorphism_frequency=7.01308250e-02	polymorphism_score=5.2	prediction=polymorphism	ref_cov=35/44	total_cov=38/47
-RA	107	.	NZ_VCCA01000003	32314	0	C	G	bias_e_value=3042910	bias_p_value=0.827306	consensus_score=359.8	fisher_strand_p_value=0.519907	frequency=1.01639271e-01	ks_quality_p_value=0.910265	major_base=C	major_cov=73/33	major_frequency=8.98360729e-01	minor_base=G	minor_cov=7/5	new_cov=7/5	polymorphism_frequency=1.01639271e-01	polymorphism_score=28.3	prediction=polymorphism	ref_cov=73/33	total_cov=80/38
-RA	108	.	NZ_VCCA01000003	74616	0	C	A	bias_e_value=33.7279	bias_p_value=9.16993e-06	consensus_score=307.2	fisher_strand_p_value=5.98194e-07	frequency=1.20148182e-01	ks_quality_p_value=1	major_base=C	major_cov=19/74	major_frequency=8.79851818e-01	minor_base=A	minor_cov=15/3	new_cov=15/3	polymorphism_frequency=1.20148182e-01	polymorphism_score=5.5	prediction=polymorphism	ref_cov=19/74	total_cov=34/77
-MC	109	.	NZ_VCCA01000001	1	55	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=13	right_outside_cov=14
-MC	110	.	NZ_VCCA01000001	9576	9629	0	0	left_inside_cov=12	left_outside_cov=14	right_inside_cov=9	right_outside_cov=19
-MC	111	.	NZ_VCCA01000001	654592	654638	0	0	left_inside_cov=13	left_outside_cov=14	right_inside_cov=10	right_outside_cov=15
-MC	112	.	NZ_VCCA01000001	719704	719877	0	0	left_inside_cov=7	left_outside_cov=16	right_inside_cov=12	right_outside_cov=16
-MC	113	.	NZ_VCCA01000001	1048682	1048714	0	0	left_inside_cov=12	left_outside_cov=15	right_inside_cov=13	right_outside_cov=21
-MC	114	.	NZ_VCCA01000001	1369846	1369953	0	0	left_inside_cov=13	left_outside_cov=14	right_inside_cov=12	right_outside_cov=14
-MC	115	.	NZ_VCCA01000001	1417050	1417313	0	0	left_inside_cov=13	left_outside_cov=17	right_inside_cov=13	right_outside_cov=15
-MC	116	.	NZ_VCCA01000001	1434534	1434658	0	0	left_inside_cov=13	left_outside_cov=15	right_inside_cov=13	right_outside_cov=15
-MC	117	.	NZ_VCCA01000001	1440950	1441033	0	0	left_inside_cov=13	left_outside_cov=49	right_inside_cov=13	right_outside_cov=18
-MC	118	.	NZ_VCCA01000001	1526314	1526390	0	0	left_inside_cov=10	left_outside_cov=18	right_inside_cov=11	right_outside_cov=14
-MC	119	.	NZ_VCCA01000001	1851794	1852165	0	0	left_inside_cov=11	left_outside_cov=19	right_inside_cov=13	right_outside_cov=14
-MC	120	.	NZ_VCCA01000001	2015590	2015666	0	0	left_inside_cov=12	left_outside_cov=14	right_inside_cov=5	right_outside_cov=14
-MC	121	.	NZ_VCCA01000001	2177081	2177448	0	0	left_inside_cov=12	left_outside_cov=20	right_inside_cov=13	right_outside_cov=19
-MC	122	.	NZ_VCCA01000001	2182944	2183032	0	0	left_inside_cov=13	left_outside_cov=14	right_inside_cov=12	right_outside_cov=15
-MC	123	.	NZ_VCCA01000001	2218354	2218504	0	0	left_inside_cov=11	left_outside_cov=15	right_inside_cov=10	right_outside_cov=15
-MC	124	.	NZ_VCCA01000001	2408251	2408783	0	0	left_inside_cov=10	left_outside_cov=17	right_inside_cov=13	right_outside_cov=16
-MC	125	.	NZ_VCCA01000001	2429077	2429170	0	0	left_inside_cov=12	left_outside_cov=15	right_inside_cov=11	right_outside_cov=18
-MC	126	.	NZ_VCCA01000001	2483135	2483291	0	0	left_inside_cov=13	left_outside_cov=20	right_inside_cov=12	right_outside_cov=18
-MC	127	.	NZ_VCCA01000001	2520838	2520952	0	0	left_inside_cov=13	left_outside_cov=14	right_inside_cov=13	right_outside_cov=17
-MC	128	.	NZ_VCCA01000001	2663422	2663454	0	0	left_inside_cov=10	left_outside_cov=14	right_inside_cov=0	right_outside_cov=NA
-MC	129	.	NZ_VCCA01000002	1	28	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=7	right_outside_cov=19
-MC	130	.	NZ_VCCA01000002	39972	40224	0	0	left_inside_cov=7	left_outside_cov=16	right_inside_cov=14	right_outside_cov=15
-MC	131	.	NZ_VCCA01000002	60425	60469	0	0	left_inside_cov=13	left_outside_cov=17	right_inside_cov=11	right_outside_cov=18
-MC	132	.	NZ_VCCA01000002	152671	152759	0	0	left_inside_cov=14	left_outside_cov=18	right_inside_cov=14	right_outside_cov=16
-MC	133	.	NZ_VCCA01000002	245543	245626	0	0	left_inside_cov=11	left_outside_cov=17	right_inside_cov=10	right_outside_cov=20
-MC	134	.	NZ_VCCA01000002	549923	549984	0	0	left_inside_cov=14	left_outside_cov=19	right_inside_cov=4	right_outside_cov=75
-MC	135	.	NZ_VCCA01000002	615632	615683	0	0	left_inside_cov=14	left_outside_cov=15	right_inside_cov=14	right_outside_cov=16
-MC	136	.	NZ_VCCA01000002	879443	879489	0	0	left_inside_cov=0	left_outside_cov=69	right_inside_cov=0	right_outside_cov=NA
-MC	137	.	NZ_VCCA01000004	1	876	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	138	.	NZ_VCCA01000005	1	543	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	139	.	NZ_VCCA01000006	1	514	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	140	.	NZ_VCCA01000007	1	265	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	141	.	NZ_VCCA01000008	1	408	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	142	.	NZ_VCCA01000009	1	376	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	143	.	NZ_VCCA01000010	1	314	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	144	.	NZ_VCCA01000011	1	281	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	145	.	NZ_VCCA01000012	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	146	.	NZ_VCCA01000013	1	264	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	147	.	NZ_VCCA01000014	1	258	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	148	.	NZ_VCCA01000015	1	246	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	149	.	NZ_VCCA01000016	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	150	.	NZ_VCCA01000017	1	238	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	151	.	NZ_VCCA01000018	1	237	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	152	.	NZ_VCCA01000019	1	232	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	153	.	NZ_VCCA01000020	1	224	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	154	.	NZ_VCCA01000021	1	219	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	155	.	NZ_VCCA01000022	1	219	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	156	.	NZ_VCCA01000023	1	215	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	157	.	NZ_VCCA01000024	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	158	.	NZ_VCCA01000025	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-MC	159	.	NZ_VCCA01000026	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
-JC	160	.	NZ_VCCA01000001	1934	-1	NZ_VCCA01000001	2018	1	0	alignment_overlap=15	coverage_minus=11	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.87451588e-01	junction_possible_overlap_registers=40	key=NZ_VCCA01000001__1934__-1__NZ_VCCA01000001__2003__1__15____75__75__0__0	max_left=36	max_left_minus=36	max_left_plus=0	max_min_left=21	max_min_left_minus=21	max_min_left_plus=0	max_min_right=29	max_min_right_minus=29	max_min_right_plus=0	max_pos_hash_score=82	max_right=51	max_right_minus=51	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.16	new_junction_read_count=11	polymorphism_frequency=1.87451588e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.30	side_1_overlap=15	side_1_possible_overlap_registers=55	side_1_read_count=28	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.10	side_2_overlap=0	side_2_possible_overlap_registers=40	side_2_read_count=75	side_2_redundant=0	total_non_overlap_reads=11
-JC	161	.	NZ_VCCA01000001	35408	-1	NZ_VCCA01000003	18	-1	0	alignment_overlap=2	coverage_minus=6	coverage_plus=0	flanking_left=75	flanking_right=18	frequency=9.89971715e-02	junction_possible_overlap_registers=53	key=NZ_VCCA01000001__35408__-1__NZ_VCCA01000003__20__-1__2____75__18__0__0	max_left=65	max_left_minus=65	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=16	max_min_right_minus=16	max_min_right_plus=0	max_pos_hash_score=108	max_right=16	max_right_minus=16	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.08	new_junction_read_count=7	polymorphism_frequency=9.89971715e-02	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.34	side_1_overlap=2	side_1_possible_overlap_registers=55	side_1_read_count=126	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.07	side_2_overlap=0	side_2_possible_overlap_registers=53	side_2_read_count=6	side_2_redundant=0	total_non_overlap_reads=6
-JC	162	.	NZ_VCCA01000001	693013	1	NZ_VCCA01000001	693009	-1	0	alignment_overlap=10	coverage_minus=2	coverage_plus=1	flanking_left=75	flanking_right=75	frequency=2.23956566e-02	junction_possible_overlap_registers=45	key=NZ_VCCA01000001__693013__1__NZ_VCCA01000001__693019__-1__10____75__75__0__0	max_left=56	max_left_minus=26	max_left_plus=56	max_min_left=14	max_min_left_minus=14	max_min_left_plus=0	max_min_right=24	max_min_right_minus=24	max_min_right_plus=8	max_pos_hash_score=92	max_right=50	max_right_minus=50	max_right_plus=8	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.04	new_junction_read_count=3	polymorphism_frequency=2.23956566e-02	pos_hash_score=3	prediction=polymorphism	reject=FREQUENCY_CUTOFF	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.59	side_1_overlap=10	side_1_possible_overlap_registers=55	side_1_read_count=149	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.82	side_2_overlap=0	side_2_possible_overlap_registers=45	side_2_read_count=140	side_2_redundant=0	total_non_overlap_reads=3
-JC	163	.	NZ_VCCA01000001	1200446	-1	NZ_VCCA01000002	549986	1	-10	alignment_overlap=-10	coverage_minus=10	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=2.22672065e-01	junction_possible_overlap_registers=45	key=NZ_VCCA01000001__1200446__-1__NZ_VCCA01000002__549986__1__-10__GGGCCCCCCC__75__75__0__0	max_left=53	max_left_minus=53	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=25	max_min_right_minus=25	max_min_right_plus=0	max_pos_hash_score=92	max_right=25	max_right_minus=25	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.20	new_junction_read_count=15	polymorphism_frequency=2.22672065e-01	pos_hash_score=7	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.36	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=128	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=10	unique_read_sequence=GGGCCCCCCC
-JC	164	.	NZ_VCCA01000001	1224774	1	NZ_VCCA01000001	1224770	-1	0	alignment_overlap=17	coverage_minus=1	coverage_plus=7	flanking_left=75	flanking_right=75	frequency=1.54304752e-01	junction_possible_overlap_registers=38	key=NZ_VCCA01000001__1224774__1__NZ_VCCA01000001__1224787__-1__17____75__75__0__0	max_left=51	max_left_minus=45	max_left_plus=51	max_min_left=9	max_min_left_minus=0	max_min_left_plus=9	max_min_right=23	max_min_right_minus=12	max_min_right_plus=23	max_pos_hash_score=78	max_right=34	max_right_minus=12	max_right_plus=34	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.12	new_junction_read_count=8	polymorphism_frequency=1.54304752e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.60	side_1_overlap=17	side_1_possible_overlap_registers=55	side_1_read_count=56	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.76	side_2_overlap=0	side_2_possible_overlap_registers=38	side_2_read_count=49	side_2_redundant=0	total_non_overlap_reads=8
-JC	165	.	NZ_VCCA01000001	1322761	1	NZ_VCCA01000001	1605904	1	0	alignment_overlap=6	coverage_minus=21	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=3.15919037e-01	junction_possible_overlap_registers=49	key=NZ_VCCA01000001__1322761__1__NZ_VCCA01000001__1605898__1__6____75__75__0__0	max_left=22	max_left_minus=22	max_left_plus=0	max_min_left=22	max_min_left_minus=22	max_min_left_plus=0	max_min_right=0	max_min_right_minus=0	max_min_right_plus=0	max_pos_hash_score=100	max_right=60	max_right_minus=60	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.25	new_junction_read_count=21	polymorphism_frequency=3.15919037e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.88	side_1_overlap=6	side_1_possible_overlap_registers=55	side_1_read_count=83	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.20	side_2_overlap=0	side_2_possible_overlap_registers=49	side_2_read_count=17	side_2_redundant=0	total_non_overlap_reads=21
-JC	166	.	NZ_VCCA01000001	1392546	-1	NZ_VCCA01000002	550004	-1	0	alignment_overlap=5	coverage_minus=9	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=2.45810056e-01	junction_possible_overlap_registers=50	key=NZ_VCCA01000001__1392546__-1__NZ_VCCA01000002__550009__-1__5____75__75__0__0	max_left=63	max_left_minus=63	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=15	max_min_right_minus=15	max_min_right_plus=0	max_pos_hash_score=102	max_right=15	max_right_minus=15	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.15	new_junction_read_count=12	polymorphism_frequency=2.45810056e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.86	side_1_overlap=5	side_1_possible_overlap_registers=55	side_1_read_count=81	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=50	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=9
-JC	167	.	NZ_VCCA01000001	1392647	-1	NZ_VCCA01000002	549987	1	0	alignment_overlap=1	coverage_minus=9	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=3.50318471e-01	junction_possible_overlap_registers=54	key=NZ_VCCA01000001__1392647__-1__NZ_VCCA01000002__549986__1__1____75__75__0__0	max_left=65	max_left_minus=65	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=21	max_min_right_minus=21	max_min_right_plus=0	max_pos_hash_score=110	max_right=21	max_right_minus=21	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.20	new_junction_read_count=18	polymorphism_frequency=3.50318471e-01	pos_hash_score=3	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.72	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=68	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=54	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=9
-JC	168	.	NZ_VCCA01000001	1509989	-1	NZ_VCCA01000001	1510008	1	-18	alignment_overlap=-18	coverage_minus=7	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.01609923e-01	junction_possible_overlap_registers=37	key=NZ_VCCA01000001__1509989__-1__NZ_VCCA01000001__1510008__1__-18__CTAATAATTAAAAAAAAA__75__75__0__0	max_left=47	max_left_minus=47	max_left_plus=0	max_min_left=22	max_min_left_minus=22	max_min_left_plus=0	max_min_right=27	max_min_right_minus=27	max_min_right_plus=0	max_pos_hash_score=76	max_right=33	max_right_minus=33	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.11	new_junction_read_count=7	polymorphism_frequency=1.01609923e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.93	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=87	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.03	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=97	side_2_redundant=0	total_non_overlap_reads=7	unique_read_sequence=CTAATAATTAAAAAAAAA
-JC	169	.	NZ_VCCA01000001	1605907	-1	NZ_VCCA01000001	1995713	-1	-7	alignment_overlap=-7	coverage_minus=0	coverage_plus=24	flanking_left=75	flanking_right=75	frequency=5.91397849e-01	junction_possible_overlap_registers=48	key=NZ_VCCA01000001__1605907__-1__NZ_VCCA01000001__1995713__-1__-7__TCCCCAC__75__75__0__0	max_left=59	max_left_minus=0	max_left_plus=59	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=31	max_min_right_minus=0	max_min_right_plus=31	max_pos_hash_score=98	max_right=31	max_right_minus=0	max_right_plus=31	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.29	new_junction_read_count=24	polymorphism_frequency=5.91397849e-01	pos_hash_score=8	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.18	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=17	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.22	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=21	side_2_redundant=0	total_non_overlap_reads=24	unique_read_sequence=TCCCCAC
-JC	170	.	NZ_VCCA01000001	1724902	1	NZ_VCCA01000002	550006	-1	0	alignment_overlap=1	coverage_minus=5	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.74050633e-01	junction_possible_overlap_registers=54	key=NZ_VCCA01000001__1724902__1__NZ_VCCA01000002__550007__-1__1____75__75__0__0	max_left=67	max_left_minus=67	max_left_plus=0	max_min_left=18	max_min_left_minus=18	max_min_left_plus=0	max_min_right=20	max_min_right_minus=20	max_min_right_plus=0	max_pos_hash_score=110	max_right=20	max_right_minus=20	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.07	new_junction_read_count=6	polymorphism_frequency=1.74050633e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.62	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=58	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=54	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=5
-JC	171	.	NZ_VCCA01000001	1963925	-1	NZ_VCCA01000002	550007	-1	-5	alignment_overlap=-5	coverage_minus=8	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=3.94618834e-01	junction_possible_overlap_registers=50	key=NZ_VCCA01000001__1963925__-1__NZ_VCCA01000002__550007__-1__-5__GGGGG__75__75__0__0	max_left=61	max_left_minus=61	max_left_plus=0	max_min_left=8	max_min_left_minus=8	max_min_left_plus=0	max_min_right=22	max_min_right_minus=22	max_min_right_plus=0	max_pos_hash_score=102	max_right=22	max_right_minus=22	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.10	new_junction_read_count=8	polymorphism_frequency=3.94618834e-01	pos_hash_score=7	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.29	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=27	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=8	unique_read_sequence=GGGGG
-JC	172	.	NZ_VCCA01000001	2097991	1	NZ_VCCA01000001	2148312	1	-9	alignment_overlap=-9	coverage_minus=8	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=2.38741183e-01	junction_possible_overlap_registers=46	key=NZ_VCCA01000001__2097991__1__NZ_VCCA01000001__2148312__1__-9__CCCCCCCCC__75__75__0__0	max_left=58	max_left_minus=58	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=22	max_min_right_minus=22	max_min_right_plus=0	max_pos_hash_score=94	max_right=22	max_right_minus=22	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.10	new_junction_read_count=8	polymorphism_frequency=2.38741183e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.44	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=41	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.21	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=20	side_2_redundant=0	total_non_overlap_reads=8	unique_read_sequence=CCCCCCCCC
-JC	173	.	NZ_VCCA01000001	2098007	1	NZ_VCCA01000002	549985	1	-2	alignment_overlap=-2	coverage_minus=29	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=5.69849767e-01	junction_possible_overlap_registers=53	key=NZ_VCCA01000001__2098007__1__NZ_VCCA01000002__549985__1__-2__GG__75__75__0__0	max_left=65	max_left_minus=65	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=23	max_min_right_minus=23	max_min_right_plus=0	max_pos_hash_score=108	max_right=23	max_right_minus=23	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.35	new_junction_read_count=30	polymorphism_frequency=5.69849767e-01	pos_hash_score=7	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.50	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=47	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=29	unique_read_sequence=GG
-JC	174	.	NZ_VCCA01000001	2617555	-1	NZ_VCCA01000001	2617572	1	-16	alignment_overlap=-16	coverage_minus=0	coverage_plus=10	flanking_left=75	flanking_right=75	frequency=2.58823529e-01	junction_possible_overlap_registers=39	key=NZ_VCCA01000001__2617555__-1__NZ_VCCA01000001__2617572__1__-16__TTTTTTTTTTAATGAT__75__75__0__0	max_left=23	max_left_minus=0	max_left_plus=23	max_min_left=23	max_min_left_minus=0	max_min_left_plus=23	max_min_right=0	max_min_right_minus=0	max_min_right_plus=0	max_pos_hash_score=80	max_right=52	max_right_minus=0	max_right_plus=52	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.20	new_junction_read_count=13	polymorphism_frequency=2.58823529e-01	pos_hash_score=3	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.56	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=53	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.55	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=52	side_2_redundant=0	total_non_overlap_reads=10	unique_read_sequence=TTTTTTTTTTAATGAT
-JC	175	.	NZ_VCCA01000002	466103	1	NZ_VCCA01000002	466099	-1	0	alignment_overlap=10	coverage_minus=2	coverage_plus=1	flanking_left=75	flanking_right=75	frequency=2.75114631e-02	junction_possible_overlap_registers=45	key=NZ_VCCA01000002__466103__1__NZ_VCCA01000002__466109__-1__10____75__75__0__0	max_left=37	max_left_minus=37	max_left_plus=32	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=31	max_min_right_minus=28	max_min_right_plus=31	max_pos_hash_score=92	max_right=31	max_right_minus=28	max_right_plus=31	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.04	new_junction_read_count=3	polymorphism_frequency=2.75114631e-02	pos_hash_score=3	prediction=polymorphism	reject=FREQUENCY_CUTOFF	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.47	side_1_overlap=10	side_1_possible_overlap_registers=55	side_1_read_count=126	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.55	side_2_overlap=0	side_2_possible_overlap_registers=45	side_2_read_count=109	side_2_redundant=0	total_non_overlap_reads=3
-JC	176	.	NZ_VCCA01000002	549985	1	NZ_VCCA01000002	549986	1	-13	alignment_overlap=-13	coverage_minus=6	coverage_plus=5	flanking_left=75	flanking_right=75	frequency=1	junction_possible_overlap_registers=42	key=NZ_VCCA01000002__549985__1__NZ_VCCA01000002__549986__1__-13__CCCCCCCCCCCCC__75__75__0__0	max_left=25	max_left_minus=25	max_left_plus=20	max_min_left=17	max_min_left_minus=0	max_min_left_plus=17	max_min_right=22	max_min_right_minus=22	max_min_right_plus=17	max_pos_hash_score=86	max_right=22	max_right_minus=22	max_right_plus=18	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.50	new_junction_read_count=33	polymorphism_frequency=1.00000000e+00	pos_hash_score=10	prediction=consensus	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=11	unique_read_sequence=CCCCCCCCCCCCC
-JC	177	.	NZ_VCCA01000002	550000	-1	NZ_VCCA01000002	683678	1	0	alignment_overlap=1	coverage_minus=0	coverage_plus=8	flanking_left=75	flanking_right=75	frequency=2.78304870e-01	junction_possible_overlap_registers=54	key=NZ_VCCA01000002__550000__-1__NZ_VCCA01000002__683677__1__1____75__75__0__0	max_left=21	max_left_minus=0	max_left_plus=21	max_min_left=21	max_min_left_minus=0	max_min_left_plus=21	max_min_right=0	max_min_right_minus=0	max_min_right_plus=0	max_pos_hash_score=110	max_right=52	max_right_minus=0	max_right_plus=52	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.19	new_junction_read_count=16	polymorphism_frequency=2.78304870e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.01	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=1	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.97	side_2_overlap=0	side_2_possible_overlap_registers=54	side_2_read_count=82	side_2_redundant=0	total_non_overlap_reads=8
-JC	178	.	NZ_VCCA01000002	550004	-1	NZ_VCCA01000003	59006	-1	0	alignment_overlap=1	coverage_minus=0	coverage_plus=9	flanking_left=75	flanking_right=75	frequency=2.27272727e-01	junction_possible_overlap_registers=54	key=NZ_VCCA01000002__550004__-1__NZ_VCCA01000003__59007__-1__1____75__75__0__0	max_left=28	max_left_minus=0	max_left_plus=28	max_min_left=28	max_min_left_minus=0	max_min_left_plus=28	max_min_right=8	max_min_right_minus=0	max_min_right_plus=8	max_pos_hash_score=110	max_right=40	max_right_minus=0	max_right_plus=40	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.12	new_junction_read_count=10	polymorphism_frequency=2.27272727e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.77	side_2_overlap=0	side_2_possible_overlap_registers=54	side_2_read_count=68	side_2_redundant=0	total_non_overlap_reads=9
-JC	179	.	NZ_VCCA01000002	550008	-1	NZ_VCCA01000002	614275	1	0	alignment_overlap=3	coverage_minus=0	coverage_plus=23	flanking_left=75	flanking_right=75	frequency=7.17948718e-01	junction_possible_overlap_registers=52	key=NZ_VCCA01000002__550008__-1__NZ_VCCA01000002__614272__1__3____75__75__0__0	max_left=19	max_left_minus=0	max_left_plus=19	max_min_left=19	max_min_left_minus=0	max_min_left_plus=19	max_min_right=0	max_min_right_minus=0	max_min_right_plus=0	max_pos_hash_score=106	max_right=53	max_right_minus=0	max_right_plus=53	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.35	new_junction_read_count=28	polymorphism_frequency=7.17948718e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=3	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.27	side_2_overlap=0	side_2_possible_overlap_registers=52	side_2_read_count=22	side_2_redundant=0	total_non_overlap_reads=23
-JC	180	.	NZ_VCCA01000002	550009	-1	NZ_VCCA01000002	755380	-1	0	alignment_overlap=3	coverage_minus=0	coverage_plus=21	flanking_left=75	flanking_right=75	frequency=5.95238095e-01	junction_possible_overlap_registers=52	key=NZ_VCCA01000002__550009__-1__NZ_VCCA01000002__755383__-1__3____75__75__0__0	max_left=20	max_left_minus=0	max_left_plus=20	max_min_left=20	max_min_left_minus=0	max_min_left_plus=20	max_min_right=9	max_min_right_minus=0	max_min_right_plus=9	max_pos_hash_score=106	max_right=66	max_right_minus=0	max_right_plus=66	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.31	new_junction_read_count=25	polymorphism_frequency=5.95238095e-01	pos_hash_score=8	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=3	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.42	side_2_overlap=0	side_2_possible_overlap_registers=52	side_2_read_count=34	side_2_redundant=0	total_non_overlap_reads=21
-JC	181	.	NZ_VCCA01000002	766759	1	NZ_VCCA01000002	766754	-1	0	alignment_overlap=19	coverage_minus=2	coverage_plus=1	flanking_left=75	flanking_right=75	frequency=4.26246448e-02	junction_possible_overlap_registers=36	key=NZ_VCCA01000002__766759__1__NZ_VCCA01000002__766773__-1__19____75__75__0__0	max_left=49	max_left_minus=49	max_left_plus=25	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=25	max_min_right_minus=25	max_min_right_plus=16	max_pos_hash_score=74	max_right=25	max_right_minus=25	max_right_plus=16	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.05	new_junction_read_count=3	polymorphism_frequency=4.26246448e-02	pos_hash_score=3	prediction=polymorphism	reject=FREQUENCY_CUTOFF	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.19	side_1_overlap=19	side_1_possible_overlap_registers=55	side_1_read_count=102	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.21	side_2_overlap=0	side_2_possible_overlap_registers=36	side_2_read_count=68	side_2_redundant=0	total_non_overlap_reads=3
-JC	182	.	NZ_VCCA01000002	879442	-1	NZ_VCCA01000003	128088	-1	-6	alignment_overlap=-6	coverage_minus=0	coverage_plus=53	flanking_left=75	flanking_right=75	frequency=1	junction_possible_overlap_registers=49	key=NZ_VCCA01000002__879442__-1__NZ_VCCA01000003__128088__-1__-6__CCCGCC__75__75__0__0	max_left=50	max_left_minus=0	max_left_plus=50	max_min_left=28	max_min_left_minus=0	max_min_left_plus=28	max_min_right=29	max_min_right_minus=0	max_min_right_plus=29	max_pos_hash_score=100	max_right=61	max_right_minus=0	max_right_plus=61	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.68	new_junction_read_count=53	polymorphism_frequency=1.00000000e+00	pos_hash_score=19	prediction=consensus	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=53	unique_read_sequence=CCCGCC
-UN	183	.	NZ_VCCA01000001	1	50
-UN	184	.	NZ_VCCA01000001	9597	9627
-UN	185	.	NZ_VCCA01000001	82039	82066
-UN	186	.	NZ_VCCA01000001	92317	94686
-UN	187	.	NZ_VCCA01000001	94845	94845
-UN	188	.	NZ_VCCA01000001	94848	94848
-UN	189	.	NZ_VCCA01000001	94850	94869
-UN	190	.	NZ_VCCA01000001	95120	95151
-UN	191	.	NZ_VCCA01000001	96278	96280
-UN	192	.	NZ_VCCA01000001	110578	110594
-UN	193	.	NZ_VCCA01000001	110604	110605
-UN	194	.	NZ_VCCA01000001	110608	110608
-UN	195	.	NZ_VCCA01000001	157006	157010
-UN	196	.	NZ_VCCA01000001	180893	184312
-UN	197	.	NZ_VCCA01000001	184441	186318
-UN	198	.	NZ_VCCA01000001	226455	226456
-UN	199	.	NZ_VCCA01000001	252393	252402
-UN	200	.	NZ_VCCA01000001	322108	322109
-UN	201	.	NZ_VCCA01000001	322115	322116
-UN	202	.	NZ_VCCA01000001	322122	322122
-UN	203	.	NZ_VCCA01000001	322125	322125
-UN	204	.	NZ_VCCA01000001	322127	322127
-UN	205	.	NZ_VCCA01000001	322129	322129
-UN	206	.	NZ_VCCA01000001	322131	322162
-UN	207	.	NZ_VCCA01000001	325279	325279
-UN	208	.	NZ_VCCA01000001	325283	325387
-UN	209	.	NZ_VCCA01000001	325389	325390
-UN	210	.	NZ_VCCA01000001	342221	342221
-UN	211	.	NZ_VCCA01000001	356017	356018
-UN	212	.	NZ_VCCA01000001	367042	367044
-UN	213	.	NZ_VCCA01000001	367050	367050
-UN	214	.	NZ_VCCA01000001	373604	373604
-UN	215	.	NZ_VCCA01000001	409534	409545
-UN	216	.	NZ_VCCA01000001	409547	409548
-UN	217	.	NZ_VCCA01000001	425066	425066
-UN	218	.	NZ_VCCA01000001	425071	425071
-UN	219	.	NZ_VCCA01000001	425074	425074
-UN	220	.	NZ_VCCA01000001	425077	425077
-UN	221	.	NZ_VCCA01000001	451290	451308
-UN	222	.	NZ_VCCA01000001	459111	459133
-UN	223	.	NZ_VCCA01000001	517003	517014
-UN	224	.	NZ_VCCA01000001	534593	534603
-UN	225	.	NZ_VCCA01000001	539649	539656
-UN	226	.	NZ_VCCA01000001	591609	591635
-UN	227	.	NZ_VCCA01000001	591638	591638
-UN	228	.	NZ_VCCA01000001	615617	615621
-UN	229	.	NZ_VCCA01000001	654558	654631
-UN	230	.	NZ_VCCA01000001	719707	719708
-UN	231	.	NZ_VCCA01000001	719712	719841
-UN	232	.	NZ_VCCA01000001	807143	807154
-UN	233	.	NZ_VCCA01000001	876110	876110
-UN	234	.	NZ_VCCA01000001	879195	879198
-UN	235	.	NZ_VCCA01000001	879200	879202
-UN	236	.	NZ_VCCA01000001	905963	906740
-UN	237	.	NZ_VCCA01000001	906746	906746
-UN	238	.	NZ_VCCA01000001	906875	907300
-UN	239	.	NZ_VCCA01000001	909373	910160
-UN	240	.	NZ_VCCA01000001	910286	910286
-UN	241	.	NZ_VCCA01000001	910288	910724
-UN	242	.	NZ_VCCA01000001	940343	940348
-UN	243	.	NZ_VCCA01000001	940350	940350
-UN	244	.	NZ_VCCA01000001	962012	962031
-UN	245	.	NZ_VCCA01000001	983843	983843
-UN	246	.	NZ_VCCA01000001	983847	983847
-UN	247	.	NZ_VCCA01000001	988276	988288
-UN	248	.	NZ_VCCA01000001	996386	996386
-UN	249	.	NZ_VCCA01000001	1021334	1021338
-UN	250	.	NZ_VCCA01000001	1021341	1021348
-UN	251	.	NZ_VCCA01000001	1040462	1040498
-UN	252	.	NZ_VCCA01000001	1040839	1040939
-UN	253	.	NZ_VCCA01000001	1045505	1045523
-UN	254	.	NZ_VCCA01000001	1045535	1045535
-UN	255	.	NZ_VCCA01000001	1045544	1045544
-UN	256	.	NZ_VCCA01000001	1048688	1048700
-UN	257	.	NZ_VCCA01000001	1056505	1056508
-UN	258	.	NZ_VCCA01000001	1056510	1056519
-UN	259	.	NZ_VCCA01000001	1068960	1068995
-UN	260	.	NZ_VCCA01000001	1156252	1156252
-UN	261	.	NZ_VCCA01000001	1173292	1173424
-UN	262	.	NZ_VCCA01000001	1173589	1173703
-UN	263	.	NZ_VCCA01000001	1202630	1202640
-UN	264	.	NZ_VCCA01000001	1217075	1217081
-UN	265	.	NZ_VCCA01000001	1217741	1217741
-UN	266	.	NZ_VCCA01000001	1217743	1217747
-UN	267	.	NZ_VCCA01000001	1217750	1217751
-UN	268	.	NZ_VCCA01000001	1217755	1217755
-UN	269	.	NZ_VCCA01000001	1218052	1218052
-UN	270	.	NZ_VCCA01000001	1246720	1246838
-UN	271	.	NZ_VCCA01000001	1369850	1369939
-UN	272	.	NZ_VCCA01000001	1408997	1409130
-UN	273	.	NZ_VCCA01000001	1409420	1409591
-UN	274	.	NZ_VCCA01000001	1417083	1417133
-UN	275	.	NZ_VCCA01000001	1417189	1417296
-UN	276	.	NZ_VCCA01000001	1422737	1422738
-UN	277	.	NZ_VCCA01000001	1422745	1422749
-UN	278	.	NZ_VCCA01000001	1431465	1431470
-UN	279	.	NZ_VCCA01000001	1434569	1434648
-UN	280	.	NZ_VCCA01000001	1440960	1440962
-UN	281	.	NZ_VCCA01000001	1440964	1440996
-UN	282	.	NZ_VCCA01000001	1440999	1441001
-UN	283	.	NZ_VCCA01000001	1465304	1465325
-UN	284	.	NZ_VCCA01000001	1465328	1465328
-UN	285	.	NZ_VCCA01000001	1465338	1465354
-UN	286	.	NZ_VCCA01000001	1465358	1465358
-UN	287	.	NZ_VCCA01000001	1465361	1465361
-UN	288	.	NZ_VCCA01000001	1465365	1465365
-UN	289	.	NZ_VCCA01000001	1493989	1494022
-UN	290	.	NZ_VCCA01000001	1499320	1499320
-UN	291	.	NZ_VCCA01000001	1499322	1499323
-UN	292	.	NZ_VCCA01000001	1499325	1499325
-UN	293	.	NZ_VCCA01000001	1508527	1508527
-UN	294	.	NZ_VCCA01000001	1508530	1508530
-UN	295	.	NZ_VCCA01000001	1508783	1508803
-UN	296	.	NZ_VCCA01000001	1508807	1508817
-UN	297	.	NZ_VCCA01000001	1508835	1508837
-UN	298	.	NZ_VCCA01000001	1508842	1508842
-UN	299	.	NZ_VCCA01000001	1526317	1526387
-UN	300	.	NZ_VCCA01000001	1526390	1526390
-UN	301	.	NZ_VCCA01000001	1548794	1548797
-UN	302	.	NZ_VCCA01000001	1548799	1548799
-UN	303	.	NZ_VCCA01000001	1548802	1548805
-UN	304	.	NZ_VCCA01000001	1559976	1559976
-UN	305	.	NZ_VCCA01000001	1559978	1559984
-UN	306	.	NZ_VCCA01000001	1559988	1559990
-UN	307	.	NZ_VCCA01000001	1559992	1559992
-UN	308	.	NZ_VCCA01000001	1559995	1559995
-UN	309	.	NZ_VCCA01000001	1559997	1560000
-UN	310	.	NZ_VCCA01000001	1560002	1560007
-UN	311	.	NZ_VCCA01000001	1560009	1560016
-UN	312	.	NZ_VCCA01000001	1564066	1564068
-UN	313	.	NZ_VCCA01000001	1564071	1564075
-UN	314	.	NZ_VCCA01000001	1567212	1567263
-UN	315	.	NZ_VCCA01000001	1577792	1577792
-UN	316	.	NZ_VCCA01000001	1615856	1615897
-UN	317	.	NZ_VCCA01000001	1615900	1615901
-UN	318	.	NZ_VCCA01000001	1615976	1615976
-UN	319	.	NZ_VCCA01000001	1615978	1615978
-UN	320	.	NZ_VCCA01000001	1615980	1615985
-UN	321	.	NZ_VCCA01000001	1615988	1615989
-UN	322	.	NZ_VCCA01000001	1651326	1651371
-UN	323	.	NZ_VCCA01000001	1665420	1665423
-UN	324	.	NZ_VCCA01000001	1665426	1665430
-UN	325	.	NZ_VCCA01000001	1668918	1668919
-UN	326	.	NZ_VCCA01000001	1700808	1700809
-UN	327	.	NZ_VCCA01000001	1706186	1706199
-UN	328	.	NZ_VCCA01000001	1706205	1706205
-UN	329	.	NZ_VCCA01000001	1709129	1709130
-UN	330	.	NZ_VCCA01000001	1709133	1709141
-UN	331	.	NZ_VCCA01000001	1709144	1709144
-UN	332	.	NZ_VCCA01000001	1709147	1709147
-UN	333	.	NZ_VCCA01000001	1709149	1709149
-UN	334	.	NZ_VCCA01000001	1720145	1720182
-UN	335	.	NZ_VCCA01000001	1726356	1726390
-UN	336	.	NZ_VCCA01000001	1726452	1726452
-UN	337	.	NZ_VCCA01000001	1726455	1726455
-UN	338	.	NZ_VCCA01000001	1726462	1726462
-UN	339	.	NZ_VCCA01000001	1726464	1726464
-UN	340	.	NZ_VCCA01000001	1726468	1726468
-UN	341	.	NZ_VCCA01000001	1732483	1732483
-UN	342	.	NZ_VCCA01000001	1732485	1732486
-UN	343	.	NZ_VCCA01000001	1750595	1750595
-UN	344	.	NZ_VCCA01000001	1782212	1782212
-UN	345	.	NZ_VCCA01000001	1782222	1782239
-UN	346	.	NZ_VCCA01000001	1782243	1782243
-UN	347	.	NZ_VCCA01000001	1782247	1782247
-UN	348	.	NZ_VCCA01000001	1784380	1784380
-UN	349	.	NZ_VCCA01000001	1784382	1784385
-UN	350	.	NZ_VCCA01000001	1784391	1784444
-UN	351	.	NZ_VCCA01000001	1844664	1844668
-UN	352	.	NZ_VCCA01000001	1844671	1844671
-UN	353	.	NZ_VCCA01000001	1851823	1851870
-UN	354	.	NZ_VCCA01000001	1851975	1851976
-UN	355	.	NZ_VCCA01000001	1851978	1852024
-UN	356	.	NZ_VCCA01000001	1852027	1852028
-UN	357	.	NZ_VCCA01000001	1852030	1852032
-UN	358	.	NZ_VCCA01000001	1852034	1852037
-UN	359	.	NZ_VCCA01000001	1852040	1852043
-UN	360	.	NZ_VCCA01000001	1852045	1852046
-UN	361	.	NZ_VCCA01000001	1852049	1852049
-UN	362	.	NZ_VCCA01000001	1852051	1852052
-UN	363	.	NZ_VCCA01000001	1852054	1852059
-UN	364	.	NZ_VCCA01000001	1852062	1852131
-UN	365	.	NZ_VCCA01000001	1852216	1852238
-UN	366	.	NZ_VCCA01000001	1852240	1852242
-UN	367	.	NZ_VCCA01000001	1872049	1872059
-UN	368	.	NZ_VCCA01000001	1955516	1955516
-UN	369	.	NZ_VCCA01000001	1983418	1983429
-UN	370	.	NZ_VCCA01000001	1983432	1983445
-UN	371	.	NZ_VCCA01000001	1983448	1983448
-UN	372	.	NZ_VCCA01000001	1983451	1983451
-UN	373	.	NZ_VCCA01000001	1983510	1983512
-UN	374	.	NZ_VCCA01000001	2005425	2005428
-UN	375	.	NZ_VCCA01000001	2011833	2011834
-UN	376	.	NZ_VCCA01000001	2015594	2015667
-UN	377	.	NZ_VCCA01000001	2015924	2015990
-UN	378	.	NZ_VCCA01000001	2016329	2016454
-UN	379	.	NZ_VCCA01000001	2047949	2049718
-UN	380	.	NZ_VCCA01000001	2050074	2051710
-UN	381	.	NZ_VCCA01000001	2051840	2053431
-UN	382	.	NZ_VCCA01000001	2075672	2075688
-UN	383	.	NZ_VCCA01000001	2138694	2138729
-UN	384	.	NZ_VCCA01000001	2138732	2138732
-UN	385	.	NZ_VCCA01000001	2138734	2138734
-UN	386	.	NZ_VCCA01000001	2138741	2138764
-UN	387	.	NZ_VCCA01000001	2145972	2145972
-UN	388	.	NZ_VCCA01000001	2145981	2145997
-UN	389	.	NZ_VCCA01000001	2148312	2148313
-UN	390	.	NZ_VCCA01000001	2148317	2148317
-UN	391	.	NZ_VCCA01000001	2177085	2177420
-UN	392	.	NZ_VCCA01000001	2177440	2177441
-UN	393	.	NZ_VCCA01000001	2177443	2177443
-UN	394	.	NZ_VCCA01000001	2177450	2177450
-UN	395	.	NZ_VCCA01000001	2177589	2177589
-UN	396	.	NZ_VCCA01000001	2177592	2177593
-UN	397	.	NZ_VCCA01000001	2182949	2183027
-UN	398	.	NZ_VCCA01000001	2187175	2187184
-UN	399	.	NZ_VCCA01000001	2218369	2218496
-UN	400	.	NZ_VCCA01000001	2286062	2286120
-UN	401	.	NZ_VCCA01000001	2335553	2335554
-UN	402	.	NZ_VCCA01000001	2335556	2335558
-UN	403	.	NZ_VCCA01000001	2335560	2335562
-UN	404	.	NZ_VCCA01000001	2335564	2335564
-UN	405	.	NZ_VCCA01000001	2335570	2335570
-UN	406	.	NZ_VCCA01000001	2335573	2335573
-UN	407	.	NZ_VCCA01000001	2335576	2335576
-UN	408	.	NZ_VCCA01000001	2335579	2335579
-UN	409	.	NZ_VCCA01000001	2343102	2343102
-UN	410	.	NZ_VCCA01000001	2343104	2343104
-UN	411	.	NZ_VCCA01000001	2343107	2343107
-UN	412	.	NZ_VCCA01000001	2343110	2343130
-UN	413	.	NZ_VCCA01000001	2343132	2343137
-UN	414	.	NZ_VCCA01000001	2378101	2378101
-UN	415	.	NZ_VCCA01000001	2378112	2378112
-UN	416	.	NZ_VCCA01000001	2378114	2378154
-UN	417	.	NZ_VCCA01000001	2378159	2378165
-UN	418	.	NZ_VCCA01000001	2378174	2378174
-UN	419	.	NZ_VCCA01000001	2378177	2378177
-UN	420	.	NZ_VCCA01000001	2378258	2378271
-UN	421	.	NZ_VCCA01000001	2378277	2378277
-UN	422	.	NZ_VCCA01000001	2378286	2378286
-UN	423	.	NZ_VCCA01000001	2378291	2378294
-UN	424	.	NZ_VCCA01000001	2378298	2378310
-UN	425	.	NZ_VCCA01000001	2394991	2394992
-UN	426	.	NZ_VCCA01000001	2394995	2394995
-UN	427	.	NZ_VCCA01000001	2395006	2395050
-UN	428	.	NZ_VCCA01000001	2408258	2408291
-UN	429	.	NZ_VCCA01000001	2408306	2408306
-UN	430	.	NZ_VCCA01000001	2408364	2408364
-UN	431	.	NZ_VCCA01000001	2408370	2408577
-UN	432	.	NZ_VCCA01000001	2408581	2408581
-UN	433	.	NZ_VCCA01000001	2408685	2408685
-UN	434	.	NZ_VCCA01000001	2408687	2408706
-UN	435	.	NZ_VCCA01000001	2408715	2408731
-UN	436	.	NZ_VCCA01000001	2408734	2408735
-UN	437	.	NZ_VCCA01000001	2408737	2408737
-UN	438	.	NZ_VCCA01000001	2408740	2408740
-UN	439	.	NZ_VCCA01000001	2415985	2415991
-UN	440	.	NZ_VCCA01000001	2428910	2428910
-UN	441	.	NZ_VCCA01000001	2428913	2428914
-UN	442	.	NZ_VCCA01000001	2428916	2428917
-UN	443	.	NZ_VCCA01000001	2429089	2429155
-UN	444	.	NZ_VCCA01000001	2433066	2433081
-UN	445	.	NZ_VCCA01000001	2478826	2478826
-UN	446	.	NZ_VCCA01000001	2478833	2478833
-UN	447	.	NZ_VCCA01000001	2483139	2483278
-UN	448	.	NZ_VCCA01000001	2483280	2483280
-UN	449	.	NZ_VCCA01000001	2513194	2513243
-UN	450	.	NZ_VCCA01000001	2520885	2520929
-UN	451	.	NZ_VCCA01000001	2521029	2521037
-UN	452	.	NZ_VCCA01000001	2557593	2557608
-UN	453	.	NZ_VCCA01000001	2557623	2557640
-UN	454	.	NZ_VCCA01000001	2574610	2574613
-UN	455	.	NZ_VCCA01000001	2574615	2574615
-UN	456	.	NZ_VCCA01000001	2574622	2574626
-UN	457	.	NZ_VCCA01000001	2633876	2633876
-UN	458	.	NZ_VCCA01000001	2633886	2633886
-UN	459	.	NZ_VCCA01000001	2633985	2633992
-UN	460	.	NZ_VCCA01000001	2663429	2663454
-UN	461	.	NZ_VCCA01000002	1	24
-UN	462	.	NZ_VCCA01000002	16043	16048
-UN	463	.	NZ_VCCA01000002	37348	37376
-UN	464	.	NZ_VCCA01000002	37378	37378
-UN	465	.	NZ_VCCA01000002	37500	37545
-UN	466	.	NZ_VCCA01000002	39974	39974
-UN	467	.	NZ_VCCA01000002	39981	40207
-UN	468	.	NZ_VCCA01000002	45740	45740
-UN	469	.	NZ_VCCA01000002	60437	60460
-UN	470	.	NZ_VCCA01000002	72201	72201
-UN	471	.	NZ_VCCA01000002	72210	72210
-UN	472	.	NZ_VCCA01000002	72218	72220
-UN	473	.	NZ_VCCA01000002	101035	101035
-UN	474	.	NZ_VCCA01000002	104441	104441
-UN	475	.	NZ_VCCA01000002	117477	117478
-UN	476	.	NZ_VCCA01000002	152683	152685
-UN	477	.	NZ_VCCA01000002	152696	152696
-UN	478	.	NZ_VCCA01000002	152699	152712
-UN	479	.	NZ_VCCA01000002	152714	152714
-UN	480	.	NZ_VCCA01000002	217580	217580
-UN	481	.	NZ_VCCA01000002	217582	217583
-UN	482	.	NZ_VCCA01000002	217585	217586
-UN	483	.	NZ_VCCA01000002	217590	217657
-UN	484	.	NZ_VCCA01000002	226111	226120
-UN	485	.	NZ_VCCA01000002	245553	245553
-UN	486	.	NZ_VCCA01000002	245557	245620
-UN	487	.	NZ_VCCA01000002	255207	255207
-UN	488	.	NZ_VCCA01000002	255215	255220
-UN	489	.	NZ_VCCA01000002	280813	280813
-UN	490	.	NZ_VCCA01000002	280817	280829
-UN	491	.	NZ_VCCA01000002	280834	280834
-UN	492	.	NZ_VCCA01000002	300047	300049
-UN	493	.	NZ_VCCA01000002	300052	300070
-UN	494	.	NZ_VCCA01000002	300144	300144
-UN	495	.	NZ_VCCA01000002	300148	300148
-UN	496	.	NZ_VCCA01000002	300204	300204
-UN	497	.	NZ_VCCA01000002	300208	300208
-UN	498	.	NZ_VCCA01000002	300210	300210
-UN	499	.	NZ_VCCA01000002	300221	300221
-UN	500	.	NZ_VCCA01000002	311184	311186
-UN	501	.	NZ_VCCA01000002	333868	333895
-UN	502	.	NZ_VCCA01000002	333897	333901
-UN	503	.	NZ_VCCA01000002	333903	333903
-UN	504	.	NZ_VCCA01000002	333920	333920
-UN	505	.	NZ_VCCA01000002	333935	333951
-UN	506	.	NZ_VCCA01000002	340712	340719
-UN	507	.	NZ_VCCA01000002	363129	363134
-UN	508	.	NZ_VCCA01000002	367357	367373
-UN	509	.	NZ_VCCA01000002	377478	377755
-UN	510	.	NZ_VCCA01000002	377757	377757
-UN	511	.	NZ_VCCA01000002	377928	378193
-UN	512	.	NZ_VCCA01000002	378197	378197
-UN	513	.	NZ_VCCA01000002	379186	379189
-UN	514	.	NZ_VCCA01000002	391031	394497
-UN	515	.	NZ_VCCA01000002	394621	396417
-UN	516	.	NZ_VCCA01000002	414604	414607
-UN	517	.	NZ_VCCA01000002	414613	414615
-UN	518	.	NZ_VCCA01000002	427052	427053
-UN	519	.	NZ_VCCA01000002	430184	430192
-UN	520	.	NZ_VCCA01000002	430309	430311
-UN	521	.	NZ_VCCA01000002	446742	446742
-UN	522	.	NZ_VCCA01000002	446745	446745
-UN	523	.	NZ_VCCA01000002	446756	446799
-UN	524	.	NZ_VCCA01000002	467022	467023
-UN	525	.	NZ_VCCA01000002	495609	495611
-UN	526	.	NZ_VCCA01000002	506646	506646
-UN	527	.	NZ_VCCA01000002	534020	534028
-UN	528	.	NZ_VCCA01000002	537540	537540
-UN	529	.	NZ_VCCA01000002	537542	537548
-UN	530	.	NZ_VCCA01000002	549951	549984
-UN	531	.	NZ_VCCA01000002	550007	550007
-UN	532	.	NZ_VCCA01000002	550010	550045
-UN	533	.	NZ_VCCA01000002	550048	550048
-UN	534	.	NZ_VCCA01000002	550050	550050
-UN	535	.	NZ_VCCA01000002	552296	552296
-UN	536	.	NZ_VCCA01000002	594199	594226
-UN	537	.	NZ_VCCA01000002	602727	602743
-UN	538	.	NZ_VCCA01000002	609336	609336
-UN	539	.	NZ_VCCA01000002	615646	615675
-UN	540	.	NZ_VCCA01000002	673280	673280
-UN	541	.	NZ_VCCA01000002	673402	673404
-UN	542	.	NZ_VCCA01000002	673406	673412
-UN	543	.	NZ_VCCA01000002	673416	673416
-UN	544	.	NZ_VCCA01000002	673419	673419
-UN	545	.	NZ_VCCA01000002	673493	673495
-UN	546	.	NZ_VCCA01000002	673498	673500
-UN	547	.	NZ_VCCA01000002	682158	682160
-UN	548	.	NZ_VCCA01000002	682232	682233
-UN	549	.	NZ_VCCA01000002	682236	682236
-UN	550	.	NZ_VCCA01000002	682401	682401
-UN	551	.	NZ_VCCA01000002	682409	682409
-UN	552	.	NZ_VCCA01000002	682411	682411
-UN	553	.	NZ_VCCA01000002	682417	682428
-UN	554	.	NZ_VCCA01000002	686236	686236
-UN	555	.	NZ_VCCA01000002	686249	686250
-UN	556	.	NZ_VCCA01000002	686423	686423
-UN	557	.	NZ_VCCA01000002	686431	686431
-UN	558	.	NZ_VCCA01000002	698005	698010
-UN	559	.	NZ_VCCA01000002	718085	718085
-UN	560	.	NZ_VCCA01000002	720760	720761
-UN	561	.	NZ_VCCA01000002	720764	720764
-UN	562	.	NZ_VCCA01000002	830032	830033
-UN	563	.	NZ_VCCA01000002	830035	830035
-UN	564	.	NZ_VCCA01000002	830038	830040
-UN	565	.	NZ_VCCA01000002	834103	834128
-UN	566	.	NZ_VCCA01000002	839820	839822
-UN	567	.	NZ_VCCA01000002	839824	839842
-UN	568	.	NZ_VCCA01000002	857623	857625
-UN	569	.	NZ_VCCA01000002	871163	871163
-UN	570	.	NZ_VCCA01000002	879443	879489
-UN	571	.	NZ_VCCA01000003	1	45
-UN	572	.	NZ_VCCA01000003	1129	1134
-UN	573	.	NZ_VCCA01000003	1137	1142
-UN	574	.	NZ_VCCA01000003	22998	23001
-UN	575	.	NZ_VCCA01000003	23004	23005
-UN	576	.	NZ_VCCA01000003	23008	23008
-UN	577	.	NZ_VCCA01000003	23010	23012
-UN	578	.	NZ_VCCA01000003	23016	23016
-UN	579	.	NZ_VCCA01000003	23018	23019
-UN	580	.	NZ_VCCA01000003	23135	23154
-UN	581	.	NZ_VCCA01000003	23156	23218
-UN	582	.	NZ_VCCA01000003	37089	37089
-UN	583	.	NZ_VCCA01000003	37091	37091
-UN	584	.	NZ_VCCA01000003	37094	37102
-UN	585	.	NZ_VCCA01000003	40555	40557
-UN	586	.	NZ_VCCA01000003	40561	40568
-UN	587	.	NZ_VCCA01000003	40570	40579
-UN	588	.	NZ_VCCA01000003	64168	64168
-UN	589	.	NZ_VCCA01000003	64170	64177
-UN	590	.	NZ_VCCA01000003	66940	66941
-UN	591	.	NZ_VCCA01000003	80545	80545
-UN	592	.	NZ_VCCA01000003	85685	85694
-UN	593	.	NZ_VCCA01000003	92896	92901
-UN	594	.	NZ_VCCA01000003	98540	98544
-UN	595	.	NZ_VCCA01000003	103741	103772
-UN	596	.	NZ_VCCA01000003	108604	108607
-UN	597	.	NZ_VCCA01000003	110597	110597
-UN	598	.	NZ_VCCA01000003	110599	110599
-UN	599	.	NZ_VCCA01000003	127860	127860
-UN	600	.	NZ_VCCA01000003	127867	127867
-UN	601	.	NZ_VCCA01000003	127893	127893
+#=MAPPED-BASES	395263161
+#=MAPPED-READS	5923190
+SNP	1	436	NZ_VCCA02000001	8	C	frequency=2.03638077e-01
+SNP	2	437	NZ_VCCA02000001	29	C	frequency=1.84835911e-01
+SNP	3	438	NZ_VCCA02000001	30	G	frequency=8.56256485e-02
+SNP	4	439	NZ_VCCA02000001	32	A	frequency=6.80446625e-02
+SNP	5	440	NZ_VCCA02000001	38	C	frequency=6.86025620e-02
+SNP	6	441	NZ_VCCA02000001	44	T	frequency=5.75851440e-01
+SNP	7	442	NZ_VCCA02000001	47	T	frequency=5.84219456e-01
+SNP	8	443	NZ_VCCA02000001	48	G	frequency=1.01483345e-01
+SNP	9	444	NZ_VCCA02000001	49	A	frequency=1.41711235e-01
+SNP	10	445	NZ_VCCA02000001	50	G	frequency=8.58778954e-02
+SNP	11	446	NZ_VCCA02000001	54	A	frequency=8.69684219e-02
+SNP	12	447	NZ_VCCA02000001	56	C	frequency=9.48944092e-02
+SNP	13	448	NZ_VCCA02000001	57	C	frequency=1.13442898e-01
+SNP	14	449	NZ_VCCA02000001	58	C	frequency=9.01679993e-02
+SNP	15	450	NZ_VCCA02000001	62	C	frequency=8.59513283e-02
+SNP	16	451	NZ_VCCA02000001	63	G	frequency=7.67574310e-02
+SNP	17	452	NZ_VCCA02000001	65	C	frequency=7.87220001e-02
+SNP	18	453	NZ_VCCA02000001	68	G	frequency=2.94848442e-01
+SNP	19	454	NZ_VCCA02000001	71	G	frequency=1.27378464e-01
+SNP	20	455	NZ_VCCA02000001	86	G	frequency=2.13790894e-01
+SNP	21	456	NZ_VCCA02000001	87	A	frequency=4.37235355e-01
+SNP	22	457	NZ_VCCA02000001	89	G	frequency=4.28967476e-01
+SNP	23	458	NZ_VCCA02000001	90	T	frequency=3.40241432e-01
+SNP	24	459	NZ_VCCA02000001	95	G	frequency=7.98946381e-01
+SNP	25	460	NZ_VCCA02000001	97	A	frequency=8.60075951e-02
+SNP	26	461	NZ_VCCA02000001	98	C	frequency=8.33743572e-01
+SNP	27	462	NZ_VCCA02000001	101	G	frequency=4.93057728e-01
+SNP	28	463	NZ_VCCA02000001	104	C	frequency=4.12561893e-01
+SNP	29	464	NZ_VCCA02000001	110	G	frequency=6.11919403e-01
+SNP	30	465	NZ_VCCA02000001	119	C	frequency=6.86278343e-02
+SNP	31	466	NZ_VCCA02000001	120	A	frequency=5.27925491e-02
+SNP	32	467	NZ_VCCA02000001	128	G	frequency=1.26514912e-01
+SNP	33	468	NZ_VCCA02000001	129	G	frequency=8.85224342e-02
+SNP	34	469	NZ_VCCA02000001	130	G	frequency=9.73463058e-02
+SNP	35	470	NZ_VCCA02000001	131	T	frequency=7.30331421e-01
+SNP	36	471	NZ_VCCA02000001	132	A	frequency=5.87954521e-02
+SNP	37	472	NZ_VCCA02000001	134	C	frequency=8.86709213e-01
+SNP	38	473	NZ_VCCA02000001	137	G	frequency=8.99829865e-02
+SNP	39	474	NZ_VCCA02000001	143	C	frequency=8.03564548e-01
+SNP	40	475	NZ_VCCA02000001	152	G	frequency=1.23263359e-01
+SNP	41	476	NZ_VCCA02000001	155	A	frequency=5.10730267e-01
+SNP	42	477	NZ_VCCA02000001	161	C	frequency=7.46370316e-01
+SNP	43	478	NZ_VCCA02000001	164	G	frequency=8.51284504e-01
+SNP	44	479	NZ_VCCA02000001	167	C	frequency=8.52622032e-01
+SNP	45	480	NZ_VCCA02000001	170	T	frequency=2.37085342e-01
+SNP	46	481	NZ_VCCA02000001	171	T	frequency=6.52709007e-01
+SNP	47	482	NZ_VCCA02000001	173	G	frequency=7.24220276e-02
+SNP	48	483	NZ_VCCA02000001	179	C	frequency=7.69099236e-01
+SNP	49	484	NZ_VCCA02000001	183	G	frequency=1.26367569e-01
+SNP	50	485	NZ_VCCA02000001	185	G	frequency=6.80637360e-02
+SNP	51	486	NZ_VCCA02000001	188	C	frequency=4.08433437e-01
+SNP	52	487	NZ_VCCA02000001	193	C	frequency=5.27276993e-02
+SNP	53	488	NZ_VCCA02000001	194	C	frequency=5.48014641e-02
+SNP	54	489	NZ_VCCA02000001	203	G	frequency=8.94021988e-02
+SNP	55	490	NZ_VCCA02000001	206	G	frequency=3.35010052e-01
+SNP	56	491	NZ_VCCA02000001	207	A	frequency=3.12893391e-01
+SNP	57	492	NZ_VCCA02000001	212	G	frequency=1.09148026e-01
+SNP	58	493	NZ_VCCA02000001	215	T	frequency=1.70219421e-01
+SNP	59	494	NZ_VCCA02000001	217	C	frequency=6.09064102e-02
+SNP	60	495	NZ_VCCA02000001	218	T	frequency=1.05360031e-01
+SNP	61	496	NZ_VCCA02000001	221	A	frequency=4.46606636e-01
+SNP	62	497	NZ_VCCA02000001	224	G	frequency=8.86068344e-02
+SNP	63	498	NZ_VCCA02000001	225	C	frequency=5.36518097e-02
+SNP	64	499	NZ_VCCA02000001	228	A	frequency=7.33041763e-02
+SNP	65	500	NZ_VCCA02000001	243	A	frequency=3.34743977e-01
+SNP	66	501	NZ_VCCA02000001	244	G	frequency=2.95508862e-01
+SNP	67	502	NZ_VCCA02000001	245	G	frequency=2.35465050e-01
+SNP	68	503	NZ_VCCA02000001	246	G	frequency=8.17050934e-02
+SNP	69	504	NZ_VCCA02000001	250	T	frequency=3.76991272e-01
+SNP	70	505	NZ_VCCA02000001	251	C	frequency=5.18182278e-01
+SNP	71	506	NZ_VCCA02000001	254	G	frequency=2.13541031e-01
+SNP	72	507	NZ_VCCA02000001	257	T	frequency=1.44874096e-01
+SNP	73	508	NZ_VCCA02000001	263	G	frequency=6.73105240e-01
+SNP	74	509	NZ_VCCA02000001	266	G	frequency=8.04076195e-02
+SNP	75	510	NZ_VCCA02000001	267	G	frequency=3.16476345e-01
+SNP	76	511	NZ_VCCA02000001	268	A	frequency=3.34549904e-01
+SNP	77	512	NZ_VCCA02000001	269	C	frequency=6.45574093e-01
+SNP	78	513	NZ_VCCA02000001	271	G	frequency=5.09662628e-02
+SNP	79	514	NZ_VCCA02000001	272	T	frequency=3.17409039e-01
+SNP	80	515	NZ_VCCA02000001	275	C	frequency=7.21581936e-01
+SNP	81	516	NZ_VCCA02000001	277	A	frequency=6.89039230e-01
+SNP	82	517	NZ_VCCA02000001	278	G	frequency=6.28520012e-01
+SNP	83	518	NZ_VCCA02000001	282	A	frequency=6.64138317e-01
+SNP	84	519	NZ_VCCA02000001	284	G	frequency=6.61015987e-01
+SNP	85	520	NZ_VCCA02000001	290	G	frequency=6.65745735e-02
+SNP	86	521	NZ_VCCA02000001	293	C	frequency=7.23021507e-01
+SNP	87	522	NZ_VCCA02000001	294	G	frequency=5.66697121e-01
+SNP	88	523	NZ_VCCA02000001	299	C	frequency=2.68458843e-01
+SNP	89	524	NZ_VCCA02000001	300	G	frequency=2.53492355e-01
+SNP	90	525	NZ_VCCA02000001	302	A	frequency=2.70750046e-01
+SNP	91	526	NZ_VCCA02000001	314	T	frequency=1.30234718e-01
+SNP	92	527	NZ_VCCA02000001	317	T	frequency=1.15436077e-01
+SNP	93	528	NZ_VCCA02000001	318	G	frequency=3.00844193e-01
+SNP	94	529	NZ_VCCA02000001	319	A	frequency=3.25764179e-01
+SNP	95	530	NZ_VCCA02000001	320	G	frequency=3.18040848e-01
+SNP	96	531	NZ_VCCA02000001	324	A	frequency=3.75559807e-01
+SNP	97	532	NZ_VCCA02000001	326	C	frequency=4.44962025e-01
+SNP	98	533	NZ_VCCA02000001	328	C	frequency=3.86524200e-01
+SNP	99	534	NZ_VCCA02000001	332	C	frequency=3.58393669e-01
+SNP	100	535	NZ_VCCA02000001	333	G	frequency=3.46653938e-01
+SNP	101	536	NZ_VCCA02000001	335	C	frequency=3.46351624e-01
+SNP	102	537	NZ_VCCA02000001	49683	A	frequency=5.35993576e-02
+SNP	103	538	NZ_VCCA02000001	139821	G	frequency=2.69153595e-01
+SNP	104	539	NZ_VCCA02000001	146890	C	frequency=3.53269100e-01
+SNP	105	540	NZ_VCCA02000001	166647	C	frequency=2.82397270e-01
+SNP	106	541	NZ_VCCA02000001	166650	C	frequency=2.96842098e-01
+SNP	107	542	NZ_VCCA02000001	166651	C	frequency=2.97805309e-01
+SNP	108	543	NZ_VCCA02000001	166652	G	frequency=2.97144890e-01
+SNP	109	544	NZ_VCCA02000001	166658	C	frequency=3.37113380e-01
+SNP	110	545	NZ_VCCA02000001	166660	C	frequency=3.21649551e-01
+SNP	111	546	NZ_VCCA02000001	166669	C	frequency=3.38600636e-01
+SNP	112	547	NZ_VCCA02000001	166670	G	frequency=3.49550724e-01
+SNP	113	548	NZ_VCCA02000001	166672	C	frequency=3.52544308e-01
+SNP	114	549	NZ_VCCA02000001	166675	G	frequency=3.60567570e-01
+SNP	115	550	NZ_VCCA02000001	166680	G	frequency=3.49456310e-01
+SNP	116	551	NZ_VCCA02000001	166683	G	frequency=3.16178799e-01
+SNP	117	552	NZ_VCCA02000001	166688	G	frequency=3.20801258e-01
+SNP	118	553	NZ_VCCA02000001	166705	C	frequency=2.30290413e-01
+SNP	119	554	NZ_VCCA02000001	166707	G	frequency=2.31429577e-01
+SNP	120	555	NZ_VCCA02000001	230091	A	frequency=1.27808094e-01
+SNP	121	556	NZ_VCCA02000001	273838	G	frequency=1.13035202e-01
+SNP	122	557	NZ_VCCA02000001	274440	A	frequency=1.51751041e-01
+SNP	123	558	NZ_VCCA02000001	313166	G	frequency=1.47337437e-01
+SNP	124	559	NZ_VCCA02000001	438981	G	frequency=1.97840691e-01
+SNP	125	560	NZ_VCCA02000001	438983	C	frequency=1.97428703e-01
+SNP	126	561	NZ_VCCA02000001	439004	G	frequency=2.69582272e-01
+SNP	127	562	NZ_VCCA02000001	439010	A	frequency=2.61853695e-01
+SNP	128	563	NZ_VCCA02000001	439035	A	frequency=2.39192963e-01
+SNP	129	564	NZ_VCCA02000001	439045	A	frequency=2.23678589e-01
+SNP	130	565	NZ_VCCA02000001	439046	G	frequency=2.23664284e-01
+SNP	131	566	NZ_VCCA02000001	439212	G	frequency=6.29770279e-01
+SNP	132	567	NZ_VCCA02000001	439216	A	frequency=6.11506462e-01
+SNP	133	568	NZ_VCCA02000001	439229	G	frequency=6.84826374e-01
+SNP	134	569	NZ_VCCA02000001	455959	G	frequency=8.28323364e-02
+SNP	135	570	NZ_VCCA02000001	462080	C	frequency=2.24628925e-01
+SNP	136	571	NZ_VCCA02000001	462220	T	frequency=9.62100029e-02
+SNP	137	572	NZ_VCCA02000001	471446	G	frequency=1.74759388e-01
+SNP	138	573	NZ_VCCA02000001	471448	G	frequency=1.74786091e-01
+SNP	139	574	NZ_VCCA02000001	471449	G	frequency=1.74794674e-01
+SNP	140	575	NZ_VCCA02000001	471452	C	frequency=1.74419403e-01
+SNP	141	576	NZ_VCCA02000001	471457	T	frequency=1.66375160e-01
+SNP	142	577	NZ_VCCA02000001	471460	C	frequency=1.62053108e-01
+SNP	143	578	NZ_VCCA02000001	471461	T	frequency=1.70945168e-01
+SNP	144	579	NZ_VCCA02000001	471466	G	frequency=1.66971207e-01
+SNP	145	580	NZ_VCCA02000001	471475	C	frequency=1.71318054e-01
+SNP	146	581	NZ_VCCA02000001	471476	T	frequency=1.69237614e-01
+SNP	147	582	NZ_VCCA02000001	471478	C	frequency=1.71261787e-01
+SNP	148	583	NZ_VCCA02000001	471481	C	frequency=1.60570145e-01
+SNP	149	584	NZ_VCCA02000001	532263	C	frequency=7.15928078e-02
+SNP	150	585	NZ_VCCA02000001	532266	C	frequency=5.82981110e-02
+SNP	151	586	NZ_VCCA02000001	532269	G	frequency=5.17997742e-02
+SNP	152	587	NZ_VCCA02000001	532281	T	frequency=5.40590286e-02
+SNP	153	588	NZ_VCCA02000001	532282	G	frequency=5.04374504e-02
+SNP	154	589	NZ_VCCA02000001	579244	C	frequency=5.52453995e-02
+SNP	155	590	NZ_VCCA02000001	579251	G	frequency=6.07805252e-02
+SNP	156	591	NZ_VCCA02000001	579253	G	frequency=5.91726303e-02
+SNP	157	592	NZ_VCCA02000001	579256	G	frequency=5.67870140e-02
+SNP	158	593	NZ_VCCA02000001	579257	T	frequency=5.71646690e-02
+SNP	159	594	NZ_VCCA02000001	579259	C	frequency=5.97343445e-02
+SNP	160	595	NZ_VCCA02000001	579261	C	frequency=6.02784157e-02
+SNP	161	596	NZ_VCCA02000001	579264	C	frequency=6.71677589e-02
+SNP	162	597	NZ_VCCA02000001	579272	T	frequency=6.89787865e-02
+SNP	163	598	NZ_VCCA02000001	579277	G	frequency=7.23919868e-02
+SNP	164	599	NZ_VCCA02000001	962242	G	frequency=5.09209633e-02
+SNP	165	600	NZ_VCCA02000001	962546	C	frequency=1.80905819e-01
+SNP	166	601	NZ_VCCA02000001	962564	G	frequency=2.26632595e-01
+SNP	167	602	NZ_VCCA02000001	962567	G	frequency=2.24056721e-01
+SNP	168	603	NZ_VCCA02000001	962570	G	frequency=2.36387253e-01
+SNP	169	604	NZ_VCCA02000001	962571	A	frequency=2.38355637e-01
+SNP	170	605	NZ_VCCA02000001	962572	C	frequency=2.43343830e-01
+SNP	171	606	NZ_VCCA02000001	962582	G	frequency=4.00379181e-01
+SNP	172	607	NZ_VCCA02000001	962591	A	frequency=4.57648277e-01
+SNP	173	608	NZ_VCCA02000001	962600	G	frequency=4.85712051e-01
+SNP	174	609	NZ_VCCA02000001	962603	G	frequency=4.93992329e-01
+SNP	175	610	NZ_VCCA02000001	962604	C	frequency=4.87740040e-01
+SNP	176	611	NZ_VCCA02000001	962621	G	frequency=4.89168644e-01
+SNP	177	612	NZ_VCCA02000001	962630	A	frequency=3.49855900e-01
+SNP	178	613	NZ_VCCA02000001	962631	C	frequency=3.52699280e-01
+SNP	179	614	NZ_VCCA02000001	962633	A	frequency=3.31195831e-01
+SNP	180	615	NZ_VCCA02000001	962636	G	frequency=3.69462967e-01
+SNP	181	616	NZ_VCCA02000001	962642	C	frequency=3.38415623e-01
+SNP	182	617	NZ_VCCA02000001	962647	G	frequency=2.55393505e-01
+SNP	183	618	NZ_VCCA02000001	962648	C	frequency=2.55438805e-01
+SNP	184	619	NZ_VCCA02000001	962657	C	frequency=2.28129864e-01
+SNP	185	620	NZ_VCCA02000001	962678	G	frequency=2.70154953e-01
+SNP	186	621	NZ_VCCA02000001	962679	T	frequency=2.67787933e-01
+SNP	187	622	NZ_VCCA02000001	962680	C	frequency=2.72838593e-01
+SNP	188	623	NZ_VCCA02000001	962684	C	frequency=2.80078888e-01
+SNP	189	624	NZ_VCCA02000001	962687	A	frequency=2.82300949e-01
+SNP	190	625	NZ_VCCA02000001	962695	G	frequency=3.19070816e-01
+SNP	191	626	NZ_VCCA02000001	962707	C	frequency=3.21876526e-01
+SNP	192	627	NZ_VCCA02000001	962724	G	frequency=3.46415520e-01
+SNP	193	628	NZ_VCCA02000001	962742	C	frequency=4.23614979e-01
+SNP	194	629	NZ_VCCA02000001	962784	G	frequency=3.57781410e-01
+SNP	195	630	NZ_VCCA02000001	962787	T	frequency=3.67674828e-01
+SNP	196	631	NZ_VCCA02000001	1010723	C	frequency=1.80427074e-01
+SNP	197	632	NZ_VCCA02000001	1071471	T	frequency=1.53065681e-01
+SNP	198	633	NZ_VCCA02000001	1073986	G	frequency=2.91948318e-01
+SNP	199	634	NZ_VCCA02000001	1073987	C	frequency=2.82613277e-01
+SNP	200	635	NZ_VCCA02000001	1081107	C	frequency=2.51691341e-01
+SNP	201	636	NZ_VCCA02000001	1089313	A	frequency=2.34758377e-01
+SNP	202	637	NZ_VCCA02000001	1089314	G	frequency=5.43394089e-02
+SNP	203	638	NZ_VCCA02000001	1089316	A	frequency=6.42108917e-02
+SNP	204	639	NZ_VCCA02000001	1089319	C	frequency=7.79638290e-02
+SNP	205	640	NZ_VCCA02000001	1118402	C	frequency=2.25361824e-01
+SNP	206	641	NZ_VCCA02000001	1118420	C	frequency=3.69950771e-01
+SNP	207	642	NZ_VCCA02000001	1118421	A	frequency=3.70049477e-01
+SNP	208	643	NZ_VCCA02000001	1118423	C	frequency=3.92817974e-01
+SNP	209	644	NZ_VCCA02000001	1118425	C	frequency=3.77494812e-01
+SNP	210	645	NZ_VCCA02000001	1118427	A	frequency=3.95452976e-01
+SNP	211	646	NZ_VCCA02000001	1118428	C	frequency=3.96584034e-01
+SNP	212	647	NZ_VCCA02000001	1118429	T	frequency=3.97748947e-01
+SNP	213	648	NZ_VCCA02000001	1118444	A	frequency=3.91713619e-01
+SNP	214	649	NZ_VCCA02000001	1118445	A	frequency=3.82008076e-01
+SNP	215	650	NZ_VCCA02000001	1118446	G	frequency=3.82093430e-01
+SNP	216	651	NZ_VCCA02000001	1118458	C	frequency=3.68734837e-01
+SNP	217	652	NZ_VCCA02000001	1118463	A	frequency=2.69394398e-01
+SNP	218	653	NZ_VCCA02000001	1118464	G	frequency=2.77991772e-01
+SNP	219	654	NZ_VCCA02000001	1118470	C	frequency=2.22183228e-01
+SNP	220	655	NZ_VCCA02000001	1118475	C	frequency=1.76708698e-01
+SNP	221	656	NZ_VCCA02000001	1118476	G	frequency=1.77122593e-01
+SNP	222	657	NZ_VCCA02000001	1118480	A	frequency=1.81233883e-01
+SNP	223	658	NZ_VCCA02000001	1118482	C	frequency=1.83017254e-01
+SNP	224	659	NZ_VCCA02000001	1118483	G	frequency=1.75155640e-01
+SNP	225	660	NZ_VCCA02000001	1118484	T	frequency=1.79915428e-01
+SNP	226	661	NZ_VCCA02000001	1118485	G	frequency=1.80342674e-01
+SNP	227	662	NZ_VCCA02000001	1118493	C	frequency=2.03723431e-01
+SNP	228	663	NZ_VCCA02000001	1118497	G	frequency=1.92365170e-01
+SNP	229	664	NZ_VCCA02000001	1118573	A	frequency=1.36871338e-01
+SNP	230	665	NZ_VCCA02000001	1118575	G	frequency=1.40894413e-01
+SNP	231	666	NZ_VCCA02000001	1118582	G	frequency=1.42517567e-01
+SNP	232	667	NZ_VCCA02000001	1118594	G	frequency=1.81438446e-01
+SNP	233	668	NZ_VCCA02000001	1118596	G	frequency=1.63880825e-01
+SNP	234	669	NZ_VCCA02000001	1118597	A	frequency=1.66432858e-01
+SNP	235	670	NZ_VCCA02000001	1118600	G	frequency=1.53417110e-01
+SNP	236	671	NZ_VCCA02000001	1118603	C	frequency=1.58725739e-01
+SNP	237	672	NZ_VCCA02000001	1118605	G	frequency=1.81741714e-01
+SNP	238	673	NZ_VCCA02000001	1118611	C	frequency=1.64498329e-01
+SNP	239	674	NZ_VCCA02000001	1118612	T	frequency=1.71394825e-01
+DEL	240	902	NZ_VCCA02000001	1129279	3	frequency=1.54304752e-01	repeat_length=3	repeat_new_copies=5	repeat_ref_copies=6	repeat_seq=GCT
+SNP	241	675	NZ_VCCA02000001	1189696	T	frequency=3.04616928e-01
+SNP	242	676	NZ_VCCA02000001	1189700	T	frequency=2.79761791e-01
+SNP	243	677	NZ_VCCA02000001	1189701	C	frequency=2.85889626e-01
+SNP	244	678	NZ_VCCA02000001	1189706	A	frequency=2.85580635e-01
+SNP	245	679	NZ_VCCA02000001	1189708	C	frequency=2.36127853e-01
+SNP	246	680	NZ_VCCA02000001	1189711	C	frequency=2.27989674e-01
+SNP	247	681	NZ_VCCA02000001	1189712	G	frequency=2.28019714e-01
+SNP	248	682	NZ_VCCA02000001	1189714	C	frequency=2.33915806e-01
+SNP	249	683	NZ_VCCA02000001	1189720	C	frequency=2.55996704e-01
+SNP	250	684	NZ_VCCA02000001	1189741	C	frequency=2.91675091e-01
+SNP	251	685	NZ_VCCA02000001	1189750	C	frequency=2.24262714e-01
+SNP	252	686	NZ_VCCA02000001	1297049	C	frequency=1.33664131e-01
+SNP	253	687	NZ_VCCA02000001	1297053	C	frequency=1.20631218e-01
+SNP	254	688	NZ_VCCA02000001	1297060	A	frequency=9.52072144e-02
+SNP	255	689	NZ_VCCA02000001	1297061	G	frequency=1.65645599e-01
+SNP	256	690	NZ_VCCA02000001	1297065	T	frequency=1.23275757e-01
+SNP	257	691	NZ_VCCA02000001	1297070	C	frequency=1.06219292e-01
+SNP	258	692	NZ_VCCA02000001	1297072	G	frequency=1.56730175e-01
+SNP	259	693	NZ_VCCA02000001	1297080	A	frequency=1.03461742e-01
+SNP	260	694	NZ_VCCA02000001	1297083	A	frequency=8.98127556e-02
+SNP	261	695	NZ_VCCA02000001	1297087	G	frequency=1.08880043e-01
+SNP	262	696	NZ_VCCA02000001	1297091	C	frequency=1.20425701e-01
+SUB	263	697,698	NZ_VCCA02000001	1339112	2	CC	frequency=1
+DEL	264	699	NZ_VCCA02000001	1413383	1	frequency=1
+SUB	265	909	NZ_VCCA02000001	1414483	18	CTAATAATTAAAAAAAAA	frequency=1.01609923e-01
+SNP	266	700	NZ_VCCA02000001	1597425	G	frequency=1.42860889e-01
+SNP	267	701	NZ_VCCA02000001	1597426	C	frequency=1.51243687e-01
+SNP	268	702	NZ_VCCA02000001	1597427	C	frequency=1.47505283e-01
+SNP	269	703	NZ_VCCA02000001	1597428	G	frequency=1.47896767e-01
+SNP	270	704	NZ_VCCA02000001	1597432	G	frequency=1.44197941e-01
+SNP	271	705	NZ_VCCA02000001	1597433	T	frequency=1.45819187e-01
+SNP	272	706	NZ_VCCA02000001	1597442	T	frequency=1.83475971e-01
+SNP	273	707	NZ_VCCA02000001	1597448	T	frequency=1.99623585e-01
+SNP	274	708	NZ_VCCA02000001	1597449	T	frequency=1.99728012e-01
+SNP	275	709	NZ_VCCA02000001	1597451	C	frequency=1.96250916e-01
+SNP	276	710	NZ_VCCA02000001	1597452	G	frequency=1.92570210e-01
+SNP	277	711	NZ_VCCA02000001	1597459	C	frequency=1.91902161e-01
+SNP	278	712	NZ_VCCA02000001	1597461	T	frequency=1.98296070e-01
+SNP	279	713	NZ_VCCA02000001	1597462	G	frequency=1.88485622e-01
+SNP	280	714	NZ_VCCA02000001	1597469	G	frequency=2.27562904e-01
+SNP	281	715	NZ_VCCA02000001	1597470	T	frequency=2.52170563e-01
+SNP	282	716	NZ_VCCA02000001	1597484	G	frequency=1.62768364e-01
+SNP	283	717	NZ_VCCA02000001	1597485	T	frequency=1.64837360e-01
+SNP	284	718	NZ_VCCA02000001	1597486	C	frequency=1.64883137e-01
+SNP	285	719	NZ_VCCA02000001	1597488	G	frequency=1.66365623e-01
+SNP	286	720	NZ_VCCA02000001	1597499	T	frequency=1.19815350e-01
+SNP	287	721	NZ_VCCA02000001	1597504	C	frequency=1.23675823e-01
+SNP	288	722	NZ_VCCA02000001	1597505	T	frequency=1.25905514e-01
+SNP	289	723	NZ_VCCA02000001	1597507	C	frequency=1.37192249e-01
+SNP	290	724	NZ_VCCA02000001	1597509	T	frequency=1.30144119e-01
+SNP	291	725	NZ_VCCA02000001	1597510	G	frequency=1.30375862e-01
+SNP	292	726	NZ_VCCA02000001	1597511	C	frequency=1.09225273e-01
+SNP	293	727	NZ_VCCA02000001	1597513	C	frequency=1.04355812e-01
+SNP	294	728	NZ_VCCA02000001	1597515	G	frequency=1.00883007e-01
+SNP	295	729	NZ_VCCA02000001	1597519	A	frequency=9.53717232e-02
+SNP	296	730	NZ_VCCA02000001	1655087	G	frequency=2.89277554e-01
+SNP	297	731	NZ_VCCA02000001	1655090	C	frequency=5.71717262e-01
+SNP	298	732	NZ_VCCA02000001	1655092	G	frequency=1
+SNP	299	733	NZ_VCCA02000001	1776631	G	frequency=1.39917374e-01
+INS	300	734	NZ_VCCA02000001	1776641	T	frequency=1.52176857e-01	insert_position=1
+SNP	301	735	NZ_VCCA02000001	2211590	A	frequency=4.72557068e-01
+SNP	302	736	NZ_VCCA02000001	2211592	C	frequency=4.72311497e-01
+SNP	303	737	NZ_VCCA02000001	2211595	G	frequency=4.63647842e-01
+SNP	304	738	NZ_VCCA02000001	2224416	T	frequency=1.05854034e-01
+SNP	305	739	NZ_VCCA02000001	2224419	C	frequency=1.09096050e-01
+SNP	306	740	NZ_VCCA02000001	2224435	G	frequency=6.08382225e-02
+SNP	307	741	NZ_VCCA02000001	2224436	A	frequency=5.54790497e-02
+SNP	308	742	NZ_VCCA02000001	2224437	C	frequency=6.02760315e-02
+SNP	309	743	NZ_VCCA02000001	2224439	T	frequency=5.96008301e-02
+SNP	310	744	NZ_VCCA02000001	2224444	G	frequency=6.30230904e-02
+SNP	311	745	NZ_VCCA02000001	2224449	G	frequency=5.29589653e-02
+SNP	312	746	NZ_VCCA02000001	2224450	G	frequency=5.11145592e-02
+SNP	313	747	NZ_VCCA02000001	2224457	C	frequency=5.01737595e-02
+SNP	314	748	NZ_VCCA02000001	2224461	T	frequency=5.07678986e-02
+SNP	315	749	NZ_VCCA02000001	2224464	C	frequency=5.13901711e-02
+INS	316	750	NZ_VCCA02000001	2313207	G	frequency=1	insert_position=1
+SNP	317	751	NZ_VCCA02000001	2400921	A	frequency=7.84528255e-01
+SNP	318	752	NZ_VCCA02000001	2400922	T	frequency=7.85125732e-01
+SNP	319	753	NZ_VCCA02000001	2400927	T	frequency=7.28189945e-01
+SNP	320	754	NZ_VCCA02000001	2400929	C	frequency=7.14630127e-01
+SNP	321	755	NZ_VCCA02000001	2400935	A	frequency=6.89403057e-01
+SNP	322	756	NZ_VCCA02000001	2400943	G	frequency=6.79255962e-01
+SNP	323	757	NZ_VCCA02000001	2400944	T	frequency=6.78050518e-01
+SNP	324	758	NZ_VCCA02000001	2400954	T	frequency=6.55818462e-01
+SNP	325	759	NZ_VCCA02000001	2400960	C	frequency=4.31461334e-01
+SNP	326	760	NZ_VCCA02000001	2400962	T	frequency=4.45559978e-01
+SNP	327	761	NZ_VCCA02000001	2401087	A	frequency=2.58504868e-01
+SNP	328	762	NZ_VCCA02000001	2401097	A	frequency=3.23261738e-01
+SNP	329	763	NZ_VCCA02000001	2401106	T	frequency=3.99717331e-01
+SNP	330	764	NZ_VCCA02000001	2401116	T	frequency=3.54934692e-01
+SNP	331	765	NZ_VCCA02000001	2401117	C	frequency=3.78171444e-01
+SNP	332	766	NZ_VCCA02000001	2401131	A	frequency=4.78755474e-01
+SNP	333	767	NZ_VCCA02000001	2401169	T	frequency=2.29432106e-01
+DEL	334	768	NZ_VCCA02000001	2487165	1	frequency=1
+SNP	335	769	NZ_VCCA02000001	2487170	G	frequency=1
+SNP	336	770	NZ_VCCA02000001	2487172	C	frequency=1
+SUB	337	771,772	NZ_VCCA02000001	2487174	2	AT	frequency=1
+SNP	338	773	NZ_VCCA02000001	2487184	A	frequency=1
+SNP	339	774	NZ_VCCA02000001	2487191	A	frequency=1
+SNP	340	775	NZ_VCCA02000001	2487196	C	frequency=1
+SNP	341	776	NZ_VCCA02000001	2487202	A	frequency=1
+SUB	342	918	NZ_VCCA02000001	2522041	16	TTTTTTTTTTAATGAT	frequency=2.58823529e-01
+SNP	343	777	NZ_VCCA02000001	2561365	T	frequency=8.77633095e-02
+SNP	344	778	NZ_VCCA02000001	2561720	A	frequency=6.55970573e-02
+SNP	345	779	NZ_VCCA02000001	2661385	G	frequency=6.96334839e-02
+SNP	346	780	NZ_VCCA02000001	2661387	G	frequency=7.21526146e-02
+SNP	347	781	NZ_VCCA02000001	2661403	G	frequency=7.04636574e-02
+SNP	348	782	NZ_VCCA02000001	2661406	C	frequency=9.27305222e-02
+SNP	349	783	NZ_VCCA02000001	2661409	G	frequency=8.18200111e-02
+SNP	350	784	NZ_VCCA02000001	2661412	C	frequency=8.10337067e-02
+SNP	351	785	NZ_VCCA02000001	2661418	G	frequency=7.88750648e-02
+SNP	352	786	NZ_VCCA02000001	2661421	G	frequency=8.74776840e-02
+SNP	353	787	NZ_VCCA02000001	2661424	G	frequency=7.98583031e-02
+SNP	354	788	NZ_VCCA02000001	2661425	G	frequency=7.95831680e-02
+SNP	355	789	NZ_VCCA02000001	2661426	C	frequency=8.68945122e-02
+SNP	356	790	NZ_VCCA02000001	2662543	C	frequency=3.89039993e-01
+SNP	357	791	NZ_VCCA02000001	2662549	C	frequency=3.63527298e-01
+SNP	358	792	NZ_VCCA02000001	2662550	G	frequency=3.83297443e-01
+SNP	359	793	NZ_VCCA02000001	2662564	C	frequency=3.41347694e-01
+SNP	360	794	NZ_VCCA02000001	2662576	C	frequency=2.96625614e-01
+SNP	361	795	NZ_VCCA02000001	2662579	C	frequency=2.76473999e-01
+SNP	362	796	NZ_VCCA02000001	2662580	T	frequency=2.76150703e-01
+SNP	363	797	NZ_VCCA02000001	2664448	C	frequency=1.72732353e-01
+SNP	364	798	NZ_VCCA02000001	2664452	C	frequency=1.68565273e-01
+SNP	365	799	NZ_VCCA02000001	2664465	C	frequency=1.91748619e-01
+SNP	366	800	NZ_VCCA02000001	2664466	G	frequency=1.91508770e-01
+SNP	367	801	NZ_VCCA02000001	2664467	T	frequency=1.91399574e-01
+SNP	368	802	NZ_VCCA02000001	2664468	C	frequency=1.90237999e-01
+SNP	369	803	NZ_VCCA02000001	2664476	C	frequency=1.69007301e-01
+SNP	370	804	NZ_VCCA02000001	2664482	A	frequency=1.50557041e-01
+SNP	371	805	NZ_VCCA02000001	2664484	C	frequency=1.42788410e-01
+SNP	372	806	NZ_VCCA02000001	2664486	C	frequency=1.50573730e-01
+SNP	373	807	NZ_VCCA02000001	2664487	G	frequency=1.53431892e-01
+SNP	374	808	NZ_VCCA02000001	2800647	G	frequency=2.48810291e-01
+SNP	375	809	NZ_VCCA02000001	2938247	A	frequency=1
+SNP	376	810	NZ_VCCA02000001	2945228	G	frequency=6.07962608e-02
+SNP	377	811	NZ_VCCA02000001	2945240	G	frequency=1.68302536e-01
+SNP	378	812	NZ_VCCA02000001	2945243	C	frequency=1.77479744e-01
+SNP	379	813	NZ_VCCA02000001	2945252	C	frequency=1.51178837e-01
+SNP	380	814	NZ_VCCA02000001	2989168	G	frequency=1.94817066e-01
+SNP	381	815	NZ_VCCA02000001	2989177	G	frequency=1.54649258e-01
+SNP	382	816	NZ_VCCA02000001	3075873	G	frequency=2.64027596e-01
+SNP	383	817	NZ_VCCA02000001	3096099	G	frequency=1.28955364e-01
+SNP	384	818	NZ_VCCA02000001	3096107	G	frequency=1.26222134e-01
+SNP	385	819	NZ_VCCA02000001	3096109	T	frequency=1.19779110e-01
+SNP	386	820	NZ_VCCA02000001	3096110	C	frequency=1.21045589e-01
+SNP	387	821	NZ_VCCA02000001	3096115	T	frequency=1.11869335e-01
+SNP	388	822	NZ_VCCA02000001	3096125	C	frequency=6.39486313e-02
+SNP	389	823	NZ_VCCA02000001	3097275	T	frequency=1.94752693e-01
+SNP	390	824	NZ_VCCA02000001	3097277	C	frequency=2.09439754e-01
+SNP	391	825	NZ_VCCA02000001	3097278	C	frequency=1.85171604e-01
+SNP	392	826	NZ_VCCA02000001	3097282	G	frequency=1.60463810e-01
+SNP	393	827	NZ_VCCA02000001	3097291	C	frequency=1.89590931e-01
+SNP	394	828	NZ_VCCA02000001	3097293	G	frequency=1.98229790e-01
+SNP	395	829	NZ_VCCA02000001	3097309	G	frequency=2.03630447e-01
+SNP	396	830	NZ_VCCA02000001	3097315	C	frequency=2.03947544e-01
+SNP	397	831	NZ_VCCA02000001	3097318	C	frequency=1.74004078e-01
+SNP	398	832	NZ_VCCA02000001	3097323	C	frequency=1.86791420e-01
+SNP	399	833	NZ_VCCA02000001	3097324	G	frequency=1.83945179e-01
+SNP	400	834	NZ_VCCA02000001	3097326	G	frequency=1.97306633e-01
+SNP	401	835	NZ_VCCA02000001	3097327	C	frequency=1.82532787e-01
+SNP	402	836	NZ_VCCA02000001	3097337	G	frequency=7.95106888e-02
+SNP	403	837	NZ_VCCA02000001	3097338	G	frequency=9.08627510e-02
+SNP	404	838	NZ_VCCA02000001	3097341	C	frequency=7.33175278e-02
+SNP	405	839	NZ_VCCA02000001	3097346	C	frequency=6.53772354e-02
+SNP	406	840	NZ_VCCA02000001	3097347	G	frequency=6.58607483e-02
+SNP	407	841	NZ_VCCA02000001	3097348	G	frequency=6.65917397e-02
+SNP	408	842	NZ_VCCA02000001	3097407	C	frequency=1.98794365e-01
+SNP	409	843	NZ_VCCA02000001	3097408	G	frequency=2.09659100e-01
+SNP	410	844	NZ_VCCA02000001	3097410	A	frequency=2.12081432e-01
+SNP	411	845	NZ_VCCA02000001	3097419	T	frequency=2.65872002e-01
+SNP	412	846	NZ_VCCA02000001	3097428	G	frequency=3.28611851e-01
+SNP	413	847	NZ_VCCA02000001	3097444	G	frequency=2.20912457e-01
+SNP	414	848	NZ_VCCA02000001	3097447	C	frequency=1.89965725e-01
+SNP	415	849	NZ_VCCA02000001	3097448	A	frequency=1.89579964e-01
+SNP	416	850	NZ_VCCA02000001	3097458	G	frequency=1.32102013e-01
+SNP	417	851	NZ_VCCA02000001	3149170	T	frequency=9.51819420e-02
+SNP	418	852	NZ_VCCA02000001	3254766	C	frequency=1.62850857e-01
+SNP	419	853	NZ_VCCA02000001	3254780	A	frequency=1.56586170e-01
+SNP	420	854	NZ_VCCA02000001	3254781	C	frequency=2.24989414e-01
+SNP	421	855	NZ_VCCA02000001	3254786	C	frequency=1.43579960e-01
+SNP	422	856	NZ_VCCA02000001	3254805	G	frequency=1.25113964e-01
+SNP	423	857	NZ_VCCA02000001	3302928	G	frequency=1.71933174e-01
+SNP	424	858	NZ_VCCA02000001	3353077	T	frequency=1.71109676e-01
+SNP	425	859	NZ_VCCA02000001	3353084	G	frequency=2.06765652e-01
+SNP	426	860	NZ_VCCA02000001	3353086	T	frequency=2.06658840e-01
+SNP	427	861	NZ_VCCA02000001	3399347	T	frequency=1.26867294e-01
+SNP	428	862	NZ_VCCA02000001	3441649	C	frequency=1.01608276e-01
+SNP	429	863	NZ_VCCA02000001	3444990	T	frequency=7.01079369e-02
+SNP	430	864	NZ_VCCA02000001	3467862	G	frequency=1
+SNP	431	865	NZ_VCCA02000002	58307	C	frequency=1
+SNP	432	866	NZ_VCCA02000002	58312	A	frequency=1
+SNP	433	867	NZ_VCCA02000002	58313	C	frequency=4.84910488e-01
+SNP	434	868	NZ_VCCA02000002	59601	C	frequency=2.09878445e-01
+SNP	435	869	NZ_VCCA02000002	59612	G	frequency=1.44933701e-01
+RA	436	.	NZ_VCCA02000001	8	0	G	C	bias_e_value=3425660	bias_p_value=0.958124	consensus_score=438.4	fisher_strand_p_value=0.724926	frequency=2.03638077e-01	ks_quality_p_value=1	major_base=G	major_cov=70/84	major_frequency=7.96361923e-01	minor_base=C	minor_cov=17/24	new_cov=17/24	polymorphism_frequency=2.03638077e-01	polymorphism_score=81.9	prediction=polymorphism	ref_cov=70/84	total_cov=87/108
+RA	437	.	NZ_VCCA02000001	29	0	G	C	bias_e_value=2671390	bias_p_value=0.747163	consensus_score=678.0	fisher_strand_p_value=0.379464	frequency=1.84835911e-01	ks_quality_p_value=1	major_base=G	major_cov=120/125	major_frequency=8.15164089e-01	minor_base=C	minor_cov=24/33	new_cov=24/33	polymorphism_frequency=1.84835911e-01	polymorphism_score=111.9	prediction=polymorphism	ref_cov=120/125	total_cov=145/159
+RA	438	.	NZ_VCCA02000001	30	0	C	G	bias_e_value=7360.26	bias_p_value=0.0020586	consensus_score=814.4	fisher_strand_p_value=0.000218313	frequency=8.56256485e-02	ks_quality_p_value=1	major_base=C	major_cov=141/134	major_frequency=9.14374352e-01	minor_base=G	minor_cov=4/24	new_cov=4/24	polymorphism_frequency=8.56256485e-02	polymorphism_score=40.5	prediction=polymorphism	ref_cov=141/134	total_cov=145/160
+RA	439	.	NZ_VCCA02000001	32	0	G	A	bias_e_value=98168.6	bias_p_value=0.0274569	consensus_score=845.6	fisher_strand_p_value=0.00424969	frequency=6.80446625e-02	ks_quality_p_value=1	major_base=G	major_cov=148/158	major_frequency=9.31955338e-01	minor_base=A	minor_cov=4/19	new_cov=4/19	polymorphism_frequency=6.80446625e-02	polymorphism_score=27.9	prediction=polymorphism	ref_cov=148/158	total_cov=153/179
+RA	440	.	NZ_VCCA02000001	38	0	G	C	bias_e_value=3575380	bias_p_value=1	consensus_score=993.5	fisher_strand_p_value=1	frequency=6.86025620e-02	ks_quality_p_value=1	major_base=G	major_cov=183/188	major_frequency=9.31397438e-01	minor_base=C	minor_cov=14/14	new_cov=14/14	polymorphism_frequency=6.86025620e-02	polymorphism_score=54.2	prediction=polymorphism	ref_cov=183/188	total_cov=197/202
+RA	441	.	NZ_VCCA02000001	44	0	C	T	bias_e_value=83282.1	bias_p_value=0.0232932	consensus_score=205.0	fisher_strand_p_value=0.00379472	frequency=5.75851440e-01	ks_quality_p_value=0.92237	major_base=T	major_cov=130/94	major_frequency=5.75851440e-01	minor_base=C	minor_cov=69/92	new_cov=130/94	polymorphism_frequency=5.75851440e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=69/92	total_cov=204/198
+RA	442	.	NZ_VCCA02000001	47	0	C	T	bias_e_value=5472.27	bias_p_value=0.00153054	consensus_score=231.0	fisher_strand_p_value=0.00015681	frequency=5.84219456e-01	ks_quality_p_value=1	major_base=T	major_cov=128/94	major_frequency=5.84219456e-01	minor_base=C	minor_cov=58/96	new_cov=128/94	polymorphism_frequency=5.84219456e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=58/96	total_cov=193/198
+RA	443	.	NZ_VCCA02000001	48	0	A	G	bias_e_value=2740820	bias_p_value=0.766581	consensus_score=912.5	fisher_strand_p_value=0.400071	frequency=1.01483345e-01	ks_quality_p_value=1	major_base=A	major_cov=167/175	major_frequency=8.98516655e-01	minor_base=G	minor_cov=16/23	new_cov=16/23	polymorphism_frequency=1.01483345e-01	polymorphism_score=68.4	prediction=polymorphism	ref_cov=167/175	total_cov=185/198
+RA	444	.	NZ_VCCA02000001	49	0	C	A	bias_e_value=2475820	bias_p_value=0.692463	consensus_score=788.7	fisher_strand_p_value=0.32695	frequency=1.41711235e-01	ks_quality_p_value=1	major_base=C	major_cov=143/151	major_frequency=8.58288765e-01	minor_base=A	minor_cov=17/26	new_cov=17/26	polymorphism_frequency=1.41711235e-01	polymorphism_score=77.9	prediction=polymorphism	ref_cov=143/151	total_cov=185/198
+RA	445	.	NZ_VCCA02000001	50	0	C	G	bias_e_value=2302370	bias_p_value=0.64395	consensus_score=1062.6	fisher_strand_p_value=0.406643	frequency=8.58778954e-02	ks_quality_p_value=0.703214	major_base=C	major_cov=197/211	major_frequency=9.14122105e-01	minor_base=G	minor_cov=16/23	new_cov=16/23	polymorphism_frequency=8.58778954e-02	polymorphism_score=87.6	prediction=polymorphism	ref_cov=197/211	total_cov=213/234
+RA	446	.	NZ_VCCA02000001	54	0	G	A	bias_e_value=1255430	bias_p_value=0.351133	consensus_score=1125.5	fisher_strand_p_value=0.109246	frequency=8.69684219e-02	ks_quality_p_value=1	major_base=G	major_cov=226/215	major_frequency=9.13031578e-01	minor_base=A	minor_cov=16/27	new_cov=16/27	polymorphism_frequency=8.69684219e-02	polymorphism_score=67.2	prediction=polymorphism	ref_cov=226/215	total_cov=242/261
+RA	447	.	NZ_VCCA02000001	56	0	A	C	bias_e_value=447320	bias_p_value=0.125111	consensus_score=1079.0	fisher_strand_p_value=0.0271633	frequency=9.48944092e-02	ks_quality_p_value=1	major_base=A	major_cov=212/217	major_frequency=9.05105591e-01	minor_base=C	minor_cov=14/31	new_cov=14/31	polymorphism_frequency=9.48944092e-02	polymorphism_score=106.6	prediction=polymorphism	ref_cov=212/217	total_cov=226/253
+RA	448	.	NZ_VCCA02000001	57	0	G	C	bias_e_value=513478	bias_p_value=0.143615	consensus_score=1024.7	fisher_strand_p_value=0.032428	frequency=1.13442898e-01	ks_quality_p_value=1	major_base=G	major_cov=205/209	major_frequency=8.86557102e-01	minor_base=C	minor_cov=19/37	new_cov=19/37	polymorphism_frequency=1.13442898e-01	polymorphism_score=107.5	prediction=polymorphism	ref_cov=205/209	total_cov=224/249
+RA	449	.	NZ_VCCA02000001	58	0	A	C	bias_e_value=1014210	bias_p_value=0.283666	consensus_score=1098.5	fisher_strand_p_value=0.0806376	frequency=9.01679993e-02	ks_quality_p_value=1	major_base=A	major_cov=209/220	major_frequency=9.09832001e-01	minor_base=C	minor_cov=15/29	new_cov=15/29	polymorphism_frequency=9.01679993e-02	polymorphism_score=102.6	prediction=polymorphism	ref_cov=209/220	total_cov=224/249
+RA	450	.	NZ_VCCA02000001	62	0	G	C	bias_e_value=331152	bias_p_value=0.0926202	consensus_score=1151.7	fisher_strand_p_value=0.0185766	frequency=8.59513283e-02	ks_quality_p_value=1	major_base=G	major_cov=239/218	major_frequency=9.14048672e-01	minor_base=C	minor_cov=15/30	new_cov=15/30	polymorphism_frequency=8.59513283e-02	polymorphism_score=91.9	prediction=polymorphism	ref_cov=239/218	total_cov=254/249
+RA	451	.	NZ_VCCA02000001	63	0	A	G	bias_e_value=1066290	bias_p_value=0.298232	consensus_score=1103.0	fisher_strand_p_value=0.0865056	frequency=7.67574310e-02	ks_quality_p_value=1	major_base=A	major_cov=240/210	major_frequency=9.23242569e-01	minor_base=G	minor_cov=14/23	new_cov=14/23	polymorphism_frequency=7.67574310e-02	polymorphism_score=62.0	prediction=polymorphism	ref_cov=240/210	total_cov=254/250
+RA	452	.	NZ_VCCA02000001	65	0	G	C	bias_e_value=746683	bias_p_value=0.20884	consensus_score=1136.2	fisher_strand_p_value=0.0530527	frequency=7.87220001e-02	ks_quality_p_value=1	major_base=G	major_cov=239/222	major_frequency=9.21278000e-01	minor_base=C	minor_cov=15/27	new_cov=15/27	polymorphism_frequency=7.87220001e-02	polymorphism_score=75.1	prediction=polymorphism	ref_cov=239/222	total_cov=254/249
+RA	453	.	NZ_VCCA02000001	68	0	C	G	bias_e_value=3121450	bias_p_value=0.873041	consensus_score=538.3	fisher_strand_p_value=0.540488	frequency=2.94848442e-01	ks_quality_p_value=1	major_base=C	major_cov=159/161	major_frequency=7.05151558e-01	minor_base=G	minor_cov=72/64	new_cov=72/64	polymorphism_frequency=2.94848442e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=159/161	total_cov=232/225
+RA	454	.	NZ_VCCA02000001	71	0	C	G	bias_e_value=2669.41	bias_p_value=0.000746609	consensus_score=830.4	fisher_strand_p_value=7.07235e-05	frequency=1.27378464e-01	ks_quality_p_value=1	major_base=C	major_cov=189/179	major_frequency=8.72621536e-01	minor_base=G	minor_cov=14/45	new_cov=14/45	polymorphism_frequency=1.27378464e-01	polymorphism_score=102.7	prediction=polymorphism	ref_cov=189/179	total_cov=205/224
+RA	455	.	NZ_VCCA02000001	86	0	C	G	bias_e_value=47.8753	bias_p_value=1.33903e-05	consensus_score=1262.6	fisher_strand_p_value=3.03981e-06	frequency=2.13790894e-01	ks_quality_p_value=0.295161	major_base=C	major_cov=193/347	major_frequency=7.86209106e-01	minor_base=G	minor_cov=85/63	new_cov=85/63	polymorphism_frequency=2.13790894e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=193/347	total_cov=278/414
+RA	456	.	NZ_VCCA02000001	87	0	G	A	bias_e_value=1.10894e-11	bias_p_value=3.10161e-18	consensus_score=371.4	fisher_strand_p_value=1.12701e-12	frequency=4.37235355e-01	ks_quality_p_value=6.0989e-08	major_base=G	major_cov=113/264	major_frequency=5.62764645e-01	minor_base=A	minor_cov=170/127	new_cov=170/127	polymorphism_frequency=4.37235355e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=113/264	total_cov=289/431
+RA	457	.	NZ_VCCA02000001	89	0	A	G	bias_e_value=0.00217911	bias_p_value=6.09476e-10	consensus_score=449.8	fisher_strand_p_value=2.7006e-11	frequency=4.28967476e-01	ks_quality_p_value=0.88658	major_base=A	major_cov=122/275	major_frequency=5.71032524e-01	minor_base=G	minor_cov=166/130	new_cov=166/130	polymorphism_frequency=4.28967476e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=122/275	total_cov=295/436
+RA	458	.	NZ_VCCA02000001	90	0	G	T	bias_e_value=1469.28	bias_p_value=0.000410943	consensus_score=632.8	fisher_strand_p_value=3.66447e-05	frequency=3.40241432e-01	ks_quality_p_value=1	major_base=G	major_cov=219/264	major_frequency=6.59758568e-01	minor_base=T	minor_cov=75/178	new_cov=75/178	polymorphism_frequency=3.40241432e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=219/264	total_cov=294/442
+RA	459	.	NZ_VCCA02000001	95	0	C	G	bias_e_value=2646770	bias_p_value=0.740276	consensus_score=1233.7	fisher_strand_p_value=0.372425	frequency=7.98946381e-01	ks_quality_p_value=1	major_base=G	major_cov=263/372	major_frequency=7.98946381e-01	minor_base=C	minor_cov=61/103	new_cov=263/372	polymorphism_frequency=7.98946381e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=61/103	total_cov=324/477
+RA	460	.	NZ_VCCA02000001	97	0	C	A	bias_e_value=962872	bias_p_value=0.269307	consensus_score=1903.8	fisher_strand_p_value=0.0750141	frequency=8.60075951e-02	ks_quality_p_value=1	major_base=C	major_cov=282/439	major_frequency=9.13992405e-01	minor_base=A	minor_cov=36/35	new_cov=36/35	polymorphism_frequency=8.60075951e-02	polymorphism_score=122.0	prediction=polymorphism	ref_cov=282/439	total_cov=318/474
+RA	461	.	NZ_VCCA02000001	98	0	G	C	bias_e_value=1033630	bias_p_value=0.289098	consensus_score=1368.7	fisher_strand_p_value=0.0828063	frequency=8.33743572e-01	ks_quality_p_value=1	major_base=C	major_cov=274/384	major_frequency=8.33743572e-01	minor_base=G	minor_cov=45/90	new_cov=274/384	polymorphism_frequency=8.33743572e-01	polymorphism_score=290.4	prediction=polymorphism	ref_cov=45/90	total_cov=320/474
+RA	462	.	NZ_VCCA02000001	101	0	A	G	bias_e_value=2.39e-05	bias_p_value=6.6846e-12	consensus_score=241.8	fisher_strand_p_value=1.70353e-12	frequency=4.93057728e-01	ks_quality_p_value=0.130204	major_base=A	major_cov=131/281	major_frequency=5.06942272e-01	minor_base=G	minor_cov=224/172	new_cov=224/172	polymorphism_frequency=4.93057728e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=131/281	total_cov=356/500
+RA	463	.	NZ_VCCA02000001	104	0	G	C	bias_e_value=4.05929e-05	bias_p_value=1.13535e-11	consensus_score=601.5	fisher_strand_p_value=1.39594e-12	frequency=4.12561893e-01	ks_quality_p_value=0.274874	major_base=G	major_cov=145/322	major_frequency=5.87438107e-01	minor_base=C	minor_cov=188/147	new_cov=188/147	polymorphism_frequency=4.12561893e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=145/322	total_cov=341/493
+RA	464	.	NZ_VCCA02000001	110	0	C	G	bias_e_value=23260.2	bias_p_value=0.00650566	consensus_score=387.3	fisher_strand_p_value=0.0014015	frequency=6.11919403e-01	ks_quality_p_value=0.570912	major_base=G	major_cov=159/312	major_frequency=6.11919403e-01	minor_base=C	minor_cov=135/163	new_cov=159/312	polymorphism_frequency=6.11919403e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=135/163	total_cov=294/475
+RA	465	.	NZ_VCCA02000001	119	0	G	C	bias_e_value=1729490	bias_p_value=0.483722	consensus_score=2507.2	fisher_strand_p_value=0.177132	frequency=6.86278343e-02	ks_quality_p_value=1	major_base=G	major_cov=292/558	major_frequency=9.31372166e-01	minor_base=C	minor_cov=28/37	new_cov=28/37	polymorphism_frequency=6.86278343e-02	polymorphism_score=128.5	prediction=polymorphism	ref_cov=292/558	total_cov=320/598
+RA	466	.	NZ_VCCA02000001	120	0	T	A	bias_e_value=1756250	bias_p_value=0.491208	consensus_score=2591.0	fisher_strand_p_value=0.181487	frequency=5.27925491e-02	ks_quality_p_value=1	major_base=T	major_cov=317/568	major_frequency=9.47207451e-01	minor_base=A	minor_cov=23/28	new_cov=23/28	polymorphism_frequency=5.27925491e-02	polymorphism_score=99.6	prediction=polymorphism	ref_cov=317/568	total_cov=341/596
+RA	467	.	NZ_VCCA02000001	128	0	C	G	bias_e_value=3575380	bias_p_value=1	consensus_score=2322.7	fisher_strand_p_value=1	frequency=1.26514912e-01	ks_quality_p_value=1	major_base=C	major_cov=297/501	major_frequency=8.73485088e-01	minor_base=G	minor_cov=44/75	new_cov=44/75	polymorphism_frequency=1.26514912e-01	polymorphism_score=251.9	prediction=polymorphism	ref_cov=297/501	total_cov=341/576
+RA	468	.	NZ_VCCA02000001	129	0	A	G	bias_e_value=585721	bias_p_value=0.163821	consensus_score=2219.5	fisher_strand_p_value=0.633771	frequency=8.85224342e-02	ks_quality_p_value=0.0607099	major_base=A	major_cov=314/526	major_frequency=9.11477566e-01	minor_base=G	minor_cov=33/49	new_cov=33/49	polymorphism_frequency=8.85224342e-02	polymorphism_score=152.1	prediction=polymorphism	ref_cov=314/526	total_cov=347/576
+RA	469	.	NZ_VCCA02000001	130	0	C	G	bias_e_value=3423350	bias_p_value=0.957479	consensus_score=2309.2	fisher_strand_p_value=0.72293	frequency=9.73463058e-02	ks_quality_p_value=1	major_base=C	major_cov=283/489	major_frequency=9.02653694e-01	minor_base=G	minor_cov=33/52	new_cov=33/52	polymorphism_frequency=9.73463058e-02	polymorphism_score=145.5	prediction=polymorphism	ref_cov=283/489	total_cov=342/572
+RA	470	.	NZ_VCCA02000001	131	0	C	T	bias_e_value=2980410	bias_p_value=0.833593	consensus_score=1242.5	fisher_strand_p_value=0.481759	frequency=7.30331421e-01	ks_quality_p_value=1	major_base=T	major_cov=244/413	major_frequency=7.30331421e-01	minor_base=C	minor_cov=83/158	new_cov=244/413	polymorphism_frequency=7.30331421e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=83/158	total_cov=342/572
+RA	471	.	NZ_VCCA02000001	132	0	G	A	bias_e_value=1842330	bias_p_value=0.515284	consensus_score=2334.2	fisher_strand_p_value=0.196674	frequency=5.87954521e-02	ks_quality_p_value=0.996181	major_base=G	major_cov=321/536	major_frequency=9.41204548e-01	minor_base=A	minor_cov=25/29	new_cov=25/29	polymorphism_frequency=5.87954521e-02	polymorphism_score=88.1	prediction=polymorphism	ref_cov=321/536	total_cov=347/567
+RA	472	.	NZ_VCCA02000001	134	0	T	C	bias_e_value=3063410	bias_p_value=0.856807	consensus_score=1935.5	fisher_strand_p_value=0.515088	frequency=8.86709213e-01	ks_quality_p_value=1	major_base=C	major_cov=301/486	major_frequency=8.86709213e-01	minor_base=T	minor_cov=35/67	new_cov=301/486	polymorphism_frequency=8.86709213e-01	polymorphism_score=179.3	prediction=polymorphism	ref_cov=35/67	total_cov=341/553
+RA	473	.	NZ_VCCA02000001	137	0	C	G	bias_e_value=2068960	bias_p_value=0.57867	consensus_score=2206.6	fisher_strand_p_value=0.237321	frequency=8.99829865e-02	ks_quality_p_value=1	major_base=C	major_cov=319/481	major_frequency=9.10017014e-01	minor_base=G	minor_cov=27/56	new_cov=27/56	polymorphism_frequency=8.99829865e-02	polymorphism_score=154.4	prediction=polymorphism	ref_cov=319/481	total_cov=370/566
+RA	474	.	NZ_VCCA02000001	143	0	A	C	bias_e_value=50849	bias_p_value=0.014222	consensus_score=1694.6	fisher_strand_p_value=0.0019667	frequency=8.03564548e-01	ks_quality_p_value=1	major_base=C	major_cov=273/431	major_frequency=8.03564548e-01	minor_base=A	minor_cov=91/84	new_cov=273/431	polymorphism_frequency=8.03564548e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=91/84	total_cov=364/515
+RA	475	.	NZ_VCCA02000001	152	0	C	G	bias_e_value=2660110	bias_p_value=0.744009	consensus_score=2076.2	fisher_strand_p_value=0.376223	frequency=1.23263359e-01	ks_quality_p_value=1	major_base=C	major_cov=402/391	major_frequency=8.76736641e-01	minor_base=G	minor_cov=66/53	new_cov=66/53	polymorphism_frequency=1.23263359e-01	polymorphism_score=203.4	prediction=polymorphism	ref_cov=402/391	total_cov=469/444
+RA	476	.	NZ_VCCA02000001	155	0	G	A	bias_e_value=3575380	bias_p_value=1	consensus_score=106.9	fisher_strand_p_value=1	frequency=5.10730267e-01	ks_quality_p_value=0.999593	major_base=A	major_cov=241/195	major_frequency=5.10730267e-01	minor_base=G	minor_cov=232/186	new_cov=241/195	polymorphism_frequency=5.10730267e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=232/186	total_cov=475/389
+RA	477	.	NZ_VCCA02000001	161	0	T	C	bias_e_value=932908	bias_p_value=0.260926	consensus_score=922.8	fisher_strand_p_value=0.0718053	frequency=7.46370316e-01	ks_quality_p_value=1	major_base=C	major_cov=309/219	major_frequency=7.46370316e-01	minor_base=G	minor_cov=95/92	new_cov=309/219	polymorphism_frequency=7.46370316e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=57/54	total_cov=461/365
+RA	478	.	NZ_VCCA02000001	164	0	A	G	bias_e_value=1602550	bias_p_value=0.448219	consensus_score=1397.7	fisher_strand_p_value=0.157287	frequency=8.51284504e-01	ks_quality_p_value=1	major_base=G	major_cov=366/300	major_frequency=8.51284504e-01	minor_base=A	minor_cov=73/44	new_cov=366/300	polymorphism_frequency=8.51284504e-01	polymorphism_score=230.0	prediction=polymorphism	ref_cov=73/44	total_cov=440/350
+RA	479	.	NZ_VCCA02000001	167	0	T	C	bias_e_value=1908390	bias_p_value=0.533758	consensus_score=1247.6	fisher_strand_p_value=0.207461	frequency=8.52622032e-01	ks_quality_p_value=1	major_base=C	major_cov=357/256	major_frequency=8.52622032e-01	minor_base=T	minor_cov=56/53	new_cov=357/256	polymorphism_frequency=8.52622032e-01	polymorphism_score=211.0	prediction=polymorphism	ref_cov=56/53	total_cov=434/344
+RA	480	.	NZ_VCCA02000001	170	0	C	T	bias_e_value=479922	bias_p_value=0.13423	consensus_score=1144.1	fisher_strand_p_value=0.0297246	frequency=2.37085342e-01	ks_quality_p_value=1	major_base=C	major_cov=303/264	major_frequency=7.62914658e-01	minor_base=T	minor_cov=111/65	new_cov=111/65	polymorphism_frequency=2.37085342e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=303/264	total_cov=430/330
+RA	481	.	NZ_VCCA02000001	171	0	G	T	bias_e_value=1979040	bias_p_value=0.55352	consensus_score=520.5	fisher_strand_p_value=0.220272	frequency=6.52709007e-01	ks_quality_p_value=1	major_base=T	major_cov=272/223	major_frequency=6.52709007e-01	minor_base=G	minor_cov=158/107	new_cov=272/223	polymorphism_frequency=6.52709007e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=158/107	total_cov=430/330
+RA	482	.	NZ_VCCA02000001	173	0	C	G	bias_e_value=2185290	bias_p_value=0.611206	consensus_score=1910.6	fisher_strand_p_value=0.260718	frequency=7.24220276e-02	ks_quality_p_value=1	major_base=C	major_cov=379/305	major_frequency=9.27577972e-01	minor_base=G	minor_cov=35/20	new_cov=35/20	polymorphism_frequency=7.24220276e-02	polymorphism_score=104.3	prediction=polymorphism	ref_cov=379/305	total_cov=415/325
+RA	483	.	NZ_VCCA02000001	179	0	G	C	bias_e_value=1415960	bias_p_value=0.396032	consensus_score=1067.9	fisher_strand_p_value=0.130394	frequency=7.69099236e-01	ks_quality_p_value=1	major_base=C	major_cov=314/241	major_frequency=7.69099236e-01	minor_base=G	minor_cov=107/62	new_cov=314/241	polymorphism_frequency=7.69099236e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=107/62	total_cov=421/303
+RA	484	.	NZ_VCCA02000001	183	0	A	G	bias_e_value=739297	bias_p_value=0.206775	consensus_score=1434.2	fisher_strand_p_value=0.0677961	frequency=1.26367569e-01	ks_quality_p_value=0.772181	major_base=A	major_cov=359/208	major_frequency=8.73632431e-01	minor_base=G	minor_cov=43/39	new_cov=43/39	polymorphism_frequency=1.26367569e-01	polymorphism_score=160.8	prediction=polymorphism	ref_cov=359/208	total_cov=403/249
+RA	485	.	NZ_VCCA02000001	185	0	C	G	bias_e_value=52652.9	bias_p_value=0.0147265	consensus_score=1763.0	fisher_strand_p_value=0.00249269	frequency=6.80637360e-02	ks_quality_p_value=0.821575	major_base=C	major_cov=365/243	major_frequency=9.31936264e-01	minor_base=G	minor_cov=37/8	new_cov=37/8	polymorphism_frequency=6.80637360e-02	polymorphism_score=88.9	prediction=polymorphism	ref_cov=365/243	total_cov=402/251
+RA	486	.	NZ_VCCA02000001	188	0	T	C	bias_e_value=957954	bias_p_value=0.267931	consensus_score=560.2	fisher_strand_p_value=0.0744837	frequency=4.08433437e-01	ks_quality_p_value=1	major_base=T	major_cov=283/191	major_frequency=5.91566563e-01	minor_base=C	minor_cov=214/110	new_cov=214/110	polymorphism_frequency=4.08433437e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=283/191	total_cov=520/306
+RA	487	.	NZ_VCCA02000001	193	0	A	C	bias_e_value=307825	bias_p_value=0.0860959	consensus_score=2377.5	fisher_strand_p_value=0.016958	frequency=5.27276993e-02	ks_quality_p_value=1	major_base=A	major_cov=493/297	major_frequency=9.47272301e-01	minor_base=C	minor_cov=36/9	new_cov=36/9	polymorphism_frequency=5.27276993e-02	polymorphism_score=99.3	prediction=polymorphism	ref_cov=493/297	total_cov=531/308
+RA	488	.	NZ_VCCA02000001	194	0	G	C	bias_e_value=300508	bias_p_value=0.0840493	consensus_score=2309.1	fisher_strand_p_value=0.0164578	frequency=5.48014641e-02	ks_quality_p_value=1	major_base=G	major_cov=475/294	major_frequency=9.45198536e-01	minor_base=C	minor_cov=36/9	new_cov=36/9	polymorphism_frequency=5.48014641e-02	polymorphism_score=91.9	prediction=polymorphism	ref_cov=475/294	total_cov=511/303
+RA	489	.	NZ_VCCA02000001	203	0	C	G	bias_e_value=146.086	bias_p_value=4.08588e-05	consensus_score=2423.6	fisher_strand_p_value=2.97706e-06	frequency=8.94021988e-02	ks_quality_p_value=1	major_base=C	major_cov=468/307	major_frequency=9.10597801e-01	minor_base=G	minor_cov=25/52	new_cov=25/52	polymorphism_frequency=8.94021988e-02	polymorphism_score=165.1	prediction=polymorphism	ref_cov=468/307	total_cov=494/359
+RA	490	.	NZ_VCCA02000001	206	0	A	G	bias_e_value=3309890	bias_p_value=0.925744	consensus_score=843.0	fisher_strand_p_value=0.640271	frequency=3.35010052e-01	ks_quality_p_value=1	major_base=A	major_cov=301/207	major_frequency=6.64989948e-01	minor_base=G	minor_cov=146/109	new_cov=146/109	polymorphism_frequency=3.35010052e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=301/207	total_cov=450/333
+RA	491	.	NZ_VCCA02000001	207	0	C	A	bias_e_value=2896160	bias_p_value=0.810029	consensus_score=1231.4	fisher_strand_p_value=0.450878	frequency=3.12893391e-01	ks_quality_p_value=1	major_base=C	major_cov=315/246	major_frequency=6.87106609e-01	minor_base=A	minor_cov=138/121	new_cov=138/121	polymorphism_frequency=3.12893391e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=315/246	total_cov=454/369
+RA	492	.	NZ_VCCA02000001	212	0	C	G	bias_e_value=37043	bias_p_value=0.0103606	consensus_score=2324.2	fisher_strand_p_value=0.00136367	frequency=1.09148026e-01	ks_quality_p_value=1	major_base=C	major_cov=439/318	major_frequency=8.90851974e-01	minor_base=G	minor_cov=38/56	new_cov=38/56	polymorphism_frequency=1.09148026e-01	polymorphism_score=209.0	prediction=polymorphism	ref_cov=439/318	total_cov=478/375
+RA	493	.	NZ_VCCA02000001	215	0	C	T	bias_e_value=3475580	bias_p_value=0.972087	consensus_score=1613.9	fisher_strand_p_value=0.773224	frequency=1.70219421e-01	ks_quality_p_value=1	major_base=C	major_cov=321/304	major_frequency=8.29780579e-01	minor_base=T	minor_cov=65/66	new_cov=65/66	polymorphism_frequency=1.70219421e-01	polymorphism_score=263.6	prediction=polymorphism	ref_cov=321/304	total_cov=428/379
+RA	494	.	NZ_VCCA02000001	217	0	G	C	bias_e_value=5149.21	bias_p_value=0.00144019	consensus_score=2386.7	fisher_strand_p_value=0.00025322	frequency=6.09064102e-02	ks_quality_p_value=0.57869	major_base=G	major_cov=385/360	major_frequency=9.39093590e-01	minor_base=C	minor_cov=37/10	new_cov=37/10	polymorphism_frequency=6.09064102e-02	polymorphism_score=101.6	prediction=polymorphism	ref_cov=385/360	total_cov=430/379
+RA	495	.	NZ_VCCA02000001	218	0	C	T	bias_e_value=10784.2	bias_p_value=0.00301624	consensus_score=1963.4	fisher_strand_p_value=0.000335097	frequency=1.05360031e-01	ks_quality_p_value=1	major_base=C	major_cov=390/321	major_frequency=8.94639969e-01	minor_base=T	minor_cov=29/56	new_cov=29/56	polymorphism_frequency=1.05360031e-01	polymorphism_score=145.8	prediction=polymorphism	ref_cov=390/321	total_cov=429/379
+RA	496	.	NZ_VCCA02000001	221	0	G	A	bias_e_value=1725320	bias_p_value=0.482556	consensus_score=205.8	fisher_strand_p_value=0.176458	frequency=4.46606636e-01	ks_quality_p_value=1	major_base=G	major_cov=195/197	major_frequency=5.53393364e-01	minor_base=A	minor_cov=179/146	new_cov=179/146	polymorphism_frequency=4.46606636e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=195/197	total_cov=460/418
+RA	497	.	NZ_VCCA02000001	224	0	C	G	bias_e_value=180095	bias_p_value=0.0503708	consensus_score=2547.9	fisher_strand_p_value=0.00878319	frequency=8.86068344e-02	ks_quality_p_value=1	major_base=C	major_cov=402/387	major_frequency=9.11393166e-01	minor_base=G	minor_cov=52/26	new_cov=52/26	polymorphism_frequency=8.86068344e-02	polymorphism_score=158.1	prediction=polymorphism	ref_cov=402/387	total_cov=455/414
+RA	498	.	NZ_VCCA02000001	225	0	A	C	bias_e_value=3053.28	bias_p_value=0.000853975	consensus_score=2629.6	fisher_strand_p_value=8.20482e-05	frequency=5.36518097e-02	ks_quality_p_value=1	major_base=A	major_cov=413/409	major_frequency=9.46348190e-01	minor_base=C	minor_cov=38/10	new_cov=38/10	polymorphism_frequency=5.36518097e-02	polymorphism_score=103.2	prediction=polymorphism	ref_cov=413/409	total_cov=453/419
+RA	499	.	NZ_VCCA02000001	228	0	G	A	bias_e_value=58.8534	bias_p_value=1.64607e-05	consensus_score=2187.0	fisher_strand_p_value=1.11958e-06	frequency=7.33041763e-02	ks_quality_p_value=1	major_base=G	major_cov=359/374	major_frequency=9.26695824e-01	minor_base=A	minor_cov=48/11	new_cov=48/11	polymorphism_frequency=7.33041763e-02	polymorphism_score=91.7	prediction=polymorphism	ref_cov=359/374	total_cov=407/386
+RA	500	.	NZ_VCCA02000001	243	0	T	A	bias_e_value=833433	bias_p_value=0.233104	consensus_score=836.9	fisher_strand_p_value=0.0615349	frequency=3.34743977e-01	ks_quality_p_value=1	major_base=T	major_cov=221/268	major_frequency=6.65256023e-01	minor_base=A	minor_cov=131/118	new_cov=131/118	polymorphism_frequency=3.34743977e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=221/268	total_cov=354/386
+RA	501	.	NZ_VCCA02000001	244	0	C	G	bias_e_value=3369660	bias_p_value=0.942461	consensus_score=977.6	fisher_strand_p_value=0.680548	frequency=2.95508862e-01	ks_quality_p_value=1	major_base=C	major_cov=227/273	major_frequency=7.04491138e-01	minor_base=G	minor_cov=100/111	new_cov=100/111	polymorphism_frequency=2.95508862e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=227/273	total_cov=327/385
+RA	502	.	NZ_VCCA02000001	245	0	C	G	bias_e_value=272132	bias_p_value=0.0761129	consensus_score=1144.7	fisher_strand_p_value=0.0145533	frequency=2.35465050e-01	ks_quality_p_value=1	major_base=C	major_cov=240/324	major_frequency=7.64534950e-01	minor_base=G	minor_cov=93/81	new_cov=93/81	polymorphism_frequency=2.35465050e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=240/324	total_cov=334/405
+RA	503	.	NZ_VCCA02000001	246	0	A	G	bias_e_value=496.176	bias_p_value=0.000138776	consensus_score=1826.2	fisher_strand_p_value=1.17654e-05	frequency=8.17050934e-02	ks_quality_p_value=0.951204	major_base=A	major_cov=306/419	major_frequency=9.18294907e-01	minor_base=G	minor_cov=46/19	new_cov=46/19	polymorphism_frequency=8.17050934e-02	polymorphism_score=112.2	prediction=polymorphism	ref_cov=306/419	total_cov=352/439
+RA	504	.	NZ_VCCA02000001	250	0	A	T	bias_e_value=233.134	bias_p_value=6.52054e-05	consensus_score=590.7	fisher_strand_p_value=0.00593202	frequency=3.76991272e-01	ks_quality_p_value=0.000831495	major_base=A	major_cov=212/219	major_frequency=6.23008728e-01	minor_base=T	minor_cov=101/163	new_cov=101/163	polymorphism_frequency=3.76991272e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=212/219	total_cov=314/389
+RA	505	.	NZ_VCCA02000001	251	0	A	C	bias_e_value=131182	bias_p_value=0.0366904	consensus_score=12.2	fisher_strand_p_value=0.0074227	frequency=5.18182278e-01	ks_quality_p_value=0.808184	major_base=C	major_cov=89/155	major_frequency=5.18182278e-01	minor_base=G	minor_cov=116/121	new_cov=89/155	polymorphism_frequency=5.18182278e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=63/94	total_cov=314/389
+RA	506	.	NZ_VCCA02000001	254	0	C	G	bias_e_value=241577	bias_p_value=0.0675668	consensus_score=1073.6	fisher_strand_p_value=0.0125665	frequency=2.13541031e-01	ks_quality_p_value=1	major_base=C	major_cov=236/311	major_frequency=7.86458969e-01	minor_base=G	minor_cov=83/68	new_cov=83/68	polymorphism_frequency=2.13541031e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=236/311	total_cov=319/379
+RA	507	.	NZ_VCCA02000001	257	0	C	T	bias_e_value=3424170	bias_p_value=0.957709	consensus_score=1080.9	fisher_strand_p_value=0.723637	frequency=1.44874096e-01	ks_quality_p_value=1	major_base=C	major_cov=221/270	major_frequency=8.55125904e-01	minor_base=T	minor_cov=36/48	new_cov=36/48	polymorphism_frequency=1.44874096e-01	polymorphism_score=155.5	prediction=polymorphism	ref_cov=221/270	total_cov=260/318
+RA	508	.	NZ_VCCA02000001	263	0	A	G	bias_e_value=115971	bias_p_value=0.0324361	consensus_score=130.2	fisher_strand_p_value=0.00517885	frequency=6.73105240e-01	ks_quality_p_value=1	major_base=G	major_cov=150/113	major_frequency=6.73105240e-01	minor_base=C	minor_cov=54/76	new_cov=150/113	polymorphism_frequency=6.73105240e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=45/75	total_cov=249/282
+RA	509	.	NZ_VCCA02000001	266	0	C	G	bias_e_value=33218.9	bias_p_value=0.00929103	consensus_score=912.0	fisher_strand_p_value=0.00120305	frequency=8.04076195e-02	ks_quality_p_value=1	major_base=C	major_cov=192/244	major_frequency=9.19592381e-01	minor_base=G	minor_cov=28/11	new_cov=28/11	polymorphism_frequency=8.04076195e-02	polymorphism_score=75.9	prediction=polymorphism	ref_cov=192/244	total_cov=222/263
+RA	510	.	NZ_VCCA02000001	267	0	A	G	bias_e_value=233965	bias_p_value=0.065438	consensus_score=463.6	fisher_strand_p_value=0.0120823	frequency=3.16476345e-01	ks_quality_p_value=1	major_base=A	major_cov=104/172	major_frequency=6.83523655e-01	minor_base=G	minor_cov=65/61	new_cov=65/61	polymorphism_frequency=3.16476345e-01	polymorphism_score=294.5	prediction=polymorphism	ref_cov=104/172	total_cov=169/249
+RA	511	.	NZ_VCCA02000001	268	0	C	A	bias_e_value=844265	bias_p_value=0.236133	consensus_score=529.6	fisher_strand_p_value=0.09102	frequency=3.34549904e-01	ks_quality_p_value=0.688035	major_base=C	major_cov=104/174	major_frequency=6.65450096e-01	minor_base=A	minor_cov=65/75	new_cov=65/75	polymorphism_frequency=3.34549904e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=104/174	total_cov=169/249
+RA	512	.	NZ_VCCA02000001	269	0	G	C	bias_e_value=1016030	bias_p_value=0.284174	consensus_score=52.8	fisher_strand_p_value=0.0808396	frequency=6.45574093e-01	ks_quality_p_value=1	major_base=C	major_cov=92/125	major_frequency=6.45574093e-01	minor_base=G	minor_cov=39/81	new_cov=92/125	polymorphism_frequency=6.45574093e-01	polymorphism_score=310.8	prediction=polymorphism	ref_cov=39/81	total_cov=169/249
+RA	513	.	NZ_VCCA02000001	271	0	A	G	bias_e_value=247513	bias_p_value=0.0692271	consensus_score=744.4	fisher_strand_p_value=0.0129472	frequency=5.09662628e-02	ks_quality_p_value=1	major_base=A	major_cov=154/232	major_frequency=9.49033737e-01	minor_base=G	minor_cov=15/7	new_cov=15/7	polymorphism_frequency=5.09662628e-02	polymorphism_score=15.2	prediction=polymorphism	ref_cov=154/232	total_cov=169/249
+RA	514	.	NZ_VCCA02000001	272	0	C	T	bias_e_value=622737	bias_p_value=0.174174	consensus_score=323.0	fisher_strand_p_value=0.385315	frequency=3.17409039e-01	ks_quality_p_value=0.108209	major_base=C	major_cov=115/159	major_frequency=6.82590961e-01	minor_base=T	minor_cov=48/82	new_cov=48/82	polymorphism_frequency=3.17409039e-01	polymorphism_score=303.3	prediction=polymorphism	ref_cov=115/159	total_cov=169/249
+RA	515	.	NZ_VCCA02000001	275	0	G	C	bias_e_value=810840	bias_p_value=0.226784	consensus_score=77.8	fisher_strand_p_value=0.0592835	frequency=7.21581936e-01	ks_quality_p_value=1	major_base=C	major_cov=129/167	major_frequency=7.21581936e-01	minor_base=G	minor_cov=39/79	new_cov=129/167	polymorphism_frequency=7.21581936e-01	polymorphism_score=278.1	prediction=polymorphism	ref_cov=39/79	total_cov=169/246
+RA	516	.	NZ_VCCA02000001	277	0	C	A	bias_e_value=915241	bias_p_value=0.255984	consensus_score=62.5	fisher_strand_p_value=0.0699384	frequency=6.89039230e-01	ks_quality_p_value=1	major_base=A	major_cov=110/175	major_frequency=6.89039230e-01	minor_base=C	minor_cov=63/68	new_cov=110/175	polymorphism_frequency=6.89039230e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=63/68	total_cov=173/244
+RA	517	.	NZ_VCCA02000001	278	0	A	G	bias_e_value=19699.8	bias_p_value=0.00550985	consensus_score=20.3	fisher_strand_p_value=0.000662253	frequency=6.28520012e-01	ks_quality_p_value=1	major_base=G	major_cov=96/90	major_frequency=6.28520012e-01	minor_base=C	minor_cov=34/76	new_cov=96/90	polymorphism_frequency=6.28520012e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=43/55	total_cov=173/236
+RA	518	.	NZ_VCCA02000001	282	0	G	A	bias_e_value=381475	bias_p_value=0.106695	consensus_score=42.7	fisher_strand_p_value=0.0221908	frequency=6.64138317e-01	ks_quality_p_value=1	major_base=A	major_cov=104/154	major_frequency=6.64138317e-01	minor_base=G	minor_cov=68/60	new_cov=104/154	polymorphism_frequency=6.64138317e-01	polymorphism_score=297.8	prediction=polymorphism	ref_cov=68/60	total_cov=173/234
+RA	519	.	NZ_VCCA02000001	284	0	C	G	bias_e_value=285367	bias_p_value=0.0798144	consensus_score=31.0	fisher_strand_p_value=0.0154346	frequency=6.61015987e-01	ks_quality_p_value=1	major_base=G	major_cov=105/164	major_frequency=6.61015987e-01	minor_base=C	minor_cov=72/67	new_cov=105/164	polymorphism_frequency=6.61015987e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=72/67	total_cov=177/231
+RA	520	.	NZ_VCCA02000001	290	0	A	G	bias_e_value=1450.81	bias_p_value=0.000405778	consensus_score=712.5	fisher_strand_p_value=4.04165e-05	frequency=6.65745735e-02	ks_quality_p_value=0.894176	major_base=A	major_cov=163/226	major_frequency=9.33425426e-01	minor_base=G	minor_cov=23/5	new_cov=23/5	polymorphism_frequency=6.65745735e-02	polymorphism_score=40.7	prediction=polymorphism	ref_cov=163/226	total_cov=186/231
+RA	521	.	NZ_VCCA02000001	293	0	G	C	bias_e_value=1299370	bias_p_value=0.363421	consensus_score=0.9	fisher_strand_p_value=0.11486	frequency=7.23021507e-01	ks_quality_p_value=1	major_base=C	major_cov=135/146	major_frequency=7.23021507e-01	minor_base=G	minor_cov=43/68	new_cov=135/146	polymorphism_frequency=7.23021507e-01	polymorphism_score=267.8	prediction=polymorphism	ref_cov=43/68	total_cov=178/214
+RA	522	.	NZ_VCCA02000001	294	0	A	G	bias_e_value=2933270	bias_p_value=0.820408	consensus_score=43.6	fisher_strand_p_value=0.464151	frequency=5.66697121e-01	ks_quality_p_value=1	major_base=G	major_cov=104/105	major_frequency=5.66697121e-01	minor_base=A	minor_cov=74/88	new_cov=104/105	polymorphism_frequency=5.66697121e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=74/88	total_cov=179/214
+RA	523	.	NZ_VCCA02000001	299	0	G	C	bias_e_value=3148320	bias_p_value=0.880557	consensus_score=532.4	fisher_strand_p_value=0.552934	frequency=2.68458843e-01	ks_quality_p_value=1	major_base=G	major_cov=120/143	major_frequency=7.31541157e-01	minor_base=C	minor_cov=41/57	new_cov=41/57	polymorphism_frequency=2.68458843e-01	polymorphism_score=269.6	prediction=polymorphism	ref_cov=120/143	total_cov=164/200
+RA	524	.	NZ_VCCA02000001	300	0	C	G	bias_e_value=1771500	bias_p_value=0.495473	consensus_score=524.9	fisher_strand_p_value=0.183997	frequency=2.53492355e-01	ks_quality_p_value=1	major_base=C	major_cov=128/143	major_frequency=7.46507645e-01	minor_base=G	minor_cov=36/57	new_cov=36/57	polymorphism_frequency=2.53492355e-01	polymorphism_score=230.9	prediction=polymorphism	ref_cov=128/143	total_cov=164/200
+RA	525	.	NZ_VCCA02000001	302	0	G	A	bias_e_value=2339490	bias_p_value=0.654334	consensus_score=427.9	fisher_strand_p_value=0.321413	frequency=2.70750046e-01	ks_quality_p_value=0.915793	major_base=G	major_cov=107/138	major_frequency=7.29249954e-01	minor_base=A	minor_cov=34/57	new_cov=34/57	polymorphism_frequency=2.70750046e-01	polymorphism_score=214.3	prediction=polymorphism	ref_cov=107/138	total_cov=142/195
+RA	526	.	NZ_VCCA02000001	314	0	C	T	bias_e_value=97305.8	bias_p_value=0.0272155	consensus_score=338.8	fisher_strand_p_value=0.00420554	frequency=1.30234718e-01	ks_quality_p_value=1	major_base=C	major_cov=86/100	major_frequency=8.69765282e-01	minor_base=T	minor_cov=5/23	new_cov=5/23	polymorphism_frequency=1.30234718e-01	polymorphism_score=53.0	prediction=polymorphism	ref_cov=86/100	total_cov=97/123
+RA	527	.	NZ_VCCA02000001	317	0	C	T	bias_e_value=2944980	bias_p_value=0.823684	consensus_score=286.1	fisher_strand_p_value=0.468445	frequency=1.15436077e-01	ks_quality_p_value=1	major_base=C	major_cov=76/69	major_frequency=8.84563923e-01	minor_base=T	minor_cov=8/11	new_cov=8/11	polymorphism_frequency=1.15436077e-01	polymorphism_score=29.7	prediction=polymorphism	ref_cov=76/69	total_cov=86/80
+RA	528	.	NZ_VCCA02000001	318	0	A	G	bias_e_value=3026360	bias_p_value=0.846446	consensus_score=281.1	fisher_strand_p_value=0.502631	frequency=3.00844193e-01	ks_quality_p_value=0.994399	major_base=A	major_cov=58/58	major_frequency=6.99155807e-01	minor_base=G	minor_cov=28/22	new_cov=28/22	polymorphism_frequency=3.00844193e-01	polymorphism_score=115.7	prediction=polymorphism	ref_cov=58/58	total_cov=86/80
+RA	529	.	NZ_VCCA02000001	319	0	C	A	bias_e_value=3435200	bias_p_value=0.960793	consensus_score=301.5	fisher_strand_p_value=0.733374	frequency=3.25764179e-01	ks_quality_p_value=1	major_base=C	major_cov=56/49	major_frequency=6.74235821e-01	minor_base=A	minor_cov=29/22	new_cov=29/22	polymorphism_frequency=3.25764179e-01	polymorphism_score=128.9	prediction=polymorphism	ref_cov=56/49	total_cov=86/71
+RA	530	.	NZ_VCCA02000001	320	0	C	G	bias_e_value=3532800	bias_p_value=0.988091	consensus_score=299.1	fisher_strand_p_value=0.864786	frequency=3.18040848e-01	ks_quality_p_value=0.982544	major_base=C	major_cov=58/49	major_frequency=6.81959152e-01	minor_base=G	minor_cov=28/22	new_cov=28/22	polymorphism_frequency=3.18040848e-01	polymorphism_score=139.3	prediction=polymorphism	ref_cov=58/49	total_cov=86/71
+RA	531	.	NZ_VCCA02000001	324	0	G	A	bias_e_value=3575380	bias_p_value=1	consensus_score=207.1	fisher_strand_p_value=1	frequency=3.75559807e-01	ks_quality_p_value=1	major_base=G	major_cov=47/36	major_frequency=6.24440193e-01	minor_base=A	minor_cov=28/22	new_cov=28/22	polymorphism_frequency=3.75559807e-01	polymorphism_score=119.4	prediction=polymorphism	ref_cov=47/36	total_cov=75/58
+RA	532	.	NZ_VCCA02000001	326	0	G	C	bias_e_value=459005	bias_p_value=0.128379	consensus_score=150.3	fisher_strand_p_value=1	frequency=4.44962025e-01	ks_quality_p_value=0.0280739	major_base=G	major_cov=37/27	major_frequency=5.55037975e-01	minor_base=C	minor_cov=27/21	new_cov=27/21	polymorphism_frequency=4.44962025e-01	polymorphism_score=149.1	prediction=polymorphism	ref_cov=37/27	total_cov=79/54
+RA	533	.	NZ_VCCA02000001	328	0	A	C	bias_e_value=2595320	bias_p_value=0.725888	consensus_score=221.6	fisher_strand_p_value=0.358138	frequency=3.86524200e-01	ks_quality_p_value=1	major_base=A	major_cov=51/28	major_frequency=6.13475800e-01	minor_base=C	minor_cov=28/22	new_cov=28/22	polymorphism_frequency=3.86524200e-01	polymorphism_score=149.9	prediction=polymorphism	ref_cov=51/28	total_cov=79/50
+RA	534	.	NZ_VCCA02000001	332	0	G	C	bias_e_value=1528500	bias_p_value=0.427508	consensus_score=271.6	fisher_strand_p_value=0.146303	frequency=3.58393669e-01	ks_quality_p_value=1	major_base=G	major_cov=61/28	major_frequency=6.41606331e-01	minor_base=C	minor_cov=28/22	new_cov=28/22	polymorphism_frequency=3.58393669e-01	polymorphism_score=142.9	prediction=polymorphism	ref_cov=61/28	total_cov=89/50
+RA	535	.	NZ_VCCA02000001	333	0	A	G	bias_e_value=2273560	bias_p_value=0.635893	consensus_score=251.0	fisher_strand_p_value=0.279578	frequency=3.46653938e-01	ks_quality_p_value=1	major_base=A	major_cov=62/32	major_frequency=6.53346062e-01	minor_base=G	minor_cov=28/22	new_cov=28/22	polymorphism_frequency=3.46653938e-01	polymorphism_score=115.1	prediction=polymorphism	ref_cov=62/32	total_cov=90/54
+RA	536	.	NZ_VCCA02000001	335	0	G	C	bias_e_value=2273560	bias_p_value=0.635893	consensus_score=286.8	fisher_strand_p_value=0.279578	frequency=3.46351624e-01	ks_quality_p_value=1	major_base=G	major_cov=62/32	major_frequency=6.53648376e-01	minor_base=C	minor_cov=28/22	new_cov=28/22	polymorphism_frequency=3.46351624e-01	polymorphism_score=142.1	prediction=polymorphism	ref_cov=62/32	total_cov=90/54
+RA	537	.	NZ_VCCA02000001	49683	0	C	A	bias_e_value=2559130	bias_p_value=0.715766	consensus_score=634.2	fisher_strand_p_value=0.353978	frequency=5.35993576e-02	ks_quality_p_value=0.984272	major_base=C	major_cov=75/116	major_frequency=9.46400642e-01	minor_base=A	minor_cov=6/5	new_cov=6/5	polymorphism_frequency=5.35993576e-02	polymorphism_score=15.5	prediction=polymorphism	ref_cov=75/116	total_cov=81/122
+RA	538	.	NZ_VCCA02000001	139821	0	C	G	bias_e_value=416813	bias_p_value=0.116579	consensus_score=42.2	fisher_strand_p_value=0.0282761	frequency=2.69153595e-01	ks_quality_p_value=0.877979	major_base=C	major_cov=4/15	major_frequency=7.30846405e-01	minor_base=G	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=2.69153595e-01	polymorphism_score=15.8	prediction=polymorphism	ref_cov=4/15	total_cov=9/17
+RA	539	.	NZ_VCCA02000001	146890	0	A	C	bias_e_value=636223	bias_p_value=0.177946	consensus_score=59.3	fisher_strand_p_value=0.0428868	frequency=3.53269100e-01	ks_quality_p_value=1	major_base=A	major_cov=41/14	major_frequency=6.46730900e-01	minor_base=C	minor_cov=28/2	new_cov=28/2	polymorphism_frequency=3.53269100e-01	polymorphism_score=19.0	prediction=polymorphism	ref_cov=41/14	total_cov=72/16
+RA	540	.	NZ_VCCA02000001	166647	0	G	C	bias_e_value=1740360	bias_p_value=0.486762	consensus_score=274.5	fisher_strand_p_value=0.304847	frequency=2.82397270e-01	ks_quality_p_value=0.586829	major_base=G	major_cov=48/36	major_frequency=7.17602730e-01	minor_base=C	minor_cov=15/18	new_cov=15/18	polymorphism_frequency=2.82397270e-01	polymorphism_score=95.9	prediction=polymorphism	ref_cov=48/36	total_cov=63/54
+RA	541	.	NZ_VCCA02000001	166650	0	G	C	bias_e_value=2767930	bias_p_value=0.774164	consensus_score=256.7	fisher_strand_p_value=0.408443	frequency=2.96842098e-01	ks_quality_p_value=1	major_base=G	major_cov=43/35	major_frequency=7.03157902e-01	minor_base=C	minor_cov=15/18	new_cov=15/18	polymorphism_frequency=2.96842098e-01	polymorphism_score=92.5	prediction=polymorphism	ref_cov=43/35	total_cov=58/53
+RA	542	.	NZ_VCCA02000001	166651	0	A	C	bias_e_value=1871230	bias_p_value=0.523367	consensus_score=255.3	fisher_strand_p_value=0.215189	frequency=2.97805309e-01	ks_quality_p_value=0.933693	major_base=A	major_cov=46/32	major_frequency=7.02194691e-01	minor_base=C	minor_cov=15/18	new_cov=15/18	polymorphism_frequency=2.97805309e-01	polymorphism_score=105.5	prediction=polymorphism	ref_cov=46/32	total_cov=61/50
+RA	543	.	NZ_VCCA02000001	166652	0	A	G	bias_e_value=1951340	bias_p_value=0.545771	consensus_score=241.0	fisher_strand_p_value=0.215189	frequency=2.97144890e-01	ks_quality_p_value=1	major_base=A	major_cov=46/32	major_frequency=7.02855110e-01	minor_base=G	minor_cov=15/18	new_cov=15/18	polymorphism_frequency=2.97144890e-01	polymorphism_score=78.5	prediction=polymorphism	ref_cov=46/32	total_cov=61/50
+RA	544	.	NZ_VCCA02000001	166658	0	A	C	bias_e_value=722733	bias_p_value=0.202142	consensus_score=225.3	fisher_strand_p_value=0.0939416	frequency=3.37113380e-01	ks_quality_p_value=0.540636	major_base=A	major_cov=48/23	major_frequency=6.62886620e-01	minor_base=C	minor_cov=18/18	new_cov=18/18	polymorphism_frequency=3.37113380e-01	polymorphism_score=117.4	prediction=polymorphism	ref_cov=48/23	total_cov=66/41
+RA	545	.	NZ_VCCA02000001	166660	0	A	C	bias_e_value=785934	bias_p_value=0.219818	consensus_score=247.3	fisher_strand_p_value=0.0585775	frequency=3.21649551e-01	ks_quality_p_value=0.970271	major_base=A	major_cov=53/23	major_frequency=6.78350449e-01	minor_base=C	minor_cov=18/18	new_cov=18/18	polymorphism_frequency=3.21649551e-01	polymorphism_score=113.9	prediction=polymorphism	ref_cov=53/23	total_cov=71/41
+RA	546	.	NZ_VCCA02000001	166669	0	A	C	bias_e_value=212074	bias_p_value=0.0593153	consensus_score=279.9	fisher_strand_p_value=0.0108008	frequency=3.38600636e-01	ks_quality_p_value=0.991971	major_base=A	major_cov=61/23	major_frequency=6.61399364e-01	minor_base=C	minor_cov=21/22	new_cov=21/22	polymorphism_frequency=3.38600636e-01	polymorphism_score=138.6	prediction=polymorphism	ref_cov=61/23	total_cov=82/45
+RA	547	.	NZ_VCCA02000001	166670	0	A	G	bias_e_value=220107	bias_p_value=0.0615618	consensus_score=245.7	fisher_strand_p_value=0.0113676	frequency=3.49550724e-01	ks_quality_p_value=0.986298	major_base=A	major_cov=60/22	major_frequency=6.50449276e-01	minor_base=G	minor_cov=22/22	new_cov=22/22	polymorphism_frequency=3.49550724e-01	polymorphism_score=107.9	prediction=polymorphism	ref_cov=60/22	total_cov=82/45
+RA	548	.	NZ_VCCA02000001	166672	0	A	C	bias_e_value=73594	bias_p_value=0.0205836	consensus_score=260.4	fisher_strand_p_value=0.00535811	frequency=3.52544308e-01	ks_quality_p_value=0.564919	major_base=A	major_cov=59/20	major_frequency=6.47455692e-01	minor_base=C	minor_cov=21/22	new_cov=21/22	polymorphism_frequency=3.52544308e-01	polymorphism_score=141.6	prediction=polymorphism	ref_cov=59/20	total_cov=80/42
+RA	549	.	NZ_VCCA02000001	166675	0	A	G	bias_e_value=36124.9	bias_p_value=0.0101038	consensus_score=231.1	fisher_strand_p_value=0.00527964	frequency=3.60567570e-01	ks_quality_p_value=0.250933	major_base=A	major_cov=59/19	major_frequency=6.39432430e-01	minor_base=G	minor_cov=22/22	new_cov=22/22	polymorphism_frequency=3.60567570e-01	polymorphism_score=110.5	prediction=polymorphism	ref_cov=59/19	total_cov=81/41
+RA	550	.	NZ_VCCA02000001	166680	0	C	G	bias_e_value=496054	bias_p_value=0.138742	consensus_score=267.1	fisher_strand_p_value=0.0310158	frequency=3.49456310e-01	ks_quality_p_value=1	major_base=C	major_cov=56/24	major_frequency=6.50543690e-01	minor_base=G	minor_cov=21/22	new_cov=21/22	polymorphism_frequency=3.49456310e-01	polymorphism_score=129.8	prediction=polymorphism	ref_cov=56/24	total_cov=77/46
+RA	551	.	NZ_VCCA02000001	166683	0	C	G	bias_e_value=1779900	bias_p_value=0.49782	consensus_score=308.9	fisher_strand_p_value=0.190498	frequency=3.16178799e-01	ks_quality_p_value=0.973169	major_base=C	major_cov=58/35	major_frequency=6.83821201e-01	minor_base=G	minor_cov=21/22	new_cov=21/22	polymorphism_frequency=3.16178799e-01	polymorphism_score=130.8	prediction=polymorphism	ref_cov=58/35	total_cov=79/57
+RA	552	.	NZ_VCCA02000001	166688	0	T	G	bias_e_value=1938550	bias_p_value=0.542194	consensus_score=298.6	fisher_strand_p_value=0.269151	frequency=3.20801258e-01	ks_quality_p_value=0.790891	major_base=T	major_cov=54/37	major_frequency=6.79198742e-01	minor_base=G	minor_cov=21/22	new_cov=21/22	polymorphism_frequency=3.20801258e-01	polymorphism_score=139.4	prediction=polymorphism	ref_cov=54/37	total_cov=75/59
+RA	553	.	NZ_VCCA02000001	166705	0	G	C	bias_e_value=1068490	bias_p_value=0.298846	consensus_score=302.5	fisher_strand_p_value=0.0867564	frequency=2.30290413e-01	ks_quality_p_value=1	major_base=G	major_cov=49/44	major_frequency=7.69709587e-01	minor_base=C	minor_cov=20/8	new_cov=20/8	polymorphism_frequency=2.30290413e-01	polymorphism_score=71.4	prediction=polymorphism	ref_cov=49/44	total_cov=69/52
+RA	554	.	NZ_VCCA02000001	166707	0	C	G	bias_e_value=1053480	bias_p_value=0.294649	consensus_score=304.5	fisher_strand_p_value=0.0867564	frequency=2.31429577e-01	ks_quality_p_value=0.980291	major_base=C	major_cov=49/44	major_frequency=7.68570423e-01	minor_base=G	minor_cov=20/8	new_cov=20/8	polymorphism_frequency=2.31429577e-01	polymorphism_score=78.8	prediction=polymorphism	ref_cov=49/44	total_cov=69/52
+RA	555	.	NZ_VCCA02000001	230091	0	C	A	bias_e_value=24183.5	bias_p_value=0.00676391	consensus_score=178.0	fisher_strand_p_value=0.000836462	frequency=1.27808094e-01	ks_quality_p_value=1	major_base=C	major_cov=48/11	major_frequency=8.72191906e-01	minor_base=A	minor_cov=2/7	new_cov=2/7	polymorphism_frequency=1.27808094e-01	polymorphism_score=6.1	prediction=polymorphism	ref_cov=48/11	total_cov=50/18
+RA	556	.	NZ_VCCA02000001	273838	0	T	G	bias_e_value=2.75585	bias_p_value=7.70785e-07	consensus_score=364.3	fisher_strand_p_value=4.29066e-08	frequency=1.13035202e-01	ks_quality_p_value=1	major_base=T	major_cov=30/97	major_frequency=8.86964798e-01	minor_base=G	minor_cov=17/2	new_cov=17/2	polymorphism_frequency=1.13035202e-01	polymorphism_score=3.5	prediction=polymorphism	ref_cov=30/97	total_cov=54/99
+RA	557	.	NZ_VCCA02000001	274440	0	C	A	bias_e_value=48441.3	bias_p_value=0.0135486	consensus_score=284.3	fisher_strand_p_value=0.00185912	frequency=1.51751041e-01	ks_quality_p_value=1	major_base=C	major_cov=35/62	major_frequency=8.48248959e-01	minor_base=A	minor_cov=17/6	new_cov=17/6	polymorphism_frequency=1.51751041e-01	polymorphism_score=12.7	prediction=polymorphism	ref_cov=35/62	total_cov=58/68
+RA	558	.	NZ_VCCA02000001	313166	0	T	G	bias_e_value=10242.2	bias_p_value=0.00286464	consensus_score=316.8	fisher_strand_p_value=0.000316217	frequency=1.47337437e-01	ks_quality_p_value=1	major_base=T	major_cov=57/74	major_frequency=8.52662563e-01	minor_base=G	minor_cov=21/4	new_cov=21/4	polymorphism_frequency=1.47337437e-01	polymorphism_score=9.4	prediction=polymorphism	ref_cov=57/74	total_cov=79/78
+RA	559	.	NZ_VCCA02000001	438981	0	C	G	bias_e_value=82271.6	bias_p_value=0.0230106	consensus_score=248.0	fisher_strand_p_value=0.00360209	frequency=1.97840691e-01	ks_quality_p_value=0.957838	major_base=C	major_cov=4/73	major_frequency=8.02159309e-01	minor_base=G	minor_cov=6/13	new_cov=6/13	polymorphism_frequency=1.97840691e-01	polymorphism_score=48.4	prediction=polymorphism	ref_cov=4/73	total_cov=10/86
+RA	560	.	NZ_VCCA02000001	438983	0	T	C	bias_e_value=69521.7	bias_p_value=0.0194446	consensus_score=215.2	fisher_strand_p_value=0.00360209	frequency=1.97428703e-01	ks_quality_p_value=0.78611	major_base=T	major_cov=4/73	major_frequency=8.02571297e-01	minor_base=C	minor_cov=6/13	new_cov=6/13	polymorphism_frequency=1.97428703e-01	polymorphism_score=36.6	prediction=polymorphism	ref_cov=4/73	total_cov=10/86
+RA	561	.	NZ_VCCA02000001	439004	0	T	G	bias_e_value=0.0507852	bias_p_value=1.42042e-08	consensus_score=182.7	fisher_strand_p_value=2.70931e-08	frequency=2.69582272e-01	ks_quality_p_value=0.0236495	major_base=T	major_cov=3/68	major_frequency=7.30417728e-01	minor_base=G	minor_cov=15/11	new_cov=15/11	polymorphism_frequency=2.69582272e-01	polymorphism_score=82.3	prediction=polymorphism	ref_cov=3/68	total_cov=18/79
+RA	562	.	NZ_VCCA02000001	439010	0	G	A	bias_e_value=1.52517	bias_p_value=4.26575e-07	consensus_score=200.2	fisher_strand_p_value=2.29464e-08	frequency=2.61853695e-01	ks_quality_p_value=1	major_base=G	major_cov=3/73	major_frequency=7.38146305e-01	minor_base=A	minor_cov=15/12	new_cov=15/12	polymorphism_frequency=2.61853695e-01	polymorphism_score=60.8	prediction=polymorphism	ref_cov=3/73	total_cov=18/85
+RA	563	.	NZ_VCCA02000001	439035	0	T	A	bias_e_value=0.714255	bias_p_value=1.9977e-07	consensus_score=169.9	fisher_strand_p_value=7.40302e-08	frequency=2.39192963e-01	ks_quality_p_value=0.139163	major_base=T	major_cov=5/55	major_frequency=7.60807037e-01	minor_base=A	minor_cov=14/5	new_cov=14/5	polymorphism_frequency=2.39192963e-01	polymorphism_score=47.2	prediction=polymorphism	ref_cov=5/55	total_cov=19/60
+RA	564	.	NZ_VCCA02000001	439045	0	G	A	bias_e_value=25320.6	bias_p_value=0.00708194	consensus_score=140.0	fisher_strand_p_value=0.000912401	frequency=2.23678589e-01	ks_quality_p_value=0.966143	major_base=G	major_cov=10/42	major_frequency=7.76321411e-01	minor_base=A	minor_cov=10/5	new_cov=10/5	polymorphism_frequency=2.23678589e-01	polymorphism_score=30.6	prediction=polymorphism	ref_cov=10/42	total_cov=20/47
+RA	565	.	NZ_VCCA02000001	439046	0	A	G	bias_e_value=25637.3	bias_p_value=0.00717051	consensus_score=140.0	fisher_strand_p_value=0.000912401	frequency=2.23664284e-01	ks_quality_p_value=0.979959	major_base=A	major_cov=10/42	major_frequency=7.76335716e-01	minor_base=G	minor_cov=10/5	new_cov=10/5	polymorphism_frequency=2.23664284e-01	polymorphism_score=30.6	prediction=polymorphism	ref_cov=10/42	total_cov=20/47
+RA	566	.	NZ_VCCA02000001	439212	0	A	G	bias_e_value=0.015164	bias_p_value=4.24123e-09	consensus_score=-1.4	fisher_strand_p_value=3.33775e-10	frequency=6.29770279e-01	ks_quality_p_value=0.542275	major_base=G	major_cov=32/2	major_frequency=6.29770279e-01	minor_base=A	minor_cov=2/18	new_cov=32/2	polymorphism_frequency=6.29770279e-01	polymorphism_score=46.7	prediction=polymorphism	ref_cov=2/18	total_cov=34/20
+RA	567	.	NZ_VCCA02000001	439216	0	T	A	bias_e_value=0.0106772	bias_p_value=2.98631e-09	consensus_score=2.5	fisher_strand_p_value=1.25481e-10	frequency=6.11506462e-01	ks_quality_p_value=1	major_base=A	major_cov=34/2	major_frequency=6.11506462e-01	minor_base=T	minor_cov=3/20	new_cov=34/2	polymorphism_frequency=6.11506462e-01	polymorphism_score=64.9	prediction=polymorphism	ref_cov=3/20	total_cov=37/22
+RA	568	.	NZ_VCCA02000001	439229	0	C	G	bias_e_value=5.24273e-06	bias_p_value=1.46634e-12	consensus_score=37.6	fisher_strand_p_value=5.47163e-14	frequency=6.84826374e-01	ks_quality_p_value=0.845269	major_base=G	major_cov=48/2	major_frequency=6.84826374e-01	minor_base=C	minor_cov=2/21	new_cov=48/2	polymorphism_frequency=6.84826374e-01	polymorphism_score=64.0	prediction=polymorphism	ref_cov=2/21	total_cov=50/23
+RA	569	.	NZ_VCCA02000001	455959	0	C	G	bias_e_value=2534360	bias_p_value=0.708837	consensus_score=410.8	fisher_strand_p_value=0.341898	frequency=8.28323364e-02	ks_quality_p_value=1	major_base=C	major_cov=84/40	major_frequency=9.17167664e-01	minor_base=G	minor_cov=10/2	new_cov=10/2	polymorphism_frequency=8.28323364e-02	polymorphism_score=15.5	prediction=polymorphism	ref_cov=84/40	total_cov=94/42
+RA	570	.	NZ_VCCA02000001	462080	0	T	C	bias_e_value=337100	bias_p_value=0.0942838	consensus_score=341.1	fisher_strand_p_value=0.133546	frequency=2.24628925e-01	ks_quality_p_value=0.142237	major_base=T	major_cov=40/116	major_frequency=7.75371075e-01	minor_base=C	minor_cov=17/28	new_cov=17/28	polymorphism_frequency=2.24628925e-01	polymorphism_score=101.0	prediction=polymorphism	ref_cov=40/116	total_cov=58/144
+RA	571	.	NZ_VCCA02000001	462220	0	G	T	bias_e_value=11863.1	bias_p_value=0.00331801	consensus_score=309.2	fisher_strand_p_value=0.000373073	frequency=9.62100029e-02	ks_quality_p_value=1	major_base=G	major_cov=23/69	major_frequency=9.03789997e-01	minor_base=T	minor_cov=9/2	new_cov=9/2	polymorphism_frequency=9.62100029e-02	polymorphism_score=8.0	prediction=polymorphism	ref_cov=23/69	total_cov=32/71
+RA	572	.	NZ_VCCA02000001	471446	0	T	G	bias_e_value=3572990	bias_p_value=0.999332	consensus_score=278.4	fisher_strand_p_value=1	frequency=1.74759388e-01	ks_quality_p_value=0.963669	major_base=T	major_cov=49/36	major_frequency=8.25240612e-01	minor_base=G	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.74759388e-01	polymorphism_score=40.8	prediction=polymorphism	ref_cov=49/36	total_cov=59/44
+RA	573	.	NZ_VCCA02000001	471448	0	C	G	bias_e_value=3539860	bias_p_value=0.990067	consensus_score=273.7	fisher_strand_p_value=1	frequency=1.74786091e-01	ks_quality_p_value=0.862406	major_base=C	major_cov=49/36	major_frequency=8.25213909e-01	minor_base=G	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.74786091e-01	polymorphism_score=40.3	prediction=polymorphism	ref_cov=49/36	total_cov=59/44
+RA	574	.	NZ_VCCA02000001	471449	0	C	G	bias_e_value=3567970	bias_p_value=0.997928	consensus_score=276.6	fisher_strand_p_value=1	frequency=1.74794674e-01	ks_quality_p_value=0.936327	major_base=C	major_cov=49/36	major_frequency=8.25205326e-01	minor_base=G	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.74794674e-01	polymorphism_score=40.9	prediction=polymorphism	ref_cov=49/36	total_cov=59/44
+RA	575	.	NZ_VCCA02000001	471452	0	T	C	bias_e_value=3574570	bias_p_value=0.999776	consensus_score=265.2	fisher_strand_p_value=1	frequency=1.74419403e-01	ks_quality_p_value=0.978892	major_base=T	major_cov=49/36	major_frequency=8.25580597e-01	minor_base=C	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.74419403e-01	polymorphism_score=34.1	prediction=polymorphism	ref_cov=49/36	total_cov=59/44
+RA	576	.	NZ_VCCA02000001	471457	0	C	T	bias_e_value=3575380	bias_p_value=1	consensus_score=282.6	fisher_strand_p_value=1	frequency=1.66375160e-01	ks_quality_p_value=1	major_base=C	major_cov=49/41	major_frequency=8.33624840e-01	minor_base=T	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.66375160e-01	polymorphism_score=34.6	prediction=polymorphism	ref_cov=49/41	total_cov=59/49
+RA	577	.	NZ_VCCA02000001	471460	0	A	C	bias_e_value=3562550	bias_p_value=0.996413	consensus_score=303.1	fisher_strand_p_value=1	frequency=1.62053108e-01	ks_quality_p_value=0.916508	major_base=A	major_cov=52/41	major_frequency=8.37946892e-01	minor_base=C	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.62053108e-01	polymorphism_score=40.2	prediction=polymorphism	ref_cov=52/41	total_cov=62/49
+RA	578	.	NZ_VCCA02000001	471461	0	C	T	bias_e_value=3575380	bias_p_value=1	consensus_score=272.3	fisher_strand_p_value=1	frequency=1.70945168e-01	ks_quality_p_value=1	major_base=C	major_cov=49/38	major_frequency=8.29054832e-01	minor_base=T	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.70945168e-01	polymorphism_score=34.1	prediction=polymorphism	ref_cov=49/38	total_cov=59/46
+RA	579	.	NZ_VCCA02000001	471466	0	T	G	bias_e_value=3559730	bias_p_value=0.995622	consensus_score=292.2	fisher_strand_p_value=1	frequency=1.66971207e-01	ks_quality_p_value=0.907901	major_base=T	major_cov=51/38	major_frequency=8.33028793e-01	minor_base=G	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.66971207e-01	polymorphism_score=40.6	prediction=polymorphism	ref_cov=51/38	total_cov=61/46
+RA	580	.	NZ_VCCA02000001	471475	0	G	C	bias_e_value=3542620	bias_p_value=0.990839	consensus_score=283.7	fisher_strand_p_value=1	frequency=1.71318054e-01	ks_quality_p_value=0.867732	major_base=G	major_cov=48/39	major_frequency=8.28681946e-01	minor_base=C	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.71318054e-01	polymorphism_score=42.4	prediction=polymorphism	ref_cov=48/39	total_cov=58/47
+RA	581	.	NZ_VCCA02000001	471476	0	G	T	bias_e_value=3575380	bias_p_value=1	consensus_score=284.0	fisher_strand_p_value=1	frequency=1.69237614e-01	ks_quality_p_value=1	major_base=G	major_cov=48/39	major_frequency=8.30762386e-01	minor_base=T	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.69237614e-01	polymorphism_score=37.3	prediction=polymorphism	ref_cov=48/39	total_cov=58/47
+RA	582	.	NZ_VCCA02000001	471478	0	G	C	bias_e_value=3567380	bias_p_value=0.997764	consensus_score=283.6	fisher_strand_p_value=1	frequency=1.71261787e-01	ks_quality_p_value=0.93387	major_base=G	major_cov=48/39	major_frequency=8.28738213e-01	minor_base=C	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.71261787e-01	polymorphism_score=41.7	prediction=polymorphism	ref_cov=48/39	total_cov=58/47
+RA	583	.	NZ_VCCA02000001	471481	0	A	C	bias_e_value=3565040	bias_p_value=0.997108	consensus_score=308.4	fisher_strand_p_value=1	frequency=1.60570145e-01	ks_quality_p_value=0.924912	major_base=A	major_cov=49/45	major_frequency=8.39429855e-01	minor_base=C	minor_cov=10/8	new_cov=10/8	polymorphism_frequency=1.60570145e-01	polymorphism_score=42.9	prediction=polymorphism	ref_cov=49/45	total_cov=59/53
+RA	584	.	NZ_VCCA02000001	532263	0	G	C	bias_e_value=2123930	bias_p_value=0.594043	consensus_score=294.9	fisher_strand_p_value=0.248578	frequency=7.15928078e-02	ks_quality_p_value=0.998398	major_base=G	major_cov=59/31	major_frequency=9.28407192e-01	minor_base=C	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=7.15928078e-02	polymorphism_score=8.9	prediction=polymorphism	ref_cov=59/31	total_cov=62/35
+RA	585	.	NZ_VCCA02000001	532266	0	T	C	bias_e_value=2805530	bias_p_value=0.78468	consensus_score=359.8	fisher_strand_p_value=0.42038	frequency=5.82981110e-02	ks_quality_p_value=1	major_base=T	major_cov=71/39	major_frequency=9.41701889e-01	minor_base=C	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=5.82981110e-02	polymorphism_score=5.2	prediction=polymorphism	ref_cov=71/39	total_cov=74/43
+RA	586	.	NZ_VCCA02000001	532269	0	C	G	bias_e_value=1870040	bias_p_value=0.523032	consensus_score=422.3	fisher_strand_p_value=0.221385	frequency=5.17997742e-02	ks_quality_p_value=0.90662	major_base=C	major_cov=87/41	major_frequency=9.48200226e-01	minor_base=G	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=5.17997742e-02	polymorphism_score=10.6	prediction=polymorphism	ref_cov=87/41	total_cov=90/45
+RA	587	.	NZ_VCCA02000001	532281	0	A	T	bias_e_value=3427330	bias_p_value=0.958592	consensus_score=524.3	fisher_strand_p_value=0.734455	frequency=5.40590286e-02	ks_quality_p_value=0.98901	major_base=A	major_cov=85/72	major_frequency=9.45940971e-01	minor_base=T	minor_cov=4/5	new_cov=4/5	polymorphism_frequency=5.40590286e-02	polymorphism_score=14.3	prediction=polymorphism	ref_cov=85/72	total_cov=89/77
+RA	588	.	NZ_VCCA02000001	532282	0	C	G	bias_e_value=3573670	bias_p_value=0.999523	consensus_score=561.3	fisher_strand_p_value=1	frequency=5.04374504e-02	ks_quality_p_value=0.969271	major_base=C	major_cov=85/84	major_frequency=9.49562550e-01	minor_base=G	minor_cov=4/5	new_cov=4/5	polymorphism_frequency=5.04374504e-02	polymorphism_score=14.0	prediction=polymorphism	ref_cov=85/84	total_cov=89/89
+RA	589	.	NZ_VCCA02000001	579244	0	A	C	bias_e_value=1881890	bias_p_value=0.526346	consensus_score=389.5	fisher_strand_p_value=0.237444	frequency=5.52453995e-02	ks_quality_p_value=0.854024	major_base=A	major_cov=40/79	major_frequency=9.44754601e-01	minor_base=C	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=5.52453995e-02	polymorphism_score=10.5	prediction=polymorphism	ref_cov=40/79	total_cov=45/82
+RA	590	.	NZ_VCCA02000001	579251	0	A	G	bias_e_value=1742150	bias_p_value=0.487263	consensus_score=353.6	fisher_strand_p_value=0.216787	frequency=6.07805252e-02	ks_quality_p_value=0.826546	major_base=A	major_cov=34/74	major_frequency=9.39219475e-01	minor_base=G	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=6.07805252e-02	polymorphism_score=6.5	prediction=polymorphism	ref_cov=34/74	total_cov=39/77
+RA	591	.	NZ_VCCA02000001	579253	0	C	G	bias_e_value=1890640	bias_p_value=0.528794	consensus_score=361.7	fisher_strand_p_value=0.244772	frequency=5.91726303e-02	ks_quality_p_value=0.834737	major_base=C	major_cov=38/73	major_frequency=9.40827370e-01	minor_base=G	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=5.91726303e-02	polymorphism_score=9.4	prediction=polymorphism	ref_cov=38/73	total_cov=42/76
+RA	592	.	NZ_VCCA02000001	579256	0	T	G	bias_e_value=1785730	bias_p_value=0.499453	consensus_score=387.3	fisher_strand_p_value=0.247456	frequency=5.67870140e-02	ks_quality_p_value=0.753089	major_base=T	major_cov=40/76	major_frequency=9.43212986e-01	minor_base=G	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=5.67870140e-02	polymorphism_score=10.0	prediction=polymorphism	ref_cov=40/76	total_cov=44/79
+RA	593	.	NZ_VCCA02000001	579257	0	C	T	bias_e_value=2073660	bias_p_value=0.579984	consensus_score=373.6	fisher_strand_p_value=0.244358	frequency=5.71646690e-02	ks_quality_p_value=0.974946	major_base=C	major_cov=39/75	major_frequency=9.42835331e-01	minor_base=T	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=5.71646690e-02	polymorphism_score=6.6	prediction=polymorphism	ref_cov=39/75	total_cov=44/78
+RA	594	.	NZ_VCCA02000001	579259	0	G	C	bias_e_value=2425830	bias_p_value=0.678481	consensus_score=360.4	fisher_strand_p_value=0.430887	frequency=5.97343445e-02	ks_quality_p_value=0.730245	major_base=G	major_cov=42/68	major_frequency=9.40265656e-01	minor_base=C	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=5.97343445e-02	polymorphism_score=9.9	prediction=polymorphism	ref_cov=42/68	total_cov=46/71
+RA	595	.	NZ_VCCA02000001	579261	0	A	C	bias_e_value=2010360	bias_p_value=0.56228	consensus_score=359.2	fisher_strand_p_value=0.427865	frequency=6.02784157e-02	ks_quality_p_value=0.528468	major_base=A	major_cov=41/68	major_frequency=9.39721584e-01	minor_base=C	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=6.02784157e-02	polymorphism_score=10.8	prediction=polymorphism	ref_cov=41/68	total_cov=45/71
+RA	596	.	NZ_VCCA02000001	579264	0	G	C	bias_e_value=2760960	bias_p_value=0.772216	consensus_score=320.6	fisher_strand_p_value=0.420616	frequency=6.71677589e-02	ks_quality_p_value=0.9659	major_base=G	major_cov=35/62	major_frequency=9.32832241e-01	minor_base=C	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=6.71677589e-02	polymorphism_score=10.2	prediction=polymorphism	ref_cov=35/62	total_cov=39/65
+RA	597	.	NZ_VCCA02000001	579272	0	C	T	bias_e_value=3243650	bias_p_value=0.907219	consensus_score=306.8	fisher_strand_p_value=0.696979	frequency=6.89787865e-02	ks_quality_p_value=0.862896	major_base=C	major_cov=41/53	major_frequency=9.31021214e-01	minor_base=T	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=6.89787865e-02	polymorphism_score=7.6	prediction=polymorphism	ref_cov=41/53	total_cov=45/56
+RA	598	.	NZ_VCCA02000001	579277	0	A	G	bias_e_value=3310890	bias_p_value=0.926025	consensus_score=290.9	fisher_strand_p_value=0.711762	frequency=7.23919868e-02	ks_quality_p_value=0.900443	major_base=A	major_cov=43/46	major_frequency=9.27608013e-01	minor_base=G	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=7.23919868e-02	polymorphism_score=6.7	prediction=polymorphism	ref_cov=43/46	total_cov=47/49
+RA	599	.	NZ_VCCA02000001	962242	0	C	G	bias_e_value=3575350	bias_p_value=0.999992	consensus_score=1011.9	fisher_strand_p_value=1	frequency=5.09209633e-02	ks_quality_p_value=0.995941	major_base=C	major_cov=252/45	major_frequency=9.49079037e-01	minor_base=G	minor_cov=14/2	new_cov=14/2	polymorphism_frequency=5.09209633e-02	polymorphism_score=31.8	prediction=polymorphism	ref_cov=252/45	total_cov=266/47
+RA	600	.	NZ_VCCA02000001	962546	0	T	C	bias_e_value=3029570	bias_p_value=0.847342	consensus_score=687.0	fisher_strand_p_value=0.538942	frequency=1.80905819e-01	ks_quality_p_value=0.929805	major_base=T	major_cov=37/207	major_frequency=8.19094181e-01	minor_base=C	minor_cov=10/44	new_cov=10/44	polymorphism_frequency=1.80905819e-01	polymorphism_score=114.0	prediction=polymorphism	ref_cov=37/207	total_cov=47/251
+RA	601	.	NZ_VCCA02000001	962564	0	C	G	bias_e_value=2692510	bias_p_value=0.753069	consensus_score=695.6	fisher_strand_p_value=0.481013	frequency=2.26632595e-01	ks_quality_p_value=0.801663	major_base=C	major_cov=42/189	major_frequency=7.73367405e-01	minor_base=G	minor_cov=15/52	new_cov=15/52	polymorphism_frequency=2.26632595e-01	polymorphism_score=189.3	prediction=polymorphism	ref_cov=42/189	total_cov=57/242
+RA	602	.	NZ_VCCA02000001	962567	0	C	G	bias_e_value=2954640	bias_p_value=0.826387	consensus_score=706.7	fisher_strand_p_value=0.480305	frequency=2.24056721e-01	ks_quality_p_value=0.982765	major_base=C	major_cov=42/190	major_frequency=7.75943279e-01	minor_base=G	minor_cov=15/52	new_cov=15/52	polymorphism_frequency=2.24056721e-01	polymorphism_score=187.1	prediction=polymorphism	ref_cov=42/190	total_cov=57/242
+RA	603	.	NZ_VCCA02000001	962570	0	C	G	bias_e_value=1573970	bias_p_value=0.440226	consensus_score=649.7	fisher_strand_p_value=0.477036	frequency=2.36387253e-01	ks_quality_p_value=0.320727	major_base=C	major_cov=39/177	major_frequency=7.63612747e-01	minor_base=G	minor_cov=15/52	new_cov=15/52	polymorphism_frequency=2.36387253e-01	polymorphism_score=190.1	prediction=polymorphism	ref_cov=39/177	total_cov=54/229
+RA	604	.	NZ_VCCA02000001	962571	0	C	A	bias_e_value=2980650	bias_p_value=0.833659	consensus_score=682.7	fisher_strand_p_value=0.48185	frequency=2.38355637e-01	ks_quality_p_value=1	major_base=C	major_cov=39/176	major_frequency=7.61644363e-01	minor_base=A	minor_cov=15/53	new_cov=15/53	polymorphism_frequency=2.38355637e-01	polymorphism_score=164.4	prediction=polymorphism	ref_cov=39/176	total_cov=54/229
+RA	605	.	NZ_VCCA02000001	962572	0	T	C	bias_e_value=3233420	bias_p_value=0.904357	consensus_score=540.8	fisher_strand_p_value=0.595841	frequency=2.43343830e-01	ks_quality_p_value=1	major_base=T	major_cov=39/169	major_frequency=7.56656170e-01	minor_base=C	minor_cov=15/52	new_cov=15/52	polymorphism_frequency=2.43343830e-01	polymorphism_score=150.4	prediction=polymorphism	ref_cov=39/169	total_cov=54/221
+RA	606	.	NZ_VCCA02000001	962582	0	C	G	bias_e_value=10.3608	bias_p_value=2.89781e-06	consensus_score=331.8	fisher_strand_p_value=1.75005e-07	frequency=4.00379181e-01	ks_quality_p_value=1	major_base=C	major_cov=36/149	major_frequency=5.99620819e-01	minor_base=G	minor_cov=59/64	new_cov=59/64	polymorphism_frequency=4.00379181e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=36/149	total_cov=95/218
+RA	607	.	NZ_VCCA02000001	962591	0	G	A	bias_e_value=1.6079	bias_p_value=4.49714e-07	consensus_score=146.9	fisher_strand_p_value=2.42639e-08	frequency=4.57648277e-01	ks_quality_p_value=1	major_base=G	major_cov=35/132	major_frequency=5.42351723e-01	minor_base=A	minor_cov=73/68	new_cov=73/68	polymorphism_frequency=4.57648277e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=35/132	total_cov=108/200
+RA	608	.	NZ_VCCA02000001	962600	0	C	G	bias_e_value=197.522	bias_p_value=5.5245e-05	consensus_score=43.5	fisher_strand_p_value=5.00414e-06	frequency=4.85712051e-01	ks_quality_p_value=0.823939	major_base=C	major_cov=33/86	major_frequency=5.14287949e-01	minor_base=G	minor_cov=65/47	new_cov=65/47	polymorphism_frequency=4.85712051e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=33/86	total_cov=98/134
+RA	609	.	NZ_VCCA02000001	962603	0	C	G	bias_e_value=30.689	bias_p_value=8.58343e-06	consensus_score=42.1	fisher_strand_p_value=5.60269e-07	frequency=4.93992329e-01	ks_quality_p_value=0.994815	major_base=C	major_cov=33/87	major_frequency=5.06007671e-01	minor_base=G	minor_cov=70/47	new_cov=70/47	polymorphism_frequency=4.93992329e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=33/87	total_cov=103/135
+RA	610	.	NZ_VCCA02000001	962604	0	G	C	bias_e_value=398.348	bias_p_value=0.000111414	consensus_score=37.5	fisher_strand_p_value=9.70208e-06	frequency=4.87740040e-01	ks_quality_p_value=0.908578	major_base=G	major_cov=38/86	major_frequency=5.12259960e-01	minor_base=C	minor_cov=70/48	new_cov=70/48	polymorphism_frequency=4.87740040e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=38/86	total_cov=108/134
+RA	611	.	NZ_VCCA02000001	962621	0	C	G	bias_e_value=754.273	bias_p_value=0.000210963	consensus_score=26.9	fisher_strand_p_value=1.80657e-05	frequency=4.89168644e-01	ks_quality_p_value=0.977688	major_base=C	major_cov=49/68	major_frequency=5.10831356e-01	minor_base=G	minor_cov=79/33	new_cov=79/33	polymorphism_frequency=4.89168644e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=49/68	total_cov=128/101
+RA	612	.	NZ_VCCA02000001	962630	0	G	A	bias_e_value=27278	bias_p_value=0.00762941	consensus_score=172.6	fisher_strand_p_value=0.00128807	frequency=3.49855900e-01	ks_quality_p_value=0.745164	major_base=G	major_cov=39/74	major_frequency=6.50144100e-01	minor_base=A	minor_cov=37/24	new_cov=37/24	polymorphism_frequency=3.49855900e-01	polymorphism_score=150.4	prediction=polymorphism	ref_cov=39/74	total_cov=76/99
+RA	613	.	NZ_VCCA02000001	962631	0	G	C	bias_e_value=26255.9	bias_p_value=0.00734353	consensus_score=193.5	fisher_strand_p_value=0.00150768	frequency=3.52699280e-01	ks_quality_p_value=0.609418	major_base=G	major_cov=39/74	major_frequency=6.47300720e-01	minor_base=C	minor_cov=37/25	new_cov=37/25	polymorphism_frequency=3.52699280e-01	polymorphism_score=183.3	prediction=polymorphism	ref_cov=39/74	total_cov=76/100
+RA	614	.	NZ_VCCA02000001	962633	0	G	A	bias_e_value=101857	bias_p_value=0.0284884	consensus_score=217.2	fisher_strand_p_value=0.005039	frequency=3.31195831e-01	ks_quality_p_value=0.880999	major_base=G	major_cov=47/78	major_frequency=6.68804169e-01	minor_base=A	minor_cov=37/25	new_cov=37/25	polymorphism_frequency=3.31195831e-01	polymorphism_score=149.2	prediction=polymorphism	ref_cov=47/78	total_cov=84/103
+RA	615	.	NZ_VCCA02000001	962636	0	C	G	bias_e_value=11792.8	bias_p_value=0.00329835	consensus_score=149.4	fisher_strand_p_value=0.00133852	frequency=3.69462967e-01	ks_quality_p_value=0.27686	major_base=C	major_cov=36/70	major_frequency=6.30537033e-01	minor_base=G	minor_cov=37/25	new_cov=37/25	polymorphism_frequency=3.69462967e-01	polymorphism_score=189.9	prediction=polymorphism	ref_cov=36/70	total_cov=73/95
+RA	616	.	NZ_VCCA02000001	962642	0	T	C	bias_e_value=10347.4	bias_p_value=0.00289408	consensus_score=207.0	fisher_strand_p_value=0.000706522	frequency=3.38415623e-01	ks_quality_p_value=0.452744	major_base=T	major_cov=51/74	major_frequency=6.61584377e-01	minor_base=C	minor_cov=43/21	new_cov=43/21	polymorphism_frequency=3.38415623e-01	polymorphism_score=158.4	prediction=polymorphism	ref_cov=51/74	total_cov=94/95
+RA	617	.	NZ_VCCA02000001	962647	0	C	G	bias_e_value=246.496	bias_p_value=6.89427e-05	consensus_score=339.8	fisher_strand_p_value=7.29673e-06	frequency=2.55393505e-01	ks_quality_p_value=0.718001	major_base=C	major_cov=59/78	major_frequency=7.44606495e-01	minor_base=G	minor_cov=38/9	new_cov=38/9	polymorphism_frequency=2.55393505e-01	polymorphism_score=133.3	prediction=polymorphism	ref_cov=59/78	total_cov=97/87
+RA	618	.	NZ_VCCA02000001	962648	0	G	C	bias_e_value=303.396	bias_p_value=8.48571e-05	consensus_score=349.4	fisher_strand_p_value=7.29673e-06	frequency=2.55438805e-01	ks_quality_p_value=0.899109	major_base=G	major_cov=59/78	major_frequency=7.44561195e-01	minor_base=C	minor_cov=38/9	new_cov=38/9	polymorphism_frequency=2.55438805e-01	polymorphism_score=132.8	prediction=polymorphism	ref_cov=59/78	total_cov=97/87
+RA	619	.	NZ_VCCA02000001	962657	0	G	C	bias_e_value=422408	bias_p_value=0.118144	consensus_score=468.7	fisher_strand_p_value=0.0261302	frequency=2.28129864e-01	ks_quality_p_value=0.966319	major_base=G	major_cov=74/99	major_frequency=7.71870136e-01	minor_base=C	minor_cov=31/20	new_cov=31/20	polymorphism_frequency=2.28129864e-01	polymorphism_score=140.0	prediction=polymorphism	ref_cov=74/99	total_cov=105/120
+RA	620	.	NZ_VCCA02000001	962678	0	C	G	bias_e_value=43422.1	bias_p_value=0.0121447	consensus_score=508.9	fisher_strand_p_value=0.00343241	frequency=2.70154953e-01	ks_quality_p_value=0.477224	major_base=C	major_cov=79/145	major_frequency=7.29845047e-01	minor_base=G	minor_cov=15/68	new_cov=15/68	polymorphism_frequency=2.70154953e-01	polymorphism_score=244.6	prediction=polymorphism	ref_cov=79/145	total_cov=94/213
+RA	621	.	NZ_VCCA02000001	962679	0	A	T	bias_e_value=153143	bias_p_value=0.0428328	consensus_score=553.7	fisher_strand_p_value=0.00722237	frequency=2.67787933e-01	ks_quality_p_value=1	major_base=A	major_cov=77/145	major_frequency=7.32212067e-01	minor_base=T	minor_cov=15/67	new_cov=15/67	polymorphism_frequency=2.67787933e-01	polymorphism_score=209.7	prediction=polymorphism	ref_cov=77/145	total_cov=92/213
+RA	622	.	NZ_VCCA02000001	962680	0	A	C	bias_e_value=15296.4	bias_p_value=0.00427828	consensus_score=433.4	fisher_strand_p_value=0.00497394	frequency=2.72838593e-01	ks_quality_p_value=0.0999377	major_base=A	major_cov=77/145	major_frequency=7.27161407e-01	minor_base=C	minor_cov=15/68	new_cov=15/68	polymorphism_frequency=2.72838593e-01	polymorphism_score=252.7	prediction=polymorphism	ref_cov=77/145	total_cov=92/213
+RA	623	.	NZ_VCCA02000001	962684	0	A	C	bias_e_value=13314	bias_p_value=0.0037238	consensus_score=404.4	fisher_strand_p_value=0.00314627	frequency=2.80078888e-01	ks_quality_p_value=0.135054	major_base=A	major_cov=77/137	major_frequency=7.19921112e-01	minor_base=C	minor_cov=15/68	new_cov=15/68	polymorphism_frequency=2.80078888e-01	polymorphism_score=250.8	prediction=polymorphism	ref_cov=77/137	total_cov=92/205
+RA	624	.	NZ_VCCA02000001	962687	0	T	A	bias_e_value=21498.1	bias_p_value=0.00601282	consensus_score=474.6	fisher_strand_p_value=0.00493137	frequency=2.82300949e-01	ks_quality_p_value=0.148325	major_base=T	major_cov=74/144	major_frequency=7.17699051e-01	minor_base=A	minor_cov=15/71	new_cov=15/71	polymorphism_frequency=2.82300949e-01	polymorphism_score=244.2	prediction=polymorphism	ref_cov=74/144	total_cov=89/215
+RA	625	.	NZ_VCCA02000001	962695	0	A	G	bias_e_value=95335.9	bias_p_value=0.0266646	consensus_score=362.9	fisher_strand_p_value=0.00471511	frequency=3.19070816e-01	ks_quality_p_value=0.87062	major_base=A	major_cov=71/138	major_frequency=6.80929184e-01	minor_base=G	minor_cov=18/80	new_cov=18/80	polymorphism_frequency=3.19070816e-01	polymorphism_score=242.7	prediction=polymorphism	ref_cov=71/138	total_cov=89/218
+RA	626	.	NZ_VCCA02000001	962707	0	T	C	bias_e_value=752554	bias_p_value=0.210483	consensus_score=393.6	fisher_strand_p_value=0.054939	frequency=3.21876526e-01	ks_quality_p_value=0.975863	major_base=T	major_cov=77/144	major_frequency=6.78123474e-01	minor_base=C	minor_cov=25/80	new_cov=25/80	polymorphism_frequency=3.21876526e-01	polymorphism_score=255.1	prediction=polymorphism	ref_cov=77/144	total_cov=102/224
+RA	627	.	NZ_VCCA02000001	962724	0	A	G	bias_e_value=828252	bias_p_value=0.231654	consensus_score=223.1	fisher_strand_p_value=0.100339	frequency=3.46415520e-01	ks_quality_p_value=0.608096	major_base=A	major_cov=52/97	major_frequency=6.53584480e-01	minor_base=G	minor_cov=19/60	new_cov=19/60	polymorphism_frequency=3.46415520e-01	polymorphism_score=198.0	prediction=polymorphism	ref_cov=52/97	total_cov=71/157
+RA	628	.	NZ_VCCA02000001	962742	0	G	C	bias_e_value=3479720	bias_p_value=0.973245	consensus_score=113.9	fisher_strand_p_value=0.884321	frequency=4.23614979e-01	ks_quality_p_value=0.879522	major_base=G	major_cov=80/41	major_frequency=5.76385021e-01	minor_base=C	minor_cov=58/31	new_cov=58/31	polymorphism_frequency=4.23614979e-01	polymorphism_score=270.3	prediction=polymorphism	ref_cov=80/41	total_cov=138/72
+RA	629	.	NZ_VCCA02000001	962784	0	A	G	bias_e_value=12540.2	bias_p_value=0.00350738	consensus_score=163.3	fisher_strand_p_value=0.000590582	frequency=3.57781410e-01	ks_quality_p_value=0.672487	major_base=A	major_cov=72/39	major_frequency=6.42218590e-01	minor_base=G	minor_cov=55/7	new_cov=55/7	polymorphism_frequency=3.57781410e-01	polymorphism_score=148.7	prediction=polymorphism	ref_cov=72/39	total_cov=127/47
+RA	630	.	NZ_VCCA02000001	962787	0	C	T	bias_e_value=2373.63	bias_p_value=0.000663881	consensus_score=128.2	fisher_strand_p_value=6.60066e-05	frequency=3.67674828e-01	ks_quality_p_value=0.941179	major_base=C	major_cov=56/42	major_frequency=6.32325172e-01	minor_base=T	minor_cov=50/7	new_cov=50/7	polymorphism_frequency=3.67674828e-01	polymorphism_score=143.6	prediction=polymorphism	ref_cov=56/42	total_cov=106/49
+RA	631	.	NZ_VCCA02000001	1010723	0	A	C	bias_e_value=3261900	bias_p_value=0.912323	consensus_score=99.5	fisher_strand_p_value=0.611627	frequency=1.80427074e-01	ks_quality_p_value=1	major_base=A	major_cov=36/5	major_frequency=8.19572926e-01	minor_base=C	minor_cov=8/2	new_cov=8/2	polymorphism_frequency=1.80427074e-01	polymorphism_score=2.8	prediction=polymorphism	ref_cov=36/5	total_cov=44/7
+RA	632	.	NZ_VCCA02000001	1071471	0	C	T	bias_e_value=3472730	bias_p_value=0.97129	consensus_score=182.7	fisher_strand_p_value=0.770151	frequency=1.53065681e-01	ks_quality_p_value=1	major_base=C	major_cov=44/32	major_frequency=8.46934319e-01	minor_base=T	minor_cov=7/7	new_cov=7/7	polymorphism_frequency=1.53065681e-01	polymorphism_score=18.3	prediction=polymorphism	ref_cov=44/32	total_cov=51/48
+RA	633	.	NZ_VCCA02000001	1073986	0	C	G	bias_e_value=2238100	bias_p_value=0.625975	consensus_score=231.2	fisher_strand_p_value=0.27188	frequency=2.91948318e-01	ks_quality_p_value=1	major_base=C	major_cov=48/56	major_frequency=7.08051682e-01	minor_base=G	minor_cov=15/28	new_cov=15/28	polymorphism_frequency=2.91948318e-01	polymorphism_score=122.6	prediction=polymorphism	ref_cov=48/56	total_cov=63/84
+RA	634	.	NZ_VCCA02000001	1073987	0	T	C	bias_e_value=1090070	bias_p_value=0.304881	consensus_score=223.0	fisher_strand_p_value=0.148886	frequency=2.82613277e-01	ks_quality_p_value=0.599383	major_base=T	major_cov=53/56	major_frequency=7.17386723e-01	minor_base=C	minor_cov=15/28	new_cov=15/28	polymorphism_frequency=2.82613277e-01	polymorphism_score=96.8	prediction=polymorphism	ref_cov=53/56	total_cov=68/84
+RA	635	.	NZ_VCCA02000001	1081107	0	A	C	bias_e_value=676239	bias_p_value=0.189138	consensus_score=69.7	fisher_strand_p_value=0.0464875	frequency=2.51691341e-01	ks_quality_p_value=1	major_base=A	major_cov=17/16	major_frequency=7.48308659e-01	minor_base=C	minor_cov=2/10	new_cov=2/10	polymorphism_frequency=2.51691341e-01	polymorphism_score=3.4	prediction=polymorphism	ref_cov=17/16	total_cov=19/26
+RA	636	.	NZ_VCCA02000001	1089313	0	G	A	bias_e_value=3418260	bias_p_value=0.956055	consensus_score=318.8	fisher_strand_p_value=0.718579	frequency=2.34758377e-01	ks_quality_p_value=1	major_base=G	major_cov=52/91	major_frequency=7.65241623e-01	minor_base=A	minor_cov=14/30	new_cov=14/30	polymorphism_frequency=2.34758377e-01	polymorphism_score=95.5	prediction=polymorphism	ref_cov=52/91	total_cov=66/121
+RA	637	.	NZ_VCCA02000001	1089314	0	T	G	bias_e_value=3080710	bias_p_value=0.861647	consensus_score=557.9	fisher_strand_p_value=0.522464	frequency=5.43394089e-02	ks_quality_p_value=1	major_base=T	major_cov=61/115	major_frequency=9.45660591e-01	minor_base=G	minor_cov=5/6	new_cov=5/6	polymorphism_frequency=5.43394089e-02	polymorphism_score=13.6	prediction=polymorphism	ref_cov=61/115	total_cov=66/121
+RA	638	.	NZ_VCCA02000001	1089316	0	G	A	bias_e_value=2609300	bias_p_value=0.729796	consensus_score=525.2	fisher_strand_p_value=0.755488	frequency=6.42108917e-02	ks_quality_p_value=0.479114	major_base=G	major_cov=60/114	major_frequency=9.35789108e-01	minor_base=A	minor_cov=5/7	new_cov=5/7	polymorphism_frequency=6.42108917e-02	polymorphism_score=16.8	prediction=polymorphism	ref_cov=60/114	total_cov=65/121
+RA	639	.	NZ_VCCA02000001	1089319	0	G	C	bias_e_value=146701	bias_p_value=0.0410309	consensus_score=437.9	fisher_strand_p_value=0.0068588	frequency=7.79638290e-02	ks_quality_p_value=1	major_base=G	major_cov=45/93	major_frequency=9.22036171e-01	minor_base=C	minor_cov=10/4	new_cov=10/4	polymorphism_frequency=7.79638290e-02	polymorphism_score=14.9	prediction=polymorphism	ref_cov=45/93	total_cov=55/98
+RA	640	.	NZ_VCCA02000001	1118402	0	A	C	bias_e_value=3453380	bias_p_value=0.965879	consensus_score=158.3	fisher_strand_p_value=0.775414	frequency=2.25361824e-01	ks_quality_p_value=0.967753	major_base=A	major_cov=25/30	major_frequency=7.74638176e-01	minor_base=C	minor_cov=6/10	new_cov=6/10	polymorphism_frequency=2.25361824e-01	polymorphism_score=47.7	prediction=polymorphism	ref_cov=25/30	total_cov=31/40
+RA	641	.	NZ_VCCA02000001	1118420	0	T	C	bias_e_value=1169830	bias_p_value=0.327191	consensus_score=152.7	fisher_strand_p_value=0.221508	frequency=3.69950771e-01	ks_quality_p_value=0.445456	major_base=T	major_cov=31/32	major_frequency=6.30049229e-01	minor_base=C	minor_cov=23/14	new_cov=23/14	polymorphism_frequency=3.69950771e-01	polymorphism_score=92.4	prediction=polymorphism	ref_cov=31/32	total_cov=54/46
+RA	642	.	NZ_VCCA02000001	1118421	0	C	A	bias_e_value=1768830	bias_p_value=0.494727	consensus_score=193.1	fisher_strand_p_value=0.221508	frequency=3.70049477e-01	ks_quality_p_value=0.828667	major_base=C	major_cov=31/32	major_frequency=6.29950523e-01	minor_base=A	minor_cov=23/14	new_cov=23/14	polymorphism_frequency=3.70049477e-01	polymorphism_score=102.5	prediction=polymorphism	ref_cov=31/32	total_cov=54/46
+RA	643	.	NZ_VCCA02000001	1118423	0	A	C	bias_e_value=1524890	bias_p_value=0.426498	consensus_score=152.4	fisher_strand_p_value=0.147749	frequency=3.92817974e-01	ks_quality_p_value=0.98666	major_base=A	major_cov=27/31	major_frequency=6.07182026e-01	minor_base=C	minor_cov=23/14	new_cov=23/14	polymorphism_frequency=3.92817974e-01	polymorphism_score=124.4	prediction=polymorphism	ref_cov=27/31	total_cov=51/45
+RA	644	.	NZ_VCCA02000001	1118425	0	T	C	bias_e_value=1083920	bias_p_value=0.303162	consensus_score=147.4	fisher_strand_p_value=0.0989627	frequency=3.77494812e-01	ks_quality_p_value=0.894573	major_base=T	major_cov=27/34	major_frequency=6.22505188e-01	minor_base=C	minor_cov=23/14	new_cov=23/14	polymorphism_frequency=3.77494812e-01	polymorphism_score=93.5	prediction=polymorphism	ref_cov=27/34	total_cov=50/48
+RA	645	.	NZ_VCCA02000001	1118427	0	C	A	bias_e_value=557056	bias_p_value=0.155803	consensus_score=169.1	fisher_strand_p_value=0.0360394	frequency=3.95452976e-01	ks_quality_p_value=1	major_base=C	major_cov=22/34	major_frequency=6.04547024e-01	minor_base=A	minor_cov=23/14	new_cov=23/14	polymorphism_frequency=3.95452976e-01	polymorphism_score=96.5	prediction=polymorphism	ref_cov=22/34	total_cov=45/48
+RA	646	.	NZ_VCCA02000001	1118428	0	G	C	bias_e_value=557056	bias_p_value=0.155803	consensus_score=163.4	fisher_strand_p_value=0.0360394	frequency=3.96584034e-01	ks_quality_p_value=1	major_base=G	major_cov=22/34	major_frequency=6.03415966e-01	minor_base=C	minor_cov=23/14	new_cov=23/14	polymorphism_frequency=3.96584034e-01	polymorphism_score=108.9	prediction=polymorphism	ref_cov=22/34	total_cov=45/48
+RA	647	.	NZ_VCCA02000001	1118429	0	C	T	bias_e_value=557056	bias_p_value=0.155803	consensus_score=129.3	fisher_strand_p_value=0.0360394	frequency=3.97748947e-01	ks_quality_p_value=1	major_base=C	major_cov=22/34	major_frequency=6.02251053e-01	minor_base=T	minor_cov=23/14	new_cov=23/14	polymorphism_frequency=3.97748947e-01	polymorphism_score=93.4	prediction=polymorphism	ref_cov=22/34	total_cov=45/48
+RA	648	.	NZ_VCCA02000001	1118444	0	C	A	bias_e_value=1121080	bias_p_value=0.313555	consensus_score=236.8	fisher_strand_p_value=0.0938609	frequency=3.91713619e-01	ks_quality_p_value=0.989327	major_base=C	major_cov=30/43	major_frequency=6.08286381e-01	minor_base=A	minor_cov=27/20	new_cov=27/20	polymorphism_frequency=3.91713619e-01	polymorphism_score=132.8	prediction=polymorphism	ref_cov=30/43	total_cov=57/63
+RA	649	.	NZ_VCCA02000001	1118445	0	G	A	bias_e_value=1489450	bias_p_value=0.416585	consensus_score=193.7	fisher_strand_p_value=0.142099	frequency=3.82008076e-01	ks_quality_p_value=0.989995	major_base=G	major_cov=33/43	major_frequency=6.17991924e-01	minor_base=A	minor_cov=27/20	new_cov=27/20	polymorphism_frequency=3.82008076e-01	polymorphism_score=118.5	prediction=polymorphism	ref_cov=33/43	total_cov=60/63
+RA	650	.	NZ_VCCA02000001	1118446	0	T	G	bias_e_value=1388510	bias_p_value=0.388353	consensus_score=212.0	fisher_strand_p_value=0.142099	frequency=3.82093430e-01	ks_quality_p_value=0.891293	major_base=T	major_cov=33/43	major_frequency=6.17906570e-01	minor_base=G	minor_cov=27/20	new_cov=27/20	polymorphism_frequency=3.82093430e-01	polymorphism_score=146.8	prediction=polymorphism	ref_cov=33/43	total_cov=60/63
+RA	651	.	NZ_VCCA02000001	1118458	0	T	C	bias_e_value=2575370	bias_p_value=0.720307	consensus_score=209.7	fisher_strand_p_value=0.352744	frequency=3.68734837e-01	ks_quality_p_value=1	major_base=T	major_cov=43/34	major_frequency=6.31265163e-01	minor_base=C	minor_cov=21/24	new_cov=21/24	polymorphism_frequency=3.68734837e-01	polymorphism_score=112.7	prediction=polymorphism	ref_cov=43/34	total_cov=64/58
+RA	652	.	NZ_VCCA02000001	1118463	0	C	A	bias_e_value=2273090	bias_p_value=0.635762	consensus_score=256.1	fisher_strand_p_value=0.392853	frequency=2.69394398e-01	ks_quality_p_value=0.711399	major_base=C	major_cov=45/33	major_frequency=7.30605602e-01	minor_base=A	minor_cov=14/15	new_cov=14/15	polymorphism_frequency=2.69394398e-01	polymorphism_score=74.9	prediction=polymorphism	ref_cov=45/33	total_cov=59/49
+RA	653	.	NZ_VCCA02000001	1118464	0	C	G	bias_e_value=479816	bias_p_value=0.1342	consensus_score=253.9	fisher_strand_p_value=0.388743	frequency=2.77991772e-01	ks_quality_p_value=0.0764418	major_base=C	major_cov=45/33	major_frequency=7.22008228e-01	minor_base=G	minor_cov=14/16	new_cov=14/16	polymorphism_frequency=2.77991772e-01	polymorphism_score=85.3	prediction=polymorphism	ref_cov=45/33	total_cov=59/49
+RA	654	.	NZ_VCCA02000001	1118470	0	G	C	bias_e_value=3296430	bias_p_value=0.921981	consensus_score=275.6	fisher_strand_p_value=0.818991	frequency=2.22183228e-01	ks_quality_p_value=0.771623	major_base=G	major_cov=39/45	major_frequency=7.77816772e-01	minor_base=C	minor_cov=12/12	new_cov=12/12	polymorphism_frequency=2.22183228e-01	polymorphism_score=65.2	prediction=polymorphism	ref_cov=39/45	total_cov=51/57
+RA	655	.	NZ_VCCA02000001	1118475	0	T	C	bias_e_value=2326370	bias_p_value=0.650664	consensus_score=292.1	fisher_strand_p_value=0.805979	frequency=1.76708698e-01	ks_quality_p_value=0.361498	major_base=T	major_cov=42/51	major_frequency=8.23291302e-01	minor_base=C	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=1.76708698e-01	polymorphism_score=39.4	prediction=polymorphism	ref_cov=42/51	total_cov=52/61
+RA	656	.	NZ_VCCA02000001	1118476	0	C	G	bias_e_value=3296060	bias_p_value=0.921878	consensus_score=304.0	fisher_strand_p_value=0.805979	frequency=1.77122593e-01	ks_quality_p_value=0.783801	major_base=C	major_cov=42/51	major_frequency=8.22877407e-01	minor_base=G	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=1.77122593e-01	polymorphism_score=49.7	prediction=polymorphism	ref_cov=42/51	total_cov=52/61
+RA	657	.	NZ_VCCA02000001	1118480	0	C	A	bias_e_value=3575380	bias_p_value=1	consensus_score=291.6	fisher_strand_p_value=1	frequency=1.81233883e-01	ks_quality_p_value=1	major_base=C	major_cov=42/47	major_frequency=8.18766117e-01	minor_base=A	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=1.81233883e-01	polymorphism_score=44.0	prediction=polymorphism	ref_cov=42/47	total_cov=52/57
+RA	658	.	NZ_VCCA02000001	1118482	0	G	C	bias_e_value=3575380	bias_p_value=1	consensus_score=292.5	fisher_strand_p_value=1	frequency=1.83017254e-01	ks_quality_p_value=1	major_base=G	major_cov=42/47	major_frequency=8.16982746e-01	minor_base=C	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=1.83017254e-01	polymorphism_score=48.6	prediction=polymorphism	ref_cov=42/47	total_cov=52/57
+RA	659	.	NZ_VCCA02000001	1118483	0	A	G	bias_e_value=2840270	bias_p_value=0.794396	consensus_score=299.6	fisher_strand_p_value=1	frequency=1.75155640e-01	ks_quality_p_value=0.431769	major_base=A	major_cov=47/47	major_frequency=8.24844360e-01	minor_base=G	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=1.75155640e-01	polymorphism_score=39.3	prediction=polymorphism	ref_cov=47/47	total_cov=57/57
+RA	660	.	NZ_VCCA02000001	1118484	0	C	T	bias_e_value=3231890	bias_p_value=0.903929	consensus_score=285.2	fisher_strand_p_value=1	frequency=1.79915428e-01	ks_quality_p_value=0.595016	major_base=C	major_cov=47/44	major_frequency=8.20084572e-01	minor_base=T	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=1.79915428e-01	polymorphism_score=39.8	prediction=polymorphism	ref_cov=47/44	total_cov=57/54
+RA	661	.	NZ_VCCA02000001	1118485	0	C	G	bias_e_value=980496	bias_p_value=0.274236	consensus_score=292.6	fisher_strand_p_value=1	frequency=1.80342674e-01	ks_quality_p_value=0.0769265	major_base=C	major_cov=47/44	major_frequency=8.19657326e-01	minor_base=G	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=1.80342674e-01	polymorphism_score=49.8	prediction=polymorphism	ref_cov=47/44	total_cov=57/54
+RA	662	.	NZ_VCCA02000001	1118493	0	T	C	bias_e_value=3520020	bias_p_value=0.984519	consensus_score=246.0	fisher_strand_p_value=1	frequency=2.03723431e-01	ks_quality_p_value=0.829277	major_base=T	major_cov=40/39	major_frequency=7.96276569e-01	minor_base=C	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=2.03723431e-01	polymorphism_score=41.3	prediction=polymorphism	ref_cov=40/39	total_cov=50/50
+RA	663	.	NZ_VCCA02000001	1118497	0	C	G	bias_e_value=3572420	bias_p_value=0.999174	consensus_score=274.2	fisher_strand_p_value=1	frequency=1.92365170e-01	ks_quality_p_value=0.959629	major_base=C	major_cov=42/42	major_frequency=8.07634830e-01	minor_base=G	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=1.92365170e-01	polymorphism_score=49.5	prediction=polymorphism	ref_cov=42/42	total_cov=52/52
+RA	664	.	NZ_VCCA02000001	1118573	0	C	A	bias_e_value=1606830	bias_p_value=0.449416	consensus_score=205.7	fisher_strand_p_value=0.157935	frequency=1.36871338e-01	ks_quality_p_value=1	major_base=C	major_cov=21/42	major_frequency=8.63128662e-01	minor_base=A	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.36871338e-01	polymorphism_score=20.0	prediction=polymorphism	ref_cov=21/42	total_cov=27/46
+RA	665	.	NZ_VCCA02000001	1118575	0	C	G	bias_e_value=1356010	bias_p_value=0.379265	consensus_score=183.8	fisher_strand_p_value=0.16434	frequency=1.40894413e-01	ks_quality_p_value=0.744127	major_base=C	major_cov=21/40	major_frequency=8.59105587e-01	minor_base=G	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.40894413e-01	polymorphism_score=19.5	prediction=polymorphism	ref_cov=21/40	total_cov=27/44
+RA	666	.	NZ_VCCA02000001	1118582	0	A	G	bias_e_value=1084080	bias_p_value=0.303206	consensus_score=160.0	fisher_strand_p_value=0.157548	frequency=1.42517567e-01	ks_quality_p_value=0.562035	major_base=A	major_cov=20/40	major_frequency=8.57482433e-01	minor_base=G	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.42517567e-01	polymorphism_score=15.5	prediction=polymorphism	ref_cov=20/40	total_cov=26/44
+RA	667	.	NZ_VCCA02000001	1118594	0	A	G	bias_e_value=2946290	bias_p_value=0.824049	consensus_score=111.7	fisher_strand_p_value=0.484332	frequency=1.81438446e-01	ks_quality_p_value=0.968194	major_base=A	major_cov=19/26	major_frequency=8.18561554e-01	minor_base=G	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.81438446e-01	polymorphism_score=16.3	prediction=polymorphism	ref_cov=19/26	total_cov=25/30
+RA	668	.	NZ_VCCA02000001	1118596	0	C	G	bias_e_value=1938760	bias_p_value=0.542252	consensus_score=153.5	fisher_strand_p_value=0.291741	frequency=1.63880825e-01	ks_quality_p_value=0.729781	major_base=C	major_cov=19/32	major_frequency=8.36119175e-01	minor_base=G	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.63880825e-01	polymorphism_score=20.2	prediction=polymorphism	ref_cov=19/32	total_cov=25/36
+RA	669	.	NZ_VCCA02000001	1118597	0	G	A	bias_e_value=1817710	bias_p_value=0.508395	consensus_score=125.6	fisher_strand_p_value=0.29375	frequency=1.66432858e-01	ks_quality_p_value=0.652681	major_base=G	major_cov=19/31	major_frequency=8.33567142e-01	minor_base=A	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.66432858e-01	polymorphism_score=17.2	prediction=polymorphism	ref_cov=19/31	total_cov=25/35
+RA	670	.	NZ_VCCA02000001	1118600	0	A	G	bias_e_value=1531230	bias_p_value=0.42827	consensus_score=146.6	fisher_strand_p_value=0.146905	frequency=1.53417110e-01	ks_quality_p_value=0.998602	major_base=A	major_cov=17/38	major_frequency=8.46582890e-01	minor_base=G	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.53417110e-01	polymorphism_score=15.5	prediction=polymorphism	ref_cov=17/38	total_cov=23/42
+RA	671	.	NZ_VCCA02000001	1118603	0	A	C	bias_e_value=1408270	bias_p_value=0.393881	consensus_score=142.2	fisher_strand_p_value=0.150234	frequency=1.58725739e-01	ks_quality_p_value=0.860927	major_base=A	major_cov=17/36	major_frequency=8.41274261e-01	minor_base=C	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.58725739e-01	polymorphism_score=22.4	prediction=polymorphism	ref_cov=17/36	total_cov=23/40
+RA	672	.	NZ_VCCA02000001	1118605	0	C	G	bias_e_value=1060890	bias_p_value=0.296722	consensus_score=132.1	fisher_strand_p_value=0.144061	frequency=1.81741714e-01	ks_quality_p_value=0.596204	major_base=C	major_cov=14/31	major_frequency=8.18258286e-01	minor_base=G	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.81741714e-01	polymorphism_score=20.7	prediction=polymorphism	ref_cov=14/31	total_cov=20/35
+RA	673	.	NZ_VCCA02000001	1118611	0	G	C	bias_e_value=245161	bias_p_value=0.0685692	consensus_score=130.4	fisher_strand_p_value=0.0663478	frequency=1.64498329e-01	ks_quality_p_value=0.192863	major_base=G	major_cov=14/37	major_frequency=8.35501671e-01	minor_base=C	minor_cov=6/4	new_cov=6/4	polymorphism_frequency=1.64498329e-01	polymorphism_score=21.2	prediction=polymorphism	ref_cov=14/37	total_cov=20/41
+RA	674	.	NZ_VCCA02000001	1118612	0	A	T	bias_e_value=1686570	bias_p_value=0.471719	consensus_score=155.9	fisher_strand_p_value=0.170274	frequency=1.71394825e-01	ks_quality_p_value=1	major_base=A	major_cov=16/36	major_frequency=8.28605175e-01	minor_base=T	minor_cov=6/5	new_cov=6/5	polymorphism_frequency=1.71394825e-01	polymorphism_score=23.1	prediction=polymorphism	ref_cov=16/36	total_cov=22/41
+RA	675	.	NZ_VCCA02000001	1189696	0	C	T	bias_e_value=3443510	bias_p_value=0.963118	consensus_score=154.2	fisher_strand_p_value=0.839276	frequency=3.04616928e-01	ks_quality_p_value=0.882901	major_base=C	major_cov=41/37	major_frequency=6.95383072e-01	minor_base=T	minor_cov=17/17	new_cov=17/17	polymorphism_frequency=3.04616928e-01	polymorphism_score=80.6	prediction=polymorphism	ref_cov=41/37	total_cov=58/55
+RA	676	.	NZ_VCCA02000001	1189700	0	A	T	bias_e_value=3429940	bias_p_value=0.959323	consensus_score=204.4	fisher_strand_p_value=1	frequency=2.79761791e-01	ks_quality_p_value=0.728681	major_base=A	major_cov=44/43	major_frequency=7.20238209e-01	minor_base=T	minor_cov=17/17	new_cov=17/17	polymorphism_frequency=2.79761791e-01	polymorphism_score=96.5	prediction=polymorphism	ref_cov=44/43	total_cov=62/60
+RA	677	.	NZ_VCCA02000001	1189701	0	G	C	bias_e_value=3268240	bias_p_value=0.914097	consensus_score=198.3	fisher_strand_p_value=1	frequency=2.85889626e-01	ks_quality_p_value=0.615258	major_base=G	major_cov=42/43	major_frequency=7.14110374e-01	minor_base=C	minor_cov=17/17	new_cov=17/17	polymorphism_frequency=2.85889626e-01	polymorphism_score=100.9	prediction=polymorphism	ref_cov=42/43	total_cov=59/60
+RA	678	.	NZ_VCCA02000001	1189706	0	G	A	bias_e_value=1740310	bias_p_value=0.486749	consensus_score=174.6	fisher_strand_p_value=1	frequency=2.85580635e-01	ks_quality_p_value=0.178886	major_base=G	major_cov=42/43	major_frequency=7.14419365e-01	minor_base=A	minor_cov=17/17	new_cov=17/17	polymorphism_frequency=2.85580635e-01	polymorphism_score=79.6	prediction=polymorphism	ref_cov=42/43	total_cov=59/60
+RA	679	.	NZ_VCCA02000001	1189708	0	G	C	bias_e_value=2758720	bias_p_value=0.771588	consensus_score=293.4	fisher_strand_p_value=0.554255	frequency=2.36127853e-01	ks_quality_p_value=0.731751	major_base=G	major_cov=47/63	major_frequency=7.63872147e-01	minor_base=C	minor_cov=17/17	new_cov=17/17	polymorphism_frequency=2.36127853e-01	polymorphism_score=97.1	prediction=polymorphism	ref_cov=47/63	total_cov=64/80
+RA	680	.	NZ_VCCA02000001	1189711	0	T	C	bias_e_value=2640010	bias_p_value=0.738386	consensus_score=280.2	fisher_strand_p_value=0.696939	frequency=2.27989674e-01	ks_quality_p_value=0.531633	major_base=T	major_cov=52/63	major_frequency=7.72010326e-01	minor_base=C	minor_cov=17/17	new_cov=17/17	polymorphism_frequency=2.27989674e-01	polymorphism_score=76.1	prediction=polymorphism	ref_cov=52/63	total_cov=69/80
+RA	681	.	NZ_VCCA02000001	1189712	0	A	G	bias_e_value=2855000	bias_p_value=0.798517	consensus_score=272.5	fisher_strand_p_value=0.696939	frequency=2.28019714e-01	ks_quality_p_value=0.626608	major_base=A	major_cov=52/63	major_frequency=7.71980286e-01	minor_base=G	minor_cov=17/17	new_cov=17/17	polymorphism_frequency=2.28019714e-01	polymorphism_score=75.4	prediction=polymorphism	ref_cov=52/63	total_cov=69/80
+RA	682	.	NZ_VCCA02000001	1189714	0	G	C	bias_e_value=3168260	bias_p_value=0.886132	consensus_score=315.9	fisher_strand_p_value=0.562483	frequency=2.33915806e-01	ks_quality_p_value=1	major_base=G	major_cov=51/63	major_frequency=7.66084194e-01	minor_base=C	minor_cov=18/17	new_cov=18/17	polymorphism_frequency=2.33915806e-01	polymorphism_score=97.3	prediction=polymorphism	ref_cov=51/63	total_cov=69/80
+RA	683	.	NZ_VCCA02000001	1189720	0	A	C	bias_e_value=3036120	bias_p_value=0.849174	consensus_score=225.6	fisher_strand_p_value=0.845878	frequency=2.55996704e-01	ks_quality_p_value=0.595561	major_base=A	major_cov=47/55	major_frequency=7.44003296e-01	minor_base=C	minor_cov=17/18	new_cov=17/18	polymorphism_frequency=2.55996704e-01	polymorphism_score=108.6	prediction=polymorphism	ref_cov=47/55	total_cov=64/73
+RA	684	.	NZ_VCCA02000001	1189741	0	G	C	bias_e_value=3202490	bias_p_value=0.895706	consensus_score=204.2	fisher_strand_p_value=0.688042	frequency=2.91675091e-01	ks_quality_p_value=0.842342	major_base=G	major_cov=37/48	major_frequency=7.08324909e-01	minor_base=C	minor_cov=17/18	new_cov=17/18	polymorphism_frequency=2.91675091e-01	polymorphism_score=103.9	prediction=polymorphism	ref_cov=37/48	total_cov=54/66
+RA	685	.	NZ_VCCA02000001	1189750	0	G	C	bias_e_value=3286420	bias_p_value=0.919181	consensus_score=239.4	fisher_strand_p_value=0.654611	frequency=2.24262714e-01	ks_quality_p_value=0.956162	major_base=G	major_cov=41/49	major_frequency=7.75737286e-01	minor_base=C	minor_cov=10/16	new_cov=10/16	polymorphism_frequency=2.24262714e-01	polymorphism_score=72.9	prediction=polymorphism	ref_cov=41/49	total_cov=51/65
+RA	686	.	NZ_VCCA02000001	1297049	0	G	C	bias_e_value=1699380	bias_p_value=0.475302	consensus_score=237.8	fisher_strand_p_value=0.528099	frequency=1.33664131e-01	ks_quality_p_value=0.326275	major_base=G	major_cov=28/48	major_frequency=8.66335869e-01	minor_base=C	minor_cov=3/9	new_cov=3/9	polymorphism_frequency=1.33664131e-01	polymorphism_score=21.5	prediction=polymorphism	ref_cov=28/48	total_cov=31/57
+RA	687	.	NZ_VCCA02000001	1297053	0	T	C	bias_e_value=979197	bias_p_value=0.273872	consensus_score=195.6	fisher_strand_p_value=0.715621	frequency=1.20631218e-01	ks_quality_p_value=0.107298	major_base=T	major_cov=21/49	major_frequency=8.79368782e-01	minor_base=C	minor_cov=2/8	new_cov=2/8	polymorphism_frequency=1.20631218e-01	polymorphism_score=13.9	prediction=polymorphism	ref_cov=21/49	total_cov=32/57
+RA	688	.	NZ_VCCA02000001	1297060	0	G	A	bias_e_value=839131	bias_p_value=0.234697	consensus_score=251.4	fisher_strand_p_value=0.294851	frequency=9.52072144e-02	ks_quality_p_value=0.21064	major_base=G	major_cov=37/47	major_frequency=9.04792786e-01	minor_base=A	minor_cov=2/7	new_cov=2/7	polymorphism_frequency=9.52072144e-02	polymorphism_score=12.6	prediction=polymorphism	ref_cov=37/47	total_cov=41/55
+RA	689	.	NZ_VCCA02000001	1297061	0	C	G	bias_e_value=3575380	bias_p_value=1	consensus_score=252.9	fisher_strand_p_value=1	frequency=1.65645599e-01	ks_quality_p_value=1	major_base=C	major_cov=34/46	major_frequency=8.34354401e-01	minor_base=G	minor_cov=7/9	new_cov=7/9	polymorphism_frequency=1.65645599e-01	polymorphism_score=28.7	prediction=polymorphism	ref_cov=34/46	total_cov=41/55
+RA	690	.	NZ_VCCA02000001	1297065	0	C	T	bias_e_value=732913	bias_p_value=0.204989	consensus_score=249.2	fisher_strand_p_value=0.0580003	frequency=1.23275757e-01	ks_quality_p_value=0.892179	major_base=C	major_cov=39/39	major_frequency=8.76724243e-01	minor_base=T	minor_cov=2/9	new_cov=2/9	polymorphism_frequency=1.23275757e-01	polymorphism_score=17.6	prediction=polymorphism	ref_cov=39/39	total_cov=41/48
+RA	691	.	NZ_VCCA02000001	1297070	0	G	C	bias_e_value=466255	bias_p_value=0.130407	consensus_score=290.1	fisher_strand_p_value=0.108775	frequency=1.06219292e-01	ks_quality_p_value=0.263324	major_base=G	major_cov=51/40	major_frequency=8.93780708e-01	minor_base=C	minor_cov=3/8	new_cov=3/8	polymorphism_frequency=1.06219292e-01	polymorphism_score=17.5	prediction=polymorphism	ref_cov=51/40	total_cov=54/49
+RA	692	.	NZ_VCCA02000001	1297072	0	T	G	bias_e_value=3575380	bias_p_value=1	consensus_score=243.8	fisher_strand_p_value=1	frequency=1.56730175e-01	ks_quality_p_value=1	major_base=T	major_cov=47/40	major_frequency=8.43269825e-01	minor_base=G	minor_cov=9/8	new_cov=9/8	polymorphism_frequency=1.56730175e-01	polymorphism_score=25.2	prediction=polymorphism	ref_cov=47/40	total_cov=58/49
+RA	693	.	NZ_VCCA02000001	1297080	0	T	A	bias_e_value=2730.65	bias_p_value=0.000763738	consensus_score=245.3	fisher_strand_p_value=0.00032255	frequency=1.03461742e-01	ks_quality_p_value=0.224828	major_base=T	major_cov=66/17	major_frequency=8.96538258e-01	minor_base=A	minor_cov=2/8	new_cov=2/8	polymorphism_frequency=1.03461742e-01	polymorphism_score=19.3	prediction=polymorphism	ref_cov=66/17	total_cov=72/26
+RA	694	.	NZ_VCCA02000001	1297083	0	G	A	bias_e_value=5664.83	bias_p_value=0.0015844	consensus_score=275.7	fisher_strand_p_value=0.000931701	frequency=8.98127556e-02	ks_quality_p_value=0.174918	major_base=G	major_cov=73/19	major_frequency=9.10187244e-01	minor_base=A	minor_cov=2/7	new_cov=2/7	polymorphism_frequency=8.98127556e-02	polymorphism_score=12.3	prediction=polymorphism	ref_cov=73/19	total_cov=76/27
+RA	695	.	NZ_VCCA02000001	1297087	0	A	G	bias_e_value=1106.7	bias_p_value=0.000309534	consensus_score=235.8	fisher_strand_p_value=0.000278515	frequency=1.08880043e-01	ks_quality_p_value=0.096432	major_base=A	major_cov=71/18	major_frequency=8.91119957e-01	minor_base=G	minor_cov=2/8	new_cov=2/8	polymorphism_frequency=1.08880043e-01	polymorphism_score=14.7	prediction=polymorphism	ref_cov=71/18	total_cov=81/26
+RA	696	.	NZ_VCCA02000001	1297091	0	T	C	bias_e_value=1182.3	bias_p_value=0.000330679	consensus_score=272.1	fisher_strand_p_value=3.7927e-05	frequency=1.20425701e-01	ks_quality_p_value=0.7613	major_base=T	major_cov=75/13	major_frequency=8.79574299e-01	minor_base=C	minor_cov=3/9	new_cov=3/9	polymorphism_frequency=1.20425701e-01	polymorphism_score=16.5	prediction=polymorphism	ref_cov=75/13	total_cov=90/23
+RA	697	.	NZ_VCCA02000001	1339112	0	T	C	consensus_score=113.9	frequency=1	major_base=C	major_cov=35/0	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=35/0	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=35/0
+RA	698	.	NZ_VCCA02000001	1339113	0	G	C	consensus_score=113.0	frequency=1	major_base=C	major_cov=35/0	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=35/0	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=35/0
+RA	699	.	NZ_VCCA02000001	1413381	0	C	.	consensus_score=116.9	frequency=1	major_base=.	major_cov=27/0	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=27/0	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=27/0
+RA	700	.	NZ_VCCA02000001	1597425	0	C	G	bias_e_value=1310250	bias_p_value=0.366464	consensus_score=447.3	fisher_strand_p_value=0.122182	frequency=1.42860889e-01	ks_quality_p_value=0.951607	major_base=C	major_cov=69/75	major_frequency=8.57139111e-01	minor_base=G	minor_cov=16/8	new_cov=16/8	polymorphism_frequency=1.42860889e-01	polymorphism_score=62.9	prediction=polymorphism	ref_cov=69/75	total_cov=85/83
+RA	701	.	NZ_VCCA02000001	1597426	0	G	C	bias_e_value=995745	bias_p_value=0.278501	consensus_score=428.1	fisher_strand_p_value=0.0849657	frequency=1.51243687e-01	ks_quality_p_value=0.925037	major_base=G	major_cov=68/72	major_frequency=8.48756313e-01	minor_base=C	minor_cov=17/8	new_cov=17/8	polymorphism_frequency=1.51243687e-01	polymorphism_score=64.7	prediction=polymorphism	ref_cov=68/72	total_cov=85/81
+RA	702	.	NZ_VCCA02000001	1597427	0	G	C	bias_e_value=1358200	bias_p_value=0.379877	consensus_score=440.3	fisher_strand_p_value=0.122597	frequency=1.47505283e-01	ks_quality_p_value=0.999871	major_base=G	major_cov=68/73	major_frequency=8.52494717e-01	minor_base=C	minor_cov=16/8	new_cov=16/8	polymorphism_frequency=1.47505283e-01	polymorphism_score=59.8	prediction=polymorphism	ref_cov=68/73	total_cov=85/81
+RA	703	.	NZ_VCCA02000001	1597428	0	A	G	bias_e_value=1020700	bias_p_value=0.285481	consensus_score=380.7	fisher_strand_p_value=0.123773	frequency=1.47896767e-01	ks_quality_p_value=0.657329	major_base=A	major_cov=68/72	major_frequency=8.52103233e-01	minor_base=G	minor_cov=16/8	new_cov=16/8	polymorphism_frequency=1.47896767e-01	polymorphism_score=47.5	prediction=polymorphism	ref_cov=68/72	total_cov=85/81
+RA	704	.	NZ_VCCA02000001	1597432	0	T	G	bias_e_value=1774170	bias_p_value=0.496218	consensus_score=398.4	fisher_strand_p_value=0.18444	frequency=1.44197941e-01	ks_quality_p_value=0.999986	major_base=T	major_cov=71/71	major_frequency=8.55802059e-01	minor_base=G	minor_cov=16/8	new_cov=16/8	polymorphism_frequency=1.44197941e-01	polymorphism_score=66.0	prediction=polymorphism	ref_cov=71/71	total_cov=87/79
+RA	705	.	NZ_VCCA02000001	1597433	0	G	T	bias_e_value=1686860	bias_p_value=0.471799	consensus_score=474.4	fisher_strand_p_value=0.184026	frequency=1.45819187e-01	ks_quality_p_value=0.925518	major_base=G	major_cov=70/71	major_frequency=8.54180813e-01	minor_base=T	minor_cov=16/8	new_cov=16/8	polymorphism_frequency=1.45819187e-01	polymorphism_score=52.1	prediction=polymorphism	ref_cov=70/71	total_cov=87/79
+RA	706	.	NZ_VCCA02000001	1597442	0	A	T	bias_e_value=3496830	bias_p_value=0.97803	consensus_score=385.6	fisher_strand_p_value=0.835008	frequency=1.83475971e-01	ks_quality_p_value=0.955491	major_base=A	major_cov=79/50	major_frequency=8.16524029e-01	minor_base=T	minor_cov=17/12	new_cov=17/12	polymorphism_frequency=1.83475971e-01	polymorphism_score=76.9	prediction=polymorphism	ref_cov=79/50	total_cov=96/62
+RA	707	.	NZ_VCCA02000001	1597448	0	C	T	bias_e_value=3347840	bias_p_value=0.936359	consensus_score=286.9	fisher_strand_p_value=0.674385	frequency=1.99623585e-01	ks_quality_p_value=0.986302	major_base=C	major_cov=73/43	major_frequency=8.00376415e-01	minor_base=T	minor_cov=17/12	new_cov=17/12	polymorphism_frequency=1.99623585e-01	polymorphism_score=60.6	prediction=polymorphism	ref_cov=73/43	total_cov=90/55
+RA	708	.	NZ_VCCA02000001	1597449	0	C	T	bias_e_value=3122210	bias_p_value=0.873253	consensus_score=288.9	fisher_strand_p_value=0.674385	frequency=1.99728012e-01	ks_quality_p_value=0.801966	major_base=C	major_cov=73/43	major_frequency=8.00271988e-01	minor_base=T	minor_cov=17/12	new_cov=17/12	polymorphism_frequency=1.99728012e-01	polymorphism_score=61.2	prediction=polymorphism	ref_cov=73/43	total_cov=90/55
+RA	709	.	NZ_VCCA02000001	1597451	0	G	C	bias_e_value=3033070	bias_p_value=0.848321	consensus_score=327.5	fisher_strand_p_value=0.517176	frequency=1.96250916e-01	ks_quality_p_value=0.971683	major_base=G	major_cov=78/40	major_frequency=8.03749084e-01	minor_base=C	minor_cov=17/12	new_cov=17/12	polymorphism_frequency=1.96250916e-01	polymorphism_score=77.4	prediction=polymorphism	ref_cov=78/40	total_cov=95/52
+RA	710	.	NZ_VCCA02000001	1597452	0	T	G	bias_e_value=2901680	bias_p_value=0.811574	consensus_score=300.7	fisher_strand_p_value=0.517909	frequency=1.92570210e-01	ks_quality_p_value=0.874329	major_base=T	major_cov=80/41	major_frequency=8.07429790e-01	minor_base=G	minor_cov=17/12	new_cov=17/12	polymorphism_frequency=1.92570210e-01	polymorphism_score=83.9	prediction=polymorphism	ref_cov=80/41	total_cov=97/53
+RA	711	.	NZ_VCCA02000001	1597459	0	G	C	bias_e_value=3070070	bias_p_value=0.85867	consensus_score=344.4	fisher_strand_p_value=0.517909	frequency=1.91902161e-01	ks_quality_p_value=1	major_base=G	major_cov=80/41	major_frequency=8.08097839e-01	minor_base=C	minor_cov=17/12	new_cov=17/12	polymorphism_frequency=1.91902161e-01	polymorphism_score=74.1	prediction=polymorphism	ref_cov=80/41	total_cov=97/53
+RA	712	.	NZ_VCCA02000001	1597461	0	G	T	bias_e_value=2200190	bias_p_value=0.615372	consensus_score=357.6	fisher_strand_p_value=0.263831	frequency=1.98296070e-01	ks_quality_p_value=1	major_base=G	major_cov=83/34	major_frequency=8.01703930e-01	minor_base=T	minor_cov=17/12	new_cov=17/12	polymorphism_frequency=1.98296070e-01	polymorphism_score=67.1	prediction=polymorphism	ref_cov=83/34	total_cov=100/46
+RA	713	.	NZ_VCCA02000001	1597462	0	T	G	bias_e_value=956882	bias_p_value=0.267631	consensus_score=310.0	fisher_strand_p_value=0.104596	frequency=1.88485622e-01	ks_quality_p_value=0.711006	major_base=T	major_cov=92/32	major_frequency=8.11514378e-01	minor_base=G	minor_cov=16/12	new_cov=16/12	polymorphism_frequency=1.88485622e-01	polymorphism_score=83.1	prediction=polymorphism	ref_cov=92/32	total_cov=109/44
+RA	714	.	NZ_VCCA02000001	1597469	0	A	G	bias_e_value=213054	bias_p_value=0.0595894	consensus_score=301.2	fisher_strand_p_value=0.0188246	frequency=2.27562904e-01	ks_quality_p_value=0.572366	major_base=A	major_cov=94/28	major_frequency=7.72437096e-01	minor_base=G	minor_cov=20/16	new_cov=20/16	polymorphism_frequency=2.27562904e-01	polymorphism_score=80.0	prediction=polymorphism	ref_cov=94/28	total_cov=114/44
+RA	715	.	NZ_VCCA02000001	1597470	0	G	T	bias_e_value=816055	bias_p_value=0.228243	consensus_score=322.4	fisher_strand_p_value=0.0598014	frequency=2.52170563e-01	ks_quality_p_value=0.999985	major_base=G	major_cov=78/28	major_frequency=7.47829437e-01	minor_base=T	minor_cov=20/16	new_cov=20/16	polymorphism_frequency=2.52170563e-01	polymorphism_score=87.7	prediction=polymorphism	ref_cov=78/28	total_cov=98/44
+RA	716	.	NZ_VCCA02000001	1597484	0	C	G	bias_e_value=2190000	bias_p_value=0.612523	consensus_score=269.3	fisher_strand_p_value=0.276772	frequency=1.62768364e-01	ks_quality_p_value=0.945541	major_base=C	major_cov=53/29	major_frequency=8.37231636e-01	minor_base=G	minor_cov=8/8	new_cov=8/8	polymorphism_frequency=1.62768364e-01	polymorphism_score=38.1	prediction=polymorphism	ref_cov=53/29	total_cov=61/37
+RA	717	.	NZ_VCCA02000001	1597485	0	G	T	bias_e_value=2547700	bias_p_value=0.712568	consensus_score=266.2	fisher_strand_p_value=0.398719	frequency=1.64837360e-01	ks_quality_p_value=0.86625	major_base=G	major_cov=52/29	major_frequency=8.35162640e-01	minor_base=T	minor_cov=8/8	new_cov=8/8	polymorphism_frequency=1.64837360e-01	polymorphism_score=34.6	prediction=polymorphism	ref_cov=52/29	total_cov=60/37
+RA	718	.	NZ_VCCA02000001	1597486	0	G	C	bias_e_value=2690250	bias_p_value=0.752439	consensus_score=268.5	fisher_strand_p_value=0.398719	frequency=1.64883137e-01	ks_quality_p_value=0.965467	major_base=G	major_cov=52/29	major_frequency=8.35116863e-01	minor_base=C	minor_cov=8/8	new_cov=8/8	polymorphism_frequency=1.64883137e-01	polymorphism_score=40.4	prediction=polymorphism	ref_cov=52/29	total_cov=60/37
+RA	719	.	NZ_VCCA02000001	1597488	0	C	G	bias_e_value=2739810	bias_p_value=0.7663	consensus_score=261.3	fisher_strand_p_value=0.401693	frequency=1.66365623e-01	ks_quality_p_value=0.995198	major_base=C	major_cov=50/29	major_frequency=8.33634377e-01	minor_base=G	minor_cov=8/8	new_cov=8/8	polymorphism_frequency=1.66365623e-01	polymorphism_score=37.9	prediction=polymorphism	ref_cov=50/29	total_cov=58/37
+RA	720	.	NZ_VCCA02000001	1597499	0	G	T	bias_e_value=3575170	bias_p_value=0.999941	consensus_score=288.3	fisher_strand_p_value=1	frequency=1.19815350e-01	ks_quality_p_value=0.98915	major_base=G	major_cov=57/31	major_frequency=8.80184650e-01	minor_base=T	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.19815350e-01	polymorphism_score=22.0	prediction=polymorphism	ref_cov=57/31	total_cov=65/35
+RA	721	.	NZ_VCCA02000001	1597504	0	G	C	bias_e_value=3574170	bias_p_value=0.999663	consensus_score=277.8	fisher_strand_p_value=1	frequency=1.23675823e-01	ks_quality_p_value=0.974142	major_base=G	major_cov=53/32	major_frequency=8.76324177e-01	minor_base=C	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.23675823e-01	polymorphism_score=27.0	prediction=polymorphism	ref_cov=53/32	total_cov=61/36
+RA	722	.	NZ_VCCA02000001	1597505	0	A	T	bias_e_value=3575110	bias_p_value=0.999926	consensus_score=273.5	fisher_strand_p_value=1	frequency=1.25905514e-01	ks_quality_p_value=0.987899	major_base=A	major_cov=51/32	major_frequency=8.74094486e-01	minor_base=T	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.25905514e-01	polymorphism_score=25.1	prediction=polymorphism	ref_cov=51/32	total_cov=59/36
+RA	723	.	NZ_VCCA02000001	1597507	0	G	C	bias_e_value=3575380	bias_p_value=1	consensus_score=247.2	fisher_strand_p_value=1	frequency=1.37192249e-01	ks_quality_p_value=1	major_base=G	major_cov=46/29	major_frequency=8.62807751e-01	minor_base=C	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.37192249e-01	polymorphism_score=26.0	prediction=polymorphism	ref_cov=46/29	total_cov=54/33
+RA	724	.	NZ_VCCA02000001	1597509	0	C	T	bias_e_value=3564120	bias_p_value=0.996852	consensus_score=252.2	fisher_strand_p_value=1	frequency=1.30144119e-01	ks_quality_p_value=0.921713	major_base=C	major_cov=51/29	major_frequency=8.69855881e-01	minor_base=T	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.30144119e-01	polymorphism_score=20.0	prediction=polymorphism	ref_cov=51/29	total_cov=59/33
+RA	725	.	NZ_VCCA02000001	1597510	0	C	G	bias_e_value=3573870	bias_p_value=0.999578	consensus_score=262.1	fisher_strand_p_value=1	frequency=1.30375862e-01	ks_quality_p_value=0.971079	major_base=C	major_cov=51/29	major_frequency=8.69624138e-01	minor_base=G	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.30375862e-01	polymorphism_score=27.2	prediction=polymorphism	ref_cov=51/29	total_cov=59/33
+RA	726	.	NZ_VCCA02000001	1597511	0	A	C	bias_e_value=3303450	bias_p_value=0.923945	consensus_score=324.9	fisher_strand_p_value=0.762	frequency=1.09225273e-01	ks_quality_p_value=0.834991	major_base=A	major_cov=59/39	major_frequency=8.90774727e-01	minor_base=C	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.09225273e-01	polymorphism_score=30.6	prediction=polymorphism	ref_cov=59/39	total_cov=67/43
+RA	727	.	NZ_VCCA02000001	1597513	0	G	C	bias_e_value=3299590	bias_p_value=0.922865	consensus_score=336.5	fisher_strand_p_value=1	frequency=1.04355812e-01	ks_quality_p_value=0.633884	major_base=G	major_cov=65/38	major_frequency=8.95644188e-01	minor_base=C	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.04355812e-01	polymorphism_score=26.5	prediction=polymorphism	ref_cov=65/38	total_cov=73/42
+RA	728	.	NZ_VCCA02000001	1597515	0	T	G	bias_e_value=3495390	bias_p_value=0.977628	consensus_score=355.9	fisher_strand_p_value=1	frequency=1.00883007e-01	ks_quality_p_value=0.796069	major_base=T	major_cov=68/39	major_frequency=8.99116993e-01	minor_base=G	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.00883007e-01	polymorphism_score=29.7	prediction=polymorphism	ref_cov=68/39	total_cov=76/43
+RA	729	.	NZ_VCCA02000001	1597519	0	G	A	bias_e_value=3465920	bias_p_value=0.969386	consensus_score=359.8	fisher_strand_p_value=0.766246	frequency=9.53717232e-02	ks_quality_p_value=0.995749	major_base=G	major_cov=69/44	major_frequency=9.04628277e-01	minor_base=A	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=9.53717232e-02	polymorphism_score=17.4	prediction=polymorphism	ref_cov=69/44	total_cov=77/48
+RA	730	.	NZ_VCCA02000001	1655087	0	T	G	bias_e_value=3575380	bias_p_value=1	consensus_score=53.5	fisher_strand_p_value=1	frequency=2.89277554e-01	ks_quality_p_value=1	major_base=T	major_cov=16/38	major_frequency=7.10722446e-01	minor_base=G	minor_cov=7/16	new_cov=7/16	polymorphism_frequency=2.89277554e-01	polymorphism_score=11.8	prediction=polymorphism	ref_cov=16/38	total_cov=28/56
+RA	731	.	NZ_VCCA02000001	1655090	0	A	C	bias_e_value=7.68923	bias_p_value=2.15061e-06	consensus_score=-5.5	fisher_strand_p_value=1.03593e-05	frequency=5.71717262e-01	ks_quality_p_value=0.0123019	major_base=C	major_cov=5/35	major_frequency=5.71717262e-01	minor_base=A	minor_cov=20/11	new_cov=5/35	polymorphism_frequency=5.71717262e-01	polymorphism_score=44.3	prediction=polymorphism	ref_cov=20/11	total_cov=27/56
+RA	732	.	NZ_VCCA02000001	1655092	0	C	G	bias_e_value=1.44617e-10	bias_p_value=4.04482e-17	consensus_score=40.4	fisher_strand_p_value=1.64766e-12	frequency=1	ks_quality_p_value=5.77675e-07	major_base=G	major_cov=0/42	major_frequency=5.18080711e-01	minor_base=C	minor_cov=26/11	new_cov=0/42	polymorphism_frequency=5.18080711e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE,SURROUNDING_HOMOPOLYMER	polymorphism_score=84.6	prediction=consensus	ref_cov=26/11	total_cov=26/53
+RA	733	.	NZ_VCCA02000001	1776631	0	T	G	bias_e_value=46399.8	bias_p_value=0.0129776	consensus_score=134.4	fisher_strand_p_value=0.00451722	frequency=1.39917374e-01	ks_quality_p_value=0.391537	major_base=T	major_cov=40/3	major_frequency=8.60082626e-01	minor_base=G	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=1.39917374e-01	polymorphism_score=13.5	prediction=polymorphism	ref_cov=40/3	total_cov=43/7
+RA	734	.	NZ_VCCA02000001	1776641	1	.	T	bias_e_value=136153	bias_p_value=0.0380808	consensus_score=161.5	fisher_strand_p_value=0.00627187	frequency=1.52176857e-01	ks_quality_p_value=1	major_base=.	major_cov=36/3	major_frequency=8.47823143e-01	minor_base=T	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=1.52176857e-01	polymorphism_score=30.3	prediction=polymorphism	ref_cov=36/3	total_cov=39/7
+RA	735	.	NZ_VCCA02000001	2211590	0	G	A	bias_e_value=1713800	bias_p_value=0.479334	consensus_score=6.5	fisher_strand_p_value=0.203025	frequency=4.72557068e-01	ks_quality_p_value=0.860028	major_base=G	major_cov=24/24	major_frequency=5.27442932e-01	minor_base=A	minor_cov=15/28	new_cov=15/28	polymorphism_frequency=4.72557068e-01	polymorphism_score=114.5	prediction=polymorphism	ref_cov=24/24	total_cov=39/52
+RA	736	.	NZ_VCCA02000001	2211592	0	G	C	bias_e_value=1873620	bias_p_value=0.524035	consensus_score=18.7	fisher_strand_p_value=0.203025	frequency=4.72311497e-01	ks_quality_p_value=0.991687	major_base=G	major_cov=24/24	major_frequency=5.27688503e-01	minor_base=C	minor_cov=15/28	new_cov=15/28	polymorphism_frequency=4.72311497e-01	polymorphism_score=122.7	prediction=polymorphism	ref_cov=24/24	total_cov=39/52
+RA	737	.	NZ_VCCA02000001	2211595	0	T	G	bias_e_value=144795	bias_p_value=0.0404978	consensus_score=-2.9	fisher_strand_p_value=0.142257	frequency=4.63647842e-01	ks_quality_p_value=0.0474631	major_base=T	major_cov=26/24	major_frequency=5.36352158e-01	minor_base=G	minor_cov=15/28	new_cov=15/28	polymorphism_frequency=4.63647842e-01	polymorphism_score=146.8	prediction=polymorphism	ref_cov=26/24	total_cov=41/52
+RA	738	.	NZ_VCCA02000001	2224416	0	G	T	bias_e_value=2334920	bias_p_value=0.653057	consensus_score=190.9	fisher_strand_p_value=0.453159	frequency=1.05854034e-01	ks_quality_p_value=0.647246	major_base=G	major_cov=32/27	major_frequency=8.94145966e-01	minor_base=T	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=1.05854034e-01	polymorphism_score=10.4	prediction=polymorphism	ref_cov=32/27	total_cov=37/29
+RA	739	.	NZ_VCCA02000001	2224419	0	T	C	bias_e_value=3366870	bias_p_value=0.941682	consensus_score=180.8	fisher_strand_p_value=0.689027	frequency=1.09096050e-01	ks_quality_p_value=0.984766	major_base=T	major_cov=32/25	major_frequency=8.90903950e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=1.09096050e-01	polymorphism_score=9.1	prediction=polymorphism	ref_cov=32/25	total_cov=37/27
+RA	740	.	NZ_VCCA02000001	2224435	0	C	G	bias_e_value=2816910	bias_p_value=0.787865	consensus_score=355.4	fisher_strand_p_value=0.441637	frequency=6.08382225e-02	ks_quality_p_value=0.960233	major_base=C	major_cov=55/53	major_frequency=9.39161777e-01	minor_base=G	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=6.08382225e-02	polymorphism_score=11.9	prediction=polymorphism	ref_cov=55/53	total_cov=60/55
+RA	741	.	NZ_VCCA02000001	2224436	0	T	A	bias_e_value=2873850	bias_p_value=0.803791	consensus_score=360.1	fisher_strand_p_value=0.443131	frequency=5.54790497e-02	ks_quality_p_value=1	major_base=T	major_cov=56/53	major_frequency=9.44520950e-01	minor_base=A	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=5.54790497e-02	polymorphism_score=6.5	prediction=polymorphism	ref_cov=56/53	total_cov=61/55
+RA	742	.	NZ_VCCA02000001	2224437	0	G	C	bias_e_value=2729670	bias_p_value=0.763464	consensus_score=359.1	fisher_strand_p_value=0.443131	frequency=6.02760315e-02	ks_quality_p_value=0.895185	major_base=G	major_cov=56/53	major_frequency=9.39723969e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=6.02760315e-02	polymorphism_score=11.4	prediction=polymorphism	ref_cov=56/53	total_cov=61/55
+RA	743	.	NZ_VCCA02000001	2224439	0	G	T	bias_e_value=2847430	bias_p_value=0.796399	consensus_score=361.9	fisher_strand_p_value=0.441784	frequency=5.96008301e-02	ks_quality_p_value=0.982746	major_base=G	major_cov=56/54	major_frequency=9.40399170e-01	minor_base=T	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=5.96008301e-02	polymorphism_score=8.4	prediction=polymorphism	ref_cov=56/54	total_cov=61/56
+RA	744	.	NZ_VCCA02000001	2224444	0	C	G	bias_e_value=2839280	bias_p_value=0.79412	consensus_score=344.4	fisher_strand_p_value=0.444721	frequency=6.30230904e-02	ks_quality_p_value=0.970136	major_base=C	major_cov=54/50	major_frequency=9.36976910e-01	minor_base=G	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=6.30230904e-02	polymorphism_score=12.0	prediction=polymorphism	ref_cov=54/50	total_cov=59/52
+RA	745	.	NZ_VCCA02000001	2224449	0	C	G	bias_e_value=2733040	bias_p_value=0.764405	consensus_score=414.8	fisher_strand_p_value=0.440704	frequency=5.29589653e-02	ks_quality_p_value=0.902428	major_base=C	major_cov=62/63	major_frequency=9.47041035e-01	minor_base=G	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=5.29589653e-02	polymorphism_score=11.5	prediction=polymorphism	ref_cov=62/63	total_cov=67/65
+RA	746	.	NZ_VCCA02000001	2224450	0	A	G	bias_e_value=2599460	bias_p_value=0.727045	consensus_score=428.0	fisher_strand_p_value=0.440695	frequency=5.11145592e-02	ks_quality_p_value=0.815229	major_base=A	major_cov=63/66	major_frequency=9.48885441e-01	minor_base=G	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=5.11145592e-02	polymorphism_score=6.6	prediction=polymorphism	ref_cov=63/66	total_cov=68/68
+RA	747	.	NZ_VCCA02000001	2224457	0	G	C	bias_e_value=2188550	bias_p_value=0.612118	consensus_score=434.6	fisher_strand_p_value=0.264656	frequency=5.01737595e-02	ks_quality_p_value=0.987686	major_base=G	major_cov=62/69	major_frequency=9.49826241e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=5.01737595e-02	polymorphism_score=10.3	prediction=polymorphism	ref_cov=62/69	total_cov=68/72
+RA	748	.	NZ_VCCA02000001	2224461	0	C	T	bias_e_value=2061270	bias_p_value=0.576518	consensus_score=418.3	fisher_strand_p_value=0.251333	frequency=5.07678986e-02	ks_quality_p_value=0.938313	major_base=C	major_cov=59/71	major_frequency=9.49232101e-01	minor_base=T	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=5.07678986e-02	polymorphism_score=6.7	prediction=polymorphism	ref_cov=59/71	total_cov=64/73
+RA	749	.	NZ_VCCA02000001	2224464	0	G	C	bias_e_value=1938950	bias_p_value=0.542305	consensus_score=428.2	fisher_strand_p_value=0.248992	frequency=5.13901711e-02	ks_quality_p_value=0.855211	major_base=G	major_cov=58/71	major_frequency=9.48609829e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=5.13901711e-02	polymorphism_score=10.9	prediction=polymorphism	ref_cov=58/71	total_cov=63/73
+RA	750	.	NZ_VCCA02000001	2313207	1	.	G	bias_e_value=588.03	bias_p_value=0.000164467	consensus_score=11.9	fisher_strand_p_value=1.35474e-05	frequency=1	ks_quality_p_value=0.993827	major_base=G	major_cov=0/34	major_frequency=8.94749641e-01	minor_base=.	minor_cov=4/0	new_cov=0/34	polymorphism_frequency=8.94749641e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=8.5	prediction=consensus	ref_cov=4/0	total_cov=4/34
+RA	751	.	NZ_VCCA02000001	2400921	0	G	A	bias_e_value=281558	bias_p_value=0.0787491	consensus_score=5.9	fisher_strand_p_value=0.0153443	frequency=7.84528255e-01	ks_quality_p_value=0.989274	major_base=A	major_cov=2/38	major_frequency=7.84528255e-01	minor_base=G	minor_cov=4/7	new_cov=2/38	polymorphism_frequency=7.84528255e-01	polymorphism_score=20.9	prediction=polymorphism	ref_cov=4/7	total_cov=6/45
+RA	752	.	NZ_VCCA02000001	2400922	0	G	T	bias_e_value=270524	bias_p_value=0.0756632	consensus_score=-3.6	fisher_strand_p_value=0.0153443	frequency=7.85125732e-01	ks_quality_p_value=0.94153	major_base=T	major_cov=2/38	major_frequency=7.85125732e-01	minor_base=G	minor_cov=4/7	new_cov=2/38	polymorphism_frequency=7.85125732e-01	polymorphism_score=28.0	prediction=polymorphism	ref_cov=4/7	total_cov=6/45
+RA	753	.	NZ_VCCA02000001	2400927	0	C	T	bias_e_value=241490	bias_p_value=0.0675425	consensus_score=-5.4	fisher_strand_p_value=0.012561	frequency=7.28189945e-01	ks_quality_p_value=1	major_base=T	major_cov=2/38	major_frequency=7.28189945e-01	minor_base=C	minor_cov=5/10	new_cov=2/38	polymorphism_frequency=7.28189945e-01	polymorphism_score=29.1	prediction=polymorphism	ref_cov=5/10	total_cov=7/48
+RA	754	.	NZ_VCCA02000001	2400929	0	T	C	bias_e_value=107423	bias_p_value=0.0300452	consensus_score=-4.5	fisher_strand_p_value=0.00472843	frequency=7.14630127e-01	ks_quality_p_value=1	major_base=C	major_cov=2/38	major_frequency=7.14630127e-01	minor_base=T	minor_cov=6/10	new_cov=2/38	polymorphism_frequency=7.14630127e-01	polymorphism_score=32.2	prediction=polymorphism	ref_cov=6/10	total_cov=8/48
+RA	755	.	NZ_VCCA02000001	2400935	0	T	A	bias_e_value=170858	bias_p_value=0.0477873	consensus_score=12.0	fisher_strand_p_value=0.00824116	frequency=6.89403057e-01	ks_quality_p_value=1	major_base=A	major_cov=2/38	major_frequency=6.89403057e-01	minor_base=T	minor_cov=6/12	new_cov=2/38	polymorphism_frequency=6.89403057e-01	polymorphism_score=48.7	prediction=polymorphism	ref_cov=6/12	total_cov=8/50
+RA	756	.	NZ_VCCA02000001	2400943	0	C	G	bias_e_value=28239	bias_p_value=0.0078982	consensus_score=15.8	fisher_strand_p_value=0.000998617	frequency=6.79255962e-01	ks_quality_p_value=1	major_base=G	major_cov=2/38	major_frequency=6.79255962e-01	minor_base=C	minor_cov=8/11	new_cov=2/38	polymorphism_frequency=6.79255962e-01	polymorphism_score=50.6	prediction=polymorphism	ref_cov=8/11	total_cov=10/49
+RA	757	.	NZ_VCCA02000001	2400944	0	C	T	bias_e_value=11389.3	bias_p_value=0.00318548	consensus_score=8.5	fisher_strand_p_value=0.000998617	frequency=6.78050518e-01	ks_quality_p_value=0.356825	major_base=T	major_cov=2/38	major_frequency=6.78050518e-01	minor_base=C	minor_cov=8/11	new_cov=2/38	polymorphism_frequency=6.78050518e-01	polymorphism_score=42.8	prediction=polymorphism	ref_cov=8/11	total_cov=10/49
+RA	758	.	NZ_VCCA02000001	2400954	0	C	T	bias_e_value=2695.98	bias_p_value=0.000754039	consensus_score=15.2	fisher_strand_p_value=0.000166195	frequency=6.55818462e-01	ks_quality_p_value=0.430227	major_base=T	major_cov=2/38	major_frequency=6.55818462e-01	minor_base=C	minor_cov=10/11	new_cov=2/38	polymorphism_frequency=6.55818462e-01	polymorphism_score=48.8	prediction=polymorphism	ref_cov=10/11	total_cov=12/49
+RA	759	.	NZ_VCCA02000001	2400960	0	T	C	bias_e_value=368447	bias_p_value=0.103051	consensus_score=53.6	fisher_strand_p_value=0.0212394	frequency=4.31461334e-01	ks_quality_p_value=1	major_base=T	major_cov=11/14	major_frequency=5.68538666e-01	minor_base=C	minor_cov=2/17	new_cov=2/17	polymorphism_frequency=4.31461334e-01	polymorphism_score=43.9	prediction=polymorphism	ref_cov=11/14	total_cov=13/31
+RA	760	.	NZ_VCCA02000001	2400962	0	C	T	bias_e_value=593042	bias_p_value=0.165868	consensus_score=52.5	fisher_strand_p_value=0.0391063	frequency=4.45559978e-01	ks_quality_p_value=1	major_base=C	major_cov=10/14	major_frequency=5.54440022e-01	minor_base=T	minor_cov=2/17	new_cov=2/17	polymorphism_frequency=4.45559978e-01	polymorphism_score=45.8	prediction=polymorphism	ref_cov=10/14	total_cov=13/31
+RA	761	.	NZ_VCCA02000001	2401087	0	G	A	bias_e_value=6969.5	bias_p_value=0.0019493	consensus_score=97.5	fisher_strand_p_value=0.000207879	frequency=2.58504868e-01	ks_quality_p_value=0.988043	major_base=G	major_cov=39/4	major_frequency=7.41495132e-01	minor_base=A	minor_cov=6/9	new_cov=6/9	polymorphism_frequency=2.58504868e-01	polymorphism_score=31.5	prediction=polymorphism	ref_cov=39/4	total_cov=45/13
+RA	762	.	NZ_VCCA02000001	2401097	0	T	A	bias_e_value=186826	bias_p_value=0.0522534	consensus_score=128.7	fisher_strand_p_value=0.00928659	frequency=3.23261738e-01	ks_quality_p_value=0.988811	major_base=T	major_cov=40/8	major_frequency=6.76738262e-01	minor_base=A	minor_cov=12/11	new_cov=12/11	polymorphism_frequency=3.23261738e-01	polymorphism_score=63.5	prediction=polymorphism	ref_cov=40/8	total_cov=52/19
+RA	763	.	NZ_VCCA02000001	2401106	0	C	T	bias_e_value=43238.2	bias_p_value=0.0120933	consensus_score=75.1	fisher_strand_p_value=0.00163001	frequency=3.99717331e-01	ks_quality_p_value=1	major_base=C	major_cov=35/7	major_frequency=6.00282669e-01	minor_base=T	minor_cov=13/15	new_cov=13/15	polymorphism_frequency=3.99717331e-01	polymorphism_score=67.4	prediction=polymorphism	ref_cov=35/7	total_cov=48/22
+RA	764	.	NZ_VCCA02000001	2401116	0	G	T	bias_e_value=4820.66	bias_p_value=0.00134829	consensus_score=119.5	fisher_strand_p_value=0.000146088	frequency=3.54934692e-01	ks_quality_p_value=0.932106	major_base=G	major_cov=42/5	major_frequency=6.45065308e-01	minor_base=T	minor_cov=12/14	new_cov=12/14	polymorphism_frequency=3.54934692e-01	polymorphism_score=59.8	prediction=polymorphism	ref_cov=42/5	total_cov=55/19
+RA	765	.	NZ_VCCA02000001	2401117	0	T	C	bias_e_value=1955.81	bias_p_value=0.000547023	consensus_score=86.9	fisher_strand_p_value=5.01867e-05	frequency=3.78171444e-01	ks_quality_p_value=1	major_base=T	major_cov=42/4	major_frequency=6.21828556e-01	minor_base=C	minor_cov=13/15	new_cov=13/15	polymorphism_frequency=3.78171444e-01	polymorphism_score=67.4	prediction=polymorphism	ref_cov=42/4	total_cov=55/19
+RA	766	.	NZ_VCCA02000001	2401131	0	G	A	bias_e_value=142.149	bias_p_value=3.97577e-05	consensus_score=58.7	fisher_strand_p_value=2.89062e-06	frequency=4.78755474e-01	ks_quality_p_value=1	major_base=G	major_cov=43/4	major_frequency=5.21244526e-01	minor_base=A	minor_cov=20/23	new_cov=20/23	polymorphism_frequency=4.78755474e-01	polymorphism_score=113.9	prediction=polymorphism	ref_cov=43/4	total_cov=63/28
+RA	767	.	NZ_VCCA02000001	2401169	0	C	T	bias_e_value=0.398315	bias_p_value=1.11405e-07	consensus_score=184.8	fisher_strand_p_value=6.61069e-09	frequency=2.29432106e-01	ks_quality_p_value=0.842353	major_base=C	major_cov=65/2	major_frequency=7.70567894e-01	minor_base=T	minor_cov=7/13	new_cov=7/13	polymorphism_frequency=2.29432106e-01	polymorphism_score=39.5	prediction=polymorphism	ref_cov=65/2	total_cov=72/15
+RA	768	.	NZ_VCCA02000001	2487165	0	C	.	bias_e_value=1884.52	bias_p_value=0.000527082	consensus_score=16.7	fisher_strand_p_value=4.81765e-05	frequency=1	ks_quality_p_value=1	major_base=.	major_cov=0/30	major_frequency=8.10808182e-01	minor_base=C	minor_cov=5/2	new_cov=0/30	polymorphism_frequency=8.10808182e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=31.2	prediction=consensus	ref_cov=5/2	total_cov=5/32
+RA	769	.	NZ_VCCA02000001	2487170	0	C	G	bias_e_value=1200.34	bias_p_value=0.000335725	consensus_score=21.9	fisher_strand_p_value=2.93569e-05	frequency=1	ks_quality_p_value=1	major_base=G	major_cov=0/30	major_frequency=7.14360714e-01	minor_base=C	minor_cov=7/5	new_cov=0/30	polymorphism_frequency=7.14360714e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=30.8	prediction=consensus	ref_cov=7/5	total_cov=7/35
+RA	770	.	NZ_VCCA02000001	2487172	0	T	C	bias_e_value=5819.04	bias_p_value=0.00162753	consensus_score=24.3	fisher_strand_p_value=0.000167925	frequency=1	ks_quality_p_value=1	major_base=C	major_cov=0/29	major_frequency=6.59140110e-01	minor_base=T	minor_cov=7/8	new_cov=0/29	polymorphism_frequency=6.59140110e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=33.9	prediction=consensus	ref_cov=7/8	total_cov=7/37
+RA	771	.	NZ_VCCA02000001	2487174	0	G	A	bias_e_value=3304.78	bias_p_value=0.000924316	consensus_score=22.2	fisher_strand_p_value=8.95603e-05	frequency=1	ks_quality_p_value=1	major_base=A	major_cov=0/30	major_frequency=6.82013035e-01	minor_base=G	minor_cov=7/7	new_cov=0/30	polymorphism_frequency=6.82013035e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=29.8	prediction=consensus	ref_cov=7/7	total_cov=7/37
+RA	772	.	NZ_VCCA02000001	2487175	0	C	T	bias_e_value=3304.78	bias_p_value=0.000924316	consensus_score=22.2	fisher_strand_p_value=8.95603e-05	frequency=1	ks_quality_p_value=1	major_base=T	major_cov=0/30	major_frequency=6.82026863e-01	minor_base=C	minor_cov=7/7	new_cov=0/30	polymorphism_frequency=6.82026863e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=29.8	prediction=consensus	ref_cov=7/7	total_cov=7/37
+RA	773	.	NZ_VCCA02000001	2487184	0	C	A	bias_e_value=4999.58	bias_p_value=0.00139834	consensus_score=32.0	fisher_strand_p_value=0.000141804	frequency=1	ks_quality_p_value=1	major_base=A	major_cov=0/30	major_frequency=6.67661667e-01	minor_base=C	minor_cov=7/8	new_cov=0/30	polymorphism_frequency=6.67661667e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=40.0	prediction=consensus	ref_cov=7/8	total_cov=7/38
+RA	774	.	NZ_VCCA02000001	2487191	0	C	A	bias_e_value=2893.32	bias_p_value=0.000809236	consensus_score=43.3	fisher_strand_p_value=7.73077e-05	frequency=1	ks_quality_p_value=1	major_base=A	major_cov=0/30	major_frequency=6.38295174e-01	minor_base=C	minor_cov=8/9	new_cov=0/30	polymorphism_frequency=6.38295174e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=50.5	prediction=consensus	ref_cov=8/9	total_cov=8/39
+RA	775	.	NZ_VCCA02000001	2487196	0	G	C	bias_e_value=48088.9	bias_p_value=0.01345	consensus_score=28.5	fisher_strand_p_value=0.00184345	frequency=1	ks_quality_p_value=1	major_base=C	major_cov=0/30	major_frequency=6.81830406e-01	minor_base=G	minor_cov=5/9	new_cov=0/30	polymorphism_frequency=6.81830406e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=36.7	prediction=consensus	ref_cov=5/9	total_cov=5/39
+RA	776	.	NZ_VCCA02000001	2487202	0	G	A	bias_e_value=48088.9	bias_p_value=0.01345	consensus_score=22.1	fisher_strand_p_value=0.00184345	frequency=1	ks_quality_p_value=1	major_base=A	major_cov=0/30	major_frequency=6.82034016e-01	minor_base=G	minor_cov=5/9	new_cov=0/30	polymorphism_frequency=6.82034016e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=29.7	prediction=consensus	ref_cov=5/9	total_cov=5/39
+RA	777	.	NZ_VCCA02000001	2561365	0	G	T	bias_e_value=2225810	bias_p_value=0.622538	consensus_score=333.1	fisher_strand_p_value=0.344127	frequency=8.77633095e-02	ks_quality_p_value=0.782418	major_base=G	major_cov=64/52	major_frequency=9.12236691e-01	minor_base=T	minor_cov=4/7	new_cov=4/7	polymorphism_frequency=8.77633095e-02	polymorphism_score=13.9	prediction=polymorphism	ref_cov=64/52	total_cov=69/59
+RA	778	.	NZ_VCCA02000001	2561720	0	C	A	bias_e_value=3018960	bias_p_value=0.844376	consensus_score=340.6	fisher_strand_p_value=0.496843	frequency=6.55970573e-02	ks_quality_p_value=1	major_base=C	major_cov=62/65	major_frequency=9.34402943e-01	minor_base=A	minor_cov=3/6	new_cov=3/6	polymorphism_frequency=6.55970573e-02	polymorphism_score=2.1	prediction=polymorphism	ref_cov=62/65	total_cov=65/75
+RA	779	.	NZ_VCCA02000001	2661385	0	C	G	bias_e_value=3281010	bias_p_value=0.917669	consensus_score=261.2	fisher_strand_p_value=0.678265	frequency=6.96334839e-02	ks_quality_p_value=0.918085	major_base=C	major_cov=41/39	major_frequency=9.30366516e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=6.96334839e-02	polymorphism_score=8.0	prediction=polymorphism	ref_cov=41/39	total_cov=45/41
+RA	780	.	NZ_VCCA02000001	2661387	0	C	G	bias_e_value=3537990	bias_p_value=0.989543	consensus_score=252.0	fisher_strand_p_value=1	frequency=7.21526146e-02	ks_quality_p_value=0.858912	major_base=C	major_cov=44/33	major_frequency=9.27847385e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.21526146e-02	polymorphism_score=8.1	prediction=polymorphism	ref_cov=44/33	total_cov=48/35
+RA	781	.	NZ_VCCA02000001	2661403	0	C	G	bias_e_value=2494060	bias_p_value=0.697565	consensus_score=257.5	fisher_strand_p_value=0.396415	frequency=7.04636574e-02	ks_quality_p_value=0.836353	major_base=C	major_cov=33/46	major_frequency=9.29536343e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.04636574e-02	polymorphism_score=8.0	prediction=polymorphism	ref_cov=33/46	total_cov=37/48
+RA	782	.	NZ_VCCA02000001	2661406	0	G	C	bias_e_value=543908	bias_p_value=0.152126	consensus_score=213.0	fisher_strand_p_value=0.0349379	frequency=9.27305222e-02	ks_quality_p_value=1	major_base=G	major_cov=19/47	major_frequency=9.07269478e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=9.27305222e-02	polymorphism_score=9.4	prediction=polymorphism	ref_cov=19/47	total_cov=24/49
+RA	783	.	NZ_VCCA02000001	2661409	0	A	G	bias_e_value=825162	bias_p_value=0.23079	consensus_score=206.7	fisher_strand_p_value=0.0864326	frequency=8.18200111e-02	ks_quality_p_value=0.702365	major_base=A	major_cov=20/47	major_frequency=9.18179989e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.18200111e-02	polymorphism_score=5.6	prediction=polymorphism	ref_cov=20/47	total_cov=24/49
+RA	784	.	NZ_VCCA02000001	2661412	0	G	C	bias_e_value=1472790	bias_p_value=0.411927	consensus_score=218.3	fisher_strand_p_value=0.175561	frequency=8.10337067e-02	ks_quality_p_value=0.787829	major_base=G	major_cov=22/46	major_frequency=9.18966293e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.10337067e-02	polymorphism_score=8.7	prediction=polymorphism	ref_cov=22/46	total_cov=26/48
+RA	785	.	NZ_VCCA02000001	2661418	0	C	G	bias_e_value=1549390	bias_p_value=0.43335	consensus_score=224.8	fisher_strand_p_value=0.172554	frequency=7.88750648e-02	ks_quality_p_value=0.865575	major_base=C	major_cov=22/48	major_frequency=9.21124935e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.88750648e-02	polymorphism_score=8.3	prediction=polymorphism	ref_cov=22/48	total_cov=26/50
+RA	786	.	NZ_VCCA02000001	2661421	0	C	G	bias_e_value=1989150	bias_p_value=0.556348	consensus_score=224.8	fisher_strand_p_value=0.222146	frequency=8.74776840e-02	ks_quality_p_value=1	major_base=C	major_cov=22/47	major_frequency=9.12522316e-01	minor_base=G	minor_cov=4/3	new_cov=4/3	polymorphism_frequency=8.74776840e-02	polymorphism_score=8.8	prediction=polymorphism	ref_cov=22/47	total_cov=26/50
+RA	787	.	NZ_VCCA02000001	2661424	0	C	G	bias_e_value=1470000	bias_p_value=0.411146	consensus_score=219.4	fisher_strand_p_value=0.17391	frequency=7.98583031e-02	ks_quality_p_value=0.793038	major_base=C	major_cov=22/47	major_frequency=9.20141697e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.98583031e-02	polymorphism_score=8.4	prediction=polymorphism	ref_cov=22/47	total_cov=26/49
+RA	788	.	NZ_VCCA02000001	2661425	0	A	G	bias_e_value=1647180	bias_p_value=0.460702	consensus_score=222.9	fisher_strand_p_value=0.17391	frequency=7.95831680e-02	ks_quality_p_value=0.943677	major_base=A	major_cov=22/47	major_frequency=9.20416832e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.95831680e-02	polymorphism_score=5.6	prediction=polymorphism	ref_cov=22/47	total_cov=26/49
+RA	789	.	NZ_VCCA02000001	2661426	0	G	C	bias_e_value=685501	bias_p_value=0.191728	consensus_score=203.3	fisher_strand_p_value=0.0541901	frequency=8.68945122e-02	ks_quality_p_value=0.873484	major_base=G	major_cov=16/47	major_frequency=9.13105488e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.68945122e-02	polymorphism_score=8.9	prediction=polymorphism	ref_cov=16/47	total_cov=20/49
+RA	790	.	NZ_VCCA02000001	2662543	0	G	C	bias_e_value=3131960	bias_p_value=0.87598	consensus_score=74.6	fisher_strand_p_value=1	frequency=3.89039993e-01	ks_quality_p_value=0.545299	major_base=G	major_cov=24/20	major_frequency=6.10960007e-01	minor_base=C	minor_cov=15/13	new_cov=15/13	polymorphism_frequency=3.89039993e-01	polymorphism_score=78.5	prediction=polymorphism	ref_cov=24/20	total_cov=39/33
+RA	791	.	NZ_VCCA02000001	2662549	0	G	C	bias_e_value=3292140	bias_p_value=0.920782	consensus_score=103.3	fisher_strand_p_value=0.631689	frequency=3.63527298e-01	ks_quality_p_value=0.996296	major_base=G	major_cov=30/19	major_frequency=6.36472702e-01	minor_base=C	minor_cov=15/13	new_cov=15/13	polymorphism_frequency=3.63527298e-01	polymorphism_score=75.7	prediction=polymorphism	ref_cov=30/19	total_cov=45/32
+RA	792	.	NZ_VCCA02000001	2662550	0	A	G	bias_e_value=3103030	bias_p_value=0.867889	consensus_score=68.1	fisher_strand_p_value=0.810108	frequency=3.83297443e-01	ks_quality_p_value=0.656973	major_base=A	major_cov=26/19	major_frequency=6.16702557e-01	minor_base=G	minor_cov=15/13	new_cov=15/13	polymorphism_frequency=3.83297443e-01	polymorphism_score=65.8	prediction=polymorphism	ref_cov=26/19	total_cov=41/32
+RA	793	.	NZ_VCCA02000001	2662564	0	T	C	bias_e_value=1989350	bias_p_value=0.556404	consensus_score=93.0	fisher_strand_p_value=0.816131	frequency=3.41347694e-01	ks_quality_p_value=0.27224	major_base=T	major_cov=26/28	major_frequency=6.58652306e-01	minor_base=C	minor_cov=15/13	new_cov=15/13	polymorphism_frequency=3.41347694e-01	polymorphism_score=64.6	prediction=polymorphism	ref_cov=26/28	total_cov=41/41
+RA	794	.	NZ_VCCA02000001	2662576	0	G	C	bias_e_value=3023340	bias_p_value=0.845601	consensus_score=173.1	fisher_strand_p_value=0.498599	frequency=2.96625614e-01	ks_quality_p_value=1	major_base=G	major_cov=29/37	major_frequency=7.03374386e-01	minor_base=C	minor_cov=15/13	new_cov=15/13	polymorphism_frequency=2.96625614e-01	polymorphism_score=71.3	prediction=polymorphism	ref_cov=29/37	total_cov=44/50
+RA	795	.	NZ_VCCA02000001	2662579	0	G	C	bias_e_value=3246690	bias_p_value=0.908069	consensus_score=181.2	fisher_strand_p_value=0.648909	frequency=2.76473999e-01	ks_quality_p_value=0.9294	major_base=G	major_cov=30/38	major_frequency=7.23526001e-01	minor_base=C	minor_cov=13/13	new_cov=13/13	polymorphism_frequency=2.76473999e-01	polymorphism_score=65.9	prediction=polymorphism	ref_cov=30/38	total_cov=43/51
+RA	796	.	NZ_VCCA02000001	2662580	0	C	T	bias_e_value=3323450	bias_p_value=0.929538	consensus_score=149.0	fisher_strand_p_value=0.648909	frequency=2.76150703e-01	ks_quality_p_value=1	major_base=C	major_cov=30/38	major_frequency=7.23849297e-01	minor_base=T	minor_cov=13/13	new_cov=13/13	polymorphism_frequency=2.76150703e-01	polymorphism_score=56.7	prediction=polymorphism	ref_cov=30/38	total_cov=43/51
+RA	797	.	NZ_VCCA02000001	2664448	0	G	C	bias_e_value=3571640	bias_p_value=0.998955	consensus_score=220.1	fisher_strand_p_value=1	frequency=1.72732353e-01	ks_quality_p_value=0.954627	major_base=G	major_cov=48/19	major_frequency=8.27267647e-01	minor_base=C	minor_cov=10/4	new_cov=10/4	polymorphism_frequency=1.72732353e-01	polymorphism_score=32.9	prediction=polymorphism	ref_cov=48/19	total_cov=58/23
+RA	798	.	NZ_VCCA02000001	2664452	0	G	C	bias_e_value=3550750	bias_p_value=0.993112	consensus_score=227.7	fisher_strand_p_value=1	frequency=1.68565273e-01	ks_quality_p_value=0.884947	major_base=G	major_cov=48/21	major_frequency=8.31434727e-01	minor_base=C	minor_cov=10/4	new_cov=10/4	polymorphism_frequency=1.68565273e-01	polymorphism_score=32.7	prediction=polymorphism	ref_cov=48/21	total_cov=58/25
+RA	799	.	NZ_VCCA02000001	2664465	0	G	C	bias_e_value=535355	bias_p_value=0.149734	consensus_score=193.8	fisher_strand_p_value=0.0379788	frequency=1.91748619e-01	ks_quality_p_value=0.90121	major_base=G	major_cov=23/36	major_frequency=8.08251381e-01	minor_base=C	minor_cov=10/4	new_cov=10/4	polymorphism_frequency=1.91748619e-01	polymorphism_score=33.6	prediction=polymorphism	ref_cov=23/36	total_cov=33/40
+RA	800	.	NZ_VCCA02000001	2664466	0	C	G	bias_e_value=554452	bias_p_value=0.155075	consensus_score=189.4	fisher_strand_p_value=0.0379788	frequency=1.91508770e-01	ks_quality_p_value=0.943169	major_base=C	major_cov=23/36	major_frequency=8.08491230e-01	minor_base=G	minor_cov=10/4	new_cov=10/4	polymorphism_frequency=1.91508770e-01	polymorphism_score=29.4	prediction=polymorphism	ref_cov=23/36	total_cov=33/40
+RA	801	.	NZ_VCCA02000001	2664467	0	G	T	bias_e_value=579915	bias_p_value=0.162197	consensus_score=192.0	fisher_strand_p_value=0.0379788	frequency=1.91399574e-01	ks_quality_p_value=1	major_base=G	major_cov=23/36	major_frequency=8.08600426e-01	minor_base=T	minor_cov=10/4	new_cov=10/4	polymorphism_frequency=1.91399574e-01	polymorphism_score=29.8	prediction=polymorphism	ref_cov=23/36	total_cov=33/40
+RA	802	.	NZ_VCCA02000001	2664468	0	A	C	bias_e_value=539851	bias_p_value=0.150991	consensus_score=190.5	fisher_strand_p_value=0.0379788	frequency=1.90237999e-01	ks_quality_p_value=0.911038	major_base=A	major_cov=23/36	major_frequency=8.09762001e-01	minor_base=C	minor_cov=10/4	new_cov=10/4	polymorphism_frequency=1.90237999e-01	polymorphism_score=32.9	prediction=polymorphism	ref_cov=23/36	total_cov=33/40
+RA	803	.	NZ_VCCA02000001	2664476	0	G	C	bias_e_value=258103	bias_p_value=0.0721891	consensus_score=221.5	fisher_strand_p_value=0.0136327	frequency=1.69007301e-01	ks_quality_p_value=1	major_base=G	major_cov=22/46	major_frequency=8.30992699e-01	minor_base=C	minor_cov=10/4	new_cov=10/4	polymorphism_frequency=1.69007301e-01	polymorphism_score=28.5	prediction=polymorphism	ref_cov=22/46	total_cov=32/50
+RA	804	.	NZ_VCCA02000001	2664482	0	G	A	bias_e_value=295093	bias_p_value=0.0825349	consensus_score=216.4	fisher_strand_p_value=0.0180214	frequency=1.50557041e-01	ks_quality_p_value=0.892832	major_base=G	major_cov=19/48	major_frequency=8.49442959e-01	minor_base=A	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.50557041e-01	polymorphism_score=20.8	prediction=polymorphism	ref_cov=19/48	total_cov=27/53
+RA	805	.	NZ_VCCA02000001	2664484	0	G	C	bias_e_value=294929	bias_p_value=0.082489	consensus_score=223.1	fisher_strand_p_value=0.016079	frequency=1.42788410e-01	ks_quality_p_value=1	major_base=G	major_cov=19/51	major_frequency=8.57211590e-01	minor_base=C	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.42788410e-01	polymorphism_score=17.7	prediction=polymorphism	ref_cov=19/51	total_cov=27/55
+RA	806	.	NZ_VCCA02000001	2664486	0	T	C	bias_e_value=183409	bias_p_value=0.0512977	consensus_score=207.4	fisher_strand_p_value=0.0153138	frequency=1.50573730e-01	ks_quality_p_value=0.586359	major_base=T	major_cov=18/50	major_frequency=8.49426270e-01	minor_base=C	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.50573730e-01	polymorphism_score=18.8	prediction=polymorphism	ref_cov=18/50	total_cov=26/55
+RA	807	.	NZ_VCCA02000001	2664487	0	C	G	bias_e_value=23327.3	bias_p_value=0.00652444	consensus_score=210.1	fisher_strand_p_value=0.000864936	frequency=1.53431892e-01	ks_quality_p_value=0.928122	major_base=C	major_cov=11/55	major_frequency=8.46568108e-01	minor_base=G	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.53431892e-01	polymorphism_score=21.4	prediction=polymorphism	ref_cov=11/55	total_cov=19/59
+RA	808	.	NZ_VCCA02000001	2800647	0	T	G	bias_e_value=18305.2	bias_p_value=0.00511981	consensus_score=95.5	fisher_strand_p_value=0.000609265	frequency=2.48810291e-01	ks_quality_p_value=1	major_base=T	major_cov=32/36	major_frequency=7.51189709e-01	minor_base=G	minor_cov=21/3	new_cov=21/3	polymorphism_frequency=2.48810291e-01	polymorphism_score=11.8	prediction=polymorphism	ref_cov=32/36	total_cov=53/39
+RA	809	.	NZ_VCCA02000001	2938247	0	G	A	consensus_score=34.0	frequency=1	major_base=A	major_cov=2/10	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=2/10	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=2/10
+RA	810	.	NZ_VCCA02000001	2945228	0	C	G	bias_e_value=4400.44	bias_p_value=0.00123076	consensus_score=338.7	fisher_strand_p_value=0.000129174	frequency=6.07962608e-02	ks_quality_p_value=0.952508	major_base=C	major_cov=116/7	major_frequency=9.39203739e-01	minor_base=G	minor_cov=3/5	new_cov=3/5	polymorphism_frequency=6.07962608e-02	polymorphism_score=12.1	prediction=polymorphism	ref_cov=116/7	total_cov=119/12
+RA	811	.	NZ_VCCA02000001	2945240	0	C	G	bias_e_value=195805	bias_p_value=0.0547648	consensus_score=678.5	fisher_strand_p_value=0.0350783	frequency=1.68302536e-01	ks_quality_p_value=0.277134	major_base=C	major_cov=196/15	major_frequency=8.31697464e-01	minor_base=G	minor_cov=35/8	new_cov=35/8	polymorphism_frequency=1.68302536e-01	polymorphism_score=105.4	prediction=polymorphism	ref_cov=196/15	total_cov=233/23
+RA	812	.	NZ_VCCA02000001	2945243	0	G	C	bias_e_value=4045.14	bias_p_value=0.00113139	consensus_score=609.9	fisher_strand_p_value=0.000172977	frequency=1.77479744e-01	ks_quality_p_value=0.647817	major_base=G	major_cov=181/8	major_frequency=8.22520256e-01	minor_base=C	minor_cov=31/10	new_cov=31/10	polymorphism_frequency=1.77479744e-01	polymorphism_score=106.1	prediction=polymorphism	ref_cov=181/8	total_cov=212/18
+RA	813	.	NZ_VCCA02000001	2945252	0	G	C	bias_e_value=7426.25	bias_p_value=0.00207705	consensus_score=597.0	fisher_strand_p_value=0.000280087	frequency=1.51178837e-01	ks_quality_p_value=0.787268	major_base=G	major_cov=181/9	major_frequency=8.48821163e-01	minor_base=C	minor_cov=25/9	new_cov=25/9	polymorphism_frequency=1.51178837e-01	polymorphism_score=83.9	prediction=polymorphism	ref_cov=181/9	total_cov=206/18
+RA	814	.	NZ_VCCA02000001	2989168	0	T	G	bias_e_value=639603	bias_p_value=0.178891	consensus_score=139.9	fisher_strand_p_value=0.0431874	frequency=1.94817066e-01	ks_quality_p_value=1	major_base=T	major_cov=36/39	major_frequency=8.05182934e-01	minor_base=G	minor_cov=15/5	new_cov=15/5	polymorphism_frequency=1.94817066e-01	polymorphism_score=9.5	prediction=polymorphism	ref_cov=36/39	total_cov=51/44
+RA	815	.	NZ_VCCA02000001	2989177	0	T	G	bias_e_value=40642.5	bias_p_value=0.0113673	consensus_score=177.8	fisher_strand_p_value=0.00151753	frequency=1.54649258e-01	ks_quality_p_value=1	major_base=T	major_cov=41/44	major_frequency=8.45350742e-01	minor_base=G	minor_cov=16/2	new_cov=16/2	polymorphism_frequency=1.54649258e-01	polymorphism_score=4.5	prediction=polymorphism	ref_cov=41/44	total_cov=60/46
+RA	816	.	NZ_VCCA02000001	3075873	0	T	G	bias_e_value=86746.6	bias_p_value=0.0242622	consensus_score=155.1	fisher_strand_p_value=0.00367222	frequency=2.64027596e-01	ks_quality_p_value=1	major_base=T	major_cov=59/27	major_frequency=7.35972404e-01	minor_base=G	minor_cov=31/2	new_cov=31/2	polymorphism_frequency=2.64027596e-01	polymorphism_score=24.4	prediction=polymorphism	ref_cov=59/27	total_cov=91/29
+RA	817	.	NZ_VCCA02000001	3096099	0	C	G	bias_e_value=566716	bias_p_value=0.158505	consensus_score=263.3	fisher_strand_p_value=0.0399108	frequency=1.28955364e-01	ks_quality_p_value=0.92344	major_base=C	major_cov=12/69	major_frequency=8.71044636e-01	minor_base=G	minor_cov=5/7	new_cov=5/7	polymorphism_frequency=1.28955364e-01	polymorphism_score=26.2	prediction=polymorphism	ref_cov=12/69	total_cov=17/76
+RA	818	.	NZ_VCCA02000001	3096107	0	C	G	bias_e_value=1580510	bias_p_value=0.442054	consensus_score=271.5	fisher_strand_p_value=0.171804	frequency=1.26222134e-01	ks_quality_p_value=0.896215	major_base=C	major_cov=19/64	major_frequency=8.73777866e-01	minor_base=G	minor_cov=5/7	new_cov=5/7	polymorphism_frequency=1.26222134e-01	polymorphism_score=26.1	prediction=polymorphism	ref_cov=19/64	total_cov=24/71
+RA	819	.	NZ_VCCA02000001	3096109	0	A	T	bias_e_value=2294320	bias_p_value=0.641699	consensus_score=285.9	fisher_strand_p_value=0.311586	frequency=1.19779110e-01	ks_quality_p_value=0.911988	major_base=A	major_cov=23/64	major_frequency=8.80220890e-01	minor_base=T	minor_cov=5/7	new_cov=5/7	polymorphism_frequency=1.19779110e-01	polymorphism_score=24.3	prediction=polymorphism	ref_cov=23/64	total_cov=28/71
+RA	820	.	NZ_VCCA02000001	3096110	0	G	C	bias_e_value=2141500	bias_p_value=0.598958	consensus_score=290.7	fisher_strand_p_value=0.311586	frequency=1.21045589e-01	ks_quality_p_value=0.807881	major_base=G	major_cov=23/64	major_frequency=8.78954411e-01	minor_base=C	minor_cov=5/7	new_cov=5/7	polymorphism_frequency=1.21045589e-01	polymorphism_score=23.1	prediction=polymorphism	ref_cov=23/64	total_cov=28/71
+RA	821	.	NZ_VCCA02000001	3096115	0	G	T	bias_e_value=3080660	bias_p_value=0.861633	consensus_score=317.1	fisher_strand_p_value=0.522442	frequency=1.11869335e-01	ks_quality_p_value=1	major_base=G	major_cov=30/65	major_frequency=8.88130665e-01	minor_base=T	minor_cov=5/7	new_cov=5/7	polymorphism_frequency=1.11869335e-01	polymorphism_score=21.9	prediction=polymorphism	ref_cov=30/65	total_cov=35/72
+RA	822	.	NZ_VCCA02000001	3096125	0	G	C	bias_e_value=1135650	bias_p_value=0.317631	consensus_score=581.9	fisher_strand_p_value=0.132402	frequency=6.39486313e-02	ks_quality_p_value=0.714349	major_base=G	major_cov=34/141	major_frequency=9.36051369e-01	minor_base=C	minor_cov=5/7	new_cov=5/7	polymorphism_frequency=6.39486313e-02	polymorphism_score=19.6	prediction=polymorphism	ref_cov=34/141	total_cov=39/148
+RA	823	.	NZ_VCCA02000001	3097275	0	G	T	bias_e_value=1552340	bias_p_value=0.434174	consensus_score=183.7	fisher_strand_p_value=0.299203	frequency=1.94752693e-01	ks_quality_p_value=0.500639	major_base=G	major_cov=12/45	major_frequency=8.05247307e-01	minor_base=T	minor_cov=5/9	new_cov=5/9	polymorphism_frequency=1.94752693e-01	polymorphism_score=31.5	prediction=polymorphism	ref_cov=12/45	total_cov=18/54
+RA	824	.	NZ_VCCA02000001	3097277	0	G	C	bias_e_value=965997	bias_p_value=0.270181	consensus_score=170.4	fisher_strand_p_value=0.124813	frequency=2.09439754e-01	ks_quality_p_value=0.603719	major_base=G	major_cov=8/45	major_frequency=7.90560246e-01	minor_base=C	minor_cov=5/9	new_cov=5/9	polymorphism_frequency=2.09439754e-01	polymorphism_score=37.1	prediction=polymorphism	ref_cov=8/45	total_cov=13/54
+RA	825	.	NZ_VCCA02000001	3097278	0	A	C	bias_e_value=821020	bias_p_value=0.229632	consensus_score=196.4	fisher_strand_p_value=0.0618345	frequency=1.85171604e-01	ks_quality_p_value=0.97509	major_base=A	major_cov=8/52	major_frequency=8.14828396e-01	minor_base=C	minor_cov=5/9	new_cov=5/9	polymorphism_frequency=1.85171604e-01	polymorphism_score=39.9	prediction=polymorphism	ref_cov=8/52	total_cov=13/63
+RA	826	.	NZ_VCCA02000001	3097282	0	C	G	bias_e_value=1780640	bias_p_value=0.498028	consensus_score=228.2	fisher_strand_p_value=0.28786	frequency=1.60463810e-01	ks_quality_p_value=0.644443	major_base=C	major_cov=14/58	major_frequency=8.39536190e-01	minor_base=G	minor_cov=5/9	new_cov=5/9	polymorphism_frequency=1.60463810e-01	polymorphism_score=32.2	prediction=polymorphism	ref_cov=14/58	total_cov=19/67
+RA	827	.	NZ_VCCA02000001	3097291	0	G	C	bias_e_value=2232740	bias_p_value=0.624476	consensus_score=251.6	fisher_strand_p_value=0.363072	frequency=1.89590931e-01	ks_quality_p_value=0.745667	major_base=G	major_cov=17/60	major_frequency=8.10409069e-01	minor_base=C	minor_cov=6/12	new_cov=6/12	polymorphism_frequency=1.89590931e-01	polymorphism_score=47.8	prediction=polymorphism	ref_cov=17/60	total_cov=23/72
+RA	828	.	NZ_VCCA02000001	3097293	0	C	G	bias_e_value=3024790	bias_p_value=0.846005	consensus_score=242.7	fisher_strand_p_value=0.56938	frequency=1.98229790e-01	ks_quality_p_value=0.87671	major_base=C	major_cov=19/57	major_frequency=8.01770210e-01	minor_base=G	minor_cov=6/13	new_cov=6/13	polymorphism_frequency=1.98229790e-01	polymorphism_score=46.3	prediction=polymorphism	ref_cov=19/57	total_cov=25/70
+RA	829	.	NZ_VCCA02000001	3097309	0	C	G	bias_e_value=465215	bias_p_value=0.130116	consensus_score=276.1	fisher_strand_p_value=0.0342294	frequency=2.03630447e-01	ks_quality_p_value=0.834406	major_base=C	major_cov=19/67	major_frequency=7.96369553e-01	minor_base=G	minor_cov=10/12	new_cov=10/12	polymorphism_frequency=2.03630447e-01	polymorphism_score=58.4	prediction=polymorphism	ref_cov=19/67	total_cov=29/79
+RA	830	.	NZ_VCCA02000001	3097315	0	G	C	bias_e_value=171176	bias_p_value=0.0478764	consensus_score=296.3	fisher_strand_p_value=0.0159937	frequency=2.03947544e-01	ks_quality_p_value=0.516437	major_base=G	major_cov=19/71	major_frequency=7.96052456e-01	minor_base=C	minor_cov=11/12	new_cov=11/12	polymorphism_frequency=2.03947544e-01	polymorphism_score=63.5	prediction=polymorphism	ref_cov=19/71	total_cov=30/83
+RA	831	.	NZ_VCCA02000001	3097318	0	T	C	bias_e_value=701440	bias_p_value=0.196186	consensus_score=347.4	fisher_strand_p_value=0.247017	frequency=1.74004078e-01	ks_quality_p_value=0.197569	major_base=T	major_cov=38/71	major_frequency=8.25995922e-01	minor_base=C	minor_cov=11/12	new_cov=11/12	polymorphism_frequency=1.74004078e-01	polymorphism_score=47.2	prediction=polymorphism	ref_cov=38/71	total_cov=49/83
+RA	832	.	NZ_VCCA02000001	3097323	0	T	C	bias_e_value=1229420	bias_p_value=0.343857	consensus_score=312.5	fisher_strand_p_value=0.23655	frequency=1.86791420e-01	ks_quality_p_value=0.448032	major_base=T	major_cov=34/66	major_frequency=8.13208580e-01	minor_base=C	minor_cov=11/12	new_cov=11/12	polymorphism_frequency=1.86791420e-01	polymorphism_score=47.8	prediction=polymorphism	ref_cov=34/66	total_cov=45/78
+RA	833	.	NZ_VCCA02000001	3097324	0	C	G	bias_e_value=1948040	bias_p_value=0.544849	consensus_score=333.1	fisher_strand_p_value=0.231347	frequency=1.83945179e-01	ks_quality_p_value=0.927566	major_base=C	major_cov=34/68	major_frequency=8.16054821e-01	minor_base=G	minor_cov=11/12	new_cov=11/12	polymorphism_frequency=1.83945179e-01	polymorphism_score=61.1	prediction=polymorphism	ref_cov=34/68	total_cov=45/80
+RA	834	.	NZ_VCCA02000001	3097326	0	C	G	bias_e_value=2188430	bias_p_value=0.612083	consensus_score=325.3	fisher_strand_p_value=0.361385	frequency=1.97306633e-01	ks_quality_p_value=0.72325	major_base=C	major_cov=34/66	major_frequency=8.02693367e-01	minor_base=G	minor_cov=11/14	new_cov=11/14	polymorphism_frequency=1.97306633e-01	polymorphism_score=63.1	prediction=polymorphism	ref_cov=34/66	total_cov=45/80
+RA	835	.	NZ_VCCA02000001	3097327	0	G	C	bias_e_value=2025430	bias_p_value=0.566495	consensus_score=335.3	fisher_strand_p_value=0.231347	frequency=1.82532787e-01	ks_quality_p_value=0.98968	major_base=G	major_cov=34/68	major_frequency=8.17467213e-01	minor_base=C	minor_cov=11/12	new_cov=11/12	polymorphism_frequency=1.82532787e-01	polymorphism_score=58.4	prediction=polymorphism	ref_cov=34/68	total_cov=45/80
+RA	836	.	NZ_VCCA02000001	3097337	0	A	G	bias_e_value=757302	bias_p_value=0.21181	consensus_score=341.6	fisher_strand_p_value=0.152266	frequency=7.95106888e-02	ks_quality_p_value=0.355085	major_base=A	major_cov=39/65	major_frequency=9.20489311e-01	minor_base=G	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=7.95106888e-02	polymorphism_score=11.6	prediction=polymorphism	ref_cov=39/65	total_cov=45/69
+RA	837	.	NZ_VCCA02000001	3097338	0	C	G	bias_e_value=879922	bias_p_value=0.246106	consensus_score=291.9	fisher_strand_p_value=0.148665	frequency=9.08627510e-02	ks_quality_p_value=0.445713	major_base=C	major_cov=33/57	major_frequency=9.09137249e-01	minor_base=G	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=9.08627510e-02	polymorphism_score=17.8	prediction=polymorphism	ref_cov=33/57	total_cov=39/60
+RA	838	.	NZ_VCCA02000001	3097341	0	A	C	bias_e_value=1701170	bias_p_value=0.475802	consensus_score=373.8	fisher_strand_p_value=0.182207	frequency=7.33175278e-02	ks_quality_p_value=0.947218	major_base=A	major_cov=48/65	major_frequency=9.26682472e-01	minor_base=C	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=7.33175278e-02	polymorphism_score=19.3	prediction=polymorphism	ref_cov=48/65	total_cov=54/69
+RA	839	.	NZ_VCCA02000001	3097346	0	T	C	bias_e_value=1921670	bias_p_value=0.537475	consensus_score=418.0	fisher_strand_p_value=0.303949	frequency=6.53772354e-02	ks_quality_p_value=0.690353	major_base=T	major_cov=58/70	major_frequency=9.34622765e-01	minor_base=C	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=6.53772354e-02	polymorphism_score=11.2	prediction=polymorphism	ref_cov=58/70	total_cov=64/73
+RA	840	.	NZ_VCCA02000001	3097347	0	T	G	bias_e_value=1826930	bias_p_value=0.510975	consensus_score=422.0	fisher_strand_p_value=0.303949	frequency=6.58607483e-02	ks_quality_p_value=0.635929	major_base=T	major_cov=58/70	major_frequency=9.34139252e-01	minor_base=G	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=6.58607483e-02	polymorphism_score=19.0	prediction=polymorphism	ref_cov=58/70	total_cov=64/73
+RA	841	.	NZ_VCCA02000001	3097348	0	C	G	bias_e_value=2348850	bias_p_value=0.656952	consensus_score=417.5	fisher_strand_p_value=0.312275	frequency=6.65917397e-02	ks_quality_p_value=0.94947	major_base=C	major_cov=59/67	major_frequency=9.33408260e-01	minor_base=G	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=6.65917397e-02	polymorphism_score=16.0	prediction=polymorphism	ref_cov=59/67	total_cov=65/70
+RA	842	.	NZ_VCCA02000001	3097407	0	G	C	bias_e_value=2732080	bias_p_value=0.764139	consensus_score=612.5	fisher_strand_p_value=0.429044	frequency=1.98794365e-01	ks_quality_p_value=0.92628	major_base=G	major_cov=106/93	major_frequency=8.01205635e-01	minor_base=C	minor_cov=23/27	new_cov=23/27	polymorphism_frequency=1.98794365e-01	polymorphism_score=121.8	prediction=polymorphism	ref_cov=106/93	total_cov=129/121
+RA	843	.	NZ_VCCA02000001	3097408	0	C	G	bias_e_value=620362	bias_p_value=0.17351	consensus_score=566.3	fisher_strand_p_value=0.204588	frequency=2.09659100e-01	ks_quality_p_value=0.202776	major_base=C	major_cov=106/82	major_frequency=7.90340900e-01	minor_base=G	minor_cov=23/27	new_cov=23/27	polymorphism_frequency=2.09659100e-01	polymorphism_score=130.9	prediction=polymorphism	ref_cov=106/82	total_cov=129/110
+RA	844	.	NZ_VCCA02000001	3097410	0	G	A	bias_e_value=2216180	bias_p_value=0.619845	consensus_score=481.5	fisher_strand_p_value=0.267204	frequency=2.12081432e-01	ks_quality_p_value=1	major_base=G	major_cov=102/83	major_frequency=7.87918568e-01	minor_base=A	minor_cov=23/27	new_cov=23/27	polymorphism_frequency=2.12081432e-01	polymorphism_score=104.0	prediction=polymorphism	ref_cov=102/83	total_cov=125/110
+RA	845	.	NZ_VCCA02000001	3097419	0	G	T	bias_e_value=1460430	bias_p_value=0.408469	consensus_score=546.1	fisher_strand_p_value=0.565869	frequency=2.65872002e-01	ks_quality_p_value=0.241345	major_base=G	major_cov=101/84	major_frequency=7.34127998e-01	minor_base=T	minor_cov=40/27	new_cov=40/27	polymorphism_frequency=2.65872002e-01	polymorphism_score=179.7	prediction=polymorphism	ref_cov=101/84	total_cov=141/111
+RA	846	.	NZ_VCCA02000001	3097428	0	T	G	bias_e_value=917968	bias_p_value=0.256747	consensus_score=301.4	fisher_strand_p_value=0.0732283	frequency=3.28611851e-01	ks_quality_p_value=0.958991	major_base=T	major_cov=62/75	major_frequency=6.71388149e-01	minor_base=G	minor_cov=40/27	new_cov=40/27	polymorphism_frequency=3.28611851e-01	polymorphism_score=192.3	prediction=polymorphism	ref_cov=62/75	total_cov=102/102
+RA	847	.	NZ_VCCA02000001	3097444	0	C	G	bias_e_value=1259350	bias_p_value=0.35223	consensus_score=428.0	fisher_strand_p_value=0.268541	frequency=2.20912457e-01	ks_quality_p_value=0.408659	major_base=C	major_cov=69/65	major_frequency=7.79087543e-01	minor_base=G	minor_cov=24/14	new_cov=24/14	polymorphism_frequency=2.20912457e-01	polymorphism_score=97.5	prediction=polymorphism	ref_cov=69/65	total_cov=93/79
+RA	848	.	NZ_VCCA02000001	3097447	0	G	C	bias_e_value=2543570	bias_p_value=0.711413	consensus_score=539.5	fisher_strand_p_value=0.3651	frequency=1.89965725e-01	ks_quality_p_value=0.943044	major_base=G	major_cov=87/75	major_frequency=8.10034275e-01	minor_base=C	minor_cov=24/14	new_cov=24/14	polymorphism_frequency=1.89965725e-01	polymorphism_score=97.3	prediction=polymorphism	ref_cov=87/75	total_cov=111/89
+RA	849	.	NZ_VCCA02000001	3097448	0	G	A	bias_e_value=2620640	bias_p_value=0.732969	consensus_score=462.4	fisher_strand_p_value=0.3651	frequency=1.89579964e-01	ks_quality_p_value=1	major_base=G	major_cov=87/75	major_frequency=8.10420036e-01	minor_base=A	minor_cov=24/14	new_cov=24/14	polymorphism_frequency=1.89579964e-01	polymorphism_score=80.5	prediction=polymorphism	ref_cov=87/75	total_cov=111/89
+RA	850	.	NZ_VCCA02000001	3097458	0	T	G	bias_e_value=3117940	bias_p_value=0.872058	consensus_score=609.1	fisher_strand_p_value=0.538895	frequency=1.32102013e-01	ks_quality_p_value=1	major_base=T	major_cov=115/71	major_frequency=8.67897987e-01	minor_base=G	minor_cov=20/9	new_cov=20/9	polymorphism_frequency=1.32102013e-01	polymorphism_score=64.4	prediction=polymorphism	ref_cov=115/71	total_cov=136/81
+RA	851	.	NZ_VCCA02000001	3149170	0	G	T	bias_e_value=76409.2	bias_p_value=0.0213709	consensus_score=243.3	fisher_strand_p_value=0.0037135	frequency=9.51819420e-02	ks_quality_p_value=0.851802	major_base=G	major_cov=71/5	major_frequency=9.04818058e-01	minor_base=T	minor_cov=4/4	new_cov=4/4	polymorphism_frequency=9.51819420e-02	polymorphism_score=13.1	prediction=polymorphism	ref_cov=71/5	total_cov=75/9
+RA	852	.	NZ_VCCA02000001	3254766	0	G	C	bias_e_value=1946320	bias_p_value=0.544367	consensus_score=112.6	fisher_strand_p_value=0.247639	frequency=1.62850857e-01	ks_quality_p_value=0.865279	major_base=G	major_cov=4/32	major_frequency=8.37149143e-01	minor_base=C	minor_cov=2/5	new_cov=2/5	polymorphism_frequency=1.62850857e-01	polymorphism_score=12.2	prediction=polymorphism	ref_cov=4/32	total_cov=6/37
+RA	853	.	NZ_VCCA02000001	3254780	0	G	A	bias_e_value=3243940	bias_p_value=0.907301	consensus_score=58.2	fisher_strand_p_value=0.601581	frequency=1.56586170e-01	ks_quality_p_value=1	major_base=G	major_cov=7/14	major_frequency=8.43413830e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=1.56586170e-01	polymorphism_score=2.3	prediction=polymorphism	ref_cov=7/14	total_cov=9/19
+RA	854	.	NZ_VCCA02000001	3254781	0	G	C	bias_e_value=1507310	bias_p_value=0.421581	consensus_score=64.8	fisher_strand_p_value=0.143236	frequency=2.24989414e-01	ks_quality_p_value=1	major_base=G	major_cov=6/17	major_frequency=7.75010586e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=2.24989414e-01	polymorphism_score=11.3	prediction=polymorphism	ref_cov=6/17	total_cov=11/19
+RA	855	.	NZ_VCCA02000001	3254786	0	T	C	bias_e_value=3010590	bias_p_value=0.842035	consensus_score=70.6	fisher_strand_p_value=1	frequency=1.43579960e-01	ks_quality_p_value=0.493513	major_base=T	major_cov=11/14	major_frequency=8.56420040e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=1.43579960e-01	polymorphism_score=3.0	prediction=polymorphism	ref_cov=11/14	total_cov=13/19
+RA	856	.	NZ_VCCA02000001	3254805	0	C	G	bias_e_value=1193620	bias_p_value=0.333845	consensus_score=82.0	fisher_strand_p_value=0.105256	frequency=1.25113964e-01	ks_quality_p_value=0.964916	major_base=C	major_cov=25/3	major_frequency=8.74886036e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=1.25113964e-01	polymorphism_score=4.5	prediction=polymorphism	ref_cov=25/3	total_cov=27/5
+RA	857	.	NZ_VCCA02000001	3302928	0	T	G	bias_e_value=191.389	bias_p_value=5.35298e-05	consensus_score=185.6	fisher_strand_p_value=3.98495e-06	frequency=1.71933174e-01	ks_quality_p_value=1	major_base=T	major_cov=22/54	major_frequency=8.28066826e-01	minor_base=G	minor_cov=16/2	new_cov=16/2	polymorphism_frequency=1.71933174e-01	polymorphism_score=4.7	prediction=polymorphism	ref_cov=22/54	total_cov=39/56
+RA	858	.	NZ_VCCA02000001	3353077	0	C	T	bias_e_value=2612000	bias_p_value=0.730551	consensus_score=89.3	fisher_strand_p_value=0.367022	frequency=1.71109676e-01	ks_quality_p_value=0.988247	major_base=C	major_cov=11/18	major_frequency=8.28890324e-01	minor_base=T	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.71109676e-01	polymorphism_score=7.8	prediction=polymorphism	ref_cov=11/18	total_cov=15/20
+RA	859	.	NZ_VCCA02000001	3353084	0	T	G	bias_e_value=3193470	bias_p_value=0.893184	consensus_score=71.6	fisher_strand_p_value=0.574978	frequency=2.06765652e-01	ks_quality_p_value=1	major_base=T	major_cov=19/4	major_frequency=7.93234348e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=2.06765652e-01	polymorphism_score=10.5	prediction=polymorphism	ref_cov=19/4	total_cov=23/6
+RA	860	.	NZ_VCCA02000001	3353086	0	C	T	bias_e_value=1490960	bias_p_value=0.417009	consensus_score=72.9	fisher_strand_p_value=0.26926	frequency=2.06658840e-01	ks_quality_p_value=0.52326	major_base=C	major_cov=20/3	major_frequency=7.93341160e-01	minor_base=T	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=2.06658840e-01	polymorphism_score=8.8	prediction=polymorphism	ref_cov=20/3	total_cov=24/5
+RA	861	.	NZ_VCCA02000001	3399347	0	G	T	bias_e_value=12.9193	bias_p_value=3.61341e-06	consensus_score=300.9	fisher_strand_p_value=2.21363e-07	frequency=1.26867294e-01	ks_quality_p_value=1	major_base=G	major_cov=74/19	major_frequency=8.73132706e-01	minor_base=T	minor_cov=3/16	new_cov=3/16	polymorphism_frequency=1.26867294e-01	polymorphism_score=5.9	prediction=polymorphism	ref_cov=74/19	total_cov=77/35
+RA	862	.	NZ_VCCA02000001	3441649	0	G	C	bias_e_value=2957930	bias_p_value=0.827306	consensus_score=351.1	fisher_strand_p_value=0.519907	frequency=1.01608276e-01	ks_quality_p_value=0.910265	major_base=G	major_cov=33/73	major_frequency=8.98391724e-01	minor_base=C	minor_cov=5/7	new_cov=5/7	polymorphism_frequency=1.01608276e-01	polymorphism_score=25.7	prediction=polymorphism	ref_cov=33/73	total_cov=38/80
+RA	863	.	NZ_VCCA02000001	3444990	0	C	T	bias_e_value=3563600	bias_p_value=0.996706	consensus_score=231.7	fisher_strand_p_value=1	frequency=7.01079369e-02	ks_quality_p_value=0.919942	major_base=C	major_cov=44/35	major_frequency=9.29892063e-01	minor_base=T	minor_cov=3/3	new_cov=3/3	polymorphism_frequency=7.01079369e-02	polymorphism_score=5.1	prediction=polymorphism	ref_cov=44/35	total_cov=47/38
+RA	864	.	NZ_VCCA02000001	3467862	0	T	G	bias_e_value=2.15467e-22	bias_p_value=6.02643e-29	consensus_score=81.4	fisher_strand_p_value=6.89409e-17	frequency=1	ks_quality_p_value=1.24468e-14	major_base=G	major_cov=54/1	major_frequency=4.96323586e-01	minor_base=T	minor_cov=12/38	new_cov=54/1	polymorphism_frequency=4.96323586e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=139.3	prediction=consensus	ref_cov=12/38	total_cov=80/39
+RA	865	.	NZ_VCCA02000002	58307	0	G	C	bias_e_value=75023.7	bias_p_value=0.0209834	consensus_score=23.9	fisher_strand_p_value=0.00309598	frequency=1	ks_quality_p_value=1	major_base=C	major_cov=0/10	major_frequency=5.26293755e-01	minor_base=G	minor_cov=6/3	new_cov=0/10	polymorphism_frequency=5.26293755e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=25.9	prediction=consensus	ref_cov=6/3	total_cov=6/13
+RA	866	.	NZ_VCCA02000002	58312	0	C	A	bias_e_value=75023.7	bias_p_value=0.0209834	consensus_score=22.8	fisher_strand_p_value=0.00309598	frequency=1	ks_quality_p_value=1	major_base=A	major_cov=0/10	major_frequency=5.27868748e-01	minor_base=C	minor_cov=6/3	new_cov=0/10	polymorphism_frequency=5.27868748e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=24.5	prediction=consensus	ref_cov=6/3	total_cov=6/13
+RA	867	.	NZ_VCCA02000002	58313	0	A	C	bias_e_value=71241.4	bias_p_value=0.0199256	consensus_score=22.1	fisher_strand_p_value=0.0154193	frequency=4.84910488e-01	ks_quality_p_value=0.188972	major_base=A	major_cov=9/4	major_frequency=5.15089512e-01	minor_base=C	minor_cov=2/10	new_cov=2/10	polymorphism_frequency=4.84910488e-01	polymorphism_score=31.8	prediction=polymorphism	ref_cov=9/4	total_cov=11/14
+RA	868	.	NZ_VCCA02000002	59601	0	A	C	bias_e_value=4434.94	bias_p_value=0.00124041	consensus_score=148.1	fisher_strand_p_value=0.000124112	frequency=2.09878445e-01	ks_quality_p_value=1	major_base=A	major_cov=46/50	major_frequency=7.90121555e-01	minor_base=C	minor_cov=24/3	new_cov=24/3	polymorphism_frequency=2.09878445e-01	polymorphism_score=9.1	prediction=polymorphism	ref_cov=46/50	total_cov=77/53
+RA	869	.	NZ_VCCA02000002	59612	0	T	G	bias_e_value=1548060	bias_p_value=0.432979	consensus_score=170.4	fisher_strand_p_value=0.149164	frequency=1.44933701e-01	ks_quality_p_value=1	major_base=T	major_cov=66/42	major_frequency=8.55066299e-01	minor_base=G	minor_cov=9/12	new_cov=9/12	polymorphism_frequency=1.44933701e-01	polymorphism_score=5.7	prediction=polymorphism	ref_cov=66/42	total_cov=75/55
+MC	870	.	NZ_VCCA02000001	559084	559129	0	0	left_inside_cov=11	left_outside_cov=13	right_inside_cov=10	right_outside_cov=15
+MC	871	.	NZ_VCCA02000001	624195	624350	0	0	left_inside_cov=7	left_outside_cov=16	right_inside_cov=8	right_outside_cov=13
+MC	872	.	NZ_VCCA02000001	953173	953204	0	0	left_inside_cov=12	left_outside_cov=15	right_inside_cov=11	right_outside_cov=13
+MC	873	.	NZ_VCCA02000001	1274339	1274444	0	0	left_inside_cov=10	left_outside_cov=13	right_inside_cov=12	right_outside_cov=14
+MC	874	.	NZ_VCCA02000001	1321563	1321802	0	0	left_inside_cov=12	left_outside_cov=13	right_inside_cov=10	right_outside_cov=13
+MC	875	.	NZ_VCCA02000001	1339037	1339105	0	0	left_inside_cov=12	left_outside_cov=13	right_inside_cov=0	right_outside_cov=78
+MC	876	.	NZ_VCCA02000001	1339135	1339147	0	0	left_inside_cov=0	left_outside_cov=17	right_inside_cov=9	right_outside_cov=13
+MC	877	.	NZ_VCCA02000001	1345446	1345522	0	0	left_inside_cov=11	left_outside_cov=13	right_inside_cov=11	right_outside_cov=13
+MC	878	.	NZ_VCCA02000001	1430807	1430883	0	0	left_inside_cov=10	left_outside_cov=18	right_inside_cov=11	right_outside_cov=14
+MC	879	.	NZ_VCCA02000001	1756289	1756651	0	0	left_inside_cov=11	left_outside_cov=19	right_inside_cov=11	right_outside_cov=13
+MC	880	.	NZ_VCCA02000001	1920085	1920161	0	0	left_inside_cov=12	left_outside_cov=14	right_inside_cov=5	right_outside_cov=14
+MC	881	.	NZ_VCCA02000001	2081566	2081932	0	0	left_inside_cov=12	left_outside_cov=20	right_inside_cov=11	right_outside_cov=13
+MC	882	.	NZ_VCCA02000001	2087432	2087517	0	0	left_inside_cov=9	left_outside_cov=13	right_inside_cov=12	right_outside_cov=15
+MC	883	.	NZ_VCCA02000001	2122839	2122989	0	0	left_inside_cov=11	left_outside_cov=15	right_inside_cov=10	right_outside_cov=15
+MC	884	.	NZ_VCCA02000001	2312736	2313172	0	0	left_inside_cov=10	left_outside_cov=17	right_inside_cov=6	right_outside_cov=40
+MC	885	.	NZ_VCCA02000001	2333568	2333655	0	0	left_inside_cov=11	left_outside_cov=13	right_inside_cov=11	right_outside_cov=18
+MC	886	.	NZ_VCCA02000001	2387623	2387776	0	0	left_inside_cov=10	left_outside_cov=13	right_inside_cov=12	right_outside_cov=18
+MC	887	.	NZ_VCCA02000001	2425329	2425433	0	0	left_inside_cov=11	left_outside_cov=13	right_inside_cov=12	right_outside_cov=13
+MC	888	.	NZ_VCCA02000001	2607862	2608107	0	0	left_inside_cov=7	left_outside_cov=16	right_inside_cov=11	right_outside_cov=14
+MC	889	.	NZ_VCCA02000001	2628316	2628359	0	0	left_inside_cov=12	left_outside_cov=13	right_inside_cov=11	right_outside_cov=18
+MC	890	.	NZ_VCCA02000001	2720571	2720635	0	0	left_inside_cov=6	left_outside_cov=14	right_inside_cov=12	right_outside_cov=13
+MC	891	.	NZ_VCCA02000001	2813433	2813516	0	0	left_inside_cov=11	left_outside_cov=17	right_inside_cov=10	right_outside_cov=20
+MC	892	.	NZ_VCCA02000001	3082064	3082107	0	0	left_inside_cov=12	left_outside_cov=13	right_inside_cov=12	right_outside_cov=14
+MC	893	.	NZ_VCCA02000002	101413	101459	0	0	left_inside_cov=19	left_outside_cov=24	right_inside_cov=0	right_outside_cov=NA
+JC	894	.	NZ_VCCA02000001	3	1	NZ_VCCA02000001	1089310	1	0	alignment_overlap=4	coverage_minus=15	coverage_plus=25	flanking_left=75	flanking_right=75	frequency=6.91275168e-01	junction_possible_overlap_registers=51	key=NZ_VCCA02000001__3__1__NZ_VCCA02000001__1089306__1__4____75__75__0__0	max_left=64	max_left_minus=64	max_left_plus=61	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=15	max_min_right_minus=15	max_min_right_plus=14	max_pos_hash_score=104	max_right=15	max_right_minus=15	max_right_plus=14	neg_log10_pos_hash_p_value=NT	new_junction_coverage=1.21	new_junction_read_count=103	polymorphism_frequency=6.91275168e-01	pos_hash_score=14	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=4	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.08	side_2_overlap=0	side_2_possible_overlap_registers=51	side_2_read_count=92	side_2_redundant=0	total_non_overlap_reads=40
+JC	895	.	NZ_VCCA02000001	256	-1	NZ_VCCA02000001	462080	1	-9	alignment_overlap=-9	coverage_minus=16	coverage_plus=24	flanking_left=75	flanking_right=75	frequency=2.13040671e-01	junction_possible_overlap_registers=46	key=NZ_VCCA02000001__256__-1__NZ_VCCA02000001__462080__1__-9__TGAGCCCCT__75__75__0__0	max_left=58	max_left_minus=53	max_left_plus=58	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=19	max_min_right_minus=19	max_min_right_plus=16	max_pos_hash_score=94	max_right=19	max_right_minus=19	max_right_plus=16	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.94	new_junction_read_count=72	polymorphism_frequency=2.13040671e-01	pos_hash_score=13	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=5.53	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=508	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.39	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=128	side_2_redundant=0	total_non_overlap_reads=40	unique_read_sequence=TGAGCCCCT
+JC	896	.	NZ_VCCA02000001	511617	-1	NZ_VCCA02000001	3254863	1	-23	alignment_overlap=-23	coverage_minus=5	coverage_plus=4	flanking_left=75	flanking_right=75	frequency=5.95667870e-01	junction_possible_overlap_registers=32	key=NZ_VCCA02000001__511617__-1__NZ_VCCA02000001__3254863__1__-23__GCATCGGCGACGGCGGCGGTCAC__75__75__0__0	max_left=19	max_left_minus=19	max_left_plus=19	max_min_left=16	max_min_left_minus=16	max_min_left_plus=15	max_min_right=18	max_min_right_minus=18	max_min_right_plus=18	max_pos_hash_score=66	max_right=22	max_right_minus=19	max_right_plus=22	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.73	new_junction_read_count=39	polymorphism_frequency=5.95667870e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.70	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=64	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.29	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=27	side_2_redundant=0	total_non_overlap_reads=9	unique_read_sequence=GCATCGGCGACGGCGGCGGTCAC
+JC	897	.	NZ_VCCA02000001	531920	-1	NZ_VCCA02000001	3016406	1	-6	alignment_overlap=-6	coverage_minus=7	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.34064595e-01	junction_possible_overlap_registers=49	key=NZ_VCCA02000001__531920__-1__NZ_VCCA02000001__3016406__1__-6__GCGGCC__75__75__0__0	max_left=45	max_left_minus=45	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=22	max_min_right_minus=22	max_min_right_plus=0	max_pos_hash_score=100	max_right=22	max_right_minus=22	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.10	new_junction_read_count=8	polymorphism_frequency=1.34064595e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.26	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=116	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=7	unique_read_sequence=GCGGCC
+JC	898	.	NZ_VCCA02000001	597504	1	NZ_VCCA02000001	597500	-1	0	alignment_overlap=10	coverage_minus=2	coverage_plus=1	flanking_left=75	flanking_right=75	frequency=2.23956566e-02	junction_possible_overlap_registers=45	key=NZ_VCCA02000001__597504__1__NZ_VCCA02000001__597510__-1__10____75__75__0__0	max_left=56	max_left_minus=26	max_left_plus=56	max_min_left=14	max_min_left_minus=14	max_min_left_plus=0	max_min_right=24	max_min_right_minus=24	max_min_right_plus=8	max_pos_hash_score=92	max_right=50	max_right_minus=50	max_right_plus=8	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.04	new_junction_read_count=3	polymorphism_frequency=2.23956566e-02	pos_hash_score=3	prediction=polymorphism	reject=FREQUENCY_CUTOFF	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.62	side_1_overlap=10	side_1_possible_overlap_registers=55	side_1_read_count=149	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.86	side_2_overlap=0	side_2_possible_overlap_registers=45	side_2_read_count=140	side_2_redundant=0	total_non_overlap_reads=3
+JC	899	.	NZ_VCCA02000001	735523	-1	NZ_VCCA02000001	3016406	1	-8	alignment_overlap=-8	coverage_minus=4	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.27610209e-01	junction_possible_overlap_registers=47	key=NZ_VCCA02000001__735523__-1__NZ_VCCA02000001__3016406__1__-8__CCCCCCCC__75__75__0__0	max_left=56	max_left_minus=56	max_left_plus=0	max_min_left=23	max_min_left_minus=23	max_min_left_plus=0	max_min_right=23	max_min_right_minus=23	max_min_right_plus=0	max_pos_hash_score=96	max_right=27	max_right_minus=27	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.06	new_junction_read_count=5	polymorphism_frequency=1.27610209e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.87	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=80	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=4	unique_read_sequence=CCCCCCCC
+JC	900	.	NZ_VCCA02000001	861799	-1	NZ_VCCA02000001	3016431	-1	0	alignment_overlap=1	coverage_minus=5	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.19539231e-01	junction_possible_overlap_registers=54	key=NZ_VCCA02000001__861799__-1__NZ_VCCA02000001__3016432__-1__1____75__75__0__0	max_left=60	max_left_minus=60	max_left_plus=0	max_min_left=18	max_min_left_minus=18	max_min_left_plus=0	max_min_right=20	max_min_right_minus=20	max_min_right_plus=0	max_pos_hash_score=110	max_right=25	max_right_minus=25	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.06	new_junction_read_count=5	polymorphism_frequency=1.19539231e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.80	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=74	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.01	side_2_overlap=0	side_2_possible_overlap_registers=54	side_2_read_count=1	side_2_redundant=0	total_non_overlap_reads=5
+JC	901	.	NZ_VCCA02000001	1073972	1	NZ_VCCA02000001	2211583	1	-5	alignment_overlap=-5	coverage_minus=2	coverage_plus=26	flanking_left=75	flanking_right=75	frequency=4.08462867e-01	junction_possible_overlap_registers=50	key=NZ_VCCA02000001__1073972__1__NZ_VCCA02000001__2211583__1__-5__CCAGG__75__75__0__0	max_left=29	max_left_minus=29	max_left_plus=27	max_min_left=26	max_min_left_minus=0	max_min_left_plus=26	max_min_right=27	max_min_right_minus=25	max_min_right_plus=27	max_pos_hash_score=102	max_right=30	max_right_minus=25	max_right_plus=30	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.51	new_junction_read_count=43	polymorphism_frequency=4.08462867e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.96	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=88	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.53	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=49	side_2_redundant=0	total_non_overlap_reads=28	unique_read_sequence=CCAGG
+JC	902	.	NZ_VCCA02000001	1129265	1	NZ_VCCA02000001	1129261	-1	0	alignment_overlap=17	coverage_minus=1	coverage_plus=7	flanking_left=75	flanking_right=75	frequency=1.54304752e-01	junction_possible_overlap_registers=38	key=NZ_VCCA02000001__1129265__1__NZ_VCCA02000001__1129278__-1__17____75__75__0__0	max_left=51	max_left_minus=45	max_left_plus=51	max_min_left=9	max_min_left_minus=0	max_min_left_plus=9	max_min_right=23	max_min_right_minus=12	max_min_right_plus=23	max_pos_hash_score=78	max_right=34	max_right_minus=12	max_right_plus=34	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.13	new_junction_read_count=8	polymorphism_frequency=1.54304752e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.61	side_1_overlap=17	side_1_possible_overlap_registers=55	side_1_read_count=56	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.77	side_2_overlap=0	side_2_possible_overlap_registers=38	side_2_read_count=49	side_2_redundant=0	total_non_overlap_reads=8
+JC	903	.	NZ_VCCA02000001	1212119	-1	NZ_VCCA02000001	3016431	-1	0	alignment_overlap=3	coverage_minus=3	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.44594151e-01	junction_possible_overlap_registers=52	key=NZ_VCCA02000001__1212119__-1__NZ_VCCA02000001__3016434__-1__3____75__75__0__0	max_left=41	max_left_minus=41	max_left_plus=0	max_min_left=16	max_min_left_minus=16	max_min_left_plus=0	max_min_right=31	max_min_right_minus=31	max_min_right_plus=0	max_pos_hash_score=106	max_right=31	max_right_minus=31	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.05	new_junction_read_count=4	polymorphism_frequency=1.44594151e-01	pos_hash_score=3	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.53	side_1_overlap=3	side_1_possible_overlap_registers=55	side_1_read_count=49	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.01	side_2_overlap=0	side_2_possible_overlap_registers=52	side_2_read_count=1	side_2_redundant=0	total_non_overlap_reads=3
+JC	904	.	NZ_VCCA02000001	1221693	1	NZ_VCCA02000001	3187205	1	-23	alignment_overlap=-23	coverage_minus=0	coverage_plus=9	flanking_left=75	flanking_right=75	frequency=5.27906150e-01	junction_possible_overlap_registers=32	key=NZ_VCCA02000001__1221693__1__NZ_VCCA02000001__3187205__1__-23__CGGCCGCCGTCCTGCCGAGGCCC__75__75__0__0	max_left=18	max_left_minus=0	max_left_plus=18	max_min_left=18	max_min_left_minus=0	max_min_left_plus=18	max_min_right=18	max_min_right_minus=0	max_min_right_plus=18	max_pos_hash_score=66	max_right=20	max_right_minus=0	max_right_plus=20	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.50	new_junction_read_count=27	polymorphism_frequency=5.27906150e-01	pos_hash_score=3	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.85	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=78	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.05	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=5	side_2_redundant=0	total_non_overlap_reads=9	unique_read_sequence=CGGCCGCCGTCCTGCCGAGGCCC
+JC	905	.	NZ_VCCA02000001	1227252	1	NZ_VCCA02000001	1510398	1	0	alignment_overlap=6	coverage_minus=21	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=3.15919037e-01	junction_possible_overlap_registers=49	key=NZ_VCCA02000001__1227252__1__NZ_VCCA02000001__1510392__1__6____75__75__0__0	max_left=22	max_left_minus=22	max_left_plus=0	max_min_left=22	max_min_left_minus=22	max_min_left_plus=0	max_min_right=0	max_min_right_minus=0	max_min_right_plus=0	max_pos_hash_score=100	max_right=60	max_right_minus=60	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.26	new_junction_read_count=21	polymorphism_frequency=3.15919037e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.90	side_1_overlap=6	side_1_possible_overlap_registers=55	side_1_read_count=83	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.21	side_2_overlap=0	side_2_possible_overlap_registers=49	side_2_read_count=17	side_2_redundant=0	total_non_overlap_reads=21
+JC	906	.	NZ_VCCA02000001	1297037	-1	NZ_VCCA02000001	3016429	-1	0	alignment_overlap=5	coverage_minus=9	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=2.41095890e-01	junction_possible_overlap_registers=50	key=NZ_VCCA02000001__1297037__-1__NZ_VCCA02000001__3016434__-1__5____75__75__0__0	max_left=63	max_left_minus=63	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=15	max_min_right_minus=15	max_min_right_plus=0	max_pos_hash_score=102	max_right=15	max_right_minus=15	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.14	new_junction_read_count=12	polymorphism_frequency=2.41095890e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.89	side_1_overlap=5	side_1_possible_overlap_registers=55	side_1_read_count=82	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.01	side_2_overlap=0	side_2_possible_overlap_registers=50	side_2_read_count=1	side_2_redundant=0	total_non_overlap_reads=9
+JC	907	.	NZ_VCCA02000001	1297134	-1	NZ_VCCA02000001	3016408	1	0	alignment_overlap=2	coverage_minus=21	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=4.97447119e-01	junction_possible_overlap_registers=53	key=NZ_VCCA02000001__1297134__-1__NZ_VCCA02000001__3016406__1__2____75__75__0__0	max_left=64	max_left_minus=64	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=25	max_min_right_minus=25	max_min_right_plus=0	max_pos_hash_score=108	max_right=25	max_right_minus=25	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.35	new_junction_read_count=31	polymorphism_frequency=4.97447119e-01	pos_hash_score=8	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.71	side_1_overlap=2	side_1_possible_overlap_registers=55	side_1_read_count=65	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=53	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=21
+JC	908	.	NZ_VCCA02000001	1339106	1	NZ_VCCA02000001	2524972	-1	-17	alignment_overlap=-17	coverage_minus=21	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=7.52019888e-01	junction_possible_overlap_registers=38	key=NZ_VCCA02000001__1339106__1__NZ_VCCA02000001__2524972__-1__-17__TGCGGTGGACGCGGGGC__75__75__0__0	max_left=29	max_left_minus=29	max_left_plus=0	max_min_left=27	max_min_left_minus=27	max_min_left_plus=0	max_min_right=28	max_min_right_minus=28	max_min_right_plus=0	max_pos_hash_score=78	max_right=44	max_right_minus=44	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=1.04	new_junction_read_count=66	polymorphism_frequency=7.52019888e-01	pos_hash_score=8	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.69	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=63	side_2_redundant=0	total_non_overlap_reads=21	unique_read_sequence=TGCGGTGGACGCGGGGC
+JC	909	.	NZ_VCCA02000001	1414482	-1	NZ_VCCA02000001	1414501	1	-18	alignment_overlap=-18	coverage_minus=7	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.01609923e-01	junction_possible_overlap_registers=37	key=NZ_VCCA02000001__1414482__-1__NZ_VCCA02000001__1414501__1__-18__CTAATAATTAAAAAAAAA__75__75__0__0	max_left=47	max_left_minus=47	max_left_plus=0	max_min_left=22	max_min_left_minus=22	max_min_left_plus=0	max_min_right=27	max_min_right_minus=27	max_min_right_plus=0	max_pos_hash_score=76	max_right=33	max_right_minus=33	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.11	new_junction_read_count=7	polymorphism_frequency=1.01609923e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.95	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=87	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.06	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=97	side_2_redundant=0	total_non_overlap_reads=7	unique_read_sequence=CTAATAATTAAAAAAAAA
+JC	910	.	NZ_VCCA02000001	1510401	-1	NZ_VCCA02000001	1900208	-1	-7	alignment_overlap=-7	coverage_minus=0	coverage_plus=24	flanking_left=75	flanking_right=75	frequency=5.91397849e-01	junction_possible_overlap_registers=48	key=NZ_VCCA02000001__1510401__-1__NZ_VCCA02000001__1900208__-1__-7__TCCCCAC__75__75__0__0	max_left=59	max_left_minus=0	max_left_plus=59	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=31	max_min_right_minus=0	max_min_right_plus=31	max_pos_hash_score=98	max_right=31	max_right_minus=0	max_right_plus=31	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.30	new_junction_read_count=24	polymorphism_frequency=5.91397849e-01	pos_hash_score=8	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.18	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=17	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.23	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=21	side_2_redundant=0	total_non_overlap_reads=24	unique_read_sequence=TCCCCAC
+JC	911	.	NZ_VCCA02000001	1629397	1	NZ_VCCA02000001	3016428	-1	0	alignment_overlap=1	coverage_minus=5	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.91924227e-01	junction_possible_overlap_registers=54	key=NZ_VCCA02000001__1629397__1__NZ_VCCA02000001__3016429__-1__1____75__75__0__0	max_left=67	max_left_minus=67	max_left_plus=0	max_min_left=18	max_min_left_minus=18	max_min_left_plus=0	max_min_right=20	max_min_right_minus=20	max_min_right_plus=0	max_pos_hash_score=110	max_right=20	max_right_minus=20	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.08	new_junction_read_count=7	polymorphism_frequency=1.91924227e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.63	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=58	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.02	side_2_overlap=0	side_2_possible_overlap_registers=54	side_2_read_count=2	side_2_redundant=0	total_non_overlap_reads=5
+JC	912	.	NZ_VCCA02000001	1698001	-1	NZ_VCCA02000001	3097404	1	0	alignment_overlap=5	coverage_minus=16	coverage_plus=1	flanking_left=75	flanking_right=75	frequency=2.38683128e-01	junction_possible_overlap_registers=50	key=NZ_VCCA02000001__1698001__-1__NZ_VCCA02000001__3097399__1__5____75__75__0__0	max_left=16	max_left_minus=16	max_left_plus=15	max_min_left=16	max_min_left_minus=16	max_min_left_plus=15	max_min_right=0	max_min_right_minus=0	max_min_right_plus=0	max_pos_hash_score=102	max_right=40	max_right_minus=40	max_right_plus=39	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.35	new_junction_read_count=29	polymorphism_frequency=2.38683128e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.24	side_1_overlap=5	side_1_possible_overlap_registers=55	side_1_read_count=22	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.97	side_2_overlap=0	side_2_possible_overlap_registers=50	side_2_read_count=165	side_2_redundant=0	total_non_overlap_reads=17
+JC	913	.	NZ_VCCA02000001	1868420	-1	NZ_VCCA02000001	3016432	-1	0	alignment_overlap=0	coverage_minus=14	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=5.48387097e-01	junction_possible_overlap_registers=55	key=NZ_VCCA02000001__1868420__-1__NZ_VCCA02000001__3016432__-1__0____75__75__0__0	max_left=68	max_left_minus=68	max_left_plus=0	max_min_left=14	max_min_left_minus=14	max_min_left_plus=0	max_min_right=27	max_min_right_minus=27	max_min_right_plus=0	max_pos_hash_score=112	max_right=27	max_right_minus=27	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.18	new_junction_read_count=17	polymorphism_frequency=5.48387097e-01	pos_hash_score=11	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.29	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=27	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.01	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=1	side_2_redundant=0	total_non_overlap_reads=14
+JC	914	.	NZ_VCCA02000001	2002485	1	NZ_VCCA02000001	3016408	1	0	alignment_overlap=2	coverage_minus=7	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=3.12993993e-01	junction_possible_overlap_registers=53	key=NZ_VCCA02000001__2002485__1__NZ_VCCA02000001__3016406__1__2____75__75__0__0	max_left=61	max_left_minus=61	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=28	max_min_right_minus=28	max_min_right_plus=0	max_pos_hash_score=108	max_right=28	max_right_minus=28	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.10	new_junction_read_count=9	polymorphism_frequency=3.12993993e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.45	side_1_overlap=2	side_1_possible_overlap_registers=55	side_1_read_count=41	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=53	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=7
+JC	915	.	NZ_VCCA02000001	2052813	-1	NZ_VCCA02000001	3016413	1	0	alignment_overlap=7	coverage_minus=12	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=8.59375000e-01	junction_possible_overlap_registers=48	key=NZ_VCCA02000001__2052813__-1__NZ_VCCA02000001__3016406__1__7____75__75__0__0	max_left=57	max_left_minus=57	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=21	max_min_right_minus=21	max_min_right_plus=0	max_pos_hash_score=98	max_right=21	max_right_minus=21	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.20	new_junction_read_count=16	polymorphism_frequency=8.59375000e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.07	side_1_overlap=7	side_1_possible_overlap_registers=55	side_1_read_count=6	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=48	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=12
+JC	916	.	NZ_VCCA02000001	2062871	-1	NZ_VCCA02000001	3083449	1	-15	alignment_overlap=-15	coverage_minus=7	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=4.58333333e-01	junction_possible_overlap_registers=40	key=NZ_VCCA02000001__2062871__-1__NZ_VCCA02000001__3083449__1__-15__AGCATCCCGGAGGCC__75__75__0__0	max_left=22	max_left_minus=22	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=16	max_min_right_minus=16	max_min_right_plus=0	max_pos_hash_score=82	max_right=16	max_right_minus=16	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.48	new_junction_read_count=32	polymorphism_frequency=4.58333333e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.40	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=37	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.73	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=67	side_2_redundant=0	total_non_overlap_reads=7	unique_read_sequence=AGCATCCCGGAGGCC
+JC	917	.	NZ_VCCA02000001	2218894	1	NZ_VCCA02000001	3016428	-1	0	alignment_overlap=1	coverage_minus=7	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=2.59801606e-01	junction_possible_overlap_registers=54	key=NZ_VCCA02000001__2218894__1__NZ_VCCA02000001__3016429__-1__1____75__75__0__0	max_left=60	max_left_minus=60	max_left_plus=0	max_min_left=7	max_min_left_minus=7	max_min_left_plus=0	max_min_right=23	max_min_right_minus=23	max_min_right_plus=0	max_pos_hash_score=110	max_right=23	max_right_minus=23	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.11	new_junction_read_count=10	polymorphism_frequency=2.59801606e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.61	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=56	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.02	side_2_overlap=0	side_2_possible_overlap_registers=54	side_2_read_count=2	side_2_redundant=0	total_non_overlap_reads=7
+JC	918	.	NZ_VCCA02000001	2522040	-1	NZ_VCCA02000001	2522057	1	-16	alignment_overlap=-16	coverage_minus=0	coverage_plus=10	flanking_left=75	flanking_right=75	frequency=2.58823529e-01	junction_possible_overlap_registers=39	key=NZ_VCCA02000001__2522040__-1__NZ_VCCA02000001__2522057__1__-16__TTTTTTTTTTAATGAT__75__75__0__0	max_left=23	max_left_minus=0	max_left_plus=23	max_min_left=23	max_min_left_minus=0	max_min_left_plus=23	max_min_right=0	max_min_right_minus=0	max_min_right_plus=0	max_pos_hash_score=80	max_right=52	max_right_minus=0	max_right_plus=52	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.20	new_junction_read_count=13	polymorphism_frequency=2.58823529e-01	pos_hash_score=3	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.58	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=53	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.57	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=52	side_2_redundant=0	total_non_overlap_reads=10	unique_read_sequence=TTTTTTTTTTAATGAT
+JC	919	.	NZ_VCCA02000001	2793881	1	NZ_VCCA02000001	3016406	1	-25	alignment_overlap=-25	coverage_minus=15	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=5.62659847e-01	junction_possible_overlap_registers=30	key=NZ_VCCA02000001__2793881__1__NZ_VCCA02000001__3016406__1__-25__TCCCCCCCCCCGGCCCCCCCCCCCC__75__75__0__0	max_left=38	max_left_minus=38	max_left_plus=0	max_min_left=24	max_min_left_minus=24	max_min_left_plus=0	max_min_right=24	max_min_right_minus=24	max_min_right_plus=0	max_pos_hash_score=62	max_right=27	max_right_minus=27	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.40	new_junction_read_count=20	polymorphism_frequency=5.62659847e-01	pos_hash_score=7	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.62	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=57	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=15	unique_read_sequence=TCCCCCCCCCCGGCCCCCCCCCCCC
+JC	920	.	NZ_VCCA02000001	2994420	1	NZ_VCCA02000001	3016431	-1	0	alignment_overlap=1	coverage_minus=12	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=4.45584661e-01	junction_possible_overlap_registers=54	key=NZ_VCCA02000001__2994420__1__NZ_VCCA02000001__3016432__-1__1____75__75__0__0	max_left=66	max_left_minus=66	max_left_plus=0	max_min_left=14	max_min_left_minus=14	max_min_left_plus=0	max_min_right=26	max_min_right_minus=26	max_min_right_plus=0	max_pos_hash_score=110	max_right=26	max_right_minus=26	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.17	new_junction_read_count=15	polymorphism_frequency=4.45584661e-01	pos_hash_score=9	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.40	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=37	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.01	side_2_overlap=0	side_2_possible_overlap_registers=54	side_2_read_count=1	side_2_redundant=0	total_non_overlap_reads=12
+JC	921	.	NZ_VCCA02000001	3016406	-1	NZ_VCCA02000002	1	1	-5	alignment_overlap=-5	coverage_minus=5	coverage_plus=48	flanking_left=75	flanking_right=75	frequency=1	junction_possible_overlap_registers=50	key=NZ_VCCA02000001__3016406__-1__NZ_VCCA02000002__1__1__-5__GCGCC__75__75__0__0	max_left=63	max_left_minus=56	max_left_plus=63	max_min_left=30	max_min_left_minus=7	max_min_left_plus=30	max_min_right=34	max_min_right_minus=13	max_min_right_plus=34	max_pos_hash_score=102	max_right=63	max_right_minus=62	max_right_plus=63	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.65	new_junction_read_count=53	polymorphism_frequency=1.00000000e+00	pos_hash_score=19	prediction=consensus	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=53	unique_read_sequence=GCGCC
+JC	922	.	NZ_VCCA02000001	3016406	1	NZ_VCCA02000001	3016408	1	-4	alignment_overlap=-4	coverage_minus=2	coverage_plus=2	flanking_left=75	flanking_right=75	frequency=1	junction_possible_overlap_registers=51	key=NZ_VCCA02000001__3016406__1__NZ_VCCA02000001__3016408__1__-4__GCGG__75__75__0__0	max_left=27	max_left_minus=27	max_left_plus=18	max_min_left=18	max_min_left_minus=0	max_min_left_plus=18	max_min_right=19	max_min_right_minus=19	max_min_right_plus=0	max_pos_hash_score=104	max_right=27	max_right_minus=19	max_right_plus=27	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.28	new_junction_read_count=24	polymorphism_frequency=1.00000000e+00	pos_hash_score=4	prediction=consensus	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=4	unique_read_sequence=GCGG
+JC	923	.	NZ_VCCA02000001	3016406	1	NZ_VCCA02000001	3415866	1	-12	alignment_overlap=-12	coverage_minus=0	coverage_plus=28	flanking_left=75	flanking_right=75	frequency=3.07291182e-01	junction_possible_overlap_registers=43	key=NZ_VCCA02000001__3016406__1__NZ_VCCA02000001__3415866__1__-12__GGGGGGGGGCTT__75__75__0__0	max_left=27	max_left_minus=0	max_left_plus=27	max_min_left=24	max_min_left_minus=0	max_min_left_plus=24	max_min_right=20	max_min_right_minus=0	max_min_right_plus=20	max_pos_hash_score=88	max_right=56	max_right_minus=0	max_right_plus=56	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.42	new_junction_read_count=30	polymorphism_frequency=3.07291182e-01	pos_hash_score=10	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.88	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=173	side_2_redundant=0	total_non_overlap_reads=28	unique_read_sequence=GGGGGGGGGCTT
+JC	924	.	NZ_VCCA02000001	3016433	-1	NZ_VCCA02000001	3080700	1	0	alignment_overlap=3	coverage_minus=0	coverage_plus=23	flanking_left=75	flanking_right=75	frequency=7.09350530e-01	junction_possible_overlap_registers=52	key=NZ_VCCA02000001__3016433__-1__NZ_VCCA02000001__3080697__1__3____75__75__0__0	max_left=19	max_left_minus=0	max_left_plus=19	max_min_left=19	max_min_left_minus=0	max_min_left_plus=19	max_min_right=0	max_min_right_minus=0	max_min_right_plus=0	max_pos_hash_score=106	max_right=53	max_right_minus=0	max_right_plus=53	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.32	new_junction_read_count=28	polymorphism_frequency=7.09350530e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.01	side_1_overlap=3	side_1_possible_overlap_registers=55	side_1_read_count=1	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.25	side_2_overlap=0	side_2_possible_overlap_registers=52	side_2_read_count=22	side_2_redundant=0	total_non_overlap_reads=23
+JC	925	.	NZ_VCCA02000001	3016434	-1	NZ_VCCA02000001	3150105	1	0	alignment_overlap=3	coverage_minus=0	coverage_plus=11	flanking_left=75	flanking_right=75	frequency=3.14973893e-01	junction_possible_overlap_registers=52	key=NZ_VCCA02000001__3016434__-1__NZ_VCCA02000001__3150102__1__3____75__75__0__0	max_left=22	max_left_minus=0	max_left_plus=22	max_min_left=22	max_min_left_minus=0	max_min_left_plus=22	max_min_right=0	max_min_right_minus=0	max_min_right_plus=0	max_pos_hash_score=106	max_right=56	max_right_minus=0	max_right_plus=56	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.20	new_junction_read_count=17	polymorphism_frequency=3.14973893e-01	pos_hash_score=7	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.01	side_1_overlap=3	side_1_possible_overlap_registers=55	side_1_read_count=1	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.84	side_2_overlap=0	side_2_possible_overlap_registers=52	side_2_read_count=73	side_2_redundant=0	total_non_overlap_reads=11
+JC	926	.	NZ_VCCA02000001	3016434	-1	NZ_VCCA02000001	3221806	-1	0	alignment_overlap=3	coverage_minus=0	coverage_plus=22	flanking_left=75	flanking_right=75	frequency=5.88613014e-01	junction_possible_overlap_registers=52	key=NZ_VCCA02000001__3016434__-1__NZ_VCCA02000001__3221809__-1__3____75__75__0__0	max_left=24	max_left_minus=0	max_left_plus=24	max_min_left=24	max_min_left_minus=0	max_min_left_plus=24	max_min_right=9	max_min_right_minus=0	max_min_right_plus=9	max_pos_hash_score=106	max_right=66	max_right_minus=0	max_right_plus=66	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.29	new_junction_read_count=25	polymorphism_frequency=5.88613014e-01	pos_hash_score=9	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.01	side_1_overlap=3	side_1_possible_overlap_registers=55	side_1_read_count=1	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.39	side_2_overlap=0	side_2_possible_overlap_registers=52	side_2_read_count=34	side_2_redundant=0	total_non_overlap_reads=22
+JC	927	.	NZ_VCCA02000001	3016434	-1	NZ_VCCA02000001	3414959	1	0	alignment_overlap=3	coverage_minus=0	coverage_plus=8	flanking_left=75	flanking_right=75	frequency=2.25153514e-01	junction_possible_overlap_registers=52	key=NZ_VCCA02000001__3016434__-1__NZ_VCCA02000001__3414956__1__3____75__75__0__0	max_left=13	max_left_minus=0	max_left_plus=13	max_min_left=12	max_min_left_minus=0	max_min_left_plus=12	max_min_right=13	max_min_right_minus=0	max_min_right_plus=13	max_pos_hash_score=106	max_right=38	max_right_minus=0	max_right_plus=38	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.10	new_junction_read_count=9	polymorphism_frequency=2.25153514e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.01	side_1_overlap=3	side_1_possible_overlap_registers=55	side_1_read_count=1	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.70	side_2_overlap=0	side_2_possible_overlap_registers=52	side_2_read_count=61	side_2_redundant=0	total_non_overlap_reads=8
+JC	928	.	NZ_VCCA02000001	3233185	1	NZ_VCCA02000001	3233180	-1	0	alignment_overlap=19	coverage_minus=2	coverage_plus=1	flanking_left=75	flanking_right=75	frequency=4.26246448e-02	junction_possible_overlap_registers=36	key=NZ_VCCA02000001__3233185__1__NZ_VCCA02000001__3233199__-1__19____75__75__0__0	max_left=49	max_left_minus=49	max_left_plus=25	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=25	max_min_right_minus=25	max_min_right_plus=16	max_pos_hash_score=74	max_right=25	max_right_minus=25	max_right_plus=16	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.05	new_junction_read_count=3	polymorphism_frequency=4.26246448e-02	pos_hash_score=3	prediction=polymorphism	reject=FREQUENCY_CUTOFF	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.11	side_1_overlap=19	side_1_possible_overlap_registers=55	side_1_read_count=102	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.13	side_2_overlap=0	side_2_possible_overlap_registers=36	side_2_read_count=68	side_2_redundant=0	total_non_overlap_reads=3
+JC	929	.	NZ_VCCA02000002	17595	1	NZ_VCCA02000002	17591	-1	0	alignment_overlap=10	coverage_minus=2	coverage_plus=1	flanking_left=75	flanking_right=75	frequency=2.75114631e-02	junction_possible_overlap_registers=45	key=NZ_VCCA02000002__17595__1__NZ_VCCA02000002__17601__-1__10____75__75__0__0	max_left=37	max_left_minus=37	max_left_plus=32	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=31	max_min_right_minus=28	max_min_right_plus=31	max_pos_hash_score=92	max_right=31	max_right_minus=28	max_right_plus=31	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.04	new_junction_read_count=3	polymorphism_frequency=2.75114631e-02	pos_hash_score=3	prediction=polymorphism	reject=FREQUENCY_CUTOFF	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.43	side_1_overlap=10	side_1_possible_overlap_registers=55	side_1_read_count=126	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=1.51	side_2_overlap=0	side_2_possible_overlap_registers=45	side_2_read_count=109	side_2_redundant=0	total_non_overlap_reads=3
+UN	930	.	NZ_VCCA02000001	1	1
+UN	931	.	NZ_VCCA02000001	293	293
+UN	932	.	NZ_VCCA02000001	959	961
+UN	933	.	NZ_VCCA02000001	15259	15275
+UN	934	.	NZ_VCCA02000001	15285	15286
+UN	935	.	NZ_VCCA02000001	15289	15289
+UN	936	.	NZ_VCCA02000001	61687	61691
+UN	937	.	NZ_VCCA02000001	85574	90999
+UN	938	.	NZ_VCCA02000001	131136	131137
+UN	939	.	NZ_VCCA02000001	157070	157072
+UN	940	.	NZ_VCCA02000001	157074	157083
+UN	941	.	NZ_VCCA02000001	226789	226790
+UN	942	.	NZ_VCCA02000001	226792	226794
+UN	943	.	NZ_VCCA02000001	226796	226797
+UN	944	.	NZ_VCCA02000001	226803	226803
+UN	945	.	NZ_VCCA02000001	226806	226806
+UN	946	.	NZ_VCCA02000001	226808	226808
+UN	947	.	NZ_VCCA02000001	226810	226843
+UN	948	.	NZ_VCCA02000001	229960	229960
+UN	949	.	NZ_VCCA02000001	229964	230068
+UN	950	.	NZ_VCCA02000001	230070	230071
+UN	951	.	NZ_VCCA02000001	246902	246902
+UN	952	.	NZ_VCCA02000001	271729	271731
+UN	953	.	NZ_VCCA02000001	271737	271737
+UN	954	.	NZ_VCCA02000001	278291	278291
+UN	955	.	NZ_VCCA02000001	314221	314235
+UN	956	.	NZ_VCCA02000001	329753	329753
+UN	957	.	NZ_VCCA02000001	329758	329758
+UN	958	.	NZ_VCCA02000001	329760	329761
+UN	959	.	NZ_VCCA02000001	329764	329764
+UN	960	.	NZ_VCCA02000001	355977	355995
+UN	961	.	NZ_VCCA02000001	363798	363820
+UN	962	.	NZ_VCCA02000001	421690	421701
+UN	963	.	NZ_VCCA02000001	439212	439212
+UN	964	.	NZ_VCCA02000001	439216	439216
+UN	965	.	NZ_VCCA02000001	444140	444147
+UN	966	.	NZ_VCCA02000001	496100	496126
+UN	967	.	NZ_VCCA02000001	496129	496129
+UN	968	.	NZ_VCCA02000001	520108	520112
+UN	969	.	NZ_VCCA02000001	559049	559122
+UN	970	.	NZ_VCCA02000001	624198	624199
+UN	971	.	NZ_VCCA02000001	624203	624332
+UN	972	.	NZ_VCCA02000001	711634	711645
+UN	973	.	NZ_VCCA02000001	780601	780601
+UN	974	.	NZ_VCCA02000001	783686	783693
+UN	975	.	NZ_VCCA02000001	810454	811791
+UN	976	.	NZ_VCCA02000001	813864	815215
+UN	977	.	NZ_VCCA02000001	844834	844839
+UN	978	.	NZ_VCCA02000001	844841	844841
+UN	979	.	NZ_VCCA02000001	866503	866522
+UN	980	.	NZ_VCCA02000001	888334	888334
+UN	981	.	NZ_VCCA02000001	888338	888338
+UN	982	.	NZ_VCCA02000001	892767	892779
+UN	983	.	NZ_VCCA02000001	900877	900877
+UN	984	.	NZ_VCCA02000001	925825	925829
+UN	985	.	NZ_VCCA02000001	925832	925839
+UN	986	.	NZ_VCCA02000001	944953	944989
+UN	987	.	NZ_VCCA02000001	945330	945430
+UN	988	.	NZ_VCCA02000001	949996	950014
+UN	989	.	NZ_VCCA02000001	950026	950026
+UN	990	.	NZ_VCCA02000001	950035	950035
+UN	991	.	NZ_VCCA02000001	953179	953191
+UN	992	.	NZ_VCCA02000001	960996	960999
+UN	993	.	NZ_VCCA02000001	961001	961010
+UN	994	.	NZ_VCCA02000001	973451	973486
+UN	995	.	NZ_VCCA02000001	1060743	1060743
+UN	996	.	NZ_VCCA02000001	1077782	1077915
+UN	997	.	NZ_VCCA02000001	1078080	1078194
+UN	998	.	NZ_VCCA02000001	1107121	1107131
+UN	999	.	NZ_VCCA02000001	1121566	1121572
+UN	1000	.	NZ_VCCA02000001	1122229	1122229
+UN	1001	.	NZ_VCCA02000001	1122232	1122238
+UN	1002	.	NZ_VCCA02000001	1122241	1122243
+UN	1003	.	NZ_VCCA02000001	1122245	1122247
+UN	1004	.	NZ_VCCA02000001	1122536	1122536
+UN	1005	.	NZ_VCCA02000001	1122543	1122543
+UN	1006	.	NZ_VCCA02000001	1151199	1151199
+UN	1007	.	NZ_VCCA02000001	1151202	1151202
+UN	1008	.	NZ_VCCA02000001	1151208	1151208
+UN	1009	.	NZ_VCCA02000001	1151211	1151329
+UN	1010	.	NZ_VCCA02000001	1274341	1274430
+UN	1011	.	NZ_VCCA02000001	1313488	1313621
+UN	1012	.	NZ_VCCA02000001	1313911	1314082
+UN	1013	.	NZ_VCCA02000001	1321574	1321624
+UN	1014	.	NZ_VCCA02000001	1321680	1321787
+UN	1015	.	NZ_VCCA02000001	1327228	1327229
+UN	1016	.	NZ_VCCA02000001	1327231	1327231
+UN	1017	.	NZ_VCCA02000001	1327236	1327240
+UN	1018	.	NZ_VCCA02000001	1335956	1335961
+UN	1019	.	NZ_VCCA02000001	1339060	1339105
+UN	1020	.	NZ_VCCA02000001	1339126	1339139
+UN	1021	.	NZ_VCCA02000001	1345451	1345453
+UN	1022	.	NZ_VCCA02000001	1345455	1345487
+UN	1023	.	NZ_VCCA02000001	1345490	1345492
+UN	1024	.	NZ_VCCA02000001	1369795	1369816
+UN	1025	.	NZ_VCCA02000001	1369819	1369819
+UN	1026	.	NZ_VCCA02000001	1369829	1369845
+UN	1027	.	NZ_VCCA02000001	1369849	1369849
+UN	1028	.	NZ_VCCA02000001	1369852	1369852
+UN	1029	.	NZ_VCCA02000001	1369856	1369856
+UN	1030	.	NZ_VCCA02000001	1398480	1398513
+UN	1031	.	NZ_VCCA02000001	1403811	1403814
+UN	1032	.	NZ_VCCA02000001	1403816	1403816
+UN	1033	.	NZ_VCCA02000001	1413018	1413018
+UN	1034	.	NZ_VCCA02000001	1413021	1413021
+UN	1035	.	NZ_VCCA02000001	1413274	1413294
+UN	1036	.	NZ_VCCA02000001	1413299	1413309
+UN	1037	.	NZ_VCCA02000001	1413324	1413324
+UN	1038	.	NZ_VCCA02000001	1413327	1413330
+UN	1039	.	NZ_VCCA02000001	1413334	1413334
+UN	1040	.	NZ_VCCA02000001	1430810	1430880
+UN	1041	.	NZ_VCCA02000001	1430883	1430883
+UN	1042	.	NZ_VCCA02000001	1453288	1453291
+UN	1043	.	NZ_VCCA02000001	1453293	1453293
+UN	1044	.	NZ_VCCA02000001	1453296	1453299
+UN	1045	.	NZ_VCCA02000001	1464468	1464468
+UN	1046	.	NZ_VCCA02000001	1464470	1464470
+UN	1047	.	NZ_VCCA02000001	1464472	1464478
+UN	1048	.	NZ_VCCA02000001	1464482	1464484
+UN	1049	.	NZ_VCCA02000001	1464486	1464486
+UN	1050	.	NZ_VCCA02000001	1464489	1464494
+UN	1051	.	NZ_VCCA02000001	1464496	1464501
+UN	1052	.	NZ_VCCA02000001	1464503	1464510
+UN	1053	.	NZ_VCCA02000001	1468560	1468562
+UN	1054	.	NZ_VCCA02000001	1468565	1468569
+UN	1055	.	NZ_VCCA02000001	1471706	1471757
+UN	1056	.	NZ_VCCA02000001	1482286	1482286
+UN	1057	.	NZ_VCCA02000001	1520350	1520392
+UN	1058	.	NZ_VCCA02000001	1520394	1520395
+UN	1059	.	NZ_VCCA02000001	1520470	1520470
+UN	1060	.	NZ_VCCA02000001	1520472	1520472
+UN	1061	.	NZ_VCCA02000001	1520474	1520483
+UN	1062	.	NZ_VCCA02000001	1555820	1555865
+UN	1063	.	NZ_VCCA02000001	1555872	1555872
+UN	1064	.	NZ_VCCA02000001	1569914	1569917
+UN	1065	.	NZ_VCCA02000001	1569920	1569924
+UN	1066	.	NZ_VCCA02000001	1573412	1573413
+UN	1067	.	NZ_VCCA02000001	1605302	1605303
+UN	1068	.	NZ_VCCA02000001	1610680	1610682
+UN	1069	.	NZ_VCCA02000001	1610684	1610688
+UN	1070	.	NZ_VCCA02000001	1610690	1610693
+UN	1071	.	NZ_VCCA02000001	1610699	1610699
+UN	1072	.	NZ_VCCA02000001	1613623	1613624
+UN	1073	.	NZ_VCCA02000001	1613627	1613635
+UN	1074	.	NZ_VCCA02000001	1613638	1613638
+UN	1075	.	NZ_VCCA02000001	1613641	1613641
+UN	1076	.	NZ_VCCA02000001	1613643	1613643
+UN	1077	.	NZ_VCCA02000001	1624640	1624677
+UN	1078	.	NZ_VCCA02000001	1630851	1630885
+UN	1079	.	NZ_VCCA02000001	1630947	1630947
+UN	1080	.	NZ_VCCA02000001	1630950	1630950
+UN	1081	.	NZ_VCCA02000001	1630957	1630957
+UN	1082	.	NZ_VCCA02000001	1630959	1630959
+UN	1083	.	NZ_VCCA02000001	1630963	1630963
+UN	1084	.	NZ_VCCA02000001	1636978	1636978
+UN	1085	.	NZ_VCCA02000001	1636980	1636981
+UN	1086	.	NZ_VCCA02000001	1655090	1655090
+UN	1087	.	NZ_VCCA02000001	1686707	1686707
+UN	1088	.	NZ_VCCA02000001	1686711	1686711
+UN	1089	.	NZ_VCCA02000001	1686717	1686734
+UN	1090	.	NZ_VCCA02000001	1686738	1686738
+UN	1091	.	NZ_VCCA02000001	1686741	1686742
+UN	1092	.	NZ_VCCA02000001	1688875	1688875
+UN	1093	.	NZ_VCCA02000001	1688877	1688880
+UN	1094	.	NZ_VCCA02000001	1688886	1688939
+UN	1095	.	NZ_VCCA02000001	1749159	1749163
+UN	1096	.	NZ_VCCA02000001	1749166	1749166
+UN	1097	.	NZ_VCCA02000001	1756318	1756365
+UN	1098	.	NZ_VCCA02000001	1756470	1756471
+UN	1099	.	NZ_VCCA02000001	1756473	1756626
+UN	1100	.	NZ_VCCA02000001	1756711	1756733
+UN	1101	.	NZ_VCCA02000001	1756735	1756737
+UN	1102	.	NZ_VCCA02000001	1776544	1776554
+UN	1103	.	NZ_VCCA02000001	1860011	1860011
+UN	1104	.	NZ_VCCA02000001	1887913	1887924
+UN	1105	.	NZ_VCCA02000001	1887927	1887940
+UN	1106	.	NZ_VCCA02000001	1887943	1887943
+UN	1107	.	NZ_VCCA02000001	1887946	1887946
+UN	1108	.	NZ_VCCA02000001	1888005	1888007
+UN	1109	.	NZ_VCCA02000001	1909920	1909923
+UN	1110	.	NZ_VCCA02000001	1916328	1916329
+UN	1111	.	NZ_VCCA02000001	1920089	1920162
+UN	1112	.	NZ_VCCA02000001	1920419	1920485
+UN	1113	.	NZ_VCCA02000001	1920824	1920949
+UN	1114	.	NZ_VCCA02000001	1952444	1957925
+UN	1115	.	NZ_VCCA02000001	1980166	1980182
+UN	1116	.	NZ_VCCA02000001	2043188	2043223
+UN	1117	.	NZ_VCCA02000001	2043226	2043226
+UN	1118	.	NZ_VCCA02000001	2043228	2043228
+UN	1119	.	NZ_VCCA02000001	2043230	2043230
+UN	1120	.	NZ_VCCA02000001	2043235	2043258
+UN	1121	.	NZ_VCCA02000001	2050466	2050466
+UN	1122	.	NZ_VCCA02000001	2050475	2050491
+UN	1123	.	NZ_VCCA02000001	2052806	2052806
+UN	1124	.	NZ_VCCA02000001	2081570	2081905
+UN	1125	.	NZ_VCCA02000001	2081925	2081926
+UN	1126	.	NZ_VCCA02000001	2081928	2081928
+UN	1127	.	NZ_VCCA02000001	2081935	2081935
+UN	1128	.	NZ_VCCA02000001	2082074	2082074
+UN	1129	.	NZ_VCCA02000001	2082077	2082078
+UN	1130	.	NZ_VCCA02000001	2087434	2087512
+UN	1131	.	NZ_VCCA02000001	2091660	2091669
+UN	1132	.	NZ_VCCA02000001	2122854	2122981
+UN	1133	.	NZ_VCCA02000001	2190547	2190605
+UN	1134	.	NZ_VCCA02000001	2211590	2211590
+UN	1135	.	NZ_VCCA02000001	2211595	2211595
+UN	1136	.	NZ_VCCA02000001	2240038	2240039
+UN	1137	.	NZ_VCCA02000001	2240041	2240043
+UN	1138	.	NZ_VCCA02000001	2240045	2240047
+UN	1139	.	NZ_VCCA02000001	2240049	2240049
+UN	1140	.	NZ_VCCA02000001	2240052	2240052
+UN	1141	.	NZ_VCCA02000001	2240055	2240055
+UN	1142	.	NZ_VCCA02000001	2240058	2240058
+UN	1143	.	NZ_VCCA02000001	2240061	2240061
+UN	1144	.	NZ_VCCA02000001	2240064	2240064
+UN	1145	.	NZ_VCCA02000001	2240069	2240069
+UN	1146	.	NZ_VCCA02000001	2247587	2247587
+UN	1147	.	NZ_VCCA02000001	2247589	2247589
+UN	1148	.	NZ_VCCA02000001	2247592	2247592
+UN	1149	.	NZ_VCCA02000001	2247595	2247615
+UN	1150	.	NZ_VCCA02000001	2247617	2247622
+UN	1151	.	NZ_VCCA02000001	2282586	2282587
+UN	1152	.	NZ_VCCA02000001	2282594	2282594
+UN	1153	.	NZ_VCCA02000001	2282597	2282597
+UN	1154	.	NZ_VCCA02000001	2282599	2282639
+UN	1155	.	NZ_VCCA02000001	2282641	2282641
+UN	1156	.	NZ_VCCA02000001	2282644	2282650
+UN	1157	.	NZ_VCCA02000001	2282659	2282659
+UN	1158	.	NZ_VCCA02000001	2282662	2282662
+UN	1159	.	NZ_VCCA02000001	2282743	2282756
+UN	1160	.	NZ_VCCA02000001	2282762	2282762
+UN	1161	.	NZ_VCCA02000001	2282771	2282771
+UN	1162	.	NZ_VCCA02000001	2282773	2282773
+UN	1163	.	NZ_VCCA02000001	2282775	2282779
+UN	1164	.	NZ_VCCA02000001	2282783	2282795
+UN	1165	.	NZ_VCCA02000001	2299469	2299469
+UN	1166	.	NZ_VCCA02000001	2299475	2299477
+UN	1167	.	NZ_VCCA02000001	2299480	2299481
+UN	1168	.	NZ_VCCA02000001	2299490	2299535
+UN	1169	.	NZ_VCCA02000001	2312743	2312776
+UN	1170	.	NZ_VCCA02000001	2312791	2312791
+UN	1171	.	NZ_VCCA02000001	2312849	2312849
+UN	1172	.	NZ_VCCA02000001	2312855	2313062
+UN	1173	.	NZ_VCCA02000001	2313066	2313067
+UN	1174	.	NZ_VCCA02000001	2313170	2313170
+UN	1175	.	NZ_VCCA02000001	2313172	2313174
+UN	1176	.	NZ_VCCA02000001	2313179	2313179
+UN	1177	.	NZ_VCCA02000001	2313188	2313188
+UN	1178	.	NZ_VCCA02000001	2313191	2313191
+UN	1179	.	NZ_VCCA02000001	2313194	2313194
+UN	1180	.	NZ_VCCA02000001	2313196	2313196
+UN	1181	.	NZ_VCCA02000001	2313198	2313198
+UN	1182	.	NZ_VCCA02000001	2313201	2313201
+UN	1183	.	NZ_VCCA02000001	2313205	2313205
+UN	1184	.	NZ_VCCA02000001	2313220	2313220
+UN	1185	.	NZ_VCCA02000001	2320470	2320476
+UN	1186	.	NZ_VCCA02000001	2333395	2333395
+UN	1187	.	NZ_VCCA02000001	2333398	2333399
+UN	1188	.	NZ_VCCA02000001	2333401	2333402
+UN	1189	.	NZ_VCCA02000001	2333574	2333640
+UN	1190	.	NZ_VCCA02000001	2337545	2337545
+UN	1191	.	NZ_VCCA02000001	2337551	2337566
+UN	1192	.	NZ_VCCA02000001	2383311	2383311
+UN	1193	.	NZ_VCCA02000001	2383318	2383318
+UN	1194	.	NZ_VCCA02000001	2387624	2387765
+UN	1195	.	NZ_VCCA02000001	2400902	2400902
+UN	1196	.	NZ_VCCA02000001	2400904	2400904
+UN	1197	.	NZ_VCCA02000001	2400921	2400922
+UN	1198	.	NZ_VCCA02000001	2400927	2400927
+UN	1199	.	NZ_VCCA02000001	2400929	2400929
+UN	1200	.	NZ_VCCA02000001	2400944	2400944
+UN	1201	.	NZ_VCCA02000001	2417679	2417728
+UN	1202	.	NZ_VCCA02000001	2425370	2425414
+UN	1203	.	NZ_VCCA02000001	2425514	2425522
+UN	1204	.	NZ_VCCA02000001	2462078	2462093
+UN	1205	.	NZ_VCCA02000001	2462108	2462125
+UN	1206	.	NZ_VCCA02000001	2479095	2479100
+UN	1207	.	NZ_VCCA02000001	2479107	2479111
+UN	1208	.	NZ_VCCA02000001	2538361	2538361
+UN	1209	.	NZ_VCCA02000001	2538371	2538371
+UN	1210	.	NZ_VCCA02000001	2538470	2538477
+UN	1211	.	NZ_VCCA02000001	2583933	2583938
+UN	1212	.	NZ_VCCA02000001	2605238	2605266
+UN	1213	.	NZ_VCCA02000001	2605268	2605268
+UN	1214	.	NZ_VCCA02000001	2605390	2605435
+UN	1215	.	NZ_VCCA02000001	2607864	2607864
+UN	1216	.	NZ_VCCA02000001	2607871	2608097
+UN	1217	.	NZ_VCCA02000001	2613630	2613630
+UN	1218	.	NZ_VCCA02000001	2628327	2628350
+UN	1219	.	NZ_VCCA02000001	2640091	2640091
+UN	1220	.	NZ_VCCA02000001	2640100	2640100
+UN	1221	.	NZ_VCCA02000001	2640104	2640104
+UN	1222	.	NZ_VCCA02000001	2640108	2640110
+UN	1223	.	NZ_VCCA02000001	2668925	2668925
+UN	1224	.	NZ_VCCA02000001	2672331	2672331
+UN	1225	.	NZ_VCCA02000001	2685364	2685364
+UN	1226	.	NZ_VCCA02000001	2685367	2685368
+UN	1227	.	NZ_VCCA02000001	2685370	2685370
+UN	1228	.	NZ_VCCA02000001	2685372	2685372
+UN	1229	.	NZ_VCCA02000001	2720573	2720575
+UN	1230	.	NZ_VCCA02000001	2720581	2720581
+UN	1231	.	NZ_VCCA02000001	2720585	2720586
+UN	1232	.	NZ_VCCA02000001	2720589	2720602
+UN	1233	.	NZ_VCCA02000001	2720604	2720604
+UN	1234	.	NZ_VCCA02000001	2785470	2785470
+UN	1235	.	NZ_VCCA02000001	2785472	2785473
+UN	1236	.	NZ_VCCA02000001	2785475	2785476
+UN	1237	.	NZ_VCCA02000001	2785480	2785547
+UN	1238	.	NZ_VCCA02000001	2794001	2794010
+UN	1239	.	NZ_VCCA02000001	2813443	2813443
+UN	1240	.	NZ_VCCA02000001	2813447	2813510
+UN	1241	.	NZ_VCCA02000001	2823097	2823097
+UN	1242	.	NZ_VCCA02000001	2823105	2823110
+UN	1243	.	NZ_VCCA02000001	2848703	2848703
+UN	1244	.	NZ_VCCA02000001	2848707	2848719
+UN	1245	.	NZ_VCCA02000001	2848724	2848724
+UN	1246	.	NZ_VCCA02000001	2867937	2867939
+UN	1247	.	NZ_VCCA02000001	2867942	2867960
+UN	1248	.	NZ_VCCA02000001	2868034	2868034
+UN	1249	.	NZ_VCCA02000001	2868038	2868038
+UN	1250	.	NZ_VCCA02000001	2868094	2868094
+UN	1251	.	NZ_VCCA02000001	2868098	2868100
+UN	1252	.	NZ_VCCA02000001	2868111	2868111
+UN	1253	.	NZ_VCCA02000001	2879074	2879076
+UN	1254	.	NZ_VCCA02000001	2901758	2901791
+UN	1255	.	NZ_VCCA02000001	2901793	2901793
+UN	1256	.	NZ_VCCA02000001	2901799	2901799
+UN	1257	.	NZ_VCCA02000001	2901801	2901801
+UN	1258	.	NZ_VCCA02000001	2901810	2901810
+UN	1259	.	NZ_VCCA02000001	2901825	2901841
+UN	1260	.	NZ_VCCA02000001	2908602	2908609
+UN	1261	.	NZ_VCCA02000001	2928048	2928048
+UN	1262	.	NZ_VCCA02000001	2931019	2931024
+UN	1263	.	NZ_VCCA02000001	2935247	2935263
+UN	1264	.	NZ_VCCA02000001	2945368	2945648
+UN	1265	.	NZ_VCCA02000001	2945818	2946085
+UN	1266	.	NZ_VCCA02000001	2946087	2946091
+UN	1267	.	NZ_VCCA02000001	2947076	2947079
+UN	1268	.	NZ_VCCA02000001	2958921	2964307
+UN	1269	.	NZ_VCCA02000001	2982494	2982497
+UN	1270	.	NZ_VCCA02000001	2982503	2982505
+UN	1271	.	NZ_VCCA02000001	2994942	2994943
+UN	1272	.	NZ_VCCA02000001	2998074	2998082
+UN	1273	.	NZ_VCCA02000001	2998199	2998201
+UN	1274	.	NZ_VCCA02000001	3014632	3014633
+UN	1275	.	NZ_VCCA02000001	3014635	3014635
+UN	1276	.	NZ_VCCA02000001	3014640	3014703
+UN	1277	.	NZ_VCCA02000001	3014709	3014709
+UN	1278	.	NZ_VCCA02000001	3016407	3016407
+UN	1279	.	NZ_VCCA02000001	3016409	3016409
+UN	1280	.	NZ_VCCA02000001	3016411	3016411
+UN	1281	.	NZ_VCCA02000001	3016429	3016429
+UN	1282	.	NZ_VCCA02000001	3016432	3016432
+UN	1283	.	NZ_VCCA02000001	3016435	3016470
+UN	1284	.	NZ_VCCA02000001	3016473	3016473
+UN	1285	.	NZ_VCCA02000001	3016475	3016475
+UN	1286	.	NZ_VCCA02000001	3016478	3016478
+UN	1287	.	NZ_VCCA02000001	3016481	3016482
+UN	1288	.	NZ_VCCA02000001	3018721	3018721
+UN	1289	.	NZ_VCCA02000001	3060624	3060651
+UN	1290	.	NZ_VCCA02000001	3069152	3069168
+UN	1291	.	NZ_VCCA02000001	3075761	3075761
+UN	1292	.	NZ_VCCA02000001	3082071	3082100
+UN	1293	.	NZ_VCCA02000001	3139703	3139703
+UN	1294	.	NZ_VCCA02000001	3139705	3139705
+UN	1295	.	NZ_VCCA02000001	3139827	3139839
+UN	1296	.	NZ_VCCA02000001	3139841	3139842
+UN	1297	.	NZ_VCCA02000001	3139844	3139845
+UN	1298	.	NZ_VCCA02000001	3139918	3139925
+UN	1299	.	NZ_VCCA02000001	3148583	3148585
+UN	1300	.	NZ_VCCA02000001	3148657	3148659
+UN	1301	.	NZ_VCCA02000001	3148661	3148661
+UN	1302	.	NZ_VCCA02000001	3148826	3148826
+UN	1303	.	NZ_VCCA02000001	3148834	3148834
+UN	1304	.	NZ_VCCA02000001	3148836	3148836
+UN	1305	.	NZ_VCCA02000001	3148842	3148853
+UN	1306	.	NZ_VCCA02000001	3152661	3152661
+UN	1307	.	NZ_VCCA02000001	3152674	3152675
+UN	1308	.	NZ_VCCA02000001	3152848	3152848
+UN	1309	.	NZ_VCCA02000001	3152856	3152856
+UN	1310	.	NZ_VCCA02000001	3152864	3152864
+UN	1311	.	NZ_VCCA02000001	3164430	3164435
+UN	1312	.	NZ_VCCA02000001	3184510	3184510
+UN	1313	.	NZ_VCCA02000001	3187190	3187190
+UN	1314	.	NZ_VCCA02000001	3296458	3296459
+UN	1315	.	NZ_VCCA02000001	3296461	3296461
+UN	1316	.	NZ_VCCA02000001	3296464	3296466
+UN	1317	.	NZ_VCCA02000001	3300529	3300554
+UN	1318	.	NZ_VCCA02000001	3306246	3306248
+UN	1319	.	NZ_VCCA02000001	3306250	3306268
+UN	1320	.	NZ_VCCA02000001	3324049	3324051
+UN	1321	.	NZ_VCCA02000001	3337589	3337589
+UN	1322	.	NZ_VCCA02000001	3346070	3346070
+UN	1323	.	NZ_VCCA02000001	3346096	3346096
+UN	1324	.	NZ_VCCA02000001	3346103	3346103
+UN	1325	.	NZ_VCCA02000001	3363364	3363364
+UN	1326	.	NZ_VCCA02000001	3363366	3363366
+UN	1327	.	NZ_VCCA02000001	3365356	3365359
+UN	1328	.	NZ_VCCA02000001	3370191	3370222
+UN	1329	.	NZ_VCCA02000001	3375419	3375423
+UN	1330	.	NZ_VCCA02000001	3381062	3381067
+UN	1331	.	NZ_VCCA02000001	3388269	3388278
+UN	1332	.	NZ_VCCA02000001	3393418	3393418
+UN	1333	.	NZ_VCCA02000001	3407022	3407023
+UN	1334	.	NZ_VCCA02000001	3409786	3409793
+UN	1335	.	NZ_VCCA02000001	3409795	3409795
+UN	1336	.	NZ_VCCA02000001	3433384	3433402
+UN	1337	.	NZ_VCCA02000001	3433406	3433408
+UN	1338	.	NZ_VCCA02000001	3436861	3436869
+UN	1339	.	NZ_VCCA02000001	3436872	3436872
+UN	1340	.	NZ_VCCA02000001	3436874	3436874
+UN	1341	.	NZ_VCCA02000001	3450745	3450828
+UN	1342	.	NZ_VCCA02000001	3450943	3450947
+UN	1343	.	NZ_VCCA02000001	3450951	3450953
+UN	1344	.	NZ_VCCA02000001	3450955	3450955
+UN	1345	.	NZ_VCCA02000001	3450958	3450959
+UN	1346	.	NZ_VCCA02000001	3450962	3450965
+UN	1347	.	NZ_VCCA02000001	3472821	3472826
+UN	1348	.	NZ_VCCA02000001	3472829	3472834
+UN	1349	.	NZ_VCCA02000001	3473917	3473918
+UN	1350	.	NZ_VCCA02000002	18514	18515
+UN	1351	.	NZ_VCCA02000002	47101	47103
+UN	1352	.	NZ_VCCA02000002	58138	58138
+UN	1353	.	NZ_VCCA02000002	85512	85520
+UN	1354	.	NZ_VCCA02000002	89032	89032
+UN	1355	.	NZ_VCCA02000002	89034	89040
+UN	1356	.	NZ_VCCA02000002	101443	101459

@@ -21,11 +21,11 @@ do
   strain="$(  echo "$folder" | cut -d"/" -f10-10 | cut -d"-" -f2-2 )"
   strain_rep="$(  echo "$folder" | cut -d"/" -f10-10 | cut -d"-" -f2-3 )"
   ref="/N/dc2/projects/muri2/Task2/LTDE/data/reference_genomes/"*"/${strain}/G-Chr1.fna"
-  #bwa index $ref
-  #samtools faidx $ref
-  #bwa_sam_out=/N/dc2/projects/muri2/Task2/LTDE/data/bwa_sam/${strain_rep}.sam
-  #bwa mem -t 4 $ref $R1 $R2 | samtools view -F 4 -bT $ref - \
-  #    | samtools sort -o - | samtools view -h -o $bwa_sam_out
+  bwa index $ref
+  samtools faidx $ref
+  bwa_sam_out=/N/dc2/projects/muri2/Task2/LTDE/data/bwa_sam/${strain_rep}.sam
+  bwa mem -t 4 $ref $R1 $R2 | samtools view -F 4 -bT $ref - \
+      | samtools sort -o - | samtools view -h -o $bwa_sam_out
 done
 
 

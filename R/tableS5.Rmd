@@ -8,8 +8,10 @@ rm(list = ls())
 library(xtable)
 library(dplyr)
 
-df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/breseq/gene_annotation.txt", 
+df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/breseq/total_parallelism.txt", 
                  header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+colnames(df)[colnames(df)=="Taxon"] <- "Species"
+
 name.df <- data.frame(
           Species = c("KBS0707", "KBS0702", "ATCC13985", "ATCC43928", "KBS0701",
                       "KBS0703", "KBS0705", "KBS0706", "KBS0710", "KBS0711",
@@ -41,20 +43,18 @@ name.df <- data.frame(
 
 df.merge <- merge(df, name.df, by="Species")
 
-drops <- c("Species", "locus_tag")
+drops <- c("Species")
 
 df.merge <- df.merge[ , !(names(df.merge) %in% drops)]
 
-df.merge.reorder <- select(df.merge, "FullSpecies", "refseq_id", "annotation") 
-#df.merge.reorder <- select(df.merge, "FullSpecies", "refseq_id") 
+df.merge.reorder <- select(df.merge, "FullSpecies", "G_score", "p_value_BH") 
 
-colnames(df.merge.reorder) <- c("$\\mathrm{Taxon}$", "$\\mathrm{RefSeq ID}$", "$\\mathrm{Function}$")
-#colnames(df.merge.reorder) <- c("$\\mathrm{Taxon}$", "$\\mathrm{RefSeq ID}$")
+colnames(df.merge.reorder) <- c("$\\mathrm{Taxon}$", "$\\Delta \\ell$", "$p_{BH}$")
                                 
-mat <- xtable(df.merge.reorder, display = c("s", "s", "s", "s"), align=c("c","l","l", "l"), digits=c(0, 0, 0, 0))
+mat <- xtable(df.merge.reorder, display = c("s", "s", "f","g"), align=c("c","l","c","c"), digits=c(0, 0, 2, 2))
 
 
-print(mat, comment=FALSE, include.rownames=FALSE, size="\\fontsize{8pt}{9pt}\\selectfont", latex.environments="flushleft", math.style.exponents = TRUE,  sanitize.text.function = function(x) {x})
+print(mat, comment=FALSE, include.rownames=FALSE, latex.environments="flushleft", math.style.exponents = TRUE,  sanitize.text.function = function(x) {x})
 
 ```
 
