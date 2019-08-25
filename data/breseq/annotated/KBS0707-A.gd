@@ -1,534 +1,719 @@
 #=GENOME_DIFF	1.0
-SNP	1	43	NZ_CP041754	430839	T	frequency=7.01308250e-02	gene_name=FFH21_RS02115/FFH21_RS02120	gene_position=intergenic (+14/+141)	gene_product=acyl-CoA thioesterase/hydroxypyruvate isomerase family protein	genes_promoter=FFH21_RS02120	html_gene_name=<i>FFH21_RS02115</i>&nbsp;&rarr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS02120</i>	locus_tag=FFH21_RS02115/FFH21_RS02120	locus_tags_promoter=FFH21_RS02120	mutation_category=snp_intergenic	snp_type=intergenic
-SNP	2	44	NZ_CP041754	1040551	A	frequency=7.23628998e-02	gene_name=FFH21_RS04855/FFH21_RS04860	gene_position=intergenic (+62/-213)	gene_product=response regulator/transposase	genes_promoter=FFH21_RS04860	html_gene_name=<i>FFH21_RS04855</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS04860</i>	locus_tag=FFH21_RS04855/FFH21_RS04860	locus_tags_promoter=FFH21_RS04860	mutation_category=snp_intergenic	snp_type=intergenic
-SNP	3	45	NZ_CP041754	1145961	G	frequency=8.94436836e-02	gene_name=FFH21_RS05370/FFH21_RS05375	gene_position=intergenic (+23/-289)	gene_product=fatty acid--CoA ligase/DUF1302 domain-containing protein	genes_promoter=FFH21_RS05375	html_gene_name=<i>FFH21_RS05370</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS05375</i>	locus_tag=FFH21_RS05370/FFH21_RS05375	locus_tags_promoter=FFH21_RS05375	mutation_category=snp_intergenic	snp_type=intergenic
-SNP	4	46	NZ_CP041754	1697817	G	aa_new_seq=H	aa_position=1117	aa_ref_seq=Q	codon_new_seq=CAC	codon_number=1117	codon_position=3	codon_ref_seq=CAG	frequency=1.25059128e-01	gene_name=FFH21_RS08030	gene_position=3351	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS08030	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	locus_tag=FFH21_RS08030	locus_tags_overlapping=FFH21_RS08030	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	5	47	NZ_CP041754	1697892	G	aa_new_seq=C	aa_position=1092	aa_ref_seq=W	codon_new_seq=TGC	codon_number=1092	codon_position=3	codon_ref_seq=TGG	frequency=1.60187721e-01	gene_name=FFH21_RS08030	gene_position=3276	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS08030	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	locus_tag=FFH21_RS08030	locus_tags_overlapping=FFH21_RS08030	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	6	48	NZ_CP041754	1697943	G	aa_new_seq=H	aa_position=1075	aa_ref_seq=Q	codon_new_seq=CAC	codon_number=1075	codon_position=3	codon_ref_seq=CAG	frequency=2.96070099e-01	gene_name=FFH21_RS08030	gene_position=3225	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS08030	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	locus_tag=FFH21_RS08030	locus_tags_overlapping=FFH21_RS08030	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	7	49	NZ_CP041754	1697953	T	aa_new_seq=N	aa_position=1072	aa_ref_seq=T	codon_new_seq=AAC	codon_number=1072	codon_position=2	codon_ref_seq=ACC	frequency=1.50287628e-01	gene_name=FFH21_RS08030	gene_position=3215	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS08030	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	locus_tag=FFH21_RS08030	locus_tags_overlapping=FFH21_RS08030	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	8	50	NZ_CP041754	1698343	A	aa_new_seq=L	aa_position=942	aa_ref_seq=R	codon_new_seq=CTC	codon_number=942	codon_position=2	codon_ref_seq=CGC	frequency=1.44579887e-01	gene_name=FFH21_RS08030	gene_position=2825	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS08030	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	locus_tag=FFH21_RS08030	locus_tags_overlapping=FFH21_RS08030	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	9	51	NZ_CP041754	1698732	A	aa_new_seq=D	aa_position=812	aa_ref_seq=E	codon_new_seq=GAT	codon_number=812	codon_position=3	codon_ref_seq=GAG	frequency=1.63962841e-01	gene_name=FFH21_RS08030	gene_position=2436	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS08030	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	locus_tag=FFH21_RS08030	locus_tags_overlapping=FFH21_RS08030	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	10	52	NZ_CP041754	1698825	G	aa_new_seq=D	aa_position=781	aa_ref_seq=E	codon_new_seq=GAC	codon_number=781	codon_position=3	codon_ref_seq=GAA	frequency=6.56857491e-02	gene_name=FFH21_RS08030	gene_position=2343	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS08030	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	locus_tag=FFH21_RS08030	locus_tags_overlapping=FFH21_RS08030	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	11	53	NZ_CP041754	1698860	C	aa_new_seq=D	aa_position=770	aa_ref_seq=N	codon_new_seq=GAT	codon_number=770	codon_position=1	codon_ref_seq=AAT	frequency=7.90996552e-02	gene_name=FFH21_RS08030	gene_position=2308	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS08030	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	locus_tag=FFH21_RS08030	locus_tags_overlapping=FFH21_RS08030	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	12	54	NZ_CP041754	1699104	A	aa_new_seq=D	aa_position=688	aa_ref_seq=E	codon_new_seq=GAT	codon_number=688	codon_position=3	codon_ref_seq=GAG	frequency=8.42270851e-02	gene_name=FFH21_RS08030	gene_position=2064	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS08030	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	locus_tag=FFH21_RS08030	locus_tags_overlapping=FFH21_RS08030	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	13	55	NZ_CP041754	1771656	T	aa_new_seq=T	aa_position=209	aa_ref_seq=T	codon_new_seq=ACT	codon_number=209	codon_position=3	codon_ref_seq=ACG	frequency=1.32474422e-01	gene_name=FFH21_RS08410	gene_position=627	gene_product=Ice nucleation protein	gene_strand=>	genes_overlapping=FFH21_RS08410	html_gene_name=<i>FFH21_RS08410</i>&nbsp;&rarr;	locus_tag=FFH21_RS08410	locus_tags_overlapping=FFH21_RS08410	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
-SNP	14	56	NZ_CP041754	1771806	T	aa_new_seq=G	aa_position=259	aa_ref_seq=G	codon_new_seq=GGT	codon_number=259	codon_position=3	codon_ref_seq=GGA	frequency=3.55592251e-01	gene_name=FFH21_RS08410	gene_position=777	gene_product=Ice nucleation protein	gene_strand=>	genes_overlapping=FFH21_RS08410	html_gene_name=<i>FFH21_RS08410</i>&nbsp;&rarr;	locus_tag=FFH21_RS08410	locus_tags_overlapping=FFH21_RS08410	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
-SNP	15	57	NZ_CP041754	1773120	T	aa_new_seq=V	aa_position=697	aa_ref_seq=V	codon_new_seq=GTT	codon_number=697	codon_position=3	codon_ref_seq=GTC	frequency=2.05954552e-01	gene_name=FFH21_RS08410	gene_position=2091	gene_product=Ice nucleation protein	gene_strand=>	genes_overlapping=FFH21_RS08410	html_gene_name=<i>FFH21_RS08410</i>&nbsp;&rarr;	locus_tag=FFH21_RS08410	locus_tags_overlapping=FFH21_RS08410	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
-SNP	16	58	NZ_CP041754	1773507	G	aa_new_seq=A	aa_position=826	aa_ref_seq=A	codon_new_seq=GCG	codon_number=826	codon_position=3	codon_ref_seq=GCC	frequency=1.99772358e-01	gene_name=FFH21_RS08410	gene_position=2478	gene_product=Ice nucleation protein	gene_strand=>	genes_overlapping=FFH21_RS08410	html_gene_name=<i>FFH21_RS08410</i>&nbsp;&rarr;	locus_tag=FFH21_RS08410	locus_tags_overlapping=FFH21_RS08410	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
-SNP	17	59	NZ_CP041754	2591112	T	frequency=9.98363495e-02	gene_name=FFH21_RS12255/FFH21_RS12260	gene_position=intergenic (-99/+3)	gene_product=ABC transporter ATP-binding protein/TetR/AcrR family transcriptional regulator	genes_promoter=FFH21_RS12255	html_gene_name=<i>FFH21_RS12255</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS12260</i>	locus_tag=FFH21_RS12255/FFH21_RS12260	locus_tags_promoter=FFH21_RS12255	mutation_category=snp_intergenic	snp_type=intergenic
-SNP	18	60	NZ_CP041754	2679900	T	aa_new_seq=T	aa_position=15	aa_ref_seq=T	codon_new_seq=ACT	codon_number=15	codon_position=3	codon_ref_seq=ACG	frequency=6.87222481e-02	gene_name=FFH21_RS12645	gene_position=45	gene_product=efflux transporter outer membrane subunit	gene_strand=>	genes_overlapping=FFH21_RS12645	html_gene_name=<i>FFH21_RS12645</i>&nbsp;&rarr;	locus_tag=FFH21_RS12645	locus_tags_overlapping=FFH21_RS12645	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
-SNP	19	61	NZ_CP041754	4050655	T	aa_new_seq=H	aa_position=130	aa_ref_seq=R	codon_new_seq=CAT	codon_number=130	codon_position=2	codon_ref_seq=CGT	frequency=1.11970425e-01	gene_name=FFH21_RS19075	gene_position=389	gene_product=IS5-like element ISPsy2 family transposase	gene_strand=<	genes_overlapping=FFH21_RS19075	html_gene_name=<i>FFH21_RS19075</i>&nbsp;&larr;	locus_tag=FFH21_RS19075	locus_tags_overlapping=FFH21_RS19075	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	20	62	NZ_CP041754	4219828	A	aa_new_seq=E	aa_position=188	aa_ref_seq=A	codon_new_seq=GAG	codon_number=188	codon_position=2	codon_ref_seq=GCG	frequency=8.75535011e-02	gene_name=FFH21_RS19980	gene_position=563	gene_product=ribonucleotide-diphosphate reductase subunit beta	gene_strand=>	genes_overlapping=FFH21_RS19980	html_gene_name=<i>FFH21_RS19980</i>&nbsp;&rarr;	locus_tag=FFH21_RS19980	locus_tags_overlapping=FFH21_RS19980	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	21	63	NZ_CP041754	4327930	A	frequency=1.80050373e-01	gene_name=dapD/FFH21_RS20530	gene_position=intergenic (+16/-43)	gene_product=2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase/cysteine desulfurase	genes_promoter=FFH21_RS20530	html_gene_name=<i>dapD</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS20530</i>	locus_tag=FFH21_RS20525/FFH21_RS20530	locus_tags_promoter=FFH21_RS20530	mutation_category=snp_intergenic	snp_type=intergenic
-SNP	22	64	NZ_CP041754	4646754	T	frequency=8.94999504e-02	gene_name=FFH21_RS22055/FFH21_RS22060	gene_position=intergenic (+106/+564)	gene_product=Do family serine endopeptidase/histidinol-phosphate transaminase	genes_promoter=FFH21_RS22060	html_gene_name=<i>FFH21_RS22055</i>&nbsp;&rarr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS22060</i>	locus_tag=FFH21_RS22055/FFH21_RS22060	locus_tags_promoter=FFH21_RS22060	mutation_category=snp_intergenic	snp_type=intergenic
-SNP	23	65	NZ_CP041754	4647006	T	frequency=4.26369190e-01	gene_name=FFH21_RS22055/FFH21_RS22060	gene_position=intergenic (+358/+312)	gene_product=Do family serine endopeptidase/histidinol-phosphate transaminase	genes_promoter=FFH21_RS22060	html_gene_name=<i>FFH21_RS22055</i>&nbsp;&rarr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS22060</i>	locus_tag=FFH21_RS22055/FFH21_RS22060	locus_tags_promoter=FFH21_RS22060	mutation_category=snp_intergenic	snp_type=intergenic
-SNP	24	66	NZ_CP041754	4754086	C	aa_new_seq=R	aa_position=32	aa_ref_seq=H	codon_new_seq=CGT	codon_number=32	codon_position=2	codon_ref_seq=CAT	frequency=6.30130768e-02	gene_name=FFH21_RS22610	gene_position=95	gene_product=ABC transporter ATP-binding protein	gene_strand=<	genes_overlapping=FFH21_RS22610	html_gene_name=<i>FFH21_RS22610</i>&nbsp;&larr;	locus_tag=FFH21_RS22610	locus_tags_overlapping=FFH21_RS22610	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	25	67	NZ_CP041754	4942729	C	frequency=2.49849796e-01	gene_name=FFH21_RS23545/FFH21_RS23550	gene_position=intergenic (+19/-71)	gene_product=leucine--tRNA ligase/hypothetical protein	genes_promoter=FFH21_RS23550	html_gene_name=<i>FFH21_RS23545</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS23550</i>	locus_tag=FFH21_RS23545/FFH21_RS23550	locus_tags_promoter=FFH21_RS23550	mutation_category=snp_intergenic	snp_type=intergenic
-SNP	26	68	NZ_CP041754	5486551	A	aa_new_seq=I	aa_position=246	aa_ref_seq=S	codon_new_seq=ATC	codon_number=246	codon_position=2	codon_ref_seq=AGC	frequency=1.41667843e-01	gene_name=potA	gene_position=737	gene_product=polyamine ABC transporter ATP-binding protein	gene_strand=<	genes_overlapping=potA	html_gene_name=<i>potA</i>&nbsp;&larr;	locus_tag=FFH21_RS26310	locus_tags_overlapping=FFH21_RS26310	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	27	69	NZ_CP041755	13073	A	frequency=1.40236855e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (517/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	28	70	NZ_CP041755	13076	A	frequency=1.45234585e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (514/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	29	71	NZ_CP041755	13082	G	frequency=1.46958351e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (508/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	30	72	NZ_CP041755	13085	T	frequency=1.75438404e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (505/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	31	73	NZ_CP041755	13088	G	frequency=1.31658077e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (502/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	32	74	NZ_CP041755	13090	T	frequency=1.36857033e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (500/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	33	75	NZ_CP041755	13092	T	frequency=1.42398834e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (498/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	34	76	NZ_CP041755	13093	T	frequency=1.26241684e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (497/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	35	77	NZ_CP041755	13108	A	frequency=8.65855217e-02	gene_name=FFH21_RS28760	gene_position=pseudogene (482/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	36	78	NZ_CP041755	13109	T	frequency=8.67185593e-02	gene_name=FFH21_RS28760	gene_position=pseudogene (481/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	37	79	NZ_CP041755	13112	G	frequency=8.69026184e-02	gene_name=FFH21_RS28760	gene_position=pseudogene (478/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	38	80	NZ_CP041755	13271	G	frequency=1	gene_name=FFH21_RS28760	gene_position=pseudogene (319/883 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28760	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	locus_tags_overlapping=FFH21_RS28760	mutation_category=snp_pseudogene	snp_type=pseudogene
-SNP	39	81	NZ_CP041755	117848	A	aa_new_seq=V	aa_position=785	aa_ref_seq=A	codon_new_seq=GTA	codon_number=785	codon_position=2	codon_ref_seq=GCA	frequency=7.47098923e-02	gene_name=FFH21_RS29455	gene_position=2354	gene_product=hypothetical protein	gene_strand=<	genes_overlapping=FFH21_RS29455	html_gene_name=<i>FFH21_RS29455</i>&nbsp;&larr;	locus_tag=FFH21_RS29455	locus_tags_overlapping=FFH21_RS29455	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	40	82	NZ_CP041755	118172	A	aa_new_seq=I	aa_position=677	aa_ref_seq=S	codon_new_seq=ATC	codon_number=677	codon_position=2	codon_ref_seq=AGC	frequency=2.01211929e-01	gene_name=FFH21_RS29455	gene_position=2030	gene_product=hypothetical protein	gene_strand=<	genes_overlapping=FFH21_RS29455	html_gene_name=<i>FFH21_RS29455</i>&nbsp;&larr;	locus_tag=FFH21_RS29455	locus_tags_overlapping=FFH21_RS29455	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-SNP	41	83	NZ_CP041755	118177	T	aa_new_seq=A	aa_position=675	aa_ref_seq=A	codon_new_seq=GCA	codon_number=675	codon_position=3	codon_ref_seq=GCC	frequency=1.81365490e-01	gene_name=FFH21_RS29455	gene_position=2025	gene_product=hypothetical protein	gene_strand=<	genes_overlapping=FFH21_RS29455	html_gene_name=<i>FFH21_RS29455</i>&nbsp;&larr;	locus_tag=FFH21_RS29455	locus_tags_overlapping=FFH21_RS29455	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
-SNP	42	84	NZ_CP041755	118379	G	aa_new_seq=A	aa_position=608	aa_ref_seq=D	codon_new_seq=GCC	codon_number=608	codon_position=2	codon_ref_seq=GAC	frequency=6.37221336e-02	gene_name=FFH21_RS29455	gene_position=1823	gene_product=hypothetical protein	gene_strand=<	genes_overlapping=FFH21_RS29455	html_gene_name=<i>FFH21_RS29455</i>&nbsp;&larr;	locus_tag=FFH21_RS29455	locus_tags_overlapping=FFH21_RS29455	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
-RA	43	.	NZ_CP041754	430839	0	G	T	bias_e_value=5826530	bias_p_value=0.953613	consensus_score=259.7	fisher_strand_p_value=0.711303	frequency=7.01308250e-02	gene_name=FFH21_RS02115/FFH21_RS02120	gene_position=intergenic (+14/+141)	gene_product=acyl-CoA thioesterase/hydroxypyruvate isomerase family protein	html_gene_name=<i>FFH21_RS02115</i>&nbsp;&rarr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS02120</i>	ks_quality_p_value=1	locus_tag=FFH21_RS02115/FFH21_RS02120	major_base=G	major_cov=32/48	major_frequency=9.29869175e-01	minor_base=T	minor_cov=4/4	new_cov=4/4	polymorphism_frequency=7.01308250e-02	polymorphism_score=3.5	prediction=polymorphism	ref_cov=32/48	snp_type=intergenic	total_cov=36/52
-RA	44	.	NZ_CP041754	1040551	0	C	A	bias_e_value=5392340	bias_p_value=0.88255	consensus_score=212.9	fisher_strand_p_value=0.643077	frequency=7.23628998e-02	gene_name=FFH21_RS04855/FFH21_RS04860	gene_position=intergenic (+62/-213)	gene_product=response regulator/transposase	html_gene_name=<i>FFH21_RS04855</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS04860</i>	ks_quality_p_value=0.865085	locus_tag=FFH21_RS04855/FFH21_RS04860	major_base=C	major_cov=26/38	major_frequency=9.27637100e-01	minor_base=A	minor_cov=3/2	new_cov=3/2	polymorphism_frequency=7.23628998e-02	polymorphism_score=6.0	prediction=polymorphism	ref_cov=26/38	snp_type=intergenic	total_cov=29/40
-RA	45	.	NZ_CP041754	1145961	0	T	G	bias_e_value=5964150	bias_p_value=0.976137	consensus_score=364.4	fisher_strand_p_value=0.789646	frequency=8.94436836e-02	gene_name=FFH21_RS05370/FFH21_RS05375	gene_position=intergenic (+23/-289)	gene_product=fatty acid--CoA ligase/DUF1302 domain-containing protein	html_gene_name=<i>FFH21_RS05370</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS05375</i>	ks_quality_p_value=1	locus_tag=FFH21_RS05370/FFH21_RS05375	major_base=T	major_cov=76/62	major_frequency=9.10556316e-01	minor_base=G	minor_cov=9/6	new_cov=9/6	polymorphism_frequency=8.94436836e-02	polymorphism_score=3.9	prediction=polymorphism	ref_cov=76/62	snp_type=intergenic	total_cov=86/68
-RA	46	.	NZ_CP041754	1697817	0	C	G	aa_new_seq=H	aa_position=1117	aa_ref_seq=Q	bias_e_value=398806	bias_p_value=0.0652716	codon_new_seq=CAC	codon_number=1117	codon_position=3	codon_ref_seq=CAG	consensus_score=175.3	fisher_strand_p_value=0.0120446	frequency=1.25059128e-01	gene_name=FFH21_RS08030	gene_position=3351	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS08030	major_base=C	major_cov=44/23	major_frequency=8.74940872e-01	minor_base=G	minor_cov=2/8	new_cov=2/8	new_seq=G	polymorphism_frequency=1.25059128e-01	polymorphism_score=6.3	prediction=polymorphism	ref_cov=44/23	ref_seq=C	snp_type=nonsynonymous	total_cov=46/33	transl_table=11
-RA	47	.	NZ_CP041754	1697892	0	C	G	aa_new_seq=C	aa_position=1092	aa_ref_seq=W	bias_e_value=1862140	bias_p_value=0.304772	codon_new_seq=TGC	codon_number=1092	codon_position=3	codon_ref_seq=TGG	consensus_score=97.3	fisher_strand_p_value=0.0891944	frequency=1.60187721e-01	gene_name=FFH21_RS08030	gene_position=3276	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS08030	major_base=C	major_cov=27/13	major_frequency=8.39812279e-01	minor_base=G	minor_cov=2/5	new_cov=2/5	new_seq=G	polymorphism_frequency=1.60187721e-01	polymorphism_score=2.2	prediction=polymorphism	ref_cov=27/13	ref_seq=C	snp_type=nonsynonymous	total_cov=29/20	transl_table=11
-RA	48	.	NZ_CP041754	1697943	0	C	G	aa_new_seq=H	aa_position=1075	aa_ref_seq=Q	bias_e_value=275162	bias_p_value=0.045035	codon_new_seq=CAC	codon_number=1075	codon_position=3	codon_ref_seq=CAG	consensus_score=73.7	fisher_strand_p_value=0.0076718	frequency=2.96070099e-01	gene_name=FFH21_RS08030	gene_position=3225	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS08030	major_base=C	major_cov=19/20	major_frequency=7.03929901e-01	minor_base=G	minor_cov=2/16	new_cov=2/16	new_seq=G	polymorphism_frequency=2.96070099e-01	polymorphism_score=12.2	prediction=polymorphism	ref_cov=19/20	ref_seq=C	snp_type=nonsynonymous	total_cov=21/36	transl_table=11
-RA	49	.	NZ_CP041754	1697953	0	G	T	aa_new_seq=N	aa_position=1072	aa_ref_seq=T	bias_e_value=5172140	bias_p_value=0.846512	codon_new_seq=AAC	codon_number=1072	codon_position=2	codon_ref_seq=ACC	consensus_score=127.7	fisher_strand_p_value=0.499911	frequency=1.50287628e-01	gene_name=FFH21_RS08030	gene_position=3215	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS08030	major_base=G	major_cov=22/28	major_frequency=8.49712372e-01	minor_base=T	minor_cov=3/8	new_cov=3/8	new_seq=T	polymorphism_frequency=1.50287628e-01	polymorphism_score=2.7	prediction=polymorphism	ref_cov=22/28	ref_seq=G	snp_type=nonsynonymous	total_cov=25/36	transl_table=11
-RA	50	.	NZ_CP041754	1698343	0	C	A	aa_new_seq=L	aa_position=942	aa_ref_seq=R	bias_e_value=754061	bias_p_value=0.123415	codon_new_seq=CTC	codon_number=942	codon_position=2	codon_ref_seq=CGC	consensus_score=202.9	fisher_strand_p_value=0.0266941	frequency=1.44579887e-01	gene_name=FFH21_RS08030	gene_position=2825	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS08030	major_base=C	major_cov=48/35	major_frequency=8.55420113e-01	minor_base=A	minor_cov=4/12	new_cov=4/12	new_seq=A	polymorphism_frequency=1.44579887e-01	polymorphism_score=13.2	prediction=polymorphism	ref_cov=48/35	ref_seq=C	snp_type=nonsynonymous	total_cov=52/48	transl_table=11
-RA	51	.	NZ_CP041754	1698732	0	C	A	aa_new_seq=D	aa_position=812	aa_ref_seq=E	bias_e_value=731131	bias_p_value=0.119662	codon_new_seq=GAT	codon_number=812	codon_position=3	codon_ref_seq=GAG	consensus_score=161.8	fisher_strand_p_value=0.0256639	frequency=1.63962841e-01	gene_name=FFH21_RS08030	gene_position=2436	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS08030	major_base=C	major_cov=33/28	major_frequency=8.36037159e-01	minor_base=A	minor_cov=2/10	new_cov=2/10	new_seq=A	polymorphism_frequency=1.63962841e-01	polymorphism_score=9.7	prediction=polymorphism	ref_cov=33/28	ref_seq=C	snp_type=nonsynonymous	total_cov=35/39	transl_table=11
-RA	52	.	NZ_CP041754	1698825	0	T	G	aa_new_seq=D	aa_position=781	aa_ref_seq=E	bias_e_value=6109950	bias_p_value=1	codon_new_seq=GAC	codon_number=781	codon_position=3	codon_ref_seq=GAA	consensus_score=177.4	fisher_strand_p_value=1	frequency=6.56857491e-02	gene_name=FFH21_RS08030	gene_position=2343	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS08030	major_base=T	major_cov=38/26	major_frequency=9.34314251e-01	minor_base=G	minor_cov=3/2	new_cov=3/2	new_seq=G	polymorphism_frequency=6.56857491e-02	polymorphism_score=2.0	prediction=polymorphism	ref_cov=38/26	ref_seq=T	snp_type=nonsynonymous	total_cov=41/28	transl_table=11
-RA	53	.	NZ_CP041754	1698860	0	T	C	aa_new_seq=D	aa_position=770	aa_ref_seq=N	bias_e_value=6109950	bias_p_value=1	codon_new_seq=GAT	codon_number=770	codon_position=1	codon_ref_seq=AAT	consensus_score=142.5	fisher_strand_p_value=1	frequency=7.90996552e-02	gene_name=FFH21_RS08030	gene_position=2308	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS08030	major_base=T	major_cov=34/26	major_frequency=9.20900345e-01	minor_base=C	minor_cov=3/2	new_cov=3/2	new_seq=C	polymorphism_frequency=7.90996552e-02	polymorphism_score=2.1	prediction=polymorphism	ref_cov=34/26	ref_seq=T	snp_type=nonsynonymous	total_cov=39/29	transl_table=11
-RA	54	.	NZ_CP041754	1699104	0	C	A	aa_new_seq=D	aa_position=688	aa_ref_seq=E	bias_e_value=6109950	bias_p_value=1	codon_new_seq=GAT	codon_number=688	codon_position=3	codon_ref_seq=GAG	consensus_score=292.0	fisher_strand_p_value=1	frequency=8.42270851e-02	gene_name=FFH21_RS08030	gene_position=2064	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS08030</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS08030	major_base=C	major_cov=51/52	major_frequency=9.15772915e-01	minor_base=A	minor_cov=6/6	new_cov=6/6	new_seq=A	polymorphism_frequency=8.42270851e-02	polymorphism_score=3.1	prediction=polymorphism	ref_cov=51/52	ref_seq=C	snp_type=nonsynonymous	total_cov=57/58	transl_table=11
-RA	55	.	NZ_CP041754	1771656	0	G	T	aa_new_seq=T	aa_position=209	aa_ref_seq=T	bias_e_value=6109950	bias_p_value=1	codon_new_seq=ACT	codon_number=209	codon_position=3	codon_ref_seq=ACG	consensus_score=236.8	fisher_strand_p_value=1	frequency=1.32474422e-01	gene_name=FFH21_RS08410	gene_position=627	gene_product=Ice nucleation protein	gene_strand=>	html_gene_name=<i>FFH21_RS08410</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS08410	major_base=G	major_cov=20/64	major_frequency=8.67525578e-01	minor_base=T	minor_cov=4/13	new_cov=4/13	new_seq=T	polymorphism_frequency=1.32474422e-01	polymorphism_score=4.0	prediction=polymorphism	ref_cov=20/64	ref_seq=G	snp_type=synonymous	total_cov=24/77	transl_table=11
-RA	56	.	NZ_CP041754	1771806	0	A	T	aa_new_seq=G	aa_position=259	aa_ref_seq=G	bias_e_value=5166750	bias_p_value=0.84563	codon_new_seq=GGT	codon_number=259	codon_position=3	codon_ref_seq=GGA	consensus_score=46.1	fisher_strand_p_value=0.516995	frequency=3.55592251e-01	gene_name=FFH21_RS08410	gene_position=777	gene_product=Ice nucleation protein	gene_strand=>	html_gene_name=<i>FFH21_RS08410</i>&nbsp;&rarr;	ks_quality_p_value=0.964498	locus_tag=FFH21_RS08410	major_base=A	major_cov=17/9	major_frequency=6.44407749e-01	minor_base=T	minor_cov=8/7	new_cov=8/7	new_seq=T	polymorphism_frequency=3.55592251e-01	polymorphism_score=25.5	prediction=polymorphism	ref_cov=17/9	ref_seq=A	snp_type=synonymous	total_cov=25/16	transl_table=11
-RA	57	.	NZ_CP041754	1773120	0	C	T	aa_new_seq=V	aa_position=697	aa_ref_seq=V	bias_e_value=6047370	bias_p_value=0.989758	codon_new_seq=GTT	codon_number=697	codon_position=3	codon_ref_seq=GTC	consensus_score=110.5	fisher_strand_p_value=1	frequency=2.05954552e-01	gene_name=FFH21_RS08410	gene_position=2091	gene_product=Ice nucleation protein	gene_strand=>	html_gene_name=<i>FFH21_RS08410</i>&nbsp;&rarr;	ks_quality_p_value=0.860334	locus_tag=FFH21_RS08410	major_base=C	major_cov=11/30	major_frequency=7.94045448e-01	minor_base=T	minor_cov=3/8	new_cov=3/8	new_seq=T	polymorphism_frequency=2.05954552e-01	polymorphism_score=19.0	prediction=polymorphism	ref_cov=11/30	ref_seq=C	snp_type=synonymous	total_cov=18/39	transl_table=11
-RA	58	.	NZ_CP041754	1773507	0	C	G	aa_new_seq=A	aa_position=826	aa_ref_seq=A	bias_e_value=6109810	bias_p_value=0.999978	codon_new_seq=GCG	codon_number=826	codon_position=3	codon_ref_seq=GCC	consensus_score=202.7	fisher_strand_p_value=1	frequency=1.99772358e-01	gene_name=FFH21_RS08410	gene_position=2478	gene_product=Ice nucleation protein	gene_strand=>	html_gene_name=<i>FFH21_RS08410</i>&nbsp;&rarr;	ks_quality_p_value=0.993382	locus_tag=FFH21_RS08410	major_base=C	major_cov=73/8	major_frequency=8.00227642e-01	minor_base=G	minor_cov=19/2	new_cov=19/2	new_seq=G	polymorphism_frequency=1.99772358e-01	polymorphism_score=43.8	prediction=polymorphism	ref_cov=73/8	ref_seq=C	snp_type=synonymous	total_cov=94/10	transl_table=11
-RA	59	.	NZ_CP041754	2591112	0	G	T	bias_e_value=1400330	bias_p_value=0.229189	consensus_score=254.3	fisher_strand_p_value=0.0601366	frequency=9.98363495e-02	gene_name=FFH21_RS12255/FFH21_RS12260	gene_position=intergenic (-99/+3)	gene_product=ABC transporter ATP-binding protein/TetR/AcrR family transcriptional regulator	html_gene_name=<i>FFH21_RS12255</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS12260</i>	ks_quality_p_value=1	locus_tag=FFH21_RS12255/FFH21_RS12260	major_base=G	major_cov=44/33	major_frequency=9.00163651e-01	minor_base=T	minor_cov=3/9	new_cov=3/9	polymorphism_frequency=9.98363495e-02	polymorphism_score=5.0	prediction=polymorphism	ref_cov=44/33	snp_type=intergenic	total_cov=47/42
-RA	60	.	NZ_CP041754	2679900	0	G	T	aa_new_seq=T	aa_position=15	aa_ref_seq=T	bias_e_value=5586870	bias_p_value=0.914389	codon_new_seq=ACT	codon_number=15	codon_position=3	codon_ref_seq=ACG	consensus_score=263.5	fisher_strand_p_value=0.687233	frequency=6.87222481e-02	gene_name=FFH21_RS12645	gene_position=45	gene_product=efflux transporter outer membrane subunit	gene_strand=>	html_gene_name=<i>FFH21_RS12645</i>&nbsp;&rarr;	ks_quality_p_value=0.896143	locus_tag=FFH21_RS12645	major_base=G	major_cov=36/43	major_frequency=9.31277752e-01	minor_base=T	minor_cov=2/4	new_cov=2/4	new_seq=T	polymorphism_frequency=6.87222481e-02	polymorphism_score=6.2	prediction=polymorphism	ref_cov=36/43	ref_seq=G	snp_type=synonymous	total_cov=38/47	transl_table=11
-RA	61	.	NZ_CP041754	4050655	0	C	T	aa_new_seq=H	aa_position=130	aa_ref_seq=R	bias_e_value=6109950	bias_p_value=1	codon_new_seq=CAT	codon_number=130	codon_position=2	codon_ref_seq=CGT	consensus_score=165.7	fisher_strand_p_value=1	frequency=1.11970425e-01	gene_name=FFH21_RS19075	gene_position=389	gene_product=IS5-like element ISPsy2 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS19075</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19075	major_base=C	major_cov=22/33	major_frequency=8.88029575e-01	minor_base=T	minor_cov=3/4	new_cov=3/4	new_seq=T	polymorphism_frequency=1.11970425e-01	polymorphism_score=7.4	prediction=polymorphism	ref_cov=22/33	ref_seq=C	snp_type=nonsynonymous	total_cov=25/37	transl_table=11
-RA	62	.	NZ_CP041754	4219828	0	C	A	aa_new_seq=E	aa_position=188	aa_ref_seq=A	bias_e_value=2517550	bias_p_value=0.41204	codon_new_seq=GAG	codon_number=188	codon_position=2	codon_ref_seq=GCG	consensus_score=389.8	fisher_strand_p_value=0.138369	frequency=8.75535011e-02	gene_name=FFH21_RS19980	gene_position=563	gene_product=ribonucleotide-diphosphate reductase subunit beta	gene_strand=>	html_gene_name=<i>FFH21_RS19980</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS19980	major_base=C	major_cov=79/40	major_frequency=9.12446499e-01	minor_base=A	minor_cov=6/8	new_cov=6/8	new_seq=A	polymorphism_frequency=8.75535011e-02	polymorphism_score=9.7	prediction=polymorphism	ref_cov=79/40	ref_seq=C	snp_type=nonsynonymous	total_cov=85/48	transl_table=11
-RA	63	.	NZ_CP041754	4327930	0	C	A	bias_e_value=6109950	bias_p_value=1	consensus_score=138.6	fisher_strand_p_value=1	frequency=1.80050373e-01	gene_name=dapD/FFH21_RS20530	gene_position=intergenic (+16/-43)	gene_product=2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase/cysteine desulfurase	html_gene_name=<i>dapD</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS20530</i>	ks_quality_p_value=1	locus_tag=FFH21_RS20525/FFH21_RS20530	major_base=C	major_cov=42/9	major_frequency=8.19949627e-01	minor_base=A	minor_cov=11/2	new_cov=11/2	polymorphism_frequency=1.80050373e-01	polymorphism_score=3.6	prediction=polymorphism	ref_cov=42/9	snp_type=intergenic	total_cov=59/11
-RA	64	.	NZ_CP041754	4646754	0	G	T	bias_e_value=6105490	bias_p_value=0.99927	consensus_score=148.5	fisher_strand_p_value=1	frequency=8.94999504e-02	gene_name=FFH21_RS22055/FFH21_RS22060	gene_position=intergenic (+106/+564)	gene_product=Do family serine endopeptidase/histidinol-phosphate transaminase	html_gene_name=<i>FFH21_RS22055</i>&nbsp;&rarr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS22060</i>	ks_quality_p_value=0.962039	locus_tag=FFH21_RS22055/FFH21_RS22060	major_base=G	major_cov=20/29	major_frequency=9.10500050e-01	minor_base=T	minor_cov=2/3	new_cov=2/3	polymorphism_frequency=8.94999504e-02	polymorphism_score=2.8	prediction=polymorphism	ref_cov=20/29	snp_type=intergenic	total_cov=22/32
-RA	65	.	NZ_CP041754	4647006	0	C	T	bias_e_value=106.587	bias_p_value=1.74449e-05	consensus_score=63.5	fisher_strand_p_value=1.63086e-06	frequency=4.26369190e-01	gene_name=FFH21_RS22055/FFH21_RS22060	gene_position=intergenic (+358/+312)	gene_product=Do family serine endopeptidase/histidinol-phosphate transaminase	html_gene_name=<i>FFH21_RS22055</i>&nbsp;&rarr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS22060</i>	ks_quality_p_value=0.730639	locus_tag=FFH21_RS22055/FFH21_RS22060	major_base=C	major_cov=40/27	major_frequency=5.73630810e-01	minor_base=T	minor_cov=8/42	new_cov=8/42	polymorphism_frequency=4.26369190e-01	polymorphism_score=126.7	prediction=polymorphism	ref_cov=40/27	snp_type=intergenic	total_cov=51/69
-RA	66	.	NZ_CP041754	4754086	0	T	C	aa_new_seq=R	aa_position=32	aa_ref_seq=H	bias_e_value=4737750	bias_p_value=0.775415	codon_new_seq=CGT	codon_number=32	codon_position=2	codon_ref_seq=CAT	consensus_score=256.6	fisher_strand_p_value=0.409843	frequency=6.30130768e-02	gene_name=FFH21_RS22610	gene_position=95	gene_product=ABC transporter ATP-binding protein	gene_strand=<	html_gene_name=<i>FFH21_RS22610</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS22610	major_base=T	major_cov=39/48	major_frequency=9.36986923e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	new_seq=C	polymorphism_frequency=6.30130768e-02	polymorphism_score=3.6	prediction=polymorphism	ref_cov=39/48	ref_seq=T	snp_type=nonsynonymous	total_cov=43/50	transl_table=11
-RA	67	.	NZ_CP041754	4942729	0	A	C	bias_e_value=6109950	bias_p_value=1	consensus_score=38.2	fisher_strand_p_value=1	frequency=2.49849796e-01	gene_name=FFH21_RS23545/FFH21_RS23550	gene_position=intergenic (+19/-71)	gene_product=leucine--tRNA ligase/hypothetical protein	html_gene_name=<i>FFH21_RS23545</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS23550</i>	ks_quality_p_value=1	locus_tag=FFH21_RS23545/FFH21_RS23550	major_base=A	major_cov=6/21	major_frequency=7.50150204e-01	minor_base=C	minor_cov=2/8	new_cov=2/8	polymorphism_frequency=2.49849796e-01	polymorphism_score=3.3	prediction=polymorphism	ref_cov=6/21	snp_type=intergenic	total_cov=8/31
-RA	68	.	NZ_CP041754	5486551	0	C	A	aa_new_seq=I	aa_position=246	aa_ref_seq=S	bias_e_value=68039.6	bias_p_value=0.0111359	codon_new_seq=ATC	codon_number=246	codon_position=2	codon_ref_seq=AGC	consensus_score=239.0	fisher_strand_p_value=0.00148194	frequency=1.41667843e-01	gene_name=potA	gene_position=737	gene_product=polyamine ABC transporter ATP-binding protein	gene_strand=<	html_gene_name=<i>potA</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS26310	major_base=C	major_cov=26/49	major_frequency=8.58332157e-01	minor_base=A	minor_cov=13/3	new_cov=13/3	new_seq=A	polymorphism_frequency=1.41667843e-01	polymorphism_score=8.3	prediction=polymorphism	ref_cov=26/49	ref_seq=C	snp_type=nonsynonymous	total_cov=39/53	transl_table=11
-RA	69	.	NZ_CP041755	13073	0	G	A	bias_e_value=1088630	bias_p_value=0.178173	consensus_score=607.0	fisher_strand_p_value=0.0527046	frequency=1.40236855e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (517/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.815092	locus_tag=FFH21_RS28760	major_base=G	major_cov=85/104	major_frequency=8.59763145e-01	minor_base=A	minor_cov=20/11	new_cov=20/11	polymorphism_frequency=1.40236855e-01	polymorphism_score=62.5	prediction=polymorphism	ref_cov=85/104	snp_type=pseudogene	total_cov=106/115
-RA	70	.	NZ_CP041755	13076	0	G	A	bias_e_value=833429	bias_p_value=0.136405	consensus_score=586.3	fisher_strand_p_value=0.0317869	frequency=1.45234585e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (514/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.954647	locus_tag=FFH21_RS28760	major_base=G	major_cov=78/104	major_frequency=8.54765415e-01	minor_base=A	minor_cov=20/11	new_cov=20/11	polymorphism_frequency=1.45234585e-01	polymorphism_score=61.2	prediction=polymorphism	ref_cov=78/104	snp_type=pseudogene	total_cov=98/115
-RA	71	.	NZ_CP041755	13082	0	C	G	bias_e_value=533868	bias_p_value=0.0873769	consensus_score=603.3	fisher_strand_p_value=0.0188822	frequency=1.46958351e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (508/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.914772	locus_tag=FFH21_RS28760	major_base=C	major_cov=74/106	major_frequency=8.53041649e-01	minor_base=G	minor_cov=20/11	new_cov=20/11	polymorphism_frequency=1.46958351e-01	polymorphism_score=87.6	prediction=polymorphism	ref_cov=74/106	snp_type=pseudogene	total_cov=94/117
-RA	72	.	NZ_CP041755	13085	0	G	T	bias_e_value=802819	bias_p_value=0.131395	consensus_score=497.7	fisher_strand_p_value=0.0518627	frequency=1.75438404e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (505/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.557656	locus_tag=FFH21_RS28760	major_base=G	major_cov=64/85	major_frequency=8.24561596e-01	minor_base=T	minor_cov=20/12	new_cov=20/12	polymorphism_frequency=1.75438404e-01	polymorphism_score=77.3	prediction=polymorphism	ref_cov=64/85	snp_type=pseudogene	total_cov=84/97
-RA	73	.	NZ_CP041755	13088	0	A	G	bias_e_value=1086920	bias_p_value=0.177893	consensus_score=511.6	fisher_strand_p_value=0.0465238	frequency=1.31658077e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (502/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.921464	locus_tag=FFH21_RS28760	major_base=A	major_cov=63/95	major_frequency=8.68341923e-01	minor_base=G	minor_cov=15/9	new_cov=15/9	polymorphism_frequency=1.31658077e-01	polymorphism_score=48.2	prediction=polymorphism	ref_cov=63/95	snp_type=pseudogene	total_cov=78/104
-RA	74	.	NZ_CP041755	13090	0	C	T	bias_e_value=1002220	bias_p_value=0.164032	consensus_score=491.2	fisher_strand_p_value=0.0764426	frequency=1.36857033e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (500/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.504182	locus_tag=FFH21_RS28760	major_base=C	major_cov=63/88	major_frequency=8.63142967e-01	minor_base=T	minor_cov=15/9	new_cov=15/9	polymorphism_frequency=1.36857033e-01	polymorphism_score=45.9	prediction=polymorphism	ref_cov=63/88	snp_type=pseudogene	total_cov=78/97
-RA	75	.	NZ_CP041755	13092	0	G	T	bias_e_value=278259	bias_p_value=0.045542	consensus_score=500.6	fisher_strand_p_value=0.0484981	frequency=1.42398834e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (498/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.160337	locus_tag=FFH21_RS28760	major_base=G	major_cov=61/89	major_frequency=8.57601166e-01	minor_base=T	minor_cov=16/9	new_cov=16/9	polymorphism_frequency=1.42398834e-01	polymorphism_score=56.5	prediction=polymorphism	ref_cov=61/89	snp_type=pseudogene	total_cov=77/98
-RA	76	.	NZ_CP041755	13093	0	A	T	bias_e_value=962420	bias_p_value=0.157517	consensus_score=548.1	fisher_strand_p_value=0.0772185	frequency=1.26241684e-01	gene_name=FFH21_RS28760	gene_position=pseudogene (497/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.473411	locus_tag=FFH21_RS28760	major_base=A	major_cov=69/97	major_frequency=8.73758316e-01	minor_base=T	minor_cov=15/9	new_cov=15/9	polymorphism_frequency=1.26241684e-01	polymorphism_score=56.9	prediction=polymorphism	ref_cov=69/97	snp_type=pseudogene	total_cov=84/106
-RA	77	.	NZ_CP041755	13108	0	G	A	bias_e_value=1370970	bias_p_value=0.224383	consensus_score=371.0	fisher_strand_p_value=0.0629489	frequency=8.65855217e-02	gene_name=FFH21_RS28760	gene_position=pseudogene (482/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.928304	locus_tag=FFH21_RS28760	major_base=G	major_cov=59/56	major_frequency=9.13414478e-01	minor_base=A	minor_cov=9/2	new_cov=9/2	polymorphism_frequency=8.65855217e-02	polymorphism_score=16.0	prediction=polymorphism	ref_cov=59/56	snp_type=pseudogene	total_cov=69/58
-RA	78	.	NZ_CP041755	13109	0	A	T	bias_e_value=1310780	bias_p_value=0.214532	consensus_score=369.8	fisher_strand_p_value=0.0647547	frequency=8.67185593e-02	gene_name=FFH21_RS28760	gene_position=pseudogene (481/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.849405	locus_tag=FFH21_RS28760	major_base=A	major_cov=60/56	major_frequency=9.13281441e-01	minor_base=T	minor_cov=9/2	new_cov=9/2	polymorphism_frequency=8.67185593e-02	polymorphism_score=22.0	prediction=polymorphism	ref_cov=60/56	snp_type=pseudogene	total_cov=69/58
-RA	79	.	NZ_CP041755	13112	0	A	G	bias_e_value=2069380	bias_p_value=0.338691	consensus_score=363.0	fisher_strand_p_value=0.109517	frequency=8.69026184e-02	gene_name=FFH21_RS28760	gene_position=pseudogene (478/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	ks_quality_p_value=0.946809	locus_tag=FFH21_RS28760	major_base=A	major_cov=60/55	major_frequency=9.13097382e-01	minor_base=G	minor_cov=9/2	new_cov=9/2	polymorphism_frequency=8.69026184e-02	polymorphism_score=17.0	prediction=polymorphism	ref_cov=60/55	snp_type=pseudogene	total_cov=69/58
-RA	80	.	NZ_CP041755	13271	0	A	G	consensus_score=13.1	frequency=1	gene_name=FFH21_RS28760	gene_position=pseudogene (319/883 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28760</i>&nbsp;&larr;	locus_tag=FFH21_RS28760	major_base=G	major_cov=8/2	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=8/2	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	snp_type=pseudogene	total_cov=8/2
-RA	81	.	NZ_CP041755	117848	0	G	A	aa_new_seq=V	aa_position=785	aa_ref_seq=A	bias_e_value=5535580	bias_p_value=0.905995	codon_new_seq=GTA	codon_number=785	codon_position=2	codon_ref_seq=GCA	consensus_score=534.3	fisher_strand_p_value=0.599022	frequency=7.47098923e-02	gene_name=FFH21_RS29455	gene_position=2354	gene_product=hypothetical protein	gene_strand=<	html_gene_name=<i>FFH21_RS29455</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS29455	major_base=G	major_cov=120/70	major_frequency=9.25290108e-01	minor_base=A	minor_cov=9/7	new_cov=9/7	new_seq=A	polymorphism_frequency=7.47098923e-02	polymorphism_score=15.0	prediction=polymorphism	ref_cov=120/70	ref_seq=G	snp_type=nonsynonymous	total_cov=133/77	transl_table=11
-RA	82	.	NZ_CP041755	118172	0	C	A	aa_new_seq=I	aa_position=677	aa_ref_seq=S	bias_e_value=8.55326e-07	bias_p_value=1.39989e-13	codon_new_seq=ATC	codon_number=677	codon_position=2	codon_ref_seq=AGC	consensus_score=837.7	fisher_strand_p_value=4.10197e-15	frequency=2.01211929e-01	gene_name=FFH21_RS29455	gene_position=2030	gene_product=hypothetical protein	gene_strand=<	html_gene_name=<i>FFH21_RS29455</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS29455	major_base=C	major_cov=186/118	major_frequency=7.98788071e-01	minor_base=A	minor_cov=97/2	new_cov=97/2	new_seq=A	polymorphism_frequency=2.01211929e-01	polymorphism_score=46.8	prediction=polymorphism	ref_cov=186/118	ref_seq=C	snp_type=nonsynonymous	total_cov=284/125	transl_table=11
-RA	83	.	NZ_CP041755	118177	0	G	T	aa_new_seq=A	aa_position=675	aa_ref_seq=A	bias_e_value=60182.1	bias_p_value=0.00984985	codon_new_seq=GCA	codon_number=675	codon_position=3	codon_ref_seq=GCC	consensus_score=923.3	fisher_strand_p_value=0.00128659	frequency=1.81365490e-01	gene_name=FFH21_RS29455	gene_position=2025	gene_product=hypothetical protein	gene_strand=<	html_gene_name=<i>FFH21_RS29455</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS29455	major_base=G	major_cov=194/127	major_frequency=8.18634510e-01	minor_base=T	minor_cov=61/15	new_cov=61/15	new_seq=T	polymorphism_frequency=1.81365490e-01	polymorphism_score=85.0	prediction=polymorphism	ref_cov=194/127	ref_seq=G	snp_type=synonymous	total_cov=257/142	transl_table=11
-RA	84	.	NZ_CP041755	118379	0	T	G	aa_new_seq=A	aa_position=608	aa_ref_seq=D	bias_e_value=322.996	bias_p_value=5.28639e-05	codon_new_seq=GCC	codon_number=608	codon_position=2	codon_ref_seq=GAC	consensus_score=580.1	fisher_strand_p_value=3.93142e-06	frequency=6.37221336e-02	gene_name=FFH21_RS29455	gene_position=1823	gene_product=hypothetical protein	gene_strand=<	html_gene_name=<i>FFH21_RS29455</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS29455	major_base=T	major_cov=164/36	major_frequency=9.36277866e-01	minor_base=G	minor_cov=4/12	new_cov=4/12	new_seq=G	polymorphism_frequency=6.37221336e-02	polymorphism_score=14.4	prediction=polymorphism	ref_cov=164/36	ref_seq=T	snp_type=nonsynonymous	total_cov=169/48	transl_table=11
-MC	85	.	NZ_CP041754	386930	386970	0	0	gene_name=FFH21_RS01880/FFH21_RS01885	gene_position=intergenic (-248/+2)	gene_product=2-keto-3-deoxygluconate permease/TIGR02646 family protein	html_gene_name=<i>FFH21_RS01880</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS01885</i>	left_inside_cov=8	left_outside_cov=11	locus_tag=FFH21_RS01880/FFH21_RS01885	right_inside_cov=7	right_outside_cov=14
-JC	86	.	NZ_CP041754	1	1	NZ_CP041754	5936802	-1	0	alignment_overlap=0	circular_chromosome=1	coverage_minus=25	coverage_plus=8	flanking_left=75	flanking_right=75	frequency=1	junction_possible_overlap_registers=55	key=NZ_CP041754__1__1__NZ_CP041754__5936802__-1__0____75__75__0__0	max_left=60	max_left_minus=53	max_left_plus=60	max_min_left=37	max_min_left_minus=37	max_min_left_plus=37	max_min_right=35	max_min_right_minus=35	max_min_right_plus=19	max_pos_hash_score=112	max_right=64	max_right_minus=64	max_right_plus=38	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.48	new_junction_read_count=33	polymorphism_frequency=1.00000000e+00	pos_hash_score=14	prediction=consensus	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=33
-JC	87	.	NZ_CP041755	1	1	NZ_CP041755	131974	-1	0	alignment_overlap=0	circular_chromosome=1	coverage_minus=35	coverage_plus=173	flanking_left=75	flanking_right=75	frequency=1	junction_possible_overlap_registers=55	key=NZ_CP041755__1__1__NZ_CP041755__131974__-1__0____75__75__0__0	max_left=67	max_left_minus=64	max_left_plus=67	max_min_left=34	max_min_left_minus=32	max_min_left_plus=34	max_min_right=36	max_min_right_minus=30	max_min_right_plus=36	max_pos_hash_score=112	max_right=69	max_right_minus=68	max_right_plus=69	neg_log10_pos_hash_p_value=NT	new_junction_coverage=1.24	new_junction_read_count=211	polymorphism_frequency=1.00000000e+00	pos_hash_score=49	prediction=consensus	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=208
-JC	88	.	NZ_CP041756	1	1	NZ_CP041756	41171	-1	0	alignment_overlap=0	circular_chromosome=1	coverage_minus=75	coverage_plus=193	flanking_left=75	flanking_right=75	frequency=1	junction_possible_overlap_registers=55	key=NZ_CP041756__1__1__NZ_CP041756__41171__-1__0____75__75__0__0	max_left=64	max_left_minus=64	max_left_plus=63	max_min_left=32	max_min_left_minus=32	max_min_left_plus=32	max_min_right=34	max_min_right_minus=34	max_min_right_plus=34	max_pos_hash_score=112	max_right=69	max_right_minus=69	max_right_plus=68	neg_log10_pos_hash_p_value=NT	new_junction_coverage=1.51	new_junction_read_count=271	polymorphism_frequency=1.00000000e+00	pos_hash_score=50	prediction=consensus	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=268
-UN	89	.	NZ_CP041754	36913	36914
-UN	90	.	NZ_CP041754	36916	36916
-UN	91	.	NZ_CP041754	36918	36918
-UN	92	.	NZ_CP041754	36921	36921
-UN	93	.	NZ_CP041754	43711	45984
-UN	94	.	NZ_CP041754	50233	51477
-UN	95	.	NZ_CP041754	100283	100606
-UN	96	.	NZ_CP041754	100730	102145
-UN	97	.	NZ_CP041754	102273	102338
-UN	98	.	NZ_CP041754	108862	108862
-UN	99	.	NZ_CP041754	108865	111135
-UN	100	.	NZ_CP041754	122594	122990
-UN	101	.	NZ_CP041754	122997	122997
-UN	102	.	NZ_CP041754	123105	124183
-UN	103	.	NZ_CP041754	133674	134876
-UN	104	.	NZ_CP041754	134879	134879
-UN	105	.	NZ_CP041754	134882	134882
-UN	106	.	NZ_CP041754	134886	134886
-UN	107	.	NZ_CP041754	191002	191002
-UN	108	.	NZ_CP041754	191005	191013
-UN	109	.	NZ_CP041754	191144	191273
-UN	110	.	NZ_CP041754	191556	191754
-UN	111	.	NZ_CP041754	191871	191907
-UN	112	.	NZ_CP041754	191909	191909
-UN	113	.	NZ_CP041754	301790	303039
-UN	114	.	NZ_CP041754	330276	330276
-UN	115	.	NZ_CP041754	330278	330281
-UN	116	.	NZ_CP041754	330283	330283
-UN	117	.	NZ_CP041754	330285	330338
-UN	118	.	NZ_CP041754	330344	330344
-UN	119	.	NZ_CP041754	330674	330710
-UN	120	.	NZ_CP041754	386931	386971
-UN	121	.	NZ_CP041754	449842	449847
-UN	122	.	NZ_CP041754	450060	450071
-UN	123	.	NZ_CP041754	630842	631920
-UN	124	.	NZ_CP041754	645629	646879
-UN	125	.	NZ_CP041754	646881	646881
-UN	126	.	NZ_CP041754	718362	724083
-UN	127	.	NZ_CP041754	736531	737773
-UN	128	.	NZ_CP041754	739044	740392
-UN	129	.	NZ_CP041754	785948	785950
-UN	130	.	NZ_CP041754	785960	785961
-UN	131	.	NZ_CP041754	785963	785966
-UN	132	.	NZ_CP041754	785968	785968
-UN	133	.	NZ_CP041754	786109	786164
-UN	134	.	NZ_CP041754	787731	787731
-UN	135	.	NZ_CP041754	787738	787954
-UN	136	.	NZ_CP041754	815489	816470
-UN	137	.	NZ_CP041754	825920	826979
-UN	138	.	NZ_CP041754	836496	837568
-UN	139	.	NZ_CP041754	837741	838109
-UN	140	.	NZ_CP041754	838515	838540
-UN	141	.	NZ_CP041754	838542	838542
-UN	142	.	NZ_CP041754	842889	842941
-UN	143	.	NZ_CP041754	843118	843975
-UN	144	.	NZ_CP041754	844238	844240
-UN	145	.	NZ_CP041754	844242	844655
-UN	146	.	NZ_CP041754	844774	845525
-UN	147	.	NZ_CP041754	845675	846886
-UN	148	.	NZ_CP041754	899196	900446
-UN	149	.	NZ_CP041754	903063	904275
-UN	150	.	NZ_CP041754	916853	916909
-UN	151	.	NZ_CP041754	946910	946920
-UN	152	.	NZ_CP041754	958024	958026
-UN	153	.	NZ_CP041754	958028	958033
-UN	154	.	NZ_CP041754	958040	958047
-UN	155	.	NZ_CP041754	958050	958050
-UN	156	.	NZ_CP041754	958053	958057
-UN	157	.	NZ_CP041754	958059	958067
-UN	158	.	NZ_CP041754	964151	964199
-UN	159	.	NZ_CP041754	964321	969800
-UN	160	.	NZ_CP041754	971149	972353
-UN	161	.	NZ_CP041754	972355	972356
-UN	162	.	NZ_CP041754	982720	982720
-UN	163	.	NZ_CP041754	982722	984119
-UN	164	.	NZ_CP041754	984124	984124
-UN	165	.	NZ_CP041754	987087	988170
-UN	166	.	NZ_CP041754	1008888	1009955
-UN	167	.	NZ_CP041754	1020608	1022001
-UN	168	.	NZ_CP041754	1022006	1022006
-UN	169	.	NZ_CP041754	1040741	1041154
-UN	170	.	NZ_CP041754	1066415	1066567
-UN	171	.	NZ_CP041754	1066677	1066840
-UN	172	.	NZ_CP041754	1085192	1085265
-UN	173	.	NZ_CP041754	1096895	1099334
-UN	174	.	NZ_CP041754	1173718	1174967
-UN	175	.	NZ_CP041754	1174977	1174977
-UN	176	.	NZ_CP041754	1174980	1174980
-UN	177	.	NZ_CP041754	1235259	1235279
-UN	178	.	NZ_CP041754	1235282	1235292
-UN	179	.	NZ_CP041754	1255349	1257799
-UN	180	.	NZ_CP041754	1257802	1257802
-UN	181	.	NZ_CP041754	1257804	1257805
-UN	182	.	NZ_CP041754	1268026	1269276
-UN	183	.	NZ_CP041754	1292992	1293042
-UN	184	.	NZ_CP041754	1293181	1293232
-UN	185	.	NZ_CP041754	1313582	1313600
-UN	186	.	NZ_CP041754	1468543	1468543
-UN	187	.	NZ_CP041754	1468545	1468546
-UN	188	.	NZ_CP041754	1468549	1469813
-UN	189	.	NZ_CP041754	1503070	1503070
-UN	190	.	NZ_CP041754	1503073	1504327
-UN	191	.	NZ_CP041754	1512023	1512023
-UN	192	.	NZ_CP041754	1512025	1513078
-UN	193	.	NZ_CP041754	1533372	1533385
-UN	194	.	NZ_CP041754	1533391	1533391
-UN	195	.	NZ_CP041754	1533625	1533626
-UN	196	.	NZ_CP041754	1533629	1533725
-UN	197	.	NZ_CP041754	1601961	1602004
-UN	198	.	NZ_CP041754	1602194	1603454
-UN	199	.	NZ_CP041754	1605632	1606193
-UN	200	.	NZ_CP041754	1606322	1606356
-UN	201	.	NZ_CP041754	1606485	1606487
-UN	202	.	NZ_CP041754	1606489	1606733
-UN	203	.	NZ_CP041754	1606933	1607001
-UN	204	.	NZ_CP041754	1608325	1608330
-UN	205	.	NZ_CP041754	1608333	1608333
-UN	206	.	NZ_CP041754	1608335	1608344
-UN	207	.	NZ_CP041754	1614639	1614671
-UN	208	.	NZ_CP041754	1614958	1614981
-UN	209	.	NZ_CP041754	1615659	1615973
-UN	210	.	NZ_CP041754	1615975	1615975
-UN	211	.	NZ_CP041754	1644040	1644061
-UN	212	.	NZ_CP041754	1644272	1644290
-UN	213	.	NZ_CP041754	1650177	1651233
-UN	214	.	NZ_CP041754	1664177	1665430
-UN	215	.	NZ_CP041754	1693225	1693434
-UN	216	.	NZ_CP041754	1693547	1697315
-UN	217	.	NZ_CP041754	1700564	1701850
-UN	218	.	NZ_CP041754	1702011	1702014
-UN	219	.	NZ_CP041754	1702147	1702838
-UN	220	.	NZ_CP041754	1703137	1703163
-UN	221	.	NZ_CP041754	1703286	1703408
-UN	222	.	NZ_CP041754	1769720	1770984
-UN	223	.	NZ_CP041754	1772066	1772067
-UN	224	.	NZ_CP041754	1772069	1772069
-UN	225	.	NZ_CP041754	1773252	1773302
-UN	226	.	NZ_CP041754	1773315	1773315
-UN	227	.	NZ_CP041754	1773395	1773395
-UN	228	.	NZ_CP041754	1773400	1773400
-UN	229	.	NZ_CP041754	1773406	1773408
-UN	230	.	NZ_CP041754	1773412	1773446
-UN	231	.	NZ_CP041754	1776381	1776441
-UN	232	.	NZ_CP041754	1776603	1777672
-UN	233	.	NZ_CP041754	1782623	1783554
-UN	234	.	NZ_CP041754	1847922	1848336
-UN	235	.	NZ_CP041754	1871696	1871817
-UN	236	.	NZ_CP041754	1930997	1932056
-UN	237	.	NZ_CP041754	2059870	2059870
-UN	238	.	NZ_CP041754	2059873	2060965
-UN	239	.	NZ_CP041754	2089980	2089980
-UN	240	.	NZ_CP041754	2089982	2089983
-UN	241	.	NZ_CP041754	2089986	2089986
-UN	242	.	NZ_CP041754	2089991	2089992
-UN	243	.	NZ_CP041754	2096952	2098068
-UN	244	.	NZ_CP041754	2098282	2099368
-UN	245	.	NZ_CP041754	2099482	2099482
-UN	246	.	NZ_CP041754	2099486	2099496
-UN	247	.	NZ_CP041754	2106348	2107598
-UN	248	.	NZ_CP041754	2107600	2107600
-UN	249	.	NZ_CP041754	2107602	2107602
-UN	250	.	NZ_CP041754	2116690	2116731
-UN	251	.	NZ_CP041754	2117123	2117225
-UN	252	.	NZ_CP041754	2117536	2117635
-UN	253	.	NZ_CP041754	2126066	2127307
-UN	254	.	NZ_CP041754	2165163	2165187
-UN	255	.	NZ_CP041754	2174228	2174228
-UN	256	.	NZ_CP041754	2174238	2174356
-UN	257	.	NZ_CP041754	2174895	2174895
-UN	258	.	NZ_CP041754	2174897	2174918
-UN	259	.	NZ_CP041754	2179425	2179458
-UN	260	.	NZ_CP041754	2182032	2182143
-UN	261	.	NZ_CP041754	2182686	2182714
-UN	262	.	NZ_CP041754	2251777	2251785
-UN	263	.	NZ_CP041754	2260804	2262088
-UN	264	.	NZ_CP041754	2273204	2274277
-UN	265	.	NZ_CP041754	2285165	2286430
-UN	266	.	NZ_CP041754	2313840	2313847
-UN	267	.	NZ_CP041754	2313855	2313855
-UN	268	.	NZ_CP041754	2313864	2313864
-UN	269	.	NZ_CP041754	2314053	2314085
-UN	270	.	NZ_CP041754	2314097	2314097
-UN	271	.	NZ_CP041754	2314100	2314100
-UN	272	.	NZ_CP041754	2366117	2366167
-UN	273	.	NZ_CP041754	2367501	2367502
-UN	274	.	NZ_CP041754	2367504	2367507
-UN	275	.	NZ_CP041754	2367509	2368087
-UN	276	.	NZ_CP041754	2368094	2368094
-UN	277	.	NZ_CP041754	2429780	2431031
-UN	278	.	NZ_CP041754	2443962	2445220
-UN	279	.	NZ_CP041754	2445222	2445224
-UN	280	.	NZ_CP041754	2569028	2569436
-UN	281	.	NZ_CP041754	2572184	2573586
-UN	282	.	NZ_CP041754	2573799	2574166
-UN	283	.	NZ_CP041754	2594260	2595325
-UN	284	.	NZ_CP041754	2601630	2602883
-UN	285	.	NZ_CP041754	2693472	2693502
-UN	286	.	NZ_CP041754	2741094	2742363
-UN	287	.	NZ_CP041754	2749720	2749792
-UN	288	.	NZ_CP041754	2749931	2750979
-UN	289	.	NZ_CP041754	2787201	2788247
-UN	290	.	NZ_CP041754	2835151	2835151
-UN	291	.	NZ_CP041754	2835153	2836212
-UN	292	.	NZ_CP041754	2847527	2847527
-UN	293	.	NZ_CP041754	2847529	2848789
-UN	294	.	NZ_CP041754	2878008	2879091
-UN	295	.	NZ_CP041754	3000290	3000290
-UN	296	.	NZ_CP041754	3000293	3001354
-UN	297	.	NZ_CP041754	3080471	3081521
-UN	298	.	NZ_CP041754	3122682	3124040
-UN	299	.	NZ_CP041754	3138095	3139350
-UN	300	.	NZ_CP041754	3139352	3139353
-UN	301	.	NZ_CP041754	3148263	3150807
-UN	302	.	NZ_CP041754	3150931	3153466
-UN	303	.	NZ_CP041754	3160056	3161117
-UN	304	.	NZ_CP041754	3161241	3162500
-UN	305	.	NZ_CP041754	3181643	3181837
-UN	306	.	NZ_CP041754	3181957	3182518
-UN	307	.	NZ_CP041754	3182639	3183684
-UN	308	.	NZ_CP041754	3183816	3184879
-UN	309	.	NZ_CP041754	3262306	3262349
-UN	310	.	NZ_CP041754	3262442	3262497
-UN	311	.	NZ_CP041754	3317544	3317544
-UN	312	.	NZ_CP041754	3317550	3318923
-UN	313	.	NZ_CP041754	3382053	3382054
-UN	314	.	NZ_CP041754	3382057	3382057
-UN	315	.	NZ_CP041754	3382059	3383329
-UN	316	.	NZ_CP041754	3438645	3439517
-UN	317	.	NZ_CP041754	3439685	3439728
-UN	318	.	NZ_CP041754	3439730	3439730
-UN	319	.	NZ_CP041754	3439732	3439732
-UN	320	.	NZ_CP041754	3439735	3439735
-UN	321	.	NZ_CP041754	3440599	3441036
-UN	322	.	NZ_CP041754	3441401	3441402
-UN	323	.	NZ_CP041754	3441406	3441409
-UN	324	.	NZ_CP041754	3441473	3441478
-UN	325	.	NZ_CP041754	3441483	3441613
-UN	326	.	NZ_CP041754	3441616	3441618
-UN	327	.	NZ_CP041754	3441620	3441620
-UN	328	.	NZ_CP041754	3554542	3560132
-UN	329	.	NZ_CP041754	3560251	3560269
-UN	330	.	NZ_CP041754	3671887	3673147
-UN	331	.	NZ_CP041754	3676170	3676255
-UN	332	.	NZ_CP041754	3737369	3737394
-UN	333	.	NZ_CP041754	3737400	3737401
-UN	334	.	NZ_CP041754	3738074	3738144
-UN	335	.	NZ_CP041754	3777126	3778205
-UN	336	.	NZ_CP041754	3778317	3778318
-UN	337	.	NZ_CP041754	3778320	3779570
-UN	338	.	NZ_CP041754	3898931	3898931
-UN	339	.	NZ_CP041754	3898933	3900186
-UN	340	.	NZ_CP041754	3954951	3955578
-UN	341	.	NZ_CP041754	3956080	3957476
-UN	342	.	NZ_CP041754	3959067	3959086
-UN	343	.	NZ_CP041754	3959090	3959091
-UN	344	.	NZ_CP041754	3959093	3959093
-UN	345	.	NZ_CP041754	3959095	3959095
-UN	346	.	NZ_CP041754	3959097	3959098
-UN	347	.	NZ_CP041754	3959252	3959369
-UN	348	.	NZ_CP041754	3959675	3959679
-UN	349	.	NZ_CP041754	3959682	3960663
-UN	350	.	NZ_CP041754	3963582	3963883
-UN	351	.	NZ_CP041754	3969562	3970823
-UN	352	.	NZ_CP041754	4047989	4049249
-UN	353	.	NZ_CP041754	4050008	4050457
-UN	354	.	NZ_CP041754	4050857	4050857
-UN	355	.	NZ_CP041754	4050859	4052228
-UN	356	.	NZ_CP041754	4108064	4108472
-UN	357	.	NZ_CP041754	4108609	4108939
-UN	358	.	NZ_CP041754	4109104	4110374
-UN	359	.	NZ_CP041754	4213381	4214496
-UN	360	.	NZ_CP041754	4218538	4218630
-UN	361	.	NZ_CP041754	4223236	4224283
-UN	362	.	NZ_CP041754	4238501	4238575
-UN	363	.	NZ_CP041754	4238717	4238717
-UN	364	.	NZ_CP041754	4238720	4238732
-UN	365	.	NZ_CP041754	4366490	4366851
-UN	366	.	NZ_CP041754	4366923	4367568
-UN	367	.	NZ_CP041754	4386904	4386904
-UN	368	.	NZ_CP041754	4412599	4412828
-UN	369	.	NZ_CP041754	4413119	4413119
-UN	370	.	NZ_CP041754	4413125	4413189
-UN	371	.	NZ_CP041754	4413263	4413340
-UN	372	.	NZ_CP041754	4413344	4413344
-UN	373	.	NZ_CP041754	4454746	4454746
-UN	374	.	NZ_CP041754	4454750	4454750
-UN	375	.	NZ_CP041754	4465669	4466919
-UN	376	.	NZ_CP041754	4480437	4480616
-UN	377	.	NZ_CP041754	4553782	4553785
-UN	378	.	NZ_CP041754	4553787	4553787
-UN	379	.	NZ_CP041754	4553789	4555021
-UN	380	.	NZ_CP041754	4593933	4595193
-UN	381	.	NZ_CP041754	4663758	4664811
-UN	382	.	NZ_CP041754	4664818	4664818
-UN	383	.	NZ_CP041754	4667458	4667487
-UN	384	.	NZ_CP041754	4737060	4737201
-UN	385	.	NZ_CP041754	4737316	4737337
-UN	386	.	NZ_CP041754	4737339	4737339
-UN	387	.	NZ_CP041754	4737341	4737341
-UN	388	.	NZ_CP041754	4743883	4745146
-UN	389	.	NZ_CP041754	4746542	4746542
-UN	390	.	NZ_CP041754	4793984	4795238
-UN	391	.	NZ_CP041754	4799376	4800626
-UN	392	.	NZ_CP041754	4805030	4806085
-UN	393	.	NZ_CP041754	4814356	4815394
-UN	394	.	NZ_CP041754	4878761	4880033
-UN	395	.	NZ_CP041754	4906716	4907996
-UN	396	.	NZ_CP041754	4909968	4911236
-UN	397	.	NZ_CP041754	4958175	4958175
-UN	398	.	NZ_CP041754	4958347	4958369
-UN	399	.	NZ_CP041754	4958510	4958552
-UN	400	.	NZ_CP041754	4983865	4983867
-UN	401	.	NZ_CP041754	4983952	4983978
-UN	402	.	NZ_CP041754	5049262	5049272
-UN	403	.	NZ_CP041754	5049387	5050526
-UN	404	.	NZ_CP041754	5050529	5050529
-UN	405	.	NZ_CP041754	5121438	5121441
-UN	406	.	NZ_CP041754	5121443	5121590
-UN	407	.	NZ_CP041754	5169623	5175333
-UN	408	.	NZ_CP041754	5226274	5226329
-UN	409	.	NZ_CP041754	5226866	5226920
-UN	410	.	NZ_CP041754	5242040	5243096
-UN	411	.	NZ_CP041754	5246635	5247630
-UN	412	.	NZ_CP041754	5273562	5274504
-UN	413	.	NZ_CP041754	5276452	5276455
-UN	414	.	NZ_CP041754	5296943	5298201
-UN	415	.	NZ_CP041754	5311231	5312293
-UN	416	.	NZ_CP041754	5324394	5325675
-UN	417	.	NZ_CP041754	5418406	5419674
-UN	418	.	NZ_CP041754	5470072	5470495
-UN	419	.	NZ_CP041754	5496640	5497564
-UN	420	.	NZ_CP041754	5497702	5497708
-UN	421	.	NZ_CP041754	5497821	5498894
-UN	422	.	NZ_CP041754	5498899	5498899
-UN	423	.	NZ_CP041754	5498905	5498905
-UN	424	.	NZ_CP041754	5498909	5498909
-UN	425	.	NZ_CP041754	5528877	5530121
-UN	426	.	NZ_CP041754	5530123	5530123
-UN	427	.	NZ_CP041754	5530126	5530126
-UN	428	.	NZ_CP041754	5542164	5542245
-UN	429	.	NZ_CP041754	5549397	5549412
-UN	430	.	NZ_CP041754	5564290	5564320
-UN	431	.	NZ_CP041754	5577715	5577716
-UN	432	.	NZ_CP041754	5577719	5577725
-UN	433	.	NZ_CP041754	5577727	5577727
-UN	434	.	NZ_CP041754	5581482	5582045
-UN	435	.	NZ_CP041754	5582165	5583992
-UN	436	.	NZ_CP041754	5585954	5586469
-UN	437	.	NZ_CP041754	5586620	5586621
-UN	438	.	NZ_CP041754	5586624	5586624
-UN	439	.	NZ_CP041754	5586628	5586980
-UN	440	.	NZ_CP041754	5587327	5587339
-UN	441	.	NZ_CP041754	5587341	5587341
-UN	442	.	NZ_CP041754	5587343	5587351
-UN	443	.	NZ_CP041754	5660900	5661825
-UN	444	.	NZ_CP041754	5661830	5661830
-UN	445	.	NZ_CP041754	5679903	5679945
-UN	446	.	NZ_CP041754	5680165	5680487
-UN	447	.	NZ_CP041754	5681158	5681189
-UN	448	.	NZ_CP041754	5681466	5681504
-UN	449	.	NZ_CP041754	5702155	5707741
-UN	450	.	NZ_CP041754	5707860	5707866
-UN	451	.	NZ_CP041754	5824679	5825989
-UN	452	.	NZ_CP041754	5826417	5827680
-UN	453	.	NZ_CP041754	5858497	5859910
-UN	454	.	NZ_CP041754	5860003	5862844
-UN	455	.	NZ_CP041754	5869929	5872755
-UN	456	.	NZ_CP041754	5898084	5898378
-UN	457	.	NZ_CP041754	5898438	5898440
-UN	458	.	NZ_CP041754	5898442	5899229
-UN	459	.	NZ_CP041754	5901178	5901178
-UN	460	.	NZ_CP041754	5901180	5902442
-UN	461	.	NZ_CP041754	5929596	5929642
-UN	462	.	NZ_CP041754	5929775	5929775
-UN	463	.	NZ_CP041754	5929777	5929778
-UN	464	.	NZ_CP041754	5929780	5929780
-UN	465	.	NZ_CP041754	5929782	5929790
-UN	466	.	NZ_CP041755	1524	2125
-UN	467	.	NZ_CP041755	2266	2354
-UN	468	.	NZ_CP041755	2489	6489
-UN	469	.	NZ_CP041755	10976	11009
-UN	470	.	NZ_CP041755	11175	11220
-UN	471	.	NZ_CP041755	11479	11480
-UN	472	.	NZ_CP041755	11597	11600
-UN	473	.	NZ_CP041755	12033	12467
-UN	474	.	NZ_CP041755	12701	12936
-UN	475	.	NZ_CP041755	13272	13318
-UN	476	.	NZ_CP041755	13488	13518
-UN	477	.	NZ_CP041755	13648	13708
-UN	478	.	NZ_CP041755	20700	20704
-UN	479	.	NZ_CP041755	21065	21409
-UN	480	.	NZ_CP041755	21578	22086
-UN	481	.	NZ_CP041755	22643	24605
-UN	482	.	NZ_CP041755	24820	25538
-UN	483	.	NZ_CP041755	28590	28602
-UN	484	.	NZ_CP041755	30778	30778
-UN	485	.	NZ_CP041755	30780	30825
-UN	486	.	NZ_CP041755	30965	32161
-UN	487	.	NZ_CP041755	33256	33335
-UN	488	.	NZ_CP041755	33704	33719
-UN	489	.	NZ_CP041755	36638	36751
-UN	490	.	NZ_CP041755	37356	38735
-UN	491	.	NZ_CP041755	40660	40752
-UN	492	.	NZ_CP041755	41893	42061
-UN	493	.	NZ_CP041755	43402	44781
-UN	494	.	NZ_CP041755	48138	48186
-UN	495	.	NZ_CP041755	48392	48554
-UN	496	.	NZ_CP041755	48928	48940
-UN	497	.	NZ_CP041755	49073	49315
-UN	498	.	NZ_CP041755	57100	58159
-UN	499	.	NZ_CP041755	59274	63282
-UN	500	.	NZ_CP041755	64879	65146
-UN	501	.	NZ_CP041755	65315	66262
-UN	502	.	NZ_CP041755	68738	69804
-UN	503	.	NZ_CP041755	69948	70321
-UN	504	.	NZ_CP041755	70745	71207
-UN	505	.	NZ_CP041755	71307	72713
-UN	506	.	NZ_CP041755	72939	73907
-UN	507	.	NZ_CP041755	76923	78113
-UN	508	.	NZ_CP041755	84064	85497
-UN	509	.	NZ_CP041755	85733	85733
-UN	510	.	NZ_CP041755	85735	85735
-UN	511	.	NZ_CP041755	85739	87705
-UN	512	.	NZ_CP041755	87709	87709
-UN	513	.	NZ_CP041755	87841	88891
-UN	514	.	NZ_CP041755	97874	97900
-UN	515	.	NZ_CP041755	98176	98555
-UN	516	.	NZ_CP041755	98821	98866
-UN	517	.	NZ_CP041755	99129	99713
-UN	518	.	NZ_CP041755	99851	100450
-UN	519	.	NZ_CP041755	100698	100873
-UN	520	.	NZ_CP041755	101010	101624
-UN	521	.	NZ_CP041755	101749	101749
-UN	522	.	NZ_CP041755	101761	102084
-UN	523	.	NZ_CP041755	103743	103840
-UN	524	.	NZ_CP041755	108621	110064
-UN	525	.	NZ_CP041755	110732	110832
-UN	526	.	NZ_CP041755	111005	111011
-UN	527	.	NZ_CP041755	112287	113725
-UN	528	.	NZ_CP041755	113858	117609
-UN	529	.	NZ_CP041755	119610	120869
-UN	530	.	NZ_CP041755	124833	125602
-UN	531	.	NZ_CP041755	126900	126904
-UN	532	.	NZ_CP041755	126907	127146
-UN	533	.	NZ_CP041756	3237	4592
+SNP	1	115	NZ_VCCG01000001	483532	T	frequency=9.98373032e-02	gene_name=FFH21_RS02285/FFH21_RS02290	gene_position=intergenic (-99/+3)	gene_product=ABC transporter ATP-binding protein/TetR/AcrR family transcriptional regulator	genes_promoter=FFH21_RS02285	html_gene_name=<i>FFH21_RS02285</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS02290</i>	locus_tag=FFH21_RS02285/FFH21_RS02290	locus_tags_promoter=FFH21_RS02285	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	2	116	NZ_VCCG01000001	572320	T	aa_new_seq=T	aa_position=15	aa_ref_seq=T	codon_new_seq=ACT	codon_number=15	codon_position=3	codon_ref_seq=ACG	frequency=6.87193871e-02	gene_name=FFH21_RS02675	gene_position=45	gene_product=efflux transporter outer membrane subunit	gene_strand=>	genes_overlapping=FFH21_RS02675	html_gene_name=<i>FFH21_RS02675</i>&nbsp;&rarr;	locus_tag=FFH21_RS02675	locus_tags_overlapping=FFH21_RS02675	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	3	117	NZ_VCCG01000001	1331006	T	aa_new_seq=I	aa_position=40	aa_ref_seq=M	codon_new_seq=ATT	codon_number=40	codon_position=3	codon_ref_seq=ATG	frequency=6.24500751e-01	gene_name=FFH21_RS06145	gene_position=120	gene_product=type III effector	gene_strand=>	genes_overlapping=FFH21_RS06145	html_gene_name=<i>FFH21_RS06145</i>&nbsp;&rarr;	locus_tag=FFH21_RS06145	locus_tags_overlapping=FFH21_RS06145	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	4	118	NZ_VCCG01000001	1331765	T	aa_new_seq=P	aa_position=293	aa_ref_seq=P	codon_new_seq=CCT	codon_number=293	codon_position=3	codon_ref_seq=CCC	frequency=7.05415249e-01	gene_name=FFH21_RS06145	gene_position=879	gene_product=type III effector	gene_strand=>	genes_overlapping=FFH21_RS06145	html_gene_name=<i>FFH21_RS06145</i>&nbsp;&rarr;	locus_tag=FFH21_RS06145	locus_tags_overlapping=FFH21_RS06145	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	5	119	NZ_VCCG01000001	1851600	C	frequency=1	gene_name=FFH21_RS08625	gene_position=pseudogene (58/464 nt)	gene_product=YopT-type cysteine protease domain-containing protein	gene_strand=<	genes_overlapping=FFH21_RS08625	html_gene_name=<i>FFH21_RS08625</i>&nbsp;&larr;	locus_tag=FFH21_RS08625	locus_tags_overlapping=FFH21_RS08625	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	6	120	NZ_VCCG01000001	1851617	C	frequency=1	gene_name=FFH21_RS08625	gene_position=pseudogene (41/464 nt)	gene_product=YopT-type cysteine protease domain-containing protein	gene_strand=<	genes_overlapping=FFH21_RS08625	html_gene_name=<i>FFH21_RS08625</i>&nbsp;&larr;	locus_tag=FFH21_RS08625	locus_tags_overlapping=FFH21_RS08625	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	7	121	NZ_VCCG01000001	2112248	A	aa_new_seq=E	aa_position=188	aa_ref_seq=A	codon_new_seq=GAG	codon_number=188	codon_position=2	codon_ref_seq=GCG	frequency=8.75520706e-02	gene_name=FFH21_RS10020	gene_position=563	gene_product=ribonucleotide-diphosphate reductase subunit beta	gene_strand=>	genes_overlapping=FFH21_RS10020	html_gene_name=<i>FFH21_RS10020</i>&nbsp;&rarr;	locus_tag=FFH21_RS10020	locus_tags_overlapping=FFH21_RS10020	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	8	122	NZ_VCCG01000001	2220350	A	frequency=1.79920197e-01	gene_name=dapD/FFH21_RS10570	gene_position=intergenic (+16/-43)	gene_product=2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase/cysteine desulfurase	genes_promoter=FFH21_RS10570	html_gene_name=<i>dapD</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS10570</i>	locus_tag=FFH21_RS10565/FFH21_RS10570	locus_tags_promoter=FFH21_RS10570	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	9	123	NZ_VCCG01000001	2260029	A	frequency=2.17362404e-01	gene_name=FFH21_RS10750/FFH21_RS10755	gene_position=intergenic (-54/-218)	gene_product=IS5-like element ISPsy19 family transposase/hypothetical protein	genes_promoter=FFH21_RS10750	html_gene_name=<i>FFH21_RS10750</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS10755</i>	locus_tag=FFH21_RS10750/FFH21_RS10755	locus_tags_promoter=FFH21_RS10750	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	10	124	NZ_VCCG01000001	2539174	T	frequency=8.94932747e-02	gene_name=FFH21_RS12095/FFH21_RS12100	gene_position=intergenic (+106/-149)	gene_product=Do family serine endopeptidase/hypothetical protein	genes_promoter=FFH21_RS12100	html_gene_name=<i>FFH21_RS12095</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS12100</i>	locus_tag=FFH21_RS12095/FFH21_RS12100	locus_tags_promoter=FFH21_RS12100	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	11	125	NZ_VCCG01000001	2646685	C	aa_new_seq=R	aa_position=32	aa_ref_seq=H	codon_new_seq=CGT	codon_number=32	codon_position=2	codon_ref_seq=CAT	frequency=6.30049706e-02	gene_name=FFH21_RS12660	gene_position=95	gene_product=ABC transporter ATP-binding protein	gene_strand=<	genes_overlapping=FFH21_RS12660	html_gene_name=<i>FFH21_RS12660</i>&nbsp;&larr;	locus_tag=FFH21_RS12660	locus_tags_overlapping=FFH21_RS12660	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	12	126	NZ_VCCG01000001	2835328	C	frequency=2.49845982e-01	gene_name=FFH21_RS13595/FFH21_RS13600	gene_position=intergenic (+19/-71)	gene_product=leucine--tRNA ligase/hypothetical protein	genes_promoter=FFH21_RS13600	html_gene_name=<i>FFH21_RS13595</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS13600</i>	locus_tag=FFH21_RS13595/FFH21_RS13600	locus_tags_promoter=FFH21_RS13600	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	13	127	NZ_VCCG01000002	193695	A	frequency=7.23609924e-02	gene_name=FFH21_RS16400/FFH21_RS16405	gene_position=intergenic (+62/-213)	gene_product=response regulator/transposase	genes_promoter=FFH21_RS16405	html_gene_name=<i>FFH21_RS16400</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS16405</i>	locus_tag=FFH21_RS16400/FFH21_RS16405	locus_tags_promoter=FFH21_RS16405	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	14	128	NZ_VCCG01000002	299105	G	frequency=8.94298553e-02	gene_name=FFH21_RS16915/FFH21_RS16920	gene_position=intergenic (+23/-289)	gene_product=fatty acid--CoA ligase/DUF1302 domain-containing protein	genes_promoter=FFH21_RS16920	html_gene_name=<i>FFH21_RS16915</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS16920</i>	locus_tag=FFH21_RS16915/FFH21_RS16920	locus_tags_promoter=FFH21_RS16920	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	15	129	NZ_VCCG01000002	846637	G	aa_new_seq=Q	aa_position=2559	aa_ref_seq=E	codon_new_seq=CAG	codon_number=2559	codon_position=1	codon_ref_seq=GAG	frequency=2.15914249e-01	gene_name=FFH21_RS19580	gene_position=7675	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	16	130	NZ_VCCG01000002	847016	C	aa_new_seq=S	aa_position=2432	aa_ref_seq=S	codon_new_seq=TCG	codon_number=2432	codon_position=3	codon_ref_seq=TCA	frequency=3.21571827e-01	gene_name=FFH21_RS19580	gene_position=7296	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	17	131	NZ_VCCG01000002	847049	G	aa_new_seq=D	aa_position=2421	aa_ref_seq=D	codon_new_seq=GAC	codon_number=2421	codon_position=3	codon_ref_seq=GAT	frequency=3.12202930e-01	gene_name=FFH21_RS19580	gene_position=7263	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	multiple_polymorphic_SNPs_in_same_codon=1	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	18	132	NZ_VCCG01000002	847051	G	aa_new_seq=H	aa_position=2421	aa_ref_seq=D	codon_new_seq=CAT	codon_number=2421	codon_position=1	codon_ref_seq=GAT	frequency=3.07393551e-01	gene_name=FFH21_RS19580	gene_position=7261	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	multiple_polymorphic_SNPs_in_same_codon=1	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	19	133	NZ_VCCG01000002	847053	T	aa_new_seq=Q	aa_position=2420	aa_ref_seq=P	codon_new_seq=CAG	codon_number=2420	codon_position=2	codon_ref_seq=CCG	frequency=3.08457851e-01	gene_name=FFH21_RS19580	gene_position=7259	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	20	134	NZ_VCCG01000002	847058	A	aa_new_seq=D	aa_position=2418	aa_ref_seq=E	codon_new_seq=GAT	codon_number=2418	codon_position=3	codon_ref_seq=GAA	frequency=3.03905964e-01	gene_name=FFH21_RS19580	gene_position=7254	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	21	135	NZ_VCCG01000002	847076	G	aa_new_seq=R	aa_position=2412	aa_ref_seq=R	codon_new_seq=CGC	codon_number=2412	codon_position=3	codon_ref_seq=CGG	frequency=2.36037254e-01	gene_name=FFH21_RS19580	gene_position=7236	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	22	136	NZ_VCCG01000002	847097	A	aa_new_seq=A	aa_position=2405	aa_ref_seq=A	codon_new_seq=GCT	codon_number=2405	codon_position=3	codon_ref_seq=GCC	frequency=2.43147373e-01	gene_name=FFH21_RS19580	gene_position=7215	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	23	137	NZ_VCCG01000002	847106	T	aa_new_seq=E	aa_position=2402	aa_ref_seq=D	codon_new_seq=GAA	codon_number=2402	codon_position=3	codon_ref_seq=GAT	frequency=2.52724648e-01	gene_name=FFH21_RS19580	gene_position=7206	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	24	138	NZ_VCCG01000002	847117	T	aa_new_seq=T	aa_position=2399	aa_ref_seq=A	codon_new_seq=ACC	codon_number=2399	codon_position=1	codon_ref_seq=GCC	frequency=2.95867920e-01	gene_name=FFH21_RS19580	gene_position=7195	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	25	139	NZ_VCCG01000002	847129	C	aa_new_seq=V	aa_position=2395	aa_ref_seq=L	codon_new_seq=GTG	codon_number=2395	codon_position=1	codon_ref_seq=TTG	frequency=3.01550865e-01	gene_name=FFH21_RS19580	gene_position=7183	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	26	140	NZ_VCCG01000002	847139	C	aa_new_seq=Q	aa_position=2391	aa_ref_seq=Q	codon_new_seq=CAG	codon_number=2391	codon_position=3	codon_ref_seq=CAA	frequency=2.48745918e-01	gene_name=FFH21_RS19580	gene_position=7173	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	27	141	NZ_VCCG01000002	847143	G	aa_new_seq=T	aa_position=2390	aa_ref_seq=K	codon_new_seq=ACG	codon_number=2390	codon_position=2	codon_ref_seq=AAG	frequency=2.56639481e-01	gene_name=FFH21_RS19580	gene_position=7169	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	28	142	NZ_VCCG01000002	847154	T	aa_new_seq=K	aa_position=2386	aa_ref_seq=K	codon_new_seq=AAA	codon_number=2386	codon_position=3	codon_ref_seq=AAG	frequency=2.59632111e-01	gene_name=FFH21_RS19580	gene_position=7158	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	29	143	NZ_VCCG01000002	847278	C	aa_new_seq=S	aa_position=2345	aa_ref_seq=N	codon_new_seq=AGC	codon_number=2345	codon_position=2	codon_ref_seq=AAC	frequency=3.08805466e-01	gene_name=FFH21_RS19580	gene_position=7034	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	30	144	NZ_VCCG01000002	849095	C	aa_new_seq=L	aa_position=1739	aa_ref_seq=L	codon_new_seq=CTG	codon_number=1739	codon_position=3	codon_ref_seq=CTA	frequency=3.39669228e-01	gene_name=FFH21_RS19580	gene_position=5217	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	31	145	NZ_VCCG01000002	849641	T	aa_new_seq=A	aa_position=1557	aa_ref_seq=A	codon_new_seq=GCA	codon_number=1557	codon_position=3	codon_ref_seq=GCC	frequency=3.31462383e-01	gene_name=FFH21_RS19580	gene_position=4671	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	32	146	NZ_VCCG01000002	849794	T	aa_new_seq=Q	aa_position=1506	aa_ref_seq=Q	codon_new_seq=CAA	codon_number=1506	codon_position=3	codon_ref_seq=CAG	frequency=3.34826469e-01	gene_name=FFH21_RS19580	gene_position=4518	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	33	147	NZ_VCCG01000002	850193	G	aa_new_seq=T	aa_position=1373	aa_ref_seq=T	codon_new_seq=ACC	codon_number=1373	codon_position=3	codon_ref_seq=ACT	frequency=2.58396626e-01	gene_name=FFH21_RS19580	gene_position=4119	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	multiple_polymorphic_SNPs_in_same_codon=1	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	34	148	NZ_VCCG01000002	850194	A	aa_new_seq=I	aa_position=1373	aa_ref_seq=T	codon_new_seq=ATT	codon_number=1373	codon_position=2	codon_ref_seq=ACT	frequency=2.60725498e-01	gene_name=FFH21_RS19580	gene_position=4118	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	multiple_polymorphic_SNPs_in_same_codon=1	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	35	149	NZ_VCCG01000002	850210	T	aa_new_seq=N	aa_position=1368	aa_ref_seq=D	codon_new_seq=AAC	codon_number=1368	codon_position=1	codon_ref_seq=GAC	frequency=2.03409672e-01	gene_name=FFH21_RS19580	gene_position=4102	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	36	150	NZ_VCCG01000002	850211	T	aa_new_seq=E	aa_position=1367	aa_ref_seq=D	codon_new_seq=GAA	codon_number=1367	codon_position=3	codon_ref_seq=GAC	frequency=2.04088211e-01	gene_name=FFH21_RS19580	gene_position=4101	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	37	151	NZ_VCCG01000002	850241	G	aa_new_seq=A	aa_position=1357	aa_ref_seq=A	codon_new_seq=GCC	codon_number=1357	codon_position=3	codon_ref_seq=GCG	frequency=2.35519886e-01	gene_name=FFH21_RS19580	gene_position=4071	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	38	152	NZ_VCCG01000002	850246	A	aa_new_seq=S	aa_position=1356	aa_ref_seq=P	codon_new_seq=TCG	codon_number=1356	codon_position=1	codon_ref_seq=CCG	frequency=2.09101677e-01	gene_name=FFH21_RS19580	gene_position=4066	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	39	153	NZ_VCCG01000002	850250	A	aa_new_seq=A	aa_position=1354	aa_ref_seq=A	codon_new_seq=GCT	codon_number=1354	codon_position=3	codon_ref_seq=GCA	frequency=3.52946758e-01	gene_name=FFH21_RS19580	gene_position=4062	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	40	154	NZ_VCCG01000002	850273	G	aa_new_seq=H	aa_position=1347	aa_ref_seq=Y	codon_new_seq=CAT	codon_number=1347	codon_position=1	codon_ref_seq=TAT	frequency=5.85850239e-01	gene_name=FFH21_RS19580	gene_position=4039	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	41	155	NZ_VCCG01000002	850274	G	aa_new_seq=L	aa_position=1346	aa_ref_seq=L	codon_new_seq=CTC	codon_number=1346	codon_position=3	codon_ref_seq=CTT	frequency=5.87655067e-01	gene_name=FFH21_RS19580	gene_position=4038	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	42	156	NZ_VCCG01000002	850304	C	aa_new_seq=M	aa_position=1336	aa_ref_seq=I	codon_new_seq=ATG	codon_number=1336	codon_position=3	codon_ref_seq=ATA	frequency=5.21302700e-01	gene_name=FFH21_RS19580	gene_position=4008	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	43	157	NZ_VCCG01000002	850307	A	aa_new_seq=G	aa_position=1335	aa_ref_seq=G	codon_new_seq=GGT	codon_number=1335	codon_position=3	codon_ref_seq=GGG	frequency=3.86656284e-01	gene_name=FFH21_RS19580	gene_position=4005	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	44	158	NZ_VCCG01000002	850313	G	aa_new_seq=N	aa_position=1333	aa_ref_seq=N	codon_new_seq=AAC	codon_number=1333	codon_position=3	codon_ref_seq=AAT	frequency=2.05080509e-01	gene_name=FFH21_RS19580	gene_position=3999	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	multiple_polymorphic_SNPs_in_same_codon=1	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	45	159	NZ_VCCG01000002	850315	C	aa_new_seq=D	aa_position=1333	aa_ref_seq=N	codon_new_seq=GAT	codon_number=1333	codon_position=1	codon_ref_seq=AAT	frequency=1.99866295e-01	gene_name=FFH21_RS19580	gene_position=3997	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	multiple_polymorphic_SNPs_in_same_codon=1	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	46	160	NZ_VCCG01000002	850317	T	aa_new_seq=Q	aa_position=1332	aa_ref_seq=R	codon_new_seq=CAA	codon_number=1332	codon_position=2	codon_ref_seq=CGA	frequency=1.91133022e-01	gene_name=FFH21_RS19580	gene_position=3995	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	47	161	NZ_VCCG01000002	850527	G	aa_new_seq=S	aa_position=1262	aa_ref_seq=L	codon_new_seq=TCG	codon_number=1262	codon_position=2	codon_ref_seq=TTG	frequency=3.05808067e-01	gene_name=FFH21_RS19580	gene_position=3785	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	48	162	NZ_VCCG01000002	850961	G	aa_new_seq=H	aa_position=1117	aa_ref_seq=Q	codon_new_seq=CAC	codon_number=1117	codon_position=3	codon_ref_seq=CAG	frequency=1.25019550e-01	gene_name=FFH21_RS19580	gene_position=3351	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	49	163	NZ_VCCG01000002	851036	G	aa_new_seq=C	aa_position=1092	aa_ref_seq=W	codon_new_seq=TGC	codon_number=1092	codon_position=3	codon_ref_seq=TGG	frequency=1.60145283e-01	gene_name=FFH21_RS19580	gene_position=3276	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	50	164	NZ_VCCG01000002	851087	G	aa_new_seq=H	aa_position=1075	aa_ref_seq=Q	codon_new_seq=CAC	codon_number=1075	codon_position=3	codon_ref_seq=CAG	frequency=2.96066284e-01	gene_name=FFH21_RS19580	gene_position=3225	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	51	165	NZ_VCCG01000002	851097	T	aa_new_seq=N	aa_position=1072	aa_ref_seq=T	codon_new_seq=AAC	codon_number=1072	codon_position=2	codon_ref_seq=ACC	frequency=1.50287628e-01	gene_name=FFH21_RS19580	gene_position=3215	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	52	166	NZ_VCCG01000002	851176	C	aa_new_seq=D	aa_position=1046	aa_ref_seq=N	codon_new_seq=GAC	codon_number=1046	codon_position=1	codon_ref_seq=AAC	frequency=1.25307560e-01	gene_name=FFH21_RS19580	gene_position=3136	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	53	167	NZ_VCCG01000002	851487	A	aa_new_seq=L	aa_position=942	aa_ref_seq=R	codon_new_seq=CTC	codon_number=942	codon_position=2	codon_ref_seq=CGC	frequency=1.44578457e-01	gene_name=FFH21_RS19580	gene_position=2825	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	54	168	NZ_VCCG01000002	851876	A	aa_new_seq=D	aa_position=812	aa_ref_seq=E	codon_new_seq=GAT	codon_number=812	codon_position=3	codon_ref_seq=GAG	frequency=1.63949490e-01	gene_name=FFH21_RS19580	gene_position=2436	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	55	169	NZ_VCCG01000002	852004	C	aa_new_seq=D	aa_position=770	aa_ref_seq=N	codon_new_seq=GAT	codon_number=770	codon_position=1	codon_ref_seq=AAT	frequency=7.90748596e-02	gene_name=FFH21_RS19580	gene_position=2308	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	56	170	NZ_VCCG01000002	852248	A	aa_new_seq=D	aa_position=688	aa_ref_seq=E	codon_new_seq=GAT	codon_number=688	codon_position=3	codon_ref_seq=GAG	frequency=8.42227936e-02	gene_name=FFH21_RS19580	gene_position=2064	gene_product=type III effector protein XopAD	gene_strand=<	genes_overlapping=FFH21_RS19580	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	locus_tag=FFH21_RS19580	locus_tags_overlapping=FFH21_RS19580	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	57	171	NZ_VCCG01000002	924800	T	aa_new_seq=T	aa_position=209	aa_ref_seq=T	codon_new_seq=ACT	codon_number=209	codon_position=3	codon_ref_seq=ACG	frequency=1.32489204e-01	gene_name=FFH21_RS19960	gene_position=627	gene_product=Ice nucleation protein	gene_strand=>	genes_overlapping=FFH21_RS19960	html_gene_name=<i>FFH21_RS19960</i>&nbsp;&rarr;	locus_tag=FFH21_RS19960	locus_tags_overlapping=FFH21_RS19960	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	58	172	NZ_VCCG01000002	924950	T	aa_new_seq=G	aa_position=259	aa_ref_seq=G	codon_new_seq=GGT	codon_number=259	codon_position=3	codon_ref_seq=GGA	frequency=3.55585098e-01	gene_name=FFH21_RS19960	gene_position=777	gene_product=Ice nucleation protein	gene_strand=>	genes_overlapping=FFH21_RS19960	html_gene_name=<i>FFH21_RS19960</i>&nbsp;&rarr;	locus_tag=FFH21_RS19960	locus_tags_overlapping=FFH21_RS19960	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	59	173	NZ_VCCG01000002	926264	T	aa_new_seq=V	aa_position=697	aa_ref_seq=V	codon_new_seq=GTT	codon_number=697	codon_position=3	codon_ref_seq=GTC	frequency=2.05952168e-01	gene_name=FFH21_RS19960	gene_position=2091	gene_product=Ice nucleation protein	gene_strand=>	genes_overlapping=FFH21_RS19960	html_gene_name=<i>FFH21_RS19960</i>&nbsp;&rarr;	locus_tag=FFH21_RS19960	locus_tags_overlapping=FFH21_RS19960	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	60	174	NZ_VCCG01000002	926651	G	aa_new_seq=A	aa_position=826	aa_ref_seq=A	codon_new_seq=GCG	codon_number=826	codon_position=3	codon_ref_seq=GCC	frequency=1.99763298e-01	gene_name=FFH21_RS19960	gene_position=2478	gene_product=Ice nucleation protein	gene_strand=>	genes_overlapping=FFH21_RS19960	html_gene_name=<i>FFH21_RS19960</i>&nbsp;&rarr;	locus_tag=FFH21_RS19960	locus_tags_overlapping=FFH21_RS19960	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	61	175	NZ_VCCG01000003	160906	A	aa_new_seq=I	aa_position=246	aa_ref_seq=S	codon_new_seq=ATC	codon_number=246	codon_position=2	codon_ref_seq=AGC	frequency=1.41674519e-01	gene_name=potA	gene_position=737	gene_product=polyamine ABC transporter ATP-binding protein	gene_strand=<	genes_overlapping=potA	html_gene_name=<i>potA</i>&nbsp;&larr;	locus_tag=FFH21_RS22315	locus_tags_overlapping=FFH21_RS22315	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	62	176	NZ_VCCG01000004	386791	T	aa_new_seq=L	aa_position=954	aa_ref_seq=L	codon_new_seq=TTG	codon_number=954	codon_position=1	codon_ref_seq=CTG	frequency=1.79668903e-01	gene_name=FFH21_RS27035	gene_position=2860	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	genes_overlapping=FFH21_RS27035	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	locus_tag=FFH21_RS27035	locus_tags_overlapping=FFH21_RS27035	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	63	177	NZ_VCCG01000004	387049	C	aa_new_seq=L	aa_position=1040	aa_ref_seq=L	codon_new_seq=CTG	codon_number=1040	codon_position=1	codon_ref_seq=TTG	frequency=1.39870167e-01	gene_name=FFH21_RS27035	gene_position=3118	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	genes_overlapping=FFH21_RS27035	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	locus_tag=FFH21_RS27035	locus_tags_overlapping=FFH21_RS27035	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	64	178	NZ_VCCG01000004	387258	C	aa_new_seq=A	aa_position=1109	aa_ref_seq=A	codon_new_seq=GCC	codon_number=1109	codon_position=3	codon_ref_seq=GCT	frequency=1.90310478e-01	gene_name=FFH21_RS27035	gene_position=3327	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	genes_overlapping=FFH21_RS27035	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	locus_tag=FFH21_RS27035	locus_tags_overlapping=FFH21_RS27035	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	65	179	NZ_VCCG01000004	387337	A	aa_new_seq=N	aa_position=1136	aa_ref_seq=D	codon_new_seq=AAT	codon_number=1136	codon_position=1	codon_ref_seq=GAC	frequency=1	gene_name=FFH21_RS27035	gene_position=3406	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	genes_overlapping=FFH21_RS27035	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	locus_tag=FFH21_RS27035	locus_tags_overlapping=FFH21_RS27035	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	66	180	NZ_VCCG01000004	387339	T	aa_new_seq=N	aa_position=1136	aa_ref_seq=D	codon_new_seq=AAT	codon_number=1136	codon_position=3	codon_ref_seq=GAC	frequency=1	gene_name=FFH21_RS27035	gene_position=3408	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	genes_overlapping=FFH21_RS27035	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	locus_tag=FFH21_RS27035	locus_tags_overlapping=FFH21_RS27035	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	67	181	NZ_VCCG01000004	387342	A	aa_new_seq=K	aa_position=1137	aa_ref_seq=K	codon_new_seq=AAA	codon_number=1137	codon_position=3	codon_ref_seq=AAG	frequency=1	gene_name=FFH21_RS27035	gene_position=3411	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	genes_overlapping=FFH21_RS27035	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	locus_tag=FFH21_RS27035	locus_tags_overlapping=FFH21_RS27035	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	68	182	NZ_VCCG01000004	387362	T	aa_new_seq=V	aa_position=1144	aa_ref_seq=A	codon_new_seq=GTG	codon_number=1144	codon_position=2	codon_ref_seq=GCG	frequency=4.01819706e-01	gene_name=FFH21_RS27035	gene_position=3431	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	genes_overlapping=FFH21_RS27035	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	locus_tag=FFH21_RS27035	locus_tags_overlapping=FFH21_RS27035	mutation_category=snp_nonsynonymous	snp_type=nonsynonymous	transl_table=11
+SNP	69	183	NZ_VCCG01000004	387516	C	aa_new_seq=A	aa_position=1195	aa_ref_seq=A	codon_new_seq=GCC	codon_number=1195	codon_position=3	codon_ref_seq=GCT	frequency=3.52408886e-01	gene_name=FFH21_RS27035	gene_position=3585	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	genes_overlapping=FFH21_RS27035	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	locus_tag=FFH21_RS27035	locus_tags_overlapping=FFH21_RS27035	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	70	184	NZ_VCCG01000004	387519	A	aa_new_seq=T	aa_position=1196	aa_ref_seq=T	codon_new_seq=ACA	codon_number=1196	codon_position=3	codon_ref_seq=ACT	frequency=3.59185696e-01	gene_name=FFH21_RS27035	gene_position=3588	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	genes_overlapping=FFH21_RS27035	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	locus_tag=FFH21_RS27035	locus_tags_overlapping=FFH21_RS27035	mutation_category=snp_synonymous	snp_type=synonymous	transl_table=11
+SNP	71	185	NZ_VCCG01000005	306670	T	frequency=7.01365471e-02	gene_name=FFH21_RS28550/FFH21_RS28555	gene_position=intergenic (+14/+141)	gene_product=acyl-CoA thioesterase/hydroxypyruvate isomerase family protein	genes_promoter=FFH21_RS28555	html_gene_name=<i>FFH21_RS28550</i>&nbsp;&rarr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS28555</i>	locus_tag=FFH21_RS28550/FFH21_RS28555	locus_tags_promoter=FFH21_RS28555	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	72	186	NZ_VCCG01000006	20409	T	frequency=3.16641808e-01	gene_name=FFH21_RS28810/FFH21_RS28815	gene_position=intergenic (-181/-52)	gene_product=conjugal transfer protein/transposase	html_gene_name=<i>FFH21_RS28810</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS28815</i>	locus_tag=FFH21_RS28810/FFH21_RS28815	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	73	187	NZ_VCCG01000006	20415	T	frequency=2.73301601e-01	gene_name=FFH21_RS28810/FFH21_RS28815	gene_position=intergenic (-187/-46)	gene_product=conjugal transfer protein/transposase	html_gene_name=<i>FFH21_RS28810</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS28815</i>	locus_tag=FFH21_RS28810/FFH21_RS28815	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	74	188	NZ_VCCG01000006	23327	C	frequency=6.81238174e-02	gene_name=FFH21_RS28830/FFH21_RS28835	gene_position=intergenic (-11/+339)	gene_product=resolvase/IS110-like element ISPsy16 family transposase	genes_promoter=FFH21_RS28830	html_gene_name=<i>FFH21_RS28830</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS28835</i>	locus_tag=FFH21_RS28830/FFH21_RS28835	locus_tags_promoter=FFH21_RS28830	mutation_category=snp_intergenic	snp_type=intergenic
+INS	75	251	NZ_VCCG01000006	35692	CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC	frequency=5.16532968e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (350/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_inactivated=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	insert_position=1	locus_tag=FFH21_RS28930	locus_tags_inactivated=FFH21_RS28930	mutation_category=small_indel	repeat_length=1	repeat_new_copies=74	repeat_ref_copies=38	repeat_seq=C
+SNP	76	189	NZ_VCCG01000006	35795	C	frequency=3.50975513e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (453/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	77	190	NZ_VCCG01000006	35796	G	frequency=3.52843285e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (454/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	78	191	NZ_VCCG01000006	35851	C	frequency=8.68997574e-02	gene_name=FFH21_RS28930	gene_position=pseudogene (509/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	79	192	NZ_VCCG01000006	35854	A	frequency=8.67161751e-02	gene_name=FFH21_RS28930	gene_position=pseudogene (512/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	80	193	NZ_VCCG01000006	35855	T	frequency=8.65807533e-02	gene_name=FFH21_RS28930	gene_position=pseudogene (513/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	81	194	NZ_VCCG01000006	35870	A	frequency=1.44302368e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (528/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	82	195	NZ_VCCG01000006	35871	A	frequency=1.61631107e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (529/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	83	196	NZ_VCCG01000006	35873	A	frequency=1.56151772e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (531/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	84	197	NZ_VCCG01000006	35875	C	frequency=1.50207520e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (533/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	85	198	NZ_VCCG01000006	35878	A	frequency=1.61412716e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (536/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	86	199	NZ_VCCG01000006	35881	C	frequency=1.34436131e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (539/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	87	200	NZ_VCCG01000006	35887	T	frequency=2.48768330e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (545/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	88	201	NZ_VCCG01000006	35890	T	frequency=2.43124485e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (548/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	89	202	NZ_VCCG01000006	35932	A	frequency=7.17726231e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (590/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	90	203	NZ_VCCG01000006	35935	A	frequency=7.27097511e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (593/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	91	204	NZ_VCCG01000006	35959	A	frequency=1	gene_name=FFH21_RS28930	gene_position=pseudogene (617/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	92	205	NZ_VCCG01000006	35961	G	frequency=1	gene_name=FFH21_RS28930	gene_position=pseudogene (619/914 nt)	gene_product=IS91 family transposase	gene_strand=>	genes_overlapping=FFH21_RS28930	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	locus_tag=FFH21_RS28930	locus_tags_overlapping=FFH21_RS28930	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	93	206	NZ_VCCG01000006	37490	T	frequency=2.42247581e-01	gene_name=FFH21_RS28945	gene_position=pseudogene (901/1225 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28945	html_gene_name=<i>FFH21_RS28945</i>&nbsp;&larr;	locus_tag=FFH21_RS28945	locus_tags_overlapping=FFH21_RS28945	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	94	207	NZ_VCCG01000006	37493	T	frequency=2.72193909e-01	gene_name=FFH21_RS28945	gene_position=pseudogene (898/1225 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28945	html_gene_name=<i>FFH21_RS28945</i>&nbsp;&larr;	locus_tag=FFH21_RS28945	locus_tags_overlapping=FFH21_RS28945	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	95	208	NZ_VCCG01000006	37679	G	frequency=3.30176353e-01	gene_name=FFH21_RS28945	gene_position=pseudogene (712/1225 nt)	gene_product=IS91 family transposase	gene_strand=<	genes_overlapping=FFH21_RS28945	html_gene_name=<i>FFH21_RS28945</i>&nbsp;&larr;	locus_tag=FFH21_RS28945	locus_tags_overlapping=FFH21_RS28945	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	96	209	NZ_VCCG01000006	53725	A	frequency=5.72087765e-01	gene_name=FFH21_RS29050	gene_position=pseudogene (327/422 nt)	gene_product=transposase	gene_strand=<	genes_overlapping=FFH21_RS29050	html_gene_name=<i>FFH21_RS29050</i>&nbsp;&larr;	locus_tag=FFH21_RS29050	locus_tags_overlapping=FFH21_RS29050	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	97	210	NZ_VCCG01000006	54096	A	frequency=1.27053738e-01	gene_name=FFH21_RS29050/FFH21_RS29055	gene_position=intergenic (-45/-293)	gene_product=transposase/DUF3018 family protein	genes_promoter=FFH21_RS29050	html_gene_name=<i>FFH21_RS29050</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS29055</i>	locus_tag=FFH21_RS29050/FFH21_RS29055	locus_tags_promoter=FFH21_RS29050	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	98	211	NZ_VCCG01000006	54102	A	frequency=1.19920731e-01	gene_name=FFH21_RS29050/FFH21_RS29055	gene_position=intergenic (-51/-287)	gene_product=transposase/DUF3018 family protein	genes_promoter=FFH21_RS29050	html_gene_name=<i>FFH21_RS29050</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS29055</i>	locus_tag=FFH21_RS29050/FFH21_RS29055	locus_tags_promoter=FFH21_RS29050	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	99	212	NZ_VCCG01000006	62558	C	frequency=7.89523125e-02	gene_name=FFH21_RS29120	gene_position=pseudogene (1391/2048 nt)	gene_product=type III effector protein XopAD	gene_strand=>	genes_overlapping=FFH21_RS29120	html_gene_name=<i>FFH21_RS29120</i>&nbsp;&rarr;	locus_tag=FFH21_RS29120	locus_tags_overlapping=FFH21_RS29120	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	100	213	NZ_VCCG01000006	62760	A	frequency=1.80894852e-01	gene_name=FFH21_RS29120	gene_position=pseudogene (1593/2048 nt)	gene_product=type III effector protein XopAD	gene_strand=>	genes_overlapping=FFH21_RS29120	html_gene_name=<i>FFH21_RS29120</i>&nbsp;&rarr;	locus_tag=FFH21_RS29120	locus_tags_overlapping=FFH21_RS29120	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	101	214	NZ_VCCG01000006	62765	T	frequency=1.67895317e-01	gene_name=FFH21_RS29120	gene_position=pseudogene (1598/2048 nt)	gene_product=type III effector protein XopAD	gene_strand=>	genes_overlapping=FFH21_RS29120	html_gene_name=<i>FFH21_RS29120</i>&nbsp;&rarr;	locus_tag=FFH21_RS29120	locus_tags_overlapping=FFH21_RS29120	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	102	215	NZ_VCCG01000006	63089	T	frequency=7.04207420e-02	gene_name=FFH21_RS29120	gene_position=pseudogene (1922/2048 nt)	gene_product=type III effector protein XopAD	gene_strand=>	genes_overlapping=FFH21_RS29120	html_gene_name=<i>FFH21_RS29120</i>&nbsp;&rarr;	locus_tag=FFH21_RS29120	locus_tags_overlapping=FFH21_RS29120	mutation_category=snp_pseudogene	snp_type=pseudogene
+SNP	103	216	NZ_VCCG01000008	2130	G	frequency=1	gene_name=FFH21_RS29375/FFH21_RS29380	gene_position=intergenic (-380/-228)	gene_product=YopT-type cysteine protease domain-containing protein/IS110-like element ISPsy16 family transposase	html_gene_name=<i>FFH21_RS29375</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS29380</i>	locus_tag=FFH21_RS29375/FFH21_RS29380	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	104	217	NZ_VCCG01000009	3847	A	frequency=3.18023682e-01	gene_name=FFH21_RS29545/FFH21_RS29550	gene_position=intergenic (-189/+242)	gene_product=IS110-like element ISPsy16 family transposase/type III effector	html_gene_name=<i>FFH21_RS29545</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS29550</i>	locus_tag=FFH21_RS29545/FFH21_RS29550	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	105	218	NZ_VCCG01000009	3883	G	frequency=4.78808880e-01	gene_name=FFH21_RS29545/FFH21_RS29550	gene_position=intergenic (-225/+206)	gene_product=IS110-like element ISPsy16 family transposase/type III effector	html_gene_name=<i>FFH21_RS29545</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS29550</i>	locus_tag=FFH21_RS29545/FFH21_RS29550	mutation_category=snp_intergenic	snp_type=intergenic
+SNP	106	219	NZ_VCCG01000010	11714	G	frequency=1.76735401e-01	gene_name=FFH21_RS29695/FFH21_RS29700	gene_position=intergenic (-61/-92)	gene_product=IS5-like element ISPsy19 family transposase/transposase	genes_promoter=FFH21_RS29695	html_gene_name=<i>FFH21_RS29695</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS29700</i>	locus_tag=FFH21_RS29695/FFH21_RS29700	locus_tags_promoter=FFH21_RS29695	mutation_category=snp_intergenic	snp_type=intergenic
+DEL	107	231	NZ_VCCG01000013	1	276	frequency=1	gene_name=[FFH21_RS29760]	gene_product=[FFH21_RS29760]	genes_overlapping=FFH21_RS29760	html_gene_name=<i>[FFH21_RS29760]</i>	locus_tag=[FFH21_RS29760]	locus_tags_overlapping=FFH21_RS29760	mutation_category=large_deletion
+DEL	108	232	NZ_VCCG01000014	1	250	frequency=1	gene_name=FFH21_RS29765	gene_position=pseudogene (1-250/250 nt)	gene_product=lysine decarboxylase	gene_strand=>	genes_inactivated=FFH21_RS29765	html_gene_name=<i>FFH21_RS29765</i>&nbsp;&rarr;	locus_tag=FFH21_RS29765	locus_tags_inactivated=FFH21_RS29765	mutation_category=large_deletion
+DEL	109	233	NZ_VCCG01000015	1	250	frequency=1	gene_name=[FFH21_RS29770]	gene_product=[FFH21_RS29770]	genes_inactivated=FFH21_RS29770	html_gene_name=<i>[FFH21_RS29770]</i>	locus_tag=[FFH21_RS29770]	locus_tags_inactivated=FFH21_RS29770	mutation_category=large_deletion
+DEL	110	234	NZ_VCCG01000016	1	248	frequency=1	gene_name=FFH21_RS29775	gene_position=pseudogene (1-248/248 nt)	gene_product=hypothetical protein	gene_strand=>	genes_inactivated=FFH21_RS29775	html_gene_name=<i>FFH21_RS29775</i>&nbsp;&rarr;	locus_tag=FFH21_RS29775	locus_tags_inactivated=FFH21_RS29775	mutation_category=large_deletion
+DEL	111	235	NZ_VCCG01000017	1	246	frequency=1	gene_name=FFH21_RS29780	gene_position=pseudogene (1-246/246 nt)	gene_product=type III effector	gene_strand=>	genes_inactivated=FFH21_RS29780	html_gene_name=<i>FFH21_RS29780</i>&nbsp;&rarr;	locus_tag=FFH21_RS29780	locus_tags_inactivated=FFH21_RS29780	mutation_category=large_deletion
+DEL	112	236	NZ_VCCG01000018	1	244	frequency=1	gene_name=–/–	gene_position=intergenic (–/–)	gene_product=–/–	html_gene_name=–&nbsp;/&nbsp;–	locus_tag=–/–	mutation_category=large_deletion
+DEL	113	237	NZ_VCCG01000019	1	243	frequency=1	gene_name=FFH21_RS29785	gene_position=pseudogene (1-243/243 nt)	gene_product=MFS transporter	gene_strand=<	genes_inactivated=FFH21_RS29785	html_gene_name=<i>FFH21_RS29785</i>&nbsp;&larr;	locus_tag=FFH21_RS29785	locus_tags_inactivated=FFH21_RS29785	mutation_category=large_deletion
+DEL	114	239	NZ_VCCG01000021	1	203	frequency=1	gene_name=–/–	gene_position=intergenic (–/–)	gene_product=–/–	html_gene_name=–&nbsp;/&nbsp;–	locus_tag=–/–	mutation_category=large_deletion
+RA	115	.	NZ_VCCG01000001	483532	0	G	T	bias_e_value=1396090	bias_p_value=0.229189	consensus_score=253.5	fisher_strand_p_value=0.0601366	frequency=9.98373032e-02	gene_name=FFH21_RS02285/FFH21_RS02290	gene_position=intergenic (-99/+3)	gene_product=ABC transporter ATP-binding protein/TetR/AcrR family transcriptional regulator	html_gene_name=<i>FFH21_RS02285</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS02290</i>	ks_quality_p_value=1	locus_tag=FFH21_RS02285/FFH21_RS02290	major_base=G	major_cov=44/33	major_frequency=9.00162697e-01	minor_base=T	minor_cov=3/9	new_cov=3/9	polymorphism_frequency=9.98373032e-02	polymorphism_score=5.0	prediction=polymorphism	ref_cov=44/33	snp_type=intergenic	total_cov=47/42
+RA	116	.	NZ_VCCG01000001	572320	0	G	T	aa_new_seq=T	aa_position=15	aa_ref_seq=T	bias_e_value=5569940	bias_p_value=0.914389	codon_new_seq=ACT	codon_number=15	codon_position=3	codon_ref_seq=ACG	consensus_score=262.7	fisher_strand_p_value=0.687233	frequency=6.87193871e-02	gene_name=FFH21_RS02675	gene_position=45	gene_product=efflux transporter outer membrane subunit	gene_strand=>	html_gene_name=<i>FFH21_RS02675</i>&nbsp;&rarr;	ks_quality_p_value=0.896143	locus_tag=FFH21_RS02675	major_base=G	major_cov=36/43	major_frequency=9.31280613e-01	minor_base=T	minor_cov=2/4	new_cov=2/4	new_seq=T	polymorphism_frequency=6.87193871e-02	polymorphism_score=6.2	prediction=polymorphism	ref_cov=36/43	ref_seq=G	snp_type=synonymous	total_cov=38/47	transl_table=11
+RA	117	.	NZ_VCCG01000001	1331006	0	G	T	aa_new_seq=I	aa_position=40	aa_ref_seq=M	bias_e_value=19304	bias_p_value=0.00316904	codon_new_seq=ATT	codon_number=40	codon_position=3	codon_ref_seq=ATG	consensus_score=127.1	fisher_strand_p_value=0.00035529	frequency=6.24500751e-01	gene_name=FFH21_RS06145	gene_position=120	gene_product=type III effector	gene_strand=>	html_gene_name=<i>FFH21_RS06145</i>&nbsp;&rarr;	ks_quality_p_value=0.997106	locus_tag=FFH21_RS06145	major_base=T	major_cov=34/81	major_frequency=6.24500751e-01	minor_base=G	minor_cov=39/30	new_cov=34/81	new_seq=T	polymorphism_frequency=6.24500751e-01	polymorphism_score=233.7	prediction=polymorphism	ref_cov=39/30	ref_seq=G	snp_type=nonsynonymous	total_cov=73/111	transl_table=11
+RA	118	.	NZ_VCCG01000001	1331765	0	C	T	aa_new_seq=P	aa_position=293	aa_ref_seq=P	bias_e_value=6027150	bias_p_value=0.989447	codon_new_seq=CCT	codon_number=293	codon_position=3	codon_ref_seq=CCC	consensus_score=204.5	fisher_strand_p_value=0.858283	frequency=7.05415249e-01	gene_name=FFH21_RS06145	gene_position=879	gene_product=type III effector	gene_strand=>	html_gene_name=<i>FFH21_RS06145</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS06145	major_base=T	major_cov=43/67	major_frequency=7.05415249e-01	minor_base=C	minor_cov=19/27	new_cov=43/67	new_seq=T	polymorphism_frequency=7.05415249e-01	polymorphism_score=107.5	prediction=polymorphism	ref_cov=19/27	ref_seq=C	snp_type=synonymous	total_cov=62/94	transl_table=11
+RA	119	.	NZ_VCCG01000001	1851600	0	T	C	consensus_score=67.6	frequency=1	gene_name=FFH21_RS08625	gene_position=pseudogene (58/464 nt)	gene_product=YopT-type cysteine protease domain-containing protein	gene_strand=<	html_gene_name=<i>FFH21_RS08625</i>&nbsp;&larr;	locus_tag=FFH21_RS08625	major_base=C	major_cov=15/9	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=15/9	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	snp_type=pseudogene	total_cov=15/9
+RA	120	.	NZ_VCCG01000001	1851617	0	T	C	consensus_score=19.3	frequency=1	gene_name=FFH21_RS08625	gene_position=pseudogene (41/464 nt)	gene_product=YopT-type cysteine protease domain-containing protein	gene_strand=<	html_gene_name=<i>FFH21_RS08625</i>&nbsp;&larr;	locus_tag=FFH21_RS08625	major_base=C	major_cov=8/0	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=8/0	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE,SURROUNDING_HOMOPOLYMER	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	snp_type=pseudogene	total_cov=8/0
+RA	121	.	NZ_VCCG01000001	2112248	0	C	A	aa_new_seq=E	aa_position=188	aa_ref_seq=A	bias_e_value=2509920	bias_p_value=0.41204	codon_new_seq=GAG	codon_number=188	codon_position=2	codon_ref_seq=GCG	consensus_score=388.7	fisher_strand_p_value=0.138369	frequency=8.75520706e-02	gene_name=FFH21_RS10020	gene_position=563	gene_product=ribonucleotide-diphosphate reductase subunit beta	gene_strand=>	html_gene_name=<i>FFH21_RS10020</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS10020	major_base=C	major_cov=79/40	major_frequency=9.12447929e-01	minor_base=A	minor_cov=6/8	new_cov=6/8	new_seq=A	polymorphism_frequency=8.75520706e-02	polymorphism_score=9.6	prediction=polymorphism	ref_cov=79/40	ref_seq=C	snp_type=nonsynonymous	total_cov=85/48	transl_table=11
+RA	122	.	NZ_VCCG01000001	2220350	0	C	A	bias_e_value=6091430	bias_p_value=1	consensus_score=138.3	fisher_strand_p_value=1	frequency=1.79920197e-01	gene_name=dapD/FFH21_RS10570	gene_position=intergenic (+16/-43)	gene_product=2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase/cysteine desulfurase	html_gene_name=<i>dapD</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS10570</i>	ks_quality_p_value=1	locus_tag=FFH21_RS10565/FFH21_RS10570	major_base=C	major_cov=42/9	major_frequency=8.20079803e-01	minor_base=A	minor_cov=11/2	new_cov=11/2	polymorphism_frequency=1.79920197e-01	polymorphism_score=3.6	prediction=polymorphism	ref_cov=42/9	snp_type=intergenic	total_cov=59/11
+RA	123	.	NZ_VCCG01000001	2260029	0	C	A	bias_e_value=4491650	bias_p_value=0.737371	consensus_score=160.6	fisher_strand_p_value=0.397264	frequency=2.17362404e-01	gene_name=FFH21_RS10750/FFH21_RS10755	gene_position=intergenic (-54/-218)	gene_product=IS5-like element ISPsy19 family transposase/hypothetical protein	html_gene_name=<i>FFH21_RS10750</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS10755</i>	ks_quality_p_value=0.930099	locus_tag=FFH21_RS10750/FFH21_RS10755	major_base=C	major_cov=32/22	major_frequency=7.82637596e-01	minor_base=A	minor_cov=7/8	new_cov=7/8	polymorphism_frequency=2.17362404e-01	polymorphism_score=36.1	prediction=polymorphism	ref_cov=32/22	snp_type=intergenic	total_cov=39/30
+RA	124	.	NZ_VCCG01000001	2539174	0	G	T	bias_e_value=6086990	bias_p_value=0.99927	consensus_score=148.1	fisher_strand_p_value=1	frequency=8.94932747e-02	gene_name=FFH21_RS12095/FFH21_RS12100	gene_position=intergenic (+106/-149)	gene_product=Do family serine endopeptidase/hypothetical protein	html_gene_name=<i>FFH21_RS12095</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS12100</i>	ks_quality_p_value=0.962039	locus_tag=FFH21_RS12095/FFH21_RS12100	major_base=G	major_cov=20/29	major_frequency=9.10506725e-01	minor_base=T	minor_cov=2/3	new_cov=2/3	polymorphism_frequency=8.94932747e-02	polymorphism_score=2.7	prediction=polymorphism	ref_cov=20/29	snp_type=intergenic	total_cov=22/32
+RA	125	.	NZ_VCCG01000001	2646685	0	T	C	aa_new_seq=R	aa_position=32	aa_ref_seq=H	bias_e_value=4723390	bias_p_value=0.775415	codon_new_seq=CGT	codon_number=32	codon_position=2	codon_ref_seq=CAT	consensus_score=256.2	fisher_strand_p_value=0.409843	frequency=6.30049706e-02	gene_name=FFH21_RS12660	gene_position=95	gene_product=ABC transporter ATP-binding protein	gene_strand=<	html_gene_name=<i>FFH21_RS12660</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS12660	major_base=T	major_cov=39/48	major_frequency=9.36995029e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	new_seq=C	polymorphism_frequency=6.30049706e-02	polymorphism_score=3.6	prediction=polymorphism	ref_cov=39/48	ref_seq=T	snp_type=nonsynonymous	total_cov=43/50	transl_table=11
+RA	126	.	NZ_VCCG01000001	2835328	0	A	C	bias_e_value=6091430	bias_p_value=1	consensus_score=38.2	fisher_strand_p_value=1	frequency=2.49845982e-01	gene_name=FFH21_RS13595/FFH21_RS13600	gene_position=intergenic (+19/-71)	gene_product=leucine--tRNA ligase/hypothetical protein	html_gene_name=<i>FFH21_RS13595</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS13600</i>	ks_quality_p_value=1	locus_tag=FFH21_RS13595/FFH21_RS13600	major_base=A	major_cov=6/21	major_frequency=7.50154018e-01	minor_base=C	minor_cov=2/8	new_cov=2/8	polymorphism_frequency=2.49845982e-01	polymorphism_score=3.3	prediction=polymorphism	ref_cov=6/21	snp_type=intergenic	total_cov=8/31
+RA	127	.	NZ_VCCG01000002	193695	0	C	A	bias_e_value=5376000	bias_p_value=0.88255	consensus_score=212.3	fisher_strand_p_value=0.643077	frequency=7.23609924e-02	gene_name=FFH21_RS16400/FFH21_RS16405	gene_position=intergenic (+62/-213)	gene_product=response regulator/transposase	html_gene_name=<i>FFH21_RS16400</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS16405</i>	ks_quality_p_value=0.865085	locus_tag=FFH21_RS16400/FFH21_RS16405	major_base=C	major_cov=26/38	major_frequency=9.27639008e-01	minor_base=A	minor_cov=3/2	new_cov=3/2	polymorphism_frequency=7.23609924e-02	polymorphism_score=5.9	prediction=polymorphism	ref_cov=26/38	snp_type=intergenic	total_cov=29/40
+RA	128	.	NZ_VCCG01000002	299105	0	T	G	bias_e_value=5946070	bias_p_value=0.976137	consensus_score=364.0	fisher_strand_p_value=0.789646	frequency=8.94298553e-02	gene_name=FFH21_RS16915/FFH21_RS16920	gene_position=intergenic (+23/-289)	gene_product=fatty acid--CoA ligase/DUF1302 domain-containing protein	html_gene_name=<i>FFH21_RS16915</i>&nbsp;&rarr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS16920</i>	ks_quality_p_value=1	locus_tag=FFH21_RS16915/FFH21_RS16920	major_base=T	major_cov=76/62	major_frequency=9.10570145e-01	minor_base=G	minor_cov=9/6	new_cov=9/6	polymorphism_frequency=8.94298553e-02	polymorphism_score=3.9	prediction=polymorphism	ref_cov=76/62	snp_type=intergenic	total_cov=86/68
+RA	129	.	NZ_VCCG01000002	846637	0	C	G	aa_new_seq=Q	aa_position=2559	aa_ref_seq=E	bias_e_value=5222700	bias_p_value=0.857385	codon_new_seq=CAG	codon_number=2559	codon_position=1	codon_ref_seq=GAG	consensus_score=503.9	fisher_strand_p_value=0.515961	frequency=2.15914249e-01	gene_name=FFH21_RS19580	gene_position=7675	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=C	major_cov=95/78	major_frequency=7.84085751e-01	minor_base=G	minor_cov=29/19	new_cov=29/19	new_seq=G	polymorphism_frequency=2.15914249e-01	polymorphism_score=136.6	prediction=polymorphism	ref_cov=95/78	ref_seq=C	snp_type=nonsynonymous	total_cov=124/97	transl_table=11
+RA	130	.	NZ_VCCG01000002	847016	0	T	C	aa_new_seq=S	aa_position=2432	aa_ref_seq=S	bias_e_value=1725520	bias_p_value=0.28327	codon_new_seq=TCG	codon_number=2432	codon_position=3	codon_ref_seq=TCA	consensus_score=547.8	fisher_strand_p_value=0.257575	frequency=3.21571827e-01	gene_name=FFH21_RS19580	gene_position=7296	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.312454	locus_tag=FFH21_RS19580	major_base=T	major_cov=218/89	major_frequency=6.78428173e-01	minor_base=C	minor_cov=111/34	new_cov=111/34	new_seq=C	polymorphism_frequency=3.21571827e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=218/89	ref_seq=T	snp_type=synonymous	total_cov=330/124	transl_table=11
+RA	131	.	NZ_VCCG01000002	847049	0	A	G	aa_new_seq=D	aa_position=2421	aa_ref_seq=D	bias_e_value=898224	bias_p_value=0.147457	codon_new_seq=GAC	codon_number=2421	codon_position=3	codon_ref_seq=GAT	consensus_score=656.8	fisher_strand_p_value=0.072593	frequency=3.12202930e-01	gene_name=FFH21_RS19580	gene_position=7263	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.462223	locus_tag=FFH21_RS19580	major_base=A	major_cov=240/110	major_frequency=6.87797070e-01	minor_base=G	minor_cov=122/37	multiple_polymorphic_SNPs_in_same_codon=1	new_cov=122/37	new_seq=G	polymorphism_frequency=3.12202930e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=240/110	ref_seq=A	snp_type=synonymous	total_cov=362/147	transl_table=11
+RA	132	.	NZ_VCCG01000002	847051	0	C	G	aa_new_seq=H	aa_position=2421	aa_ref_seq=D	bias_e_value=330555	bias_p_value=0.0542655	codon_new_seq=CAT	codon_number=2421	codon_position=1	codon_ref_seq=GAT	consensus_score=890.9	fisher_strand_p_value=0.0101729	frequency=3.07393551e-01	gene_name=FFH21_RS19580	gene_position=7261	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.945042	locus_tag=FFH21_RS19580	major_base=C	major_cov=234/124	major_frequency=6.92606449e-01	minor_base=G	minor_cov=122/37	multiple_polymorphic_SNPs_in_same_codon=1	new_cov=122/37	new_seq=G	polymorphism_frequency=3.07393551e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=234/124	ref_seq=C	snp_type=nonsynonymous	total_cov=356/161	transl_table=11
+RA	133	.	NZ_VCCG01000002	847053	0	G	T	aa_new_seq=Q	aa_position=2420	aa_ref_seq=P	bias_e_value=139341	bias_p_value=0.022875	codon_new_seq=CAG	codon_number=2420	codon_position=2	codon_ref_seq=CCG	consensus_score=898.0	fisher_strand_p_value=0.00986592	frequency=3.08457851e-01	gene_name=FFH21_RS19580	gene_position=7259	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.347288	locus_tag=FFH21_RS19580	major_base=G	major_cov=226/123	major_frequency=6.91542149e-01	minor_base=T	minor_cov=119/37	new_cov=119/37	new_seq=T	polymorphism_frequency=3.08457851e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=226/123	ref_seq=G	snp_type=nonsynonymous	total_cov=345/160	transl_table=11
+RA	134	.	NZ_VCCG01000002	847058	0	T	A	aa_new_seq=D	aa_position=2418	aa_ref_seq=E	bias_e_value=24498.9	bias_p_value=0.00402186	codon_new_seq=GAT	codon_number=2418	codon_position=3	codon_ref_seq=GAA	consensus_score=818.1	fisher_strand_p_value=0.000641264	frequency=3.03905964e-01	gene_name=FFH21_RS19580	gene_position=7254	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.722833	locus_tag=FFH21_RS19580	major_base=T	major_cov=226/141	major_frequency=6.96094036e-01	minor_base=A	minor_cov=123/37	new_cov=123/37	new_seq=A	polymorphism_frequency=3.03905964e-01	polymorphism_score=inf	prediction=polymorphism	ref_cov=226/141	ref_seq=T	snp_type=nonsynonymous	total_cov=349/180	transl_table=11
+RA	135	.	NZ_VCCG01000002	847076	0	C	G	aa_new_seq=R	aa_position=2412	aa_ref_seq=R	bias_e_value=27715.5	bias_p_value=0.00454991	codon_new_seq=CGC	codon_number=2412	codon_position=3	codon_ref_seq=CGG	consensus_score=791.8	fisher_strand_p_value=0.00053353	frequency=2.36037254e-01	gene_name=FFH21_RS19580	gene_position=7236	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.998931	locus_tag=FFH21_RS19580	major_base=C	major_cov=124/153	major_frequency=7.63962746e-01	minor_base=G	minor_cov=57/29	new_cov=57/29	new_seq=G	polymorphism_frequency=2.36037254e-01	polymorphism_score=248.9	prediction=polymorphism	ref_cov=124/153	ref_seq=C	snp_type=synonymous	total_cov=182/182	transl_table=11
+RA	136	.	NZ_VCCG01000002	847097	0	G	A	aa_new_seq=A	aa_position=2405	aa_ref_seq=A	bias_e_value=950.483	bias_p_value=0.000156036	codon_new_seq=GCT	codon_number=2405	codon_position=3	codon_ref_seq=GCC	consensus_score=568.2	fisher_strand_p_value=1.2714e-05	frequency=2.43147373e-01	gene_name=FFH21_RS19580	gene_position=7215	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=G	major_cov=88/157	major_frequency=7.56852627e-01	minor_base=A	minor_cov=51/28	new_cov=51/28	new_seq=A	polymorphism_frequency=2.43147373e-01	polymorphism_score=183.4	prediction=polymorphism	ref_cov=88/157	ref_seq=G	snp_type=synonymous	total_cov=140/185	transl_table=11
+RA	137	.	NZ_VCCG01000002	847106	0	A	T	aa_new_seq=E	aa_position=2402	aa_ref_seq=D	bias_e_value=140.788	bias_p_value=2.31125e-05	codon_new_seq=GAA	codon_number=2402	codon_position=3	codon_ref_seq=GAT	consensus_score=557.0	fisher_strand_p_value=1.63762e-06	frequency=2.52724648e-01	gene_name=FFH21_RS19580	gene_position=7206	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.984339	locus_tag=FFH21_RS19580	major_base=A	major_cov=90/136	major_frequency=7.47275352e-01	minor_base=T	minor_cov=55/22	new_cov=55/22	new_seq=T	polymorphism_frequency=2.52724648e-01	polymorphism_score=213.7	prediction=polymorphism	ref_cov=90/136	ref_seq=A	snp_type=nonsynonymous	total_cov=146/158	transl_table=11
+RA	138	.	NZ_VCCG01000002	847117	0	C	T	aa_new_seq=T	aa_position=2399	aa_ref_seq=A	bias_e_value=80662.8	bias_p_value=0.013242	codon_new_seq=ACC	codon_number=2399	codon_position=1	codon_ref_seq=GCC	consensus_score=371.0	fisher_strand_p_value=0.00353375	frequency=2.95867920e-01	gene_name=FFH21_RS19580	gene_position=7195	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.512334	locus_tag=FFH21_RS19580	major_base=C	major_cov=98/97	major_frequency=7.04132080e-01	minor_base=T	minor_cov=57/25	new_cov=57/25	new_seq=T	polymorphism_frequency=2.95867920e-01	polymorphism_score=200.2	prediction=polymorphism	ref_cov=98/97	ref_seq=C	snp_type=nonsynonymous	total_cov=155/122	transl_table=11
+RA	139	.	NZ_VCCG01000002	847129	0	A	C	aa_new_seq=V	aa_position=2395	aa_ref_seq=L	bias_e_value=1464520	bias_p_value=0.240423	codon_new_seq=GTG	codon_number=2395	codon_position=1	codon_ref_seq=TTG	consensus_score=301.1	fisher_strand_p_value=0.0648778	frequency=3.01550865e-01	gene_name=FFH21_RS19580	gene_position=7183	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.989245	locus_tag=FFH21_RS19580	major_base=A	major_cov=79/84	major_frequency=6.98449135e-01	minor_base=C	minor_cov=44/27	new_cov=44/27	new_seq=C	polymorphism_frequency=3.01550865e-01	polymorphism_score=237.3	prediction=polymorphism	ref_cov=79/84	ref_seq=A	snp_type=nonsynonymous	total_cov=124/112	transl_table=11
+RA	140	.	NZ_VCCG01000002	847139	0	T	C	aa_new_seq=Q	aa_position=2391	aa_ref_seq=Q	bias_e_value=3981190	bias_p_value=0.653573	codon_new_seq=CAG	codon_number=2391	codon_position=3	codon_ref_seq=CAA	consensus_score=409.9	fisher_strand_p_value=0.293727	frequency=2.48745918e-01	gene_name=FFH21_RS19580	gene_position=7173	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=T	major_cov=72/112	major_frequency=7.51254082e-01	minor_base=C	minor_cov=29/32	new_cov=29/32	new_seq=C	polymorphism_frequency=2.48745918e-01	polymorphism_score=142.3	prediction=polymorphism	ref_cov=72/112	ref_seq=T	snp_type=synonymous	total_cov=101/144	transl_table=11
+RA	141	.	NZ_VCCG01000002	847143	0	T	G	aa_new_seq=T	aa_position=2390	aa_ref_seq=K	bias_e_value=1871390	bias_p_value=0.307217	codon_new_seq=ACG	codon_number=2390	codon_position=2	codon_ref_seq=AAG	consensus_score=413.8	fisher_strand_p_value=0.0914033	frequency=2.56639481e-01	gene_name=FFH21_RS19580	gene_position=7169	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.986927	locus_tag=FFH21_RS19580	major_base=T	major_cov=55/136	major_frequency=7.43360519e-01	minor_base=G	minor_cov=27/39	new_cov=27/39	new_seq=G	polymorphism_frequency=2.56639481e-01	polymorphism_score=212.2	prediction=polymorphism	ref_cov=55/136	ref_seq=T	snp_type=nonsynonymous	total_cov=82/175	transl_table=11
+RA	142	.	NZ_VCCG01000002	847154	0	C	T	aa_new_seq=K	aa_position=2386	aa_ref_seq=K	bias_e_value=3979030	bias_p_value=0.653217	codon_new_seq=AAA	codon_number=2386	codon_position=3	codon_ref_seq=AAG	consensus_score=400.2	fisher_strand_p_value=1	frequency=2.59632111e-01	gene_name=FFH21_RS19580	gene_position=7158	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.293436	locus_tag=FFH21_RS19580	major_base=C	major_cov=50/138	major_frequency=7.40367889e-01	minor_base=T	minor_cov=17/49	new_cov=17/49	new_seq=T	polymorphism_frequency=2.59632111e-01	polymorphism_score=156.2	prediction=polymorphism	ref_cov=50/138	ref_seq=C	snp_type=synonymous	total_cov=67/187	transl_table=11
+RA	143	.	NZ_VCCG01000002	847278	0	T	C	aa_new_seq=S	aa_position=2345	aa_ref_seq=N	bias_e_value=908629	bias_p_value=0.149165	codon_new_seq=AGC	codon_number=2345	codon_position=2	codon_ref_seq=AAC	consensus_score=470.4	fisher_strand_p_value=0.054278	frequency=3.08805466e-01	gene_name=FFH21_RS19580	gene_position=7034	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.627483	locus_tag=FFH21_RS19580	major_base=T	major_cov=125/130	major_frequency=6.91194534e-01	minor_base=C	minor_cov=43/71	new_cov=43/71	new_seq=C	polymorphism_frequency=3.08805466e-01	polymorphism_score=287.8	prediction=polymorphism	ref_cov=125/130	ref_seq=T	snp_type=nonsynonymous	total_cov=168/201	transl_table=11
+RA	144	.	NZ_VCCG01000002	849095	0	T	C	aa_new_seq=L	aa_position=1739	aa_ref_seq=L	bias_e_value=6047160	bias_p_value=0.992733	codon_new_seq=CTG	codon_number=1739	codon_position=3	codon_ref_seq=CTA	consensus_score=214.4	fisher_strand_p_value=0.882265	frequency=3.39669228e-01	gene_name=FFH21_RS19580	gene_position=5217	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.999574	locus_tag=FFH21_RS19580	major_base=T	major_cov=67/67	major_frequency=6.60330772e-01	minor_base=C	minor_cov=33/36	new_cov=33/36	new_seq=C	polymorphism_frequency=3.39669228e-01	polymorphism_score=174.2	prediction=polymorphism	ref_cov=67/67	ref_seq=T	snp_type=synonymous	total_cov=100/103	transl_table=11
+RA	145	.	NZ_VCCG01000002	849641	0	G	T	aa_new_seq=A	aa_position=1557	aa_ref_seq=A	bias_e_value=1789810	bias_p_value=0.293825	codon_new_seq=GCA	codon_number=1557	codon_position=3	codon_ref_seq=GCC	consensus_score=501.3	fisher_strand_p_value=0.0847125	frequency=3.31462383e-01	gene_name=FFH21_RS19580	gene_position=4671	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=G	major_cov=88/106	major_frequency=6.68537617e-01	minor_base=T	minor_cov=55/43	new_cov=55/43	new_seq=T	polymorphism_frequency=3.31462383e-01	polymorphism_score=259.0	prediction=polymorphism	ref_cov=88/106	ref_seq=G	snp_type=synonymous	total_cov=144/149	transl_table=11
+RA	146	.	NZ_VCCG01000002	849794	0	C	T	aa_new_seq=Q	aa_position=1506	aa_ref_seq=Q	bias_e_value=254841	bias_p_value=0.0418359	codon_new_seq=CAA	codon_number=1506	codon_position=3	codon_ref_seq=CAG	consensus_score=229.0	fisher_strand_p_value=0.00760511	frequency=3.34826469e-01	gene_name=FFH21_RS19580	gene_position=4518	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.923165	locus_tag=FFH21_RS19580	major_base=C	major_cov=85/52	major_frequency=6.65173531e-01	minor_base=T	minor_cov=29/40	new_cov=29/40	new_seq=T	polymorphism_frequency=3.34826469e-01	polymorphism_score=173.3	prediction=polymorphism	ref_cov=85/52	ref_seq=C	snp_type=synonymous	total_cov=114/92	transl_table=11
+RA	147	.	NZ_VCCG01000002	850193	0	A	G	aa_new_seq=T	aa_position=1373	aa_ref_seq=T	bias_e_value=2816950	bias_p_value=0.462444	codon_new_seq=ACC	codon_number=1373	codon_position=3	codon_ref_seq=ACT	consensus_score=411.5	fisher_strand_p_value=0.226909	frequency=2.58396626e-01	gene_name=FFH21_RS19580	gene_position=4119	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.727518	locus_tag=FFH21_RS19580	major_base=A	major_cov=119/68	major_frequency=7.41603374e-01	minor_base=G	minor_cov=47/18	multiple_polymorphic_SNPs_in_same_codon=1	new_cov=47/18	new_seq=G	polymorphism_frequency=2.58396626e-01	polymorphism_score=152.1	prediction=polymorphism	ref_cov=119/68	ref_seq=A	snp_type=synonymous	total_cov=167/86	transl_table=11
+RA	148	.	NZ_VCCG01000002	850194	0	G	A	aa_new_seq=I	aa_position=1373	aa_ref_seq=T	bias_e_value=1854000	bias_p_value=0.304362	codon_new_seq=ATT	codon_number=1373	codon_position=2	codon_ref_seq=ACT	consensus_score=403.8	fisher_strand_p_value=0.287561	frequency=2.60725498e-01	gene_name=FFH21_RS19580	gene_position=4118	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.309586	locus_tag=FFH21_RS19580	major_base=G	major_cov=121/66	major_frequency=7.39274502e-01	minor_base=A	minor_cov=48/18	multiple_polymorphic_SNPs_in_same_codon=1	new_cov=48/18	new_seq=A	polymorphism_frequency=2.60725498e-01	polymorphism_score=157.8	prediction=polymorphism	ref_cov=121/66	ref_seq=G	snp_type=nonsynonymous	total_cov=169/84	transl_table=11
+RA	149	.	NZ_VCCG01000002	850210	0	C	T	aa_new_seq=N	aa_position=1368	aa_ref_seq=D	bias_e_value=5768090	bias_p_value=0.946919	codon_new_seq=AAC	codon_number=1368	codon_position=1	codon_ref_seq=GAC	consensus_score=428.5	fisher_strand_p_value=0.725263	frequency=2.03409672e-01	gene_name=FFH21_RS19580	gene_position=4102	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.954684	locus_tag=FFH21_RS19580	major_base=C	major_cov=107/61	major_frequency=7.96590328e-01	minor_base=T	minor_cov=26/17	new_cov=26/17	new_seq=T	polymorphism_frequency=2.03409672e-01	polymorphism_score=92.6	prediction=polymorphism	ref_cov=107/61	ref_seq=C	snp_type=nonsynonymous	total_cov=133/78	transl_table=11
+RA	150	.	NZ_VCCG01000002	850211	0	G	T	aa_new_seq=E	aa_position=1367	aa_ref_seq=D	bias_e_value=3993040	bias_p_value=0.655518	codon_new_seq=GAA	codon_number=1367	codon_position=3	codon_ref_seq=GAC	consensus_score=555.3	fisher_strand_p_value=0.723556	frequency=2.04088211e-01	gene_name=FFH21_RS19580	gene_position=4101	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.408147	locus_tag=FFH21_RS19580	major_base=G	major_cov=107/60	major_frequency=7.95911789e-01	minor_base=T	minor_cov=26/17	new_cov=26/17	new_seq=T	polymorphism_frequency=2.04088211e-01	polymorphism_score=111.8	prediction=polymorphism	ref_cov=107/60	ref_seq=G	snp_type=nonsynonymous	total_cov=133/78	transl_table=11
+RA	151	.	NZ_VCCG01000002	850241	0	C	G	aa_new_seq=A	aa_position=1357	aa_ref_seq=A	bias_e_value=1292800	bias_p_value=0.212233	codon_new_seq=GCC	codon_number=1357	codon_position=3	codon_ref_seq=GCG	consensus_score=468.5	fisher_strand_p_value=0.181814	frequency=2.35519886e-01	gene_name=FFH21_RS19580	gene_position=4071	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.298174	locus_tag=FFH21_RS19580	major_base=C	major_cov=112/60	major_frequency=7.64480114e-01	minor_base=G	minor_cov=40/13	new_cov=40/13	new_seq=G	polymorphism_frequency=2.35519886e-01	polymorphism_score=157.8	prediction=polymorphism	ref_cov=112/60	ref_seq=C	snp_type=synonymous	total_cov=152/73	transl_table=11
+RA	152	.	NZ_VCCG01000002	850246	0	G	A	aa_new_seq=S	aa_position=1356	aa_ref_seq=P	bias_e_value=3144390	bias_p_value=0.516199	codon_new_seq=TCG	codon_number=1356	codon_position=1	codon_ref_seq=CCG	consensus_score=366.0	fisher_strand_p_value=0.196485	frequency=2.09101677e-01	gene_name=FFH21_RS19580	gene_position=4066	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=G	major_cov=88/59	major_frequency=7.90898323e-01	minor_base=A	minor_cov=28/11	new_cov=28/11	new_seq=A	polymorphism_frequency=2.09101677e-01	polymorphism_score=84.3	prediction=polymorphism	ref_cov=88/59	ref_seq=G	snp_type=nonsynonymous	total_cov=117/70	transl_table=11
+RA	153	.	NZ_VCCG01000002	850250	0	T	A	aa_new_seq=A	aa_position=1354	aa_ref_seq=A	bias_e_value=40594.4	bias_p_value=0.00666418	codon_new_seq=GCT	codon_number=1354	codon_position=3	codon_ref_seq=GCA	consensus_score=269.7	fisher_strand_p_value=0.00140199	frequency=3.52946758e-01	gene_name=FFH21_RS19580	gene_position=4062	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.586598	locus_tag=FFH21_RS19580	major_base=T	major_cov=97/64	major_frequency=6.47053242e-01	minor_base=A	minor_cov=34/54	new_cov=34/54	new_seq=A	polymorphism_frequency=3.52946758e-01	polymorphism_score=268.0	prediction=polymorphism	ref_cov=97/64	ref_seq=T	snp_type=synonymous	total_cov=131/118	transl_table=11
+RA	154	.	NZ_VCCG01000002	850273	0	A	G	aa_new_seq=H	aa_position=1347	aa_ref_seq=Y	bias_e_value=10.1164	bias_p_value=1.66076e-06	codon_new_seq=CAT	codon_number=1347	codon_position=1	codon_ref_seq=TAT	consensus_score=135.2	fisher_strand_p_value=1.10715e-07	frequency=5.85850239e-01	gene_name=FFH21_RS19580	gene_position=4039	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.874642	locus_tag=FFH21_RS19580	major_base=G	major_cov=35/105	major_frequency=5.85850239e-01	minor_base=A	minor_cov=59/40	new_cov=35/105	new_seq=G	polymorphism_frequency=5.85850239e-01	polymorphism_score=262.1	prediction=polymorphism	ref_cov=59/40	ref_seq=A	snp_type=nonsynonymous	total_cov=94/145	transl_table=11
+RA	155	.	NZ_VCCG01000002	850274	0	A	G	aa_new_seq=L	aa_position=1346	aa_ref_seq=L	bias_e_value=5.38715	bias_p_value=8.84382e-07	codon_new_seq=CTC	codon_number=1346	codon_position=3	codon_ref_seq=CTT	consensus_score=142.8	fisher_strand_p_value=5.52953e-08	frequency=5.87655067e-01	gene_name=FFH21_RS19580	gene_position=4038	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.897589	locus_tag=FFH21_RS19580	major_base=G	major_cov=35/105	major_frequency=5.87655067e-01	minor_base=A	minor_cov=59/39	new_cov=35/105	new_seq=G	polymorphism_frequency=5.87655067e-01	polymorphism_score=257.1	prediction=polymorphism	ref_cov=59/39	ref_seq=A	snp_type=synonymous	total_cov=94/145	transl_table=11
+RA	156	.	NZ_VCCG01000002	850304	0	T	C	aa_new_seq=M	aa_position=1336	aa_ref_seq=I	bias_e_value=692570	bias_p_value=0.113696	codon_new_seq=ATG	codon_number=1336	codon_position=3	codon_ref_seq=ATA	consensus_score=24.1	fisher_strand_p_value=0.0320121	frequency=5.21302700e-01	gene_name=FFH21_RS19580	gene_position=4008	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.75125	locus_tag=FFH21_RS19580	major_base=C	major_cov=32/78	major_frequency=5.21302700e-01	minor_base=T	minor_cov=44/57	new_cov=32/78	new_seq=C	polymorphism_frequency=5.21302700e-01	polymorphism_score=275.5	prediction=polymorphism	ref_cov=44/57	ref_seq=T	snp_type=nonsynonymous	total_cov=76/135	transl_table=11
+RA	157	.	NZ_VCCG01000002	850307	0	C	A	aa_new_seq=G	aa_position=1335	aa_ref_seq=G	bias_e_value=63711.4	bias_p_value=0.0104592	codon_new_seq=GGT	codon_number=1335	codon_position=3	codon_ref_seq=GGG	consensus_score=220.4	fisher_strand_p_value=0.0140188	frequency=3.86656284e-01	gene_name=FFH21_RS19580	gene_position=4005	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.0983409	locus_tag=FFH21_RS19580	major_base=C	major_cov=52/67	major_frequency=6.13343716e-01	minor_base=A	minor_cov=19/56	new_cov=19/56	new_seq=A	polymorphism_frequency=3.86656284e-01	polymorphism_score=219.1	prediction=polymorphism	ref_cov=52/67	ref_seq=C	snp_type=synonymous	total_cov=71/123	transl_table=11
+RA	158	.	NZ_VCCG01000002	850313	0	A	G	aa_new_seq=N	aa_position=1333	aa_ref_seq=N	bias_e_value=166947	bias_p_value=0.0274068	codon_new_seq=AAC	codon_number=1333	codon_position=3	codon_ref_seq=AAT	consensus_score=294.3	fisher_strand_p_value=0.00424052	frequency=2.05080509e-01	gene_name=FFH21_RS19580	gene_position=3999	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=A	major_cov=49/71	major_frequency=7.94919491e-01	minor_base=G	minor_cov=22/9	multiple_polymorphic_SNPs_in_same_codon=1	new_cov=22/9	new_seq=G	polymorphism_frequency=2.05080509e-01	polymorphism_score=67.7	prediction=polymorphism	ref_cov=49/71	ref_seq=A	snp_type=synonymous	total_cov=71/80	transl_table=11
+RA	159	.	NZ_VCCG01000002	850315	0	T	C	aa_new_seq=D	aa_position=1333	aa_ref_seq=N	bias_e_value=82480.5	bias_p_value=0.0135404	codon_new_seq=GAT	codon_number=1333	codon_position=1	codon_ref_seq=AAT	consensus_score=300.4	fisher_strand_p_value=0.00471929	frequency=1.99866295e-01	gene_name=FFH21_RS19580	gene_position=3997	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.393664	locus_tag=FFH21_RS19580	major_base=T	major_cov=52/72	major_frequency=8.00133705e-01	minor_base=C	minor_cov=22/9	multiple_polymorphic_SNPs_in_same_codon=1	new_cov=22/9	new_seq=C	polymorphism_frequency=1.99866295e-01	polymorphism_score=69.5	prediction=polymorphism	ref_cov=52/72	ref_seq=T	snp_type=nonsynonymous	total_cov=74/81	transl_table=11
+RA	160	.	NZ_VCCG01000002	850317	0	C	T	aa_new_seq=Q	aa_position=1332	aa_ref_seq=R	bias_e_value=435539	bias_p_value=0.0715003	codon_new_seq=CAA	codon_number=1332	codon_position=2	codon_ref_seq=CGA	consensus_score=331.3	fisher_strand_p_value=0.0156082	frequency=1.91133022e-01	gene_name=FFH21_RS19580	gene_position=3995	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=0.863174	locus_tag=FFH21_RS19580	major_base=C	major_cov=59/72	major_frequency=8.08866978e-01	minor_base=T	minor_cov=22/9	new_cov=22/9	new_seq=T	polymorphism_frequency=1.91133022e-01	polymorphism_score=66.2	prediction=polymorphism	ref_cov=59/72	ref_seq=C	snp_type=nonsynonymous	total_cov=81/81	transl_table=11
+RA	161	.	NZ_VCCG01000002	850527	0	A	G	aa_new_seq=S	aa_position=1262	aa_ref_seq=L	bias_e_value=3894800	bias_p_value=0.63939	codon_new_seq=TCG	codon_number=1262	codon_position=2	codon_ref_seq=TTG	consensus_score=472.9	fisher_strand_p_value=0.282332	frequency=3.05808067e-01	gene_name=FFH21_RS19580	gene_position=3785	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=A	major_cov=82/172	major_frequency=6.94191933e-01	minor_base=G	minor_cov=43/69	new_cov=43/69	new_seq=G	polymorphism_frequency=3.05808067e-01	polymorphism_score=282.0	prediction=polymorphism	ref_cov=82/172	ref_seq=A	snp_type=nonsynonymous	total_cov=125/241	transl_table=11
+RA	162	.	NZ_VCCG01000002	850961	0	C	G	aa_new_seq=H	aa_position=1117	aa_ref_seq=Q	bias_e_value=397597	bias_p_value=0.0652716	codon_new_seq=CAC	codon_number=1117	codon_position=3	codon_ref_seq=CAG	consensus_score=175.1	fisher_strand_p_value=0.0120446	frequency=1.25019550e-01	gene_name=FFH21_RS19580	gene_position=3351	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=C	major_cov=44/23	major_frequency=8.74980450e-01	minor_base=G	minor_cov=2/8	new_cov=2/8	new_seq=G	polymorphism_frequency=1.25019550e-01	polymorphism_score=6.3	prediction=polymorphism	ref_cov=44/23	ref_seq=C	snp_type=nonsynonymous	total_cov=46/33	transl_table=11
+RA	163	.	NZ_VCCG01000002	851036	0	C	G	aa_new_seq=C	aa_position=1092	aa_ref_seq=W	bias_e_value=1856500	bias_p_value=0.304772	codon_new_seq=TGC	codon_number=1092	codon_position=3	codon_ref_seq=TGG	consensus_score=97.1	fisher_strand_p_value=0.0891944	frequency=1.60145283e-01	gene_name=FFH21_RS19580	gene_position=3276	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=C	major_cov=27/13	major_frequency=8.39854717e-01	minor_base=G	minor_cov=2/5	new_cov=2/5	new_seq=G	polymorphism_frequency=1.60145283e-01	polymorphism_score=2.2	prediction=polymorphism	ref_cov=27/13	ref_seq=C	snp_type=nonsynonymous	total_cov=29/20	transl_table=11
+RA	164	.	NZ_VCCG01000002	851087	0	C	G	aa_new_seq=H	aa_position=1075	aa_ref_seq=Q	bias_e_value=274328	bias_p_value=0.045035	codon_new_seq=CAC	codon_number=1075	codon_position=3	codon_ref_seq=CAG	consensus_score=73.5	fisher_strand_p_value=0.0076718	frequency=2.96066284e-01	gene_name=FFH21_RS19580	gene_position=3225	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=C	major_cov=19/20	major_frequency=7.03933716e-01	minor_base=G	minor_cov=2/16	new_cov=2/16	new_seq=G	polymorphism_frequency=2.96066284e-01	polymorphism_score=12.2	prediction=polymorphism	ref_cov=19/20	ref_seq=C	snp_type=nonsynonymous	total_cov=21/36	transl_table=11
+RA	165	.	NZ_VCCG01000002	851097	0	G	T	aa_new_seq=N	aa_position=1072	aa_ref_seq=T	bias_e_value=5156470	bias_p_value=0.846512	codon_new_seq=AAC	codon_number=1072	codon_position=2	codon_ref_seq=ACC	consensus_score=127.4	fisher_strand_p_value=0.499911	frequency=1.50287628e-01	gene_name=FFH21_RS19580	gene_position=3215	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=G	major_cov=22/28	major_frequency=8.49712372e-01	minor_base=T	minor_cov=3/8	new_cov=3/8	new_seq=T	polymorphism_frequency=1.50287628e-01	polymorphism_score=2.7	prediction=polymorphism	ref_cov=22/28	ref_seq=G	snp_type=nonsynonymous	total_cov=25/36	transl_table=11
+RA	166	.	NZ_VCCG01000002	851176	0	T	C	aa_new_seq=D	aa_position=1046	aa_ref_seq=N	bias_e_value=3892880	bias_p_value=0.639074	codon_new_seq=GAC	codon_number=1046	codon_position=1	codon_ref_seq=AAC	consensus_score=147.5	fisher_strand_p_value=0.282083	frequency=1.25307560e-01	gene_name=FFH21_RS19580	gene_position=3136	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=T	major_cov=30/33	major_frequency=8.74692440e-01	minor_base=C	minor_cov=2/7	new_cov=2/7	new_seq=C	polymorphism_frequency=1.25307560e-01	polymorphism_score=4.3	prediction=polymorphism	ref_cov=30/33	ref_seq=T	snp_type=nonsynonymous	total_cov=35/45	transl_table=11
+RA	167	.	NZ_VCCG01000002	851487	0	C	A	aa_new_seq=L	aa_position=942	aa_ref_seq=R	bias_e_value=751776	bias_p_value=0.123415	codon_new_seq=CTC	codon_number=942	codon_position=2	codon_ref_seq=CGC	consensus_score=202.7	fisher_strand_p_value=0.0266941	frequency=1.44578457e-01	gene_name=FFH21_RS19580	gene_position=2825	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=C	major_cov=48/35	major_frequency=8.55421543e-01	minor_base=A	minor_cov=4/12	new_cov=4/12	new_seq=A	polymorphism_frequency=1.44578457e-01	polymorphism_score=13.2	prediction=polymorphism	ref_cov=48/35	ref_seq=C	snp_type=nonsynonymous	total_cov=52/48	transl_table=11
+RA	168	.	NZ_VCCG01000002	851876	0	C	A	aa_new_seq=D	aa_position=812	aa_ref_seq=E	bias_e_value=728915	bias_p_value=0.119662	codon_new_seq=GAT	codon_number=812	codon_position=3	codon_ref_seq=GAG	consensus_score=161.5	fisher_strand_p_value=0.0256639	frequency=1.63949490e-01	gene_name=FFH21_RS19580	gene_position=2436	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=C	major_cov=33/28	major_frequency=8.36050510e-01	minor_base=A	minor_cov=2/10	new_cov=2/10	new_seq=A	polymorphism_frequency=1.63949490e-01	polymorphism_score=9.7	prediction=polymorphism	ref_cov=33/28	ref_seq=C	snp_type=nonsynonymous	total_cov=35/39	transl_table=11
+RA	169	.	NZ_VCCG01000002	852004	0	T	C	aa_new_seq=D	aa_position=770	aa_ref_seq=N	bias_e_value=6091430	bias_p_value=1	codon_new_seq=GAT	codon_number=770	codon_position=1	codon_ref_seq=AAT	consensus_score=142.3	fisher_strand_p_value=1	frequency=7.90748596e-02	gene_name=FFH21_RS19580	gene_position=2308	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=T	major_cov=34/26	major_frequency=9.20925140e-01	minor_base=C	minor_cov=3/2	new_cov=3/2	new_seq=C	polymorphism_frequency=7.90748596e-02	polymorphism_score=2.1	prediction=polymorphism	ref_cov=34/26	ref_seq=T	snp_type=nonsynonymous	total_cov=39/29	transl_table=11
+RA	170	.	NZ_VCCG01000002	852248	0	C	A	aa_new_seq=D	aa_position=688	aa_ref_seq=E	bias_e_value=6091430	bias_p_value=1	codon_new_seq=GAT	codon_number=688	codon_position=3	codon_ref_seq=GAG	consensus_score=291.3	fisher_strand_p_value=1	frequency=8.42227936e-02	gene_name=FFH21_RS19580	gene_position=2064	gene_product=type III effector protein XopAD	gene_strand=<	html_gene_name=<i>FFH21_RS19580</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS19580	major_base=C	major_cov=51/52	major_frequency=9.15777206e-01	minor_base=A	minor_cov=6/6	new_cov=6/6	new_seq=A	polymorphism_frequency=8.42227936e-02	polymorphism_score=3.1	prediction=polymorphism	ref_cov=51/52	ref_seq=C	snp_type=nonsynonymous	total_cov=57/58	transl_table=11
+RA	171	.	NZ_VCCG01000002	924800	0	G	T	aa_new_seq=T	aa_position=209	aa_ref_seq=T	bias_e_value=6091430	bias_p_value=1	codon_new_seq=ACT	codon_number=209	codon_position=3	codon_ref_seq=ACG	consensus_score=236.2	fisher_strand_p_value=1	frequency=1.32489204e-01	gene_name=FFH21_RS19960	gene_position=627	gene_product=Ice nucleation protein	gene_strand=>	html_gene_name=<i>FFH21_RS19960</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS19960	major_base=G	major_cov=20/64	major_frequency=8.67510796e-01	minor_base=T	minor_cov=4/13	new_cov=4/13	new_seq=T	polymorphism_frequency=1.32489204e-01	polymorphism_score=4.0	prediction=polymorphism	ref_cov=20/64	ref_seq=G	snp_type=synonymous	total_cov=24/77	transl_table=11
+RA	172	.	NZ_VCCG01000002	924950	0	A	T	aa_new_seq=G	aa_position=259	aa_ref_seq=G	bias_e_value=5151100	bias_p_value=0.84563	codon_new_seq=GGT	codon_number=259	codon_position=3	codon_ref_seq=GGA	consensus_score=46.1	fisher_strand_p_value=0.516995	frequency=3.55585098e-01	gene_name=FFH21_RS19960	gene_position=777	gene_product=Ice nucleation protein	gene_strand=>	html_gene_name=<i>FFH21_RS19960</i>&nbsp;&rarr;	ks_quality_p_value=0.964498	locus_tag=FFH21_RS19960	major_base=A	major_cov=17/9	major_frequency=6.44414902e-01	minor_base=T	minor_cov=8/7	new_cov=8/7	new_seq=T	polymorphism_frequency=3.55585098e-01	polymorphism_score=25.5	prediction=polymorphism	ref_cov=17/9	ref_seq=A	snp_type=synonymous	total_cov=25/16	transl_table=11
+RA	173	.	NZ_VCCG01000002	926264	0	C	T	aa_new_seq=V	aa_position=697	aa_ref_seq=V	bias_e_value=6029040	bias_p_value=0.989758	codon_new_seq=GTT	codon_number=697	codon_position=3	codon_ref_seq=GTC	consensus_score=110.2	fisher_strand_p_value=1	frequency=2.05952168e-01	gene_name=FFH21_RS19960	gene_position=2091	gene_product=Ice nucleation protein	gene_strand=>	html_gene_name=<i>FFH21_RS19960</i>&nbsp;&rarr;	ks_quality_p_value=0.860334	locus_tag=FFH21_RS19960	major_base=C	major_cov=11/30	major_frequency=7.94047832e-01	minor_base=T	minor_cov=3/8	new_cov=3/8	new_seq=T	polymorphism_frequency=2.05952168e-01	polymorphism_score=18.9	prediction=polymorphism	ref_cov=11/30	ref_seq=C	snp_type=synonymous	total_cov=18/39	transl_table=11
+RA	174	.	NZ_VCCG01000002	926651	0	C	G	aa_new_seq=A	aa_position=826	aa_ref_seq=A	bias_e_value=6091300	bias_p_value=0.999978	codon_new_seq=GCG	codon_number=826	codon_position=3	codon_ref_seq=GCC	consensus_score=202.5	fisher_strand_p_value=1	frequency=1.99763298e-01	gene_name=FFH21_RS19960	gene_position=2478	gene_product=Ice nucleation protein	gene_strand=>	html_gene_name=<i>FFH21_RS19960</i>&nbsp;&rarr;	ks_quality_p_value=0.993382	locus_tag=FFH21_RS19960	major_base=C	major_cov=73/8	major_frequency=8.00236702e-01	minor_base=G	minor_cov=19/2	new_cov=19/2	new_seq=G	polymorphism_frequency=1.99763298e-01	polymorphism_score=43.6	prediction=polymorphism	ref_cov=73/8	ref_seq=C	snp_type=synonymous	total_cov=94/10	transl_table=11
+RA	175	.	NZ_VCCG01000003	160906	0	C	A	aa_new_seq=I	aa_position=246	aa_ref_seq=S	bias_e_value=67833.5	bias_p_value=0.0111359	codon_new_seq=ATC	codon_number=246	codon_position=2	codon_ref_seq=AGC	consensus_score=238.3	fisher_strand_p_value=0.00148194	frequency=1.41674519e-01	gene_name=potA	gene_position=737	gene_product=polyamine ABC transporter ATP-binding protein	gene_strand=<	html_gene_name=<i>potA</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS22315	major_base=C	major_cov=26/49	major_frequency=8.58325481e-01	minor_base=A	minor_cov=13/3	new_cov=13/3	new_seq=A	polymorphism_frequency=1.41674519e-01	polymorphism_score=8.2	prediction=polymorphism	ref_cov=26/49	ref_seq=C	snp_type=nonsynonymous	total_cov=39/53	transl_table=11
+RA	176	.	NZ_VCCG01000004	386791	0	C	T	aa_new_seq=L	aa_position=954	aa_ref_seq=L	bias_e_value=5297600	bias_p_value=0.869681	codon_new_seq=TTG	codon_number=954	codon_position=1	codon_ref_seq=CTG	consensus_score=194.6	fisher_strand_p_value=0.54599	frequency=1.79668903e-01	gene_name=FFH21_RS27035	gene_position=2860	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	ks_quality_p_value=0.980001	locus_tag=FFH21_RS27035	major_base=C	major_cov=52/20	major_frequency=8.20331097e-01	minor_base=T	minor_cov=10/6	new_cov=10/6	new_seq=T	polymorphism_frequency=1.79668903e-01	polymorphism_score=27.5	prediction=polymorphism	ref_cov=52/20	ref_seq=C	snp_type=synonymous	total_cov=68/26	transl_table=11
+RA	177	.	NZ_VCCG01000004	387049	0	T	C	aa_new_seq=L	aa_position=1040	aa_ref_seq=L	bias_e_value=5863310	bias_p_value=0.96255	codon_new_seq=CTG	codon_number=1040	codon_position=1	codon_ref_seq=TTG	consensus_score=794.5	fisher_strand_p_value=0.739113	frequency=1.39870167e-01	gene_name=FFH21_RS27035	gene_position=3118	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS27035	major_base=T	major_cov=193/95	major_frequency=8.60129833e-01	minor_base=C	minor_cov=30/17	new_cov=30/17	new_seq=C	polymorphism_frequency=1.39870167e-01	polymorphism_score=83.3	prediction=polymorphism	ref_cov=193/95	ref_seq=T	snp_type=synonymous	total_cov=228/113	transl_table=11
+RA	178	.	NZ_VCCG01000004	387258	0	T	C	aa_new_seq=A	aa_position=1109	aa_ref_seq=A	bias_e_value=83469.3	bias_p_value=0.0137027	codon_new_seq=GCC	codon_number=1109	codon_position=3	codon_ref_seq=GCT	consensus_score=124.6	fisher_strand_p_value=0.00194079	frequency=1.90310478e-01	gene_name=FFH21_RS27035	gene_position=3327	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	ks_quality_p_value=0.970563	locus_tag=FFH21_RS27035	major_base=T	major_cov=4/47	major_frequency=8.09689522e-01	minor_base=C	minor_cov=6/6	new_cov=6/6	new_seq=C	polymorphism_frequency=1.90310478e-01	polymorphism_score=23.5	prediction=polymorphism	ref_cov=4/47	ref_seq=T	snp_type=synonymous	total_cov=10/53	transl_table=11
+RA	179	.	NZ_VCCG01000004	387337	0	G	A	aa_new_seq=N	aa_position=1136	aa_ref_seq=D	bias_e_value=0.847233	bias_p_value=1.39086e-07	codon_new_seq=AAT	codon_number=1136	codon_position=1	codon_ref_seq=GAC	consensus_score=34.4	fisher_strand_p_value=1.06123e-06	frequency=1	gene_name=FFH21_RS27035	gene_position=3406	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	ks_quality_p_value=0.00662848	locus_tag=FFH21_RS27035	major_base=A	major_cov=33/25	major_frequency=7.24814892e-01	minor_base=G	minor_cov=0/22	new_cov=33/25	new_seq=A	polymorphism_frequency=7.24814892e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=50.6	prediction=consensus	ref_cov=0/22	ref_seq=G	snp_type=nonsynonymous	total_cov=33/55	transl_table=11
+RA	180	.	NZ_VCCG01000004	387339	0	C	T	aa_new_seq=N	aa_position=1136	aa_ref_seq=D	bias_e_value=0.721754	bias_p_value=1.18487e-07	codon_new_seq=AAT	codon_number=1136	codon_position=3	codon_ref_seq=GAC	consensus_score=30.4	fisher_strand_p_value=6.64962e-06	frequency=1	gene_name=FFH21_RS27035	gene_position=3408	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	ks_quality_p_value=0.000893554	locus_tag=FFH21_RS27035	major_base=T	major_cov=29/33	major_frequency=7.09394455e-01	minor_base=C	minor_cov=0/25	new_cov=29/33	new_seq=T	polymorphism_frequency=7.09394455e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE	polymorphism_score=59.3	prediction=consensus	ref_cov=0/25	ref_seq=C	snp_type=synonymous	total_cov=33/58	transl_table=11
+RA	181	.	NZ_VCCG01000004	387342	0	G	A	aa_new_seq=K	aa_position=1137	aa_ref_seq=K	bias_e_value=0.0266664	bias_p_value=4.37769e-09	codon_new_seq=AAA	codon_number=1137	codon_position=3	codon_ref_seq=AAG	consensus_score=29.0	fisher_strand_p_value=3.29036e-07	frequency=1	gene_name=FFH21_RS27035	gene_position=3411	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	ks_quality_p_value=0.000568585	locus_tag=FFH21_RS27035	major_base=A	major_cov=33/28	major_frequency=7.08740234e-01	minor_base=G	minor_cov=0/25	new_cov=33/28	new_seq=A	polymorphism_frequency=7.08740234e-01	polymorphism_reject=VARIANT_STRAND_COVERAGE,SURROUNDING_HOMOPOLYMER	polymorphism_score=59.0	prediction=consensus	ref_cov=0/25	ref_seq=G	snp_type=synonymous	total_cov=33/58	transl_table=11
+RA	182	.	NZ_VCCG01000004	387362	0	C	T	aa_new_seq=V	aa_position=1144	aa_ref_seq=A	bias_e_value=335037	bias_p_value=0.0550014	codon_new_seq=GTG	codon_number=1144	codon_position=2	codon_ref_seq=GCG	consensus_score=107.7	fisher_strand_p_value=0.0097725	frequency=4.01819706e-01	gene_name=FFH21_RS27035	gene_position=3431	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS27035	major_base=C	major_cov=26/37	major_frequency=5.98180294e-01	minor_base=T	minor_cov=7/36	new_cov=7/36	new_seq=T	polymorphism_frequency=4.01819706e-01	polymorphism_score=92.4	prediction=polymorphism	ref_cov=26/37	ref_seq=C	snp_type=nonsynonymous	total_cov=35/74	transl_table=11
+RA	183	.	NZ_VCCG01000004	387516	0	T	C	aa_new_seq=A	aa_position=1195	aa_ref_seq=A	bias_e_value=4485330	bias_p_value=0.736334	codon_new_seq=GCC	codon_number=1195	codon_position=3	codon_ref_seq=GCT	consensus_score=66.8	fisher_strand_p_value=0.368455	frequency=3.52408886e-01	gene_name=FFH21_RS27035	gene_position=3585	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS27035	major_base=T	major_cov=11/22	major_frequency=6.47591114e-01	minor_base=C	minor_cov=9/9	new_cov=9/9	new_seq=C	polymorphism_frequency=3.52408886e-01	polymorphism_score=37.7	prediction=polymorphism	ref_cov=11/22	ref_seq=T	snp_type=synonymous	total_cov=20/31	transl_table=11
+RA	184	.	NZ_VCCG01000004	387519	0	T	A	aa_new_seq=T	aa_position=1196	aa_ref_seq=T	bias_e_value=5339380	bias_p_value=0.87654	codon_new_seq=ACA	codon_number=1196	codon_position=3	codon_ref_seq=ACT	consensus_score=65.8	fisher_strand_p_value=0.546224	frequency=3.59185696e-01	gene_name=FFH21_RS27035	gene_position=3588	gene_product=filamentous hemagglutinin N-terminal domain-containing protein	gene_strand=>	html_gene_name=<i>FFH21_RS27035</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS27035	major_base=T	major_cov=11/19	major_frequency=6.40814304e-01	minor_base=A	minor_cov=8/9	new_cov=8/9	new_seq=A	polymorphism_frequency=3.59185696e-01	polymorphism_score=46.7	prediction=polymorphism	ref_cov=11/19	ref_seq=T	snp_type=synonymous	total_cov=20/28	transl_table=11
+RA	185	.	NZ_VCCG01000005	306670	0	G	T	bias_e_value=5808870	bias_p_value=0.953613	consensus_score=259.0	fisher_strand_p_value=0.711303	frequency=7.01365471e-02	gene_name=FFH21_RS28550/FFH21_RS28555	gene_position=intergenic (+14/+141)	gene_product=acyl-CoA thioesterase/hydroxypyruvate isomerase family protein	html_gene_name=<i>FFH21_RS28550</i>&nbsp;&rarr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS28555</i>	ks_quality_p_value=1	locus_tag=FFH21_RS28550/FFH21_RS28555	major_base=G	major_cov=32/48	major_frequency=9.29863453e-01	minor_base=T	minor_cov=4/4	new_cov=4/4	polymorphism_frequency=7.01365471e-02	polymorphism_score=3.4	prediction=polymorphism	ref_cov=32/48	snp_type=intergenic	total_cov=36/52
+RA	186	.	NZ_VCCG01000006	20409	0	G	T	bias_e_value=966229	bias_p_value=0.158621	consensus_score=442.4	fisher_strand_p_value=0.0401608	frequency=3.16641808e-01	gene_name=FFH21_RS28810/FFH21_RS28815	gene_position=intergenic (-181/-52)	gene_product=conjugal transfer protein/transposase	html_gene_name=<i>FFH21_RS28810</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS28815</i>	ks_quality_p_value=0.918565	locus_tag=FFH21_RS28810/FFH21_RS28815	major_base=G	major_cov=82/87	major_frequency=6.83358192e-01	minor_base=T	minor_cov=50/29	new_cov=50/29	polymorphism_frequency=3.16641808e-01	polymorphism_score=217.5	prediction=polymorphism	ref_cov=82/87	snp_type=intergenic	total_cov=135/116
+RA	187	.	NZ_VCCG01000006	20415	0	C	T	bias_e_value=2117120	bias_p_value=0.347557	consensus_score=386.9	fisher_strand_p_value=0.117506	frequency=2.73301601e-01	gene_name=FFH21_RS28810/FFH21_RS28815	gene_position=intergenic (-187/-46)	gene_product=conjugal transfer protein/transposase	html_gene_name=<i>FFH21_RS28810</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS28815</i>	ks_quality_p_value=0.916011	locus_tag=FFH21_RS28810/FFH21_RS28815	major_base=C	major_cov=86/92	major_frequency=7.26698399e-01	minor_base=T	minor_cov=40/27	new_cov=40/27	polymorphism_frequency=2.73301601e-01	polymorphism_score=160.1	prediction=polymorphism	ref_cov=86/92	snp_type=intergenic	total_cov=126/119
+RA	188	.	NZ_VCCG01000006	23327	0	G	C	bias_e_value=3445930	bias_p_value=0.5657	consensus_score=527.1	fisher_strand_p_value=0.228422	frequency=6.81238174e-02	gene_name=FFH21_RS28830/FFH21_RS28835	gene_position=intergenic (-11/+339)	gene_product=resolvase/IS110-like element ISPsy16 family transposase	html_gene_name=<i>FFH21_RS28830</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS28835</i>	ks_quality_p_value=1	locus_tag=FFH21_RS28830/FFH21_RS28835	major_base=G	major_cov=83/75	major_frequency=9.31876183e-01	minor_base=C	minor_cov=9/3	new_cov=9/3	polymorphism_frequency=6.81238174e-02	polymorphism_score=21.9	prediction=polymorphism	ref_cov=83/75	snp_type=intergenic	total_cov=92/78
+RA	189	.	NZ_VCCG01000006	35795	0	A	C	bias_e_value=1925490	bias_p_value=0.316097	consensus_score=27.7	fisher_strand_p_value=0.104612	frequency=3.50975513e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (453/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.897904	locus_tag=FFH21_RS28930	major_base=A	major_cov=15/11	major_frequency=6.49024487e-01	minor_base=C	minor_cov=4/10	new_cov=4/10	polymorphism_frequency=3.50975513e-01	polymorphism_score=45.6	prediction=polymorphism	ref_cov=15/11	snp_type=pseudogene	total_cov=19/21
+RA	190	.	NZ_VCCG01000006	35796	0	A	G	bias_e_value=1094140	bias_p_value=0.17962	consensus_score=35.9	fisher_strand_p_value=0.0434195	frequency=3.52843285e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (454/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS28930	major_base=A	major_cov=15/10	major_frequency=6.47156715e-01	minor_base=G	minor_cov=3/10	new_cov=3/10	polymorphism_frequency=3.52843285e-01	polymorphism_score=29.2	prediction=polymorphism	ref_cov=15/10	snp_type=pseudogene	total_cov=19/21
+RA	191	.	NZ_VCCG01000006	35851	0	T	C	bias_e_value=2063110	bias_p_value=0.338691	consensus_score=362.4	fisher_strand_p_value=0.109517	frequency=8.68997574e-02	gene_name=FFH21_RS28930	gene_position=pseudogene (509/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.946809	locus_tag=FFH21_RS28930	major_base=T	major_cov=55/60	major_frequency=9.13100243e-01	minor_base=C	minor_cov=2/9	new_cov=2/9	polymorphism_frequency=8.68997574e-02	polymorphism_score=16.9	prediction=polymorphism	ref_cov=55/60	snp_type=pseudogene	total_cov=58/69
+RA	192	.	NZ_VCCG01000006	35854	0	T	A	bias_e_value=1306810	bias_p_value=0.214532	consensus_score=369.3	fisher_strand_p_value=0.0647547	frequency=8.67161751e-02	gene_name=FFH21_RS28930	gene_position=pseudogene (512/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.849405	locus_tag=FFH21_RS28930	major_base=T	major_cov=56/60	major_frequency=9.13283825e-01	minor_base=A	minor_cov=2/9	new_cov=2/9	polymorphism_frequency=8.67161751e-02	polymorphism_score=21.9	prediction=polymorphism	ref_cov=56/60	snp_type=pseudogene	total_cov=58/69
+RA	193	.	NZ_VCCG01000006	35855	0	C	T	bias_e_value=1366810	bias_p_value=0.224383	consensus_score=370.0	fisher_strand_p_value=0.0629489	frequency=8.65807533e-02	gene_name=FFH21_RS28930	gene_position=pseudogene (513/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.928304	locus_tag=FFH21_RS28930	major_base=C	major_cov=56/59	major_frequency=9.13419247e-01	minor_base=T	minor_cov=2/9	new_cov=2/9	polymorphism_frequency=8.65807533e-02	polymorphism_score=15.9	prediction=polymorphism	ref_cov=56/59	snp_type=pseudogene	total_cov=58/69
+RA	194	.	NZ_VCCG01000006	35870	0	T	A	bias_e_value=265957	bias_p_value=0.0436608	consensus_score=540.2	fisher_strand_p_value=0.0131592	frequency=1.44302368e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (528/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.561635	locus_tag=FFH21_RS28930	major_base=T	major_cov=97/69	major_frequency=8.55697632e-01	minor_base=A	minor_cov=9/19	new_cov=9/19	polymorphism_frequency=1.44302368e-01	polymorphism_score=68.9	prediction=polymorphism	ref_cov=97/69	snp_type=pseudogene	total_cov=106/88
+RA	195	.	NZ_VCCG01000006	35871	0	C	A	bias_e_value=40965.1	bias_p_value=0.00672503	consensus_score=490.8	fisher_strand_p_value=0.00741177	frequency=1.61631107e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (529/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.112116	locus_tag=FFH21_RS28930	major_base=C	major_cov=89/61	major_frequency=8.38368893e-01	minor_base=A	minor_cov=9/20	new_cov=9/20	polymorphism_frequency=1.61631107e-01	polymorphism_score=68.3	prediction=polymorphism	ref_cov=89/61	snp_type=pseudogene	total_cov=98/81
+RA	196	.	NZ_VCCG01000006	35873	0	G	A	bias_e_value=197942	bias_p_value=0.0324952	consensus_score=473.1	fisher_strand_p_value=0.0131863	frequency=1.56151772e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (531/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.393597	locus_tag=FFH21_RS28930	major_base=G	major_cov=88/63	major_frequency=8.43848228e-01	minor_base=A	minor_cov=9/19	new_cov=9/19	polymorphism_frequency=1.56151772e-01	polymorphism_score=55.9	prediction=polymorphism	ref_cov=88/63	snp_type=pseudogene	total_cov=97/82
+RA	197	.	NZ_VCCG01000006	35875	0	T	C	bias_e_value=261220	bias_p_value=0.0428832	consensus_score=495.0	fisher_strand_p_value=0.00725802	frequency=1.50207520e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (533/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.996496	locus_tag=FFH21_RS28930	major_base=T	major_cov=95/63	major_frequency=8.49792480e-01	minor_base=C	minor_cov=9/19	new_cov=9/19	polymorphism_frequency=1.50207520e-01	polymorphism_score=57.3	prediction=polymorphism	ref_cov=95/63	snp_type=pseudogene	total_cov=104/82
+RA	198	.	NZ_VCCG01000006	35878	0	C	A	bias_e_value=720161	bias_p_value=0.118225	consensus_score=489.0	fisher_strand_p_value=0.0406023	frequency=1.61412716e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (536/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.622437	locus_tag=FFH21_RS28930	major_base=C	major_cov=85/64	major_frequency=8.38587284e-01	minor_base=A	minor_cov=10/19	new_cov=10/19	polymorphism_frequency=1.61412716e-01	polymorphism_score=67.6	prediction=polymorphism	ref_cov=85/64	snp_type=pseudogene	total_cov=95/83
+RA	199	.	NZ_VCCG01000006	35881	0	G	C	bias_e_value=400377	bias_p_value=0.0657279	consensus_score=565.4	fisher_strand_p_value=0.0131114	frequency=1.34436131e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (539/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.926527	locus_tag=FFH21_RS28930	major_base=G	major_cov=106/74	major_frequency=8.65563869e-01	minor_base=C	minor_cov=9/19	new_cov=9/19	polymorphism_frequency=1.34436131e-01	polymorphism_score=78.6	prediction=polymorphism	ref_cov=106/74	snp_type=pseudogene	total_cov=115/93
+RA	200	.	NZ_VCCG01000006	35887	0	C	T	bias_e_value=202158	bias_p_value=0.0331873	consensus_score=474.9	fisher_strand_p_value=0.00739412	frequency=2.48768330e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (545/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.719755	locus_tag=FFH21_RS28930	major_base=C	major_cov=103/78	major_frequency=7.51231670e-01	minor_base=T	minor_cov=22/38	new_cov=22/38	polymorphism_frequency=2.48768330e-01	polymorphism_score=139.7	prediction=polymorphism	ref_cov=103/78	snp_type=pseudogene	total_cov=125/116
+RA	201	.	NZ_VCCG01000006	35890	0	C	T	bias_e_value=297376	bias_p_value=0.0488187	consensus_score=481.4	fisher_strand_p_value=0.0174204	frequency=2.43124485e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (548/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.485447	locus_tag=FFH21_RS28930	major_base=C	major_cov=102/84	major_frequency=7.56875515e-01	minor_base=T	minor_cov=22/38	new_cov=22/38	polymorphism_frequency=2.43124485e-01	polymorphism_score=140.8	prediction=polymorphism	ref_cov=102/84	snp_type=pseudogene	total_cov=124/123
+RA	202	.	NZ_VCCG01000006	35932	0	G	A	bias_e_value=1092230	bias_p_value=0.179306	consensus_score=229.7	fisher_strand_p_value=0.0490279	frequency=7.17726231e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (590/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.883566	locus_tag=FFH21_RS28930	major_base=A	major_cov=101/59	major_frequency=7.17726231e-01	minor_base=G	minor_cov=30/33	new_cov=101/59	polymorphism_frequency=7.17726231e-01	polymorphism_score=149.6	prediction=polymorphism	ref_cov=30/33	snp_type=pseudogene	total_cov=131/92
+RA	203	.	NZ_VCCG01000006	35935	0	G	A	bias_e_value=2662800	bias_p_value=0.437139	consensus_score=226.5	fisher_strand_p_value=0.161606	frequency=7.27097511e-01	gene_name=FFH21_RS28930	gene_position=pseudogene (593/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.93659	locus_tag=FFH21_RS28930	major_base=A	major_cov=98/59	major_frequency=7.27097511e-01	minor_base=G	minor_cov=30/29	new_cov=98/59	polymorphism_frequency=7.27097511e-01	polymorphism_score=139.7	prediction=polymorphism	ref_cov=30/29	snp_type=pseudogene	total_cov=128/88
+RA	204	.	NZ_VCCG01000006	35959	0	G	A	bias_e_value=6070340	bias_p_value=0.996537	consensus_score=74.5	fisher_strand_p_value=1	frequency=1	gene_name=FFH21_RS28930	gene_position=pseudogene (617/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.91794	locus_tag=FFH21_RS28930	major_base=A	major_cov=30/13	major_frequency=9.77578163e-01	minor_base=G	minor_cov=1/0	new_cov=30/13	polymorphism_frequency=9.77578163e-01	polymorphism_reject=SCORE_CUTOFF,FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=-4.6	prediction=consensus	ref_cov=1/0	snp_type=pseudogene	total_cov=31/13
+RA	205	.	NZ_VCCG01000006	35961	0	T	G	bias_e_value=6087670	bias_p_value=0.999382	consensus_score=62.4	fisher_strand_p_value=1	frequency=1	gene_name=FFH21_RS28930	gene_position=pseudogene (619/914 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS28930</i>&nbsp;&rarr;	ks_quality_p_value=0.965063	locus_tag=FFH21_RS28930	major_base=G	major_cov=24/13	major_frequency=9.73826408e-01	minor_base=T	minor_cov=1/0	new_cov=24/13	polymorphism_frequency=9.73826408e-01	polymorphism_reject=SCORE_CUTOFF,FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE,SURROUNDING_HOMOPOLYMER	polymorphism_score=-4.1	prediction=consensus	ref_cov=1/0	snp_type=pseudogene	total_cov=25/13
+RA	206	.	NZ_VCCG01000006	37490	0	C	T	bias_e_value=6031980	bias_p_value=0.99024	consensus_score=66.2	fisher_strand_p_value=1	frequency=2.42247581e-01	gene_name=FFH21_RS28945	gene_position=pseudogene (901/1225 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28945</i>&nbsp;&larr;	ks_quality_p_value=0.863582	locus_tag=FFH21_RS28945	major_base=C	major_cov=10/15	major_frequency=7.57752419e-01	minor_base=T	minor_cov=3/5	new_cov=3/5	polymorphism_frequency=2.42247581e-01	polymorphism_score=14.5	prediction=polymorphism	ref_cov=10/15	snp_type=pseudogene	total_cov=13/20
+RA	207	.	NZ_VCCG01000006	37493	0	C	T	bias_e_value=6091410	bias_p_value=0.999997	consensus_score=62.5	fisher_strand_p_value=1	frequency=2.72193909e-01	gene_name=FFH21_RS28945	gene_position=pseudogene (898/1225 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28945</i>&nbsp;&larr;	ks_quality_p_value=0.997478	locus_tag=FFH21_RS28945	major_base=C	major_cov=10/14	major_frequency=7.27806091e-01	minor_base=T	minor_cov=3/6	new_cov=3/6	polymorphism_frequency=2.72193909e-01	polymorphism_score=15.8	prediction=polymorphism	ref_cov=10/14	snp_type=pseudogene	total_cov=13/20
+RA	208	.	NZ_VCCG01000006	37679	0	A	G	bias_e_value=28931.5	bias_p_value=0.00474954	consensus_score=327.4	fisher_strand_p_value=0.000559533	frequency=3.30176353e-01	gene_name=FFH21_RS28945	gene_position=pseudogene (712/1225 nt)	gene_product=IS91 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS28945</i>&nbsp;&larr;	ks_quality_p_value=1	locus_tag=FFH21_RS28945	major_base=A	major_cov=68/105	major_frequency=6.69823647e-01	minor_base=G	minor_cov=53/32	new_cov=53/32	polymorphism_frequency=3.30176353e-01	polymorphism_score=208.9	prediction=polymorphism	ref_cov=68/105	snp_type=pseudogene	total_cov=122/137
+RA	209	.	NZ_VCCG01000006	53725	0	G	A	bias_e_value=5506650	bias_p_value=0.903999	consensus_score=110.6	fisher_strand_p_value=0.609438	frequency=5.72087765e-01	gene_name=FFH21_RS29050	gene_position=pseudogene (327/422 nt)	gene_product=transposase	gene_strand=<	html_gene_name=<i>FFH21_RS29050</i>&nbsp;&larr;	ks_quality_p_value=0.976558	locus_tag=FFH21_RS29050	major_base=A	major_cov=75/68	major_frequency=5.72087765e-01	minor_base=G	minor_cov=52/55	new_cov=75/68	polymorphism_frequency=5.72087765e-01	polymorphism_score=284.2	prediction=polymorphism	ref_cov=52/55	snp_type=pseudogene	total_cov=127/123
+RA	210	.	NZ_VCCG01000006	54096	0	G	A	bias_e_value=3313520	bias_p_value=0.543965	consensus_score=379.9	fisher_strand_p_value=0.214016	frequency=1.27053738e-01	gene_name=FFH21_RS29050/FFH21_RS29055	gene_position=intergenic (-45/-293)	gene_product=transposase/DUF3018 family protein	html_gene_name=<i>FFH21_RS29050</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS29055</i>	ks_quality_p_value=1	locus_tag=FFH21_RS29050/FFH21_RS29055	major_base=G	major_cov=48/82	major_frequency=8.72946262e-01	minor_base=A	minor_cov=10/9	new_cov=10/9	polymorphism_frequency=1.27053738e-01	polymorphism_score=33.8	prediction=polymorphism	ref_cov=48/82	snp_type=intergenic	total_cov=58/91
+RA	211	.	NZ_VCCG01000006	54102	0	C	A	bias_e_value=3054820	bias_p_value=0.501494	consensus_score=440.7	fisher_strand_p_value=0.200262	frequency=1.19920731e-01	gene_name=FFH21_RS29050/FFH21_RS29055	gene_position=intergenic (-51/-287)	gene_product=transposase/DUF3018 family protein	html_gene_name=<i>FFH21_RS29050</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS29055</i>	ks_quality_p_value=0.936642	locus_tag=FFH21_RS29050/FFH21_RS29055	major_base=C	major_cov=45/87	major_frequency=8.80079269e-01	minor_base=A	minor_cov=9/9	new_cov=9/9	polymorphism_frequency=1.19920731e-01	polymorphism_score=38.0	prediction=polymorphism	ref_cov=45/87	snp_type=intergenic	total_cov=54/96
+RA	212	.	NZ_VCCG01000006	62558	0	A	C	bias_e_value=86.5898	bias_p_value=1.4215e-05	consensus_score=564.6	fisher_strand_p_value=9.56604e-07	frequency=7.89523125e-02	gene_name=FFH21_RS29120	gene_position=pseudogene (1391/2048 nt)	gene_product=type III effector protein XopAD	gene_strand=>	html_gene_name=<i>FFH21_RS29120</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS29120	major_base=A	major_cov=35/161	major_frequency=9.21047688e-01	minor_base=C	minor_cov=14/5	new_cov=14/5	polymorphism_frequency=7.89523125e-02	polymorphism_score=22.5	prediction=polymorphism	ref_cov=35/161	snp_type=pseudogene	total_cov=49/167
+RA	213	.	NZ_VCCG01000006	62760	0	C	A	bias_e_value=96077.2	bias_p_value=0.0157725	consensus_score=921.9	fisher_strand_p_value=0.002218	frequency=1.80894852e-01	gene_name=FFH21_RS29120	gene_position=pseudogene (1593/2048 nt)	gene_product=type III effector protein XopAD	gene_strand=>	html_gene_name=<i>FFH21_RS29120</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS29120	major_base=C	major_cov=128/194	major_frequency=8.19105148e-01	minor_base=A	minor_cov=16/61	new_cov=16/61	polymorphism_frequency=1.80894852e-01	polymorphism_score=84.9	prediction=polymorphism	ref_cov=128/194	snp_type=pseudogene	total_cov=144/256
+RA	214	.	NZ_VCCG01000006	62765	0	G	T	bias_e_value=0.000143564	bias_p_value=2.35682e-11	consensus_score=858.8	fisher_strand_p_value=8.17416e-13	frequency=1.67895317e-01	gene_name=FFH21_RS29120	gene_position=pseudogene (1598/2048 nt)	gene_product=type III effector protein XopAD	gene_strand=>	html_gene_name=<i>FFH21_RS29120</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS29120	major_base=G	major_cov=119/186	major_frequency=8.32104683e-01	minor_base=T	minor_cov=2/81	new_cov=2/81	polymorphism_frequency=1.67895317e-01	polymorphism_score=32.3	prediction=polymorphism	ref_cov=119/186	snp_type=pseudogene	total_cov=126/268
+RA	215	.	NZ_VCCG01000006	63089	0	C	T	bias_e_value=5945770	bias_p_value=0.976087	consensus_score=532.7	fisher_strand_p_value=0.789435	frequency=7.04207420e-02	gene_name=FFH21_RS29120	gene_position=pseudogene (1922/2048 nt)	gene_product=type III effector protein XopAD	gene_strand=>	html_gene_name=<i>FFH21_RS29120</i>&nbsp;&rarr;	ks_quality_p_value=1	locus_tag=FFH21_RS29120	major_base=C	major_cov=70/119	major_frequency=9.29579258e-01	minor_base=T	minor_cov=6/9	new_cov=6/9	polymorphism_frequency=7.04207420e-02	polymorphism_score=12.7	prediction=polymorphism	ref_cov=70/119	snp_type=pseudogene	total_cov=76/132
+RA	216	.	NZ_VCCG01000008	2130	0	A	G	bias_e_value=4019330	bias_p_value=0.659834	consensus_score=207.7	fisher_strand_p_value=0.333333	frequency=1	gene_name=FFH21_RS29375/FFH21_RS29380	gene_position=intergenic (-380/-228)	gene_product=YopT-type cysteine protease domain-containing protein/IS110-like element ISPsy16 family transposase	html_gene_name=<i>FFH21_RS29375</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS29380</i>	ks_quality_p_value=0.896621	locus_tag=FFH21_RS29375/FFH21_RS29380	major_base=G	major_cov=46/22	major_frequency=9.85914230e-01	minor_base=A	minor_cov=0/1	new_cov=46/22	polymorphism_frequency=9.85914230e-01	polymorphism_reject=SCORE_CUTOFF,FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=-4.9	prediction=consensus	ref_cov=0/1	snp_type=intergenic	total_cov=46/23
+RA	217	.	NZ_VCCG01000009	3847	0	G	A	bias_e_value=27429.2	bias_p_value=0.00450291	consensus_score=405.4	fisher_strand_p_value=0.00841957	frequency=3.18023682e-01	gene_name=FFH21_RS29545/FFH21_RS29550	gene_position=intergenic (-189/+242)	gene_product=IS110-like element ISPsy16 family transposase/type III effector	html_gene_name=<i>FFH21_RS29545</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS29550</i>	ks_quality_p_value=0.0625601	locus_tag=FFH21_RS29545/FFH21_RS29550	major_base=G	major_cov=51/144	major_frequency=6.81976318e-01	minor_base=A	minor_cov=11/80	new_cov=11/80	polymorphism_frequency=3.18023682e-01	polymorphism_score=224.6	prediction=polymorphism	ref_cov=51/144	snp_type=intergenic	total_cov=62/224
+RA	218	.	NZ_VCCG01000009	3883	0	A	G	bias_e_value=6091430	bias_p_value=1	consensus_score=84.8	fisher_strand_p_value=1	frequency=4.78808880e-01	gene_name=FFH21_RS29545/FFH21_RS29550	gene_position=intergenic (-225/+206)	gene_product=IS110-like element ISPsy16 family transposase/type III effector	html_gene_name=<i>FFH21_RS29545</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS29550</i>	ks_quality_p_value=1	locus_tag=FFH21_RS29545/FFH21_RS29550	major_base=A	major_cov=43/80	major_frequency=5.21191120e-01	minor_base=G	minor_cov=40/73	new_cov=40/73	polymorphism_frequency=4.78808880e-01	polymorphism_score=313.1	prediction=polymorphism	ref_cov=43/80	snp_type=intergenic	total_cov=83/153
+RA	219	.	NZ_VCCG01000010	11714	0	A	G	bias_e_value=8139.43	bias_p_value=0.00133621	consensus_score=239.6	fisher_strand_p_value=0.000134812	frequency=1.76735401e-01	gene_name=FFH21_RS29695/FFH21_RS29700	gene_position=intergenic (-61/-92)	gene_product=IS5-like element ISPsy19 family transposase/transposase	html_gene_name=<i>FFH21_RS29695</i>&nbsp;&larr;&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS29700</i>	ks_quality_p_value=1	locus_tag=FFH21_RS29695/FFH21_RS29700	major_base=A	major_cov=81/12	major_frequency=8.23264599e-01	minor_base=G	minor_cov=9/11	new_cov=9/11	polymorphism_frequency=1.76735401e-01	polymorphism_score=39.5	prediction=polymorphism	ref_cov=81/12	snp_type=intergenic	total_cov=90/24
+MC	220	.	NZ_VCCG01000001	1	41	40	0	gene_name=–/FFH21_RS00005	gene_position=intergenic (–/+262)	gene_product=–/hypothetical protein	html_gene_name=–&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS00005</i>	left_inside_cov=0	left_outside_cov=NA	locus_tag=–/FFH21_RS00005	right_inside_cov=10	right_outside_cov=12
+MC	221	.	NZ_VCCG01000002	1259491	1259501	10	0	gene_name=FFH21_RS21515/–	gene_position=intergenic (+245/–)	gene_product=hypothetical protein/–	html_gene_name=<i>FFH21_RS21515</i>&nbsp;&rarr;&nbsp;/&nbsp;–	left_inside_cov=12	left_outside_cov=13	locus_tag=FFH21_RS21515/–	right_inside_cov=0	right_outside_cov=NA
+MC	222	.	NZ_VCCG01000003	733753	733773	20	0	gene_name=FFH21_RS25270/–	gene_position=intergenic (-54/–)	gene_product=NADP oxidoreductase/–	html_gene_name=<i>FFH21_RS25270</i>&nbsp;&larr;&nbsp;/&nbsp;–	left_inside_cov=5	left_outside_cov=14	locus_tag=FFH21_RS25270/–	right_inside_cov=0	right_outside_cov=NA
+MC	223	.	NZ_VCCG01000005	262760	262800	0	0	gene_name=FFH21_RS28315/FFH21_RS28320	gene_position=intergenic (-244/+3)	gene_product=2-keto-3-deoxygluconate permease/TIGR02646 family protein	html_gene_name=<i>FFH21_RS28315</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>FFH21_RS28320</i>	left_inside_cov=13	left_outside_cov=16	locus_tag=FFH21_RS28315/FFH21_RS28320	right_inside_cov=1	right_outside_cov=20
+MC	224	.	NZ_VCCG01000005	325532	325946	413	0	gene_name=FFH21_RS28650	gene_product=FFH21_RS28650	html_gene_name=<i>FFH21_RS28650</i>	left_inside_cov=12	left_outside_cov=19	locus_tag=[FFH21_RS28650]	right_inside_cov=0	right_outside_cov=NA
+MC	225	.	NZ_VCCG01000006	1	45	0	40	gene_name=–/FFH21_RS28655	gene_position=intergenic (–/-32)	gene_product=–/DUF2513 domain-containing protein	html_gene_name=–&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS28655</i>	left_inside_cov=0	left_outside_cov=NA	locus_tag=–/FFH21_RS28655	right_inside_cov=43	right_outside_cov=44
+MC	226	.	NZ_VCCG01000006	63196	63215	18	0	gene_name=FFH21_RS29120	gene_position=pseudogene (2029-2048/2048 nt)	gene_product=type III effector protein XopAD	gene_strand=>	html_gene_name=<i>FFH21_RS29120</i>&nbsp;&rarr;	left_inside_cov=38	left_outside_cov=46	locus_tag=FFH21_RS29120	right_inside_cov=0	right_outside_cov=NA
+MC	227	.	NZ_VCCG01000007	39818	39836	18	0	gene_name=FFH21_RS29355/–	gene_position=intergenic (+73/–)	gene_product=Y-family DNA polymerase/–	html_gene_name=<i>FFH21_RS29355</i>&nbsp;&rarr;&nbsp;/&nbsp;–	left_inside_cov=41	left_outside_cov=56	locus_tag=FFH21_RS29355/–	right_inside_cov=0	right_outside_cov=NA
+MC	228	.	NZ_VCCG01000008	1	25	0	23	gene_name=FFH21_RS29360	gene_position=pseudogene (464-488/488 nt)	gene_product=Tn3 family transposase	gene_strand=<	html_gene_name=<i>FFH21_RS29360</i>&nbsp;&larr;	left_inside_cov=0	left_outside_cov=NA	locus_tag=FFH21_RS29360	right_inside_cov=49	right_outside_cov=53
+MC	229	.	NZ_VCCG01000009	13878	13948	69	0	gene_name=FFH21_RS29605	gene_position=pseudogene (608-678/678 nt)	gene_product=Tn3 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS29605</i>&nbsp;&rarr;	left_inside_cov=44	left_outside_cov=67	locus_tag=FFH21_RS29605	right_inside_cov=0	right_outside_cov=NA
+MC	230	.	NZ_VCCG01000010	12364	12389	24	0	gene_name=FFH21_RS29705	gene_position=pseudogene (112-137/137 nt)	gene_product=IS91 family transposase	gene_strand=>	html_gene_name=<i>FFH21_RS29705</i>&nbsp;&rarr;	left_inside_cov=49	left_outside_cov=53	locus_tag=FFH21_RS29705	right_inside_cov=0	right_outside_cov=NA
+MC	231	.	NZ_VCCG01000013	1	276	0	0	gene_name=[FFH21_RS29760]	gene_product=[FFH21_RS29760]	html_gene_name=<i>[FFH21_RS29760]</i>	left_inside_cov=0	left_outside_cov=NA	locus_tag=[FFH21_RS29760]	right_inside_cov=0	right_outside_cov=NA
+MC	232	.	NZ_VCCG01000014	1	250	0	0	gene_name=FFH21_RS29765	gene_position=pseudogene (1-250/250 nt)	gene_product=lysine decarboxylase	gene_strand=>	html_gene_name=<i>FFH21_RS29765</i>&nbsp;&rarr;	left_inside_cov=0	left_outside_cov=NA	locus_tag=FFH21_RS29765	right_inside_cov=0	right_outside_cov=NA
+MC	233	.	NZ_VCCG01000015	1	250	0	0	gene_name=[FFH21_RS29770]	gene_product=[FFH21_RS29770]	html_gene_name=<i>[FFH21_RS29770]</i>	left_inside_cov=0	left_outside_cov=NA	locus_tag=[FFH21_RS29770]	right_inside_cov=0	right_outside_cov=NA
+MC	234	.	NZ_VCCG01000016	1	248	0	0	gene_name=FFH21_RS29775	gene_position=pseudogene (1-248/248 nt)	gene_product=hypothetical protein	gene_strand=>	html_gene_name=<i>FFH21_RS29775</i>&nbsp;&rarr;	left_inside_cov=0	left_outside_cov=NA	locus_tag=FFH21_RS29775	right_inside_cov=0	right_outside_cov=NA
+MC	235	.	NZ_VCCG01000017	1	246	0	0	gene_name=FFH21_RS29780	gene_position=pseudogene (1-246/246 nt)	gene_product=type III effector	gene_strand=>	html_gene_name=<i>FFH21_RS29780</i>&nbsp;&rarr;	left_inside_cov=0	left_outside_cov=NA	locus_tag=FFH21_RS29780	right_inside_cov=0	right_outside_cov=NA
+MC	236	.	NZ_VCCG01000018	1	244	0	0	gene_name=–/–	gene_position=intergenic (–/–)	gene_product=–/–	html_gene_name=–&nbsp;/&nbsp;–	left_inside_cov=0	left_outside_cov=NA	locus_tag=–/–	right_inside_cov=0	right_outside_cov=NA
+MC	237	.	NZ_VCCG01000019	1	243	0	0	gene_name=FFH21_RS29785	gene_position=pseudogene (1-243/243 nt)	gene_product=MFS transporter	gene_strand=<	html_gene_name=<i>FFH21_RS29785</i>&nbsp;&larr;	left_inside_cov=0	left_outside_cov=NA	locus_tag=FFH21_RS29785	right_inside_cov=0	right_outside_cov=NA
+MC	238	.	NZ_VCCG01000020	1	58	57	0	gene_name=–/FFH21_RS29790	gene_position=intergenic (–/-47)	gene_product=–/type III effector	html_gene_name=–&nbsp;/&nbsp;&rarr;&nbsp;<i>FFH21_RS29790</i>	left_inside_cov=0	left_outside_cov=NA	locus_tag=–/FFH21_RS29790	right_inside_cov=39	right_outside_cov=47
+MC	239	.	NZ_VCCG01000021	1	203	0	0	gene_name=–/–	gene_position=intergenic (–/–)	gene_product=–/–	html_gene_name=–&nbsp;/&nbsp;–	left_inside_cov=0	left_outside_cov=NA	locus_tag=–/–	right_inside_cov=0	right_outside_cov=NA
+JC	240	.	NZ_VCCG01000001	461910	-1	NZ_VCCG01000001	487501	-1	0	alignment_overlap=2	coverage_minus=76	coverage_plus=39	flanking_left=75	flanking_right=75	frequency=NA	junction_possible_overlap_registers=53	key=NZ_VCCG01000001__461910__-1__NZ_VCCG01000001__487503__-1__2____75__75__1__1	max_left=66	max_left_minus=66	max_left_plus=53	max_min_left=34	max_min_left_minus=34	max_min_left_plus=21	max_min_right=33	max_min_right_minus=25	max_min_right_plus=33	max_pos_hash_score=108	max_right=66	max_right_minus=66	max_right_plus=66	neg_log10_pos_hash_p_value=NT	new_junction_coverage=1.77	new_junction_read_count=116	polymorphism_frequency=NA	pos_hash_score=31	prediction=unknown	side_1_annotate_key=repeat	side_1_continuation=0	side_1_coverage=NA	side_1_overlap=2	side_1_read_count=NA	side_1_redundant=1	side_2_annotate_key=repeat	side_2_continuation=0	side_2_coverage=NA	side_2_overlap=0	side_2_possible_overlap_registers=NA	side_2_read_count=NA	side_2_redundant=1	total_non_overlap_reads=115
+JC	241	.	NZ_VCCG01000001	1330815	1	NZ_VCCG01000002	856360	-1	0	alignment_overlap=0	coverage_minus=15	coverage_plus=13	flanking_left=75	flanking_right=75	frequency=3.36448598e-01	junction_possible_overlap_registers=55	key=NZ_VCCG01000001__1330815__1__NZ_VCCG01000002__856360__-1__0____75__75__0__1	max_left=42	max_left_minus=39	max_left_plus=42	max_min_left=36	max_min_left_minus=36	max_min_left_plus=22	max_min_right=36	max_min_right_minus=36	max_min_right_plus=33	max_pos_hash_score=112	max_right=68	max_right_minus=67	max_right_plus=68	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.52	new_junction_read_count=36	polymorphism_frequency=3.36448598e-01	pos_hash_score=13	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.05	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=71	side_1_redundant=0	side_2_annotate_key=repeat	side_2_continuation=0	side_2_coverage=NA	side_2_overlap=0	side_2_possible_overlap_registers=NA	side_2_read_count=NA	side_2_redundant=1	total_non_overlap_reads=28
+JC	242	.	NZ_VCCG01000001	1330857	-1	NZ_VCCG01000005	70	-1	0	alignment_overlap=1	coverage_minus=15	coverage_plus=13	flanking_left=75	flanking_right=70	frequency=4.31324221e-01	junction_possible_overlap_registers=54	key=NZ_VCCG01000001__1330857__-1__NZ_VCCG01000005__71__-1__1____75__70__0__1	max_left=42	max_left_minus=42	max_left_plus=33	max_min_left=35	max_min_left_minus=35	max_min_left_plus=33	max_min_right=35	max_min_right_minus=35	max_min_right_plus=0	max_pos_hash_score=110	max_right=66	max_right_minus=66	max_right_plus=66	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.52	new_junction_read_count=35	polymorphism_frequency=4.31324221e-01	pos_hash_score=17	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.69	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=47	side_1_redundant=0	side_2_annotate_key=repeat	side_2_continuation=0	side_2_coverage=NA	side_2_overlap=0	side_2_possible_overlap_registers=NA	side_2_read_count=NA	side_2_redundant=1	total_non_overlap_reads=28
+JC	243	.	NZ_VCCG01000001	2343312	1	NZ_VCCG01000006	35691	-1	0	alignment_overlap=2	coverage_minus=5	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.25085285e-01	junction_possible_overlap_registers=53	key=NZ_VCCG01000001__2343312__1__NZ_VCCG01000006__35693__-1__2____75__75__0__0	max_left=36	max_left_minus=36	max_left_plus=0	max_min_left=15	max_min_left_minus=15	max_min_left_plus=0	max_min_right=18	max_min_right_minus=18	max_min_right_plus=0	max_pos_hash_score=108	max_right=19	max_right_minus=19	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.04	new_junction_read_count=5	polymorphism_frequency=1.25085285e-01	pos_hash_score=3	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.43	side_1_overlap=2	side_1_possible_overlap_registers=55	side_1_read_count=29	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.26	side_2_overlap=0	side_2_possible_overlap_registers=53	side_2_read_count=42	side_2_redundant=0	total_non_overlap_reads=5
+JC	244	.	NZ_VCCG01000001	3088031	-1	NZ_VCCG01000006	35691	-1	0	alignment_overlap=2	coverage_minus=18	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=3.91250222e-01	junction_possible_overlap_registers=53	key=NZ_VCCG01000001__3088031__-1__NZ_VCCG01000006__35693__-1__2____75__75__0__0	max_left=53	max_left_minus=53	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=24	max_min_right_minus=24	max_min_right_plus=0	max_pos_hash_score=108	max_right=24	max_right_minus=24	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.17	new_junction_read_count=20	polymorphism_frequency=3.91250222e-01	pos_hash_score=8	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.31	side_1_overlap=2	side_1_possible_overlap_registers=55	side_1_read_count=21	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.26	side_2_overlap=0	side_2_possible_overlap_registers=53	side_2_read_count=42	side_2_redundant=0	total_non_overlap_reads=18
+JC	245	.	NZ_VCCG01000002	608941	-1	NZ_VCCG01000006	35692	-1	-9	alignment_overlap=-9	coverage_minus=17	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=3.65969582e-01	junction_possible_overlap_registers=46	key=NZ_VCCG01000002__608941__-1__NZ_VCCG01000006__35692__-1__-9__GGGGGGGGG__75__75__0__0	max_left=55	max_left_minus=55	max_left_plus=0	max_min_left=31	max_min_left_minus=31	max_min_left_plus=0	max_min_right=25	max_min_right_minus=25	max_min_right_plus=0	max_pos_hash_score=94	max_right=35	max_right_minus=35	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.21	new_junction_read_count=21	polymorphism_frequency=3.65969582e-01	pos_hash_score=8	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.63	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=44	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.25	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=43	side_2_redundant=0	total_non_overlap_reads=17	unique_read_sequence=GGGGGGGGG
+JC	246	.	NZ_VCCG01000002	769462	-1	NZ_VCCG01000006	35692	-1	-6	alignment_overlap=-6	coverage_minus=8	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.92046557e-01	junction_possible_overlap_registers=49	key=NZ_VCCG01000002__769462__-1__NZ_VCCG01000006__35692__-1__-6__GGGGGG__75__75__0__0	max_left=61	max_left_minus=61	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=21	max_min_right_minus=21	max_min_right_plus=0	max_pos_hash_score=100	max_right=21	max_right_minus=21	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.08	new_junction_read_count=9	polymorphism_frequency=1.92046557e-01	pos_hash_score=6	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.60	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=42	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.25	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=43	side_2_redundant=0	total_non_overlap_reads=8	unique_read_sequence=GGGGGG
+JC	247	.	NZ_VCCG01000004	375743	-1	NZ_VCCG01000006	35692	-1	0	alignment_overlap=1	coverage_minus=12	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.63620909e-01	junction_possible_overlap_registers=54	key=NZ_VCCG01000004__375743__-1__NZ_VCCG01000006__35693__-1__1____75__75__0__0	max_left=67	max_left_minus=67	max_left_plus=0	max_min_left=29	max_min_left_minus=29	max_min_left_plus=0	max_min_right=37	max_min_right_minus=37	max_min_right_plus=0	max_pos_hash_score=110	max_right=37	max_right_minus=37	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.12	new_junction_read_count=14	polymorphism_frequency=1.63620909e-01	pos_hash_score=8	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.40	side_1_overlap=1	side_1_possible_overlap_registers=55	side_1_read_count=103	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.25	side_2_overlap=0	side_2_possible_overlap_registers=54	side_2_read_count=42	side_2_redundant=0	total_non_overlap_reads=12
+JC	248	.	NZ_VCCG01000005	262801	1	NZ_VCCG01000006	35690	-1	0	alignment_overlap=2	coverage_minus=11	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=3.76811594e-01	junction_possible_overlap_registers=53	key=NZ_VCCG01000005__262801__1__NZ_VCCG01000006__35692__-1__2____75__75__0__0	max_left=57	max_left_minus=57	max_left_plus=0	max_min_left=26	max_min_left_minus=26	max_min_left_plus=0	max_min_right=34	max_min_right_minus=34	max_min_right_plus=0	max_pos_hash_score=108	max_right=34	max_right_minus=34	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.11	new_junction_read_count=13	polymorphism_frequency=3.76811594e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=2	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.26	side_2_overlap=0	side_2_possible_overlap_registers=53	side_2_read_count=43	side_2_redundant=0	total_non_overlap_reads=11
+JC	249	.	NZ_VCCG01000006	18219	-1	NZ_VCCG01000008	10143	1	0	alignment_overlap=4	coverage_minus=79	coverage_plus=30	flanking_left=75	flanking_right=75	frequency=5.52348569e-01	junction_possible_overlap_registers=51	key=NZ_VCCG01000006__18219__-1__NZ_VCCG01000008__10139__1__4____75__75__0__1	max_left=62	max_left_minus=62	max_left_plus=62	max_min_left=34	max_min_left_minus=34	max_min_left_plus=33	max_min_right=33	max_min_right_minus=33	max_min_right_plus=31	max_pos_hash_score=104	max_right=48	max_right_minus=42	max_right_plus=48	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.82	new_junction_read_count=127	polymorphism_frequency=5.52348569e-01	pos_hash_score=28	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.65	side_1_overlap=4	side_1_possible_overlap_registers=55	side_1_read_count=111	side_1_redundant=0	side_2_annotate_key=repeat	side_2_continuation=0	side_2_coverage=NA	side_2_overlap=0	side_2_possible_overlap_registers=NA	side_2_read_count=NA	side_2_redundant=1	total_non_overlap_reads=109
+JC	250	.	NZ_VCCG01000006	35653	-1	NZ_VCCG01000006	35692	-1	-11	alignment_overlap=-11	coverage_minus=19	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=4.10958904e-01	junction_possible_overlap_registers=44	key=NZ_VCCG01000006__35653__-1__NZ_VCCG01000006__35692__-1__-11__GGGGGGGGGGG__75__75__1__0	max_left=51	max_left_minus=51	max_left_plus=0	max_min_left=31	max_min_left_minus=31	max_min_left_plus=0	max_min_right=32	max_min_right_minus=32	max_min_right_plus=0	max_pos_hash_score=90	max_right=36	max_right_minus=36	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.18	new_junction_read_count=24	polymorphism_frequency=4.10958904e-01	pos_hash_score=10	prediction=polymorphism	side_1_annotate_key=repeat	side_1_continuation=0	side_1_coverage=NA	side_1_overlap=0	side_1_read_count=NA	side_1_redundant=1	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.25	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=43	side_2_redundant=0	total_non_overlap_reads=19	unique_read_sequence=GGGGGGGGGGG
+JC	251	.	NZ_VCCG01000006	35655	1	NZ_VCCG01000006	35690	-1	0	alignment_overlap=2	coverage_minus=5	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=5.16532968e-01	junction_possible_overlap_registers=53	key=NZ_VCCG01000006__35655__1__NZ_VCCG01000006__35692__-1__2____75__75__0__0	max_left=37	max_left_minus=37	max_left_plus=0	max_min_left=33	max_min_left_minus=33	max_min_left_plus=0	max_min_right=36	max_min_right_minus=36	max_min_right_plus=0	max_pos_hash_score=108	max_right=42	max_right_minus=42	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.15	new_junction_read_count=24	polymorphism_frequency=5.16532968e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.01	side_1_overlap=2	side_1_possible_overlap_registers=55	side_1_read_count=2	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.26	side_2_overlap=0	side_2_possible_overlap_registers=53	side_2_read_count=43	side_2_redundant=0	total_non_overlap_reads=5
+JC	252	.	NZ_VCCG01000006	35692	-1	NZ_VCCG01000008	14210	-1	-4	alignment_overlap=-4	coverage_minus=0	coverage_plus=35	flanking_left=75	flanking_right=75	frequency=4.08105023e-01	junction_possible_overlap_registers=51	key=NZ_VCCG01000006__35692__-1__NZ_VCCG01000008__14210__-1__-4__CCCC__75__75__0__0	max_left=37	max_left_minus=0	max_left_plus=37	max_min_left=26	max_min_left_minus=0	max_min_left_plus=26	max_min_right=34	max_min_right_minus=0	max_min_right_plus=34	max_pos_hash_score=104	max_right=64	max_right_minus=0	max_right_plus=64	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.25	new_junction_read_count=39	polymorphism_frequency=4.08105023e-01	pos_hash_score=10	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.25	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=43	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.48	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=79	side_2_redundant=0	total_non_overlap_reads=35	unique_read_sequence=CCCC
+JC	253	.	NZ_VCCG01000008	3360	-1	NZ_VCCG01000008	11649	-1	0	alignment_overlap=1	coverage_minus=133	coverage_plus=74	flanking_left=75	flanking_right=75	frequency=NA	junction_possible_overlap_registers=54	key=NZ_VCCG01000008__3360__-1__NZ_VCCG01000008__11650__-1__1____75__75__1__1	max_left=65	max_left_minus=61	max_left_plus=65	max_min_left=34	max_min_left_minus=34	max_min_left_plus=27	max_min_right=37	max_min_right_minus=37	max_min_right_plus=34	max_pos_hash_score=110	max_right=63	max_right_minus=62	max_right_plus=63	neg_log10_pos_hash_p_value=NT	new_junction_coverage=1.30	new_junction_read_count=211	polymorphism_frequency=NA	pos_hash_score=37	prediction=unknown	side_1_annotate_key=repeat	side_1_continuation=0	side_1_coverage=NA	side_1_overlap=1	side_1_read_count=NA	side_1_redundant=1	side_2_annotate_key=repeat	side_2_continuation=0	side_2_coverage=NA	side_2_overlap=0	side_2_possible_overlap_registers=NA	side_2_read_count=NA	side_2_redundant=1	total_non_overlap_reads=207
+UN	254	.	NZ_VCCG01000001	1	18
+UN	255	.	NZ_VCCG01000001	20	20
+UN	256	.	NZ_VCCG01000001	22	22
+UN	257	.	NZ_VCCG01000001	9110	9151
+UN	258	.	NZ_VCCG01000001	9543	9645
+UN	259	.	NZ_VCCG01000001	9956	10055
+UN	260	.	NZ_VCCG01000001	18486	19727
+UN	261	.	NZ_VCCG01000001	57583	57607
+UN	262	.	NZ_VCCG01000001	66648	66648
+UN	263	.	NZ_VCCG01000001	66658	66776
+UN	264	.	NZ_VCCG01000001	67315	67315
+UN	265	.	NZ_VCCG01000001	67317	67338
+UN	266	.	NZ_VCCG01000001	71845	71878
+UN	267	.	NZ_VCCG01000001	74452	74563
+UN	268	.	NZ_VCCG01000001	75106	75134
+UN	269	.	NZ_VCCG01000001	144197	144205
+UN	270	.	NZ_VCCG01000001	153224	154508
+UN	271	.	NZ_VCCG01000001	165624	166697
+UN	272	.	NZ_VCCG01000001	177585	178850
+UN	273	.	NZ_VCCG01000001	206260	206267
+UN	274	.	NZ_VCCG01000001	206275	206275
+UN	275	.	NZ_VCCG01000001	206284	206284
+UN	276	.	NZ_VCCG01000001	206473	206505
+UN	277	.	NZ_VCCG01000001	206517	206517
+UN	278	.	NZ_VCCG01000001	206520	206520
+UN	279	.	NZ_VCCG01000001	258537	258587
+UN	280	.	NZ_VCCG01000001	259918	259918
+UN	281	.	NZ_VCCG01000001	259921	259922
+UN	282	.	NZ_VCCG01000001	259924	259927
+UN	283	.	NZ_VCCG01000001	259929	260507
+UN	284	.	NZ_VCCG01000001	260514	260514
+UN	285	.	NZ_VCCG01000001	322200	323451
+UN	286	.	NZ_VCCG01000001	336382	337640
+UN	287	.	NZ_VCCG01000001	337642	337644
+UN	288	.	NZ_VCCG01000001	461448	461856
+UN	289	.	NZ_VCCG01000001	464604	466006
+UN	290	.	NZ_VCCG01000001	466219	466586
+UN	291	.	NZ_VCCG01000001	486680	487745
+UN	292	.	NZ_VCCG01000001	494050	495303
+UN	293	.	NZ_VCCG01000001	585892	585922
+UN	294	.	NZ_VCCG01000001	633514	634783
+UN	295	.	NZ_VCCG01000001	642140	643399
+UN	296	.	NZ_VCCG01000001	679621	680667
+UN	297	.	NZ_VCCG01000001	727571	727571
+UN	298	.	NZ_VCCG01000001	727573	728632
+UN	299	.	NZ_VCCG01000001	739947	739947
+UN	300	.	NZ_VCCG01000001	739949	741209
+UN	301	.	NZ_VCCG01000001	770428	771511
+UN	302	.	NZ_VCCG01000001	892710	892710
+UN	303	.	NZ_VCCG01000001	892712	893774
+UN	304	.	NZ_VCCG01000001	972891	973941
+UN	305	.	NZ_VCCG01000001	1015102	1016460
+UN	306	.	NZ_VCCG01000001	1030515	1031770
+UN	307	.	NZ_VCCG01000001	1031772	1031773
+UN	308	.	NZ_VCCG01000001	1040683	1043227
+UN	309	.	NZ_VCCG01000001	1043351	1045886
+UN	310	.	NZ_VCCG01000001	1052476	1053537
+UN	311	.	NZ_VCCG01000001	1053661	1054920
+UN	312	.	NZ_VCCG01000001	1074063	1074257
+UN	313	.	NZ_VCCG01000001	1074377	1074938
+UN	314	.	NZ_VCCG01000001	1075059	1076104
+UN	315	.	NZ_VCCG01000001	1076236	1077299
+UN	316	.	NZ_VCCG01000001	1154726	1154769
+UN	317	.	NZ_VCCG01000001	1154862	1154917
+UN	318	.	NZ_VCCG01000001	1209964	1209964
+UN	319	.	NZ_VCCG01000001	1209970	1210026
+UN	320	.	NZ_VCCG01000001	1210157	1211343
+UN	321	.	NZ_VCCG01000001	1274473	1274474
+UN	322	.	NZ_VCCG01000001	1274477	1274477
+UN	323	.	NZ_VCCG01000001	1274479	1275749
+UN	324	.	NZ_VCCG01000001	1331508	1331610
+UN	325	.	NZ_VCCG01000001	1331832	1331937
+UN	326	.	NZ_VCCG01000001	1332105	1332148
+UN	327	.	NZ_VCCG01000001	1332150	1332150
+UN	328	.	NZ_VCCG01000001	1332152	1332152
+UN	329	.	NZ_VCCG01000001	1332155	1332155
+UN	330	.	NZ_VCCG01000001	1333019	1333518
+UN	331	.	NZ_VCCG01000001	1333821	1333822
+UN	332	.	NZ_VCCG01000001	1333826	1333829
+UN	333	.	NZ_VCCG01000001	1333893	1333898
+UN	334	.	NZ_VCCG01000001	1333903	1334033
+UN	335	.	NZ_VCCG01000001	1334036	1334038
+UN	336	.	NZ_VCCG01000001	1334040	1334040
+UN	337	.	NZ_VCCG01000001	1446962	1447137
+UN	338	.	NZ_VCCG01000001	1447207	1452552
+UN	339	.	NZ_VCCG01000001	1452671	1452689
+UN	340	.	NZ_VCCG01000001	1564299	1564299
+UN	341	.	NZ_VCCG01000001	1564307	1565567
+UN	342	.	NZ_VCCG01000001	1568590	1568675
+UN	343	.	NZ_VCCG01000001	1629789	1629814
+UN	344	.	NZ_VCCG01000001	1629820	1629821
+UN	345	.	NZ_VCCG01000001	1630494	1630564
+UN	346	.	NZ_VCCG01000001	1669546	1670625
+UN	347	.	NZ_VCCG01000001	1670737	1670738
+UN	348	.	NZ_VCCG01000001	1670740	1671990
+UN	349	.	NZ_VCCG01000001	1791351	1791351
+UN	350	.	NZ_VCCG01000001	1791353	1792606
+UN	351	.	NZ_VCCG01000001	1847371	1847998
+UN	352	.	NZ_VCCG01000001	1848507	1849741
+UN	353	.	NZ_VCCG01000001	1849869	1849869
+UN	354	.	NZ_VCCG01000001	1849871	1849896
+UN	355	.	NZ_VCCG01000001	1851487	1851506
+UN	356	.	NZ_VCCG01000001	1851510	1851511
+UN	357	.	NZ_VCCG01000001	1851513	1851513
+UN	358	.	NZ_VCCG01000001	1851515	1851515
+UN	359	.	NZ_VCCG01000001	1851517	1851518
+UN	360	.	NZ_VCCG01000001	1851631	1851789
+UN	361	.	NZ_VCCG01000001	1852095	1852192
+UN	362	.	NZ_VCCG01000001	1852320	1853083
+UN	363	.	NZ_VCCG01000001	1856002	1856303
+UN	364	.	NZ_VCCG01000001	1861982	1863243
+UN	365	.	NZ_VCCG01000001	1940409	1941669
+UN	366	.	NZ_VCCG01000001	1942428	1942537
+UN	367	.	NZ_VCCG01000001	1942649	1942649
+UN	368	.	NZ_VCCG01000001	1942652	1944648
+UN	369	.	NZ_VCCG01000001	2000484	2000892
+UN	370	.	NZ_VCCG01000001	2001029	2001359
+UN	371	.	NZ_VCCG01000001	2001524	2002794
+UN	372	.	NZ_VCCG01000001	2105801	2106916
+UN	373	.	NZ_VCCG01000001	2110958	2111050
+UN	374	.	NZ_VCCG01000001	2115656	2116703
+UN	375	.	NZ_VCCG01000001	2130921	2130995
+UN	376	.	NZ_VCCG01000001	2131137	2131137
+UN	377	.	NZ_VCCG01000001	2131140	2131152
+UN	378	.	NZ_VCCG01000001	2258910	2259271
+UN	379	.	NZ_VCCG01000001	2259343	2259969
+UN	380	.	NZ_VCCG01000001	2279324	2279324
+UN	381	.	NZ_VCCG01000001	2305019	2305248
+UN	382	.	NZ_VCCG01000001	2305539	2305539
+UN	383	.	NZ_VCCG01000001	2305545	2305609
+UN	384	.	NZ_VCCG01000001	2305683	2305760
+UN	385	.	NZ_VCCG01000001	2305764	2305764
+UN	386	.	NZ_VCCG01000001	2347166	2347166
+UN	387	.	NZ_VCCG01000001	2347170	2347170
+UN	388	.	NZ_VCCG01000001	2358089	2358171
+UN	389	.	NZ_VCCG01000001	2358308	2359339
+UN	390	.	NZ_VCCG01000001	2372857	2373036
+UN	391	.	NZ_VCCG01000001	2446202	2446205
+UN	392	.	NZ_VCCG01000001	2446207	2446207
+UN	393	.	NZ_VCCG01000001	2446209	2447441
+UN	394	.	NZ_VCCG01000001	2486353	2487613
+UN	395	.	NZ_VCCG01000001	2539308	2539361
+UN	396	.	NZ_VCCG01000001	2539366	2539366
+UN	397	.	NZ_VCCG01000001	2539489	2539553
+UN	398	.	NZ_VCCG01000001	2556357	2557183
+UN	399	.	NZ_VCCG01000001	2557187	2557410
+UN	400	.	NZ_VCCG01000001	2557417	2557417
+UN	401	.	NZ_VCCG01000001	2560057	2560086
+UN	402	.	NZ_VCCG01000001	2629659	2629800
+UN	403	.	NZ_VCCG01000001	2629915	2629936
+UN	404	.	NZ_VCCG01000001	2629938	2629938
+UN	405	.	NZ_VCCG01000001	2629940	2629940
+UN	406	.	NZ_VCCG01000001	2636482	2637745
+UN	407	.	NZ_VCCG01000001	2639141	2639141
+UN	408	.	NZ_VCCG01000001	2686583	2687837
+UN	409	.	NZ_VCCG01000001	2691975	2693225
+UN	410	.	NZ_VCCG01000001	2697629	2698684
+UN	411	.	NZ_VCCG01000001	2706955	2707993
+UN	412	.	NZ_VCCG01000001	2771360	2772632
+UN	413	.	NZ_VCCG01000001	2799315	2800595
+UN	414	.	NZ_VCCG01000001	2802567	2803835
+UN	415	.	NZ_VCCG01000001	2850774	2850774
+UN	416	.	NZ_VCCG01000001	2850946	2850968
+UN	417	.	NZ_VCCG01000001	2851109	2851151
+UN	418	.	NZ_VCCG01000001	2876464	2876466
+UN	419	.	NZ_VCCG01000001	2876551	2876577
+UN	420	.	NZ_VCCG01000001	2941861	2941871
+UN	421	.	NZ_VCCG01000001	2941986	2943125
+UN	422	.	NZ_VCCG01000001	2943128	2943128
+UN	423	.	NZ_VCCG01000001	3014037	3014040
+UN	424	.	NZ_VCCG01000001	3014042	3014189
+UN	425	.	NZ_VCCG01000001	3062222	3067932
+UN	426	.	NZ_VCCG01000001	3118873	3118928
+UN	427	.	NZ_VCCG01000001	3119465	3119519
+UN	428	.	NZ_VCCG01000001	3134639	3135695
+UN	429	.	NZ_VCCG01000001	3139234	3140229
+UN	430	.	NZ_VCCG01000001	3166161	3167103
+UN	431	.	NZ_VCCG01000001	3169051	3169054
+UN	432	.	NZ_VCCG01000001	3189542	3190800
+UN	433	.	NZ_VCCG01000001	3203830	3204892
+UN	434	.	NZ_VCCG01000001	3216993	3217207
+UN	435	.	NZ_VCCG01000002	1	30
+UN	436	.	NZ_VCCG01000002	52340	53590
+UN	437	.	NZ_VCCG01000002	56207	57419
+UN	438	.	NZ_VCCG01000002	69997	70053
+UN	439	.	NZ_VCCG01000002	100054	100064
+UN	440	.	NZ_VCCG01000002	111168	111170
+UN	441	.	NZ_VCCG01000002	111172	111177
+UN	442	.	NZ_VCCG01000002	111184	111191
+UN	443	.	NZ_VCCG01000002	111194	111194
+UN	444	.	NZ_VCCG01000002	111197	111201
+UN	445	.	NZ_VCCG01000002	111203	111211
+UN	446	.	NZ_VCCG01000002	117295	117343
+UN	447	.	NZ_VCCG01000002	117465	122944
+UN	448	.	NZ_VCCG01000002	124293	125497
+UN	449	.	NZ_VCCG01000002	125499	125500
+UN	450	.	NZ_VCCG01000002	135864	135864
+UN	451	.	NZ_VCCG01000002	135866	137263
+UN	452	.	NZ_VCCG01000002	137268	137268
+UN	453	.	NZ_VCCG01000002	140231	141314
+UN	454	.	NZ_VCCG01000002	162032	163099
+UN	455	.	NZ_VCCG01000002	173752	175145
+UN	456	.	NZ_VCCG01000002	175150	175150
+UN	457	.	NZ_VCCG01000002	193885	194298
+UN	458	.	NZ_VCCG01000002	219559	219711
+UN	459	.	NZ_VCCG01000002	219821	219984
+UN	460	.	NZ_VCCG01000002	238336	238409
+UN	461	.	NZ_VCCG01000002	250039	252478
+UN	462	.	NZ_VCCG01000002	326862	328111
+UN	463	.	NZ_VCCG01000002	328121	328121
+UN	464	.	NZ_VCCG01000002	328124	328124
+UN	465	.	NZ_VCCG01000002	388403	388423
+UN	466	.	NZ_VCCG01000002	388426	388436
+UN	467	.	NZ_VCCG01000002	408493	410943
+UN	468	.	NZ_VCCG01000002	410946	410946
+UN	469	.	NZ_VCCG01000002	410948	410949
+UN	470	.	NZ_VCCG01000002	421170	422420
+UN	471	.	NZ_VCCG01000002	446136	446186
+UN	472	.	NZ_VCCG01000002	446325	446376
+UN	473	.	NZ_VCCG01000002	466726	466744
+UN	474	.	NZ_VCCG01000002	621687	621687
+UN	475	.	NZ_VCCG01000002	621689	621690
+UN	476	.	NZ_VCCG01000002	621693	622957
+UN	477	.	NZ_VCCG01000002	656214	656214
+UN	478	.	NZ_VCCG01000002	656217	657471
+UN	479	.	NZ_VCCG01000002	665167	665167
+UN	480	.	NZ_VCCG01000002	665169	666222
+UN	481	.	NZ_VCCG01000002	686516	686529
+UN	482	.	NZ_VCCG01000002	686535	686535
+UN	483	.	NZ_VCCG01000002	686769	686770
+UN	484	.	NZ_VCCG01000002	686773	686869
+UN	485	.	NZ_VCCG01000002	755105	755148
+UN	486	.	NZ_VCCG01000002	755338	756598
+UN	487	.	NZ_VCCG01000002	758776	759337
+UN	488	.	NZ_VCCG01000002	759466	759500
+UN	489	.	NZ_VCCG01000002	759629	759631
+UN	490	.	NZ_VCCG01000002	759633	759877
+UN	491	.	NZ_VCCG01000002	760077	760145
+UN	492	.	NZ_VCCG01000002	761469	761474
+UN	493	.	NZ_VCCG01000002	761477	761477
+UN	494	.	NZ_VCCG01000002	761479	761488
+UN	495	.	NZ_VCCG01000002	767783	767815
+UN	496	.	NZ_VCCG01000002	768102	768125
+UN	497	.	NZ_VCCG01000002	768803	768883
+UN	498	.	NZ_VCCG01000002	769010	769119
+UN	499	.	NZ_VCCG01000002	797184	797205
+UN	500	.	NZ_VCCG01000002	797416	797434
+UN	501	.	NZ_VCCG01000002	803321	804377
+UN	502	.	NZ_VCCG01000002	817321	818574
+UN	503	.	NZ_VCCG01000002	846369	846575
+UN	504	.	NZ_VCCG01000002	853708	853891
+UN	505	.	NZ_VCCG01000002	854045	854994
+UN	506	.	NZ_VCCG01000002	855155	855158
+UN	507	.	NZ_VCCG01000002	855291	855982
+UN	508	.	NZ_VCCG01000002	856281	856307
+UN	509	.	NZ_VCCG01000002	856430	856552
+UN	510	.	NZ_VCCG01000002	922864	924128
+UN	511	.	NZ_VCCG01000002	925210	925211
+UN	512	.	NZ_VCCG01000002	925213	925213
+UN	513	.	NZ_VCCG01000002	926396	926446
+UN	514	.	NZ_VCCG01000002	926459	926459
+UN	515	.	NZ_VCCG01000002	926539	926539
+UN	516	.	NZ_VCCG01000002	926544	926544
+UN	517	.	NZ_VCCG01000002	926550	926552
+UN	518	.	NZ_VCCG01000002	926556	926590
+UN	519	.	NZ_VCCG01000002	929525	929585
+UN	520	.	NZ_VCCG01000002	929747	930816
+UN	521	.	NZ_VCCG01000002	935767	936698
+UN	522	.	NZ_VCCG01000002	1001066	1001480
+UN	523	.	NZ_VCCG01000002	1024840	1024961
+UN	524	.	NZ_VCCG01000002	1084141	1085200
+UN	525	.	NZ_VCCG01000002	1213014	1213014
+UN	526	.	NZ_VCCG01000002	1213017	1214109
+UN	527	.	NZ_VCCG01000002	1243124	1243124
+UN	528	.	NZ_VCCG01000002	1243126	1243127
+UN	529	.	NZ_VCCG01000002	1243130	1243130
+UN	530	.	NZ_VCCG01000002	1243135	1243136
+UN	531	.	NZ_VCCG01000002	1250096	1251212
+UN	532	.	NZ_VCCG01000002	1251426	1252512
+UN	533	.	NZ_VCCG01000002	1252626	1252626
+UN	534	.	NZ_VCCG01000002	1252630	1252640
+UN	535	.	NZ_VCCG01000002	1259492	1259501
+UN	536	.	NZ_VCCG01000003	1	30
+UN	537	.	NZ_VCCG01000003	92761	94029
+UN	538	.	NZ_VCCG01000003	144427	144850
+UN	539	.	NZ_VCCG01000003	170995	171919
+UN	540	.	NZ_VCCG01000003	172057	172063
+UN	541	.	NZ_VCCG01000003	172176	173249
+UN	542	.	NZ_VCCG01000003	173254	173254
+UN	543	.	NZ_VCCG01000003	173260	173260
+UN	544	.	NZ_VCCG01000003	173264	173264
+UN	545	.	NZ_VCCG01000003	203232	204476
+UN	546	.	NZ_VCCG01000003	204478	204478
+UN	547	.	NZ_VCCG01000003	204480	204481
+UN	548	.	NZ_VCCG01000003	216519	216600
+UN	549	.	NZ_VCCG01000003	223752	223767
+UN	550	.	NZ_VCCG01000003	238645	238675
+UN	551	.	NZ_VCCG01000003	252070	252071
+UN	552	.	NZ_VCCG01000003	252074	252080
+UN	553	.	NZ_VCCG01000003	252082	252082
+UN	554	.	NZ_VCCG01000003	255837	256400
+UN	555	.	NZ_VCCG01000003	256520	258347
+UN	556	.	NZ_VCCG01000003	260309	260697
+UN	557	.	NZ_VCCG01000003	261234	261335
+UN	558	.	NZ_VCCG01000003	261682	261694
+UN	559	.	NZ_VCCG01000003	261696	261706
+UN	560	.	NZ_VCCG01000003	335255	336180
+UN	561	.	NZ_VCCG01000003	336185	336185
+UN	562	.	NZ_VCCG01000003	354258	354300
+UN	563	.	NZ_VCCG01000003	354520	354627
+UN	564	.	NZ_VCCG01000003	354754	354842
+UN	565	.	NZ_VCCG01000003	355513	355544
+UN	566	.	NZ_VCCG01000003	355821	355859
+UN	567	.	NZ_VCCG01000003	376510	382096
+UN	568	.	NZ_VCCG01000003	382215	382221
+UN	569	.	NZ_VCCG01000003	499034	500344
+UN	570	.	NZ_VCCG01000003	500772	502035
+UN	571	.	NZ_VCCG01000003	532852	534265
+UN	572	.	NZ_VCCG01000003	534358	537199
+UN	573	.	NZ_VCCG01000003	544284	547110
+UN	574	.	NZ_VCCG01000003	572439	572733
+UN	575	.	NZ_VCCG01000003	572793	572795
+UN	576	.	NZ_VCCG01000003	572797	573584
+UN	577	.	NZ_VCCG01000003	575533	575533
+UN	578	.	NZ_VCCG01000003	575535	575674
+UN	579	.	NZ_VCCG01000003	575820	576797
+UN	580	.	NZ_VCCG01000003	603951	603997
+UN	581	.	NZ_VCCG01000003	604130	604130
+UN	582	.	NZ_VCCG01000003	604132	604133
+UN	583	.	NZ_VCCG01000003	604135	604135
+UN	584	.	NZ_VCCG01000003	604137	604145
+UN	585	.	NZ_VCCG01000003	648070	648071
+UN	586	.	NZ_VCCG01000003	648073	648073
+UN	587	.	NZ_VCCG01000003	648075	648075
+UN	588	.	NZ_VCCG01000003	648078	648078
+UN	589	.	NZ_VCCG01000003	654868	657141
+UN	590	.	NZ_VCCG01000003	661390	662634
+UN	591	.	NZ_VCCG01000003	711440	711763
+UN	592	.	NZ_VCCG01000003	711887	713302
+UN	593	.	NZ_VCCG01000003	713430	713495
+UN	594	.	NZ_VCCG01000003	720022	722292
+UN	595	.	NZ_VCCG01000003	733751	733773
+UN	596	.	NZ_VCCG01000004	1	441
+UN	597	.	NZ_VCCG01000004	181210	182288
+UN	598	.	NZ_VCCG01000004	195997	197247
+UN	599	.	NZ_VCCG01000004	197249	197249
+UN	600	.	NZ_VCCG01000004	268730	274451
+UN	601	.	NZ_VCCG01000004	286899	288141
+UN	602	.	NZ_VCCG01000004	289412	290760
+UN	603	.	NZ_VCCG01000004	336316	336318
+UN	604	.	NZ_VCCG01000004	336328	336329
+UN	605	.	NZ_VCCG01000004	336331	336334
+UN	606	.	NZ_VCCG01000004	336336	336336
+UN	607	.	NZ_VCCG01000004	336477	336532
+UN	608	.	NZ_VCCG01000004	338099	338099
+UN	609	.	NZ_VCCG01000004	338106	338322
+UN	610	.	NZ_VCCG01000004	365857	366838
+UN	611	.	NZ_VCCG01000004	376288	377347
+UN	612	.	NZ_VCCG01000004	387545	387564
+UN	613	.	NZ_VCCG01000005	1	17
+UN	614	.	NZ_VCCG01000005	9508	10710
+UN	615	.	NZ_VCCG01000005	10713	10713
+UN	616	.	NZ_VCCG01000005	10716	10716
+UN	617	.	NZ_VCCG01000005	10720	10720
+UN	618	.	NZ_VCCG01000005	66836	66836
+UN	619	.	NZ_VCCG01000005	66839	66847
+UN	620	.	NZ_VCCG01000005	66978	67107
+UN	621	.	NZ_VCCG01000005	67390	67588
+UN	622	.	NZ_VCCG01000005	67705	67741
+UN	623	.	NZ_VCCG01000005	67743	67743
+UN	624	.	NZ_VCCG01000005	177624	178873
+UN	625	.	NZ_VCCG01000005	206110	206110
+UN	626	.	NZ_VCCG01000005	206112	206115
+UN	627	.	NZ_VCCG01000005	206117	206117
+UN	628	.	NZ_VCCG01000005	206119	206172
+UN	629	.	NZ_VCCG01000005	206178	206178
+UN	630	.	NZ_VCCG01000005	206508	206544
+UN	631	.	NZ_VCCG01000005	262765	262800
+UN	632	.	NZ_VCCG01000005	325533	325946
+UN	633	.	NZ_VCCG01000006	1	20
+UN	634	.	NZ_VCCG01000006	394	556
+UN	635	.	NZ_VCCG01000006	762	810
+UN	636	.	NZ_VCCG01000006	4167	5546
+UN	637	.	NZ_VCCG01000006	6887	7055
+UN	638	.	NZ_VCCG01000006	8196	8272
+UN	639	.	NZ_VCCG01000006	10197	11576
+UN	640	.	NZ_VCCG01000006	12181	12294
+UN	641	.	NZ_VCCG01000006	15213	15228
+UN	642	.	NZ_VCCG01000006	15596	15676
+UN	643	.	NZ_VCCG01000006	16771	17837
+UN	644	.	NZ_VCCG01000006	23395	23484
+UN	645	.	NZ_VCCG01000006	23573	24112
+UN	646	.	NZ_VCCG01000006	24327	26289
+UN	647	.	NZ_VCCG01000006	26846	27225
+UN	648	.	NZ_VCCG01000006	27771	27867
+UN	649	.	NZ_VCCG01000006	28228	28232
+UN	650	.	NZ_VCCG01000006	35224	35284
+UN	651	.	NZ_VCCG01000006	35414	35444
+UN	652	.	NZ_VCCG01000006	35614	35657
+UN	653	.	NZ_VCCG01000006	35660	35660
+UN	654	.	NZ_VCCG01000006	35662	35667
+UN	655	.	NZ_VCCG01000006	35669	35669
+UN	656	.	NZ_VCCG01000006	35691	35692
+UN	657	.	NZ_VCCG01000006	35974	36194
+UN	658	.	NZ_VCCG01000006	36496	36930
+UN	659	.	NZ_VCCG01000006	37301	37484
+UN	660	.	NZ_VCCG01000006	37954	37987
+UN	661	.	NZ_VCCG01000006	42474	46474
+UN	662	.	NZ_VCCG01000006	46609	46697
+UN	663	.	NZ_VCCG01000006	46838	47169
+UN	664	.	NZ_VCCG01000006	47307	47439
+UN	665	.	NZ_VCCG01000006	55335	56104
+UN	666	.	NZ_VCCG01000006	60068	60719
+UN	667	.	NZ_VCCG01000006	60860	61002
+UN	668	.	NZ_VCCG01000006	61147	61327
+UN	669	.	NZ_VCCG01000006	63207	63215
+UN	670	.	NZ_VCCG01000007	1	12
+UN	671	.	NZ_VCCG01000007	39828	39836
+UN	672	.	NZ_VCCG01000008	1	5
+UN	673	.	NZ_VCCG01000008	1281	1287
+UN	674	.	NZ_VCCG01000008	1417	1560
+UN	675	.	NZ_VCCG01000008	2142	2169
+UN	676	.	NZ_VCCG01000008	2303	3210
+UN	677	.	NZ_VCCG01000008	3348	3671
+UN	678	.	NZ_VCCG01000008	8452	8549
+UN	679	.	NZ_VCCG01000008	10208	10531
+UN	680	.	NZ_VCCG01000008	10543	10543
+UN	681	.	NZ_VCCG01000008	10668	11282
+UN	682	.	NZ_VCCG01000008	11419	11594
+UN	683	.	NZ_VCCG01000008	11842	12441
+UN	684	.	NZ_VCCG01000008	12579	13163
+UN	685	.	NZ_VCCG01000008	13426	13471
+UN	686	.	NZ_VCCG01000008	13737	14116
+UN	687	.	NZ_VCCG01000008	14392	14418
+UN	688	.	NZ_VCCG01000008	23401	23409
+UN	689	.	NZ_VCCG01000009	1	8
+UN	690	.	NZ_VCCG01000009	140	140
+UN	691	.	NZ_VCCG01000009	144	2110
+UN	692	.	NZ_VCCG01000009	2112	2112
+UN	693	.	NZ_VCCG01000009	2114	2114
+UN	694	.	NZ_VCCG01000009	2116	2116
+UN	695	.	NZ_VCCG01000009	2352	2404
+UN	696	.	NZ_VCCG01000009	2543	3737
+UN	697	.	NZ_VCCG01000009	9736	9741
+UN	698	.	NZ_VCCG01000009	9743	9758
+UN	699	.	NZ_VCCG01000009	10066	10752
+UN	700	.	NZ_VCCG01000009	13896	13948
+UN	701	.	NZ_VCCG01000010	1	18
+UN	702	.	NZ_VCCG01000010	1133	5141
+UN	703	.	NZ_VCCG01000010	6738	7005
+UN	704	.	NZ_VCCG01000010	7174	8121
+UN	705	.	NZ_VCCG01000010	10597	11475
+UN	706	.	NZ_VCCG01000010	11594	11663
+UN	707	.	NZ_VCCG01000010	11807	12180
+UN	708	.	NZ_VCCG01000010	12385	12389
+UN	709	.	NZ_VCCG01000011	1	7
+UN	710	.	NZ_VCCG01000011	7697	7706
+UN	711	.	NZ_VCCG01000012	1	8
+UN	712	.	NZ_VCCG01000012	12	12
+UN	713	.	NZ_VCCG01000012	18	18
+UN	714	.	NZ_VCCG01000012	4365	4417
+UN	715	.	NZ_VCCG01000012	4594	4756
+UN	716	.	NZ_VCCG01000020	1	22
+UN	717	.	NZ_VCCG01000020	24	26
+UN	718	.	NZ_VCCG01000020	216	222

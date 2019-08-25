@@ -74,23 +74,23 @@ out_dir_fast5_run4=/N/dc2/projects/muri2/Task2/LTDE/data/nanopore_basecalled_fas
 #    --config $cfg \
 #    --fast5_out
 
-#/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
-#    -i $fast5_dir_run3 \
-#    -t 12 \
-#    -s $out_dir_fast5_run3 \
-#    -k SQK-LSK109 \
-#    -f FLO-MIN106 \
-#    --config $cfg \
-#    --fast5_out
-
 /N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
-    -i $fast5_dir_run4 \
+    -i $fast5_dir_run3 \
     -t 12 \
-    -s $out_dir_fast5_run4 \
+    -s $out_dir_fast5_run3 \
     -k SQK-LSK109 \
     -f FLO-MIN106 \
     --config $cfg \
     --fast5_out
+
+#/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/bin/guppy_basecaller \
+#    -i $fast5_dir_run4 \
+#    -t 12 \
+#    -s $out_dir_fast5_run4 \
+#    -k SQK-LSK109 \
+#    -f FLO-MIN106 \
+#    --config $cfg \
+#    --fast5_out
 
 
 
@@ -117,10 +117,6 @@ bc_cfg=/N/dc2/projects/muri2/Task2/LTDE/ont-guppy-cpu/data/barcoding/configurati
 #    --input_path $out_dir_run4 \
 #    --save_path $out_dir_bc_run4 \
 #    --config $bc_cfg
-
-
-
-# de-barcode with fast5
 
 
 

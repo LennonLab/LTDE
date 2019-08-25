@@ -1,0 +1,36 @@
+## index of replication (iRep) - thresholds: min cov. = 5, min wins. = 0.98, min r^2 = 0.9, max fragments/Mbp = 175, GC correction min r^2 = 0.0
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC43928-C.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC43928/GCF_005938665.1_ASM593866v1_genomic.fna	1.30578937396
+#
+## un-filtered index of replication (iRep)
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC43928-C.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC43928/GCF_005938665.1_ASM593866v1_genomic.fna	1.30578937396
+#
+## raw index of replication (no GC bias correction)
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC43928-C.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC43928/GCF_005938665.1_ASM593866v1_genomic.fna	1.49235997425
+#
+## r^2
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC43928-C.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC43928/GCF_005938665.1_ASM593866v1_genomic.fna	0.983686769554
+#
+## coverage
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC43928-C.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC43928/GCF_005938665.1_ASM593866v1_genomic.fna	78.0466674748
+#
+## % windows passing filter
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC43928-C.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC43928/GCF_005938665.1_ASM593866v1_genomic.fna	100.00
+#
+## fragments/Mbp
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC43928-C.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC43928/GCF_005938665.1_ASM593866v1_genomic.fna	3
+#
+## GC bias
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC43928-C.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC43928/GCF_005938665.1_ASM593866v1_genomic.fna	-265.578000388
+#
+## GC r^2
+# genome	/N/dc2/projects/muri2/Task2/LTDE/data/bwa_bam/ATCC43928-C.sam
+/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/ATCC43928/GCF_005938665.1_ASM593866v1_genomic.fna	0.677141671042
+#

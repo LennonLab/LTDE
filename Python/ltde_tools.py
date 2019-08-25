@@ -64,7 +64,7 @@ class NullGeneMultiplicitySurvivalFunction(object):
 # calculate_unnormalized_survival_from_vector function is modified from GitHub repo
 # benjaminhgood/LTEE-metagenomic under GPL v2
 def calculate_unnormalized_survival_from_vector(xs, min_x=None, max_x=None, min_p=1e-10):
-    print(xs)
+
     if min_x==None:
         min_x = xs.min()-1
 
@@ -279,7 +279,7 @@ def calculate_synonymous_nonsynonymous_target_sizes(taxon):
     effective_gene_synonymous_sites = {}
     effective_gene_nonsynonymous_sites = {}
     gene_length_map = {}
-    genome_path = get_path() + '/data/genomes/genomes_ncbi/' + taxon
+    genome_path = get_path() + '/data/genomes/genomes_ncbi_old/' + taxon
     for subdir, dirs, files in os.walk(genome_path):
         for file in files:
             if file.endswith('.gbff'):

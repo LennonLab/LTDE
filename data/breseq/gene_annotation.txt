@@ -1,70 +1,79 @@
 Species	locus_tag	refseq_id	annotation
-ATCC13985	FCE86_RS28800	WP009049534.1	hypothetical protein
-ATCC13985	FCE86_RS21950	WP009048342.1	BapA prefix-like domain-containing protein
-ATCC13985	FCE86_RS28810	WP009049534.1	hypothetical protein
-ATCC13985	FCE86_RS22480	WP007920721.1	DUF2931 family protein
-ATCC13985	FCE86_RS11040	WP009041592.1	DUF4347 domain-containing protein
-ATCC13985	FCE86_RS17545	WP009042593.1	type I secretion C-terminal target domain-containing protein
-ATCC13985	FCE86_RS22475	WP007920721.1	DUF2931 family protein
-ATCC13985	FCE86_RS02560	WP008047384.1	arginine-ornithine antiporter
-ATCC13985	FCE86_RS31710	WP016059839.1	hypothetical protein
-KBS0711	FFI39_RS05175	WP020656832.1	valine--tRNA ligase
-KBS0711	FFI39_RS18885	WP010399297.1	alpha-hydroxy-acid oxidizing protein
-KBS0711	FFI39_RS01420	WP010393863.1	mechanosensitive ion channel family protein
-KBS0711	FFI39_RS07830	WP010395693.1	DNA gyrase subunit A
-KBS0711	FFI39_RS03610	WP010394527.1	GTPase
-KBS0711	FFI39_RS04125	WP009239942.1	SufS family cysteine desulfurase
-KBS0711	FFI39_RS05490	WP013236088.1	cytochrome c oxidase subunit II
-KBS0711	FFI39_RS13030	WP017875079.1	electron transfer flavoprotein-ubiquinone oxidoreductase
-KBS0711	FFI39_RS22645	WP020701617.1	flagellar type III secretion system pore protein FliP
-KBS0711	FFI39_RS24965	WP020701147.1	ribonucleotide-diphosphate reductase subunit beta
-KBS0711	FFI39_RS10765	WP008450068.1	chemotaxis response regulator protein-glutamate methylesterase
-KBS0711	FFI39_RS10805	WP018059363.1	methionine--tRNA ligase
-KBS0711	FFI39_RS13300	WP020702753.1	30S ribosomal protein S2
-KBS0711	FFI39_RS23125	WP018058636.1	sulfate ABC transporter permease subunit CysW
-KBS0711	FFI39_RS26810	WP019923632.1	bacterioferritin
-KBS0711	FFI39_RS01565	WP019139956.1	ABC transporter ATP-binding protein
-KBS0711	FFI39_RS01655	WP005664034.1	F0F1 ATP synthase subunit alpha
-KBS0711	FFI39_RS02905	WP020704252.1	methionine adenosyltransferase
-KBS0711	FFI39_RS03520	WP010394499.1	c-type cytochrome biogenesis protein CcsB
-KBS0711	FFI39_RS11605	WP010397062.1	aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme
-KBS0711	FFI39_RS16695	WP008446499.1	cation acetate symporter
-KBS0711	FFI39_RS19250	WP008120030.1	urea ABC transporter substrate-binding protein
-KBS0711	FFI39_RS19425	WP010399469.1	HAMP domain-containing protein
-KBS0711	FFI39_RS20475	WP010399755.1	acetolactate synthase 3 catalytic subunit
-KBS0711	FFI39_RS20535	WP020201433.1	iron-sulfur cluster assembly protein IscA
-KBS0711	FFI39_RS22265	WP017878982.1	amino-acid N-acetyltransferase
-KBS0711	FFI39_RS24205	WP008452953.1	ethanolamine ammonia-lyase subunit EutB
-KBS0711	FFI39_RS26215	WP010462720.1	ABC transporter permease
-KBS0711	FFI39_RS26530	WP010401750.1	leucine--tRNA ligase
-KBS0712	FFI97_RS17600	WP014006191.1	hypothetical protein
-KBS0712	FFI97_RS01795	WP003053566.1	isocitrate lyase
-KBS0712	FFI97_RS11710	WP019655940.1	ATP-dependent chaperone ClpB
-KBS0712	FFI97_RS06055	WP013541265.1	dipeptide ABC transporter ATP-binding protein
-KBS0712	FFI97_RS08250	WP015014884.1	ATP-dependent Clp protease ATP-binding subunit ClpX
-KBS0712	FFI97_RS10305	WP019651994.1	aldehyde dehydrogenase family protein
-KBS0712	FFI97_RS31825	WP009124777.1	5-oxoprolinase subunit PxpA
-KBS0712	FFI97_RS21660	WP007827819.1	AMP-binding protein
-KBS0712	FFI97_RS18535	WP012746430.1	thioredoxin-disulfide reductase
-KBS0712	FFI97_RS21655	WP013800395.1	methylcrotonoyl-CoA carboxylase
-KBS0712	FFI97_RS12175	WP013540385.1	RNA polymerase sigma factor RpoD
-KBS0712	FFI97_RS25860	WP018903541.1	sn-glycerol-3-phosphate ABC transporter ATP-binding protein UgpC
-KBS0712	FFI97_RS14670	WP019658558.1	ATP-binding cassette domain-containing protein
-KBS0712	FFI97_RS17720	WP007830496.1	tryptophan synthase subunit beta
-KBS0712	FFI97_RS22005	WP015867550.1	formyltetrahydrofolate deformylase
-KBS0712	FFI97_RS29695	WP013538653.1	urocanate hydratase
-KBS0712	FFI97_RS11765	WP007830805.1	pyridoxal phosphate-dependent aminotransferase
-KBS0712	FFI97_RS24705	WP007828445.1	MsnO8 family LLM class oxidoreductase
-KBS0712	FFI97_RS33335	WP006297699.1	elongation factor G
-KBS0715	FFG40_RS05485	WP017886346.1	Asp23/Gls24 family envelope stress response protein
-KBS0715	FFG40_RS07700	WP017886981.1	AMP-binding protein
-KBS0715	FFG40_RS14620	WP017888661.1	response regulator
-KBS0715	FFG40_RS12710	WP018170758.1	glutamate synthase large subunit
-KBS0715	FFG40_RS02330	WP017887928.1	glycoside hydrolase family 92 protein
-KBS0715	FFG40_RS04740	WP017886488.1	sigma-70 family RNA polymerase sigma factor
-KBS0715	FFG40_RS00855	WP012039163.1	response regulator transcription factor
-KBS0715	FFG40_RS10615	WP014049992.1	helix-turn-helix domain-containing protein
-KBS0715	FFG40_RS05780	WP017886283.1	organic hydroperoxide resistance protein
-KBS0715	FFG40_RS05345	WP017886367.1	AAA domain-containing protein
-KBS0715	FFG40_RS10545	WP015889560.1	acyl-CoA dehydrogenase
-KBS0715	FFG40_RS14615	WP009740872.1	HAMP domain-containing protein
+ATCC13985	FCE86_RS31055	WP009049534.1	hypothetical protein
+ATCC13985	FCE86_RS13275	WP014335965.1	retention module-containing protein
+ATCC13985	FCE86_RS13165	WP009041592.1	DUF4347 domain-containing protein
+ATCC13985	FCE86_RS30725	WP016491125.1	cyclic pyranopterin monophosphate synthase MoaC
+ATCC13985	FCE86_RS12230	WP016702937.1	1-deoxy-D-xylulose-5-phosphate synthase
+ATCC13985	FCE86_RS16805	WP020297948.1	matrixin family metalloprotease
+ATCC13985	FCE86_RS03490	WP011063911.1	hypothetical protein
+ATCC13985	FCE86_RS32300	WP009049534.1	hypothetical protein
+ATCC13985	FCE86_RS17330	WP017737192.1	acetyl-CoA carboxylase biotin carboxylase subunit
+ATCC13985	FCE86_RS02210	WP003186930.1	type I secretion C-terminal target domain-containing protein
+ATCC13985	FCE86_RS00430	WP008088213.1	acetyl/propionyl/methylcrotonyl-CoA carboxylase subunit alpha
+ATCC13985	FCE86_RS15340	WP016704055.1	autotransporter domain-containing protein
+ATCC13985	FCE86_RS29480	WP008047384.1	arginine-ornithine antiporter
+ATCC13985	FCE86_RS11050	WP009042593.1	type I secretion C-terminal target domain-containing protein
+KBS0702	FFF93_RS02990	WP011693971.1	ABC transporter ATP-binding protein
+KBS0711	FFI39_RS23820	WP010399297.1	alpha-hydroxy-acid oxidizing protein
+KBS0711	FFI39_RS08270	WP013236088.1	cytochrome c oxidase subunit II
+KBS0711	FFI39_RS12340	WP010393863.1	mechanosensitive ion channel family protein
+KBS0711	FFI39_RS05930	WP010395693.1	DNA gyrase subunit A
+KBS0711	FFI39_RS10240	WP010394499.1	c-type cytochrome biogenesis protein CcsB
+KBS0711	FFI39_RS09635	WP009239942.1	SufS family cysteine desulfurase
+KBS0711	FFI39_RS10150	WP010394527.1	GTPase
+KBS0711	FFI39_RS18470	WP020701617.1	flagellar type III secretion system pore protein FliP
+KBS0711	FFI39_RS18855	WP008451236.1	ATP-dependent RNA helicase HrpA
+KBS0711	FFI39_RS02960	WP018059363.1	methionine--tRNA ligase
+KBS0711	FFI39_RS03000	WP008450068.1	chemotaxis response regulator protein-glutamate methylesterase
+KBS0711	FFI39_RS08585	WP020656832.1	valine--tRNA ligase
+KBS0711	FFI39_RS11645	WP018058224.1	acetyl-CoA C-acetyltransferase
+KBS0711	FFI39_RS16150	WP020701147.1	ribonucleotide-diphosphate reductase subunit beta
+KBS0711	FFI39_RS17090	WP017877147.1	DNA polymerase III subunit alpha
+KBS0711	FFI39_RS17990	WP018058636.1	sulfate ABC transporter permease subunit CysW
+KBS0711	FFI39_RS00465	WP020702753.1	30S ribosomal protein S2
+KBS0711	FFI39_RS01060	WP017876556.1	methyl-accepting chemotaxis protein
+KBS0711	FFI39_RS02160	WP010397062.1	aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme
+KBS0711	FFI39_RS10855	WP020704252.1	methionine adenosyltransferase
+KBS0711	FFI39_RS11405	WP002611629.1	substrate-binding domain-containing protein
+KBS0711	FFI39_RS12105	WP005664034.1	F0F1 ATP synthase subunit alpha
+KBS0711	FFI39_RS14900	WP010462720.1	ABC transporter permease
+KBS0711	FFI39_RS16910	WP008452953.1	ethanolamine ammonia-lyase subunit EutB
+KBS0711	FFI39_RS18850	WP017878982.1	amino-acid N-acetyltransferase
+KBS0711	FFI39_RS19530	WP011979236.1	filamentous hemagglutinin N-terminal domain-containing protein
+KBS0711	FFI39_RS21620	WP008446499.1	cation acetate symporter
+KBS0711	FFI39_RS24185	WP008120030.1	urea ABC transporter substrate-binding protein
+KBS0711	FFI39_RS24360	WP010399469.1	HAMP domain-containing protein
+KBS0711	FFI39_RS25410	WP010399755.1	acetolactate synthase 3 catalytic subunit
+KBS0711	FFI39_RS25470	WP020201433.1	iron-sulfur cluster assembly protein IscA
+KBS0712	FFI97_RS29805	WP007851335.1	amidohydrolase
+KBS0712	FFI97_RS07970	WP017331249.1	FAD-binding protein
+KBS0712	FFI97_RS12345	WP012203717.1	SDR family oxidoreductase
+KBS0712	FFI97_RS13210	WP003053566.1	isocitrate lyase
+KBS0712	FFI97_RS30345	WP019655940.1	ATP-dependent chaperone ClpB
+KBS0712	FFI97_RS03515	WP009124777.1	LamB/YcsF family protein
+KBS0712	FFI97_RS21330	WP015014884.1	ATP-dependent Clp protease ATP-binding subunit ClpX
+KBS0712	FFI97_RS08975	WP013541265.1	ABC transporter ATP-binding protein
+KBS0712	FFI97_RS01120	WP013543193.1	proline--tRNA ligase
+KBS0712	FFI97_RS27095	WP019651994.1	aldehyde dehydrogenase family protein
+KBS0712	FFI97_RS14820	WP007837263.1	DUF802 domain-containing protein
+KBS0712	FFI97_RS04075	WP007828806.1	PAS domain S-box protein
+KBS0712	FFI97_RS19720	WP012746430.1	thioredoxin-disulfide reductase
+KBS0712	FFI97_RS06845	WP013800395.1	methylcrotonoyl-CoA carboxylase
+KBS0712	FFI97_RS33535	WP015866795.1	polyphosphate kinase 2
+KBS0712	FFI97_RS16440	WP019658558.1	ATP-binding cassette domain-containing protein
+KBS0712	FFI97_RS04575	WP018903541.1	sn-glycerol-3-phosphate ABC transporter ATP-binding protein UgpC
+KBS0712	FFI97_RS00020	WP003164005.1	glutathione S-transferase family protein
+KBS0712	FFI97_RS19885	WP013538653.1	urocanate hydratase
+KBS0712	FFI97_RS22270	WP013538795.1	thiamine pyrophosphate-binding protein
+KBS0712	FFI97_RS04590	WP007835149.1	transaldolase
+KBS0712	FFI97_RS01015	WP013543213.1	preprotein translocase subunit SecA
+KBS0712	FFI97_RS14755	WP013540041.1	acyl-CoA dehydrogenase
+KBS0712	FFI97_RS16815	WP013539022.1	hypothetical protein
+KBS0712	FFI97_RS02280	WP006297699.1	elongation factor G
+KBS0712	FFI97_RS02525	WP017328757.1	cytochrome P450
+KBS0712	FFI97_RS23530	WP007828445.1	LLM class flavin-dependent oxidoreductase
+KBS0712	FFI97_RS23905	WP009051660.1	phosphatase PAP2/dual specificity phosphatase family protein
+KBS0712	FFI97_RS25905	WP018904684.1	amino acid adenylation domain-containing protein
+KBS0712	FFI97_RS30140	WP013540507.1	oxidoreductase
+KBS0712	FFI97_RS30400	WP007830805.1	pyridoxal phosphate-dependent aminotransferase
+KBS0712	FFI97_RS33600	WP018906716.1	DUF962 domain-containing protein

@@ -1,829 +1,3630 @@
 #=GENOME_DIFF	1.0
-#=CREATED	22:20:14 14 Aug 2019
+#=CREATED	07:59:08 25 Jun 2019
 #=PROGRAM	breseq 0.32.0 revision 6ff6de7d1b87
-#=COMMAND	breseq -j 8 -p -o /N/dc2/projects/muri2/Task2/LTDE/data/breseq/KBS0724-C -r /N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0724/GCF_005938745_2_ASM593874v2_genomic.gbff /N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0724-C_S34_R1_001_clean.fastq.gz /N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0724-C_S34_R2_001_clean.fastq.gz
-#=REFSEQ	/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0724/GCF_005938745_2_ASM593874v2_genomic.gbff
+#=COMMAND	breseq -j 8 -p -o /N/dc2/projects/muri2/Task2/LTDE/data/breseq/KBS0724-C -r /N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0724/GCF_005938745.1_ASM593874v1_genomic.gbff /N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0724-C_S34_R1_001_clean.fastq.gz /N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0724-C_S34_R2_001_clean.fastq.gz
+#=REFSEQ	/N/dc2/projects/muri2/Task2/LTDE/data/genomes_ncbi/KBS0724/GCF_005938745.1_ASM593874v1_genomic.gbff
 #=READSEQ	/N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0724-C_S34_R1_001_clean.fastq.gz
 #=READSEQ	/N/dc2/projects/muri2/Task2/LTDE/data/reads_clean/GSF1046-KBS0724-C_S34_R2_001_clean.fastq.gz
 #=CONVERTED-BASES	446856211
 #=CONVERTED-READS	6682463
 #=INPUT-BASES	447686887
 #=INPUT-READS	6693588
-#=MAPPED-BASES	441022862
-#=MAPPED-READS	6602099
-SNP	1	240	NZ_VCBX02000001	59718	A	frequency=1.24893188e-01
-SNP	2	241	NZ_VCBX02000001	77458	G	frequency=8.00614357e-02
-SNP	3	242	NZ_VCBX02000001	77459	A	frequency=8.01577568e-02
-SNP	4	243	NZ_VCBX02000001	77460	G	frequency=7.97333717e-02
-SNP	5	244	NZ_VCBX02000001	77463	C	frequency=7.13648796e-02
-SNP	6	245	NZ_VCBX02000001	77467	G	frequency=6.89249039e-02
-SNP	7	246	NZ_VCBX02000001	77476	C	frequency=6.88872337e-02
-SNP	8	247	NZ_VCBX02000001	77746	C	frequency=8.68439674e-02
-SNP	9	248	NZ_VCBX02000001	77747	A	frequency=8.66465569e-02
-SNP	10	249	NZ_VCBX02000001	77749	C	frequency=8.68420601e-02
-SNP	11	250	NZ_VCBX02000001	77753	A	frequency=8.50291252e-02
-SNP	12	251	NZ_VCBX02000001	77755	C	frequency=7.67903328e-02
-SNP	13	252	NZ_VCBX02000001	210738	T	frequency=2.85635471e-01
-SNP	14	253	NZ_VCBX02000001	211097	G	frequency=1.78526878e-01
-SNP	15	254	NZ_VCBX02000001	211212	C	frequency=2.23958015e-01
-SNP	16	255	NZ_VCBX02000001	214105	T	frequency=1.57364845e-01
-SNP	17	256	NZ_VCBX02000001	214113	T	frequency=2.32831955e-01
-SNP	18	257	NZ_VCBX02000001	550491	G	frequency=8.05883408e-02
-SNP	19	258	NZ_VCBX02000001	550500	G	frequency=8.44311714e-02
-SNP	20	259	NZ_VCBX02000001	663054	C	frequency=8.22677612e-02
-SNP	21	260	NZ_VCBX02000001	663060	A	frequency=7.54280090e-02
-SNP	22	261	NZ_VCBX02000001	663069	C	frequency=9.43942070e-02
-SNP	23	262	NZ_VCBX02000001	663081	A	frequency=7.67560005e-02
-SNP	24	263	NZ_VCBX02000001	663087	T	frequency=8.27822685e-02
-SNP	25	264	NZ_VCBX02000001	663090	C	frequency=8.08539391e-02
-SNP	26	265	NZ_VCBX02000001	663093	G	frequency=7.04317093e-02
-SNP	27	266	NZ_VCBX02000001	1140644	T	frequency=8.10985565e-02
-SNP	28	267	NZ_VCBX02000001	1503456	G	frequency=6.77552223e-02
-SNP	29	268	NZ_VCBX02000001	1503463	A	frequency=6.54244423e-02
-SNP	30	269	NZ_VCBX02000001	1543056	G	frequency=2.07012177e-01
-SNP	31	270	NZ_VCBX02000001	2049615	A	frequency=6.53791428e-02
-SNP	32	271	NZ_VCBX02000001	2278985	C	frequency=1.75352573e-01
-SNP	33	272	NZ_VCBX02000001	2447182	T	frequency=1.99865341e-01
-SNP	34	273	NZ_VCBX02000001	2595499	C	frequency=5.94663620e-02
-SNP	35	274	NZ_VCBX02000001	2633601	G	frequency=1.54820442e-01
-SNP	36	275	NZ_VCBX02000001	3270987	C	frequency=1.83601379e-01
-SNP	37	276	NZ_VCBX02000001	3271137	G	frequency=1.55239582e-01
-SNP	38	277	NZ_VCBX02000001	3271150	G	frequency=1.54935360e-01
-SNP	39	278	NZ_VCBX02000001	3282350	G	frequency=1.99515820e-01
-SNP	40	279	NZ_VCBX02000001	3476850	A	frequency=4.19626713e-01
-SNP	41	280	NZ_VCBX02000001	3476854	C	frequency=3.96205902e-01
-SNP	42	281	NZ_VCBX02000001	3476949	T	frequency=1.96632385e-01
-SNP	43	282	NZ_VCBX02000001	3476952	C	frequency=1.99987888e-01
-SNP	44	283	NZ_VCBX02000001	3476976	T	frequency=5.40592194e-01
-SNP	45	284	NZ_VCBX02000001	3476991	T	frequency=6.55905247e-01
-SNP	46	285	NZ_VCBX02000001	3477035	C	frequency=6.75765991e-01
-SNP	47	286	NZ_VCBX02000001	3477080	G	frequency=3.08379650e-01
-SNP	48	287	NZ_VCBX02000001	3477083	G	frequency=2.30499744e-01
-SNP	49	288	NZ_VCBX02000001	3532889	G	frequency=1.29799843e-01
-SNP	50	289	NZ_VCBX02000001	3532899	G	frequency=1.31865501e-01
-SNP	51	290	NZ_VCBX02000001	3532909	T	frequency=1.44479275e-01
-SNP	52	291	NZ_VCBX02000001	3532912	T	frequency=1.55980587e-01
-SNP	53	292	NZ_VCBX02000001	3532913	C	frequency=1.68914318e-01
-SNP	54	293	NZ_VCBX02000001	3532927	G	frequency=2.32054710e-01
-SNP	55	294	NZ_VCBX02000001	3532929	A	frequency=2.25917816e-01
-SNP	56	295	NZ_VCBX02000001	3532942	G	frequency=1.55425072e-01
-SNP	57	296	NZ_VCBX02000001	3532943	C	frequency=1.51672363e-01
-INS	58	297	NZ_VCBX02000001	3532950	A	frequency=1.36366844e-01	insert_position=1
-SNP	59	298	NZ_VCBX02000001	3532953	A	frequency=1.34252071e-01
-SNP	60	299	NZ_VCBX02000001	3532956	G	frequency=1.30094051e-01
-SNP	61	300	NZ_VCBX02000001	3532959	A	frequency=1.33290768e-01
-SNP	62	301	NZ_VCBX02000001	3532968	G	frequency=1.20640755e-01
-SNP	63	302	NZ_VCBX02000001	3532971	A	frequency=9.09619331e-02
-SNP	64	303	NZ_VCBX02000001	3532974	T	frequency=9.36608315e-02
-SNP	65	304	NZ_VCBX02000001	3532990	G	frequency=7.38339424e-02
-SNP	66	305	NZ_VCBX02000001	3532994	A	frequency=7.42516518e-02
-SNP	67	306	NZ_VCBX02000001	3532995	A	frequency=7.90367126e-02
-SNP	68	307	NZ_VCBX02000001	3532996	T	frequency=7.87949562e-02
-SNP	69	308	NZ_VCBX02000001	3532998	T	frequency=7.96566010e-02
-SNP	70	309	NZ_VCBX02000001	3533000	T	frequency=7.96089172e-02
-SNP	71	310	NZ_VCBX02000001	3533001	T	frequency=7.74407387e-02
-SNP	72	311	NZ_VCBX02000001	3533009	G	frequency=7.59453773e-02
-SNP	73	312	NZ_VCBX02000001	3533035	A	frequency=7.94844627e-02
-SNP	74	313	NZ_VCBX02000001	3533039	C	frequency=1.74807549e-01
-SNP	75	314	NZ_VCBX02000001	3533054	T	frequency=2.83936501e-01
-SNP	76	315	NZ_VCBX02000001	3533057	A	frequency=2.85552979e-01
-SNP	77	316	NZ_VCBX02000001	3533067	A	frequency=3.30430031e-01
-SNP	78	317	NZ_VCBX02000001	3533079	C	frequency=3.82192135e-01
-SNP	79	318	NZ_VCBX02000001	3533082	C	frequency=3.55854988e-01
-SNP	80	319	NZ_VCBX02000001	3533088	C	frequency=4.39592361e-01
-SNP	81	320	NZ_VCBX02000001	3533094	G	frequency=4.04727936e-01
-SNP	82	321	NZ_VCBX02000001	3533097	C	frequency=3.72943878e-01
-SNP	83	322	NZ_VCBX02000001	3533118	G	frequency=3.56307983e-01
-SNP	84	323	NZ_VCBX02000001	3533135	C	frequency=3.06360245e-01
-SNP	85	324	NZ_VCBX02000001	3533147	A	frequency=2.56497383e-01
-SNP	86	325	NZ_VCBX02000001	3533153	C	frequency=2.39771366e-01
-SNP	87	326	NZ_VCBX02000001	3533175	G	frequency=2.42478848e-01
-SNP	88	327	NZ_VCBX02000001	3533211	T	frequency=3.52936268e-01
-SNP	89	328	NZ_VCBX02000001	3533214	G	frequency=3.65953445e-01
-INS	90	329	NZ_VCBX02000001	3533217	A	frequency=2.67448902e-01	insert_position=1
-SNP	91	330	NZ_VCBX02000001	3533222	G	frequency=2.58244514e-01
-SNP	92	331	NZ_VCBX02000001	3533224	T	frequency=2.62014389e-01
-SNP	93	332	NZ_VCBX02000001	3533225	C	frequency=2.64547825e-01
-SNP	94	333	NZ_VCBX02000001	3533226	A	frequency=2.64183521e-01
-SNP	95	334	NZ_VCBX02000001	3533227	A	frequency=2.64038086e-01
-SNP	96	335	NZ_VCBX02000001	3533244	T	frequency=2.81068802e-01
-SNP	97	336	NZ_VCBX02000001	3533248	G	frequency=2.65891552e-01
-SNP	98	337	NZ_VCBX02000001	3533249	G	frequency=2.68506050e-01
-SNP	99	338	NZ_VCBX02000001	3533280	G	frequency=1.61844730e-01
-SNP	100	339	NZ_VCBX02000001	3533286	T	frequency=1.40108109e-01
-SNP	101	340	NZ_VCBX02000001	3533295	G	frequency=1.63662434e-01
-SNP	102	341	NZ_VCBX02000001	3533326	C	frequency=1.31162643e-01
-SNP	103	342	NZ_VCBX02000001	3533327	T	frequency=1.24339581e-01
-SNP	104	343	NZ_VCBX02000001	3533341	G	frequency=1.65523529e-01
-SNP	105	344	NZ_VCBX02000001	3533347	G	frequency=2.25309372e-01
-SNP	106	345	NZ_VCBX02000001	3533349	T	frequency=2.25601673e-01
-SNP	107	346	NZ_VCBX02000001	3533358	G	frequency=2.06786633e-01
-DEL	108	347	NZ_VCBX02000001	3533361	1	frequency=2.09283829e-01
-SNP	109	348	NZ_VCBX02000001	3533375	T	frequency=2.79292583e-01
-SNP	110	349	NZ_VCBX02000001	3533376	T	frequency=2.87084103e-01
-SNP	111	350	NZ_VCBX02000001	3533393	A	frequency=4.12980080e-01
-SNP	112	351	NZ_VCBX02000001	3533411	T	frequency=3.65601540e-01
-SNP	113	352	NZ_VCBX02000001	3533417	C	frequency=3.40522289e-01
-SNP	114	353	NZ_VCBX02000001	3533421	T	frequency=3.32974911e-01
-SNP	115	354	NZ_VCBX02000001	3533427	C	frequency=2.84125805e-01
-SNP	116	355	NZ_VCBX02000001	3533432	G	frequency=3.20370197e-01
-SNP	117	356	NZ_VCBX02000001	3533447	G	frequency=2.57588387e-01
-SNP	118	357	NZ_VCBX02000001	3533462	G	frequency=2.81025887e-01
-SNP	119	358	NZ_VCBX02000001	3533465	C	frequency=2.88995743e-01
-SNP	120	359	NZ_VCBX02000001	3533486	G	frequency=2.58869648e-01
-SNP	121	360	NZ_VCBX02000001	3533489	G	frequency=2.24125385e-01
-SNP	122	361	NZ_VCBX02000001	3533501	T	frequency=1.94164276e-01
-SNP	123	362	NZ_VCBX02000001	3533507	G	frequency=1.73454285e-01
-SNP	124	363	NZ_VCBX02000001	3540087	C	frequency=9.73272324e-02
-SNP	125	364	NZ_VCBX02000001	3540089	G	frequency=1.13678455e-01
-SNP	126	365	NZ_VCBX02000001	3540108	T	frequency=1.18255138e-01
-SNP	127	366	NZ_VCBX02000001	3540114	C	frequency=1.29536152e-01
-SNP	128	367	NZ_VCBX02000001	3554100	T	frequency=1.20819092e-01
-SNP	129	368	NZ_VCBX02000001	4205785	T	frequency=8.46905708e-02
-SNP	130	369	NZ_VCBX02000001	4454517	A	frequency=1.05729103e-01
-SNP	131	370	NZ_VCBX02000001	4699341	G	frequency=6.94127083e-02
-SNP	132	371	NZ_VCBX02000001	5202330	T	frequency=7.91625977e-02
-SNP	133	372	NZ_VCBX02000001	5224979	T	frequency=1.52793407e-01
-SNP	134	373	NZ_VCBX02000001	5360924	A	frequency=1.39332294e-01
-SNP	135	374	NZ_VCBX02000001	6207002	A	frequency=1
-SNP	136	375	NZ_VCBX02000001	6628015	T	frequency=1.55250549e-01
-SNP	137	376	NZ_VCBX02000001	6629630	A	frequency=8.91947746e-02
-SNP	138	377	NZ_VCBX02000002	26432	A	frequency=6.91833496e-02
-SNP	139	378	NZ_VCBX02000002	111318	C	frequency=1.69998169e-01
-SNP	140	379	NZ_VCBX02000002	111319	G	frequency=1.72312260e-01
-SNP	141	380	NZ_VCBX02000002	111325	G	frequency=1.68647766e-01
-SNP	142	381	NZ_VCBX02000002	214627	G	frequency=6.13155365e-02
-SNP	143	382	NZ_VCBX02000002	214634	A	frequency=5.98173141e-02
-SNP	144	383	NZ_VCBX02000002	214645	G	frequency=8.98890495e-02
-SNP	145	384	NZ_VCBX02000002	214648	G	frequency=8.87427330e-02
-SNP	146	385	NZ_VCBX02000002	214682	A	frequency=1.88431263e-01
-SNP	147	386	NZ_VCBX02000002	214702	C	frequency=1.44254684e-01
-SNP	148	387	NZ_VCBX02000002	214704	C	frequency=1.35010719e-01
-SNP	149	388	NZ_VCBX02000002	214733	A	frequency=2.71437645e-01
-SNP	150	389	NZ_VCBX02000002	214739	T	frequency=3.05582047e-01
-SNP	151	390	NZ_VCBX02000002	214770	T	frequency=2.58184910e-01
-SNP	152	391	NZ_VCBX02000002	214774	G	frequency=1.85995102e-01
-SNP	153	392	NZ_VCBX02000002	215327	A	frequency=2.63920307e-01
-SNP	154	393	NZ_VCBX02000002	215338	A	frequency=1.75779343e-01
-SNP	155	394	NZ_VCBX02000002	215348	G	frequency=1.04123116e-01
-SNP	156	395	NZ_VCBX02000002	215388	A	frequency=9.60144997e-02
-SNP	157	396	NZ_VCBX02000002	215399	G	frequency=9.96937752e-02
-SNP	158	397	NZ_VCBX02000002	215400	A	frequency=8.97445679e-02
-SNP	159	398	NZ_VCBX02000002	215401	T	frequency=8.97307396e-02
-SNP	160	399	NZ_VCBX02000002	215405	T	frequency=9.30147171e-02
-SNP	161	400	NZ_VCBX02000002	215409	C	frequency=1.02202415e-01
-SNP	162	401	NZ_VCBX02000002	215413	C	frequency=1.08080864e-01
-SNP	163	402	NZ_VCBX02000002	215414	G	frequency=1.06801987e-01
-SNP	164	403	NZ_VCBX02000002	215418	G	frequency=1.15658760e-01
-SNP	165	404	NZ_VCBX02000002	215419	A	frequency=1.15827560e-01
-SNP	166	405	NZ_VCBX02000002	215420	G	frequency=1.18612289e-01
-SNP	167	406	NZ_VCBX02000002	215424	C	frequency=1.26549244e-01
-SNP	168	407	NZ_VCBX02000002	215570	G	frequency=1.19757175e-01
-SNP	169	408	NZ_VCBX02000002	215573	G	frequency=1.19763851e-01
-SNP	170	409	NZ_VCBX02000002	215574	A	frequency=1.10396385e-01
-SNP	171	410	NZ_VCBX02000002	215575	A	frequency=1.33553505e-01
-SNP	172	411	NZ_VCBX02000002	215576	T	frequency=1.27382755e-01
-SNP	173	412	NZ_VCBX02000002	215581	T	frequency=1.42759323e-01
-SNP	174	413	NZ_VCBX02000002	215594	A	frequency=1.58822060e-01
-SNP	175	414	NZ_VCBX02000002	215596	C	frequency=1.66329384e-01
-SNP	176	415	NZ_VCBX02000002	215602	C	frequency=1.32408619e-01
-SNP	177	416	NZ_VCBX02000002	215603	C	frequency=1.31864548e-01
-SNP	178	417	NZ_VCBX02000002	215604	A	frequency=1.20465279e-01
-SNP	179	418	NZ_VCBX02000002	215606	G	frequency=1.18408680e-01
-SNP	180	419	NZ_VCBX02000002	215615	A	frequency=1.19040966e-01
-SNP	181	420	NZ_VCBX02000002	215827	G	frequency=9.33842659e-02
-SNP	182	421	NZ_VCBX02000002	215831	C	frequency=9.22336578e-02
-SNP	183	422	NZ_VCBX02000002	215834	C	frequency=9.10024643e-02
-SNP	184	423	NZ_VCBX02000002	215837	A	frequency=8.83116722e-02
-SNP	185	424	NZ_VCBX02000002	215839	T	frequency=8.71767998e-02
-SNP	186	425	NZ_VCBX02000002	215841	G	frequency=8.61120224e-02
-SNP	187	426	NZ_VCBX02000002	215846	A	frequency=8.61167908e-02
-SNP	188	427	NZ_VCBX02000002	215854	T	frequency=8.41641426e-02
-SNP	189	428	NZ_VCBX02000002	215879	C	frequency=1.85678959e-01
-SNP	190	429	NZ_VCBX02000002	215881	G	frequency=1.72867298e-01
-SNP	191	430	NZ_VCBX02000002	215904	C	frequency=3.12308311e-01
-SNP	192	431	NZ_VCBX02000002	215905	T	frequency=3.25961590e-01
-SNP	193	432	NZ_VCBX02000002	215925	G	frequency=2.33139038e-01
-SNP	194	433	NZ_VCBX02000002	215927	T	frequency=2.50132084e-01
-SNP	195	434	NZ_VCBX02000002	215932	A	frequency=2.64362812e-01
-SNP	196	435	NZ_VCBX02000002	215936	G	frequency=2.51116753e-01
-SNP	197	436	NZ_VCBX02000002	215996	A	frequency=1.71160698e-01
-SNP	198	437	NZ_VCBX02000002	215997	T	frequency=1.71262264e-01
-SNP	199	438	NZ_VCBX02000002	216002	T	frequency=2.56963730e-01
-SNP	200	439	NZ_VCBX02000002	216008	G	frequency=2.39252567e-01
-SNP	201	440	NZ_VCBX02000002	216038	G	frequency=2.01077938e-01
-SNP	202	441	NZ_VCBX02000002	216041	C	frequency=1.92075253e-01
-SNP	203	442	NZ_VCBX02000002	278488	G	frequency=1.16714001e-01
-SNP	204	443	NZ_VCBX02000002	278505	T	frequency=1.17363453e-01
-SNP	205	444	NZ_VCBX02000002	278509	G	frequency=1.13993168e-01
-SNP	206	445	NZ_VCBX02000002	278518	T	frequency=9.06276703e-02
-SNP	207	446	NZ_VCBX02000002	278522	A	frequency=9.05323029e-02
-SNP	208	447	NZ_VCBX02000002	278529	G	frequency=8.37955475e-02
-SNP	209	448	NZ_VCBX02000002	278531	A	frequency=8.54034424e-02
-SNP	210	449	NZ_VCBX02000002	278671	G	frequency=6.14070892e-02
-SNP	211	450	NZ_VCBX02000002	278707	T	frequency=1.70472622e-01
-SNP	212	451	NZ_VCBX02000002	278723	G	frequency=1.31083965e-01
-SNP	213	452	NZ_VCBX02000002	278724	G	frequency=1.31187916e-01
-SNP	214	453	NZ_VCBX02000002	278729	C	frequency=1.36383533e-01
-SNP	215	454	NZ_VCBX02000002	278828	A	frequency=2.49856472e-01
-SNP	216	455	NZ_VCBX02000002	278836	A	frequency=2.28963852e-01
-SNP	217	456	NZ_VCBX02000002	278857	T	frequency=2.88358688e-01
-SNP	218	457	NZ_VCBX02000002	278895	G	frequency=2.49728680e-01
-SNP	219	458	NZ_VCBX02000002	278956	C	frequency=1.78690910e-01
-SNP	220	459	NZ_VCBX02000002	278959	T	frequency=1.62366867e-01
-SNP	221	460	NZ_VCBX02000002	278983	C	frequency=1.73707485e-01
-SNP	222	461	NZ_VCBX02000002	278992	A	frequency=1.68869019e-01
-SNP	223	462	NZ_VCBX02000002	279004	C	frequency=1.72565460e-01
-SNP	224	463	NZ_VCBX02000002	279007	C	frequency=1.78976059e-01
-SNP	225	464	NZ_VCBX02000002	279010	C	frequency=1.76816940e-01
-SNP	226	465	NZ_VCBX02000002	279034	T	frequency=1.44050598e-01
-SNP	227	466	NZ_VCBX02000002	279040	G	frequency=1.42842770e-01
-SNP	228	467	NZ_VCBX02000002	279048	A	frequency=2.29491711e-01
-INS	229	468	NZ_VCBX02000002	279069	G	frequency=2.19049931e-01	insert_position=1
-INS	230	469	NZ_VCBX02000002	279069	G	frequency=2.19047546e-01	insert_position=2
-SNP	231	470	NZ_VCBX02000002	279071	T	frequency=2.12811947e-01
-SNP	232	471	NZ_VCBX02000002	279085	C	frequency=2.28803158e-01
-SNP	233	472	NZ_VCBX02000002	279086	C	frequency=2.35206604e-01
-SNP	234	473	NZ_VCBX02000002	279091	T	frequency=2.78285027e-01
-SNP	235	474	NZ_VCBX02000002	279101	A	frequency=2.40221977e-01
-SNP	236	475	NZ_VCBX02000002	279119	G	frequency=2.44907379e-01
-SNP	237	476	NZ_VCBX02000002	279155	C	frequency=3.92539501e-01
-SNP	238	477	NZ_VCBX02000002	279156	C	frequency=3.97213936e-01
-SNP	239	478	NZ_VCBX02000002	279176	G	frequency=4.67443943e-01
-RA	240	.	NZ_VCBX02000001	59718	0	C	A	bias_e_value=6098450	bias_p_value=0.840652	consensus_score=163.3	fisher_strand_p_value=0.491561	frequency=1.24893188e-01	ks_quality_p_value=1	major_base=C	major_cov=30/22	major_frequency=8.75106812e-01	minor_base=A	minor_cov=4/5	new_cov=4/5	polymorphism_frequency=1.24893188e-01	polymorphism_score=5.9	prediction=polymorphism	ref_cov=30/22	total_cov=34/27
-RA	241	.	NZ_VCBX02000001	77458	0	C	G	bias_e_value=6397250	bias_p_value=0.881841	consensus_score=149.9	fisher_strand_p_value=0.629158	frequency=8.00614357e-02	ks_quality_p_value=0.882305	major_base=C	major_cov=17/29	major_frequency=9.19938564e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.00614357e-02	polymorphism_score=5.3	prediction=polymorphism	ref_cov=17/29	total_cov=19/31
-RA	242	.	NZ_VCBX02000001	77459	0	T	A	bias_e_value=6009360	bias_p_value=0.828372	consensus_score=146.3	fisher_strand_p_value=0.629158	frequency=8.01577568e-02	ks_quality_p_value=0.75447	major_base=T	major_cov=17/29	major_frequency=9.19842243e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.01577568e-02	polymorphism_score=4.2	prediction=polymorphism	ref_cov=17/29	total_cov=19/31
-RA	243	.	NZ_VCBX02000001	77460	0	C	G	bias_e_value=6679090	bias_p_value=0.920693	consensus_score=150.4	fisher_strand_p_value=0.629158	frequency=7.97333717e-02	ks_quality_p_value=1	major_base=C	major_cov=17/29	major_frequency=9.20266628e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=7.97333717e-02	polymorphism_score=4.0	prediction=polymorphism	ref_cov=17/29	total_cov=19/31
-RA	244	.	NZ_VCBX02000001	77463	0	A	C	bias_e_value=6208320	bias_p_value=0.855798	consensus_score=163.9	fisher_strand_p_value=0.641569	frequency=7.13648796e-02	ks_quality_p_value=0.800493	major_base=A	major_cov=20/32	major_frequency=9.28635120e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=7.13648796e-02	polymorphism_score=4.6	prediction=polymorphism	ref_cov=20/32	total_cov=22/34
-RA	245	.	NZ_VCBX02000001	77467	0	C	G	bias_e_value=6372710	bias_p_value=0.878459	consensus_score=178.1	fisher_strand_p_value=0.602329	frequency=6.89249039e-02	ks_quality_p_value=0.912147	major_base=C	major_cov=18/36	major_frequency=9.31075096e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.89249039e-02	polymorphism_score=5.0	prediction=polymorphism	ref_cov=18/36	total_cov=20/38
-RA	246	.	NZ_VCBX02000001	77476	0	A	C	bias_e_value=6447410	bias_p_value=0.888756	consensus_score=174.6	fisher_strand_p_value=0.59073	frequency=6.88872337e-02	ks_quality_p_value=0.959955	major_base=A	major_cov=17/37	major_frequency=9.31112766e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.88872337e-02	polymorphism_score=4.5	prediction=polymorphism	ref_cov=17/37	total_cov=19/39
-RA	247	.	NZ_VCBX02000001	77746	0	G	C	bias_e_value=7239190	bias_p_value=0.9979	consensus_score=138.3	fisher_strand_p_value=1	frequency=8.68439674e-02	ks_quality_p_value=0.935894	major_base=G	major_cov=20/22	major_frequency=9.13156033e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.68439674e-02	polymorphism_score=4.1	prediction=polymorphism	ref_cov=20/22	total_cov=22/24
-RA	248	.	NZ_VCBX02000001	77747	0	G	A	bias_e_value=7218130	bias_p_value=0.994998	consensus_score=125.9	fisher_strand_p_value=1	frequency=8.66465569e-02	ks_quality_p_value=0.901658	major_base=G	major_cov=20/22	major_frequency=9.13353443e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.66465569e-02	polymorphism_score=2.1	prediction=polymorphism	ref_cov=20/22	total_cov=22/24
-RA	249	.	NZ_VCBX02000001	77749	0	G	C	bias_e_value=7249510	bias_p_value=0.999323	consensus_score=136.6	fisher_strand_p_value=1	frequency=8.68420601e-02	ks_quality_p_value=0.963419	major_base=G	major_cov=20/22	major_frequency=9.13157940e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.68420601e-02	polymorphism_score=3.4	prediction=polymorphism	ref_cov=20/22	total_cov=22/24
-RA	250	.	NZ_VCBX02000001	77753	0	T	A	bias_e_value=7221160	bias_p_value=0.995415	consensus_score=138.7	fisher_strand_p_value=1	frequency=8.50291252e-02	ks_quality_p_value=0.905778	major_base=T	major_cov=20/23	major_frequency=9.14970875e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.50291252e-02	polymorphism_score=4.3	prediction=polymorphism	ref_cov=20/23	total_cov=22/25
-RA	251	.	NZ_VCBX02000001	77755	0	G	C	bias_e_value=7121150	bias_p_value=0.981629	consensus_score=161.0	fisher_strand_p_value=1	frequency=7.67903328e-02	ks_quality_p_value=0.814543	major_base=G	major_cov=22/26	major_frequency=9.23209667e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=7.67903328e-02	polymorphism_score=3.9	prediction=polymorphism	ref_cov=22/26	total_cov=24/28
-RA	252	.	NZ_VCBX02000001	210738	0	G	T	bias_e_value=7085810	bias_p_value=0.976757	consensus_score=112.5	fisher_strand_p_value=0.79229	frequency=2.85635471e-01	ks_quality_p_value=1	major_base=G	major_cov=31/19	major_frequency=7.14364529e-01	minor_base=T	minor_cov=12/9	new_cov=12/9	polymorphism_frequency=2.85635471e-01	polymorphism_score=28.0	prediction=polymorphism	ref_cov=31/19	total_cov=43/28
-RA	253	.	NZ_VCBX02000001	211097	0	C	G	bias_e_value=6965670	bias_p_value=0.960196	consensus_score=89.0	fisher_strand_p_value=0.731458	frequency=1.78526878e-01	ks_quality_p_value=1	major_base=C	major_cov=20/21	major_frequency=8.21473122e-01	minor_base=G	minor_cov=4/6	new_cov=4/6	polymorphism_frequency=1.78526878e-01	polymorphism_score=7.5	prediction=polymorphism	ref_cov=20/21	total_cov=24/27
-RA	254	.	NZ_VCBX02000001	211212	0	T	C	bias_e_value=5637120	bias_p_value=0.77706	consensus_score=41.5	fisher_strand_p_value=0.411692	frequency=2.23958015e-01	ks_quality_p_value=1	major_base=T	major_cov=12/12	major_frequency=7.76041985e-01	minor_base=C	minor_cov=2/5	new_cov=2/5	polymorphism_frequency=2.23958015e-01	polymorphism_score=5.4	prediction=polymorphism	ref_cov=12/12	total_cov=15/17
-RA	255	.	NZ_VCBX02000001	214105	0	C	T	bias_e_value=1529980	bias_p_value=0.210903	consensus_score=90.3	fisher_strand_p_value=0.0537568	frequency=1.57364845e-01	ks_quality_p_value=1	major_base=C	major_cov=30/7	major_frequency=8.42635155e-01	minor_base=T	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=1.57364845e-01	polymorphism_score=6.5	prediction=polymorphism	ref_cov=30/7	total_cov=33/11
-RA	256	.	NZ_VCBX02000001	214113	0	C	T	bias_e_value=1424820	bias_p_value=0.196406	consensus_score=78.3	fisher_strand_p_value=0.0488759	frequency=2.32831955e-01	ks_quality_p_value=1	major_base=C	major_cov=29/7	major_frequency=7.67168045e-01	minor_base=T	minor_cov=5/6	new_cov=5/6	polymorphism_frequency=2.32831955e-01	polymorphism_score=16.5	prediction=polymorphism	ref_cov=29/7	total_cov=34/13
-RA	257	.	NZ_VCBX02000001	550491	0	T	G	bias_e_value=4980930	bias_p_value=0.686606	consensus_score=176.1	fisher_strand_p_value=0.325411	frequency=8.05883408e-02	ks_quality_p_value=0.988745	major_base=T	major_cov=39/18	major_frequency=9.19411659e-01	minor_base=G	minor_cov=2/3	new_cov=2/3	polymorphism_frequency=8.05883408e-02	polymorphism_score=7.2	prediction=polymorphism	ref_cov=39/18	total_cov=41/21
-RA	258	.	NZ_VCBX02000001	550500	0	A	G	bias_e_value=4922440	bias_p_value=0.678544	consensus_score=161.1	fisher_strand_p_value=0.315696	frequency=8.44311714e-02	ks_quality_p_value=0.996866	major_base=A	major_cov=38/16	major_frequency=9.15568829e-01	minor_base=G	minor_cov=2/3	new_cov=2/3	polymorphism_frequency=8.44311714e-02	polymorphism_score=4.1	prediction=polymorphism	ref_cov=38/16	total_cov=40/19
-RA	259	.	NZ_VCBX02000001	663054	0	G	C	bias_e_value=6515400	bias_p_value=0.898128	consensus_score=220.6	fisher_strand_p_value=0.683339	frequency=8.22677612e-02	ks_quality_p_value=0.854684	major_base=G	major_cov=36/31	major_frequency=9.17732239e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.22677612e-02	polymorphism_score=10.7	prediction=polymorphism	ref_cov=36/31	total_cov=40/33
-RA	260	.	NZ_VCBX02000001	663060	0	G	A	bias_e_value=6832950	bias_p_value=0.941901	consensus_score=230.2	fisher_strand_p_value=0.679095	frequency=7.54280090e-02	ks_quality_p_value=1	major_base=G	major_cov=38/35	major_frequency=9.24571991e-01	minor_base=A	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.54280090e-02	polymorphism_score=4.8	prediction=polymorphism	ref_cov=38/35	total_cov=42/37
-RA	261	.	NZ_VCBX02000001	663069	0	T	C	bias_e_value=7254420	bias_p_value=1	consensus_score=175.2	fisher_strand_p_value=1	frequency=9.43942070e-02	ks_quality_p_value=0.999165	major_base=T	major_cov=34/23	major_frequency=9.05605793e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=9.43942070e-02	polymorphism_score=5.8	prediction=polymorphism	ref_cov=34/23	total_cov=38/25
-RA	262	.	NZ_VCBX02000001	663081	0	T	A	bias_e_value=7254420	bias_p_value=1	consensus_score=215.6	fisher_strand_p_value=1	frequency=7.67560005e-02	ks_quality_p_value=1	major_base=T	major_cov=38/28	major_frequency=9.23243999e-01	minor_base=A	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.67560005e-02	polymorphism_score=3.8	prediction=polymorphism	ref_cov=38/28	total_cov=42/30
-RA	263	.	NZ_VCBX02000001	663087	0	C	T	bias_e_value=7254420	bias_p_value=1	consensus_score=205.2	fisher_strand_p_value=1	frequency=8.27822685e-02	ks_quality_p_value=1	major_base=C	major_cov=38/27	major_frequency=9.17217731e-01	minor_base=T	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.27822685e-02	polymorphism_score=3.6	prediction=polymorphism	ref_cov=38/27	total_cov=42/29
-RA	264	.	NZ_VCBX02000001	663090	0	T	C	bias_e_value=7135310	bias_p_value=0.983581	consensus_score=210.3	fisher_strand_p_value=1	frequency=8.08539391e-02	ks_quality_p_value=0.824347	major_base=T	major_cov=39/29	major_frequency=9.19146061e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.08539391e-02	polymorphism_score=6.5	prediction=polymorphism	ref_cov=39/29	total_cov=43/31
-RA	265	.	NZ_VCBX02000001	663093	0	C	G	bias_e_value=7254420	bias_p_value=1	consensus_score=225.9	fisher_strand_p_value=1	frequency=7.04317093e-02	ks_quality_p_value=1	major_base=C	major_cov=41/27	major_frequency=9.29568291e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.04317093e-02	polymorphism_score=5.5	prediction=polymorphism	ref_cov=41/27	total_cov=45/29
-RA	266	.	NZ_VCBX02000001	1140644	0	G	T	bias_e_value=5178520	bias_p_value=0.713844	consensus_score=242.8	fisher_strand_p_value=0.346592	frequency=8.10985565e-02	ks_quality_p_value=1	major_base=G	major_cov=38/48	major_frequency=9.18901443e-01	minor_base=T	minor_cov=3/8	new_cov=3/8	polymorphism_frequency=8.10985565e-02	polymorphism_score=3.2	prediction=polymorphism	ref_cov=38/48	total_cov=41/58
-RA	267	.	NZ_VCBX02000001	1503456	0	C	G	bias_e_value=7127670	bias_p_value=0.982527	consensus_score=185.9	fisher_strand_p_value=1	frequency=6.77552223e-02	ks_quality_p_value=0.818983	major_base=C	major_cov=32/23	major_frequency=9.32244778e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.77552223e-02	polymorphism_score=4.9	prediction=polymorphism	ref_cov=32/23	total_cov=34/25
-RA	268	.	NZ_VCBX02000001	1503463	0	T	A	bias_e_value=6723440	bias_p_value=0.926805	consensus_score=186.0	fisher_strand_p_value=0.642659	frequency=6.54244423e-02	ks_quality_p_value=1	major_base=T	major_cov=35/22	major_frequency=9.34575558e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.54244423e-02	polymorphism_score=3.3	prediction=polymorphism	ref_cov=35/22	total_cov=37/24
-RA	269	.	NZ_VCBX02000001	1543056	0	C	G	bias_e_value=403262	bias_p_value=0.0555884	consensus_score=133.4	fisher_strand_p_value=0.0098995	frequency=2.07012177e-01	ks_quality_p_value=1	major_base=C	major_cov=26/18	major_frequency=7.92987823e-01	minor_base=G	minor_cov=2/11	new_cov=2/11	polymorphism_frequency=2.07012177e-01	polymorphism_score=11.3	prediction=polymorphism	ref_cov=26/18	total_cov=28/30
-RA	270	.	NZ_VCBX02000001	2049615	0	C	A	bias_e_value=7211640	bias_p_value=0.994103	consensus_score=188.3	fisher_strand_p_value=1	frequency=6.53791428e-02	ks_quality_p_value=0.893382	major_base=C	major_cov=24/33	major_frequency=9.34620857e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.53791428e-02	polymorphism_score=2.4	prediction=polymorphism	ref_cov=24/33	total_cov=26/35
-RA	271	.	NZ_VCBX02000001	2278985	0	G	C	bias_e_value=2251270	bias_p_value=0.310331	consensus_score=102.7	fisher_strand_p_value=0.091507	frequency=1.75352573e-01	ks_quality_p_value=1	major_base=G	major_cov=18/26	major_frequency=8.24647427e-01	minor_base=C	minor_cov=8/3	new_cov=8/3	polymorphism_frequency=1.75352573e-01	polymorphism_score=4.7	prediction=polymorphism	ref_cov=18/26	total_cov=26/29
-RA	272	.	NZ_VCBX02000001	2447182	0	G	T	bias_e_value=2921.99	bias_p_value=0.000402787	consensus_score=84.8	fisher_strand_p_value=3.58472e-05	frequency=1.99865341e-01	ks_quality_p_value=1	major_base=G	major_cov=31/3	major_frequency=8.00134659e-01	minor_base=T	minor_cov=2/8	new_cov=2/8	polymorphism_frequency=1.99865341e-01	polymorphism_score=2.6	prediction=polymorphism	ref_cov=31/3	total_cov=33/11
-RA	273	.	NZ_VCBX02000001	2595499	0	A	C	bias_e_value=4843850	bias_p_value=0.66771	consensus_score=192.1	fisher_strand_p_value=0.305455	frequency=5.94663620e-02	ks_quality_p_value=1	major_base=A	major_cov=45/16	major_frequency=9.40533638e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=5.94663620e-02	polymorphism_score=2.9	prediction=polymorphism	ref_cov=45/16	total_cov=47/18
-RA	274	.	NZ_VCBX02000001	2633601	0	C	G	bias_e_value=629541	bias_p_value=0.0867803	consensus_score=157.8	fisher_strand_p_value=0.017126	frequency=1.54820442e-01	ks_quality_p_value=1	major_base=C	major_cov=19/32	major_frequency=8.45179558e-01	minor_base=G	minor_cov=8/2	new_cov=8/2	polymorphism_frequency=1.54820442e-01	polymorphism_score=2.5	prediction=polymorphism	ref_cov=19/32	total_cov=27/34
-RA	275	.	NZ_VCBX02000001	3270987	0	A	C	bias_e_value=326251	bias_p_value=0.0449728	consensus_score=127.1	fisher_strand_p_value=0.00765902	frequency=1.83601379e-01	ks_quality_p_value=1	major_base=A	major_cov=29/16	major_frequency=8.16398621e-01	minor_base=C	minor_cov=2/9	new_cov=2/9	polymorphism_frequency=1.83601379e-01	polymorphism_score=8.7	prediction=polymorphism	ref_cov=29/16	total_cov=31/26
-RA	276	.	NZ_VCBX02000001	3271137	0	C	G	bias_e_value=588170	bias_p_value=0.0810774	consensus_score=170.2	fisher_strand_p_value=0.0157381	frequency=1.55239582e-01	ks_quality_p_value=1	major_base=C	major_cov=41/15	major_frequency=8.44760418e-01	minor_base=G	minor_cov=4/8	new_cov=4/8	polymorphism_frequency=1.55239582e-01	polymorphism_score=12.2	prediction=polymorphism	ref_cov=41/15	total_cov=46/23
-RA	277	.	NZ_VCBX02000001	3271150	0	C	G	bias_e_value=2611040	bias_p_value=0.359924	consensus_score=182.3	fisher_strand_p_value=0.113249	frequency=1.54935360e-01	ks_quality_p_value=1	major_base=C	major_cov=43/18	major_frequency=8.45064640e-01	minor_base=G	minor_cov=6/7	new_cov=6/7	polymorphism_frequency=1.54935360e-01	polymorphism_score=12.4	prediction=polymorphism	ref_cov=43/18	total_cov=51/25
-RA	278	.	NZ_VCBX02000001	3282350	0	A	G	bias_e_value=7254420	bias_p_value=1	consensus_score=77.6	fisher_strand_p_value=1	frequency=1.99515820e-01	ks_quality_p_value=1	major_base=A	major_cov=16/17	major_frequency=8.00484180e-01	minor_base=G	minor_cov=4/4	new_cov=4/4	polymorphism_frequency=1.99515820e-01	polymorphism_score=6.6	prediction=polymorphism	ref_cov=16/17	total_cov=22/22
-RA	279	.	NZ_VCBX02000001	3476850	0	C	A	bias_e_value=2651320	bias_p_value=0.365476	consensus_score=167.4	fisher_strand_p_value=0.116421	frequency=4.19626713e-01	ks_quality_p_value=0.994761	major_base=C	major_cov=34/28	major_frequency=5.80373287e-01	minor_base=A	minor_cov=17/28	new_cov=17/28	polymorphism_frequency=4.19626713e-01	polymorphism_score=123.5	prediction=polymorphism	ref_cov=34/28	total_cov=51/56
-RA	280	.	NZ_VCBX02000001	3476854	0	A	C	bias_e_value=4308920	bias_p_value=0.593972	consensus_score=138.1	fisher_strand_p_value=0.248128	frequency=3.96205902e-01	ks_quality_p_value=1	major_base=A	major_cov=32/35	major_frequency=6.03794098e-01	minor_base=C	minor_cov=16/28	new_cov=16/28	polymorphism_frequency=3.96205902e-01	polymorphism_score=140.6	prediction=polymorphism	ref_cov=32/35	total_cov=48/63
-RA	281	.	NZ_VCBX02000001	3476949	0	G	T	bias_e_value=3307730	bias_p_value=0.45596	consensus_score=202.1	fisher_strand_p_value=0.161503	frequency=1.96632385e-01	ks_quality_p_value=1	major_base=G	major_cov=24/37	major_frequency=8.03367615e-01	minor_base=T	minor_cov=9/6	new_cov=9/6	polymorphism_frequency=1.96632385e-01	polymorphism_score=29.9	prediction=polymorphism	ref_cov=24/37	total_cov=33/43
-RA	282	.	NZ_VCBX02000001	3476952	0	G	C	bias_e_value=3071400	bias_p_value=0.423383	consensus_score=197.7	fisher_strand_p_value=0.153079	frequency=1.99987888e-01	ks_quality_p_value=0.941765	major_base=G	major_cov=23/37	major_frequency=8.00012112e-01	minor_base=C	minor_cov=9/6	new_cov=9/6	polymorphism_frequency=1.99987888e-01	polymorphism_score=40.3	prediction=polymorphism	ref_cov=23/37	total_cov=32/43
-RA	283	.	NZ_VCBX02000001	3476976	0	C	T	bias_e_value=4391970	bias_p_value=0.605419	consensus_score=32.2	fisher_strand_p_value=0.286108	frequency=5.40592194e-01	ks_quality_p_value=0.896306	major_base=T	major_cov=36/31	major_frequency=5.40592194e-01	minor_base=C	minor_cov=25/32	new_cov=36/31	polymorphism_frequency=5.40592194e-01	polymorphism_score=149.9	prediction=polymorphism	ref_cov=25/32	total_cov=62/63
-RA	284	.	NZ_VCBX02000001	3476991	0	C	T	bias_e_value=3518710	bias_p_value=0.485044	consensus_score=36.4	fisher_strand_p_value=0.184746	frequency=6.55905247e-01	ks_quality_p_value=0.962922	major_base=T	major_cov=45/35	major_frequency=6.55905247e-01	minor_base=C	minor_cov=18/24	new_cov=45/35	polymorphism_frequency=6.55905247e-01	polymorphism_score=104.5	prediction=polymorphism	ref_cov=18/24	total_cov=63/59
-RA	285	.	NZ_VCBX02000001	3477035	0	T	C	bias_e_value=6562460	bias_p_value=0.904615	consensus_score=39.3	fisher_strand_p_value=0.620511	frequency=6.75765991e-01	ks_quality_p_value=0.961049	major_base=C	major_cov=25/25	major_frequency=6.75765991e-01	minor_base=T	minor_cov=10/14	new_cov=25/25	polymorphism_frequency=6.75765991e-01	polymorphism_score=55.5	prediction=polymorphism	ref_cov=10/14	total_cov=35/39
-RA	286	.	NZ_VCBX02000001	3477080	0	A	G	bias_e_value=4222720	bias_p_value=0.582089	consensus_score=97.8	fisher_strand_p_value=0.239707	frequency=3.08379650e-01	ks_quality_p_value=1	major_base=A	major_cov=19/19	major_frequency=6.91620350e-01	minor_base=G	minor_cov=12/5	new_cov=12/5	polymorphism_frequency=3.08379650e-01	polymorphism_score=35.6	prediction=polymorphism	ref_cov=19/19	total_cov=31/24
-RA	287	.	NZ_VCBX02000001	3477083	0	A	G	bias_e_value=5042700	bias_p_value=0.695121	consensus_score=115.3	fisher_strand_p_value=0.329336	frequency=2.30499744e-01	ks_quality_p_value=1	major_base=A	major_cov=19/21	major_frequency=7.69500256e-01	minor_base=G	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=2.30499744e-01	polymorphism_score=22.8	prediction=polymorphism	ref_cov=19/21	total_cov=27/25
-RA	288	.	NZ_VCBX02000001	3532889	0	A	G	bias_e_value=5399200	bias_p_value=0.744263	consensus_score=287.3	fisher_strand_p_value=0.376483	frequency=1.29799843e-01	ks_quality_p_value=1	major_base=A	major_cov=60/33	major_frequency=8.70200157e-01	minor_base=G	minor_cov=7/7	new_cov=7/7	polymorphism_frequency=1.29799843e-01	polymorphism_score=23.0	prediction=polymorphism	ref_cov=60/33	total_cov=67/40
-RA	289	.	NZ_VCBX02000001	3532899	0	C	G	bias_e_value=5186610	bias_p_value=0.714959	consensus_score=328.7	fisher_strand_p_value=0.391136	frequency=1.31865501e-01	ks_quality_p_value=0.888812	major_base=C	major_cov=64/33	major_frequency=8.68134499e-01	minor_base=G	minor_cov=8/7	new_cov=8/7	polymorphism_frequency=1.31865501e-01	polymorphism_score=34.5	prediction=polymorphism	ref_cov=64/33	total_cov=73/40
-RA	290	.	NZ_VCBX02000001	3532909	0	C	T	bias_e_value=4241750	bias_p_value=0.584712	consensus_score=276.8	fisher_strand_p_value=0.245214	frequency=1.44479275e-01	ks_quality_p_value=0.98505	major_base=C	major_cov=61/27	major_frequency=8.55520725e-01	minor_base=T	minor_cov=8/7	new_cov=8/7	polymorphism_frequency=1.44479275e-01	polymorphism_score=26.3	prediction=polymorphism	ref_cov=61/27	total_cov=69/35
-RA	291	.	NZ_VCBX02000001	3532912	0	C	T	bias_e_value=5261090	bias_p_value=0.725226	consensus_score=250.6	fisher_strand_p_value=0.393692	frequency=1.55980587e-01	ks_quality_p_value=0.908055	major_base=C	major_cov=53/28	major_frequency=8.44019413e-01	minor_base=T	minor_cov=8/7	new_cov=8/7	polymorphism_frequency=1.55980587e-01	polymorphism_score=27.7	prediction=polymorphism	ref_cov=53/28	total_cov=61/35
-RA	292	.	NZ_VCBX02000001	3532913	0	A	C	bias_e_value=6059090	bias_p_value=0.835227	consensus_score=228.9	fisher_strand_p_value=0.570251	frequency=1.68914318e-01	ks_quality_p_value=0.848755	major_base=A	major_cov=46/28	major_frequency=8.31085682e-01	minor_base=C	minor_cov=8/7	new_cov=8/7	polymorphism_frequency=1.68914318e-01	polymorphism_score=41.2	prediction=polymorphism	ref_cov=46/28	total_cov=54/35
-RA	293	.	NZ_VCBX02000001	3532927	0	A	G	bias_e_value=7036950	bias_p_value=0.970022	consensus_score=180.4	fisher_strand_p_value=0.788206	frequency=2.32054710e-01	ks_quality_p_value=0.971005	major_base=A	major_cov=23/40	major_frequency=7.67945290e-01	minor_base=G	minor_cov=8/11	new_cov=8/11	polymorphism_frequency=2.32054710e-01	polymorphism_score=39.7	prediction=polymorphism	ref_cov=23/40	total_cov=31/52
-RA	294	.	NZ_VCBX02000001	3532929	0	G	A	bias_e_value=6842430	bias_p_value=0.943208	consensus_score=186.0	fisher_strand_p_value=0.789718	frequency=2.25917816e-01	ks_quality_p_value=0.864225	major_base=G	major_cov=24/41	major_frequency=7.74082184e-01	minor_base=A	minor_cov=8/11	new_cov=8/11	polymorphism_frequency=2.25917816e-01	polymorphism_score=38.8	prediction=polymorphism	ref_cov=24/41	total_cov=32/52
-RA	295	.	NZ_VCBX02000001	3532942	0	A	G	bias_e_value=7008810	bias_p_value=0.966144	consensus_score=199.8	fisher_strand_p_value=0.751332	frequency=1.55425072e-01	ks_quality_p_value=1	major_base=A	major_cov=28/37	major_frequency=8.44574928e-01	minor_base=G	minor_cov=4/8	new_cov=4/8	polymorphism_frequency=1.55425072e-01	polymorphism_score=20.9	prediction=polymorphism	ref_cov=28/37	total_cov=32/45
-RA	296	.	NZ_VCBX02000001	3532943	0	T	C	bias_e_value=5553930	bias_p_value=0.765592	consensus_score=205.8	fisher_strand_p_value=0.533329	frequency=1.51672363e-01	ks_quality_p_value=0.748118	major_base=T	major_cov=31/36	major_frequency=8.48327637e-01	minor_base=C	minor_cov=4/8	new_cov=4/8	polymorphism_frequency=1.51672363e-01	polymorphism_score=21.6	prediction=polymorphism	ref_cov=31/36	total_cov=35/44
-RA	297	.	NZ_VCBX02000001	3532950	1	.	A	bias_e_value=4726730	bias_p_value=0.651565	consensus_score=302.9	fisher_strand_p_value=0.367504	frequency=1.36366844e-01	ks_quality_p_value=0.7948	major_base=.	major_cov=39/37	major_frequency=8.63633156e-01	minor_base=A	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.36366844e-01	polymorphism_score=59.3	prediction=polymorphism	ref_cov=39/37	total_cov=47/41
-RA	298	.	NZ_VCBX02000001	3532953	0	G	A	bias_e_value=5301870	bias_p_value=0.730846	consensus_score=234.3	fisher_strand_p_value=0.362999	frequency=1.34252071e-01	ks_quality_p_value=1	major_base=G	major_cov=39/38	major_frequency=8.65747929e-01	minor_base=A	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.34252071e-01	polymorphism_score=19.3	prediction=polymorphism	ref_cov=39/38	total_cov=47/42
-RA	299	.	NZ_VCBX02000001	3532956	0	A	G	bias_e_value=4532700	bias_p_value=0.624819	consensus_score=235.3	fisher_strand_p_value=0.360017	frequency=1.30094051e-01	ks_quality_p_value=0.752723	major_base=A	major_cov=40/40	major_frequency=8.69905949e-01	minor_base=G	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.30094051e-01	polymorphism_score=20.4	prediction=polymorphism	ref_cov=40/40	total_cov=48/44
-RA	300	.	NZ_VCBX02000001	3532959	0	G	A	bias_e_value=5252220	bias_p_value=0.724003	consensus_score=235.4	fisher_strand_p_value=0.356307	frequency=1.33290768e-01	ks_quality_p_value=1	major_base=G	major_cov=38/39	major_frequency=8.66709232e-01	minor_base=A	minor_cov=8/4	new_cov=8/4	polymorphism_frequency=1.33290768e-01	polymorphism_score=18.1	prediction=polymorphism	ref_cov=38/39	total_cov=46/44
-RA	301	.	NZ_VCBX02000001	3532968	0	A	G	bias_e_value=5921920	bias_p_value=0.816319	consensus_score=231.6	fisher_strand_p_value=0.748642	frequency=1.20640755e-01	ks_quality_p_value=0.612926	major_base=A	major_cov=36/44	major_frequency=8.79359245e-01	minor_base=G	minor_cov=6/5	new_cov=6/5	polymorphism_frequency=1.20640755e-01	polymorphism_score=18.1	prediction=polymorphism	ref_cov=36/44	total_cov=42/49
-RA	302	.	NZ_VCBX02000001	3532971	0	C	A	bias_e_value=4710500	bias_p_value=0.649328	consensus_score=290.0	fisher_strand_p_value=0.290279	frequency=9.09619331e-02	ks_quality_p_value=1	major_base=C	major_cov=36/49	major_frequency=9.09038067e-01	minor_base=A	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=9.09619331e-02	polymorphism_score=12.2	prediction=polymorphism	ref_cov=36/49	total_cov=42/52
-RA	303	.	NZ_VCBX02000001	3532974	0	A	T	bias_e_value=4730630	bias_p_value=0.652102	consensus_score=287.3	fisher_strand_p_value=0.29316	frequency=9.36608315e-02	ks_quality_p_value=0.997847	major_base=A	major_cov=38/49	major_frequency=9.06339169e-01	minor_base=T	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=9.36608315e-02	polymorphism_score=17.1	prediction=polymorphism	ref_cov=38/49	total_cov=44/52
-RA	304	.	NZ_VCBX02000001	3532990	0	A	G	bias_e_value=2537040	bias_p_value=0.349723	consensus_score=308.9	fisher_strand_p_value=0.145203	frequency=7.38339424e-02	ks_quality_p_value=0.747986	major_base=A	major_cov=45/55	major_frequency=9.26166058e-01	minor_base=G	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=7.38339424e-02	polymorphism_score=10.2	prediction=polymorphism	ref_cov=45/55	total_cov=51/57
-RA	305	.	NZ_VCBX02000001	3532994	0	T	A	bias_e_value=4514470	bias_p_value=0.622307	consensus_score=311.7	fisher_strand_p_value=0.269074	frequency=7.42516518e-02	ks_quality_p_value=1	major_base=T	major_cov=45/49	major_frequency=9.25748348e-01	minor_base=A	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=7.42516518e-02	polymorphism_score=11.5	prediction=polymorphism	ref_cov=45/49	total_cov=51/51
-RA	306	.	NZ_VCBX02000001	3532995	0	C	A	bias_e_value=4087830	bias_p_value=0.563495	consensus_score=313.3	fisher_strand_p_value=0.269074	frequency=7.90367126e-02	ks_quality_p_value=0.843378	major_base=C	major_cov=45/48	major_frequency=9.20963287e-01	minor_base=A	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=7.90367126e-02	polymorphism_score=11.8	prediction=polymorphism	ref_cov=45/48	total_cov=51/50
-RA	307	.	NZ_VCBX02000001	3532996	0	C	T	bias_e_value=4514470	bias_p_value=0.622307	consensus_score=293.3	fisher_strand_p_value=0.269074	frequency=7.87949562e-02	ks_quality_p_value=1	major_base=C	major_cov=45/48	major_frequency=9.21205044e-01	minor_base=T	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=7.87949562e-02	polymorphism_score=9.1	prediction=polymorphism	ref_cov=45/48	total_cov=51/50
-RA	308	.	NZ_VCBX02000001	3532998	0	C	T	bias_e_value=3100400	bias_p_value=0.42738	consensus_score=291.9	fisher_strand_p_value=0.155685	frequency=7.96566010e-02	ks_quality_p_value=0.939311	major_base=C	major_cov=43/49	major_frequency=9.20343399e-01	minor_base=T	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=7.96566010e-02	polymorphism_score=9.5	prediction=polymorphism	ref_cov=43/49	total_cov=49/51
-RA	309	.	NZ_VCBX02000001	3533000	0	C	T	bias_e_value=3230000	bias_p_value=0.445246	consensus_score=291.6	fisher_strand_p_value=0.155685	frequency=7.96089172e-02	ks_quality_p_value=1	major_base=C	major_cov=43/49	major_frequency=9.20391083e-01	minor_base=T	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=7.96089172e-02	polymorphism_score=9.4	prediction=polymorphism	ref_cov=43/49	total_cov=49/51
-RA	310	.	NZ_VCBX02000001	3533001	0	G	T	bias_e_value=1802900	bias_p_value=0.248524	consensus_score=322.0	fisher_strand_p_value=0.0766655	frequency=7.74407387e-02	ks_quality_p_value=0.875949	major_base=G	major_cov=39/56	major_frequency=9.22559261e-01	minor_base=T	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=7.74407387e-02	polymorphism_score=10.7	prediction=polymorphism	ref_cov=39/56	total_cov=45/58
-RA	311	.	NZ_VCBX02000001	3533009	0	A	G	bias_e_value=1746050	bias_p_value=0.240687	consensus_score=299.1	fisher_strand_p_value=0.0659126	frequency=7.59453773e-02	ks_quality_p_value=0.975178	major_base=A	major_cov=38/59	major_frequency=9.24054623e-01	minor_base=G	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=7.59453773e-02	polymorphism_score=10.3	prediction=polymorphism	ref_cov=38/59	total_cov=44/61
-RA	312	.	NZ_VCBX02000001	3533035	0	G	A	bias_e_value=705315	bias_p_value=0.0972255	consensus_score=306.7	fisher_strand_p_value=0.0206182	frequency=7.94844627e-02	ks_quality_p_value=0.957453	major_base=G	major_cov=29/63	major_frequency=9.20515537e-01	minor_base=A	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=7.94844627e-02	polymorphism_score=9.7	prediction=polymorphism	ref_cov=29/63	total_cov=35/66
-RA	313	.	NZ_VCBX02000001	3533039	0	T	C	bias_e_value=2002200	bias_p_value=0.275997	consensus_score=305.7	fisher_strand_p_value=0.081806	frequency=1.74807549e-01	ks_quality_p_value=0.948762	major_base=T	major_cov=34/65	major_frequency=8.25192451e-01	minor_base=C	minor_cov=12/9	new_cov=12/9	polymorphism_frequency=1.74807549e-01	polymorphism_score=44.1	prediction=polymorphism	ref_cov=34/65	total_cov=46/74
-RA	314	.	NZ_VCBX02000001	3533054	0	G	T	bias_e_value=4694820	bias_p_value=0.647166	consensus_score=287.5	fisher_strand_p_value=0.288535	frequency=2.83936501e-01	ks_quality_p_value=1	major_base=G	major_cov=27/57	major_frequency=7.16063499e-01	minor_base=T	minor_cov=15/19	new_cov=15/19	polymorphism_frequency=2.83936501e-01	polymorphism_score=78.1	prediction=polymorphism	ref_cov=27/57	total_cov=42/76
-RA	315	.	NZ_VCBX02000001	3533057	0	G	A	bias_e_value=2439660	bias_p_value=0.336299	consensus_score=220.5	fisher_strand_p_value=0.293428	frequency=2.85552979e-01	ks_quality_p_value=0.349791	major_base=G	major_cov=28/57	major_frequency=7.14447021e-01	minor_base=A	minor_cov=15/19	new_cov=15/19	polymorphism_frequency=2.85552979e-01	polymorphism_score=79.9	prediction=polymorphism	ref_cov=28/57	total_cov=43/76
-RA	316	.	NZ_VCBX02000001	3533067	0	G	A	bias_e_value=5587580	bias_p_value=0.770231	consensus_score=191.3	fisher_strand_p_value=0.433824	frequency=3.30430031e-01	ks_quality_p_value=0.931431	major_base=G	major_cov=30/51	major_frequency=6.69569969e-01	minor_base=A	minor_cov=18/22	new_cov=18/22	polymorphism_frequency=3.30430031e-01	polymorphism_score=98.4	prediction=polymorphism	ref_cov=30/51	total_cov=48/73
-RA	317	.	NZ_VCBX02000001	3533079	0	T	C	bias_e_value=7177910	bias_p_value=0.989452	consensus_score=164.1	fisher_strand_p_value=0.858319	frequency=3.82192135e-01	ks_quality_p_value=1	major_base=T	major_cov=34/50	major_frequency=6.17807865e-01	minor_base=C	minor_cov=20/32	new_cov=20/32	polymorphism_frequency=3.82192135e-01	polymorphism_score=133.0	prediction=polymorphism	ref_cov=34/50	total_cov=54/82
-RA	318	.	NZ_VCBX02000001	3533082	0	T	C	bias_e_value=5208990	bias_p_value=0.718044	consensus_score=171.7	fisher_strand_p_value=0.350578	frequency=3.55854988e-01	ks_quality_p_value=1	major_base=T	major_cov=35/50	major_frequency=6.44145012e-01	minor_base=C	minor_cov=15/32	new_cov=15/32	polymorphism_frequency=3.55854988e-01	polymorphism_score=118.2	prediction=polymorphism	ref_cov=35/50	total_cov=50/82
-RA	319	.	NZ_VCBX02000001	3533088	0	T	C	bias_e_value=2875110	bias_p_value=0.396326	consensus_score=82.8	fisher_strand_p_value=0.131471	frequency=4.39592361e-01	ks_quality_p_value=0.992905	major_base=T	major_cov=33/32	major_frequency=5.60407639e-01	minor_base=C	minor_cov=18/33	new_cov=18/33	polymorphism_frequency=4.39592361e-01	polymorphism_score=135.9	prediction=polymorphism	ref_cov=33/32	total_cov=51/65
-RA	320	.	NZ_VCBX02000001	3533094	0	C	G	bias_e_value=6569090	bias_p_value=0.905529	consensus_score=169.7	fisher_strand_p_value=0.598113	frequency=4.04727936e-01	ks_quality_p_value=1	major_base=C	major_cov=40/40	major_frequency=5.95272064e-01	minor_base=G	minor_cov=24/30	new_cov=24/30	polymorphism_frequency=4.04727936e-01	polymorphism_score=170.3	prediction=polymorphism	ref_cov=40/40	total_cov=64/72
-RA	321	.	NZ_VCBX02000001	3533097	0	T	C	bias_e_value=7177940	bias_p_value=0.989457	consensus_score=147.7	fisher_strand_p_value=0.858351	frequency=3.72943878e-01	ks_quality_p_value=1	major_base=T	major_cov=43/41	major_frequency=6.27056122e-01	minor_base=C	minor_cov=24/26	new_cov=24/26	polymorphism_frequency=3.72943878e-01	polymorphism_score=127.1	prediction=polymorphism	ref_cov=43/41	total_cov=67/67
-RA	322	.	NZ_VCBX02000001	3533118	0	A	G	bias_e_value=7173760	bias_p_value=0.988882	consensus_score=146.4	fisher_strand_p_value=0.854634	frequency=3.56307983e-01	ks_quality_p_value=1	major_base=A	major_cov=38/45	major_frequency=6.43692017e-01	minor_base=G	minor_cov=20/26	new_cov=20/26	polymorphism_frequency=3.56307983e-01	polymorphism_score=115.6	prediction=polymorphism	ref_cov=38/45	total_cov=58/71
-RA	323	.	NZ_VCBX02000001	3533135	0	A	C	bias_e_value=6827600	bias_p_value=0.941164	consensus_score=167.2	fisher_strand_p_value=0.680116	frequency=3.06360245e-01	ks_quality_p_value=0.995708	major_base=A	major_cov=34/43	major_frequency=6.93639755e-01	minor_base=C	minor_cov=17/17	new_cov=17/17	polymorphism_frequency=3.06360245e-01	polymorphism_score=105.4	prediction=polymorphism	ref_cov=34/43	total_cov=51/60
-RA	324	.	NZ_VCBX02000001	3533147	0	G	A	bias_e_value=7124650	bias_p_value=0.982112	consensus_score=179.0	fisher_strand_p_value=0.816914	frequency=2.56497383e-01	ks_quality_p_value=1	major_base=G	major_cov=38/34	major_frequency=7.43502617e-01	minor_base=A	minor_cov=12/13	new_cov=12/13	polymorphism_frequency=2.56497383e-01	polymorphism_score=56.7	prediction=polymorphism	ref_cov=38/34	total_cov=50/49
-RA	325	.	NZ_VCBX02000001	3533153	0	T	C	bias_e_value=6631660	bias_p_value=0.914154	consensus_score=195.1	fisher_strand_p_value=0.647381	frequency=2.39771366e-01	ks_quality_p_value=0.950562	major_base=T	major_cov=36/40	major_frequency=7.60228634e-01	minor_base=C	minor_cov=10/14	new_cov=10/14	polymorphism_frequency=2.39771366e-01	polymorphism_score=52.9	prediction=polymorphism	ref_cov=36/40	total_cov=46/54
-RA	326	.	NZ_VCBX02000001	3533175	0	C	G	bias_e_value=7043590	bias_p_value=0.970938	consensus_score=218.6	fisher_strand_p_value=0.814863	frequency=2.42478848e-01	ks_quality_p_value=0.943478	major_base=C	major_cov=34/41	major_frequency=7.57521152e-01	minor_base=G	minor_cov=12/12	new_cov=12/12	polymorphism_frequency=2.42478848e-01	polymorphism_score=67.9	prediction=polymorphism	ref_cov=34/41	total_cov=46/53
-RA	327	.	NZ_VCBX02000001	3533211	0	C	T	bias_e_value=112767	bias_p_value=0.0155446	consensus_score=95.4	fisher_strand_p_value=0.00300576	frequency=3.52936268e-01	ks_quality_p_value=0.725528	major_base=C	major_cov=11/44	major_frequency=6.47063732e-01	minor_base=T	minor_cov=16/14	new_cov=16/14	polymorphism_frequency=3.52936268e-01	polymorphism_score=73.1	prediction=polymorphism	ref_cov=11/44	total_cov=27/58
-RA	328	.	NZ_VCBX02000001	3533214	0	C	G	bias_e_value=25680	bias_p_value=0.00353991	consensus_score=101.2	fisher_strand_p_value=0.000424551	frequency=3.65953445e-01	ks_quality_p_value=0.94527	major_base=C	major_cov=8/44	major_frequency=6.34046555e-01	minor_base=G	minor_cov=16/14	new_cov=16/14	polymorphism_frequency=3.65953445e-01	polymorphism_score=92.6	prediction=polymorphism	ref_cov=8/44	total_cov=24/58
-RA	329	.	NZ_VCBX02000001	3533217	1	.	A	bias_e_value=30554.6	bias_p_value=0.00421186	consensus_score=183.8	fisher_strand_p_value=0.0015074	frequency=2.67448902e-01	ks_quality_p_value=0.323978	major_base=.	major_cov=10/53	major_frequency=7.32551098e-01	minor_base=A	minor_cov=12/11	new_cov=12/11	polymorphism_frequency=2.67448902e-01	polymorphism_score=127.1	prediction=polymorphism	ref_cov=10/53	total_cov=22/64
-RA	330	.	NZ_VCBX02000001	3533222	0	A	G	bias_e_value=657395	bias_p_value=0.0906199	consensus_score=154.3	fisher_strand_p_value=0.0189043	frequency=2.58244514e-01	ks_quality_p_value=0.956207	major_base=A	major_cov=16/50	major_frequency=7.41755486e-01	minor_base=G	minor_cov=12/11	new_cov=12/11	polymorphism_frequency=2.58244514e-01	polymorphism_score=52.0	prediction=polymorphism	ref_cov=16/50	total_cov=28/61
-RA	331	.	NZ_VCBX02000001	3533224	0	G	T	bias_e_value=1327360	bias_p_value=0.182973	consensus_score=206.5	fisher_strand_p_value=0.0446491	frequency=2.62014389e-01	ks_quality_p_value=0.996492	major_base=G	major_cov=18/46	major_frequency=7.37985611e-01	minor_base=T	minor_cov=12/11	new_cov=12/11	polymorphism_frequency=2.62014389e-01	polymorphism_score=51.9	prediction=polymorphism	ref_cov=18/46	total_cov=30/57
-RA	332	.	NZ_VCBX02000001	3533225	0	G	C	bias_e_value=1176040	bias_p_value=0.162113	consensus_score=178.2	fisher_strand_p_value=0.0446491	frequency=2.64547825e-01	ks_quality_p_value=0.850032	major_base=G	major_cov=18/46	major_frequency=7.35452175e-01	minor_base=C	minor_cov=12/11	new_cov=12/11	polymorphism_frequency=2.64547825e-01	polymorphism_score=66.1	prediction=polymorphism	ref_cov=18/46	total_cov=30/57
-RA	333	.	NZ_VCBX02000001	3533226	0	G	A	bias_e_value=956102	bias_p_value=0.131796	consensus_score=151.7	fisher_strand_p_value=0.0446491	frequency=2.64183521e-01	ks_quality_p_value=0.650283	major_base=G	major_cov=18/46	major_frequency=7.35816479e-01	minor_base=A	minor_cov=12/11	new_cov=12/11	polymorphism_frequency=2.64183521e-01	polymorphism_score=51.4	prediction=polymorphism	ref_cov=18/46	total_cov=30/57
-RA	334	.	NZ_VCBX02000001	3533227	0	G	A	bias_e_value=1330890	bias_p_value=0.18346	consensus_score=153.5	fisher_strand_p_value=0.0446491	frequency=2.64038086e-01	ks_quality_p_value=1	major_base=G	major_cov=18/46	major_frequency=7.35961914e-01	minor_base=A	minor_cov=12/11	new_cov=12/11	polymorphism_frequency=2.64038086e-01	polymorphism_score=50.4	prediction=polymorphism	ref_cov=18/46	total_cov=30/57
-RA	335	.	NZ_VCBX02000001	3533244	0	G	T	bias_e_value=4590900	bias_p_value=0.632842	consensus_score=166.3	fisher_strand_p_value=0.277192	frequency=2.81068802e-01	ks_quality_p_value=1	major_base=G	major_cov=17/34	major_frequency=7.18931198e-01	minor_base=T	minor_cov=10/10	new_cov=10/10	polymorphism_frequency=2.81068802e-01	polymorphism_score=46.8	prediction=polymorphism	ref_cov=17/34	total_cov=27/44
-RA	336	.	NZ_VCBX02000001	3533248	0	C	G	bias_e_value=4284250	bias_p_value=0.590571	consensus_score=132.7	fisher_strand_p_value=0.259972	frequency=2.65891552e-01	ks_quality_p_value=0.945088	major_base=C	major_cov=17/30	major_frequency=7.34108448e-01	minor_base=G	minor_cov=9/8	new_cov=9/8	polymorphism_frequency=2.65891552e-01	polymorphism_score=45.9	prediction=polymorphism	ref_cov=17/30	total_cov=26/38
-RA	337	.	NZ_VCBX02000001	3533249	0	A	G	bias_e_value=4001000	bias_p_value=0.551526	consensus_score=112.5	fisher_strand_p_value=0.246457	frequency=2.68506050e-01	ks_quality_p_value=0.888419	major_base=A	major_cov=16/31	major_frequency=7.31493950e-01	minor_base=G	minor_cov=9/8	new_cov=9/8	polymorphism_frequency=2.68506050e-01	polymorphism_score=37.8	prediction=polymorphism	ref_cov=16/31	total_cov=26/39
-RA	338	.	NZ_VCBX02000001	3533280	0	C	G	bias_e_value=7226260	bias_p_value=0.996118	consensus_score=188.4	fisher_strand_p_value=1	frequency=1.61844730e-01	ks_quality_p_value=0.913186	major_base=C	major_cov=29/28	major_frequency=8.38155270e-01	minor_base=G	minor_cov=6/5	new_cov=6/5	polymorphism_frequency=1.61844730e-01	polymorphism_score=26.8	prediction=polymorphism	ref_cov=29/28	total_cov=35/33
-RA	339	.	NZ_VCBX02000001	3533286	0	C	T	bias_e_value=7245110	bias_p_value=0.998716	consensus_score=143.2	fisher_strand_p_value=1	frequency=1.40108109e-01	ks_quality_p_value=0.949749	major_base=C	major_cov=24/25	major_frequency=8.59891891e-01	minor_base=T	minor_cov=4/4	new_cov=4/4	polymorphism_frequency=1.40108109e-01	polymorphism_score=12.0	prediction=polymorphism	ref_cov=24/25	total_cov=28/29
-RA	340	.	NZ_VCBX02000001	3533295	0	A	G	bias_e_value=7009390	bias_p_value=0.966224	consensus_score=164.2	fisher_strand_p_value=0.751612	frequency=1.63662434e-01	ks_quality_p_value=1	major_base=A	major_cov=27/29	major_frequency=8.36337566e-01	minor_base=G	minor_cov=6/5	new_cov=6/5	polymorphism_frequency=1.63662434e-01	polymorphism_score=18.7	prediction=polymorphism	ref_cov=27/29	total_cov=33/34
-RA	341	.	NZ_VCBX02000001	3533326	0	T	C	bias_e_value=7253680	bias_p_value=0.999898	consensus_score=226.1	fisher_strand_p_value=1	frequency=1.31162643e-01	ks_quality_p_value=0.985752	major_base=T	major_cov=40/33	major_frequency=8.68837357e-01	minor_base=C	minor_cov=6/5	new_cov=6/5	polymorphism_frequency=1.31162643e-01	polymorphism_score=18.9	prediction=polymorphism	ref_cov=40/33	total_cov=47/38
-RA	342	.	NZ_VCBX02000001	3533327	0	C	T	bias_e_value=7253820	bias_p_value=0.999916	consensus_score=239.4	fisher_strand_p_value=1	frequency=1.24339581e-01	ks_quality_p_value=0.987097	major_base=C	major_cov=40/37	major_frequency=8.75660419e-01	minor_base=T	minor_cov=6/5	new_cov=6/5	polymorphism_frequency=1.24339581e-01	polymorphism_score=17.2	prediction=polymorphism	ref_cov=40/37	total_cov=47/42
-RA	343	.	NZ_VCBX02000001	3533341	0	A	G	bias_e_value=4381230	bias_p_value=0.603939	consensus_score=219.5	fisher_strand_p_value=0.255354	frequency=1.65523529e-01	ks_quality_p_value=1	major_base=A	major_cov=33/38	major_frequency=8.34476471e-01	minor_base=G	minor_cov=9/5	new_cov=9/5	polymorphism_frequency=1.65523529e-01	polymorphism_score=25.9	prediction=polymorphism	ref_cov=33/38	total_cov=42/44
-RA	344	.	NZ_VCBX02000001	3533347	0	A	G	bias_e_value=4043020	bias_p_value=0.557317	consensus_score=197.0	fisher_strand_p_value=0.222792	frequency=2.25309372e-01	ks_quality_p_value=1	major_base=A	major_cov=33/39	major_frequency=7.74690628e-01	minor_base=G	minor_cov=13/8	new_cov=13/8	polymorphism_frequency=2.25309372e-01	polymorphism_score=43.3	prediction=polymorphism	ref_cov=33/39	total_cov=46/47
-RA	345	.	NZ_VCBX02000001	3533349	0	G	T	bias_e_value=2945110	bias_p_value=0.405975	consensus_score=237.6	fisher_strand_p_value=0.138845	frequency=2.25601673e-01	ks_quality_p_value=0.974608	major_base=G	major_cov=30/41	major_frequency=7.74398327e-01	minor_base=T	minor_cov=13/8	new_cov=13/8	polymorphism_frequency=2.25601673e-01	polymorphism_score=46.7	prediction=polymorphism	ref_cov=30/41	total_cov=44/49
-RA	346	.	NZ_VCBX02000001	3533358	0	C	G	bias_e_value=2614930	bias_p_value=0.36046	consensus_score=220.1	fisher_strand_p_value=0.114178	frequency=2.06786633e-01	ks_quality_p_value=0.994021	major_base=C	major_cov=27/42	major_frequency=7.93213367e-01	minor_base=G	minor_cov=11/7	new_cov=11/7	polymorphism_frequency=2.06786633e-01	polymorphism_score=48.3	prediction=polymorphism	ref_cov=27/42	total_cov=38/49
-RA	347	.	NZ_VCBX02000001	3533361	0	T	.	bias_e_value=2549970	bias_p_value=0.351505	consensus_score=226.4	fisher_strand_p_value=0.109414	frequency=2.09283829e-01	ks_quality_p_value=1	major_base=T	major_cov=26/42	major_frequency=7.90716171e-01	minor_base=.	minor_cov=11/7	new_cov=11/7	polymorphism_frequency=2.09283829e-01	polymorphism_score=59.3	prediction=polymorphism	ref_cov=26/42	total_cov=37/49
-RA	348	.	NZ_VCBX02000001	3533375	0	C	T	bias_e_value=208960	bias_p_value=0.0288045	consensus_score=145.6	fisher_strand_p_value=0.00609264	frequency=2.79292583e-01	ks_quality_p_value=0.738232	major_base=C	major_cov=17/47	major_frequency=7.20707417e-01	minor_base=T	minor_cov=15/10	new_cov=15/10	polymorphism_frequency=2.79292583e-01	polymorphism_score=56.3	prediction=polymorphism	ref_cov=17/47	total_cov=32/58
-RA	349	.	NZ_VCBX02000001	3533376	0	G	T	bias_e_value=320686	bias_p_value=0.0442057	consensus_score=196.0	fisher_strand_p_value=0.00750189	frequency=2.87084103e-01	ks_quality_p_value=1	major_base=G	major_cov=17/47	major_frequency=7.12915897e-01	minor_base=T	minor_cov=15/11	new_cov=15/11	polymorphism_frequency=2.87084103e-01	polymorphism_score=62.5	prediction=polymorphism	ref_cov=17/47	total_cov=32/58
-RA	350	.	NZ_VCBX02000001	3533393	0	C	A	bias_e_value=290578	bias_p_value=0.0400553	consensus_score=107.2	fisher_strand_p_value=0.00719691	frequency=4.12980080e-01	ks_quality_p_value=0.92589	major_base=C	major_cov=8/45	major_frequency=5.87019920e-01	minor_base=A	minor_cov=16/22	new_cov=16/22	polymorphism_frequency=4.12980080e-01	polymorphism_score=103.8	prediction=polymorphism	ref_cov=8/45	total_cov=24/68
-RA	351	.	NZ_VCBX02000001	3533411	0	C	T	bias_e_value=6410590	bias_p_value=0.88368	consensus_score=95.7	fisher_strand_p_value=0.815425	frequency=3.65601540e-01	ks_quality_p_value=0.68461	major_base=C	major_cov=17/42	major_frequency=6.34398460e-01	minor_base=T	minor_cov=11/23	new_cov=11/23	polymorphism_frequency=3.65601540e-01	polymorphism_score=84.3	prediction=polymorphism	ref_cov=17/42	total_cov=28/65
-RA	352	.	NZ_VCBX02000001	3533417	0	T	C	bias_e_value=7094370	bias_p_value=0.977937	consensus_score=106.7	fisher_strand_p_value=0.808167	frequency=3.40522289e-01	ks_quality_p_value=0.986714	major_base=T	major_cov=17/41	major_frequency=6.59477711e-01	minor_base=C	minor_cov=10/20	new_cov=10/20	polymorphism_frequency=3.40522289e-01	polymorphism_score=71.2	prediction=polymorphism	ref_cov=17/41	total_cov=27/61
-RA	353	.	NZ_VCBX02000001	3533421	0	C	T	bias_e_value=6509670	bias_p_value=0.897339	consensus_score=106.3	fisher_strand_p_value=0.590723	frequency=3.32974911e-01	ks_quality_p_value=0.986207	major_base=C	major_cov=16/32	major_frequency=6.67025089e-01	minor_base=T	minor_cov=6/18	new_cov=6/18	polymorphism_frequency=3.32974911e-01	polymorphism_score=57.1	prediction=polymorphism	ref_cov=16/32	total_cov=22/51
-RA	354	.	NZ_VCBX02000001	3533427	0	T	C	bias_e_value=3768360	bias_p_value=0.519457	consensus_score=138.3	fisher_strand_p_value=0.198493	frequency=2.84125805e-01	ks_quality_p_value=1	major_base=T	major_cov=22/36	major_frequency=7.15874195e-01	minor_base=C	minor_cov=5/18	new_cov=5/18	polymorphism_frequency=2.84125805e-01	polymorphism_score=52.6	prediction=polymorphism	ref_cov=22/36	total_cov=28/54
-RA	355	.	NZ_VCBX02000001	3533432	0	A	G	bias_e_value=4956020	bias_p_value=0.683172	consensus_score=119.0	fisher_strand_p_value=0.318733	frequency=3.20370197e-01	ks_quality_p_value=1	major_base=A	major_cov=22/31	major_frequency=6.79629803e-01	minor_base=G	minor_cov=7/18	new_cov=7/18	polymorphism_frequency=3.20370197e-01	polymorphism_score=59.6	prediction=polymorphism	ref_cov=22/31	total_cov=29/49
-RA	356	.	NZ_VCBX02000001	3533447	0	C	G	bias_e_value=3140040	bias_p_value=0.432845	consensus_score=169.2	fisher_strand_p_value=0.172901	frequency=2.57588387e-01	ks_quality_p_value=0.862303	major_base=C	major_cov=26/28	major_frequency=7.42411613e-01	minor_base=G	minor_cov=5/13	new_cov=5/13	polymorphism_frequency=2.57588387e-01	polymorphism_score=46.5	prediction=polymorphism	ref_cov=26/28	total_cov=31/42
-RA	357	.	NZ_VCBX02000001	3533462	0	C	G	bias_e_value=6212690	bias_p_value=0.856401	consensus_score=187.7	fisher_strand_p_value=0.620266	frequency=2.81025887e-01	ks_quality_p_value=0.829446	major_base=C	major_cov=34/25	major_frequency=7.18974113e-01	minor_base=G	minor_cov=15/8	new_cov=15/8	polymorphism_frequency=2.81025887e-01	polymorphism_score=67.4	prediction=polymorphism	ref_cov=34/25	total_cov=49/33
-RA	358	.	NZ_VCBX02000001	3533465	0	T	C	bias_e_value=5936760	bias_p_value=0.818365	consensus_score=151.6	fisher_strand_p_value=0.462828	frequency=2.88995743e-01	ks_quality_p_value=0.997128	major_base=T	major_cov=33/26	major_frequency=7.11004257e-01	minor_base=C	minor_cov=16/8	new_cov=16/8	polymorphism_frequency=2.88995743e-01	polymorphism_score=56.1	prediction=polymorphism	ref_cov=33/26	total_cov=49/34
-RA	359	.	NZ_VCBX02000001	3533486	0	A	G	bias_e_value=3840580	bias_p_value=0.529413	consensus_score=155.0	fisher_strand_p_value=0.20471	frequency=2.58869648e-01	ks_quality_p_value=1	major_base=A	major_cov=26/34	major_frequency=7.41130352e-01	minor_base=G	minor_cov=13/8	new_cov=13/8	polymorphism_frequency=2.58869648e-01	polymorphism_score=45.5	prediction=polymorphism	ref_cov=26/34	total_cov=39/42
-RA	360	.	NZ_VCBX02000001	3533489	0	A	G	bias_e_value=2637920	bias_p_value=0.363629	consensus_score=174.3	fisher_strand_p_value=0.114956	frequency=2.24125385e-01	ks_quality_p_value=1	major_base=A	major_cov=28/35	major_frequency=7.75874615e-01	minor_base=G	minor_cov=12/6	new_cov=12/6	polymorphism_frequency=2.24125385e-01	polymorphism_score=38.4	prediction=polymorphism	ref_cov=28/35	total_cov=41/41
-RA	361	.	NZ_VCBX02000001	3533501	0	C	T	bias_e_value=1119070	bias_p_value=0.154261	consensus_score=167.7	fisher_strand_p_value=0.0357517	frequency=1.94164276e-01	ks_quality_p_value=0.995086	major_base=C	major_cov=26/32	major_frequency=8.05835724e-01	minor_base=T	minor_cov=11/3	new_cov=11/3	polymorphism_frequency=1.94164276e-01	polymorphism_score=26.4	prediction=polymorphism	ref_cov=26/32	total_cov=37/35
-RA	362	.	NZ_VCBX02000001	3533507	0	A	G	bias_e_value=845671	bias_p_value=0.116573	consensus_score=163.2	fisher_strand_p_value=0.0250621	frequency=1.73454285e-01	ks_quality_p_value=0.990511	major_base=A	major_cov=26/31	major_frequency=8.26545715e-01	minor_base=G	minor_cov=10/2	new_cov=10/2	polymorphism_frequency=1.73454285e-01	polymorphism_score=21.5	prediction=polymorphism	ref_cov=26/31	total_cov=36/33
-RA	363	.	NZ_VCBX02000001	3540087	0	T	C	bias_e_value=7239340	bias_p_value=0.99792	consensus_score=217.3	fisher_strand_p_value=1	frequency=9.73272324e-02	ks_quality_p_value=0.936206	major_base=T	major_cov=47/27	major_frequency=9.02672768e-01	minor_base=C	minor_cov=5/3	new_cov=5/3	polymorphism_frequency=9.73272324e-02	polymorphism_score=11.3	prediction=polymorphism	ref_cov=47/27	total_cov=52/30
-RA	364	.	NZ_VCBX02000001	3540089	0	A	G	bias_e_value=7244920	bias_p_value=0.99869	consensus_score=202.0	fisher_strand_p_value=1	frequency=1.13678455e-01	ks_quality_p_value=0.949253	major_base=A	major_cov=44/26	major_frequency=8.86321545e-01	minor_base=G	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=1.13678455e-01	polymorphism_score=13.8	prediction=polymorphism	ref_cov=44/26	total_cov=50/29
-RA	365	.	NZ_VCBX02000001	3540108	0	G	T	bias_e_value=5584300	bias_p_value=0.769779	consensus_score=223.9	fisher_strand_p_value=0.493819	frequency=1.18255138e-01	ks_quality_p_value=0.81726	major_base=G	major_cov=35/32	major_frequency=8.81744862e-01	minor_base=T	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=1.18255138e-01	polymorphism_score=14.3	prediction=polymorphism	ref_cov=35/32	total_cov=41/35
-RA	366	.	NZ_VCBX02000001	3540114	0	A	C	bias_e_value=5538200	bias_p_value=0.763425	consensus_score=142.2	fisher_strand_p_value=0.707182	frequency=1.29536152e-01	ks_quality_p_value=0.560876	major_base=A	major_cov=26/28	major_frequency=8.70463848e-01	minor_base=C	minor_cov=5/3	new_cov=5/3	polymorphism_frequency=1.29536152e-01	polymorphism_score=20.8	prediction=polymorphism	ref_cov=26/28	total_cov=31/31
-RA	367	.	NZ_VCBX02000001	3554100	0	G	T	bias_e_value=3696390	bias_p_value=0.509536	consensus_score=119.9	fisher_strand_p_value=0.193062	frequency=1.20819092e-01	ks_quality_p_value=0.996653	major_base=G	major_cov=13/24	major_frequency=8.79180908e-01	minor_base=T	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.20819092e-01	polymorphism_score=4.0	prediction=polymorphism	ref_cov=13/24	total_cov=17/27
-RA	368	.	NZ_VCBX02000001	4205785	0	G	T	bias_e_value=7254420	bias_p_value=1	consensus_score=177.9	fisher_strand_p_value=1	frequency=8.46905708e-02	ks_quality_p_value=1	major_base=G	major_cov=37/17	major_frequency=9.15309429e-01	minor_base=T	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.46905708e-02	polymorphism_score=2.5	prediction=polymorphism	ref_cov=37/17	total_cov=41/19
-RA	369	.	NZ_VCBX02000001	4454517	0	C	A	bias_e_value=6852540	bias_p_value=0.944601	consensus_score=159.5	fisher_strand_p_value=0.686168	frequency=1.05729103e-01	ks_quality_p_value=1	major_base=C	major_cov=28/20	major_frequency=8.94270897e-01	minor_base=A	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=1.05729103e-01	polymorphism_score=3.1	prediction=polymorphism	ref_cov=28/20	total_cov=31/24
-RA	370	.	NZ_VCBX02000001	4699341	0	C	G	bias_e_value=6505480	bias_p_value=0.896761	consensus_score=150.7	fisher_strand_p_value=0.589011	frequency=6.94127083e-02	ks_quality_p_value=0.987261	major_base=C	major_cov=15/33	major_frequency=9.30587292e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.94127083e-02	polymorphism_score=2.4	prediction=polymorphism	ref_cov=15/33	total_cov=17/35
-RA	371	.	NZ_VCBX02000001	5202330	0	G	T	bias_e_value=1548060	bias_p_value=0.213395	consensus_score=193.8	fisher_strand_p_value=0.0681641	frequency=7.91625977e-02	ks_quality_p_value=0.801176	major_base=G	major_cov=11/47	major_frequency=9.20837402e-01	minor_base=T	minor_cov=3/2	new_cov=3/2	polymorphism_frequency=7.91625977e-02	polymorphism_score=4.6	prediction=polymorphism	ref_cov=11/47	total_cov=14/49
-RA	372	.	NZ_VCBX02000001	5224979	0	G	T	bias_e_value=7254420	bias_p_value=1	consensus_score=127.3	fisher_strand_p_value=1	frequency=1.52793407e-01	ks_quality_p_value=1	major_base=G	major_cov=23/18	major_frequency=8.47206593e-01	minor_base=T	minor_cov=5/3	new_cov=5/3	polymorphism_frequency=1.52793407e-01	polymorphism_score=7.8	prediction=polymorphism	ref_cov=23/18	total_cov=28/21
-RA	373	.	NZ_VCBX02000001	5360924	0	C	A	bias_e_value=7238450	bias_p_value=0.997798	consensus_score=125.1	fisher_strand_p_value=1	frequency=1.39332294e-01	ks_quality_p_value=0.934371	major_base=C	major_cov=27/10	major_frequency=8.60667706e-01	minor_base=A	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.39332294e-01	polymorphism_score=8.6	prediction=polymorphism	ref_cov=27/10	total_cov=31/12
-RA	374	.	NZ_VCBX02000001	6207002	0	C	A	consensus_score=172.6	frequency=1	major_base=A	major_cov=32/21	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=32/21	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=32/21
-RA	375	.	NZ_VCBX02000001	6628015	0	G	T	bias_e_value=5977730	bias_p_value=0.824012	consensus_score=163.9	fisher_strand_p_value=0.471645	frequency=1.55250549e-01	ks_quality_p_value=0.994135	major_base=G	major_cov=27/24	major_frequency=8.44749451e-01	minor_base=T	minor_cov=3/6	new_cov=3/6	polymorphism_frequency=1.55250549e-01	polymorphism_score=15.3	prediction=polymorphism	ref_cov=27/24	total_cov=31/30
-RA	376	.	NZ_VCBX02000001	6629630	0	C	A	bias_e_value=6810050	bias_p_value=0.938745	consensus_score=200.9	fisher_strand_p_value=0.6731	frequency=8.91947746e-02	ks_quality_p_value=0.996974	major_base=C	major_cov=23/37	major_frequency=9.10805225e-01	minor_base=A	minor_cov=3/3	new_cov=3/3	polymorphism_frequency=8.91947746e-02	polymorphism_score=6.0	prediction=polymorphism	ref_cov=23/37	total_cov=27/40
-RA	377	.	NZ_VCBX02000002	26432	0	C	A	bias_e_value=3461540	bias_p_value=0.477163	consensus_score=225.4	fisher_strand_p_value=0.173365	frequency=6.91833496e-02	ks_quality_p_value=1	major_base=C	major_cov=45/21	major_frequency=9.30816650e-01	minor_base=A	minor_cov=2/4	new_cov=2/4	polymorphism_frequency=6.91833496e-02	polymorphism_score=2.1	prediction=polymorphism	ref_cov=45/21	total_cov=48/25
-RA	378	.	NZ_VCBX02000002	111318	0	G	C	bias_e_value=6917000	bias_p_value=0.953487	consensus_score=273.9	fisher_strand_p_value=0.787598	frequency=1.69998169e-01	ks_quality_p_value=0.90266	major_base=G	major_cov=48/35	major_frequency=8.30001831e-01	minor_base=C	minor_cov=11/6	new_cov=11/6	polymorphism_frequency=1.69998169e-01	polymorphism_score=44.2	prediction=polymorphism	ref_cov=48/35	total_cov=59/41
-RA	379	.	NZ_VCBX02000002	111319	0	A	G	bias_e_value=5761820	bias_p_value=0.794249	consensus_score=237.0	fisher_strand_p_value=0.787598	frequency=1.72312260e-01	ks_quality_p_value=0.547988	major_base=A	major_cov=48/35	major_frequency=8.27687740e-01	minor_base=G	minor_cov=11/6	new_cov=11/6	polymorphism_frequency=1.72312260e-01	polymorphism_score=32.1	prediction=polymorphism	ref_cov=48/35	total_cov=61/41
-RA	380	.	NZ_VCBX02000002	111325	0	C	G	bias_e_value=4121330	bias_p_value=0.568113	consensus_score=256.2	fisher_strand_p_value=0.788856	frequency=1.68647766e-01	ks_quality_p_value=0.291637	major_base=C	major_cov=46/33	major_frequency=8.31352234e-01	minor_base=G	minor_cov=10/6	new_cov=10/6	polymorphism_frequency=1.68647766e-01	polymorphism_score=39.2	prediction=polymorphism	ref_cov=46/33	total_cov=56/39
-RA	381	.	NZ_VCBX02000002	214627	0	A	G	bias_e_value=7252150	bias_p_value=0.999687	consensus_score=389.0	fisher_strand_p_value=1	frequency=6.13155365e-02	ks_quality_p_value=0.975095	major_base=A	major_cov=77/45	major_frequency=9.38684464e-01	minor_base=G	minor_cov=5/3	new_cov=5/3	polymorphism_frequency=6.13155365e-02	polymorphism_score=9.6	prediction=polymorphism	ref_cov=77/45	total_cov=83/48
-RA	382	.	NZ_VCBX02000002	214634	0	G	A	bias_e_value=6456980	bias_p_value=0.890076	consensus_score=399.4	fisher_strand_p_value=0.707078	frequency=5.98173141e-02	ks_quality_p_value=0.805299	major_base=G	major_cov=86/39	major_frequency=9.40182686e-01	minor_base=A	minor_cov=5/3	new_cov=5/3	polymorphism_frequency=5.98173141e-02	polymorphism_score=8.6	prediction=polymorphism	ref_cov=86/39	total_cov=91/42
-RA	383	.	NZ_VCBX02000002	214645	0	A	G	bias_e_value=6264540	bias_p_value=0.863547	consensus_score=405.0	fisher_strand_p_value=0.536668	frequency=8.98890495e-02	ks_quality_p_value=0.979011	major_base=A	major_cov=92/39	major_frequency=9.10110950e-01	minor_base=G	minor_cov=8/5	new_cov=8/5	polymorphism_frequency=8.98890495e-02	polymorphism_score=20.4	prediction=polymorphism	ref_cov=92/39	total_cov=100/44
-RA	384	.	NZ_VCBX02000002	214648	0	A	G	bias_e_value=6215410	bias_p_value=0.856775	consensus_score=413.2	fisher_strand_p_value=0.532573	frequency=8.87427330e-02	ks_quality_p_value=0.96708	major_base=A	major_cov=94/39	major_frequency=9.11257267e-01	minor_base=G	minor_cov=8/5	new_cov=8/5	polymorphism_frequency=8.87427330e-02	polymorphism_score=20.7	prediction=polymorphism	ref_cov=94/39	total_cov=102/44
-RA	385	.	NZ_VCBX02000002	214682	0	G	A	bias_e_value=4114500	bias_p_value=0.567171	consensus_score=301.1	fisher_strand_p_value=0.352094	frequency=1.88431263e-01	ks_quality_p_value=0.651584	major_base=G	major_cov=72/35	major_frequency=8.11568737e-01	minor_base=A	minor_cov=14/11	new_cov=14/11	polymorphism_frequency=1.88431263e-01	polymorphism_score=52.1	prediction=polymorphism	ref_cov=72/35	total_cov=87/46
-RA	386	.	NZ_VCBX02000002	214702	0	A	C	bias_e_value=6805970	bias_p_value=0.938182	consensus_score=270.3	fisher_strand_p_value=0.784918	frequency=1.44254684e-01	ks_quality_p_value=0.853153	major_base=A	major_cov=43/46	major_frequency=8.55745316e-01	minor_base=C	minor_cov=8/7	new_cov=8/7	polymorphism_frequency=1.44254684e-01	polymorphism_score=39.8	prediction=polymorphism	ref_cov=43/46	total_cov=51/53
-RA	387	.	NZ_VCBX02000002	214704	0	G	C	bias_e_value=7254420	bias_p_value=1	consensus_score=291.1	fisher_strand_p_value=1	frequency=1.35010719e-01	ks_quality_p_value=1	major_base=G	major_cov=42/46	major_frequency=8.64989281e-01	minor_base=C	minor_cov=7/7	new_cov=7/7	polymorphism_frequency=1.35010719e-01	polymorphism_score=30.9	prediction=polymorphism	ref_cov=42/46	total_cov=49/53
-RA	388	.	NZ_VCBX02000002	214733	0	G	A	bias_e_value=2816490	bias_p_value=0.388245	consensus_score=142.9	fisher_strand_p_value=0.207288	frequency=2.71437645e-01	ks_quality_p_value=0.610739	major_base=G	major_cov=20/39	major_frequency=7.28562355e-01	minor_base=A	minor_cov=11/11	new_cov=11/11	polymorphism_frequency=2.71437645e-01	polymorphism_score=49.4	prediction=polymorphism	ref_cov=20/39	total_cov=31/50
-RA	389	.	NZ_VCBX02000002	214739	0	G	T	bias_e_value=1314970	bias_p_value=0.181265	consensus_score=147.2	fisher_strand_p_value=0.118266	frequency=3.05582047e-01	ks_quality_p_value=0.371577	major_base=G	major_cov=15/35	major_frequency=6.94417953e-01	minor_base=T	minor_cov=11/11	new_cov=11/11	polymorphism_frequency=3.05582047e-01	polymorphism_score=56.0	prediction=polymorphism	ref_cov=15/35	total_cov=26/46
-RA	390	.	NZ_VCBX02000002	214770	0	C	T	bias_e_value=6434580	bias_p_value=0.886987	consensus_score=104.9	fisher_strand_p_value=0.563971	frequency=2.58184910e-01	ks_quality_p_value=1	major_base=C	major_cov=19/24	major_frequency=7.41815090e-01	minor_base=T	minor_cov=8/7	new_cov=8/7	polymorphism_frequency=2.58184910e-01	polymorphism_score=30.7	prediction=polymorphism	ref_cov=19/24	total_cov=27/31
-RA	391	.	NZ_VCBX02000002	214774	0	A	G	bias_e_value=6264120	bias_p_value=0.86349	consensus_score=126.2	fisher_strand_p_value=0.525618	frequency=1.85995102e-01	ks_quality_p_value=0.999422	major_base=A	major_cov=23/25	major_frequency=8.14004898e-01	minor_base=G	minor_cov=4/7	new_cov=4/7	polymorphism_frequency=1.85995102e-01	polymorphism_score=19.6	prediction=polymorphism	ref_cov=23/25	total_cov=27/32
-RA	392	.	NZ_VCBX02000002	215327	0	G	A	bias_e_value=7254420	bias_p_value=1	consensus_score=219.1	fisher_strand_p_value=1	frequency=2.63920307e-01	ks_quality_p_value=1	major_base=G	major_cov=33/67	major_frequency=7.36079693e-01	minor_base=A	minor_cov=12/24	new_cov=12/24	polymorphism_frequency=2.63920307e-01	polymorphism_score=82.9	prediction=polymorphism	ref_cov=33/67	total_cov=45/92
-RA	393	.	NZ_VCBX02000002	215338	0	G	A	bias_e_value=2060060	bias_p_value=0.283973	consensus_score=271.5	fisher_strand_p_value=0.148065	frequency=1.75779343e-01	ks_quality_p_value=0.545435	major_base=G	major_cov=37/66	major_frequency=8.24220657e-01	minor_base=A	minor_cov=12/10	new_cov=12/10	polymorphism_frequency=1.75779343e-01	polymorphism_score=44.6	prediction=polymorphism	ref_cov=37/66	total_cov=49/76
-RA	394	.	NZ_VCBX02000002	215348	0	A	G	bias_e_value=7003340	bias_p_value=0.96539	consensus_score=300.2	fisher_strand_p_value=0.76249	frequency=1.04123116e-01	ks_quality_p_value=0.98193	major_base=A	major_cov=41/62	major_frequency=8.95876884e-01	minor_base=G	minor_cov=4/8	new_cov=4/8	polymorphism_frequency=1.04123116e-01	polymorphism_score=20.1	prediction=polymorphism	ref_cov=41/62	total_cov=45/70
-RA	395	.	NZ_VCBX02000002	215388	0	G	A	bias_e_value=6858890	bias_p_value=0.945477	consensus_score=223.0	fisher_strand_p_value=0.704615	frequency=9.60144997e-02	ks_quality_p_value=0.977133	major_base=G	major_cov=47/28	major_frequency=9.03985500e-01	minor_base=A	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=9.60144997e-02	polymorphism_score=9.9	prediction=polymorphism	ref_cov=47/28	total_cov=53/30
-RA	396	.	NZ_VCBX02000002	215399	0	A	G	bias_e_value=6533480	bias_p_value=0.90062	consensus_score=210.5	fisher_strand_p_value=0.703246	frequency=9.96937752e-02	ks_quality_p_value=0.837128	major_base=A	major_cov=44/28	major_frequency=9.00306225e-01	minor_base=G	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=9.96937752e-02	polymorphism_score=10.5	prediction=polymorphism	ref_cov=44/28	total_cov=50/30
-RA	397	.	NZ_VCBX02000002	215400	0	C	A	bias_e_value=5443770	bias_p_value=0.750407	consensus_score=270.1	fisher_strand_p_value=0.458224	frequency=8.97445679e-02	ks_quality_p_value=0.835458	major_base=C	major_cov=45/36	major_frequency=9.10255432e-01	minor_base=A	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=8.97445679e-02	polymorphism_score=12.1	prediction=polymorphism	ref_cov=45/36	total_cov=51/38
-RA	398	.	NZ_VCBX02000002	215401	0	G	T	bias_e_value=5866350	bias_p_value=0.808659	consensus_score=275.7	fisher_strand_p_value=0.458224	frequency=8.97307396e-02	ks_quality_p_value=0.980223	major_base=G	major_cov=45/36	major_frequency=9.10269260e-01	minor_base=T	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=8.97307396e-02	polymorphism_score=11.8	prediction=polymorphism	ref_cov=45/36	total_cov=51/38
-RA	399	.	NZ_VCBX02000002	215405	0	A	T	bias_e_value=4494230	bias_p_value=0.619516	consensus_score=254.9	fisher_strand_p_value=0.283358	frequency=9.30147171e-02	ks_quality_p_value=0.942113	major_base=A	major_cov=41/37	major_frequency=9.06985283e-01	minor_base=T	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=9.30147171e-02	polymorphism_score=14.7	prediction=polymorphism	ref_cov=41/37	total_cov=47/39
-RA	400	.	NZ_VCBX02000002	215409	0	G	C	bias_e_value=4653740	bias_p_value=0.641504	consensus_score=234.9	fisher_strand_p_value=0.284842	frequency=1.02202415e-01	ks_quality_p_value=0.997074	major_base=G	major_cov=37/33	major_frequency=8.97797585e-01	minor_base=C	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=1.02202415e-01	polymorphism_score=13.5	prediction=polymorphism	ref_cov=37/33	total_cov=43/35
-RA	401	.	NZ_VCBX02000002	215413	0	A	C	bias_e_value=4423050	bias_p_value=0.609704	consensus_score=197.7	fisher_strand_p_value=0.267371	frequency=1.08080864e-01	ks_quality_p_value=0.970946	major_base=A	major_cov=33/33	major_frequency=8.91919136e-01	minor_base=C	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=1.08080864e-01	polymorphism_score=17.3	prediction=polymorphism	ref_cov=33/33	total_cov=39/35
-RA	402	.	NZ_VCBX02000002	215414	0	T	G	bias_e_value=4459340	bias_p_value=0.614707	consensus_score=198.5	fisher_strand_p_value=0.270988	frequency=1.06801987e-01	ks_quality_p_value=0.97175	major_base=T	major_cov=34/33	major_frequency=8.93198013e-01	minor_base=G	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=1.06801987e-01	polymorphism_score=15.1	prediction=polymorphism	ref_cov=34/33	total_cov=40/35
-RA	403	.	NZ_VCBX02000002	215418	0	A	G	bias_e_value=2233710	bias_p_value=0.30791	consensus_score=172.1	fisher_strand_p_value=0.13235	frequency=1.15658760e-01	ks_quality_p_value=0.683767	major_base=A	major_cov=26/35	major_frequency=8.84341240e-01	minor_base=G	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=1.15658760e-01	polymorphism_score=11.1	prediction=polymorphism	ref_cov=26/35	total_cov=32/37
-RA	404	.	NZ_VCBX02000002	215419	0	C	A	bias_e_value=2110710	bias_p_value=0.290956	consensus_score=203.1	fisher_strand_p_value=0.13235	frequency=1.15827560e-01	ks_quality_p_value=0.631305	major_base=C	major_cov=26/35	major_frequency=8.84172440e-01	minor_base=A	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=1.15827560e-01	polymorphism_score=13.6	prediction=polymorphism	ref_cov=26/35	total_cov=32/37
-RA	405	.	NZ_VCBX02000002	215420	0	A	G	bias_e_value=2823260	bias_p_value=0.389178	consensus_score=168.8	fisher_strand_p_value=0.135278	frequency=1.18612289e-01	ks_quality_p_value=0.939183	major_base=A	major_cov=26/34	major_frequency=8.81387711e-01	minor_base=G	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=1.18612289e-01	polymorphism_score=11.2	prediction=polymorphism	ref_cov=26/34	total_cov=32/37
-RA	406	.	NZ_VCBX02000002	215424	0	T	C	bias_e_value=2743950	bias_p_value=0.378245	consensus_score=152.9	fisher_strand_p_value=0.124076	frequency=1.26549244e-01	ks_quality_p_value=0.981699	major_base=T	major_cov=22/33	major_frequency=8.73450756e-01	minor_base=C	minor_cov=6/2	new_cov=6/2	polymorphism_frequency=1.26549244e-01	polymorphism_score=10.7	prediction=polymorphism	ref_cov=22/33	total_cov=28/35
-RA	407	.	NZ_VCBX02000002	215570	0	A	G	bias_e_value=3418920	bias_p_value=0.471288	consensus_score=136.6	fisher_strand_p_value=0.170961	frequency=1.19757175e-01	ks_quality_p_value=0.99456	major_base=A	major_cov=14/30	major_frequency=8.80242825e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.19757175e-01	polymorphism_score=7.4	prediction=polymorphism	ref_cov=14/30	total_cov=18/32
-RA	408	.	NZ_VCBX02000002	215573	0	A	G	bias_e_value=2725250	bias_p_value=0.375668	consensus_score=137.0	fisher_strand_p_value=0.170961	frequency=1.19763851e-01	ks_quality_p_value=0.705329	major_base=A	major_cov=14/30	major_frequency=8.80236149e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.19763851e-01	polymorphism_score=7.4	prediction=polymorphism	ref_cov=14/30	total_cov=18/32
-RA	409	.	NZ_VCBX02000002	215574	0	C	A	bias_e_value=3430860	bias_p_value=0.472933	consensus_score=143.2	fisher_strand_p_value=0.170961	frequency=1.10396385e-01	ks_quality_p_value=1	major_base=C	major_cov=14/30	major_frequency=8.89603615e-01	minor_base=A	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.10396385e-01	polymorphism_score=4.3	prediction=polymorphism	ref_cov=14/30	total_cov=18/32
-RA	410	.	NZ_VCBX02000002	215575	0	G	A	bias_e_value=3549900	bias_p_value=0.489343	consensus_score=123.6	fisher_strand_p_value=0.191302	frequency=1.33553505e-01	ks_quality_p_value=0.942994	major_base=G	major_cov=14/26	major_frequency=8.66446495e-01	minor_base=A	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.33553505e-01	polymorphism_score=7.3	prediction=polymorphism	ref_cov=14/26	total_cov=18/29
-RA	411	.	NZ_VCBX02000002	215576	0	C	T	bias_e_value=3548250	bias_p_value=0.489116	consensus_score=127.5	fisher_strand_p_value=0.18481	frequency=1.27382755e-01	ks_quality_p_value=0.975398	major_base=C	major_cov=14/27	major_frequency=8.72617245e-01	minor_base=T	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.27382755e-01	polymorphism_score=7.1	prediction=polymorphism	ref_cov=14/27	total_cov=18/29
-RA	412	.	NZ_VCBX02000002	215581	0	G	T	bias_e_value=1543390	bias_p_value=0.212751	consensus_score=137.2	fisher_strand_p_value=0.0840623	frequency=1.42759323e-01	ks_quality_p_value=0.647023	major_base=G	major_cov=13/29	major_frequency=8.57240677e-01	minor_base=T	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=1.42759323e-01	polymorphism_score=10.7	prediction=polymorphism	ref_cov=13/29	total_cov=18/31
-RA	413	.	NZ_VCBX02000002	215594	0	G	A	bias_e_value=1650700	bias_p_value=0.227544	consensus_score=115.7	fisher_strand_p_value=0.103258	frequency=1.58822060e-01	ks_quality_p_value=0.576737	major_base=G	major_cov=13/24	major_frequency=8.41177940e-01	minor_base=A	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=1.58822060e-01	polymorphism_score=10.0	prediction=polymorphism	ref_cov=13/24	total_cov=18/26
-RA	414	.	NZ_VCBX02000002	215596	0	T	C	bias_e_value=2139250	bias_p_value=0.294889	consensus_score=105.5	fisher_strand_p_value=0.0851442	frequency=1.66329384e-01	ks_quality_p_value=1	major_base=T	major_cov=11/24	major_frequency=8.33670616e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=1.66329384e-01	polymorphism_score=9.8	prediction=polymorphism	ref_cov=11/24	total_cov=16/26
-RA	415	.	NZ_VCBX02000002	215602	0	A	C	bias_e_value=1818070	bias_p_value=0.250616	consensus_score=137.3	fisher_strand_p_value=0.0835315	frequency=1.32408619e-01	ks_quality_p_value=0.813242	major_base=A	major_cov=14/32	major_frequency=8.67591381e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=1.32408619e-01	polymorphism_score=15.1	prediction=polymorphism	ref_cov=14/32	total_cov=19/34
-RA	416	.	NZ_VCBX02000002	215603	0	T	C	bias_e_value=1502410	bias_p_value=0.207102	consensus_score=145.1	fisher_strand_p_value=0.0835315	frequency=1.31864548e-01	ks_quality_p_value=0.62805	major_base=T	major_cov=14/32	major_frequency=8.68135452e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=1.31864548e-01	polymorphism_score=10.2	prediction=polymorphism	ref_cov=14/32	total_cov=19/34
-RA	417	.	NZ_VCBX02000002	215604	0	G	A	bias_e_value=1005960	bias_p_value=0.138669	consensus_score=164.7	fisher_strand_p_value=0.0323436	frequency=1.20465279e-01	ks_quality_p_value=0.958298	major_base=G	major_cov=14/37	major_frequency=8.79534721e-01	minor_base=A	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=1.20465279e-01	polymorphism_score=9.9	prediction=polymorphism	ref_cov=14/37	total_cov=19/39
-RA	418	.	NZ_VCBX02000002	215606	0	A	G	bias_e_value=778090	bias_p_value=0.107257	consensus_score=163.6	fisher_strand_p_value=0.0299151	frequency=1.18408680e-01	ks_quality_p_value=0.746733	major_base=A	major_cov=14/38	major_frequency=8.81591320e-01	minor_base=G	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=1.18408680e-01	polymorphism_score=9.5	prediction=polymorphism	ref_cov=14/38	total_cov=19/40
-RA	419	.	NZ_VCBX02000002	215615	0	G	A	bias_e_value=1325490	bias_p_value=0.182715	consensus_score=139.9	fisher_strand_p_value=0.0444099	frequency=1.19040966e-01	ks_quality_p_value=1	major_base=G	major_cov=10/34	major_frequency=8.80959034e-01	minor_base=A	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.19040966e-01	polymorphism_score=5.9	prediction=polymorphism	ref_cov=10/34	total_cov=14/36
-RA	420	.	NZ_VCBX02000002	215827	0	C	G	bias_e_value=4963790	bias_p_value=0.684243	consensus_score=222.1	fisher_strand_p_value=0.445611	frequency=9.33842659e-02	ks_quality_p_value=0.717375	major_base=C	major_cov=36/32	major_frequency=9.06615734e-01	minor_base=G	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=9.33842659e-02	polymorphism_score=12.2	prediction=polymorphism	ref_cov=36/32	total_cov=41/34
-RA	421	.	NZ_VCBX02000002	215831	0	T	C	bias_e_value=3617670	bias_p_value=0.498685	consensus_score=214.1	fisher_strand_p_value=0.441508	frequency=9.22336578e-02	ks_quality_p_value=0.421056	major_base=T	major_cov=36/33	major_frequency=9.07766342e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=9.22336578e-02	polymorphism_score=8.8	prediction=polymorphism	ref_cov=36/33	total_cov=42/35
-RA	422	.	NZ_VCBX02000002	215834	0	T	C	bias_e_value=5404250	bias_p_value=0.74496	consensus_score=222.9	fisher_strand_p_value=0.445413	frequency=9.10024643e-02	ks_quality_p_value=0.846848	major_base=T	major_cov=37/33	major_frequency=9.08997536e-01	minor_base=C	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=9.10024643e-02	polymorphism_score=8.8	prediction=polymorphism	ref_cov=37/33	total_cov=43/35
-RA	423	.	NZ_VCBX02000002	215837	0	G	A	bias_e_value=5426490	bias_p_value=0.748025	consensus_score=230.5	fisher_strand_p_value=0.445246	frequency=8.83116722e-02	ks_quality_p_value=0.854256	major_base=G	major_cov=38/34	major_frequency=9.11688328e-01	minor_base=A	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=8.83116722e-02	polymorphism_score=8.1	prediction=polymorphism	ref_cov=38/34	total_cov=43/36
-RA	424	.	NZ_VCBX02000002	215839	0	C	T	bias_e_value=5519300	bias_p_value=0.760819	consensus_score=233.6	fisher_strand_p_value=0.459139	frequency=8.71767998e-02	ks_quality_p_value=0.857765	major_base=C	major_cov=40/33	major_frequency=9.12823200e-01	minor_base=T	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=8.71767998e-02	polymorphism_score=8.0	prediction=polymorphism	ref_cov=40/33	total_cov=45/35
-RA	425	.	NZ_VCBX02000002	215841	0	A	G	bias_e_value=6799470	bias_p_value=0.937286	consensus_score=236.1	fisher_strand_p_value=0.692845	frequency=8.61120224e-02	ks_quality_p_value=0.963319	major_base=A	major_cov=41/33	major_frequency=9.13887978e-01	minor_base=G	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=8.61120224e-02	polymorphism_score=8.1	prediction=polymorphism	ref_cov=41/33	total_cov=46/35
-RA	426	.	NZ_VCBX02000002	215846	0	G	A	bias_e_value=6186820	bias_p_value=0.852834	consensus_score=236.1	fisher_strand_p_value=1	frequency=8.61167908e-02	ks_quality_p_value=0.509152	major_base=G	major_cov=46/28	major_frequency=9.13883209e-01	minor_base=A	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=8.61167908e-02	polymorphism_score=8.0	prediction=polymorphism	ref_cov=46/28	total_cov=51/30
-RA	427	.	NZ_VCBX02000002	215854	0	G	T	bias_e_value=6333110	bias_p_value=0.872999	consensus_score=252.0	fisher_strand_p_value=0.706904	frequency=8.41641426e-02	ks_quality_p_value=0.764489	major_base=G	major_cov=47/29	major_frequency=9.15835857e-01	minor_base=T	minor_cov=5/2	new_cov=5/2	polymorphism_frequency=8.41641426e-02	polymorphism_score=9.4	prediction=polymorphism	ref_cov=47/29	total_cov=52/31
-RA	428	.	NZ_VCBX02000002	215879	0	A	C	bias_e_value=7254420	bias_p_value=1	consensus_score=119.5	fisher_strand_p_value=1	frequency=1.85678959e-01	ks_quality_p_value=1	major_base=A	major_cov=20/19	major_frequency=8.14321041e-01	minor_base=C	minor_cov=5/4	new_cov=5/4	polymorphism_frequency=1.85678959e-01	polymorphism_score=20.3	prediction=polymorphism	ref_cov=20/19	total_cov=25/23
-RA	429	.	NZ_VCBX02000002	215881	0	A	G	bias_e_value=7254190	bias_p_value=0.999968	consensus_score=122.4	fisher_strand_p_value=1	frequency=1.72867298e-01	ks_quality_p_value=0.991982	major_base=A	major_cov=24/19	major_frequency=8.27132702e-01	minor_base=G	minor_cov=5/4	new_cov=5/4	polymorphism_frequency=1.72867298e-01	polymorphism_score=15.2	prediction=polymorphism	ref_cov=24/19	total_cov=29/23
-RA	430	.	NZ_VCBX02000002	215904	0	T	C	bias_e_value=7003480	bias_p_value=0.965409	consensus_score=74.5	fisher_strand_p_value=0.748777	frequency=3.12308311e-01	ks_quality_p_value=1	major_base=T	major_cov=18/13	major_frequency=6.87691689e-01	minor_base=C	minor_cov=7/7	new_cov=7/7	polymorphism_frequency=3.12308311e-01	polymorphism_score=29.9	prediction=polymorphism	ref_cov=18/13	total_cov=26/20
-RA	431	.	NZ_VCBX02000002	215905	0	C	T	bias_e_value=6925010	bias_p_value=0.954591	consensus_score=72.7	fisher_strand_p_value=1	frequency=3.25961590e-01	ks_quality_p_value=0.71419	major_base=C	major_cov=18/13	major_frequency=6.74038410e-01	minor_base=T	minor_cov=8/7	new_cov=8/7	polymorphism_frequency=3.25961590e-01	polymorphism_score=33.2	prediction=polymorphism	ref_cov=18/13	total_cov=26/20
-RA	432	.	NZ_VCBX02000002	215925	0	A	G	bias_e_value=5007130	bias_p_value=0.690218	consensus_score=59.9	fisher_strand_p_value=0.674585	frequency=2.33139038e-01	ks_quality_p_value=0.4817	major_base=A	major_cov=13/10	major_frequency=7.66860962e-01	minor_base=G	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=2.33139038e-01	polymorphism_score=11.5	prediction=polymorphism	ref_cov=13/10	total_cov=16/14
-RA	433	.	NZ_VCBX02000002	215927	0	G	T	bias_e_value=5795240	bias_p_value=0.798856	consensus_score=62.2	fisher_strand_p_value=0.661836	frequency=2.50132084e-01	ks_quality_p_value=0.660463	major_base=G	major_cov=12/8	major_frequency=7.49867916e-01	minor_base=T	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=2.50132084e-01	polymorphism_score=13.7	prediction=polymorphism	ref_cov=12/8	total_cov=16/12
-RA	434	.	NZ_VCBX02000002	215932	0	G	A	bias_e_value=4924910	bias_p_value=0.678884	consensus_score=44.4	fisher_strand_p_value=0.406522	frequency=2.64362812e-01	ks_quality_p_value=0.774869	major_base=G	major_cov=12/7	major_frequency=7.35637188e-01	minor_base=A	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=2.64362812e-01	polymorphism_score=11.8	prediction=polymorphism	ref_cov=12/7	total_cov=16/11
-RA	435	.	NZ_VCBX02000002	215936	0	T	G	bias_e_value=5225520	bias_p_value=0.720322	consensus_score=52.4	fisher_strand_p_value=0.391304	frequency=2.51116753e-01	ks_quality_p_value=0.901492	major_base=T	major_cov=13/7	major_frequency=7.48883247e-01	minor_base=G	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=2.51116753e-01	polymorphism_score=16.0	prediction=polymorphism	ref_cov=13/7	total_cov=17/11
-RA	436	.	NZ_VCBX02000002	215996	0	G	A	bias_e_value=7254420	bias_p_value=1	consensus_score=86.9	fisher_strand_p_value=1	frequency=1.71160698e-01	ks_quality_p_value=1	major_base=G	major_cov=15/14	major_frequency=8.28839302e-01	minor_base=A	minor_cov=3/3	new_cov=3/3	polymorphism_frequency=1.71160698e-01	polymorphism_score=8.0	prediction=polymorphism	ref_cov=15/14	total_cov=18/17
-RA	437	.	NZ_VCBX02000002	215997	0	C	T	bias_e_value=6993580	bias_p_value=0.964044	consensus_score=81.5	fisher_strand_p_value=1	frequency=1.71262264e-01	ks_quality_p_value=0.74411	major_base=C	major_cov=16/13	major_frequency=8.28737736e-01	minor_base=T	minor_cov=3/3	new_cov=3/3	polymorphism_frequency=1.71262264e-01	polymorphism_score=7.9	prediction=polymorphism	ref_cov=16/13	total_cov=19/16
-RA	438	.	NZ_VCBX02000002	216002	0	G	T	bias_e_value=7152240	bias_p_value=0.985915	consensus_score=82.7	fisher_strand_p_value=1	frequency=2.56963730e-01	ks_quality_p_value=0.836924	major_base=G	major_cov=16/10	major_frequency=7.43036270e-01	minor_base=T	minor_cov=5/4	new_cov=5/4	polymorphism_frequency=2.56963730e-01	polymorphism_score=18.4	prediction=polymorphism	ref_cov=16/10	total_cov=21/14
-RA	439	.	NZ_VCBX02000002	216008	0	T	G	bias_e_value=641466	bias_p_value=0.0884242	consensus_score=93.1	fisher_strand_p_value=0.0654453	frequency=2.39252567e-01	ks_quality_p_value=0.267878	major_base=T	major_cov=27/8	major_frequency=7.60747433e-01	minor_base=G	minor_cov=5/6	new_cov=5/6	polymorphism_frequency=2.39252567e-01	polymorphism_score=31.0	prediction=polymorphism	ref_cov=27/8	total_cov=32/14
-RA	440	.	NZ_VCBX02000002	216038	0	C	G	bias_e_value=39243.4	bias_p_value=0.00540958	consensus_score=135.3	fisher_strand_p_value=0.00101255	frequency=2.01077938e-01	ks_quality_p_value=0.640533	major_base=C	major_cov=41/3	major_frequency=7.98922062e-01	minor_base=G	minor_cov=5/6	new_cov=5/6	polymorphism_frequency=2.01077938e-01	polymorphism_score=28.0	prediction=polymorphism	ref_cov=41/3	total_cov=46/9
-RA	441	.	NZ_VCBX02000002	216041	0	T	C	bias_e_value=19624	bias_p_value=0.00270511	consensus_score=129.0	fisher_strand_p_value=0.000818361	frequency=1.92075253e-01	ks_quality_p_value=0.36231	major_base=T	major_cov=43/3	major_frequency=8.07924747e-01	minor_base=C	minor_cov=5/6	new_cov=5/6	polymorphism_frequency=1.92075253e-01	polymorphism_score=20.0	prediction=polymorphism	ref_cov=43/3	total_cov=49/9
-RA	442	.	NZ_VCBX02000002	278488	0	T	G	bias_e_value=1479710	bias_p_value=0.203973	consensus_score=268.5	fisher_strand_p_value=0.0559026	frequency=1.16714001e-01	ks_quality_p_value=0.919528	major_base=T	major_cov=41/42	major_frequency=8.83285999e-01	minor_base=G	minor_cov=9/2	new_cov=9/2	polymorphism_frequency=1.16714001e-01	polymorphism_score=23.1	prediction=polymorphism	ref_cov=41/42	total_cov=50/44
-RA	443	.	NZ_VCBX02000002	278505	0	C	T	bias_e_value=175142	bias_p_value=0.0241428	consensus_score=280.4	fisher_strand_p_value=0.00474183	frequency=1.17363453e-01	ks_quality_p_value=0.769944	major_base=C	major_cov=35/55	major_frequency=8.82636547e-01	minor_base=T	minor_cov=10/2	new_cov=10/2	polymorphism_frequency=1.17363453e-01	polymorphism_score=19.4	prediction=polymorphism	ref_cov=35/55	total_cov=45/57
-RA	444	.	NZ_VCBX02000002	278509	0	A	G	bias_e_value=133188	bias_p_value=0.0183595	consensus_score=287.3	fisher_strand_p_value=0.00538705	frequency=1.13993168e-01	ks_quality_p_value=0.491501	major_base=A	major_cov=37/56	major_frequency=8.86006832e-01	minor_base=G	minor_cov=10/2	new_cov=10/2	polymorphism_frequency=1.13993168e-01	polymorphism_score=19.2	prediction=polymorphism	ref_cov=37/56	total_cov=47/58
-RA	445	.	NZ_VCBX02000002	278518	0	C	T	bias_e_value=1429610	bias_p_value=0.197068	consensus_score=284.7	fisher_strand_p_value=0.0773473	frequency=9.06276703e-02	ks_quality_p_value=0.634736	major_base=C	major_cov=39/51	major_frequency=9.09372330e-01	minor_base=T	minor_cov=7/2	new_cov=7/2	polymorphism_frequency=9.06276703e-02	polymorphism_score=12.0	prediction=polymorphism	ref_cov=39/51	total_cov=46/53
-RA	446	.	NZ_VCBX02000002	278522	0	G	A	bias_e_value=1905910	bias_p_value=0.262724	consensus_score=288.9	fisher_strand_p_value=0.0748705	frequency=9.05323029e-02	ks_quality_p_value=0.968194	major_base=G	major_cov=38/52	major_frequency=9.09467697e-01	minor_base=A	minor_cov=7/2	new_cov=7/2	polymorphism_frequency=9.05323029e-02	polymorphism_score=11.6	prediction=polymorphism	ref_cov=38/52	total_cov=45/54
-RA	447	.	NZ_VCBX02000002	278529	0	A	G	bias_e_value=1057310	bias_p_value=0.145747	consensus_score=315.2	fisher_strand_p_value=0.0335662	frequency=8.37955475e-02	ks_quality_p_value=0.98467	major_base=A	major_cov=38/60	major_frequency=9.16204453e-01	minor_base=G	minor_cov=7/2	new_cov=7/2	polymorphism_frequency=8.37955475e-02	polymorphism_score=12.0	prediction=polymorphism	ref_cov=38/60	total_cov=45/62
-RA	448	.	NZ_VCBX02000002	278531	0	G	A	bias_e_value=942461	bias_p_value=0.129915	consensus_score=309.8	fisher_strand_p_value=0.0329407	frequency=8.54034424e-02	ks_quality_p_value=0.865331	major_base=G	major_cov=37/59	major_frequency=9.14596558e-01	minor_base=A	minor_cov=7/2	new_cov=7/2	polymorphism_frequency=8.54034424e-02	polymorphism_score=12.0	prediction=polymorphism	ref_cov=37/59	total_cov=44/61
-RA	449	.	NZ_VCBX02000002	278671	0	A	G	bias_e_value=5045760	bias_p_value=0.695543	consensus_score=240.9	fisher_strand_p_value=0.343381	frequency=6.14070892e-02	ks_quality_p_value=0.960203	major_base=A	major_cov=50/26	major_frequency=9.38592911e-01	minor_base=G	minor_cov=2/3	new_cov=2/3	polymorphism_frequency=6.14070892e-02	polymorphism_score=3.4	prediction=polymorphism	ref_cov=50/26	total_cov=52/29
-RA	450	.	NZ_VCBX02000002	278707	0	C	T	bias_e_value=7254330	bias_p_value=0.999987	consensus_score=197.6	fisher_strand_p_value=1	frequency=1.70472622e-01	ks_quality_p_value=0.994991	major_base=C	major_cov=55/13	major_frequency=8.29527378e-01	minor_base=T	minor_cov=11/3	new_cov=11/3	polymorphism_frequency=1.70472622e-01	polymorphism_score=26.1	prediction=polymorphism	ref_cov=55/13	total_cov=66/16
-RA	451	.	NZ_VCBX02000002	278723	0	A	G	bias_e_value=4999340	bias_p_value=0.689144	consensus_score=234.7	fisher_strand_p_value=0.323993	frequency=1.31083965e-01	ks_quality_p_value=1	major_base=A	major_cov=51/28	major_frequency=8.68916035e-01	minor_base=G	minor_cov=10/2	new_cov=10/2	polymorphism_frequency=1.31083965e-01	polymorphism_score=17.8	prediction=polymorphism	ref_cov=51/28	total_cov=61/30
-RA	452	.	NZ_VCBX02000002	278724	0	A	G	bias_e_value=4999340	bias_p_value=0.689144	consensus_score=234.4	fisher_strand_p_value=0.323993	frequency=1.31187916e-01	ks_quality_p_value=1	major_base=A	major_cov=51/28	major_frequency=8.68812084e-01	minor_base=G	minor_cov=10/2	new_cov=10/2	polymorphism_frequency=1.31187916e-01	polymorphism_score=18.4	prediction=polymorphism	ref_cov=51/28	total_cov=61/30
-RA	453	.	NZ_VCBX02000002	278729	0	G	C	bias_e_value=4996020	bias_p_value=0.688686	consensus_score=252.1	fisher_strand_p_value=0.327252	frequency=1.36383533e-01	ks_quality_p_value=0.988799	major_base=G	major_cov=50/25	major_frequency=8.63616467e-01	minor_base=C	minor_cov=10/2	new_cov=10/2	polymorphism_frequency=1.36383533e-01	polymorphism_score=27.5	prediction=polymorphism	ref_cov=50/25	total_cov=60/27
-RA	454	.	NZ_VCBX02000002	278828	0	C	A	bias_e_value=1833800	bias_p_value=0.252783	consensus_score=209.9	fisher_strand_p_value=0.0966014	frequency=2.49856472e-01	ks_quality_p_value=0.711573	major_base=C	major_cov=29/43	major_frequency=7.50143528e-01	minor_base=A	minor_cov=15/9	new_cov=15/9	polymorphism_frequency=2.49856472e-01	polymorphism_score=59.2	prediction=polymorphism	ref_cov=29/43	total_cov=44/52
-RA	455	.	NZ_VCBX02000002	278836	0	G	A	bias_e_value=1224640	bias_p_value=0.168813	consensus_score=174.8	fisher_strand_p_value=0.0441869	frequency=2.28963852e-01	ks_quality_p_value=0.905653	major_base=G	major_cov=24/50	major_frequency=7.71036148e-01	minor_base=A	minor_cov=13/9	new_cov=13/9	polymorphism_frequency=2.28963852e-01	polymorphism_score=47.4	prediction=polymorphism	ref_cov=24/50	total_cov=37/59
-RA	456	.	NZ_VCBX02000002	278857	0	C	T	bias_e_value=1098050	bias_p_value=0.151364	consensus_score=137.9	fisher_strand_p_value=0.034818	frequency=2.88358688e-01	ks_quality_p_value=0.996921	major_base=C	major_cov=20/49	major_frequency=7.11641312e-01	minor_base=T	minor_cov=15/13	new_cov=15/13	polymorphism_frequency=2.88358688e-01	polymorphism_score=63.5	prediction=polymorphism	ref_cov=20/49	total_cov=35/62
-RA	457	.	NZ_VCBX02000002	278895	0	A	G	bias_e_value=2428660	bias_p_value=0.334783	consensus_score=179.9	fisher_strand_p_value=0.101973	frequency=2.49728680e-01	ks_quality_p_value=1	major_base=A	major_cov=24/57	major_frequency=7.50271320e-01	minor_base=G	minor_cov=13/14	new_cov=13/14	polymorphism_frequency=2.49728680e-01	polymorphism_score=59.9	prediction=polymorphism	ref_cov=24/57	total_cov=37/71
-RA	458	.	NZ_VCBX02000002	278956	0	T	C	bias_e_value=5585250	bias_p_value=0.76991	consensus_score=259.9	fisher_strand_p_value=0.480236	frequency=1.78690910e-01	ks_quality_p_value=0.840676	major_base=T	major_cov=54/47	major_frequency=8.21309090e-01	minor_base=C	minor_cov=14/8	new_cov=14/8	polymorphism_frequency=1.78690910e-01	polymorphism_score=46.4	prediction=polymorphism	ref_cov=54/47	total_cov=68/55
-RA	459	.	NZ_VCBX02000002	278959	0	C	T	bias_e_value=6434120	bias_p_value=0.886924	consensus_score=283.7	fisher_strand_p_value=0.631735	frequency=1.62366867e-01	ks_quality_p_value=0.892558	major_base=C	major_cov=55/48	major_frequency=8.37633133e-01	minor_base=T	minor_cov=12/8	new_cov=12/8	polymorphism_frequency=1.62366867e-01	polymorphism_score=39.6	prediction=polymorphism	ref_cov=55/48	total_cov=67/56
-RA	460	.	NZ_VCBX02000002	278983	0	G	C	bias_e_value=6748090	bias_p_value=0.930204	consensus_score=311.6	fisher_strand_p_value=0.812258	frequency=1.73707485e-01	ks_quality_p_value=0.800796	major_base=G	major_cov=53/47	major_frequency=8.26292515e-01	minor_base=C	minor_cov=12/9	new_cov=12/9	polymorphism_frequency=1.73707485e-01	polymorphism_score=55.3	prediction=polymorphism	ref_cov=53/47	total_cov=65/56
-RA	461	.	NZ_VCBX02000002	278992	0	G	A	bias_e_value=5833830	bias_p_value=0.804176	consensus_score=308.9	fisher_strand_p_value=0.494077	frequency=1.68869019e-01	ks_quality_p_value=0.897846	major_base=G	major_cov=53/60	major_frequency=8.31130981e-01	minor_base=A	minor_cov=13/10	new_cov=13/10	polymorphism_frequency=1.68869019e-01	polymorphism_score=46.5	prediction=polymorphism	ref_cov=53/60	total_cov=66/70
-RA	462	.	NZ_VCBX02000002	279004	0	G	C	bias_e_value=4868020	bias_p_value=0.671041	consensus_score=286.9	fisher_strand_p_value=0.457952	frequency=1.72565460e-01	ks_quality_p_value=0.67316	major_base=G	major_cov=39/52	major_frequency=8.27434540e-01	minor_base=C	minor_cov=10/9	new_cov=10/9	polymorphism_frequency=1.72565460e-01	polymorphism_score=51.0	prediction=polymorphism	ref_cov=39/52	total_cov=49/61
-RA	463	.	NZ_VCBX02000002	279007	0	A	C	bias_e_value=5895190	bias_p_value=0.812634	consensus_score=234.0	fisher_strand_p_value=0.454164	frequency=1.78976059e-01	ks_quality_p_value=1	major_base=A	major_cov=37/50	major_frequency=8.21023941e-01	minor_base=C	minor_cov=10/9	new_cov=10/9	polymorphism_frequency=1.78976059e-01	polymorphism_score=55.1	prediction=polymorphism	ref_cov=37/50	total_cov=47/59
-RA	464	.	NZ_VCBX02000002	279010	0	A	C	bias_e_value=7254420	bias_p_value=1	consensus_score=195.1	fisher_strand_p_value=1	frequency=1.76816940e-01	ks_quality_p_value=1	major_base=A	major_cov=34/40	major_frequency=8.23183060e-01	minor_base=C	minor_cov=7/9	new_cov=7/9	polymorphism_frequency=1.76816940e-01	polymorphism_score=43.2	prediction=polymorphism	ref_cov=34/40	total_cov=41/49
-RA	465	.	NZ_VCBX02000002	279034	0	C	T	bias_e_value=4344800	bias_p_value=0.598917	consensus_score=237.0	fisher_strand_p_value=0.260089	frequency=1.44050598e-01	ks_quality_p_value=0.967724	major_base=C	major_cov=45/38	major_frequency=8.55949402e-01	minor_base=T	minor_cov=10/4	new_cov=10/4	polymorphism_frequency=1.44050598e-01	polymorphism_score=24.9	prediction=polymorphism	ref_cov=45/38	total_cov=55/42
-RA	466	.	NZ_VCBX02000002	279040	0	C	G	bias_e_value=6414700	bias_p_value=0.884247	consensus_score=281.6	fisher_strand_p_value=0.566882	frequency=1.42842770e-01	ks_quality_p_value=0.986487	major_base=C	major_cov=45/39	major_frequency=8.57157230e-01	minor_base=G	minor_cov=9/5	new_cov=9/5	polymorphism_frequency=1.42842770e-01	polymorphism_score=34.6	prediction=polymorphism	ref_cov=45/39	total_cov=54/44
-RA	467	.	NZ_VCBX02000002	279048	0	C	A	bias_e_value=7254420	bias_p_value=1	consensus_score=249.4	fisher_strand_p_value=1	frequency=2.29491711e-01	ks_quality_p_value=0.999951	major_base=C	major_cov=38/38	major_frequency=7.70508289e-01	minor_base=A	minor_cov=11/11	new_cov=11/11	polymorphism_frequency=2.29491711e-01	polymorphism_score=50.2	prediction=polymorphism	ref_cov=38/38	total_cov=49/50
-RA	468	.	NZ_VCBX02000002	279069	1	.	G	bias_e_value=7254420	bias_p_value=1	consensus_score=311.7	fisher_strand_p_value=1	frequency=2.19049931e-01	ks_quality_p_value=1	major_base=.	major_cov=31/51	major_frequency=7.80950069e-01	minor_base=G	minor_cov=9/14	new_cov=9/14	polymorphism_frequency=2.19049931e-01	polymorphism_score=121.0	prediction=polymorphism	ref_cov=31/51	total_cov=40/65
-RA	469	.	NZ_VCBX02000002	279069	2	.	G	bias_e_value=7112860	bias_p_value=0.980487	consensus_score=313.1	fisher_strand_p_value=0.809066	frequency=2.19047546e-01	ks_quality_p_value=1	major_base=.	major_cov=31/51	major_frequency=7.80952454e-01	minor_base=G	minor_cov=9/13	new_cov=9/13	polymorphism_frequency=2.19047546e-01	polymorphism_score=118.9	prediction=polymorphism	ref_cov=31/51	total_cov=40/65
-RA	470	.	NZ_VCBX02000002	279071	0	G	T	bias_e_value=7232320	bias_p_value=0.996953	consensus_score=288.4	fisher_strand_p_value=1	frequency=2.12811947e-01	ks_quality_p_value=0.922955	major_base=G	major_cov=33/52	major_frequency=7.87188053e-01	minor_base=T	minor_cov=9/14	new_cov=9/14	polymorphism_frequency=2.12811947e-01	polymorphism_score=52.5	prediction=polymorphism	ref_cov=33/52	total_cov=42/66
-RA	471	.	NZ_VCBX02000002	279085	0	T	C	bias_e_value=6416350	bias_p_value=0.884474	consensus_score=226.3	fisher_strand_p_value=0.813736	frequency=2.28803158e-01	ks_quality_p_value=0.687708	major_base=T	major_cov=30/54	major_frequency=7.71196842e-01	minor_base=C	minor_cov=10/15	new_cov=10/15	polymorphism_frequency=2.28803158e-01	polymorphism_score=54.6	prediction=polymorphism	ref_cov=30/54	total_cov=40/69
-RA	472	.	NZ_VCBX02000002	279086	0	A	C	bias_e_value=6554490	bias_p_value=0.903517	consensus_score=218.0	fisher_strand_p_value=0.632643	frequency=2.35206604e-01	ks_quality_p_value=0.939271	major_base=A	major_cov=27/54	major_frequency=7.64793396e-01	minor_base=C	minor_cov=10/15	new_cov=10/15	polymorphism_frequency=2.35206604e-01	polymorphism_score=72.4	prediction=polymorphism	ref_cov=27/54	total_cov=37/69
-RA	473	.	NZ_VCBX02000002	279091	0	G	T	bias_e_value=6679100	bias_p_value=0.920693	consensus_score=233.6	fisher_strand_p_value=0.638959	frequency=2.78285027e-01	ks_quality_p_value=0.984662	major_base=G	major_cov=23/48	major_frequency=7.21714973e-01	minor_base=T	minor_cov=11/17	new_cov=11/17	polymorphism_frequency=2.78285027e-01	polymorphism_score=66.3	prediction=polymorphism	ref_cov=23/48	total_cov=35/65
-RA	474	.	NZ_VCBX02000002	279101	0	G	A	bias_e_value=7243930	bias_p_value=0.998554	consensus_score=205.3	fisher_strand_p_value=1	frequency=2.40221977e-01	ks_quality_p_value=0.946702	major_base=G	major_cov=33/46	major_frequency=7.59778023e-01	minor_base=A	minor_cov=11/14	new_cov=11/14	polymorphism_frequency=2.40221977e-01	polymorphism_score=55.8	prediction=polymorphism	ref_cov=33/46	total_cov=44/60
-RA	475	.	NZ_VCBX02000002	279119	0	A	G	bias_e_value=419505	bias_p_value=0.0578275	consensus_score=196.8	fisher_strand_p_value=0.0103872	frequency=2.44907379e-01	ks_quality_p_value=1	major_base=A	major_cov=31/46	major_frequency=7.55092621e-01	minor_base=G	minor_cov=18/7	new_cov=18/7	polymorphism_frequency=2.44907379e-01	polymorphism_score=55.6	prediction=polymorphism	ref_cov=31/46	total_cov=49/53
-RA	476	.	NZ_VCBX02000002	279155	0	T	C	bias_e_value=5303900	bias_p_value=0.731127	consensus_score=72.9	fisher_strand_p_value=0.363277	frequency=3.92539501e-01	ks_quality_p_value=1	major_base=T	major_cov=25/25	major_frequency=6.07460499e-01	minor_base=C	minor_cov=20/12	new_cov=20/12	polymorphism_frequency=3.92539501e-01	polymorphism_score=80.3	prediction=polymorphism	ref_cov=25/25	total_cov=45/38
-RA	477	.	NZ_VCBX02000002	279156	0	T	C	bias_e_value=5393700	bias_p_value=0.743506	consensus_score=71.7	fisher_strand_p_value=0.375709	frequency=3.97213936e-01	ks_quality_p_value=1	major_base=T	major_cov=25/25	major_frequency=6.02786064e-01	minor_base=C	minor_cov=20/13	new_cov=20/13	polymorphism_frequency=3.97213936e-01	polymorphism_score=81.3	prediction=polymorphism	ref_cov=25/25	total_cov=45/38
-RA	478	.	NZ_VCBX02000002	279176	0	A	G	bias_e_value=652629	bias_p_value=0.0899629	consensus_score=14.6	fisher_strand_p_value=0.0220556	frequency=4.67443943e-01	ks_quality_p_value=0.812172	major_base=A	major_cov=28/21	major_frequency=5.32556057e-01	minor_base=G	minor_cov=14/29	new_cov=14/29	polymorphism_frequency=4.67443943e-01	polymorphism_score=116.9	prediction=polymorphism	ref_cov=28/21	total_cov=42/50
-JC	479	.	NZ_VCBX02000001	1	1	NZ_VCBX02000001	6690896	-1	0	alignment_overlap=0	circular_chromosome=1	coverage_minus=35	coverage_plus=14	flanking_left=75	flanking_right=75	frequency=1	junction_possible_overlap_registers=55	key=NZ_VCBX02000001__1__1__NZ_VCBX02000001__6690896__-1__0____75__75__0__0	max_left=68	max_left_minus=65	max_left_plus=68	max_min_left=34	max_min_left_minus=34	max_min_left_plus=22	max_min_right=35	max_min_right_minus=35	max_min_right_plus=33	max_pos_hash_score=112	max_right=59	max_right_minus=59	max_right_plus=54	neg_log10_pos_hash_p_value=NT	new_junction_coverage=1.03	new_junction_read_count=49	polymorphism_frequency=1.00000000e+00	pos_hash_score=25	prediction=consensus	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=49
-JC	480	.	NZ_VCBX02000001	1858015	-1	NZ_VCBX02000001	4049154	-1	-29	alignment_overlap=-29	coverage_minus=5	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=1.97415650e-01	junction_possible_overlap_registers=26	key=NZ_VCBX02000001__1858015__-1__NZ_VCBX02000001__4049154__-1__-29__CAGTTGACGCATAATAATAAAAAAAAAAA__75__75__0__0	max_left=37	max_left_minus=37	max_left_plus=0	max_min_left=22	max_min_left_minus=22	max_min_left_plus=0	max_min_right=8	max_min_right_minus=8	max_min_right_plus=0	max_pos_hash_score=54	max_right=36	max_right_minus=36	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.22	new_junction_read_count=5	polymorphism_frequency=1.97415650e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.88	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=42	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.92	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=44	side_2_redundant=0	total_non_overlap_reads=5	unique_read_sequence=CAGTTGACGCATAATAATAAAAAAAAAAA
-JC	481	.	NZ_VCBX02000001	3729792	1	NZ_VCBX02000002	19751	-1	0	alignment_overlap=2	coverage_minus=6	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=2.55135852e-01	junction_possible_overlap_registers=53	key=NZ_VCBX02000001__3729792__1__NZ_VCBX02000002__19753__-1__2____75__75__0__0	max_left=63	max_left_minus=63	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=22	max_min_right_minus=22	max_min_right_plus=0	max_pos_hash_score=108	max_right=22	max_right_minus=22	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.11	new_junction_read_count=7	polymorphism_frequency=2.55135852e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.65	side_1_overlap=2	side_1_possible_overlap_registers=55	side_1_read_count=31	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.14	side_2_overlap=0	side_2_possible_overlap_registers=53	side_2_read_count=11	side_2_redundant=0	total_non_overlap_reads=6
-JC	482	.	NZ_VCBX02000002	1	1	NZ_VCBX02000002	111239	1	0	alignment_overlap=0	coverage_minus=6	coverage_plus=10	flanking_left=75	flanking_right=75	frequency=3.54166667e-01	junction_possible_overlap_registers=55	key=NZ_VCBX02000002__1__1__NZ_VCBX02000002__111239__1__0____75__75__0__0	max_left=69	max_left_minus=65	max_left_plus=69	max_min_left=35	max_min_left_minus=7	max_min_left_plus=35	max_min_right=34	max_min_right_minus=30	max_min_right_plus=34	max_pos_hash_score=112	max_right=61	max_right_minus=52	max_right_plus=61	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.21	new_junction_read_count=17	polymorphism_frequency=3.54166667e-01	pos_hash_score=12	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.76	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=62	side_2_redundant=0	total_non_overlap_reads=16
-JC	483	.	NZ_VCBX02000002	215312	1	NZ_VCBX02000002	279193	-1	-3	alignment_overlap=-3	coverage_minus=3	coverage_plus=11	flanking_left=75	flanking_right=75	frequency=3.72460497e-01	junction_possible_overlap_registers=52	key=NZ_VCBX02000002__215312__1__NZ_VCBX02000002__279193__-1__-3__TCG__75__75__0__0	max_left=36	max_left_minus=36	max_left_plus=34	max_min_left=20	max_min_left_minus=6	max_min_left_plus=20	max_min_right=23	max_min_right_minus=21	max_min_right_plus=23	max_pos_hash_score=106	max_right=65	max_right_minus=65	max_right_plus=61	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.51	new_junction_read_count=39	polymorphism_frequency=3.72460497e-01	pos_hash_score=7	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.05	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=85	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.66	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=54	side_2_redundant=0	total_non_overlap_reads=14	unique_read_sequence=TCG
-JC	484	.	NZ_VCBX02000002	369171	-1	NZ_VCBX02000002	371212	1	0	alignment_overlap=14	coverage_minus=1	coverage_plus=6	flanking_left=75	flanking_right=75	frequency=1.46254986e-01	junction_possible_overlap_registers=41	key=NZ_VCBX02000002__369171__-1__NZ_VCBX02000002__371198__1__14____75__75__0__0	max_left=45	max_left_minus=16	max_left_plus=45	max_min_left=26	max_min_left_minus=16	max_min_left_plus=26	max_min_right=26	max_min_right_minus=0	max_min_right_plus=26	max_pos_hash_score=84	max_right=36	max_right_minus=29	max_right_plus=36	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.15	new_junction_read_count=9	polymorphism_frequency=1.46254986e-01	pos_hash_score=7	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.16	side_1_overlap=14	side_1_possible_overlap_registers=55	side_1_read_count=94	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.58	side_2_overlap=0	side_2_possible_overlap_registers=41	side_2_read_count=35	side_2_redundant=0	total_non_overlap_reads=7
-JC	485	.	NZ_VCBX02000003	1	1	NZ_VCBX02000003	72618	-1	0	alignment_overlap=0	circular_chromosome=1	coverage_minus=17	coverage_plus=75	flanking_left=75	flanking_right=75	frequency=1	junction_possible_overlap_registers=55	key=NZ_VCBX02000003__1__1__NZ_VCBX02000003__72618__-1__0____75__75__0__0	max_left=68	max_left_minus=67	max_left_plus=68	max_min_left=36	max_min_left_minus=36	max_min_left_plus=29	max_min_right=35	max_min_right_minus=29	max_min_right_plus=35	max_pos_hash_score=112	max_right=66	max_right_minus=66	max_right_plus=64	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.84	new_junction_read_count=92	polymorphism_frequency=1.00000000e+00	pos_hash_score=34	prediction=consensus	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.00	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=0	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.00	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=0	side_2_redundant=0	total_non_overlap_reads=92
-UN	486	.	NZ_VCBX02000001	48648	48648
-UN	487	.	NZ_VCBX02000001	211339	211449
-UN	488	.	NZ_VCBX02000001	211620	211735
-UN	489	.	NZ_VCBX02000001	218522	219731
-UN	490	.	NZ_VCBX02000001	242020	242020
-UN	491	.	NZ_VCBX02000001	242023	242023
-UN	492	.	NZ_VCBX02000001	351269	351269
-UN	493	.	NZ_VCBX02000001	364703	364726
-UN	494	.	NZ_VCBX02000001	449310	449310
-UN	495	.	NZ_VCBX02000001	449313	449313
-UN	496	.	NZ_VCBX02000001	449316	449329
-UN	497	.	NZ_VCBX02000001	470380	470482
-UN	498	.	NZ_VCBX02000001	470669	470752
-UN	499	.	NZ_VCBX02000001	531052	531054
-UN	500	.	NZ_VCBX02000001	531060	531060
-UN	501	.	NZ_VCBX02000001	531062	531063
-UN	502	.	NZ_VCBX02000001	531067	531068
-UN	503	.	NZ_VCBX02000001	531071	531071
-UN	504	.	NZ_VCBX02000001	532001	532045
-UN	505	.	NZ_VCBX02000001	532329	532382
-UN	506	.	NZ_VCBX02000001	555426	555426
-UN	507	.	NZ_VCBX02000001	555430	557525
-UN	508	.	NZ_VCBX02000001	557731	560848
-UN	509	.	NZ_VCBX02000001	561035	561101
-UN	510	.	NZ_VCBX02000001	573263	573391
-UN	511	.	NZ_VCBX02000001	573508	573508
-UN	512	.	NZ_VCBX02000001	573510	578962
-UN	513	.	NZ_VCBX02000001	680782	680828
-UN	514	.	NZ_VCBX02000001	738003	738008
-UN	515	.	NZ_VCBX02000001	748336	748337
-UN	516	.	NZ_VCBX02000001	748340	748427
-UN	517	.	NZ_VCBX02000001	748614	748698
-UN	518	.	NZ_VCBX02000001	781614	781614
-UN	519	.	NZ_VCBX02000001	844933	845019
-UN	520	.	NZ_VCBX02000001	846762	846877
-UN	521	.	NZ_VCBX02000001	1043124	1043138
-UN	522	.	NZ_VCBX02000001	1064878	1064888
-UN	523	.	NZ_VCBX02000001	1187186	1187190
-UN	524	.	NZ_VCBX02000001	1187193	1187193
-UN	525	.	NZ_VCBX02000001	1242587	1242587
-UN	526	.	NZ_VCBX02000001	1273006	1273112
-UN	527	.	NZ_VCBX02000001	1542558	1542635
-UN	528	.	NZ_VCBX02000001	1632979	1633055
-UN	529	.	NZ_VCBX02000001	1661254	1661254
-UN	530	.	NZ_VCBX02000001	1668808	1668808
-UN	531	.	NZ_VCBX02000001	1869896	1869896
-UN	532	.	NZ_VCBX02000001	1869898	1869899
-UN	533	.	NZ_VCBX02000001	1869903	1869910
-UN	534	.	NZ_VCBX02000001	1869917	1869917
-UN	535	.	NZ_VCBX02000001	1869920	1869920
-UN	536	.	NZ_VCBX02000001	1869923	1869923
-UN	537	.	NZ_VCBX02000001	1891990	1891996
-UN	538	.	NZ_VCBX02000001	1891998	1897641
-UN	539	.	NZ_VCBX02000001	1996675	1996675
-UN	540	.	NZ_VCBX02000001	1996681	1996683
-UN	541	.	NZ_VCBX02000001	1996685	1996685
-UN	542	.	NZ_VCBX02000001	1996687	1996688
-UN	543	.	NZ_VCBX02000001	1996691	1996691
-UN	544	.	NZ_VCBX02000001	2076435	2076548
-UN	545	.	NZ_VCBX02000001	2076550	2076551
-UN	546	.	NZ_VCBX02000001	2076620	2076620
-UN	547	.	NZ_VCBX02000001	2076622	2076810
-UN	548	.	NZ_VCBX02000001	2076889	2078436
-UN	549	.	NZ_VCBX02000001	2078734	2081881
-UN	550	.	NZ_VCBX02000001	2081981	2082078
-UN	551	.	NZ_VCBX02000001	2086909	2087099
-UN	552	.	NZ_VCBX02000001	2087550	2087584
-UN	553	.	NZ_VCBX02000001	2216959	2216960
-UN	554	.	NZ_VCBX02000001	2216962	2216963
-UN	555	.	NZ_VCBX02000001	2216965	2216967
-UN	556	.	NZ_VCBX02000001	2216971	2216991
-UN	557	.	NZ_VCBX02000001	2388589	2388589
-UN	558	.	NZ_VCBX02000001	2415994	2416117
-UN	559	.	NZ_VCBX02000001	2416123	2416123
-UN	560	.	NZ_VCBX02000001	2416294	2416295
-UN	561	.	NZ_VCBX02000001	2416298	2416298
-UN	562	.	NZ_VCBX02000001	2416300	2416300
-UN	563	.	NZ_VCBX02000001	2416303	2416304
-UN	564	.	NZ_VCBX02000001	2507048	2507048
-UN	565	.	NZ_VCBX02000001	2507050	2507089
-UN	566	.	NZ_VCBX02000001	2516877	2518312
-UN	567	.	NZ_VCBX02000001	2519074	2519109
-UN	568	.	NZ_VCBX02000001	2520856	2521259
-UN	569	.	NZ_VCBX02000001	2521676	2522950
-UN	570	.	NZ_VCBX02000001	2523725	2523730
-UN	571	.	NZ_VCBX02000001	2525480	2525880
-UN	572	.	NZ_VCBX02000001	2526149	2527462
-UN	573	.	NZ_VCBX02000001	2527465	2527465
-UN	574	.	NZ_VCBX02000001	2578302	2578305
-UN	575	.	NZ_VCBX02000001	2835506	2835506
-UN	576	.	NZ_VCBX02000001	2835508	2835508
-UN	577	.	NZ_VCBX02000001	2835510	2835534
-UN	578	.	NZ_VCBX02000001	2835536	2835536
-UN	579	.	NZ_VCBX02000001	2997026	2997048
-UN	580	.	NZ_VCBX02000001	3024677	3024684
-UN	581	.	NZ_VCBX02000001	3024686	3024686
-UN	582	.	NZ_VCBX02000001	3024702	3024703
-UN	583	.	NZ_VCBX02000001	3099418	3099421
-UN	584	.	NZ_VCBX02000001	3099425	3099428
-UN	585	.	NZ_VCBX02000001	3132023	3132025
-UN	586	.	NZ_VCBX02000001	3132034	3132035
-UN	587	.	NZ_VCBX02000001	3132037	3132037
-UN	588	.	NZ_VCBX02000001	3132040	3132051
-UN	589	.	NZ_VCBX02000001	3132058	3132058
-UN	590	.	NZ_VCBX02000001	3171602	3171604
-UN	591	.	NZ_VCBX02000001	3210714	3210723
-UN	592	.	NZ_VCBX02000001	3210728	3210728
-UN	593	.	NZ_VCBX02000001	3473384	3474638
-UN	594	.	NZ_VCBX02000001	3492678	3493805
-UN	595	.	NZ_VCBX02000001	3496875	3497985
-UN	596	.	NZ_VCBX02000001	3525483	3525503
-UN	597	.	NZ_VCBX02000001	3549704	3549781
-UN	598	.	NZ_VCBX02000001	3608484	3608491
-UN	599	.	NZ_VCBX02000001	3608493	3608495
-UN	600	.	NZ_VCBX02000001	3650555	3650571
-UN	601	.	NZ_VCBX02000001	3665223	3665306
-UN	602	.	NZ_VCBX02000001	3665433	3670641
-UN	603	.	NZ_VCBX02000001	3670644	3670647
-UN	604	.	NZ_VCBX02000001	3739829	3739829
-UN	605	.	NZ_VCBX02000001	3739832	3739833
-UN	606	.	NZ_VCBX02000001	3804019	3804024
-UN	607	.	NZ_VCBX02000001	3811792	3811792
-UN	608	.	NZ_VCBX02000001	3811797	3811797
-UN	609	.	NZ_VCBX02000001	3811885	3811888
-UN	610	.	NZ_VCBX02000001	3811894	3811899
-UN	611	.	NZ_VCBX02000001	4000748	4000818
-UN	612	.	NZ_VCBX02000001	4002962	4002964
-UN	613	.	NZ_VCBX02000001	4002966	4002966
-UN	614	.	NZ_VCBX02000001	4057964	4057964
-UN	615	.	NZ_VCBX02000001	4057967	4057968
-UN	616	.	NZ_VCBX02000001	4057970	4057970
-UN	617	.	NZ_VCBX02000001	4057972	4057972
-UN	618	.	NZ_VCBX02000001	4069319	4069320
-UN	619	.	NZ_VCBX02000001	4069327	4069327
-UN	620	.	NZ_VCBX02000001	4199441	4199464
-UN	621	.	NZ_VCBX02000001	4293564	4293624
-UN	622	.	NZ_VCBX02000001	4345155	4345174
-UN	623	.	NZ_VCBX02000001	4498231	4498235
-UN	624	.	NZ_VCBX02000001	4498237	4498238
-UN	625	.	NZ_VCBX02000001	4498241	4498260
-UN	626	.	NZ_VCBX02000001	4498262	4498262
-UN	627	.	NZ_VCBX02000001	4498264	4498266
-UN	628	.	NZ_VCBX02000001	4503583	4503584
-UN	629	.	NZ_VCBX02000001	4503586	4503587
-UN	630	.	NZ_VCBX02000001	4503592	4503592
-UN	631	.	NZ_VCBX02000001	4503594	4503594
-UN	632	.	NZ_VCBX02000001	4503597	4503597
-UN	633	.	NZ_VCBX02000001	4503600	4503600
-UN	634	.	NZ_VCBX02000001	4579707	4581245
-UN	635	.	NZ_VCBX02000001	4581247	4581247
-UN	636	.	NZ_VCBX02000001	4603616	4605153
-UN	637	.	NZ_VCBX02000001	4688351	4688351
-UN	638	.	NZ_VCBX02000001	4688354	4688354
-UN	639	.	NZ_VCBX02000001	4688356	4688356
-UN	640	.	NZ_VCBX02000001	4688366	4688366
-UN	641	.	NZ_VCBX02000001	4688373	4688373
-UN	642	.	NZ_VCBX02000001	4698330	4698333
-UN	643	.	NZ_VCBX02000001	4768417	4768417
-UN	644	.	NZ_VCBX02000001	4768419	4768419
-UN	645	.	NZ_VCBX02000001	4768421	4768422
-UN	646	.	NZ_VCBX02000001	4789885	4793929
-UN	647	.	NZ_VCBX02000001	4878894	4878919
-UN	648	.	NZ_VCBX02000001	5062112	5062114
-UN	649	.	NZ_VCBX02000001	5062117	5062144
-UN	650	.	NZ_VCBX02000001	5062261	5062263
-UN	651	.	NZ_VCBX02000001	5062382	5062494
-UN	652	.	NZ_VCBX02000001	5062658	5062733
-UN	653	.	NZ_VCBX02000001	5109476	5109477
-UN	654	.	NZ_VCBX02000001	5109482	5109507
-UN	655	.	NZ_VCBX02000001	5139013	5139020
-UN	656	.	NZ_VCBX02000001	5139024	5139046
-UN	657	.	NZ_VCBX02000001	5152015	5152074
-UN	658	.	NZ_VCBX02000001	5152077	5152077
-UN	659	.	NZ_VCBX02000001	5178629	5178683
-UN	660	.	NZ_VCBX02000001	5178686	5178686
-UN	661	.	NZ_VCBX02000001	5178688	5178688
-UN	662	.	NZ_VCBX02000001	5178691	5178694
-UN	663	.	NZ_VCBX02000001	5178697	5178697
-UN	664	.	NZ_VCBX02000001	5178932	5179008
-UN	665	.	NZ_VCBX02000001	5245964	5245976
-UN	666	.	NZ_VCBX02000001	5251184	5251209
-UN	667	.	NZ_VCBX02000001	5319724	5319739
-UN	668	.	NZ_VCBX02000001	5377101	5377102
-UN	669	.	NZ_VCBX02000001	5377104	5377170
-UN	670	.	NZ_VCBX02000001	5377172	5377173
-UN	671	.	NZ_VCBX02000001	5378041	5378147
-UN	672	.	NZ_VCBX02000001	5484948	5484965
-UN	673	.	NZ_VCBX02000001	5600657	5600684
-UN	674	.	NZ_VCBX02000001	5600897	5600957
-UN	675	.	NZ_VCBX02000001	5621943	5623262
-UN	676	.	NZ_VCBX02000001	5623362	5623387
-UN	677	.	NZ_VCBX02000001	5628098	5629419
-UN	678	.	NZ_VCBX02000001	5629538	5629543
-UN	679	.	NZ_VCBX02000001	5633178	5633190
-UN	680	.	NZ_VCBX02000001	5633193	5633193
-UN	681	.	NZ_VCBX02000001	5633198	5633201
-UN	682	.	NZ_VCBX02000001	5633209	5633209
-UN	683	.	NZ_VCBX02000001	5633211	5633213
-UN	684	.	NZ_VCBX02000001	5687381	5687382
-UN	685	.	NZ_VCBX02000001	5687386	5687386
-UN	686	.	NZ_VCBX02000001	5687388	5687388
-UN	687	.	NZ_VCBX02000001	5687392	5687575
-UN	688	.	NZ_VCBX02000001	5688028	5688050
-UN	689	.	NZ_VCBX02000001	5696889	5696907
-UN	690	.	NZ_VCBX02000001	5735511	5735514
-UN	691	.	NZ_VCBX02000001	5785571	5785575
-UN	692	.	NZ_VCBX02000001	5785578	5785578
-UN	693	.	NZ_VCBX02000001	5821372	5821931
-UN	694	.	NZ_VCBX02000001	5895056	5895057
-UN	695	.	NZ_VCBX02000001	5895059	5895062
-UN	696	.	NZ_VCBX02000001	5895064	5895065
-UN	697	.	NZ_VCBX02000001	5895067	5895068
-UN	698	.	NZ_VCBX02000001	5895070	5895071
-UN	699	.	NZ_VCBX02000001	5895109	5895110
-UN	700	.	NZ_VCBX02000001	5895112	5895157
-UN	701	.	NZ_VCBX02000001	5989299	5989303
-UN	702	.	NZ_VCBX02000001	5989312	5989312
-UN	703	.	NZ_VCBX02000001	6015254	6015254
-UN	704	.	NZ_VCBX02000001	6015256	6016624
-UN	705	.	NZ_VCBX02000001	6016626	6016626
-UN	706	.	NZ_VCBX02000001	6019514	6023556
-UN	707	.	NZ_VCBX02000001	6023558	6023558
-UN	708	.	NZ_VCBX02000001	6044330	6044330
-UN	709	.	NZ_VCBX02000001	6076517	6077054
-UN	710	.	NZ_VCBX02000001	6443139	6443728
-UN	711	.	NZ_VCBX02000001	6463909	6464500
-UN	712	.	NZ_VCBX02000001	6470184	6470184
-UN	713	.	NZ_VCBX02000001	6470186	6470209
-UN	714	.	NZ_VCBX02000001	6625823	6626557
-UN	715	.	NZ_VCBX02000001	6626631	6626632
-UN	716	.	NZ_VCBX02000001	6626634	6627086
-UN	717	.	NZ_VCBX02000001	6627522	6627787
-UN	718	.	NZ_VCBX02000001	6631975	6631976
-UN	719	.	NZ_VCBX02000001	6631980	6633425
-UN	720	.	NZ_VCBX02000002	1636	2883
-UN	721	.	NZ_VCBX02000002	3048	3055
-UN	722	.	NZ_VCBX02000002	3241	7966
-UN	723	.	NZ_VCBX02000002	8089	8089
-UN	724	.	NZ_VCBX02000002	8091	9531
-UN	725	.	NZ_VCBX02000002	9745	9812
-UN	726	.	NZ_VCBX02000002	14049	15487
-UN	727	.	NZ_VCBX02000002	19724	19747
-UN	728	.	NZ_VCBX02000002	40070	41370
-UN	729	.	NZ_VCBX02000002	49843	51136
-UN	730	.	NZ_VCBX02000002	108997	109023
-UN	731	.	NZ_VCBX02000002	112844	113954
-UN	732	.	NZ_VCBX02000002	118087	118095
-UN	733	.	NZ_VCBX02000002	119831	119843
-UN	734	.	NZ_VCBX02000002	120247	120271
-UN	735	.	NZ_VCBX02000002	120613	120676
-UN	736	.	NZ_VCBX02000002	122687	122698
-UN	737	.	NZ_VCBX02000002	123448	123449
-UN	738	.	NZ_VCBX02000002	123452	123452
-UN	739	.	NZ_VCBX02000002	123456	123456
-UN	740	.	NZ_VCBX02000002	123631	123650
-UN	741	.	NZ_VCBX02000002	123652	123652
-UN	742	.	NZ_VCBX02000002	123654	123654
-UN	743	.	NZ_VCBX02000002	148065	148944
-UN	744	.	NZ_VCBX02000002	171735	173374
-UN	745	.	NZ_VCBX02000002	174354	174885
-UN	746	.	NZ_VCBX02000002	177893	177924
-UN	747	.	NZ_VCBX02000002	178749	178884
-UN	748	.	NZ_VCBX02000002	191934	192076
-UN	749	.	NZ_VCBX02000002	192234	192328
-UN	750	.	NZ_VCBX02000002	192447	193179
-UN	751	.	NZ_VCBX02000002	193758	193758
-UN	752	.	NZ_VCBX02000002	193760	196141
-UN	753	.	NZ_VCBX02000002	196267	196295
-UN	754	.	NZ_VCBX02000002	196558	197901
-UN	755	.	NZ_VCBX02000002	202411	203250
-UN	756	.	NZ_VCBX02000002	203390	203533
-UN	757	.	NZ_VCBX02000002	208001	209641
-UN	758	.	NZ_VCBX02000002	245845	245963
-UN	759	.	NZ_VCBX02000002	246795	246819
-UN	760	.	NZ_VCBX02000002	247101	247627
-UN	761	.	NZ_VCBX02000002	261621	261655
-UN	762	.	NZ_VCBX02000002	261932	261990
-UN	763	.	NZ_VCBX02000002	262246	263381
-UN	764	.	NZ_VCBX02000002	263679	263679
-UN	765	.	NZ_VCBX02000002	263682	265039
-UN	766	.	NZ_VCBX02000002	265576	265594
-UN	767	.	NZ_VCBX02000002	265798	266774
-UN	768	.	NZ_VCBX02000002	279254	281812
-UN	769	.	NZ_VCBX02000002	281993	283345
-UN	770	.	NZ_VCBX02000002	286824	286825
-UN	771	.	NZ_VCBX02000002	286827	287713
-UN	772	.	NZ_VCBX02000002	290010	290010
-UN	773	.	NZ_VCBX02000002	290013	290091
-UN	774	.	NZ_VCBX02000002	290256	290362
-UN	775	.	NZ_VCBX02000002	290481	290488
-UN	776	.	NZ_VCBX02000002	290617	290628
-UN	777	.	NZ_VCBX02000002	293946	295077
-UN	778	.	NZ_VCBX02000002	336452	337173
-UN	779	.	NZ_VCBX02000002	337309	337388
-UN	780	.	NZ_VCBX02000002	337537	337691
-UN	781	.	NZ_VCBX02000002	342841	342894
-UN	782	.	NZ_VCBX02000002	343100	347821
-UN	783	.	NZ_VCBX02000002	349278	349278
-UN	784	.	NZ_VCBX02000002	349280	350683
-UN	785	.	NZ_VCBX02000002	362744	363845
-UN	786	.	NZ_VCBX02000002	365592	365616
-UN	787	.	NZ_VCBX02000002	366561	366562
-UN	788	.	NZ_VCBX02000002	368479	368558
-UN	789	.	NZ_VCBX02000002	369226	369364
-UN	790	.	NZ_VCBX02000002	370968	371124
-UN	791	.	NZ_VCBX02000002	422722	422748
-UN	792	.	NZ_VCBX02000002	422751	422756
-UN	793	.	NZ_VCBX02000002	422917	422917
-UN	794	.	NZ_VCBX02000002	422919	422919
-UN	795	.	NZ_VCBX02000002	422921	422921
-UN	796	.	NZ_VCBX02000002	422924	422924
-UN	797	.	NZ_VCBX02000002	437090	437091
-UN	798	.	NZ_VCBX02000002	437094	438027
-UN	799	.	NZ_VCBX02000002	478076	479027
-UN	800	.	NZ_VCBX02000002	486387	487695
-UN	801	.	NZ_VCBX02000002	490424	490424
-UN	802	.	NZ_VCBX02000002	490692	490693
-UN	803	.	NZ_VCBX02000002	490696	490697
-UN	804	.	NZ_VCBX02000002	490699	490700
-UN	805	.	NZ_VCBX02000002	490727	490727
-UN	806	.	NZ_VCBX02000002	490730	490730
-UN	807	.	NZ_VCBX02000002	490732	490765
-UN	808	.	NZ_VCBX02000002	490767	490767
-UN	809	.	NZ_VCBX02000002	490777	490789
-UN	810	.	NZ_VCBX02000002	490791	490791
-UN	811	.	NZ_VCBX02000002	490794	490802
-UN	812	.	NZ_VCBX02000002	490804	490806
-UN	813	.	NZ_VCBX02000002	490808	490808
-UN	814	.	NZ_VCBX02000002	490894	490894
-UN	815	.	NZ_VCBX02000002	490903	490908
-UN	816	.	NZ_VCBX02000003	32423	33670
+#=MAPPED-BASES	441036312
+#=MAPPED-READS	6602287
+SNP	1	1609	NZ_VCBX01000001	4560	G	frequency=1.54819012e-01
+SNP	2	1610	NZ_VCBX01000001	641946	C	frequency=1.83595181e-01
+SNP	3	1611	NZ_VCBX01000001	642096	G	frequency=1.55236721e-01
+SNP	4	1612	NZ_VCBX01000001	642109	G	frequency=1.54926300e-01
+SNP	5	1613	NZ_VCBX01000001	653309	G	frequency=1.99508190e-01
+SNP	6	1614	NZ_VCBX01000001	911046	C	frequency=9.73339081e-02
+SNP	7	1615	NZ_VCBX01000001	911048	G	frequency=1.13685608e-01
+SNP	8	1616	NZ_VCBX01000001	911067	T	frequency=1.18256569e-01
+SNP	9	1617	NZ_VCBX01000001	911073	C	frequency=1.29537582e-01
+SNP	10	1618	NZ_VCBX01000001	925059	T	frequency=1.20823860e-01
+SNP	11	1619	NZ_VCBX01000001	1576744	T	frequency=8.46886635e-02
+SNP	12	1620	NZ_VCBX01000001	1825476	A	frequency=1.05724335e-01
+SNP	13	1621	NZ_VCBX01000001	2070300	G	frequency=6.94127083e-02
+SNP	14	1622	NZ_VCBX01000001	2573289	T	frequency=7.91640282e-02
+SNP	15	1623	NZ_VCBX01000001	2595938	T	frequency=1.52793884e-01
+SNP	16	1624	NZ_VCBX01000001	2731883	A	frequency=1.39333725e-01
+SNP	17	1625	NZ_VCBX01000001	3577961	A	frequency=1
+SNP	18	1626	NZ_VCBX01000001	3998974	T	frequency=1.55256748e-01
+SNP	19	1627	NZ_VCBX01000001	4000589	A	frequency=8.91933441e-02
+SNP	20	1628	NZ_VCBX01000001	4121573	A	frequency=1.24887943e-01
+SNP	21	1629	NZ_VCBX01000001	4139313	G	frequency=8.00628662e-02
+SNP	22	1630	NZ_VCBX01000001	4139314	A	frequency=8.01577568e-02
+SNP	23	1631	NZ_VCBX01000001	4139315	G	frequency=7.97348022e-02
+SNP	24	1632	NZ_VCBX01000001	4139318	C	frequency=7.13663101e-02
+SNP	25	1633	NZ_VCBX01000001	4139322	G	frequency=6.89258575e-02
+SNP	26	1634	NZ_VCBX01000001	4139331	C	frequency=6.88886642e-02
+SNP	27	1635	NZ_VCBX01000001	4139601	C	frequency=8.68449211e-02
+SNP	28	1636	NZ_VCBX01000001	4139602	A	frequency=8.66494179e-02
+SNP	29	1637	NZ_VCBX01000001	4139604	C	frequency=8.68439674e-02
+SNP	30	1638	NZ_VCBX01000001	4139608	A	frequency=8.50291252e-02
+SNP	31	1639	NZ_VCBX01000001	4139610	C	frequency=7.67912865e-02
+SNP	32	1640	NZ_VCBX01000001	4192383	T	frequency=1.69610500e-01
+SNP	33	1641	NZ_VCBX01000001	4272593	T	frequency=2.85631180e-01
+SNP	34	1642	NZ_VCBX01000001	4272952	G	frequency=1.78523540e-01
+SNP	35	1643	NZ_VCBX01000001	4273067	C	frequency=2.23963261e-01
+SNP	36	1644	NZ_VCBX01000001	4275960	T	frequency=1.57365799e-01
+SNP	37	1645	NZ_VCBX01000001	4275968	T	frequency=2.32831955e-01
+SNP	38	1646	NZ_VCBX01000001	4612346	G	frequency=8.05892944e-02
+SNP	39	1647	NZ_VCBX01000001	4612355	G	frequency=8.44373703e-02
+SNP	40	1648	NZ_VCBX01000001	4724919	C	frequency=8.22691917e-02
+SNP	41	1649	NZ_VCBX01000001	4724925	A	frequency=7.54313469e-02
+SNP	42	1650	NZ_VCBX01000001	4724934	C	frequency=9.44013596e-02
+SNP	43	1651	NZ_VCBX01000001	4724946	A	frequency=7.67545700e-02
+SNP	44	1652	NZ_VCBX01000001	4724952	T	frequency=8.27846527e-02
+SNP	45	1653	NZ_VCBX01000001	4724955	C	frequency=8.08610916e-02
+SNP	46	1654	NZ_VCBX01000001	4724958	G	frequency=7.04312325e-02
+SNP	47	1655	NZ_VCBX01000001	4943262	C	frequency=1
+SNP	48	1656	NZ_VCBX01000001	5202509	T	frequency=8.10904503e-02
+SNP	49	1657	NZ_VCBX01000001	5565321	G	frequency=6.77566528e-02
+SNP	50	1658	NZ_VCBX01000001	5565328	A	frequency=6.54244423e-02
+SNP	51	1659	NZ_VCBX01000001	5604921	G	frequency=2.07007408e-01
+SNP	52	1660	NZ_VCBX01000001	6111480	A	frequency=6.53810501e-02
+SNP	53	1661	NZ_VCBX01000001	6340850	C	frequency=1.75348282e-01
+SNP	54	1662	NZ_VCBX01000001	6442202	G	frequency=1
+SNP	55	1663	NZ_VCBX01000001	6509047	T	frequency=1.99856758e-01
+SNP	56	1664	NZ_VCBX01000001	6657364	C	frequency=5.94658852e-02
+SNP	57	1665	NZ_VCBX01000002	28827	A	frequency=6.91838264e-02
+DEL	58	1673	NZ_VCBX01000005	1	3073	frequency=1
+DEL	59	1674	NZ_VCBX01000006	1	2943	frequency=1
+DEL	60	1675	NZ_VCBX01000007	1	2398	frequency=1
+DEL	61	1676	NZ_VCBX01000008	1	2119	frequency=1
+DEL	62	1677	NZ_VCBX01000009	1	1486	frequency=1
+DEL	63	1678	NZ_VCBX01000010	1	1437	frequency=1
+DEL	64	1679	NZ_VCBX01000011	1	1393	frequency=1
+DEL	65	1680	NZ_VCBX01000012	1	1381	frequency=1
+DEL	66	1681	NZ_VCBX01000013	1	1297	frequency=1
+DEL	67	1682	NZ_VCBX01000014	1	1218	frequency=1
+DEL	68	1683	NZ_VCBX01000015	1	1158	frequency=1
+DEL	69	1684	NZ_VCBX01000016	1	1145	frequency=1
+DEL	70	1685	NZ_VCBX01000017	1	1106	frequency=1
+DEL	71	1686	NZ_VCBX01000018	1	1086	frequency=1
+DEL	72	1687	NZ_VCBX01000019	1	1083	frequency=1
+DEL	73	1688	NZ_VCBX01000020	1	1041	frequency=1
+DEL	74	1689	NZ_VCBX01000021	1	1021	frequency=1
+DEL	75	1690	NZ_VCBX01000022	1	1020	frequency=1
+DEL	76	1691	NZ_VCBX01000023	1	1013	frequency=1
+DEL	77	1692	NZ_VCBX01000024	1	987	frequency=1
+DEL	78	1693	NZ_VCBX01000025	1	974	frequency=1
+DEL	79	1694	NZ_VCBX01000026	1	961	frequency=1
+DEL	80	1695	NZ_VCBX01000027	1	961	frequency=1
+DEL	81	1696	NZ_VCBX01000028	1	956	frequency=1
+DEL	82	1697	NZ_VCBX01000029	1	948	frequency=1
+DEL	83	1698	NZ_VCBX01000030	1	932	frequency=1
+DEL	84	1699	NZ_VCBX01000031	1	931	frequency=1
+DEL	85	1700	NZ_VCBX01000032	1	923	frequency=1
+DEL	86	1701	NZ_VCBX01000033	1	905	frequency=1
+DEL	87	1702	NZ_VCBX01000034	1	898	frequency=1
+DEL	88	1703	NZ_VCBX01000035	1	897	frequency=1
+DEL	89	1704	NZ_VCBX01000036	1	897	frequency=1
+DEL	90	1705	NZ_VCBX01000037	1	875	frequency=1
+DEL	91	1706	NZ_VCBX01000038	1	857	frequency=1
+DEL	92	1707	NZ_VCBX01000039	1	857	frequency=1
+DEL	93	1708	NZ_VCBX01000040	1	847	frequency=1
+DEL	94	1709	NZ_VCBX01000041	1	844	frequency=1
+DEL	95	1710	NZ_VCBX01000042	1	841	frequency=1
+DEL	96	1711	NZ_VCBX01000043	1	833	frequency=1
+DEL	97	1712	NZ_VCBX01000044	1	831	frequency=1
+DEL	98	1713	NZ_VCBX01000045	1	814	frequency=1
+DEL	99	1714	NZ_VCBX01000046	1	800	frequency=1
+DEL	100	1715	NZ_VCBX01000047	1	787	frequency=1
+DEL	101	1716	NZ_VCBX01000048	1	783	frequency=1
+DEL	102	1717	NZ_VCBX01000049	1	781	frequency=1
+DEL	103	1718	NZ_VCBX01000050	1	776	frequency=1
+DEL	104	1719	NZ_VCBX01000051	1	772	frequency=1
+DEL	105	1720	NZ_VCBX01000052	1	771	frequency=1
+DEL	106	1721	NZ_VCBX01000053	1	770	frequency=1
+DEL	107	1722	NZ_VCBX01000054	1	764	frequency=1
+DEL	108	1723	NZ_VCBX01000055	1	764	frequency=1
+DEL	109	1724	NZ_VCBX01000056	1	763	frequency=1
+DEL	110	1725	NZ_VCBX01000057	1	760	frequency=1
+DEL	111	1726	NZ_VCBX01000058	1	758	frequency=1
+DEL	112	1727	NZ_VCBX01000059	1	748	frequency=1
+DEL	113	1728	NZ_VCBX01000060	1	747	frequency=1
+DEL	114	1729	NZ_VCBX01000061	1	745	frequency=1
+DEL	115	1730	NZ_VCBX01000062	1	740	frequency=1
+DEL	116	1731	NZ_VCBX01000063	1	739	frequency=1
+DEL	117	1732	NZ_VCBX01000064	1	733	frequency=1
+DEL	118	1733	NZ_VCBX01000065	1	733	frequency=1
+DEL	119	1734	NZ_VCBX01000066	1	731	frequency=1
+DEL	120	1735	NZ_VCBX01000067	1	731	frequency=1
+DEL	121	1736	NZ_VCBX01000068	1	729	frequency=1
+DEL	122	1737	NZ_VCBX01000069	1	728	frequency=1
+DEL	123	1738	NZ_VCBX01000070	1	726	frequency=1
+DEL	124	1739	NZ_VCBX01000071	1	725	frequency=1
+DEL	125	1740	NZ_VCBX01000072	1	724	frequency=1
+DEL	126	1741	NZ_VCBX01000073	1	723	frequency=1
+DEL	127	1742	NZ_VCBX01000074	1	716	frequency=1
+DEL	128	1743	NZ_VCBX01000075	1	714	frequency=1
+DEL	129	1744	NZ_VCBX01000076	1	710	frequency=1
+DEL	130	1745	NZ_VCBX01000077	1	709	frequency=1
+DEL	131	1746	NZ_VCBX01000078	1	709	frequency=1
+DEL	132	1747	NZ_VCBX01000079	1	709	frequency=1
+DEL	133	1748	NZ_VCBX01000080	1	708	frequency=1
+DEL	134	1749	NZ_VCBX01000081	1	708	frequency=1
+DEL	135	1750	NZ_VCBX01000082	1	706	frequency=1
+DEL	136	1751	NZ_VCBX01000083	1	701	frequency=1
+DEL	137	1752	NZ_VCBX01000084	1	699	frequency=1
+DEL	138	1753	NZ_VCBX01000085	1	691	frequency=1
+DEL	139	1754	NZ_VCBX01000086	1	690	frequency=1
+DEL	140	1755	NZ_VCBX01000087	1	685	frequency=1
+DEL	141	1756	NZ_VCBX01000088	1	685	frequency=1
+DEL	142	1757	NZ_VCBX01000089	1	684	frequency=1
+DEL	143	1758	NZ_VCBX01000090	1	677	frequency=1
+DEL	144	1759	NZ_VCBX01000091	1	676	frequency=1
+DEL	145	1760	NZ_VCBX01000092	1	675	frequency=1
+DEL	146	1761	NZ_VCBX01000093	1	670	frequency=1
+DEL	147	1762	NZ_VCBX01000094	1	670	frequency=1
+DEL	148	1763	NZ_VCBX01000095	1	669	frequency=1
+DEL	149	1764	NZ_VCBX01000096	1	665	frequency=1
+DEL	150	1765	NZ_VCBX01000097	1	664	frequency=1
+DEL	151	1766	NZ_VCBX01000098	1	659	frequency=1
+DEL	152	1767	NZ_VCBX01000099	1	657	frequency=1
+DEL	153	1768	NZ_VCBX01000100	1	656	frequency=1
+DEL	154	1769	NZ_VCBX01000101	1	655	frequency=1
+DEL	155	1770	NZ_VCBX01000102	1	655	frequency=1
+DEL	156	1771	NZ_VCBX01000103	1	654	frequency=1
+DEL	157	1772	NZ_VCBX01000104	1	654	frequency=1
+DEL	158	1773	NZ_VCBX01000105	1	654	frequency=1
+DEL	159	1774	NZ_VCBX01000106	1	652	frequency=1
+DEL	160	1775	NZ_VCBX01000107	1	649	frequency=1
+DEL	161	1776	NZ_VCBX01000108	1	648	frequency=1
+DEL	162	1777	NZ_VCBX01000109	1	644	frequency=1
+DEL	163	1778	NZ_VCBX01000110	1	643	frequency=1
+DEL	164	1779	NZ_VCBX01000111	1	642	frequency=1
+DEL	165	1780	NZ_VCBX01000112	1	640	frequency=1
+DEL	166	1781	NZ_VCBX01000113	1	638	frequency=1
+DEL	167	1782	NZ_VCBX01000114	1	635	frequency=1
+DEL	168	1783	NZ_VCBX01000115	1	633	frequency=1
+DEL	169	1784	NZ_VCBX01000116	1	633	frequency=1
+DEL	170	1785	NZ_VCBX01000117	1	630	frequency=1
+DEL	171	1786	NZ_VCBX01000118	1	629	frequency=1
+DEL	172	1787	NZ_VCBX01000119	1	628	frequency=1
+DEL	173	1788	NZ_VCBX01000120	1	628	frequency=1
+DEL	174	1789	NZ_VCBX01000121	1	628	frequency=1
+DEL	175	1790	NZ_VCBX01000122	1	627	frequency=1
+DEL	176	1791	NZ_VCBX01000123	1	627	frequency=1
+DEL	177	1792	NZ_VCBX01000124	1	627	frequency=1
+DEL	178	1793	NZ_VCBX01000125	1	624	frequency=1
+DEL	179	1794	NZ_VCBX01000126	1	624	frequency=1
+DEL	180	1795	NZ_VCBX01000127	1	623	frequency=1
+DEL	181	1796	NZ_VCBX01000128	1	622	frequency=1
+DEL	182	1797	NZ_VCBX01000129	1	621	frequency=1
+DEL	183	1798	NZ_VCBX01000130	1	620	frequency=1
+DEL	184	1799	NZ_VCBX01000131	1	618	frequency=1
+DEL	185	1800	NZ_VCBX01000132	1	618	frequency=1
+DEL	186	1801	NZ_VCBX01000133	1	618	frequency=1
+DEL	187	1802	NZ_VCBX01000134	1	612	frequency=1
+DEL	188	1803	NZ_VCBX01000135	1	611	frequency=1
+DEL	189	1804	NZ_VCBX01000136	1	610	frequency=1
+DEL	190	1805	NZ_VCBX01000137	1	610	frequency=1
+DEL	191	1806	NZ_VCBX01000138	1	607	frequency=1
+DEL	192	1807	NZ_VCBX01000139	1	605	frequency=1
+DEL	193	1808	NZ_VCBX01000140	1	604	frequency=1
+DEL	194	1809	NZ_VCBX01000141	1	604	frequency=1
+DEL	195	1810	NZ_VCBX01000142	1	604	frequency=1
+DEL	196	1811	NZ_VCBX01000143	1	603	frequency=1
+DEL	197	1812	NZ_VCBX01000144	1	602	frequency=1
+DEL	198	1813	NZ_VCBX01000145	1	601	frequency=1
+DEL	199	1814	NZ_VCBX01000146	1	599	frequency=1
+DEL	200	1815	NZ_VCBX01000147	1	597	frequency=1
+DEL	201	1816	NZ_VCBX01000148	1	596	frequency=1
+DEL	202	1817	NZ_VCBX01000149	1	596	frequency=1
+DEL	203	1818	NZ_VCBX01000150	1	593	frequency=1
+DEL	204	1819	NZ_VCBX01000151	1	593	frequency=1
+DEL	205	1820	NZ_VCBX01000152	1	593	frequency=1
+DEL	206	1821	NZ_VCBX01000153	1	589	frequency=1
+DEL	207	1822	NZ_VCBX01000154	1	587	frequency=1
+DEL	208	1823	NZ_VCBX01000155	1	587	frequency=1
+DEL	209	1824	NZ_VCBX01000156	1	585	frequency=1
+DEL	210	1825	NZ_VCBX01000157	1	583	frequency=1
+DEL	211	1826	NZ_VCBX01000158	1	583	frequency=1
+DEL	212	1827	NZ_VCBX01000159	1	582	frequency=1
+DEL	213	1828	NZ_VCBX01000160	1	582	frequency=1
+DEL	214	1829	NZ_VCBX01000161	1	580	frequency=1
+DEL	215	1830	NZ_VCBX01000162	1	580	frequency=1
+DEL	216	1831	NZ_VCBX01000163	1	580	frequency=1
+DEL	217	1832	NZ_VCBX01000164	1	580	frequency=1
+DEL	218	1833	NZ_VCBX01000165	1	578	frequency=1
+DEL	219	1834	NZ_VCBX01000166	1	577	frequency=1
+DEL	220	1835	NZ_VCBX01000167	1	576	frequency=1
+DEL	221	1836	NZ_VCBX01000168	1	574	frequency=1
+DEL	222	1837	NZ_VCBX01000169	1	573	frequency=1
+DEL	223	1838	NZ_VCBX01000170	1	573	frequency=1
+DEL	224	1839	NZ_VCBX01000171	1	571	frequency=1
+DEL	225	1840	NZ_VCBX01000172	1	570	frequency=1
+DEL	226	1841	NZ_VCBX01000173	1	569	frequency=1
+DEL	227	1842	NZ_VCBX01000174	1	568	frequency=1
+DEL	228	1843	NZ_VCBX01000175	1	566	frequency=1
+DEL	229	1844	NZ_VCBX01000176	1	566	frequency=1
+DEL	230	1845	NZ_VCBX01000177	1	566	frequency=1
+DEL	231	1846	NZ_VCBX01000178	1	566	frequency=1
+DEL	232	1847	NZ_VCBX01000179	1	566	frequency=1
+DEL	233	1848	NZ_VCBX01000180	1	566	frequency=1
+DEL	234	1849	NZ_VCBX01000181	1	565	frequency=1
+DEL	235	1850	NZ_VCBX01000182	1	565	frequency=1
+DEL	236	1851	NZ_VCBX01000183	1	565	frequency=1
+DEL	237	1852	NZ_VCBX01000184	1	564	frequency=1
+DEL	238	1853	NZ_VCBX01000185	1	564	frequency=1
+DEL	239	1854	NZ_VCBX01000186	1	563	frequency=1
+DEL	240	1855	NZ_VCBX01000187	1	563	frequency=1
+DEL	241	1856	NZ_VCBX01000188	1	559	frequency=1
+DEL	242	1857	NZ_VCBX01000189	1	556	frequency=1
+DEL	243	1858	NZ_VCBX01000190	1	555	frequency=1
+DEL	244	1859	NZ_VCBX01000191	1	554	frequency=1
+DEL	245	1860	NZ_VCBX01000192	1	553	frequency=1
+DEL	246	1861	NZ_VCBX01000193	1	552	frequency=1
+DEL	247	1862	NZ_VCBX01000194	1	551	frequency=1
+DEL	248	1863	NZ_VCBX01000195	1	550	frequency=1
+DEL	249	1864	NZ_VCBX01000196	1	549	frequency=1
+DEL	250	1865	NZ_VCBX01000197	1	549	frequency=1
+DEL	251	1866	NZ_VCBX01000198	1	549	frequency=1
+DEL	252	1867	NZ_VCBX01000199	1	548	frequency=1
+DEL	253	1868	NZ_VCBX01000200	1	547	frequency=1
+DEL	254	1869	NZ_VCBX01000201	1	546	frequency=1
+DEL	255	1870	NZ_VCBX01000202	1	545	frequency=1
+DEL	256	1871	NZ_VCBX01000203	1	543	frequency=1
+DEL	257	1872	NZ_VCBX01000204	1	543	frequency=1
+DEL	258	1873	NZ_VCBX01000205	1	542	frequency=1
+DEL	259	1874	NZ_VCBX01000206	1	540	frequency=1
+DEL	260	1875	NZ_VCBX01000207	1	539	frequency=1
+DEL	261	1876	NZ_VCBX01000208	1	538	frequency=1
+DEL	262	1877	NZ_VCBX01000209	1	538	frequency=1
+DEL	263	1878	NZ_VCBX01000210	1	536	frequency=1
+DEL	264	1879	NZ_VCBX01000211	1	535	frequency=1
+DEL	265	1880	NZ_VCBX01000212	1	535	frequency=1
+DEL	266	1881	NZ_VCBX01000213	1	534	frequency=1
+DEL	267	1882	NZ_VCBX01000214	1	534	frequency=1
+DEL	268	1883	NZ_VCBX01000215	1	534	frequency=1
+DEL	269	1884	NZ_VCBX01000216	1	533	frequency=1
+DEL	270	1885	NZ_VCBX01000217	1	532	frequency=1
+DEL	271	1886	NZ_VCBX01000218	1	532	frequency=1
+DEL	272	1887	NZ_VCBX01000219	1	530	frequency=1
+DEL	273	1888	NZ_VCBX01000220	1	529	frequency=1
+DEL	274	1889	NZ_VCBX01000221	1	528	frequency=1
+DEL	275	1890	NZ_VCBX01000222	1	528	frequency=1
+DEL	276	1891	NZ_VCBX01000223	1	526	frequency=1
+DEL	277	1892	NZ_VCBX01000224	1	526	frequency=1
+DEL	278	1893	NZ_VCBX01000225	1	526	frequency=1
+DEL	279	1894	NZ_VCBX01000226	1	523	frequency=1
+DEL	280	1895	NZ_VCBX01000227	1	523	frequency=1
+DEL	281	1896	NZ_VCBX01000228	1	522	frequency=1
+DEL	282	1897	NZ_VCBX01000229	1	520	frequency=1
+DEL	283	1898	NZ_VCBX01000230	1	520	frequency=1
+DEL	284	1899	NZ_VCBX01000231	1	519	frequency=1
+DEL	285	1900	NZ_VCBX01000232	1	518	frequency=1
+DEL	286	1901	NZ_VCBX01000233	1	518	frequency=1
+DEL	287	1902	NZ_VCBX01000234	1	517	frequency=1
+DEL	288	1903	NZ_VCBX01000235	1	517	frequency=1
+DEL	289	1904	NZ_VCBX01000236	1	516	frequency=1
+DEL	290	1905	NZ_VCBX01000237	1	516	frequency=1
+DEL	291	1906	NZ_VCBX01000238	1	515	frequency=1
+DEL	292	1907	NZ_VCBX01000239	1	515	frequency=1
+DEL	293	1908	NZ_VCBX01000240	1	515	frequency=1
+DEL	294	1909	NZ_VCBX01000241	1	514	frequency=1
+DEL	295	1910	NZ_VCBX01000242	1	514	frequency=1
+DEL	296	1911	NZ_VCBX01000243	1	513	frequency=1
+DEL	297	1912	NZ_VCBX01000244	1	513	frequency=1
+DEL	298	1913	NZ_VCBX01000245	1	513	frequency=1
+DEL	299	1914	NZ_VCBX01000246	1	513	frequency=1
+DEL	300	1915	NZ_VCBX01000247	1	512	frequency=1
+DEL	301	1916	NZ_VCBX01000248	1	512	frequency=1
+DEL	302	1917	NZ_VCBX01000249	1	512	frequency=1
+DEL	303	1918	NZ_VCBX01000250	1	511	frequency=1
+DEL	304	1919	NZ_VCBX01000251	1	511	frequency=1
+DEL	305	1920	NZ_VCBX01000252	1	510	frequency=1
+DEL	306	1921	NZ_VCBX01000253	1	509	frequency=1
+DEL	307	1922	NZ_VCBX01000254	1	509	frequency=1
+DEL	308	1923	NZ_VCBX01000255	1	508	frequency=1
+DEL	309	1924	NZ_VCBX01000256	1	508	frequency=1
+DEL	310	1925	NZ_VCBX01000257	1	507	frequency=1
+DEL	311	1926	NZ_VCBX01000258	1	506	frequency=1
+DEL	312	1927	NZ_VCBX01000259	1	506	frequency=1
+DEL	313	1928	NZ_VCBX01000260	1	506	frequency=1
+DEL	314	1929	NZ_VCBX01000261	1	505	frequency=1
+DEL	315	1930	NZ_VCBX01000262	1	505	frequency=1
+DEL	316	1931	NZ_VCBX01000263	1	505	frequency=1
+DEL	317	1932	NZ_VCBX01000264	1	501	frequency=1
+DEL	318	1933	NZ_VCBX01000265	1	501	frequency=1
+DEL	319	1934	NZ_VCBX01000266	1	501	frequency=1
+DEL	320	1935	NZ_VCBX01000267	1	500	frequency=1
+DEL	321	1936	NZ_VCBX01000268	1	499	frequency=1
+DEL	322	1937	NZ_VCBX01000269	1	498	frequency=1
+DEL	323	1938	NZ_VCBX01000270	1	497	frequency=1
+DEL	324	1939	NZ_VCBX01000271	1	495	frequency=1
+DEL	325	1940	NZ_VCBX01000272	1	493	frequency=1
+DEL	326	1941	NZ_VCBX01000273	1	492	frequency=1
+DEL	327	1942	NZ_VCBX01000274	1	492	frequency=1
+DEL	328	1943	NZ_VCBX01000275	1	492	frequency=1
+DEL	329	1944	NZ_VCBX01000276	1	490	frequency=1
+DEL	330	1945	NZ_VCBX01000277	1	489	frequency=1
+DEL	331	1946	NZ_VCBX01000278	1	488	frequency=1
+DEL	332	1947	NZ_VCBX01000279	1	488	frequency=1
+DEL	333	1948	NZ_VCBX01000280	1	487	frequency=1
+DEL	334	1949	NZ_VCBX01000281	1	487	frequency=1
+DEL	335	1950	NZ_VCBX01000282	1	487	frequency=1
+DEL	336	1951	NZ_VCBX01000283	1	486	frequency=1
+DEL	337	1952	NZ_VCBX01000284	1	486	frequency=1
+DEL	338	1953	NZ_VCBX01000285	1	485	frequency=1
+DEL	339	1954	NZ_VCBX01000286	1	484	frequency=1
+DEL	340	1955	NZ_VCBX01000287	1	484	frequency=1
+DEL	341	1956	NZ_VCBX01000288	1	482	frequency=1
+DEL	342	1957	NZ_VCBX01000289	1	482	frequency=1
+DEL	343	1958	NZ_VCBX01000290	1	481	frequency=1
+DEL	344	1959	NZ_VCBX01000291	1	481	frequency=1
+DEL	345	1960	NZ_VCBX01000292	1	481	frequency=1
+DEL	346	1961	NZ_VCBX01000293	1	481	frequency=1
+DEL	347	1962	NZ_VCBX01000294	1	481	frequency=1
+DEL	348	1963	NZ_VCBX01000295	1	480	frequency=1
+DEL	349	1964	NZ_VCBX01000296	1	480	frequency=1
+DEL	350	1965	NZ_VCBX01000297	1	479	frequency=1
+DEL	351	1966	NZ_VCBX01000298	1	479	frequency=1
+DEL	352	1967	NZ_VCBX01000299	1	478	frequency=1
+DEL	353	1968	NZ_VCBX01000300	1	478	frequency=1
+DEL	354	1969	NZ_VCBX01000301	1	478	frequency=1
+DEL	355	1970	NZ_VCBX01000302	1	477	frequency=1
+DEL	356	1971	NZ_VCBX01000303	1	477	frequency=1
+DEL	357	1972	NZ_VCBX01000304	1	477	frequency=1
+DEL	358	1973	NZ_VCBX01000305	1	476	frequency=1
+DEL	359	1974	NZ_VCBX01000306	1	476	frequency=1
+DEL	360	1975	NZ_VCBX01000307	1	476	frequency=1
+DEL	361	1976	NZ_VCBX01000308	1	475	frequency=1
+DEL	362	1977	NZ_VCBX01000309	1	474	frequency=1
+DEL	363	1978	NZ_VCBX01000310	1	474	frequency=1
+DEL	364	1979	NZ_VCBX01000311	1	473	frequency=1
+DEL	365	1980	NZ_VCBX01000312	1	473	frequency=1
+DEL	366	1981	NZ_VCBX01000313	1	472	frequency=1
+DEL	367	1982	NZ_VCBX01000314	1	471	frequency=1
+DEL	368	1983	NZ_VCBX01000315	1	471	frequency=1
+DEL	369	1984	NZ_VCBX01000316	1	470	frequency=1
+DEL	370	1985	NZ_VCBX01000317	1	469	frequency=1
+DEL	371	1986	NZ_VCBX01000318	1	468	frequency=1
+DEL	372	1987	NZ_VCBX01000319	1	468	frequency=1
+DEL	373	1988	NZ_VCBX01000320	1	468	frequency=1
+DEL	374	1989	NZ_VCBX01000321	1	468	frequency=1
+DEL	375	1990	NZ_VCBX01000322	1	466	frequency=1
+DEL	376	1991	NZ_VCBX01000323	1	466	frequency=1
+DEL	377	1992	NZ_VCBX01000324	1	466	frequency=1
+DEL	378	1993	NZ_VCBX01000325	1	465	frequency=1
+DEL	379	1994	NZ_VCBX01000326	1	465	frequency=1
+DEL	380	1995	NZ_VCBX01000327	1	464	frequency=1
+DEL	381	1996	NZ_VCBX01000328	1	463	frequency=1
+DEL	382	1997	NZ_VCBX01000329	1	462	frequency=1
+DEL	383	1998	NZ_VCBX01000330	1	461	frequency=1
+DEL	384	1999	NZ_VCBX01000331	1	461	frequency=1
+DEL	385	2000	NZ_VCBX01000332	1	460	frequency=1
+DEL	386	2001	NZ_VCBX01000333	1	460	frequency=1
+DEL	387	2002	NZ_VCBX01000334	1	460	frequency=1
+DEL	388	2003	NZ_VCBX01000335	1	460	frequency=1
+DEL	389	2004	NZ_VCBX01000336	1	459	frequency=1
+DEL	390	2005	NZ_VCBX01000337	1	459	frequency=1
+DEL	391	2006	NZ_VCBX01000338	1	459	frequency=1
+DEL	392	2007	NZ_VCBX01000339	1	457	frequency=1
+DEL	393	2008	NZ_VCBX01000340	1	457	frequency=1
+DEL	394	2009	NZ_VCBX01000341	1	457	frequency=1
+DEL	395	2010	NZ_VCBX01000342	1	456	frequency=1
+DEL	396	2011	NZ_VCBX01000343	1	456	frequency=1
+DEL	397	2012	NZ_VCBX01000344	1	456	frequency=1
+DEL	398	2013	NZ_VCBX01000345	1	453	frequency=1
+DEL	399	2014	NZ_VCBX01000346	1	452	frequency=1
+DEL	400	2015	NZ_VCBX01000347	1	452	frequency=1
+DEL	401	2016	NZ_VCBX01000348	1	452	frequency=1
+DEL	402	2017	NZ_VCBX01000349	1	452	frequency=1
+DEL	403	2018	NZ_VCBX01000350	1	451	frequency=1
+DEL	404	2019	NZ_VCBX01000351	1	451	frequency=1
+DEL	405	2020	NZ_VCBX01000352	1	451	frequency=1
+DEL	406	2021	NZ_VCBX01000353	1	451	frequency=1
+DEL	407	2022	NZ_VCBX01000354	1	450	frequency=1
+DEL	408	2023	NZ_VCBX01000355	1	450	frequency=1
+DEL	409	2024	NZ_VCBX01000356	1	450	frequency=1
+DEL	410	2025	NZ_VCBX01000357	1	449	frequency=1
+DEL	411	2026	NZ_VCBX01000358	1	449	frequency=1
+DEL	412	2027	NZ_VCBX01000359	1	448	frequency=1
+DEL	413	2028	NZ_VCBX01000360	1	448	frequency=1
+DEL	414	2029	NZ_VCBX01000361	1	446	frequency=1
+DEL	415	2030	NZ_VCBX01000362	1	446	frequency=1
+DEL	416	2031	NZ_VCBX01000363	1	446	frequency=1
+DEL	417	2032	NZ_VCBX01000364	1	446	frequency=1
+DEL	418	2033	NZ_VCBX01000365	1	446	frequency=1
+DEL	419	2034	NZ_VCBX01000366	1	445	frequency=1
+DEL	420	2035	NZ_VCBX01000367	1	445	frequency=1
+DEL	421	2036	NZ_VCBX01000368	1	445	frequency=1
+DEL	422	2037	NZ_VCBX01000369	1	444	frequency=1
+DEL	423	2038	NZ_VCBX01000370	1	444	frequency=1
+DEL	424	2039	NZ_VCBX01000371	1	443	frequency=1
+DEL	425	2040	NZ_VCBX01000372	1	443	frequency=1
+DEL	426	2041	NZ_VCBX01000373	1	443	frequency=1
+DEL	427	2042	NZ_VCBX01000374	1	442	frequency=1
+DEL	428	2043	NZ_VCBX01000375	1	442	frequency=1
+DEL	429	2044	NZ_VCBX01000376	1	442	frequency=1
+DEL	430	2045	NZ_VCBX01000377	1	442	frequency=1
+DEL	431	2046	NZ_VCBX01000378	1	442	frequency=1
+DEL	432	2047	NZ_VCBX01000379	1	442	frequency=1
+DEL	433	2048	NZ_VCBX01000380	1	441	frequency=1
+DEL	434	2049	NZ_VCBX01000381	1	441	frequency=1
+DEL	435	2050	NZ_VCBX01000382	1	439	frequency=1
+DEL	436	2051	NZ_VCBX01000383	1	439	frequency=1
+DEL	437	2052	NZ_VCBX01000384	1	439	frequency=1
+DEL	438	2053	NZ_VCBX01000385	1	438	frequency=1
+DEL	439	2054	NZ_VCBX01000386	1	437	frequency=1
+DEL	440	2055	NZ_VCBX01000387	1	437	frequency=1
+DEL	441	2056	NZ_VCBX01000388	1	436	frequency=1
+DEL	442	2057	NZ_VCBX01000389	1	436	frequency=1
+DEL	443	2058	NZ_VCBX01000390	1	435	frequency=1
+DEL	444	2059	NZ_VCBX01000391	1	435	frequency=1
+DEL	445	2060	NZ_VCBX01000392	1	435	frequency=1
+DEL	446	2061	NZ_VCBX01000393	1	435	frequency=1
+DEL	447	2062	NZ_VCBX01000394	1	434	frequency=1
+DEL	448	2063	NZ_VCBX01000395	1	433	frequency=1
+DEL	449	2064	NZ_VCBX01000396	1	432	frequency=1
+DEL	450	2065	NZ_VCBX01000397	1	432	frequency=1
+DEL	451	2066	NZ_VCBX01000398	1	432	frequency=1
+DEL	452	2067	NZ_VCBX01000399	1	432	frequency=1
+DEL	453	2068	NZ_VCBX01000400	1	432	frequency=1
+DEL	454	2069	NZ_VCBX01000401	1	431	frequency=1
+DEL	455	2070	NZ_VCBX01000402	1	430	frequency=1
+DEL	456	2071	NZ_VCBX01000403	1	430	frequency=1
+DEL	457	2072	NZ_VCBX01000404	1	430	frequency=1
+DEL	458	2073	NZ_VCBX01000405	1	430	frequency=1
+DEL	459	2074	NZ_VCBX01000406	1	429	frequency=1
+DEL	460	2075	NZ_VCBX01000407	1	429	frequency=1
+DEL	461	2076	NZ_VCBX01000408	1	428	frequency=1
+DEL	462	2077	NZ_VCBX01000409	1	428	frequency=1
+DEL	463	2078	NZ_VCBX01000410	1	427	frequency=1
+DEL	464	2079	NZ_VCBX01000411	1	427	frequency=1
+DEL	465	2080	NZ_VCBX01000412	1	425	frequency=1
+DEL	466	2081	NZ_VCBX01000413	1	425	frequency=1
+DEL	467	2082	NZ_VCBX01000414	1	425	frequency=1
+DEL	468	2083	NZ_VCBX01000415	1	425	frequency=1
+DEL	469	2084	NZ_VCBX01000416	1	425	frequency=1
+DEL	470	2085	NZ_VCBX01000417	1	425	frequency=1
+DEL	471	2086	NZ_VCBX01000418	1	425	frequency=1
+DEL	472	2087	NZ_VCBX01000419	1	424	frequency=1
+DEL	473	2088	NZ_VCBX01000420	1	424	frequency=1
+DEL	474	2089	NZ_VCBX01000421	1	423	frequency=1
+DEL	475	2090	NZ_VCBX01000422	1	423	frequency=1
+DEL	476	2091	NZ_VCBX01000423	1	423	frequency=1
+DEL	477	2092	NZ_VCBX01000424	1	423	frequency=1
+DEL	478	2093	NZ_VCBX01000425	1	422	frequency=1
+DEL	479	2094	NZ_VCBX01000426	1	421	frequency=1
+DEL	480	2095	NZ_VCBX01000427	1	421	frequency=1
+DEL	481	2096	NZ_VCBX01000428	1	421	frequency=1
+DEL	482	2097	NZ_VCBX01000429	1	421	frequency=1
+DEL	483	2098	NZ_VCBX01000430	1	420	frequency=1
+DEL	484	2099	NZ_VCBX01000431	1	419	frequency=1
+DEL	485	2100	NZ_VCBX01000432	1	419	frequency=1
+DEL	486	2101	NZ_VCBX01000433	1	419	frequency=1
+DEL	487	2102	NZ_VCBX01000434	1	418	frequency=1
+DEL	488	2103	NZ_VCBX01000435	1	418	frequency=1
+DEL	489	2104	NZ_VCBX01000436	1	418	frequency=1
+DEL	490	2105	NZ_VCBX01000437	1	418	frequency=1
+DEL	491	2106	NZ_VCBX01000438	1	417	frequency=1
+DEL	492	2107	NZ_VCBX01000439	1	417	frequency=1
+DEL	493	2108	NZ_VCBX01000440	1	417	frequency=1
+DEL	494	2109	NZ_VCBX01000441	1	416	frequency=1
+DEL	495	2110	NZ_VCBX01000442	1	415	frequency=1
+DEL	496	2111	NZ_VCBX01000443	1	414	frequency=1
+DEL	497	2112	NZ_VCBX01000444	1	414	frequency=1
+DEL	498	2113	NZ_VCBX01000445	1	414	frequency=1
+DEL	499	2114	NZ_VCBX01000446	1	414	frequency=1
+DEL	500	2115	NZ_VCBX01000447	1	413	frequency=1
+DEL	501	2116	NZ_VCBX01000448	1	413	frequency=1
+DEL	502	2117	NZ_VCBX01000449	1	413	frequency=1
+DEL	503	2118	NZ_VCBX01000450	1	413	frequency=1
+DEL	504	2119	NZ_VCBX01000451	1	412	frequency=1
+DEL	505	2120	NZ_VCBX01000452	1	412	frequency=1
+DEL	506	2121	NZ_VCBX01000453	1	412	frequency=1
+DEL	507	2122	NZ_VCBX01000454	1	412	frequency=1
+DEL	508	2123	NZ_VCBX01000455	1	412	frequency=1
+DEL	509	2124	NZ_VCBX01000456	1	412	frequency=1
+DEL	510	2125	NZ_VCBX01000457	1	412	frequency=1
+DEL	511	2126	NZ_VCBX01000458	1	412	frequency=1
+DEL	512	2127	NZ_VCBX01000459	1	411	frequency=1
+DEL	513	2128	NZ_VCBX01000460	1	411	frequency=1
+DEL	514	2129	NZ_VCBX01000461	1	411	frequency=1
+DEL	515	2130	NZ_VCBX01000462	1	410	frequency=1
+DEL	516	2131	NZ_VCBX01000463	1	410	frequency=1
+DEL	517	2132	NZ_VCBX01000464	1	410	frequency=1
+DEL	518	2133	NZ_VCBX01000465	1	409	frequency=1
+DEL	519	2134	NZ_VCBX01000466	1	409	frequency=1
+DEL	520	2135	NZ_VCBX01000467	1	409	frequency=1
+DEL	521	2136	NZ_VCBX01000468	1	408	frequency=1
+DEL	522	2137	NZ_VCBX01000469	1	408	frequency=1
+DEL	523	2138	NZ_VCBX01000470	1	408	frequency=1
+DEL	524	2139	NZ_VCBX01000471	1	407	frequency=1
+DEL	525	2140	NZ_VCBX01000472	1	407	frequency=1
+DEL	526	2141	NZ_VCBX01000473	1	407	frequency=1
+DEL	527	2142	NZ_VCBX01000474	1	407	frequency=1
+DEL	528	2143	NZ_VCBX01000475	1	406	frequency=1
+DEL	529	2144	NZ_VCBX01000476	1	406	frequency=1
+DEL	530	2145	NZ_VCBX01000477	1	406	frequency=1
+DEL	531	2146	NZ_VCBX01000478	1	405	frequency=1
+DEL	532	2147	NZ_VCBX01000479	1	405	frequency=1
+DEL	533	2148	NZ_VCBX01000480	1	403	frequency=1
+DEL	534	2149	NZ_VCBX01000481	1	403	frequency=1
+DEL	535	2150	NZ_VCBX01000482	1	403	frequency=1
+DEL	536	2151	NZ_VCBX01000483	1	403	frequency=1
+DEL	537	2152	NZ_VCBX01000484	1	403	frequency=1
+DEL	538	2153	NZ_VCBX01000485	1	402	frequency=1
+DEL	539	2154	NZ_VCBX01000486	1	400	frequency=1
+DEL	540	2155	NZ_VCBX01000487	1	400	frequency=1
+DEL	541	2156	NZ_VCBX01000488	1	400	frequency=1
+DEL	542	2157	NZ_VCBX01000489	1	399	frequency=1
+DEL	543	2158	NZ_VCBX01000490	1	399	frequency=1
+DEL	544	2159	NZ_VCBX01000491	1	399	frequency=1
+DEL	545	2160	NZ_VCBX01000492	1	399	frequency=1
+DEL	546	2161	NZ_VCBX01000493	1	398	frequency=1
+DEL	547	2162	NZ_VCBX01000494	1	398	frequency=1
+DEL	548	2163	NZ_VCBX01000495	1	398	frequency=1
+DEL	549	2164	NZ_VCBX01000496	1	398	frequency=1
+DEL	550	2165	NZ_VCBX01000497	1	397	frequency=1
+DEL	551	2166	NZ_VCBX01000498	1	396	frequency=1
+DEL	552	2167	NZ_VCBX01000499	1	396	frequency=1
+DEL	553	2168	NZ_VCBX01000500	1	396	frequency=1
+DEL	554	2169	NZ_VCBX01000501	1	395	frequency=1
+DEL	555	2170	NZ_VCBX01000502	1	395	frequency=1
+DEL	556	2171	NZ_VCBX01000503	1	394	frequency=1
+DEL	557	2172	NZ_VCBX01000504	1	394	frequency=1
+DEL	558	2173	NZ_VCBX01000505	1	393	frequency=1
+DEL	559	2174	NZ_VCBX01000506	1	393	frequency=1
+DEL	560	2175	NZ_VCBX01000507	1	393	frequency=1
+DEL	561	2176	NZ_VCBX01000508	1	393	frequency=1
+DEL	562	2177	NZ_VCBX01000509	1	392	frequency=1
+DEL	563	2178	NZ_VCBX01000510	1	392	frequency=1
+DEL	564	2179	NZ_VCBX01000511	1	392	frequency=1
+DEL	565	2180	NZ_VCBX01000512	1	392	frequency=1
+DEL	566	2181	NZ_VCBX01000513	1	391	frequency=1
+DEL	567	2182	NZ_VCBX01000514	1	390	frequency=1
+DEL	568	2183	NZ_VCBX01000515	1	390	frequency=1
+DEL	569	2184	NZ_VCBX01000516	1	390	frequency=1
+DEL	570	2185	NZ_VCBX01000517	1	389	frequency=1
+DEL	571	2186	NZ_VCBX01000518	1	389	frequency=1
+DEL	572	2187	NZ_VCBX01000519	1	389	frequency=1
+DEL	573	2188	NZ_VCBX01000520	1	389	frequency=1
+DEL	574	2189	NZ_VCBX01000521	1	388	frequency=1
+DEL	575	2190	NZ_VCBX01000522	1	387	frequency=1
+DEL	576	2191	NZ_VCBX01000523	1	387	frequency=1
+DEL	577	2192	NZ_VCBX01000524	1	386	frequency=1
+DEL	578	2193	NZ_VCBX01000525	1	386	frequency=1
+DEL	579	2194	NZ_VCBX01000526	1	386	frequency=1
+DEL	580	2195	NZ_VCBX01000527	1	386	frequency=1
+DEL	581	2196	NZ_VCBX01000528	1	386	frequency=1
+DEL	582	2197	NZ_VCBX01000529	1	385	frequency=1
+DEL	583	2198	NZ_VCBX01000530	1	385	frequency=1
+DEL	584	2199	NZ_VCBX01000531	1	384	frequency=1
+DEL	585	2200	NZ_VCBX01000532	1	384	frequency=1
+DEL	586	2201	NZ_VCBX01000533	1	384	frequency=1
+DEL	587	2202	NZ_VCBX01000534	1	384	frequency=1
+DEL	588	2203	NZ_VCBX01000535	1	383	frequency=1
+DEL	589	2204	NZ_VCBX01000536	1	383	frequency=1
+DEL	590	2205	NZ_VCBX01000537	1	383	frequency=1
+DEL	591	2206	NZ_VCBX01000538	1	382	frequency=1
+DEL	592	2207	NZ_VCBX01000539	1	382	frequency=1
+DEL	593	2208	NZ_VCBX01000540	1	382	frequency=1
+DEL	594	2209	NZ_VCBX01000541	1	382	frequency=1
+DEL	595	2210	NZ_VCBX01000542	1	382	frequency=1
+DEL	596	2211	NZ_VCBX01000543	1	382	frequency=1
+DEL	597	2212	NZ_VCBX01000544	1	381	frequency=1
+DEL	598	2213	NZ_VCBX01000545	1	381	frequency=1
+DEL	599	2214	NZ_VCBX01000546	1	381	frequency=1
+DEL	600	2215	NZ_VCBX01000547	1	380	frequency=1
+DEL	601	2216	NZ_VCBX01000548	1	380	frequency=1
+DEL	602	2217	NZ_VCBX01000549	1	380	frequency=1
+DEL	603	2218	NZ_VCBX01000550	1	380	frequency=1
+DEL	604	2219	NZ_VCBX01000551	1	379	frequency=1
+DEL	605	2220	NZ_VCBX01000552	1	379	frequency=1
+DEL	606	2221	NZ_VCBX01000553	1	379	frequency=1
+DEL	607	2222	NZ_VCBX01000554	1	379	frequency=1
+DEL	608	2223	NZ_VCBX01000555	1	379	frequency=1
+DEL	609	2224	NZ_VCBX01000556	1	379	frequency=1
+DEL	610	2225	NZ_VCBX01000557	1	378	frequency=1
+DEL	611	2226	NZ_VCBX01000558	1	378	frequency=1
+DEL	612	2227	NZ_VCBX01000559	1	378	frequency=1
+DEL	613	2228	NZ_VCBX01000560	1	378	frequency=1
+DEL	614	2229	NZ_VCBX01000561	1	378	frequency=1
+DEL	615	2230	NZ_VCBX01000562	1	378	frequency=1
+DEL	616	2231	NZ_VCBX01000563	1	377	frequency=1
+DEL	617	2232	NZ_VCBX01000564	1	377	frequency=1
+DEL	618	2233	NZ_VCBX01000565	1	375	frequency=1
+DEL	619	2234	NZ_VCBX01000566	1	375	frequency=1
+DEL	620	2235	NZ_VCBX01000567	1	375	frequency=1
+DEL	621	2236	NZ_VCBX01000568	1	375	frequency=1
+DEL	622	2237	NZ_VCBX01000569	1	374	frequency=1
+DEL	623	2238	NZ_VCBX01000570	1	374	frequency=1
+DEL	624	2239	NZ_VCBX01000571	1	374	frequency=1
+DEL	625	2240	NZ_VCBX01000572	1	373	frequency=1
+DEL	626	2241	NZ_VCBX01000573	1	373	frequency=1
+DEL	627	2242	NZ_VCBX01000574	1	372	frequency=1
+DEL	628	2243	NZ_VCBX01000575	1	372	frequency=1
+DEL	629	2244	NZ_VCBX01000576	1	372	frequency=1
+DEL	630	2245	NZ_VCBX01000577	1	372	frequency=1
+DEL	631	2246	NZ_VCBX01000578	1	372	frequency=1
+DEL	632	2247	NZ_VCBX01000579	1	372	frequency=1
+DEL	633	2248	NZ_VCBX01000580	1	371	frequency=1
+DEL	634	2249	NZ_VCBX01000581	1	371	frequency=1
+DEL	635	2250	NZ_VCBX01000582	1	371	frequency=1
+DEL	636	2251	NZ_VCBX01000583	1	370	frequency=1
+DEL	637	2252	NZ_VCBX01000584	1	370	frequency=1
+DEL	638	2253	NZ_VCBX01000585	1	370	frequency=1
+DEL	639	2254	NZ_VCBX01000586	1	370	frequency=1
+DEL	640	2255	NZ_VCBX01000587	1	370	frequency=1
+DEL	641	2256	NZ_VCBX01000588	1	369	frequency=1
+DEL	642	2257	NZ_VCBX01000589	1	369	frequency=1
+DEL	643	2258	NZ_VCBX01000590	1	369	frequency=1
+DEL	644	2259	NZ_VCBX01000591	1	368	frequency=1
+DEL	645	2260	NZ_VCBX01000592	1	368	frequency=1
+DEL	646	2261	NZ_VCBX01000593	1	368	frequency=1
+DEL	647	2262	NZ_VCBX01000594	1	367	frequency=1
+DEL	648	2263	NZ_VCBX01000595	1	367	frequency=1
+DEL	649	2264	NZ_VCBX01000596	1	367	frequency=1
+DEL	650	2265	NZ_VCBX01000597	1	366	frequency=1
+DEL	651	2266	NZ_VCBX01000598	1	366	frequency=1
+DEL	652	2267	NZ_VCBX01000599	1	365	frequency=1
+DEL	653	2268	NZ_VCBX01000600	1	365	frequency=1
+DEL	654	2269	NZ_VCBX01000601	1	365	frequency=1
+DEL	655	2270	NZ_VCBX01000602	1	364	frequency=1
+DEL	656	2271	NZ_VCBX01000603	1	364	frequency=1
+DEL	657	2272	NZ_VCBX01000604	1	364	frequency=1
+DEL	658	2273	NZ_VCBX01000605	1	364	frequency=1
+DEL	659	2274	NZ_VCBX01000606	1	364	frequency=1
+DEL	660	2275	NZ_VCBX01000607	1	363	frequency=1
+DEL	661	2276	NZ_VCBX01000608	1	363	frequency=1
+DEL	662	2277	NZ_VCBX01000609	1	363	frequency=1
+DEL	663	2278	NZ_VCBX01000610	1	363	frequency=1
+DEL	664	2279	NZ_VCBX01000611	1	363	frequency=1
+DEL	665	2280	NZ_VCBX01000612	1	363	frequency=1
+DEL	666	2281	NZ_VCBX01000613	1	362	frequency=1
+DEL	667	2282	NZ_VCBX01000614	1	362	frequency=1
+DEL	668	2283	NZ_VCBX01000615	1	362	frequency=1
+DEL	669	2284	NZ_VCBX01000616	1	361	frequency=1
+DEL	670	2285	NZ_VCBX01000617	1	360	frequency=1
+DEL	671	2286	NZ_VCBX01000618	1	360	frequency=1
+DEL	672	2287	NZ_VCBX01000619	1	360	frequency=1
+DEL	673	2288	NZ_VCBX01000620	1	359	frequency=1
+DEL	674	2289	NZ_VCBX01000621	1	359	frequency=1
+DEL	675	2290	NZ_VCBX01000622	1	358	frequency=1
+DEL	676	2291	NZ_VCBX01000623	1	358	frequency=1
+DEL	677	2292	NZ_VCBX01000624	1	358	frequency=1
+DEL	678	2293	NZ_VCBX01000625	1	357	frequency=1
+DEL	679	2294	NZ_VCBX01000626	1	357	frequency=1
+DEL	680	2295	NZ_VCBX01000627	1	356	frequency=1
+DEL	681	2296	NZ_VCBX01000628	1	356	frequency=1
+DEL	682	2297	NZ_VCBX01000629	1	356	frequency=1
+DEL	683	2298	NZ_VCBX01000630	1	356	frequency=1
+DEL	684	2299	NZ_VCBX01000631	1	356	frequency=1
+DEL	685	2300	NZ_VCBX01000632	1	355	frequency=1
+DEL	686	2301	NZ_VCBX01000633	1	355	frequency=1
+DEL	687	2302	NZ_VCBX01000634	1	355	frequency=1
+DEL	688	2303	NZ_VCBX01000635	1	355	frequency=1
+DEL	689	2304	NZ_VCBX01000636	1	355	frequency=1
+DEL	690	2305	NZ_VCBX01000637	1	355	frequency=1
+DEL	691	2306	NZ_VCBX01000638	1	354	frequency=1
+DEL	692	2307	NZ_VCBX01000639	1	354	frequency=1
+DEL	693	2308	NZ_VCBX01000640	1	354	frequency=1
+DEL	694	2309	NZ_VCBX01000641	1	354	frequency=1
+DEL	695	2310	NZ_VCBX01000642	1	354	frequency=1
+DEL	696	2311	NZ_VCBX01000643	1	353	frequency=1
+DEL	697	2312	NZ_VCBX01000644	1	353	frequency=1
+DEL	698	2313	NZ_VCBX01000645	1	353	frequency=1
+DEL	699	2314	NZ_VCBX01000646	1	353	frequency=1
+DEL	700	2315	NZ_VCBX01000647	1	352	frequency=1
+DEL	701	2316	NZ_VCBX01000648	1	351	frequency=1
+DEL	702	2317	NZ_VCBX01000649	1	351	frequency=1
+DEL	703	2318	NZ_VCBX01000650	1	351	frequency=1
+DEL	704	2319	NZ_VCBX01000651	1	350	frequency=1
+DEL	705	2320	NZ_VCBX01000652	1	350	frequency=1
+DEL	706	2321	NZ_VCBX01000653	1	350	frequency=1
+DEL	707	2322	NZ_VCBX01000654	1	350	frequency=1
+DEL	708	2323	NZ_VCBX01000655	1	350	frequency=1
+DEL	709	2324	NZ_VCBX01000656	1	350	frequency=1
+DEL	710	2325	NZ_VCBX01000657	1	349	frequency=1
+DEL	711	2326	NZ_VCBX01000658	1	349	frequency=1
+DEL	712	2327	NZ_VCBX01000659	1	349	frequency=1
+DEL	713	2328	NZ_VCBX01000660	1	349	frequency=1
+DEL	714	2329	NZ_VCBX01000661	1	349	frequency=1
+DEL	715	2330	NZ_VCBX01000662	1	348	frequency=1
+DEL	716	2331	NZ_VCBX01000663	1	348	frequency=1
+DEL	717	2332	NZ_VCBX01000664	1	348	frequency=1
+DEL	718	2333	NZ_VCBX01000665	1	348	frequency=1
+DEL	719	2334	NZ_VCBX01000666	1	347	frequency=1
+DEL	720	2335	NZ_VCBX01000667	1	347	frequency=1
+DEL	721	2336	NZ_VCBX01000668	1	347	frequency=1
+DEL	722	2337	NZ_VCBX01000669	1	347	frequency=1
+DEL	723	2338	NZ_VCBX01000670	1	347	frequency=1
+DEL	724	2339	NZ_VCBX01000671	1	347	frequency=1
+DEL	725	2340	NZ_VCBX01000672	1	347	frequency=1
+DEL	726	2341	NZ_VCBX01000673	1	346	frequency=1
+DEL	727	2342	NZ_VCBX01000674	1	346	frequency=1
+DEL	728	2343	NZ_VCBX01000675	1	346	frequency=1
+DEL	729	2344	NZ_VCBX01000676	1	346	frequency=1
+DEL	730	2345	NZ_VCBX01000677	1	345	frequency=1
+DEL	731	2346	NZ_VCBX01000678	1	345	frequency=1
+DEL	732	2347	NZ_VCBX01000679	1	345	frequency=1
+DEL	733	2348	NZ_VCBX01000680	1	345	frequency=1
+DEL	734	2349	NZ_VCBX01000681	1	345	frequency=1
+DEL	735	2350	NZ_VCBX01000682	1	344	frequency=1
+DEL	736	2351	NZ_VCBX01000683	1	344	frequency=1
+DEL	737	2352	NZ_VCBX01000684	1	344	frequency=1
+DEL	738	2353	NZ_VCBX01000685	1	344	frequency=1
+DEL	739	2354	NZ_VCBX01000686	1	344	frequency=1
+DEL	740	2355	NZ_VCBX01000687	1	343	frequency=1
+DEL	741	2356	NZ_VCBX01000688	1	343	frequency=1
+DEL	742	2357	NZ_VCBX01000689	1	343	frequency=1
+DEL	743	2358	NZ_VCBX01000690	1	343	frequency=1
+DEL	744	2359	NZ_VCBX01000691	1	343	frequency=1
+DEL	745	2360	NZ_VCBX01000692	1	342	frequency=1
+DEL	746	2361	NZ_VCBX01000693	1	342	frequency=1
+DEL	747	2362	NZ_VCBX01000694	1	342	frequency=1
+DEL	748	2363	NZ_VCBX01000695	1	342	frequency=1
+DEL	749	2364	NZ_VCBX01000696	1	342	frequency=1
+DEL	750	2365	NZ_VCBX01000697	1	342	frequency=1
+DEL	751	2366	NZ_VCBX01000698	1	341	frequency=1
+DEL	752	2367	NZ_VCBX01000699	1	341	frequency=1
+DEL	753	2368	NZ_VCBX01000700	1	341	frequency=1
+DEL	754	2369	NZ_VCBX01000701	1	341	frequency=1
+DEL	755	2370	NZ_VCBX01000702	1	340	frequency=1
+DEL	756	2371	NZ_VCBX01000703	1	340	frequency=1
+DEL	757	2372	NZ_VCBX01000704	1	340	frequency=1
+DEL	758	2373	NZ_VCBX01000705	1	340	frequency=1
+DEL	759	2374	NZ_VCBX01000706	1	340	frequency=1
+DEL	760	2375	NZ_VCBX01000707	1	339	frequency=1
+DEL	761	2376	NZ_VCBX01000708	1	339	frequency=1
+DEL	762	2377	NZ_VCBX01000709	1	339	frequency=1
+DEL	763	2378	NZ_VCBX01000710	1	339	frequency=1
+DEL	764	2379	NZ_VCBX01000711	1	338	frequency=1
+DEL	765	2380	NZ_VCBX01000712	1	338	frequency=1
+DEL	766	2381	NZ_VCBX01000713	1	338	frequency=1
+DEL	767	2382	NZ_VCBX01000714	1	338	frequency=1
+DEL	768	2383	NZ_VCBX01000715	1	338	frequency=1
+DEL	769	2384	NZ_VCBX01000716	1	337	frequency=1
+DEL	770	2385	NZ_VCBX01000717	1	337	frequency=1
+DEL	771	2386	NZ_VCBX01000718	1	337	frequency=1
+DEL	772	2387	NZ_VCBX01000719	1	337	frequency=1
+DEL	773	2388	NZ_VCBX01000720	1	337	frequency=1
+DEL	774	2389	NZ_VCBX01000721	1	337	frequency=1
+DEL	775	2390	NZ_VCBX01000722	1	337	frequency=1
+DEL	776	2391	NZ_VCBX01000723	1	337	frequency=1
+DEL	777	2392	NZ_VCBX01000724	1	336	frequency=1
+DEL	778	2393	NZ_VCBX01000725	1	336	frequency=1
+DEL	779	2394	NZ_VCBX01000726	1	336	frequency=1
+DEL	780	2395	NZ_VCBX01000727	1	336	frequency=1
+DEL	781	2396	NZ_VCBX01000728	1	336	frequency=1
+DEL	782	2397	NZ_VCBX01000729	1	336	frequency=1
+DEL	783	2398	NZ_VCBX01000730	1	335	frequency=1
+DEL	784	2399	NZ_VCBX01000731	1	335	frequency=1
+DEL	785	2400	NZ_VCBX01000732	1	335	frequency=1
+DEL	786	2401	NZ_VCBX01000733	1	335	frequency=1
+DEL	787	2402	NZ_VCBX01000734	1	334	frequency=1
+DEL	788	2403	NZ_VCBX01000735	1	334	frequency=1
+DEL	789	2404	NZ_VCBX01000736	1	334	frequency=1
+DEL	790	2405	NZ_VCBX01000737	1	334	frequency=1
+DEL	791	2406	NZ_VCBX01000738	1	334	frequency=1
+DEL	792	2407	NZ_VCBX01000739	1	334	frequency=1
+DEL	793	2408	NZ_VCBX01000740	1	333	frequency=1
+DEL	794	2409	NZ_VCBX01000741	1	333	frequency=1
+DEL	795	2410	NZ_VCBX01000742	1	333	frequency=1
+DEL	796	2411	NZ_VCBX01000743	1	333	frequency=1
+DEL	797	2412	NZ_VCBX01000744	1	333	frequency=1
+DEL	798	2413	NZ_VCBX01000745	1	332	frequency=1
+DEL	799	2414	NZ_VCBX01000746	1	332	frequency=1
+DEL	800	2415	NZ_VCBX01000747	1	332	frequency=1
+DEL	801	2416	NZ_VCBX01000748	1	332	frequency=1
+DEL	802	2417	NZ_VCBX01000749	1	332	frequency=1
+DEL	803	2418	NZ_VCBX01000750	1	332	frequency=1
+DEL	804	2419	NZ_VCBX01000751	1	331	frequency=1
+DEL	805	2420	NZ_VCBX01000752	1	331	frequency=1
+DEL	806	2421	NZ_VCBX01000753	1	331	frequency=1
+DEL	807	2422	NZ_VCBX01000754	1	331	frequency=1
+DEL	808	2423	NZ_VCBX01000755	1	331	frequency=1
+DEL	809	2424	NZ_VCBX01000756	1	331	frequency=1
+DEL	810	2425	NZ_VCBX01000757	1	330	frequency=1
+DEL	811	2426	NZ_VCBX01000758	1	330	frequency=1
+DEL	812	2427	NZ_VCBX01000759	1	330	frequency=1
+DEL	813	2428	NZ_VCBX01000760	1	329	frequency=1
+DEL	814	2429	NZ_VCBX01000761	1	329	frequency=1
+DEL	815	2430	NZ_VCBX01000762	1	329	frequency=1
+DEL	816	2431	NZ_VCBX01000763	1	329	frequency=1
+DEL	817	2432	NZ_VCBX01000764	1	329	frequency=1
+DEL	818	2433	NZ_VCBX01000765	1	329	frequency=1
+DEL	819	2434	NZ_VCBX01000766	1	329	frequency=1
+DEL	820	2435	NZ_VCBX01000767	1	328	frequency=1
+DEL	821	2436	NZ_VCBX01000768	1	328	frequency=1
+DEL	822	2437	NZ_VCBX01000769	1	328	frequency=1
+DEL	823	2438	NZ_VCBX01000770	1	328	frequency=1
+DEL	824	2439	NZ_VCBX01000771	1	327	frequency=1
+DEL	825	2440	NZ_VCBX01000772	1	327	frequency=1
+DEL	826	2441	NZ_VCBX01000773	1	327	frequency=1
+DEL	827	2442	NZ_VCBX01000774	1	327	frequency=1
+DEL	828	2443	NZ_VCBX01000775	1	327	frequency=1
+DEL	829	2444	NZ_VCBX01000776	1	326	frequency=1
+DEL	830	2445	NZ_VCBX01000777	1	326	frequency=1
+DEL	831	2446	NZ_VCBX01000778	1	326	frequency=1
+DEL	832	2447	NZ_VCBX01000779	1	326	frequency=1
+DEL	833	2448	NZ_VCBX01000780	1	325	frequency=1
+DEL	834	2449	NZ_VCBX01000781	1	324	frequency=1
+DEL	835	2450	NZ_VCBX01000782	1	324	frequency=1
+DEL	836	2451	NZ_VCBX01000783	1	323	frequency=1
+DEL	837	2452	NZ_VCBX01000784	1	322	frequency=1
+DEL	838	2453	NZ_VCBX01000785	1	322	frequency=1
+DEL	839	2454	NZ_VCBX01000786	1	322	frequency=1
+DEL	840	2455	NZ_VCBX01000787	1	322	frequency=1
+DEL	841	2456	NZ_VCBX01000788	1	322	frequency=1
+DEL	842	2457	NZ_VCBX01000789	1	322	frequency=1
+DEL	843	2458	NZ_VCBX01000790	1	322	frequency=1
+DEL	844	2459	NZ_VCBX01000791	1	322	frequency=1
+DEL	845	2460	NZ_VCBX01000792	1	322	frequency=1
+DEL	846	2461	NZ_VCBX01000793	1	321	frequency=1
+DEL	847	2462	NZ_VCBX01000794	1	321	frequency=1
+DEL	848	2463	NZ_VCBX01000795	1	321	frequency=1
+DEL	849	2464	NZ_VCBX01000796	1	321	frequency=1
+DEL	850	2465	NZ_VCBX01000797	1	320	frequency=1
+DEL	851	2466	NZ_VCBX01000798	1	320	frequency=1
+DEL	852	2467	NZ_VCBX01000799	1	320	frequency=1
+DEL	853	2468	NZ_VCBX01000800	1	320	frequency=1
+DEL	854	2469	NZ_VCBX01000801	1	320	frequency=1
+DEL	855	2470	NZ_VCBX01000802	1	320	frequency=1
+DEL	856	2471	NZ_VCBX01000803	1	320	frequency=1
+DEL	857	2472	NZ_VCBX01000804	1	320	frequency=1
+DEL	858	2473	NZ_VCBX01000805	1	319	frequency=1
+DEL	859	2474	NZ_VCBX01000806	1	319	frequency=1
+DEL	860	2475	NZ_VCBX01000807	1	318	frequency=1
+DEL	861	2476	NZ_VCBX01000808	1	318	frequency=1
+DEL	862	2477	NZ_VCBX01000809	1	318	frequency=1
+DEL	863	2478	NZ_VCBX01000810	1	318	frequency=1
+DEL	864	2479	NZ_VCBX01000811	1	318	frequency=1
+DEL	865	2480	NZ_VCBX01000812	1	317	frequency=1
+DEL	866	2481	NZ_VCBX01000813	1	317	frequency=1
+DEL	867	2482	NZ_VCBX01000814	1	317	frequency=1
+DEL	868	2483	NZ_VCBX01000815	1	317	frequency=1
+DEL	869	2484	NZ_VCBX01000816	1	317	frequency=1
+DEL	870	2485	NZ_VCBX01000817	1	316	frequency=1
+DEL	871	2486	NZ_VCBX01000818	1	316	frequency=1
+DEL	872	2487	NZ_VCBX01000819	1	316	frequency=1
+DEL	873	2488	NZ_VCBX01000820	1	316	frequency=1
+DEL	874	2489	NZ_VCBX01000821	1	316	frequency=1
+DEL	875	2490	NZ_VCBX01000822	1	316	frequency=1
+DEL	876	2491	NZ_VCBX01000823	1	315	frequency=1
+DEL	877	2492	NZ_VCBX01000824	1	315	frequency=1
+DEL	878	2493	NZ_VCBX01000825	1	315	frequency=1
+DEL	879	2494	NZ_VCBX01000826	1	314	frequency=1
+DEL	880	2495	NZ_VCBX01000827	1	314	frequency=1
+DEL	881	2496	NZ_VCBX01000828	1	314	frequency=1
+DEL	882	2497	NZ_VCBX01000829	1	314	frequency=1
+DEL	883	2498	NZ_VCBX01000830	1	314	frequency=1
+DEL	884	2499	NZ_VCBX01000831	1	314	frequency=1
+DEL	885	2500	NZ_VCBX01000832	1	314	frequency=1
+DEL	886	2501	NZ_VCBX01000833	1	313	frequency=1
+DEL	887	2502	NZ_VCBX01000834	1	313	frequency=1
+DEL	888	2503	NZ_VCBX01000835	1	313	frequency=1
+DEL	889	2504	NZ_VCBX01000836	1	313	frequency=1
+DEL	890	2505	NZ_VCBX01000837	1	313	frequency=1
+DEL	891	2506	NZ_VCBX01000838	1	312	frequency=1
+DEL	892	2507	NZ_VCBX01000839	1	312	frequency=1
+DEL	893	2508	NZ_VCBX01000840	1	312	frequency=1
+DEL	894	2509	NZ_VCBX01000841	1	312	frequency=1
+DEL	895	2510	NZ_VCBX01000842	1	311	frequency=1
+DEL	896	2511	NZ_VCBX01000843	1	311	frequency=1
+DEL	897	2512	NZ_VCBX01000844	1	311	frequency=1
+DEL	898	2513	NZ_VCBX01000845	1	311	frequency=1
+DEL	899	2514	NZ_VCBX01000846	1	310	frequency=1
+DEL	900	2515	NZ_VCBX01000847	1	310	frequency=1
+DEL	901	2516	NZ_VCBX01000848	1	310	frequency=1
+DEL	902	2517	NZ_VCBX01000849	1	309	frequency=1
+DEL	903	2518	NZ_VCBX01000850	1	309	frequency=1
+DEL	904	2519	NZ_VCBX01000851	1	309	frequency=1
+DEL	905	2520	NZ_VCBX01000852	1	308	frequency=1
+DEL	906	2521	NZ_VCBX01000853	1	308	frequency=1
+DEL	907	2522	NZ_VCBX01000854	1	307	frequency=1
+DEL	908	2523	NZ_VCBX01000855	1	307	frequency=1
+DEL	909	2524	NZ_VCBX01000856	1	307	frequency=1
+DEL	910	2525	NZ_VCBX01000857	1	307	frequency=1
+DEL	911	2526	NZ_VCBX01000858	1	307	frequency=1
+DEL	912	2527	NZ_VCBX01000859	1	307	frequency=1
+DEL	913	2528	NZ_VCBX01000860	1	307	frequency=1
+DEL	914	2529	NZ_VCBX01000861	1	307	frequency=1
+DEL	915	2530	NZ_VCBX01000862	1	307	frequency=1
+DEL	916	2531	NZ_VCBX01000863	1	307	frequency=1
+DEL	917	2532	NZ_VCBX01000864	1	306	frequency=1
+DEL	918	2533	NZ_VCBX01000865	1	306	frequency=1
+DEL	919	2534	NZ_VCBX01000866	1	306	frequency=1
+DEL	920	2535	NZ_VCBX01000867	1	306	frequency=1
+DEL	921	2536	NZ_VCBX01000868	1	306	frequency=1
+DEL	922	2537	NZ_VCBX01000869	1	306	frequency=1
+DEL	923	2538	NZ_VCBX01000870	1	306	frequency=1
+DEL	924	2539	NZ_VCBX01000871	1	306	frequency=1
+DEL	925	2540	NZ_VCBX01000872	1	305	frequency=1
+DEL	926	2541	NZ_VCBX01000873	1	305	frequency=1
+DEL	927	2542	NZ_VCBX01000874	1	305	frequency=1
+DEL	928	2543	NZ_VCBX01000875	1	305	frequency=1
+DEL	929	2544	NZ_VCBX01000876	1	305	frequency=1
+DEL	930	2545	NZ_VCBX01000877	1	305	frequency=1
+DEL	931	2546	NZ_VCBX01000878	1	305	frequency=1
+DEL	932	2547	NZ_VCBX01000879	1	305	frequency=1
+DEL	933	2548	NZ_VCBX01000880	1	304	frequency=1
+DEL	934	2549	NZ_VCBX01000881	1	304	frequency=1
+DEL	935	2550	NZ_VCBX01000882	1	304	frequency=1
+DEL	936	2551	NZ_VCBX01000883	1	304	frequency=1
+DEL	937	2552	NZ_VCBX01000884	1	304	frequency=1
+DEL	938	2553	NZ_VCBX01000885	1	304	frequency=1
+DEL	939	2554	NZ_VCBX01000886	1	304	frequency=1
+DEL	940	2555	NZ_VCBX01000887	1	303	frequency=1
+DEL	941	2556	NZ_VCBX01000888	1	303	frequency=1
+DEL	942	2557	NZ_VCBX01000889	1	303	frequency=1
+DEL	943	2558	NZ_VCBX01000890	1	302	frequency=1
+DEL	944	2559	NZ_VCBX01000891	1	302	frequency=1
+DEL	945	2560	NZ_VCBX01000892	1	302	frequency=1
+DEL	946	2561	NZ_VCBX01000893	1	301	frequency=1
+DEL	947	2562	NZ_VCBX01000894	1	301	frequency=1
+DEL	948	2563	NZ_VCBX01000895	1	301	frequency=1
+DEL	949	2564	NZ_VCBX01000896	1	301	frequency=1
+DEL	950	2565	NZ_VCBX01000897	1	301	frequency=1
+DEL	951	2566	NZ_VCBX01000898	1	301	frequency=1
+DEL	952	2567	NZ_VCBX01000899	1	300	frequency=1
+DEL	953	2568	NZ_VCBX01000900	1	300	frequency=1
+DEL	954	2569	NZ_VCBX01000901	1	300	frequency=1
+DEL	955	2570	NZ_VCBX01000902	1	300	frequency=1
+DEL	956	2571	NZ_VCBX01000903	1	300	frequency=1
+DEL	957	2572	NZ_VCBX01000904	1	300	frequency=1
+DEL	958	2573	NZ_VCBX01000905	1	300	frequency=1
+DEL	959	2574	NZ_VCBX01000906	1	299	frequency=1
+DEL	960	2575	NZ_VCBX01000907	1	299	frequency=1
+DEL	961	2576	NZ_VCBX01000908	1	299	frequency=1
+DEL	962	2577	NZ_VCBX01000909	1	299	frequency=1
+DEL	963	2578	NZ_VCBX01000910	1	299	frequency=1
+DEL	964	2579	NZ_VCBX01000911	1	299	frequency=1
+DEL	965	2580	NZ_VCBX01000912	1	298	frequency=1
+DEL	966	2581	NZ_VCBX01000913	1	298	frequency=1
+DEL	967	2582	NZ_VCBX01000914	1	298	frequency=1
+DEL	968	2583	NZ_VCBX01000915	1	298	frequency=1
+DEL	969	2584	NZ_VCBX01000916	1	298	frequency=1
+DEL	970	2585	NZ_VCBX01000917	1	298	frequency=1
+DEL	971	2586	NZ_VCBX01000918	1	298	frequency=1
+DEL	972	2587	NZ_VCBX01000919	1	297	frequency=1
+DEL	973	2588	NZ_VCBX01000920	1	297	frequency=1
+DEL	974	2589	NZ_VCBX01000921	1	297	frequency=1
+DEL	975	2590	NZ_VCBX01000922	1	297	frequency=1
+DEL	976	2591	NZ_VCBX01000923	1	297	frequency=1
+DEL	977	2592	NZ_VCBX01000924	1	297	frequency=1
+DEL	978	2593	NZ_VCBX01000925	1	296	frequency=1
+DEL	979	2594	NZ_VCBX01000926	1	296	frequency=1
+DEL	980	2595	NZ_VCBX01000927	1	296	frequency=1
+DEL	981	2596	NZ_VCBX01000928	1	296	frequency=1
+DEL	982	2597	NZ_VCBX01000929	1	296	frequency=1
+DEL	983	2598	NZ_VCBX01000930	1	296	frequency=1
+DEL	984	2599	NZ_VCBX01000931	1	295	frequency=1
+DEL	985	2600	NZ_VCBX01000932	1	295	frequency=1
+DEL	986	2601	NZ_VCBX01000933	1	295	frequency=1
+DEL	987	2602	NZ_VCBX01000934	1	295	frequency=1
+DEL	988	2603	NZ_VCBX01000935	1	295	frequency=1
+DEL	989	2604	NZ_VCBX01000936	1	295	frequency=1
+DEL	990	2605	NZ_VCBX01000937	1	295	frequency=1
+DEL	991	2606	NZ_VCBX01000938	1	294	frequency=1
+DEL	992	2607	NZ_VCBX01000939	1	294	frequency=1
+DEL	993	2608	NZ_VCBX01000940	1	294	frequency=1
+DEL	994	2609	NZ_VCBX01000941	1	294	frequency=1
+DEL	995	2610	NZ_VCBX01000942	1	294	frequency=1
+DEL	996	2611	NZ_VCBX01000943	1	293	frequency=1
+DEL	997	2612	NZ_VCBX01000944	1	293	frequency=1
+DEL	998	2613	NZ_VCBX01000945	1	292	frequency=1
+DEL	999	2614	NZ_VCBX01000946	1	292	frequency=1
+DEL	1000	2615	NZ_VCBX01000947	1	292	frequency=1
+DEL	1001	2616	NZ_VCBX01000948	1	292	frequency=1
+DEL	1002	2617	NZ_VCBX01000949	1	292	frequency=1
+DEL	1003	2618	NZ_VCBX01000950	1	291	frequency=1
+DEL	1004	2619	NZ_VCBX01000951	1	291	frequency=1
+DEL	1005	2620	NZ_VCBX01000952	1	291	frequency=1
+DEL	1006	2621	NZ_VCBX01000953	1	291	frequency=1
+DEL	1007	2622	NZ_VCBX01000954	1	290	frequency=1
+DEL	1008	2623	NZ_VCBX01000955	1	290	frequency=1
+DEL	1009	2624	NZ_VCBX01000956	1	290	frequency=1
+DEL	1010	2625	NZ_VCBX01000957	1	290	frequency=1
+DEL	1011	2626	NZ_VCBX01000958	1	289	frequency=1
+DEL	1012	2627	NZ_VCBX01000959	1	289	frequency=1
+DEL	1013	2628	NZ_VCBX01000960	1	289	frequency=1
+DEL	1014	2629	NZ_VCBX01000961	1	289	frequency=1
+DEL	1015	2630	NZ_VCBX01000962	1	289	frequency=1
+DEL	1016	2631	NZ_VCBX01000963	1	288	frequency=1
+DEL	1017	2632	NZ_VCBX01000964	1	288	frequency=1
+DEL	1018	2633	NZ_VCBX01000965	1	288	frequency=1
+DEL	1019	2634	NZ_VCBX01000966	1	288	frequency=1
+DEL	1020	2635	NZ_VCBX01000967	1	288	frequency=1
+DEL	1021	2636	NZ_VCBX01000968	1	288	frequency=1
+DEL	1022	2637	NZ_VCBX01000969	1	288	frequency=1
+DEL	1023	2638	NZ_VCBX01000970	1	288	frequency=1
+DEL	1024	2639	NZ_VCBX01000971	1	288	frequency=1
+DEL	1025	2640	NZ_VCBX01000972	1	288	frequency=1
+DEL	1026	2641	NZ_VCBX01000973	1	287	frequency=1
+DEL	1027	2642	NZ_VCBX01000974	1	287	frequency=1
+DEL	1028	2643	NZ_VCBX01000975	1	287	frequency=1
+DEL	1029	2644	NZ_VCBX01000976	1	287	frequency=1
+DEL	1030	2645	NZ_VCBX01000977	1	286	frequency=1
+DEL	1031	2646	NZ_VCBX01000978	1	286	frequency=1
+DEL	1032	2647	NZ_VCBX01000979	1	286	frequency=1
+DEL	1033	2648	NZ_VCBX01000980	1	286	frequency=1
+DEL	1034	2649	NZ_VCBX01000981	1	286	frequency=1
+DEL	1035	2650	NZ_VCBX01000982	1	286	frequency=1
+DEL	1036	2651	NZ_VCBX01000983	1	286	frequency=1
+DEL	1037	2652	NZ_VCBX01000984	1	286	frequency=1
+DEL	1038	2653	NZ_VCBX01000985	1	285	frequency=1
+DEL	1039	2654	NZ_VCBX01000986	1	285	frequency=1
+DEL	1040	2655	NZ_VCBX01000987	1	285	frequency=1
+DEL	1041	2656	NZ_VCBX01000988	1	285	frequency=1
+DEL	1042	2657	NZ_VCBX01000989	1	285	frequency=1
+DEL	1043	2658	NZ_VCBX01000990	1	285	frequency=1
+DEL	1044	2659	NZ_VCBX01000991	1	285	frequency=1
+DEL	1045	2660	NZ_VCBX01000992	1	284	frequency=1
+DEL	1046	2661	NZ_VCBX01000993	1	284	frequency=1
+DEL	1047	2662	NZ_VCBX01000994	1	284	frequency=1
+DEL	1048	2663	NZ_VCBX01000995	1	284	frequency=1
+DEL	1049	2664	NZ_VCBX01000996	1	284	frequency=1
+DEL	1050	2665	NZ_VCBX01000997	1	284	frequency=1
+DEL	1051	2666	NZ_VCBX01000998	1	283	frequency=1
+DEL	1052	2667	NZ_VCBX01000999	1	283	frequency=1
+DEL	1053	2668	NZ_VCBX01001000	1	283	frequency=1
+DEL	1054	2669	NZ_VCBX01001001	1	283	frequency=1
+DEL	1055	2670	NZ_VCBX01001002	1	282	frequency=1
+DEL	1056	2671	NZ_VCBX01001003	1	282	frequency=1
+DEL	1057	2672	NZ_VCBX01001004	1	282	frequency=1
+DEL	1058	2673	NZ_VCBX01001005	1	281	frequency=1
+DEL	1059	2674	NZ_VCBX01001006	1	281	frequency=1
+DEL	1060	2675	NZ_VCBX01001007	1	281	frequency=1
+DEL	1061	2676	NZ_VCBX01001008	1	281	frequency=1
+DEL	1062	2677	NZ_VCBX01001009	1	280	frequency=1
+DEL	1063	2678	NZ_VCBX01001010	1	280	frequency=1
+DEL	1064	2679	NZ_VCBX01001011	1	280	frequency=1
+DEL	1065	2680	NZ_VCBX01001012	1	280	frequency=1
+DEL	1066	2681	NZ_VCBX01001013	1	280	frequency=1
+DEL	1067	2682	NZ_VCBX01001014	1	279	frequency=1
+DEL	1068	2683	NZ_VCBX01001015	1	279	frequency=1
+DEL	1069	2684	NZ_VCBX01001016	1	279	frequency=1
+DEL	1070	2685	NZ_VCBX01001017	1	279	frequency=1
+DEL	1071	2686	NZ_VCBX01001018	1	279	frequency=1
+DEL	1072	2687	NZ_VCBX01001019	1	279	frequency=1
+DEL	1073	2688	NZ_VCBX01001020	1	279	frequency=1
+DEL	1074	2689	NZ_VCBX01001021	1	279	frequency=1
+DEL	1075	2690	NZ_VCBX01001022	1	278	frequency=1
+DEL	1076	2691	NZ_VCBX01001023	1	278	frequency=1
+DEL	1077	2692	NZ_VCBX01001024	1	278	frequency=1
+DEL	1078	2693	NZ_VCBX01001025	1	278	frequency=1
+DEL	1079	2694	NZ_VCBX01001026	1	277	frequency=1
+DEL	1080	2695	NZ_VCBX01001027	1	277	frequency=1
+DEL	1081	2696	NZ_VCBX01001028	1	277	frequency=1
+DEL	1082	2697	NZ_VCBX01001029	1	277	frequency=1
+DEL	1083	2698	NZ_VCBX01001030	1	276	frequency=1
+DEL	1084	2699	NZ_VCBX01001031	1	276	frequency=1
+DEL	1085	2700	NZ_VCBX01001032	1	276	frequency=1
+DEL	1086	2701	NZ_VCBX01001033	1	276	frequency=1
+DEL	1087	2702	NZ_VCBX01001034	1	276	frequency=1
+DEL	1088	2703	NZ_VCBX01001035	1	276	frequency=1
+DEL	1089	2704	NZ_VCBX01001036	1	276	frequency=1
+DEL	1090	2705	NZ_VCBX01001037	1	276	frequency=1
+DEL	1091	2706	NZ_VCBX01001038	1	275	frequency=1
+DEL	1092	2707	NZ_VCBX01001039	1	275	frequency=1
+DEL	1093	2708	NZ_VCBX01001040	1	275	frequency=1
+DEL	1094	2709	NZ_VCBX01001041	1	275	frequency=1
+DEL	1095	2710	NZ_VCBX01001042	1	275	frequency=1
+DEL	1096	2711	NZ_VCBX01001043	1	275	frequency=1
+DEL	1097	2712	NZ_VCBX01001044	1	274	frequency=1
+DEL	1098	2713	NZ_VCBX01001045	1	274	frequency=1
+DEL	1099	2714	NZ_VCBX01001046	1	274	frequency=1
+DEL	1100	2715	NZ_VCBX01001047	1	274	frequency=1
+DEL	1101	2716	NZ_VCBX01001048	1	274	frequency=1
+DEL	1102	2717	NZ_VCBX01001049	1	273	frequency=1
+DEL	1103	2718	NZ_VCBX01001050	1	273	frequency=1
+DEL	1104	2719	NZ_VCBX01001051	1	273	frequency=1
+DEL	1105	2720	NZ_VCBX01001052	1	273	frequency=1
+DEL	1106	2721	NZ_VCBX01001053	1	273	frequency=1
+DEL	1107	2722	NZ_VCBX01001054	1	272	frequency=1
+DEL	1108	2723	NZ_VCBX01001055	1	272	frequency=1
+DEL	1109	2724	NZ_VCBX01001056	1	272	frequency=1
+DEL	1110	2725	NZ_VCBX01001057	1	271	frequency=1
+DEL	1111	2726	NZ_VCBX01001058	1	271	frequency=1
+DEL	1112	2727	NZ_VCBX01001059	1	271	frequency=1
+DEL	1113	2728	NZ_VCBX01001060	1	271	frequency=1
+DEL	1114	2729	NZ_VCBX01001061	1	271	frequency=1
+DEL	1115	2730	NZ_VCBX01001062	1	271	frequency=1
+DEL	1116	2731	NZ_VCBX01001063	1	271	frequency=1
+DEL	1117	2732	NZ_VCBX01001064	1	271	frequency=1
+DEL	1118	2733	NZ_VCBX01001065	1	270	frequency=1
+DEL	1119	2734	NZ_VCBX01001066	1	270	frequency=1
+DEL	1120	2735	NZ_VCBX01001067	1	270	frequency=1
+DEL	1121	2736	NZ_VCBX01001068	1	270	frequency=1
+DEL	1122	2737	NZ_VCBX01001069	1	270	frequency=1
+DEL	1123	2738	NZ_VCBX01001070	1	270	frequency=1
+DEL	1124	2739	NZ_VCBX01001071	1	270	frequency=1
+DEL	1125	2740	NZ_VCBX01001072	1	269	frequency=1
+DEL	1126	2741	NZ_VCBX01001073	1	269	frequency=1
+DEL	1127	2742	NZ_VCBX01001074	1	269	frequency=1
+DEL	1128	2743	NZ_VCBX01001075	1	269	frequency=1
+DEL	1129	2744	NZ_VCBX01001076	1	269	frequency=1
+DEL	1130	2745	NZ_VCBX01001077	1	269	frequency=1
+DEL	1131	2746	NZ_VCBX01001078	1	269	frequency=1
+DEL	1132	2747	NZ_VCBX01001079	1	269	frequency=1
+DEL	1133	2748	NZ_VCBX01001080	1	269	frequency=1
+DEL	1134	2749	NZ_VCBX01001081	1	269	frequency=1
+DEL	1135	2750	NZ_VCBX01001082	1	268	frequency=1
+DEL	1136	2751	NZ_VCBX01001083	1	268	frequency=1
+DEL	1137	2752	NZ_VCBX01001084	1	267	frequency=1
+DEL	1138	2753	NZ_VCBX01001085	1	267	frequency=1
+DEL	1139	2754	NZ_VCBX01001086	1	267	frequency=1
+DEL	1140	2755	NZ_VCBX01001087	1	267	frequency=1
+DEL	1141	2756	NZ_VCBX01001088	1	267	frequency=1
+DEL	1142	2757	NZ_VCBX01001089	1	267	frequency=1
+DEL	1143	2758	NZ_VCBX01001090	1	267	frequency=1
+DEL	1144	2759	NZ_VCBX01001091	1	267	frequency=1
+DEL	1145	2760	NZ_VCBX01001092	1	267	frequency=1
+DEL	1146	2761	NZ_VCBX01001093	1	267	frequency=1
+DEL	1147	2762	NZ_VCBX01001094	1	266	frequency=1
+DEL	1148	2763	NZ_VCBX01001095	1	266	frequency=1
+DEL	1149	2764	NZ_VCBX01001096	1	266	frequency=1
+DEL	1150	2765	NZ_VCBX01001097	1	266	frequency=1
+DEL	1151	2766	NZ_VCBX01001098	1	266	frequency=1
+DEL	1152	2767	NZ_VCBX01001099	1	266	frequency=1
+DEL	1153	2768	NZ_VCBX01001100	1	266	frequency=1
+DEL	1154	2769	NZ_VCBX01001101	1	265	frequency=1
+DEL	1155	2770	NZ_VCBX01001102	1	265	frequency=1
+DEL	1156	2771	NZ_VCBX01001103	1	265	frequency=1
+DEL	1157	2772	NZ_VCBX01001104	1	265	frequency=1
+DEL	1158	2773	NZ_VCBX01001105	1	265	frequency=1
+DEL	1159	2774	NZ_VCBX01001106	1	265	frequency=1
+DEL	1160	2775	NZ_VCBX01001107	1	265	frequency=1
+DEL	1161	2776	NZ_VCBX01001108	1	265	frequency=1
+DEL	1162	2777	NZ_VCBX01001109	1	264	frequency=1
+DEL	1163	2778	NZ_VCBX01001110	1	264	frequency=1
+DEL	1164	2779	NZ_VCBX01001111	1	264	frequency=1
+DEL	1165	2780	NZ_VCBX01001112	1	264	frequency=1
+DEL	1166	2781	NZ_VCBX01001113	1	264	frequency=1
+DEL	1167	2782	NZ_VCBX01001114	1	264	frequency=1
+DEL	1168	2783	NZ_VCBX01001115	1	263	frequency=1
+DEL	1169	2784	NZ_VCBX01001116	1	263	frequency=1
+DEL	1170	2785	NZ_VCBX01001117	1	263	frequency=1
+DEL	1171	2786	NZ_VCBX01001118	1	263	frequency=1
+DEL	1172	2787	NZ_VCBX01001119	1	263	frequency=1
+DEL	1173	2788	NZ_VCBX01001120	1	262	frequency=1
+DEL	1174	2789	NZ_VCBX01001121	1	262	frequency=1
+DEL	1175	2790	NZ_VCBX01001122	1	262	frequency=1
+DEL	1176	2791	NZ_VCBX01001123	1	262	frequency=1
+DEL	1177	2792	NZ_VCBX01001124	1	262	frequency=1
+DEL	1178	2793	NZ_VCBX01001125	1	262	frequency=1
+DEL	1179	2794	NZ_VCBX01001126	1	262	frequency=1
+DEL	1180	2795	NZ_VCBX01001127	1	261	frequency=1
+DEL	1181	2796	NZ_VCBX01001128	1	261	frequency=1
+DEL	1182	2797	NZ_VCBX01001129	1	261	frequency=1
+DEL	1183	2798	NZ_VCBX01001130	1	261	frequency=1
+DEL	1184	2799	NZ_VCBX01001131	1	261	frequency=1
+DEL	1185	2800	NZ_VCBX01001132	1	261	frequency=1
+DEL	1186	2801	NZ_VCBX01001133	1	261	frequency=1
+DEL	1187	2802	NZ_VCBX01001134	1	261	frequency=1
+DEL	1188	2803	NZ_VCBX01001135	1	261	frequency=1
+DEL	1189	2804	NZ_VCBX01001136	1	261	frequency=1
+DEL	1190	2805	NZ_VCBX01001137	1	260	frequency=1
+DEL	1191	2806	NZ_VCBX01001138	1	260	frequency=1
+DEL	1192	2807	NZ_VCBX01001139	1	260	frequency=1
+DEL	1193	2808	NZ_VCBX01001140	1	260	frequency=1
+DEL	1194	2809	NZ_VCBX01001141	1	260	frequency=1
+DEL	1195	2810	NZ_VCBX01001142	1	260	frequency=1
+DEL	1196	2811	NZ_VCBX01001143	1	260	frequency=1
+DEL	1197	2812	NZ_VCBX01001144	1	260	frequency=1
+DEL	1198	2813	NZ_VCBX01001145	1	260	frequency=1
+DEL	1199	2814	NZ_VCBX01001146	1	260	frequency=1
+DEL	1200	2815	NZ_VCBX01001147	1	260	frequency=1
+DEL	1201	2816	NZ_VCBX01001148	1	260	frequency=1
+DEL	1202	2817	NZ_VCBX01001149	1	260	frequency=1
+DEL	1203	2818	NZ_VCBX01001150	1	259	frequency=1
+DEL	1204	2819	NZ_VCBX01001151	1	259	frequency=1
+DEL	1205	2820	NZ_VCBX01001152	1	259	frequency=1
+DEL	1206	2821	NZ_VCBX01001153	1	259	frequency=1
+DEL	1207	2822	NZ_VCBX01001154	1	259	frequency=1
+DEL	1208	2823	NZ_VCBX01001155	1	259	frequency=1
+DEL	1209	2824	NZ_VCBX01001156	1	258	frequency=1
+DEL	1210	2825	NZ_VCBX01001157	1	258	frequency=1
+DEL	1211	2826	NZ_VCBX01001158	1	258	frequency=1
+DEL	1212	2827	NZ_VCBX01001159	1	258	frequency=1
+DEL	1213	2828	NZ_VCBX01001160	1	258	frequency=1
+DEL	1214	2829	NZ_VCBX01001161	1	258	frequency=1
+DEL	1215	2830	NZ_VCBX01001162	1	257	frequency=1
+DEL	1216	2831	NZ_VCBX01001163	1	257	frequency=1
+DEL	1217	2832	NZ_VCBX01001164	1	257	frequency=1
+DEL	1218	2833	NZ_VCBX01001165	1	257	frequency=1
+DEL	1219	2834	NZ_VCBX01001166	1	257	frequency=1
+DEL	1220	2835	NZ_VCBX01001167	1	257	frequency=1
+DEL	1221	2836	NZ_VCBX01001168	1	257	frequency=1
+DEL	1222	2837	NZ_VCBX01001169	1	257	frequency=1
+DEL	1223	2838	NZ_VCBX01001170	1	256	frequency=1
+DEL	1224	2839	NZ_VCBX01001171	1	256	frequency=1
+DEL	1225	2840	NZ_VCBX01001172	1	256	frequency=1
+DEL	1226	2841	NZ_VCBX01001173	1	256	frequency=1
+DEL	1227	2842	NZ_VCBX01001174	1	255	frequency=1
+DEL	1228	2843	NZ_VCBX01001175	1	255	frequency=1
+DEL	1229	2844	NZ_VCBX01001176	1	255	frequency=1
+DEL	1230	2845	NZ_VCBX01001177	1	255	frequency=1
+DEL	1231	2846	NZ_VCBX01001178	1	255	frequency=1
+DEL	1232	2847	NZ_VCBX01001179	1	255	frequency=1
+DEL	1233	2848	NZ_VCBX01001180	1	255	frequency=1
+DEL	1234	2849	NZ_VCBX01001181	1	255	frequency=1
+DEL	1235	2850	NZ_VCBX01001182	1	254	frequency=1
+DEL	1236	2851	NZ_VCBX01001183	1	254	frequency=1
+DEL	1237	2852	NZ_VCBX01001184	1	254	frequency=1
+DEL	1238	2853	NZ_VCBX01001185	1	254	frequency=1
+DEL	1239	2854	NZ_VCBX01001186	1	254	frequency=1
+DEL	1240	2855	NZ_VCBX01001187	1	254	frequency=1
+DEL	1241	2856	NZ_VCBX01001188	1	254	frequency=1
+DEL	1242	2857	NZ_VCBX01001189	1	254	frequency=1
+DEL	1243	2858	NZ_VCBX01001190	1	254	frequency=1
+DEL	1244	2859	NZ_VCBX01001191	1	254	frequency=1
+DEL	1245	2860	NZ_VCBX01001192	1	254	frequency=1
+DEL	1246	2861	NZ_VCBX01001193	1	254	frequency=1
+DEL	1247	2862	NZ_VCBX01001194	1	253	frequency=1
+DEL	1248	2863	NZ_VCBX01001195	1	253	frequency=1
+DEL	1249	2864	NZ_VCBX01001196	1	253	frequency=1
+DEL	1250	2865	NZ_VCBX01001197	1	253	frequency=1
+DEL	1251	2866	NZ_VCBX01001198	1	253	frequency=1
+DEL	1252	2867	NZ_VCBX01001199	1	253	frequency=1
+DEL	1253	2868	NZ_VCBX01001200	1	252	frequency=1
+DEL	1254	2869	NZ_VCBX01001201	1	252	frequency=1
+DEL	1255	2870	NZ_VCBX01001202	1	252	frequency=1
+DEL	1256	2871	NZ_VCBX01001203	1	252	frequency=1
+DEL	1257	2872	NZ_VCBX01001204	1	252	frequency=1
+DEL	1258	2873	NZ_VCBX01001205	1	252	frequency=1
+DEL	1259	2874	NZ_VCBX01001206	1	252	frequency=1
+DEL	1260	2875	NZ_VCBX01001207	1	252	frequency=1
+DEL	1261	2876	NZ_VCBX01001208	1	252	frequency=1
+DEL	1262	2877	NZ_VCBX01001209	1	252	frequency=1
+DEL	1263	2878	NZ_VCBX01001210	1	251	frequency=1
+DEL	1264	2879	NZ_VCBX01001211	1	251	frequency=1
+DEL	1265	2880	NZ_VCBX01001212	1	251	frequency=1
+DEL	1266	2881	NZ_VCBX01001213	1	251	frequency=1
+DEL	1267	2882	NZ_VCBX01001215	1	250	frequency=1
+DEL	1268	2883	NZ_VCBX01001216	1	250	frequency=1
+DEL	1269	2884	NZ_VCBX01001217	1	250	frequency=1
+DEL	1270	2885	NZ_VCBX01001218	1	250	frequency=1
+DEL	1271	2886	NZ_VCBX01001219	1	249	frequency=1
+DEL	1272	2887	NZ_VCBX01001220	1	249	frequency=1
+DEL	1273	2888	NZ_VCBX01001221	1	249	frequency=1
+DEL	1274	2889	NZ_VCBX01001222	1	249	frequency=1
+DEL	1275	2890	NZ_VCBX01001223	1	249	frequency=1
+DEL	1276	2891	NZ_VCBX01001224	1	248	frequency=1
+DEL	1277	2892	NZ_VCBX01001225	1	248	frequency=1
+DEL	1278	2893	NZ_VCBX01001226	1	248	frequency=1
+DEL	1279	2894	NZ_VCBX01001227	1	248	frequency=1
+DEL	1280	2895	NZ_VCBX01001228	1	248	frequency=1
+DEL	1281	2896	NZ_VCBX01001229	1	248	frequency=1
+DEL	1282	2897	NZ_VCBX01001230	1	248	frequency=1
+DEL	1283	2898	NZ_VCBX01001231	1	247	frequency=1
+DEL	1284	2899	NZ_VCBX01001232	1	247	frequency=1
+DEL	1285	2900	NZ_VCBX01001233	1	247	frequency=1
+DEL	1286	2901	NZ_VCBX01001234	1	247	frequency=1
+DEL	1287	2902	NZ_VCBX01001235	1	247	frequency=1
+DEL	1288	2903	NZ_VCBX01001236	1	247	frequency=1
+DEL	1289	2904	NZ_VCBX01001237	1	246	frequency=1
+DEL	1290	2905	NZ_VCBX01001238	1	246	frequency=1
+DEL	1291	2906	NZ_VCBX01001239	1	246	frequency=1
+DEL	1292	2907	NZ_VCBX01001240	1	246	frequency=1
+DEL	1293	2908	NZ_VCBX01001241	1	246	frequency=1
+DEL	1294	2909	NZ_VCBX01001242	1	245	frequency=1
+DEL	1295	2910	NZ_VCBX01001243	1	245	frequency=1
+DEL	1296	2911	NZ_VCBX01001244	1	245	frequency=1
+DEL	1297	2912	NZ_VCBX01001245	1	245	frequency=1
+DEL	1298	2913	NZ_VCBX01001246	1	245	frequency=1
+DEL	1299	2914	NZ_VCBX01001247	1	245	frequency=1
+DEL	1300	2915	NZ_VCBX01001248	1	245	frequency=1
+DEL	1301	2916	NZ_VCBX01001249	1	245	frequency=1
+DEL	1302	2917	NZ_VCBX01001250	1	245	frequency=1
+DEL	1303	2918	NZ_VCBX01001251	1	244	frequency=1
+DEL	1304	2919	NZ_VCBX01001252	1	244	frequency=1
+DEL	1305	2920	NZ_VCBX01001253	1	244	frequency=1
+DEL	1306	2921	NZ_VCBX01001254	1	244	frequency=1
+DEL	1307	2922	NZ_VCBX01001255	1	244	frequency=1
+DEL	1308	2923	NZ_VCBX01001256	1	244	frequency=1
+DEL	1309	2924	NZ_VCBX01001257	1	244	frequency=1
+DEL	1310	2925	NZ_VCBX01001258	1	244	frequency=1
+DEL	1311	2926	NZ_VCBX01001259	1	244	frequency=1
+DEL	1312	2927	NZ_VCBX01001260	1	243	frequency=1
+DEL	1313	2928	NZ_VCBX01001261	1	243	frequency=1
+DEL	1314	2929	NZ_VCBX01001262	1	243	frequency=1
+DEL	1315	2930	NZ_VCBX01001263	1	243	frequency=1
+DEL	1316	2931	NZ_VCBX01001264	1	243	frequency=1
+DEL	1317	2932	NZ_VCBX01001265	1	243	frequency=1
+DEL	1318	2933	NZ_VCBX01001266	1	242	frequency=1
+DEL	1319	2934	NZ_VCBX01001267	1	242	frequency=1
+DEL	1320	2935	NZ_VCBX01001268	1	242	frequency=1
+DEL	1321	2936	NZ_VCBX01001269	1	242	frequency=1
+DEL	1322	2937	NZ_VCBX01001270	1	242	frequency=1
+DEL	1323	2938	NZ_VCBX01001271	1	242	frequency=1
+DEL	1324	2939	NZ_VCBX01001272	1	242	frequency=1
+DEL	1325	2940	NZ_VCBX01001273	1	242	frequency=1
+DEL	1326	2941	NZ_VCBX01001274	1	242	frequency=1
+DEL	1327	2942	NZ_VCBX01001275	1	241	frequency=1
+DEL	1328	2943	NZ_VCBX01001276	1	241	frequency=1
+DEL	1329	2944	NZ_VCBX01001277	1	241	frequency=1
+DEL	1330	2945	NZ_VCBX01001278	1	241	frequency=1
+DEL	1331	2946	NZ_VCBX01001279	1	241	frequency=1
+DEL	1332	2947	NZ_VCBX01001280	1	240	frequency=1
+DEL	1333	2948	NZ_VCBX01001281	1	240	frequency=1
+DEL	1334	2949	NZ_VCBX01001282	1	240	frequency=1
+DEL	1335	2950	NZ_VCBX01001283	1	240	frequency=1
+DEL	1336	2951	NZ_VCBX01001284	1	240	frequency=1
+DEL	1337	2952	NZ_VCBX01001285	1	240	frequency=1
+DEL	1338	2953	NZ_VCBX01001286	1	239	frequency=1
+DEL	1339	2954	NZ_VCBX01001287	1	239	frequency=1
+DEL	1340	2955	NZ_VCBX01001288	1	239	frequency=1
+DEL	1341	2956	NZ_VCBX01001289	1	239	frequency=1
+DEL	1342	2957	NZ_VCBX01001290	1	239	frequency=1
+DEL	1343	2958	NZ_VCBX01001291	1	239	frequency=1
+DEL	1344	2959	NZ_VCBX01001292	1	238	frequency=1
+DEL	1345	2960	NZ_VCBX01001293	1	238	frequency=1
+DEL	1346	2961	NZ_VCBX01001294	1	238	frequency=1
+DEL	1347	2962	NZ_VCBX01001295	1	238	frequency=1
+DEL	1348	2963	NZ_VCBX01001296	1	238	frequency=1
+DEL	1349	2964	NZ_VCBX01001297	1	237	frequency=1
+DEL	1350	2965	NZ_VCBX01001298	1	237	frequency=1
+DEL	1351	2966	NZ_VCBX01001299	1	237	frequency=1
+DEL	1352	2967	NZ_VCBX01001300	1	237	frequency=1
+DEL	1353	2968	NZ_VCBX01001301	1	237	frequency=1
+DEL	1354	2969	NZ_VCBX01001302	1	237	frequency=1
+DEL	1355	2970	NZ_VCBX01001303	1	237	frequency=1
+DEL	1356	2971	NZ_VCBX01001304	1	237	frequency=1
+DEL	1357	2972	NZ_VCBX01001305	1	236	frequency=1
+DEL	1358	2973	NZ_VCBX01001306	1	236	frequency=1
+DEL	1359	2974	NZ_VCBX01001307	1	236	frequency=1
+DEL	1360	2975	NZ_VCBX01001308	1	236	frequency=1
+DEL	1361	2976	NZ_VCBX01001309	1	236	frequency=1
+DEL	1362	2977	NZ_VCBX01001310	1	236	frequency=1
+DEL	1363	2978	NZ_VCBX01001311	1	236	frequency=1
+DEL	1364	2979	NZ_VCBX01001312	1	236	frequency=1
+DEL	1365	2980	NZ_VCBX01001313	1	236	frequency=1
+DEL	1366	2981	NZ_VCBX01001314	1	236	frequency=1
+DEL	1367	2982	NZ_VCBX01001315	1	235	frequency=1
+DEL	1368	2983	NZ_VCBX01001316	1	235	frequency=1
+DEL	1369	2984	NZ_VCBX01001317	1	235	frequency=1
+DEL	1370	2985	NZ_VCBX01001318	1	235	frequency=1
+DEL	1371	2986	NZ_VCBX01001319	1	235	frequency=1
+DEL	1372	2987	NZ_VCBX01001320	1	235	frequency=1
+DEL	1373	2988	NZ_VCBX01001321	1	234	frequency=1
+DEL	1374	2989	NZ_VCBX01001322	1	234	frequency=1
+DEL	1375	2990	NZ_VCBX01001323	1	234	frequency=1
+DEL	1376	2991	NZ_VCBX01001324	1	234	frequency=1
+DEL	1377	2992	NZ_VCBX01001325	1	234	frequency=1
+DEL	1378	2993	NZ_VCBX01001326	1	234	frequency=1
+DEL	1379	2994	NZ_VCBX01001327	1	234	frequency=1
+DEL	1380	2995	NZ_VCBX01001328	1	234	frequency=1
+DEL	1381	2996	NZ_VCBX01001329	1	234	frequency=1
+DEL	1382	2997	NZ_VCBX01001330	1	234	frequency=1
+DEL	1383	2998	NZ_VCBX01001331	1	234	frequency=1
+DEL	1384	2999	NZ_VCBX01001332	1	234	frequency=1
+DEL	1385	3000	NZ_VCBX01001333	1	233	frequency=1
+DEL	1386	3001	NZ_VCBX01001334	1	233	frequency=1
+DEL	1387	3002	NZ_VCBX01001335	1	233	frequency=1
+DEL	1388	3003	NZ_VCBX01001336	1	233	frequency=1
+DEL	1389	3004	NZ_VCBX01001337	1	233	frequency=1
+DEL	1390	3005	NZ_VCBX01001338	1	233	frequency=1
+DEL	1391	3006	NZ_VCBX01001339	1	233	frequency=1
+DEL	1392	3007	NZ_VCBX01001340	1	232	frequency=1
+DEL	1393	3008	NZ_VCBX01001341	1	232	frequency=1
+DEL	1394	3009	NZ_VCBX01001342	1	232	frequency=1
+DEL	1395	3010	NZ_VCBX01001343	1	232	frequency=1
+DEL	1396	3011	NZ_VCBX01001344	1	232	frequency=1
+DEL	1397	3012	NZ_VCBX01001345	1	231	frequency=1
+DEL	1398	3013	NZ_VCBX01001346	1	231	frequency=1
+DEL	1399	3014	NZ_VCBX01001347	1	231	frequency=1
+DEL	1400	3015	NZ_VCBX01001348	1	230	frequency=1
+DEL	1401	3016	NZ_VCBX01001349	1	230	frequency=1
+DEL	1402	3017	NZ_VCBX01001350	1	230	frequency=1
+DEL	1403	3018	NZ_VCBX01001351	1	230	frequency=1
+DEL	1404	3019	NZ_VCBX01001352	1	230	frequency=1
+DEL	1405	3020	NZ_VCBX01001353	1	230	frequency=1
+DEL	1406	3021	NZ_VCBX01001354	1	230	frequency=1
+DEL	1407	3022	NZ_VCBX01001355	1	230	frequency=1
+DEL	1408	3023	NZ_VCBX01001356	1	230	frequency=1
+DEL	1409	3024	NZ_VCBX01001357	1	230	frequency=1
+DEL	1410	3025	NZ_VCBX01001358	1	230	frequency=1
+DEL	1411	3026	NZ_VCBX01001359	1	230	frequency=1
+DEL	1412	3027	NZ_VCBX01001360	1	230	frequency=1
+DEL	1413	3028	NZ_VCBX01001361	1	229	frequency=1
+DEL	1414	3029	NZ_VCBX01001362	1	229	frequency=1
+DEL	1415	3030	NZ_VCBX01001363	1	229	frequency=1
+DEL	1416	3031	NZ_VCBX01001364	1	229	frequency=1
+DEL	1417	3032	NZ_VCBX01001365	1	229	frequency=1
+DEL	1418	3033	NZ_VCBX01001366	1	229	frequency=1
+DEL	1419	3034	NZ_VCBX01001367	1	229	frequency=1
+DEL	1420	3035	NZ_VCBX01001368	1	229	frequency=1
+DEL	1421	3036	NZ_VCBX01001369	1	229	frequency=1
+DEL	1422	3037	NZ_VCBX01001370	1	229	frequency=1
+DEL	1423	3038	NZ_VCBX01001371	1	228	frequency=1
+DEL	1424	3039	NZ_VCBX01001372	1	228	frequency=1
+DEL	1425	3040	NZ_VCBX01001373	1	228	frequency=1
+DEL	1426	3041	NZ_VCBX01001374	1	228	frequency=1
+DEL	1427	3042	NZ_VCBX01001375	1	228	frequency=1
+DEL	1428	3043	NZ_VCBX01001376	1	227	frequency=1
+DEL	1429	3044	NZ_VCBX01001377	1	227	frequency=1
+DEL	1430	3045	NZ_VCBX01001378	1	227	frequency=1
+DEL	1431	3046	NZ_VCBX01001379	1	227	frequency=1
+DEL	1432	3047	NZ_VCBX01001380	1	227	frequency=1
+DEL	1433	3048	NZ_VCBX01001381	1	227	frequency=1
+DEL	1434	3049	NZ_VCBX01001382	1	227	frequency=1
+DEL	1435	3050	NZ_VCBX01001383	1	227	frequency=1
+DEL	1436	3051	NZ_VCBX01001384	1	227	frequency=1
+DEL	1437	3052	NZ_VCBX01001385	1	227	frequency=1
+DEL	1438	3053	NZ_VCBX01001386	1	226	frequency=1
+DEL	1439	3054	NZ_VCBX01001387	1	226	frequency=1
+DEL	1440	3055	NZ_VCBX01001388	1	226	frequency=1
+DEL	1441	3056	NZ_VCBX01001389	1	226	frequency=1
+DEL	1442	3057	NZ_VCBX01001390	1	226	frequency=1
+DEL	1443	3058	NZ_VCBX01001391	1	226	frequency=1
+DEL	1444	3059	NZ_VCBX01001392	1	226	frequency=1
+DEL	1445	3060	NZ_VCBX01001393	1	225	frequency=1
+DEL	1446	3061	NZ_VCBX01001394	1	225	frequency=1
+DEL	1447	3062	NZ_VCBX01001395	1	225	frequency=1
+DEL	1448	3063	NZ_VCBX01001396	1	225	frequency=1
+DEL	1449	3064	NZ_VCBX01001397	1	225	frequency=1
+DEL	1450	3065	NZ_VCBX01001398	1	225	frequency=1
+DEL	1451	3066	NZ_VCBX01001399	1	225	frequency=1
+DEL	1452	3067	NZ_VCBX01001400	1	225	frequency=1
+DEL	1453	3068	NZ_VCBX01001401	1	225	frequency=1
+DEL	1454	3069	NZ_VCBX01001402	1	224	frequency=1
+DEL	1455	3070	NZ_VCBX01001403	1	224	frequency=1
+DEL	1456	3071	NZ_VCBX01001404	1	224	frequency=1
+DEL	1457	3072	NZ_VCBX01001405	1	224	frequency=1
+DEL	1458	3073	NZ_VCBX01001406	1	224	frequency=1
+DEL	1459	3074	NZ_VCBX01001407	1	223	frequency=1
+DEL	1460	3075	NZ_VCBX01001408	1	223	frequency=1
+DEL	1461	3076	NZ_VCBX01001409	1	223	frequency=1
+DEL	1462	3077	NZ_VCBX01001410	1	223	frequency=1
+DEL	1463	3078	NZ_VCBX01001411	1	223	frequency=1
+DEL	1464	3079	NZ_VCBX01001412	1	223	frequency=1
+DEL	1465	3080	NZ_VCBX01001413	1	223	frequency=1
+DEL	1466	3081	NZ_VCBX01001414	1	223	frequency=1
+DEL	1467	3082	NZ_VCBX01001415	1	223	frequency=1
+DEL	1468	3083	NZ_VCBX01001416	1	223	frequency=1
+DEL	1469	3084	NZ_VCBX01001417	1	223	frequency=1
+DEL	1470	3085	NZ_VCBX01001418	1	223	frequency=1
+DEL	1471	3086	NZ_VCBX01001419	1	223	frequency=1
+DEL	1472	3087	NZ_VCBX01001420	1	223	frequency=1
+DEL	1473	3088	NZ_VCBX01001421	1	223	frequency=1
+DEL	1474	3089	NZ_VCBX01001422	1	223	frequency=1
+DEL	1475	3090	NZ_VCBX01001423	1	223	frequency=1
+DEL	1476	3091	NZ_VCBX01001424	1	223	frequency=1
+DEL	1477	3092	NZ_VCBX01001425	1	223	frequency=1
+DEL	1478	3093	NZ_VCBX01001426	1	222	frequency=1
+DEL	1479	3094	NZ_VCBX01001427	1	222	frequency=1
+DEL	1480	3095	NZ_VCBX01001428	1	222	frequency=1
+DEL	1481	3096	NZ_VCBX01001429	1	222	frequency=1
+DEL	1482	3097	NZ_VCBX01001430	1	222	frequency=1
+DEL	1483	3098	NZ_VCBX01001431	1	222	frequency=1
+DEL	1484	3099	NZ_VCBX01001432	1	222	frequency=1
+DEL	1485	3100	NZ_VCBX01001433	1	222	frequency=1
+DEL	1486	3101	NZ_VCBX01001434	1	221	frequency=1
+DEL	1487	3102	NZ_VCBX01001435	1	221	frequency=1
+DEL	1488	3103	NZ_VCBX01001436	1	221	frequency=1
+DEL	1489	3104	NZ_VCBX01001437	1	221	frequency=1
+DEL	1490	3105	NZ_VCBX01001438	1	221	frequency=1
+DEL	1491	3106	NZ_VCBX01001439	1	221	frequency=1
+DEL	1492	3107	NZ_VCBX01001440	1	220	frequency=1
+DEL	1493	3108	NZ_VCBX01001441	1	220	frequency=1
+DEL	1494	3109	NZ_VCBX01001442	1	220	frequency=1
+DEL	1495	3110	NZ_VCBX01001443	1	220	frequency=1
+DEL	1496	3111	NZ_VCBX01001444	1	220	frequency=1
+DEL	1497	3112	NZ_VCBX01001445	1	219	frequency=1
+DEL	1498	3113	NZ_VCBX01001446	1	219	frequency=1
+DEL	1499	3114	NZ_VCBX01001447	1	219	frequency=1
+DEL	1500	3115	NZ_VCBX01001448	1	219	frequency=1
+DEL	1501	3116	NZ_VCBX01001449	1	218	frequency=1
+DEL	1502	3117	NZ_VCBX01001450	1	218	frequency=1
+DEL	1503	3118	NZ_VCBX01001451	1	218	frequency=1
+DEL	1504	3119	NZ_VCBX01001452	1	218	frequency=1
+DEL	1505	3120	NZ_VCBX01001453	1	218	frequency=1
+DEL	1506	3121	NZ_VCBX01001454	1	218	frequency=1
+DEL	1507	3122	NZ_VCBX01001455	1	218	frequency=1
+DEL	1508	3123	NZ_VCBX01001456	1	218	frequency=1
+DEL	1509	3124	NZ_VCBX01001457	1	218	frequency=1
+DEL	1510	3125	NZ_VCBX01001458	1	217	frequency=1
+DEL	1511	3126	NZ_VCBX01001459	1	217	frequency=1
+DEL	1512	3127	NZ_VCBX01001460	1	217	frequency=1
+DEL	1513	3128	NZ_VCBX01001461	1	217	frequency=1
+DEL	1514	3129	NZ_VCBX01001462	1	217	frequency=1
+DEL	1515	3130	NZ_VCBX01001463	1	217	frequency=1
+DEL	1516	3131	NZ_VCBX01001464	1	217	frequency=1
+DEL	1517	3132	NZ_VCBX01001465	1	217	frequency=1
+DEL	1518	3133	NZ_VCBX01001466	1	216	frequency=1
+DEL	1519	3134	NZ_VCBX01001467	1	216	frequency=1
+DEL	1520	3135	NZ_VCBX01001468	1	216	frequency=1
+DEL	1521	3136	NZ_VCBX01001469	1	216	frequency=1
+DEL	1522	3137	NZ_VCBX01001470	1	216	frequency=1
+DEL	1523	3138	NZ_VCBX01001471	1	216	frequency=1
+DEL	1524	3139	NZ_VCBX01001472	1	216	frequency=1
+DEL	1525	3140	NZ_VCBX01001473	1	215	frequency=1
+DEL	1526	3141	NZ_VCBX01001474	1	215	frequency=1
+DEL	1527	3142	NZ_VCBX01001475	1	215	frequency=1
+DEL	1528	3143	NZ_VCBX01001476	1	215	frequency=1
+DEL	1529	3144	NZ_VCBX01001477	1	215	frequency=1
+DEL	1530	3145	NZ_VCBX01001478	1	214	frequency=1
+DEL	1531	3146	NZ_VCBX01001479	1	214	frequency=1
+DEL	1532	3147	NZ_VCBX01001480	1	214	frequency=1
+DEL	1533	3148	NZ_VCBX01001481	1	214	frequency=1
+DEL	1534	3149	NZ_VCBX01001482	1	213	frequency=1
+DEL	1535	3150	NZ_VCBX01001483	1	213	frequency=1
+DEL	1536	3151	NZ_VCBX01001484	1	213	frequency=1
+DEL	1537	3152	NZ_VCBX01001485	1	213	frequency=1
+DEL	1538	3153	NZ_VCBX01001486	1	213	frequency=1
+DEL	1539	3154	NZ_VCBX01001487	1	212	frequency=1
+DEL	1540	3155	NZ_VCBX01001488	1	212	frequency=1
+DEL	1541	3156	NZ_VCBX01001489	1	212	frequency=1
+DEL	1542	3157	NZ_VCBX01001490	1	212	frequency=1
+DEL	1543	3158	NZ_VCBX01001491	1	212	frequency=1
+DEL	1544	3159	NZ_VCBX01001492	1	212	frequency=1
+DEL	1545	3160	NZ_VCBX01001493	1	212	frequency=1
+DEL	1546	3161	NZ_VCBX01001494	1	212	frequency=1
+DEL	1547	3162	NZ_VCBX01001495	1	212	frequency=1
+DEL	1548	3163	NZ_VCBX01001496	1	212	frequency=1
+DEL	1549	3164	NZ_VCBX01001497	1	212	frequency=1
+DEL	1550	3165	NZ_VCBX01001498	1	212	frequency=1
+DEL	1551	3166	NZ_VCBX01001499	1	211	frequency=1
+DEL	1552	3167	NZ_VCBX01001500	1	211	frequency=1
+DEL	1553	3168	NZ_VCBX01001501	1	211	frequency=1
+DEL	1554	3169	NZ_VCBX01001502	1	211	frequency=1
+DEL	1555	3170	NZ_VCBX01001503	1	211	frequency=1
+DEL	1556	3171	NZ_VCBX01001504	1	211	frequency=1
+DEL	1557	3172	NZ_VCBX01001505	1	211	frequency=1
+DEL	1558	3173	NZ_VCBX01001506	1	211	frequency=1
+DEL	1559	3174	NZ_VCBX01001507	1	211	frequency=1
+DEL	1560	3175	NZ_VCBX01001508	1	211	frequency=1
+DEL	1561	3176	NZ_VCBX01001509	1	210	frequency=1
+DEL	1562	3177	NZ_VCBX01001510	1	210	frequency=1
+DEL	1563	3178	NZ_VCBX01001511	1	210	frequency=1
+DEL	1564	3179	NZ_VCBX01001512	1	210	frequency=1
+DEL	1565	3180	NZ_VCBX01001513	1	210	frequency=1
+DEL	1566	3181	NZ_VCBX01001514	1	210	frequency=1
+DEL	1567	3182	NZ_VCBX01001515	1	210	frequency=1
+DEL	1568	3183	NZ_VCBX01001516	1	210	frequency=1
+DEL	1569	3184	NZ_VCBX01001517	1	210	frequency=1
+DEL	1570	3185	NZ_VCBX01001518	1	210	frequency=1
+DEL	1571	3186	NZ_VCBX01001519	1	210	frequency=1
+DEL	1572	3187	NZ_VCBX01001520	1	210	frequency=1
+DEL	1573	3188	NZ_VCBX01001521	1	209	frequency=1
+DEL	1574	3189	NZ_VCBX01001522	1	209	frequency=1
+DEL	1575	3190	NZ_VCBX01001523	1	209	frequency=1
+DEL	1576	3191	NZ_VCBX01001524	1	209	frequency=1
+DEL	1577	3192	NZ_VCBX01001525	1	209	frequency=1
+DEL	1578	3193	NZ_VCBX01001526	1	209	frequency=1
+DEL	1579	3194	NZ_VCBX01001527	1	209	frequency=1
+DEL	1580	3195	NZ_VCBX01001528	1	209	frequency=1
+DEL	1581	3196	NZ_VCBX01001529	1	208	frequency=1
+DEL	1582	3197	NZ_VCBX01001530	1	208	frequency=1
+DEL	1583	3198	NZ_VCBX01001531	1	208	frequency=1
+DEL	1584	3199	NZ_VCBX01001532	1	208	frequency=1
+DEL	1585	3200	NZ_VCBX01001533	1	208	frequency=1
+DEL	1586	3201	NZ_VCBX01001534	1	208	frequency=1
+DEL	1587	3202	NZ_VCBX01001535	1	208	frequency=1
+DEL	1588	3203	NZ_VCBX01001536	1	208	frequency=1
+DEL	1589	3204	NZ_VCBX01001537	1	208	frequency=1
+DEL	1590	3205	NZ_VCBX01001538	1	208	frequency=1
+DEL	1591	3206	NZ_VCBX01001539	1	208	frequency=1
+DEL	1592	3207	NZ_VCBX01001540	1	207	frequency=1
+DEL	1593	3208	NZ_VCBX01001541	1	207	frequency=1
+DEL	1594	3209	NZ_VCBX01001542	1	207	frequency=1
+DEL	1595	3210	NZ_VCBX01001543	1	207	frequency=1
+DEL	1596	3211	NZ_VCBX01001544	1	207	frequency=1
+DEL	1597	3212	NZ_VCBX01001545	1	207	frequency=1
+DEL	1598	3213	NZ_VCBX01001546	1	207	frequency=1
+DEL	1599	3214	NZ_VCBX01001547	1	206	frequency=1
+DEL	1600	3215	NZ_VCBX01001548	1	206	frequency=1
+DEL	1601	3216	NZ_VCBX01001549	1	206	frequency=1
+DEL	1602	3217	NZ_VCBX01001550	1	206	frequency=1
+DEL	1603	3218	NZ_VCBX01001551	1	206	frequency=1
+DEL	1604	3219	NZ_VCBX01001552	1	206	frequency=1
+DEL	1605	3220	NZ_VCBX01001553	1	206	frequency=1
+DEL	1606	3221	NZ_VCBX01001554	1	206	frequency=1
+DEL	1607	3222	NZ_VCBX01001555	1	206	frequency=1
+DEL	1608	3223	NZ_VCBX01001556	1	206	frequency=1
+RA	1609	.	NZ_VCBX01000001	4560	0	C	G	bias_e_value=681092	bias_p_value=0.0867803	consensus_score=158.1	fisher_strand_p_value=0.017126	frequency=1.54819012e-01	ks_quality_p_value=1	major_base=C	major_cov=19/32	major_frequency=8.45180988e-01	minor_base=G	minor_cov=8/2	new_cov=8/2	polymorphism_frequency=1.54819012e-01	polymorphism_score=2.5	prediction=polymorphism	ref_cov=19/32	total_cov=27/34
+RA	1610	.	NZ_VCBX01000001	641946	0	A	C	bias_e_value=352967	bias_p_value=0.0449728	consensus_score=127.2	fisher_strand_p_value=0.00765902	frequency=1.83595181e-01	ks_quality_p_value=1	major_base=A	major_cov=29/16	major_frequency=8.16404819e-01	minor_base=C	minor_cov=2/9	new_cov=2/9	polymorphism_frequency=1.83595181e-01	polymorphism_score=8.7	prediction=polymorphism	ref_cov=29/16	total_cov=31/26
+RA	1611	.	NZ_VCBX01000001	642096	0	C	G	bias_e_value=636333	bias_p_value=0.0810774	consensus_score=170.5	fisher_strand_p_value=0.0157381	frequency=1.55236721e-01	ks_quality_p_value=1	major_base=C	major_cov=41/15	major_frequency=8.44763279e-01	minor_base=G	minor_cov=4/8	new_cov=4/8	polymorphism_frequency=1.55236721e-01	polymorphism_score=12.3	prediction=polymorphism	ref_cov=41/15	total_cov=46/23
+RA	1612	.	NZ_VCBX01000001	642109	0	C	G	bias_e_value=2824850	bias_p_value=0.359924	consensus_score=182.7	fisher_strand_p_value=0.113249	frequency=1.54926300e-01	ks_quality_p_value=1	major_base=C	major_cov=43/18	major_frequency=8.45073700e-01	minor_base=G	minor_cov=6/7	new_cov=6/7	polymorphism_frequency=1.54926300e-01	polymorphism_score=12.4	prediction=polymorphism	ref_cov=43/18	total_cov=51/25
+RA	1613	.	NZ_VCBX01000001	653309	0	A	G	bias_e_value=7848460	bias_p_value=1	consensus_score=77.7	fisher_strand_p_value=1	frequency=1.99508190e-01	ks_quality_p_value=1	major_base=A	major_cov=16/17	major_frequency=8.00491810e-01	minor_base=G	minor_cov=4/4	new_cov=4/4	polymorphism_frequency=1.99508190e-01	polymorphism_score=6.5	prediction=polymorphism	ref_cov=16/17	total_cov=22/22
+RA	1614	.	NZ_VCBX01000001	911046	0	T	C	bias_e_value=7832130	bias_p_value=0.99792	consensus_score=217.5	fisher_strand_p_value=1	frequency=9.73339081e-02	ks_quality_p_value=0.936206	major_base=T	major_cov=47/27	major_frequency=9.02666092e-01	minor_base=C	minor_cov=5/3	new_cov=5/3	polymorphism_frequency=9.73339081e-02	polymorphism_score=11.3	prediction=polymorphism	ref_cov=47/27	total_cov=52/30
+RA	1615	.	NZ_VCBX01000001	911048	0	A	G	bias_e_value=7838170	bias_p_value=0.99869	consensus_score=202.2	fisher_strand_p_value=1	frequency=1.13685608e-01	ks_quality_p_value=0.949253	major_base=A	major_cov=44/26	major_frequency=8.86314392e-01	minor_base=G	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=1.13685608e-01	polymorphism_score=13.9	prediction=polymorphism	ref_cov=44/26	total_cov=50/29
+RA	1616	.	NZ_VCBX01000001	911067	0	G	T	bias_e_value=6041580	bias_p_value=0.769779	consensus_score=224.4	fisher_strand_p_value=0.493819	frequency=1.18256569e-01	ks_quality_p_value=0.81726	major_base=G	major_cov=35/32	major_frequency=8.81743431e-01	minor_base=T	minor_cov=6/3	new_cov=6/3	polymorphism_frequency=1.18256569e-01	polymorphism_score=14.3	prediction=polymorphism	ref_cov=35/32	total_cov=41/35
+RA	1617	.	NZ_VCBX01000001	911073	0	A	C	bias_e_value=5991700	bias_p_value=0.763425	consensus_score=142.1	fisher_strand_p_value=0.707182	frequency=1.29537582e-01	ks_quality_p_value=0.560876	major_base=A	major_cov=26/28	major_frequency=8.70462418e-01	minor_base=C	minor_cov=5/3	new_cov=5/3	polymorphism_frequency=1.29537582e-01	polymorphism_score=20.9	prediction=polymorphism	ref_cov=26/28	total_cov=31/31
+RA	1618	.	NZ_VCBX01000001	925059	0	G	T	bias_e_value=3999070	bias_p_value=0.509536	consensus_score=120.2	fisher_strand_p_value=0.193062	frequency=1.20823860e-01	ks_quality_p_value=0.996653	major_base=G	major_cov=13/24	major_frequency=8.79176140e-01	minor_base=T	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.20823860e-01	polymorphism_score=4.0	prediction=polymorphism	ref_cov=13/24	total_cov=17/27
+RA	1619	.	NZ_VCBX01000001	1576744	0	G	T	bias_e_value=7848460	bias_p_value=1	consensus_score=178.4	fisher_strand_p_value=1	frequency=8.46886635e-02	ks_quality_p_value=1	major_base=G	major_cov=37/17	major_frequency=9.15311337e-01	minor_base=T	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.46886635e-02	polymorphism_score=2.5	prediction=polymorphism	ref_cov=37/17	total_cov=41/19
+RA	1620	.	NZ_VCBX01000001	1825476	0	C	A	bias_e_value=7413660	bias_p_value=0.944601	consensus_score=159.9	fisher_strand_p_value=0.686168	frequency=1.05724335e-01	ks_quality_p_value=1	major_base=C	major_cov=28/20	major_frequency=8.94275665e-01	minor_base=A	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=1.05724335e-01	polymorphism_score=3.1	prediction=polymorphism	ref_cov=28/20	total_cov=31/24
+RA	1621	.	NZ_VCBX01000001	2070300	0	C	G	bias_e_value=7038190	bias_p_value=0.896761	consensus_score=151.2	fisher_strand_p_value=0.589011	frequency=6.94127083e-02	ks_quality_p_value=0.987261	major_base=C	major_cov=15/33	major_frequency=9.30587292e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.94127083e-02	polymorphism_score=2.4	prediction=polymorphism	ref_cov=15/33	total_cov=17/35
+RA	1622	.	NZ_VCBX01000001	2573289	0	G	T	bias_e_value=1674820	bias_p_value=0.213395	consensus_score=194.3	fisher_strand_p_value=0.0681641	frequency=7.91640282e-02	ks_quality_p_value=0.801176	major_base=G	major_cov=11/47	major_frequency=9.20835972e-01	minor_base=T	minor_cov=3/2	new_cov=3/2	polymorphism_frequency=7.91640282e-02	polymorphism_score=4.6	prediction=polymorphism	ref_cov=11/47	total_cov=14/49
+RA	1623	.	NZ_VCBX01000001	2595938	0	G	T	bias_e_value=7848460	bias_p_value=1	consensus_score=127.6	fisher_strand_p_value=1	frequency=1.52793884e-01	ks_quality_p_value=1	major_base=G	major_cov=23/18	major_frequency=8.47206116e-01	minor_base=T	minor_cov=5/3	new_cov=5/3	polymorphism_frequency=1.52793884e-01	polymorphism_score=7.8	prediction=polymorphism	ref_cov=23/18	total_cov=28/21
+RA	1624	.	NZ_VCBX01000001	2731883	0	C	A	bias_e_value=7831170	bias_p_value=0.997798	consensus_score=125.5	fisher_strand_p_value=1	frequency=1.39333725e-01	ks_quality_p_value=0.934371	major_base=C	major_cov=27/10	major_frequency=8.60666275e-01	minor_base=A	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=1.39333725e-01	polymorphism_score=8.6	prediction=polymorphism	ref_cov=27/10	total_cov=31/12
+RA	1625	.	NZ_VCBX01000001	3577961	0	C	A	consensus_score=172.8	frequency=1	major_base=A	major_cov=32/21	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=32/21	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=32/21
+RA	1626	.	NZ_VCBX01000001	3998974	0	G	T	bias_e_value=6467220	bias_p_value=0.824012	consensus_score=164.4	fisher_strand_p_value=0.471645	frequency=1.55256748e-01	ks_quality_p_value=0.994135	major_base=G	major_cov=27/24	major_frequency=8.44743252e-01	minor_base=T	minor_cov=3/6	new_cov=3/6	polymorphism_frequency=1.55256748e-01	polymorphism_score=15.3	prediction=polymorphism	ref_cov=27/24	total_cov=31/30
+RA	1627	.	NZ_VCBX01000001	4000589	0	C	A	bias_e_value=7367700	bias_p_value=0.938745	consensus_score=201.4	fisher_strand_p_value=0.6731	frequency=8.91933441e-02	ks_quality_p_value=0.996974	major_base=C	major_cov=23/37	major_frequency=9.10806656e-01	minor_base=A	minor_cov=3/3	new_cov=3/3	polymorphism_frequency=8.91933441e-02	polymorphism_score=6.0	prediction=polymorphism	ref_cov=23/37	total_cov=27/40
+RA	1628	.	NZ_VCBX01000001	4121573	0	C	A	bias_e_value=6597820	bias_p_value=0.840652	consensus_score=164.0	fisher_strand_p_value=0.491561	frequency=1.24887943e-01	ks_quality_p_value=1	major_base=C	major_cov=30/22	major_frequency=8.75112057e-01	minor_base=A	minor_cov=4/5	new_cov=4/5	polymorphism_frequency=1.24887943e-01	polymorphism_score=5.9	prediction=polymorphism	ref_cov=30/22	total_cov=34/27
+RA	1629	.	NZ_VCBX01000001	4139313	0	C	G	bias_e_value=6921090	bias_p_value=0.881841	consensus_score=150.3	fisher_strand_p_value=0.629158	frequency=8.00628662e-02	ks_quality_p_value=0.882305	major_base=C	major_cov=17/29	major_frequency=9.19937134e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.00628662e-02	polymorphism_score=5.3	prediction=polymorphism	ref_cov=17/29	total_cov=19/31
+RA	1630	.	NZ_VCBX01000001	4139314	0	T	A	bias_e_value=6501440	bias_p_value=0.828372	consensus_score=146.5	fisher_strand_p_value=0.629158	frequency=8.01577568e-02	ks_quality_p_value=0.75447	major_base=T	major_cov=17/29	major_frequency=9.19842243e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.01577568e-02	polymorphism_score=4.1	prediction=polymorphism	ref_cov=17/29	total_cov=19/31
+RA	1631	.	NZ_VCBX01000001	4139315	0	C	G	bias_e_value=7226010	bias_p_value=0.920693	consensus_score=150.8	fisher_strand_p_value=0.629158	frequency=7.97348022e-02	ks_quality_p_value=1	major_base=C	major_cov=17/29	major_frequency=9.20265198e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=7.97348022e-02	polymorphism_score=4.0	prediction=polymorphism	ref_cov=17/29	total_cov=19/31
+RA	1632	.	NZ_VCBX01000001	4139318	0	A	C	bias_e_value=6716690	bias_p_value=0.855798	consensus_score=163.9	fisher_strand_p_value=0.641569	frequency=7.13663101e-02	ks_quality_p_value=0.800493	major_base=A	major_cov=20/32	major_frequency=9.28633690e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=7.13663101e-02	polymorphism_score=4.6	prediction=polymorphism	ref_cov=20/32	total_cov=22/34
+RA	1633	.	NZ_VCBX01000001	4139322	0	C	G	bias_e_value=6894540	bias_p_value=0.878459	consensus_score=178.6	fisher_strand_p_value=0.602329	frequency=6.89258575e-02	ks_quality_p_value=0.912147	major_base=C	major_cov=18/36	major_frequency=9.31074142e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.89258575e-02	polymorphism_score=5.1	prediction=polymorphism	ref_cov=18/36	total_cov=20/38
+RA	1634	.	NZ_VCBX01000001	4139331	0	A	C	bias_e_value=6975360	bias_p_value=0.888756	consensus_score=174.7	fisher_strand_p_value=0.59073	frequency=6.88886642e-02	ks_quality_p_value=0.959955	major_base=A	major_cov=17/37	major_frequency=9.31111336e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.88886642e-02	polymorphism_score=4.5	prediction=polymorphism	ref_cov=17/37	total_cov=19/39
+RA	1635	.	NZ_VCBX01000001	4139601	0	G	C	bias_e_value=7831970	bias_p_value=0.9979	consensus_score=138.7	fisher_strand_p_value=1	frequency=8.68449211e-02	ks_quality_p_value=0.935894	major_base=G	major_cov=20/22	major_frequency=9.13155079e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.68449211e-02	polymorphism_score=4.1	prediction=polymorphism	ref_cov=20/22	total_cov=22/24
+RA	1636	.	NZ_VCBX01000001	4139602	0	G	A	bias_e_value=7809190	bias_p_value=0.994998	consensus_score=126.3	fisher_strand_p_value=1	frequency=8.66494179e-02	ks_quality_p_value=0.901658	major_base=G	major_cov=20/22	major_frequency=9.13350582e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.66494179e-02	polymorphism_score=2.1	prediction=polymorphism	ref_cov=20/22	total_cov=22/24
+RA	1637	.	NZ_VCBX01000001	4139604	0	G	C	bias_e_value=7843140	bias_p_value=0.999323	consensus_score=137.0	fisher_strand_p_value=1	frequency=8.68439674e-02	ks_quality_p_value=0.963419	major_base=G	major_cov=20/22	major_frequency=9.13156033e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.68439674e-02	polymorphism_score=3.4	prediction=polymorphism	ref_cov=20/22	total_cov=22/24
+RA	1638	.	NZ_VCBX01000001	4139608	0	T	A	bias_e_value=7812470	bias_p_value=0.995415	consensus_score=138.9	fisher_strand_p_value=1	frequency=8.50291252e-02	ks_quality_p_value=0.905778	major_base=T	major_cov=20/23	major_frequency=9.14970875e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=8.50291252e-02	polymorphism_score=4.3	prediction=polymorphism	ref_cov=20/23	total_cov=22/25
+RA	1639	.	NZ_VCBX01000001	4139610	0	G	C	bias_e_value=7704270	bias_p_value=0.981629	consensus_score=161.5	fisher_strand_p_value=1	frequency=7.67912865e-02	ks_quality_p_value=0.814543	major_base=G	major_cov=22/26	major_frequency=9.23208714e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=7.67912865e-02	polymorphism_score=3.9	prediction=polymorphism	ref_cov=22/26	total_cov=24/28
+RA	1640	.	NZ_VCBX01000001	4192383	0	C	T	bias_e_value=802110	bias_p_value=0.1022	consensus_score=115.0	fisher_strand_p_value=0.0306804	frequency=1.69610500e-01	ks_quality_p_value=0.685082	major_base=C	major_cov=8/36	major_frequency=8.30389500e-01	minor_base=T	minor_cov=5/4	new_cov=5/4	polymorphism_frequency=1.69610500e-01	polymorphism_score=14.7	prediction=polymorphism	ref_cov=8/36	total_cov=13/40
+RA	1641	.	NZ_VCBX01000001	4272593	0	G	T	bias_e_value=7666030	bias_p_value=0.976757	consensus_score=112.9	fisher_strand_p_value=0.79229	frequency=2.85631180e-01	ks_quality_p_value=1	major_base=G	major_cov=31/19	major_frequency=7.14368820e-01	minor_base=T	minor_cov=12/9	new_cov=12/9	polymorphism_frequency=2.85631180e-01	polymorphism_score=28.0	prediction=polymorphism	ref_cov=31/19	total_cov=43/28
+RA	1642	.	NZ_VCBX01000001	4272952	0	C	G	bias_e_value=7536060	bias_p_value=0.960196	consensus_score=89.1	fisher_strand_p_value=0.731458	frequency=1.78523540e-01	ks_quality_p_value=1	major_base=C	major_cov=20/21	major_frequency=8.21476460e-01	minor_base=G	minor_cov=4/6	new_cov=4/6	polymorphism_frequency=1.78523540e-01	polymorphism_score=7.5	prediction=polymorphism	ref_cov=20/21	total_cov=24/27
+RA	1643	.	NZ_VCBX01000001	4273067	0	T	C	bias_e_value=6098720	bias_p_value=0.77706	consensus_score=41.5	fisher_strand_p_value=0.411692	frequency=2.23963261e-01	ks_quality_p_value=1	major_base=T	major_cov=12/12	major_frequency=7.76036739e-01	minor_base=C	minor_cov=2/5	new_cov=2/5	polymorphism_frequency=2.23963261e-01	polymorphism_score=5.4	prediction=polymorphism	ref_cov=12/12	total_cov=15/17
+RA	1644	.	NZ_VCBX01000001	4275960	0	C	T	bias_e_value=1655270	bias_p_value=0.210903	consensus_score=90.6	fisher_strand_p_value=0.0537568	frequency=1.57365799e-01	ks_quality_p_value=1	major_base=C	major_cov=30/7	major_frequency=8.42634201e-01	minor_base=T	minor_cov=3/4	new_cov=3/4	polymorphism_frequency=1.57365799e-01	polymorphism_score=6.5	prediction=polymorphism	ref_cov=30/7	total_cov=33/11
+RA	1645	.	NZ_VCBX01000001	4275968	0	C	T	bias_e_value=1541490	bias_p_value=0.196406	consensus_score=78.6	fisher_strand_p_value=0.0488759	frequency=2.32831955e-01	ks_quality_p_value=1	major_base=C	major_cov=29/7	major_frequency=7.67168045e-01	minor_base=T	minor_cov=5/6	new_cov=5/6	polymorphism_frequency=2.32831955e-01	polymorphism_score=16.5	prediction=polymorphism	ref_cov=29/7	total_cov=34/13
+RA	1646	.	NZ_VCBX01000001	4612346	0	T	G	bias_e_value=5388800	bias_p_value=0.686606	consensus_score=176.2	fisher_strand_p_value=0.325411	frequency=8.05892944e-02	ks_quality_p_value=0.988745	major_base=T	major_cov=39/18	major_frequency=9.19410706e-01	minor_base=G	minor_cov=2/3	new_cov=2/3	polymorphism_frequency=8.05892944e-02	polymorphism_score=7.2	prediction=polymorphism	ref_cov=39/18	total_cov=41/21
+RA	1647	.	NZ_VCBX01000001	4612355	0	A	G	bias_e_value=5325520	bias_p_value=0.678544	consensus_score=161.2	fisher_strand_p_value=0.315696	frequency=8.44373703e-02	ks_quality_p_value=0.996866	major_base=A	major_cov=38/16	major_frequency=9.15562630e-01	minor_base=G	minor_cov=2/3	new_cov=2/3	polymorphism_frequency=8.44373703e-02	polymorphism_score=4.1	prediction=polymorphism	ref_cov=38/16	total_cov=40/19
+RA	1648	.	NZ_VCBX01000001	4724919	0	G	C	bias_e_value=7048920	bias_p_value=0.898128	consensus_score=221.2	fisher_strand_p_value=0.683339	frequency=8.22691917e-02	ks_quality_p_value=0.854684	major_base=G	major_cov=36/31	major_frequency=9.17730808e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.22691917e-02	polymorphism_score=10.7	prediction=polymorphism	ref_cov=36/31	total_cov=40/33
+RA	1649	.	NZ_VCBX01000001	4724925	0	G	A	bias_e_value=7392470	bias_p_value=0.941901	consensus_score=230.9	fisher_strand_p_value=0.679095	frequency=7.54313469e-02	ks_quality_p_value=1	major_base=G	major_cov=38/35	major_frequency=9.24568653e-01	minor_base=A	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.54313469e-02	polymorphism_score=4.8	prediction=polymorphism	ref_cov=38/35	total_cov=42/37
+RA	1650	.	NZ_VCBX01000001	4724934	0	T	C	bias_e_value=7848450	bias_p_value=1	consensus_score=175.4	fisher_strand_p_value=1	frequency=9.44013596e-02	ks_quality_p_value=0.999165	major_base=T	major_cov=34/23	major_frequency=9.05598640e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=9.44013596e-02	polymorphism_score=5.8	prediction=polymorphism	ref_cov=34/23	total_cov=38/25
+RA	1651	.	NZ_VCBX01000001	4724946	0	T	A	bias_e_value=7848460	bias_p_value=1	consensus_score=215.8	fisher_strand_p_value=1	frequency=7.67545700e-02	ks_quality_p_value=1	major_base=T	major_cov=38/28	major_frequency=9.23245430e-01	minor_base=A	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.67545700e-02	polymorphism_score=3.8	prediction=polymorphism	ref_cov=38/28	total_cov=42/30
+RA	1652	.	NZ_VCBX01000001	4724952	0	C	T	bias_e_value=7848450	bias_p_value=1	consensus_score=205.8	fisher_strand_p_value=1	frequency=8.27846527e-02	ks_quality_p_value=1	major_base=C	major_cov=38/27	major_frequency=9.17215347e-01	minor_base=T	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.27846527e-02	polymorphism_score=3.6	prediction=polymorphism	ref_cov=38/27	total_cov=42/29
+RA	1653	.	NZ_VCBX01000001	4724955	0	T	C	bias_e_value=7719590	bias_p_value=0.983581	consensus_score=210.5	fisher_strand_p_value=1	frequency=8.08610916e-02	ks_quality_p_value=0.824347	major_base=T	major_cov=39/29	major_frequency=9.19138908e-01	minor_base=C	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=8.08610916e-02	polymorphism_score=6.5	prediction=polymorphism	ref_cov=39/29	total_cov=43/31
+RA	1654	.	NZ_VCBX01000001	4724958	0	C	G	bias_e_value=7848460	bias_p_value=1	consensus_score=226.5	fisher_strand_p_value=1	frequency=7.04312325e-02	ks_quality_p_value=1	major_base=C	major_cov=41/27	major_frequency=9.29568768e-01	minor_base=G	minor_cov=4/2	new_cov=4/2	polymorphism_frequency=7.04312325e-02	polymorphism_score=5.5	prediction=polymorphism	ref_cov=41/27	total_cov=45/29
+RA	1655	.	NZ_VCBX01000001	4943262	0	G	C	consensus_score=116.6	frequency=1	major_base=C	major_cov=11/25	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=11/25	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=11/25
+RA	1656	.	NZ_VCBX01000001	5202509	0	G	T	bias_e_value=5602570	bias_p_value=0.713844	consensus_score=243.4	fisher_strand_p_value=0.346592	frequency=8.10904503e-02	ks_quality_p_value=1	major_base=G	major_cov=38/48	major_frequency=9.18909550e-01	minor_base=T	minor_cov=3/8	new_cov=3/8	polymorphism_frequency=8.10904503e-02	polymorphism_score=3.2	prediction=polymorphism	ref_cov=38/48	total_cov=41/58
+RA	1657	.	NZ_VCBX01000001	5565321	0	C	G	bias_e_value=7711320	bias_p_value=0.982527	consensus_score=186.6	fisher_strand_p_value=1	frequency=6.77566528e-02	ks_quality_p_value=0.818983	major_base=C	major_cov=32/23	major_frequency=9.32243347e-01	minor_base=G	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.77566528e-02	polymorphism_score=4.9	prediction=polymorphism	ref_cov=32/23	total_cov=34/25
+RA	1658	.	NZ_VCBX01000001	5565328	0	T	A	bias_e_value=7273990	bias_p_value=0.926805	consensus_score=186.2	fisher_strand_p_value=0.642659	frequency=6.54244423e-02	ks_quality_p_value=1	major_base=T	major_cov=35/22	major_frequency=9.34575558e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.54244423e-02	polymorphism_score=3.3	prediction=polymorphism	ref_cov=35/22	total_cov=37/24
+RA	1659	.	NZ_VCBX01000001	5604921	0	C	G	bias_e_value=436283	bias_p_value=0.0555884	consensus_score=133.7	fisher_strand_p_value=0.0098995	frequency=2.07007408e-01	ks_quality_p_value=1	major_base=C	major_cov=26/18	major_frequency=7.92992592e-01	minor_base=G	minor_cov=2/11	new_cov=2/11	polymorphism_frequency=2.07007408e-01	polymorphism_score=11.3	prediction=polymorphism	ref_cov=26/18	total_cov=28/30
+RA	1660	.	NZ_VCBX01000001	6111480	0	C	A	bias_e_value=7802170	bias_p_value=0.994103	consensus_score=188.8	fisher_strand_p_value=1	frequency=6.53810501e-02	ks_quality_p_value=0.893382	major_base=C	major_cov=24/33	major_frequency=9.34618950e-01	minor_base=A	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=6.53810501e-02	polymorphism_score=2.4	prediction=polymorphism	ref_cov=24/33	total_cov=26/35
+RA	1661	.	NZ_VCBX01000001	6340850	0	G	C	bias_e_value=2435620	bias_p_value=0.310331	consensus_score=102.8	fisher_strand_p_value=0.091507	frequency=1.75348282e-01	ks_quality_p_value=1	major_base=G	major_cov=18/26	major_frequency=8.24651718e-01	minor_base=C	minor_cov=8/3	new_cov=8/3	polymorphism_frequency=1.75348282e-01	polymorphism_score=4.7	prediction=polymorphism	ref_cov=18/26	total_cov=26/29
+RA	1662	.	NZ_VCBX01000001	6442202	0	C	G	consensus_score=144.6	frequency=1	major_base=G	major_cov=25/19	major_frequency=1.00000000e+00	minor_base=N	minor_cov=0/0	new_cov=25/19	polymorphism_frequency=1.00000000e+00	polymorphism_reject=FREQUENCY_CUTOFF,VARIANT_STRAND_COVERAGE	polymorphism_score=NA	prediction=consensus	ref_cov=0/0	total_cov=25/19
+RA	1663	.	NZ_VCBX01000001	6509047	0	G	T	bias_e_value=3161.26	bias_p_value=0.000402787	consensus_score=85.1	fisher_strand_p_value=3.58472e-05	frequency=1.99856758e-01	ks_quality_p_value=1	major_base=G	major_cov=31/3	major_frequency=8.00143242e-01	minor_base=T	minor_cov=2/8	new_cov=2/8	polymorphism_frequency=1.99856758e-01	polymorphism_score=2.6	prediction=polymorphism	ref_cov=31/3	total_cov=33/11
+RA	1664	.	NZ_VCBX01000001	6657364	0	A	C	bias_e_value=5240490	bias_p_value=0.66771	consensus_score=192.2	fisher_strand_p_value=0.305455	frequency=5.94658852e-02	ks_quality_p_value=1	major_base=A	major_cov=45/16	major_frequency=9.40534115e-01	minor_base=C	minor_cov=2/2	new_cov=2/2	polymorphism_frequency=5.94658852e-02	polymorphism_score=2.9	prediction=polymorphism	ref_cov=45/16	total_cov=47/18
+RA	1665	.	NZ_VCBX01000002	28827	0	C	A	bias_e_value=3744990	bias_p_value=0.477163	consensus_score=226.0	fisher_strand_p_value=0.173365	frequency=6.91838264e-02	ks_quality_p_value=1	major_base=C	major_cov=45/21	major_frequency=9.30816174e-01	minor_base=A	minor_cov=2/4	new_cov=2/4	polymorphism_frequency=6.91838264e-02	polymorphism_score=2.1	prediction=polymorphism	ref_cov=45/21	total_cov=48/25
+MC	1666	.	NZ_VCBX01000001	1	29	0	27	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=12	right_outside_cov=15
+MC	1667	.	NZ_VCBX01000001	1950658	1952213	392	1161	left_inside_cov=12	left_outside_cov=15	right_inside_cov=12	right_outside_cov=13
+MC	1668	.	NZ_VCBX01000002	1	1188	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=27	right_outside_cov=30
+MC	1669	.	NZ_VCBX01000002	4010	5289	1002	274	left_inside_cov=29	left_outside_cov=30	right_inside_cov=29	right_outside_cov=35
+MC	1670	.	NZ_VCBX01000002	492046	493341	0	0	left_inside_cov=29	left_outside_cov=30	right_inside_cov=0	right_outside_cov=NA
+MC	1671	.	NZ_VCBX01000004	1	1141	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=5
+MC	1672	.	NZ_VCBX01000004	1196	7390	0	0	left_inside_cov=0	left_outside_cov=5	right_inside_cov=0	right_outside_cov=NA
+MC	1673	.	NZ_VCBX01000005	1	3073	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1674	.	NZ_VCBX01000006	1	2943	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1675	.	NZ_VCBX01000007	1	2398	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1676	.	NZ_VCBX01000008	1	2119	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1677	.	NZ_VCBX01000009	1	1486	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1678	.	NZ_VCBX01000010	1	1437	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1679	.	NZ_VCBX01000011	1	1393	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1680	.	NZ_VCBX01000012	1	1381	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1681	.	NZ_VCBX01000013	1	1297	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1682	.	NZ_VCBX01000014	1	1218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1683	.	NZ_VCBX01000015	1	1158	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1684	.	NZ_VCBX01000016	1	1145	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1685	.	NZ_VCBX01000017	1	1106	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1686	.	NZ_VCBX01000018	1	1086	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1687	.	NZ_VCBX01000019	1	1083	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1688	.	NZ_VCBX01000020	1	1041	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1689	.	NZ_VCBX01000021	1	1021	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1690	.	NZ_VCBX01000022	1	1020	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1691	.	NZ_VCBX01000023	1	1013	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1692	.	NZ_VCBX01000024	1	987	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1693	.	NZ_VCBX01000025	1	974	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1694	.	NZ_VCBX01000026	1	961	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1695	.	NZ_VCBX01000027	1	961	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1696	.	NZ_VCBX01000028	1	956	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1697	.	NZ_VCBX01000029	1	948	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1698	.	NZ_VCBX01000030	1	932	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1699	.	NZ_VCBX01000031	1	931	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1700	.	NZ_VCBX01000032	1	923	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1701	.	NZ_VCBX01000033	1	905	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1702	.	NZ_VCBX01000034	1	898	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1703	.	NZ_VCBX01000035	1	897	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1704	.	NZ_VCBX01000036	1	897	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1705	.	NZ_VCBX01000037	1	875	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1706	.	NZ_VCBX01000038	1	857	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1707	.	NZ_VCBX01000039	1	857	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1708	.	NZ_VCBX01000040	1	847	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1709	.	NZ_VCBX01000041	1	844	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1710	.	NZ_VCBX01000042	1	841	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1711	.	NZ_VCBX01000043	1	833	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1712	.	NZ_VCBX01000044	1	831	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1713	.	NZ_VCBX01000045	1	814	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1714	.	NZ_VCBX01000046	1	800	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1715	.	NZ_VCBX01000047	1	787	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1716	.	NZ_VCBX01000048	1	783	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1717	.	NZ_VCBX01000049	1	781	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1718	.	NZ_VCBX01000050	1	776	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1719	.	NZ_VCBX01000051	1	772	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1720	.	NZ_VCBX01000052	1	771	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1721	.	NZ_VCBX01000053	1	770	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1722	.	NZ_VCBX01000054	1	764	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1723	.	NZ_VCBX01000055	1	764	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1724	.	NZ_VCBX01000056	1	763	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1725	.	NZ_VCBX01000057	1	760	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1726	.	NZ_VCBX01000058	1	758	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1727	.	NZ_VCBX01000059	1	748	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1728	.	NZ_VCBX01000060	1	747	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1729	.	NZ_VCBX01000061	1	745	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1730	.	NZ_VCBX01000062	1	740	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1731	.	NZ_VCBX01000063	1	739	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1732	.	NZ_VCBX01000064	1	733	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1733	.	NZ_VCBX01000065	1	733	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1734	.	NZ_VCBX01000066	1	731	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1735	.	NZ_VCBX01000067	1	731	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1736	.	NZ_VCBX01000068	1	729	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1737	.	NZ_VCBX01000069	1	728	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1738	.	NZ_VCBX01000070	1	726	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1739	.	NZ_VCBX01000071	1	725	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1740	.	NZ_VCBX01000072	1	724	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1741	.	NZ_VCBX01000073	1	723	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1742	.	NZ_VCBX01000074	1	716	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1743	.	NZ_VCBX01000075	1	714	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1744	.	NZ_VCBX01000076	1	710	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1745	.	NZ_VCBX01000077	1	709	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1746	.	NZ_VCBX01000078	1	709	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1747	.	NZ_VCBX01000079	1	709	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1748	.	NZ_VCBX01000080	1	708	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1749	.	NZ_VCBX01000081	1	708	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1750	.	NZ_VCBX01000082	1	706	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1751	.	NZ_VCBX01000083	1	701	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1752	.	NZ_VCBX01000084	1	699	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1753	.	NZ_VCBX01000085	1	691	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1754	.	NZ_VCBX01000086	1	690	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1755	.	NZ_VCBX01000087	1	685	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1756	.	NZ_VCBX01000088	1	685	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1757	.	NZ_VCBX01000089	1	684	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1758	.	NZ_VCBX01000090	1	677	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1759	.	NZ_VCBX01000091	1	676	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1760	.	NZ_VCBX01000092	1	675	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1761	.	NZ_VCBX01000093	1	670	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1762	.	NZ_VCBX01000094	1	670	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1763	.	NZ_VCBX01000095	1	669	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1764	.	NZ_VCBX01000096	1	665	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1765	.	NZ_VCBX01000097	1	664	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1766	.	NZ_VCBX01000098	1	659	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1767	.	NZ_VCBX01000099	1	657	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1768	.	NZ_VCBX01000100	1	656	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1769	.	NZ_VCBX01000101	1	655	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1770	.	NZ_VCBX01000102	1	655	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1771	.	NZ_VCBX01000103	1	654	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1772	.	NZ_VCBX01000104	1	654	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1773	.	NZ_VCBX01000105	1	654	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1774	.	NZ_VCBX01000106	1	652	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1775	.	NZ_VCBX01000107	1	649	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1776	.	NZ_VCBX01000108	1	648	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1777	.	NZ_VCBX01000109	1	644	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1778	.	NZ_VCBX01000110	1	643	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1779	.	NZ_VCBX01000111	1	642	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1780	.	NZ_VCBX01000112	1	640	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1781	.	NZ_VCBX01000113	1	638	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1782	.	NZ_VCBX01000114	1	635	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1783	.	NZ_VCBX01000115	1	633	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1784	.	NZ_VCBX01000116	1	633	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1785	.	NZ_VCBX01000117	1	630	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1786	.	NZ_VCBX01000118	1	629	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1787	.	NZ_VCBX01000119	1	628	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1788	.	NZ_VCBX01000120	1	628	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1789	.	NZ_VCBX01000121	1	628	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1790	.	NZ_VCBX01000122	1	627	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1791	.	NZ_VCBX01000123	1	627	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1792	.	NZ_VCBX01000124	1	627	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1793	.	NZ_VCBX01000125	1	624	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1794	.	NZ_VCBX01000126	1	624	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1795	.	NZ_VCBX01000127	1	623	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1796	.	NZ_VCBX01000128	1	622	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1797	.	NZ_VCBX01000129	1	621	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1798	.	NZ_VCBX01000130	1	620	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1799	.	NZ_VCBX01000131	1	618	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1800	.	NZ_VCBX01000132	1	618	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1801	.	NZ_VCBX01000133	1	618	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1802	.	NZ_VCBX01000134	1	612	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1803	.	NZ_VCBX01000135	1	611	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1804	.	NZ_VCBX01000136	1	610	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1805	.	NZ_VCBX01000137	1	610	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1806	.	NZ_VCBX01000138	1	607	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1807	.	NZ_VCBX01000139	1	605	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1808	.	NZ_VCBX01000140	1	604	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1809	.	NZ_VCBX01000141	1	604	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1810	.	NZ_VCBX01000142	1	604	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1811	.	NZ_VCBX01000143	1	603	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1812	.	NZ_VCBX01000144	1	602	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1813	.	NZ_VCBX01000145	1	601	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1814	.	NZ_VCBX01000146	1	599	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1815	.	NZ_VCBX01000147	1	597	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1816	.	NZ_VCBX01000148	1	596	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1817	.	NZ_VCBX01000149	1	596	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1818	.	NZ_VCBX01000150	1	593	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1819	.	NZ_VCBX01000151	1	593	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1820	.	NZ_VCBX01000152	1	593	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1821	.	NZ_VCBX01000153	1	589	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1822	.	NZ_VCBX01000154	1	587	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1823	.	NZ_VCBX01000155	1	587	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1824	.	NZ_VCBX01000156	1	585	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1825	.	NZ_VCBX01000157	1	583	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1826	.	NZ_VCBX01000158	1	583	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1827	.	NZ_VCBX01000159	1	582	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1828	.	NZ_VCBX01000160	1	582	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1829	.	NZ_VCBX01000161	1	580	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1830	.	NZ_VCBX01000162	1	580	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1831	.	NZ_VCBX01000163	1	580	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1832	.	NZ_VCBX01000164	1	580	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1833	.	NZ_VCBX01000165	1	578	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1834	.	NZ_VCBX01000166	1	577	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1835	.	NZ_VCBX01000167	1	576	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1836	.	NZ_VCBX01000168	1	574	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1837	.	NZ_VCBX01000169	1	573	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1838	.	NZ_VCBX01000170	1	573	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1839	.	NZ_VCBX01000171	1	571	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1840	.	NZ_VCBX01000172	1	570	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1841	.	NZ_VCBX01000173	1	569	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1842	.	NZ_VCBX01000174	1	568	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1843	.	NZ_VCBX01000175	1	566	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1844	.	NZ_VCBX01000176	1	566	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1845	.	NZ_VCBX01000177	1	566	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1846	.	NZ_VCBX01000178	1	566	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1847	.	NZ_VCBX01000179	1	566	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1848	.	NZ_VCBX01000180	1	566	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1849	.	NZ_VCBX01000181	1	565	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1850	.	NZ_VCBX01000182	1	565	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1851	.	NZ_VCBX01000183	1	565	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1852	.	NZ_VCBX01000184	1	564	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1853	.	NZ_VCBX01000185	1	564	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1854	.	NZ_VCBX01000186	1	563	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1855	.	NZ_VCBX01000187	1	563	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1856	.	NZ_VCBX01000188	1	559	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1857	.	NZ_VCBX01000189	1	556	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1858	.	NZ_VCBX01000190	1	555	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1859	.	NZ_VCBX01000191	1	554	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1860	.	NZ_VCBX01000192	1	553	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1861	.	NZ_VCBX01000193	1	552	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1862	.	NZ_VCBX01000194	1	551	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1863	.	NZ_VCBX01000195	1	550	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1864	.	NZ_VCBX01000196	1	549	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1865	.	NZ_VCBX01000197	1	549	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1866	.	NZ_VCBX01000198	1	549	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1867	.	NZ_VCBX01000199	1	548	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1868	.	NZ_VCBX01000200	1	547	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1869	.	NZ_VCBX01000201	1	546	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1870	.	NZ_VCBX01000202	1	545	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1871	.	NZ_VCBX01000203	1	543	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1872	.	NZ_VCBX01000204	1	543	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1873	.	NZ_VCBX01000205	1	542	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1874	.	NZ_VCBX01000206	1	540	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1875	.	NZ_VCBX01000207	1	539	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1876	.	NZ_VCBX01000208	1	538	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1877	.	NZ_VCBX01000209	1	538	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1878	.	NZ_VCBX01000210	1	536	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1879	.	NZ_VCBX01000211	1	535	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1880	.	NZ_VCBX01000212	1	535	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1881	.	NZ_VCBX01000213	1	534	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1882	.	NZ_VCBX01000214	1	534	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1883	.	NZ_VCBX01000215	1	534	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1884	.	NZ_VCBX01000216	1	533	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1885	.	NZ_VCBX01000217	1	532	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1886	.	NZ_VCBX01000218	1	532	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1887	.	NZ_VCBX01000219	1	530	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1888	.	NZ_VCBX01000220	1	529	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1889	.	NZ_VCBX01000221	1	528	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1890	.	NZ_VCBX01000222	1	528	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1891	.	NZ_VCBX01000223	1	526	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1892	.	NZ_VCBX01000224	1	526	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1893	.	NZ_VCBX01000225	1	526	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1894	.	NZ_VCBX01000226	1	523	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1895	.	NZ_VCBX01000227	1	523	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1896	.	NZ_VCBX01000228	1	522	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1897	.	NZ_VCBX01000229	1	520	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1898	.	NZ_VCBX01000230	1	520	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1899	.	NZ_VCBX01000231	1	519	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1900	.	NZ_VCBX01000232	1	518	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1901	.	NZ_VCBX01000233	1	518	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1902	.	NZ_VCBX01000234	1	517	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1903	.	NZ_VCBX01000235	1	517	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1904	.	NZ_VCBX01000236	1	516	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1905	.	NZ_VCBX01000237	1	516	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1906	.	NZ_VCBX01000238	1	515	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1907	.	NZ_VCBX01000239	1	515	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1908	.	NZ_VCBX01000240	1	515	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1909	.	NZ_VCBX01000241	1	514	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1910	.	NZ_VCBX01000242	1	514	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1911	.	NZ_VCBX01000243	1	513	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1912	.	NZ_VCBX01000244	1	513	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1913	.	NZ_VCBX01000245	1	513	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1914	.	NZ_VCBX01000246	1	513	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1915	.	NZ_VCBX01000247	1	512	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1916	.	NZ_VCBX01000248	1	512	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1917	.	NZ_VCBX01000249	1	512	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1918	.	NZ_VCBX01000250	1	511	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1919	.	NZ_VCBX01000251	1	511	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1920	.	NZ_VCBX01000252	1	510	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1921	.	NZ_VCBX01000253	1	509	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1922	.	NZ_VCBX01000254	1	509	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1923	.	NZ_VCBX01000255	1	508	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1924	.	NZ_VCBX01000256	1	508	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1925	.	NZ_VCBX01000257	1	507	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1926	.	NZ_VCBX01000258	1	506	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1927	.	NZ_VCBX01000259	1	506	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1928	.	NZ_VCBX01000260	1	506	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1929	.	NZ_VCBX01000261	1	505	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1930	.	NZ_VCBX01000262	1	505	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1931	.	NZ_VCBX01000263	1	505	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1932	.	NZ_VCBX01000264	1	501	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1933	.	NZ_VCBX01000265	1	501	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1934	.	NZ_VCBX01000266	1	501	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1935	.	NZ_VCBX01000267	1	500	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1936	.	NZ_VCBX01000268	1	499	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1937	.	NZ_VCBX01000269	1	498	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1938	.	NZ_VCBX01000270	1	497	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1939	.	NZ_VCBX01000271	1	495	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1940	.	NZ_VCBX01000272	1	493	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1941	.	NZ_VCBX01000273	1	492	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1942	.	NZ_VCBX01000274	1	492	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1943	.	NZ_VCBX01000275	1	492	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1944	.	NZ_VCBX01000276	1	490	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1945	.	NZ_VCBX01000277	1	489	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1946	.	NZ_VCBX01000278	1	488	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1947	.	NZ_VCBX01000279	1	488	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1948	.	NZ_VCBX01000280	1	487	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1949	.	NZ_VCBX01000281	1	487	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1950	.	NZ_VCBX01000282	1	487	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1951	.	NZ_VCBX01000283	1	486	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1952	.	NZ_VCBX01000284	1	486	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1953	.	NZ_VCBX01000285	1	485	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1954	.	NZ_VCBX01000286	1	484	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1955	.	NZ_VCBX01000287	1	484	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1956	.	NZ_VCBX01000288	1	482	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1957	.	NZ_VCBX01000289	1	482	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1958	.	NZ_VCBX01000290	1	481	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1959	.	NZ_VCBX01000291	1	481	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1960	.	NZ_VCBX01000292	1	481	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1961	.	NZ_VCBX01000293	1	481	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1962	.	NZ_VCBX01000294	1	481	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1963	.	NZ_VCBX01000295	1	480	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1964	.	NZ_VCBX01000296	1	480	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1965	.	NZ_VCBX01000297	1	479	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1966	.	NZ_VCBX01000298	1	479	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1967	.	NZ_VCBX01000299	1	478	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1968	.	NZ_VCBX01000300	1	478	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1969	.	NZ_VCBX01000301	1	478	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1970	.	NZ_VCBX01000302	1	477	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1971	.	NZ_VCBX01000303	1	477	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1972	.	NZ_VCBX01000304	1	477	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1973	.	NZ_VCBX01000305	1	476	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1974	.	NZ_VCBX01000306	1	476	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1975	.	NZ_VCBX01000307	1	476	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1976	.	NZ_VCBX01000308	1	475	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1977	.	NZ_VCBX01000309	1	474	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1978	.	NZ_VCBX01000310	1	474	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1979	.	NZ_VCBX01000311	1	473	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1980	.	NZ_VCBX01000312	1	473	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1981	.	NZ_VCBX01000313	1	472	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1982	.	NZ_VCBX01000314	1	471	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1983	.	NZ_VCBX01000315	1	471	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1984	.	NZ_VCBX01000316	1	470	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1985	.	NZ_VCBX01000317	1	469	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1986	.	NZ_VCBX01000318	1	468	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1987	.	NZ_VCBX01000319	1	468	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1988	.	NZ_VCBX01000320	1	468	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1989	.	NZ_VCBX01000321	1	468	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1990	.	NZ_VCBX01000322	1	466	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1991	.	NZ_VCBX01000323	1	466	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1992	.	NZ_VCBX01000324	1	466	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1993	.	NZ_VCBX01000325	1	465	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1994	.	NZ_VCBX01000326	1	465	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1995	.	NZ_VCBX01000327	1	464	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1996	.	NZ_VCBX01000328	1	463	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1997	.	NZ_VCBX01000329	1	462	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1998	.	NZ_VCBX01000330	1	461	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	1999	.	NZ_VCBX01000331	1	461	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2000	.	NZ_VCBX01000332	1	460	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2001	.	NZ_VCBX01000333	1	460	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2002	.	NZ_VCBX01000334	1	460	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2003	.	NZ_VCBX01000335	1	460	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2004	.	NZ_VCBX01000336	1	459	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2005	.	NZ_VCBX01000337	1	459	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2006	.	NZ_VCBX01000338	1	459	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2007	.	NZ_VCBX01000339	1	457	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2008	.	NZ_VCBX01000340	1	457	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2009	.	NZ_VCBX01000341	1	457	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2010	.	NZ_VCBX01000342	1	456	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2011	.	NZ_VCBX01000343	1	456	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2012	.	NZ_VCBX01000344	1	456	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2013	.	NZ_VCBX01000345	1	453	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2014	.	NZ_VCBX01000346	1	452	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2015	.	NZ_VCBX01000347	1	452	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2016	.	NZ_VCBX01000348	1	452	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2017	.	NZ_VCBX01000349	1	452	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2018	.	NZ_VCBX01000350	1	451	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2019	.	NZ_VCBX01000351	1	451	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2020	.	NZ_VCBX01000352	1	451	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2021	.	NZ_VCBX01000353	1	451	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2022	.	NZ_VCBX01000354	1	450	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2023	.	NZ_VCBX01000355	1	450	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2024	.	NZ_VCBX01000356	1	450	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2025	.	NZ_VCBX01000357	1	449	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2026	.	NZ_VCBX01000358	1	449	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2027	.	NZ_VCBX01000359	1	448	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2028	.	NZ_VCBX01000360	1	448	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2029	.	NZ_VCBX01000361	1	446	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2030	.	NZ_VCBX01000362	1	446	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2031	.	NZ_VCBX01000363	1	446	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2032	.	NZ_VCBX01000364	1	446	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2033	.	NZ_VCBX01000365	1	446	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2034	.	NZ_VCBX01000366	1	445	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2035	.	NZ_VCBX01000367	1	445	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2036	.	NZ_VCBX01000368	1	445	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2037	.	NZ_VCBX01000369	1	444	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2038	.	NZ_VCBX01000370	1	444	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2039	.	NZ_VCBX01000371	1	443	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2040	.	NZ_VCBX01000372	1	443	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2041	.	NZ_VCBX01000373	1	443	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2042	.	NZ_VCBX01000374	1	442	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2043	.	NZ_VCBX01000375	1	442	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2044	.	NZ_VCBX01000376	1	442	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2045	.	NZ_VCBX01000377	1	442	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2046	.	NZ_VCBX01000378	1	442	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2047	.	NZ_VCBX01000379	1	442	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2048	.	NZ_VCBX01000380	1	441	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2049	.	NZ_VCBX01000381	1	441	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2050	.	NZ_VCBX01000382	1	439	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2051	.	NZ_VCBX01000383	1	439	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2052	.	NZ_VCBX01000384	1	439	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2053	.	NZ_VCBX01000385	1	438	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2054	.	NZ_VCBX01000386	1	437	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2055	.	NZ_VCBX01000387	1	437	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2056	.	NZ_VCBX01000388	1	436	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2057	.	NZ_VCBX01000389	1	436	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2058	.	NZ_VCBX01000390	1	435	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2059	.	NZ_VCBX01000391	1	435	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2060	.	NZ_VCBX01000392	1	435	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2061	.	NZ_VCBX01000393	1	435	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2062	.	NZ_VCBX01000394	1	434	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2063	.	NZ_VCBX01000395	1	433	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2064	.	NZ_VCBX01000396	1	432	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2065	.	NZ_VCBX01000397	1	432	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2066	.	NZ_VCBX01000398	1	432	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2067	.	NZ_VCBX01000399	1	432	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2068	.	NZ_VCBX01000400	1	432	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2069	.	NZ_VCBX01000401	1	431	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2070	.	NZ_VCBX01000402	1	430	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2071	.	NZ_VCBX01000403	1	430	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2072	.	NZ_VCBX01000404	1	430	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2073	.	NZ_VCBX01000405	1	430	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2074	.	NZ_VCBX01000406	1	429	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2075	.	NZ_VCBX01000407	1	429	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2076	.	NZ_VCBX01000408	1	428	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2077	.	NZ_VCBX01000409	1	428	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2078	.	NZ_VCBX01000410	1	427	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2079	.	NZ_VCBX01000411	1	427	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2080	.	NZ_VCBX01000412	1	425	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2081	.	NZ_VCBX01000413	1	425	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2082	.	NZ_VCBX01000414	1	425	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2083	.	NZ_VCBX01000415	1	425	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2084	.	NZ_VCBX01000416	1	425	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2085	.	NZ_VCBX01000417	1	425	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2086	.	NZ_VCBX01000418	1	425	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2087	.	NZ_VCBX01000419	1	424	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2088	.	NZ_VCBX01000420	1	424	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2089	.	NZ_VCBX01000421	1	423	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2090	.	NZ_VCBX01000422	1	423	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2091	.	NZ_VCBX01000423	1	423	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2092	.	NZ_VCBX01000424	1	423	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2093	.	NZ_VCBX01000425	1	422	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2094	.	NZ_VCBX01000426	1	421	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2095	.	NZ_VCBX01000427	1	421	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2096	.	NZ_VCBX01000428	1	421	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2097	.	NZ_VCBX01000429	1	421	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2098	.	NZ_VCBX01000430	1	420	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2099	.	NZ_VCBX01000431	1	419	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2100	.	NZ_VCBX01000432	1	419	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2101	.	NZ_VCBX01000433	1	419	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2102	.	NZ_VCBX01000434	1	418	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2103	.	NZ_VCBX01000435	1	418	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2104	.	NZ_VCBX01000436	1	418	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2105	.	NZ_VCBX01000437	1	418	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2106	.	NZ_VCBX01000438	1	417	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2107	.	NZ_VCBX01000439	1	417	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2108	.	NZ_VCBX01000440	1	417	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2109	.	NZ_VCBX01000441	1	416	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2110	.	NZ_VCBX01000442	1	415	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2111	.	NZ_VCBX01000443	1	414	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2112	.	NZ_VCBX01000444	1	414	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2113	.	NZ_VCBX01000445	1	414	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2114	.	NZ_VCBX01000446	1	414	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2115	.	NZ_VCBX01000447	1	413	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2116	.	NZ_VCBX01000448	1	413	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2117	.	NZ_VCBX01000449	1	413	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2118	.	NZ_VCBX01000450	1	413	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2119	.	NZ_VCBX01000451	1	412	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2120	.	NZ_VCBX01000452	1	412	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2121	.	NZ_VCBX01000453	1	412	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2122	.	NZ_VCBX01000454	1	412	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2123	.	NZ_VCBX01000455	1	412	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2124	.	NZ_VCBX01000456	1	412	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2125	.	NZ_VCBX01000457	1	412	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2126	.	NZ_VCBX01000458	1	412	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2127	.	NZ_VCBX01000459	1	411	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2128	.	NZ_VCBX01000460	1	411	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2129	.	NZ_VCBX01000461	1	411	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2130	.	NZ_VCBX01000462	1	410	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2131	.	NZ_VCBX01000463	1	410	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2132	.	NZ_VCBX01000464	1	410	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2133	.	NZ_VCBX01000465	1	409	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2134	.	NZ_VCBX01000466	1	409	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2135	.	NZ_VCBX01000467	1	409	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2136	.	NZ_VCBX01000468	1	408	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2137	.	NZ_VCBX01000469	1	408	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2138	.	NZ_VCBX01000470	1	408	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2139	.	NZ_VCBX01000471	1	407	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2140	.	NZ_VCBX01000472	1	407	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2141	.	NZ_VCBX01000473	1	407	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2142	.	NZ_VCBX01000474	1	407	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2143	.	NZ_VCBX01000475	1	406	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2144	.	NZ_VCBX01000476	1	406	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2145	.	NZ_VCBX01000477	1	406	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2146	.	NZ_VCBX01000478	1	405	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2147	.	NZ_VCBX01000479	1	405	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2148	.	NZ_VCBX01000480	1	403	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2149	.	NZ_VCBX01000481	1	403	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2150	.	NZ_VCBX01000482	1	403	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2151	.	NZ_VCBX01000483	1	403	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2152	.	NZ_VCBX01000484	1	403	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2153	.	NZ_VCBX01000485	1	402	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2154	.	NZ_VCBX01000486	1	400	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2155	.	NZ_VCBX01000487	1	400	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2156	.	NZ_VCBX01000488	1	400	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2157	.	NZ_VCBX01000489	1	399	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2158	.	NZ_VCBX01000490	1	399	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2159	.	NZ_VCBX01000491	1	399	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2160	.	NZ_VCBX01000492	1	399	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2161	.	NZ_VCBX01000493	1	398	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2162	.	NZ_VCBX01000494	1	398	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2163	.	NZ_VCBX01000495	1	398	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2164	.	NZ_VCBX01000496	1	398	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2165	.	NZ_VCBX01000497	1	397	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2166	.	NZ_VCBX01000498	1	396	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2167	.	NZ_VCBX01000499	1	396	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2168	.	NZ_VCBX01000500	1	396	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2169	.	NZ_VCBX01000501	1	395	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2170	.	NZ_VCBX01000502	1	395	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2171	.	NZ_VCBX01000503	1	394	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2172	.	NZ_VCBX01000504	1	394	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2173	.	NZ_VCBX01000505	1	393	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2174	.	NZ_VCBX01000506	1	393	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2175	.	NZ_VCBX01000507	1	393	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2176	.	NZ_VCBX01000508	1	393	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2177	.	NZ_VCBX01000509	1	392	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2178	.	NZ_VCBX01000510	1	392	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2179	.	NZ_VCBX01000511	1	392	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2180	.	NZ_VCBX01000512	1	392	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2181	.	NZ_VCBX01000513	1	391	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2182	.	NZ_VCBX01000514	1	390	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2183	.	NZ_VCBX01000515	1	390	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2184	.	NZ_VCBX01000516	1	390	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2185	.	NZ_VCBX01000517	1	389	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2186	.	NZ_VCBX01000518	1	389	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2187	.	NZ_VCBX01000519	1	389	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2188	.	NZ_VCBX01000520	1	389	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2189	.	NZ_VCBX01000521	1	388	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2190	.	NZ_VCBX01000522	1	387	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2191	.	NZ_VCBX01000523	1	387	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2192	.	NZ_VCBX01000524	1	386	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2193	.	NZ_VCBX01000525	1	386	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2194	.	NZ_VCBX01000526	1	386	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2195	.	NZ_VCBX01000527	1	386	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2196	.	NZ_VCBX01000528	1	386	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2197	.	NZ_VCBX01000529	1	385	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2198	.	NZ_VCBX01000530	1	385	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2199	.	NZ_VCBX01000531	1	384	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2200	.	NZ_VCBX01000532	1	384	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2201	.	NZ_VCBX01000533	1	384	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2202	.	NZ_VCBX01000534	1	384	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2203	.	NZ_VCBX01000535	1	383	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2204	.	NZ_VCBX01000536	1	383	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2205	.	NZ_VCBX01000537	1	383	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2206	.	NZ_VCBX01000538	1	382	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2207	.	NZ_VCBX01000539	1	382	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2208	.	NZ_VCBX01000540	1	382	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2209	.	NZ_VCBX01000541	1	382	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2210	.	NZ_VCBX01000542	1	382	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2211	.	NZ_VCBX01000543	1	382	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2212	.	NZ_VCBX01000544	1	381	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2213	.	NZ_VCBX01000545	1	381	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2214	.	NZ_VCBX01000546	1	381	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2215	.	NZ_VCBX01000547	1	380	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2216	.	NZ_VCBX01000548	1	380	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2217	.	NZ_VCBX01000549	1	380	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2218	.	NZ_VCBX01000550	1	380	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2219	.	NZ_VCBX01000551	1	379	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2220	.	NZ_VCBX01000552	1	379	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2221	.	NZ_VCBX01000553	1	379	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2222	.	NZ_VCBX01000554	1	379	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2223	.	NZ_VCBX01000555	1	379	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2224	.	NZ_VCBX01000556	1	379	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2225	.	NZ_VCBX01000557	1	378	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2226	.	NZ_VCBX01000558	1	378	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2227	.	NZ_VCBX01000559	1	378	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2228	.	NZ_VCBX01000560	1	378	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2229	.	NZ_VCBX01000561	1	378	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2230	.	NZ_VCBX01000562	1	378	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2231	.	NZ_VCBX01000563	1	377	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2232	.	NZ_VCBX01000564	1	377	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2233	.	NZ_VCBX01000565	1	375	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2234	.	NZ_VCBX01000566	1	375	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2235	.	NZ_VCBX01000567	1	375	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2236	.	NZ_VCBX01000568	1	375	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2237	.	NZ_VCBX01000569	1	374	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2238	.	NZ_VCBX01000570	1	374	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2239	.	NZ_VCBX01000571	1	374	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2240	.	NZ_VCBX01000572	1	373	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2241	.	NZ_VCBX01000573	1	373	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2242	.	NZ_VCBX01000574	1	372	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2243	.	NZ_VCBX01000575	1	372	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2244	.	NZ_VCBX01000576	1	372	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2245	.	NZ_VCBX01000577	1	372	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2246	.	NZ_VCBX01000578	1	372	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2247	.	NZ_VCBX01000579	1	372	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2248	.	NZ_VCBX01000580	1	371	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2249	.	NZ_VCBX01000581	1	371	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2250	.	NZ_VCBX01000582	1	371	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2251	.	NZ_VCBX01000583	1	370	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2252	.	NZ_VCBX01000584	1	370	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2253	.	NZ_VCBX01000585	1	370	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2254	.	NZ_VCBX01000586	1	370	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2255	.	NZ_VCBX01000587	1	370	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2256	.	NZ_VCBX01000588	1	369	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2257	.	NZ_VCBX01000589	1	369	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2258	.	NZ_VCBX01000590	1	369	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2259	.	NZ_VCBX01000591	1	368	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2260	.	NZ_VCBX01000592	1	368	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2261	.	NZ_VCBX01000593	1	368	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2262	.	NZ_VCBX01000594	1	367	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2263	.	NZ_VCBX01000595	1	367	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2264	.	NZ_VCBX01000596	1	367	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2265	.	NZ_VCBX01000597	1	366	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2266	.	NZ_VCBX01000598	1	366	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2267	.	NZ_VCBX01000599	1	365	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2268	.	NZ_VCBX01000600	1	365	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2269	.	NZ_VCBX01000601	1	365	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2270	.	NZ_VCBX01000602	1	364	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2271	.	NZ_VCBX01000603	1	364	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2272	.	NZ_VCBX01000604	1	364	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2273	.	NZ_VCBX01000605	1	364	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2274	.	NZ_VCBX01000606	1	364	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2275	.	NZ_VCBX01000607	1	363	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2276	.	NZ_VCBX01000608	1	363	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2277	.	NZ_VCBX01000609	1	363	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2278	.	NZ_VCBX01000610	1	363	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2279	.	NZ_VCBX01000611	1	363	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2280	.	NZ_VCBX01000612	1	363	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2281	.	NZ_VCBX01000613	1	362	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2282	.	NZ_VCBX01000614	1	362	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2283	.	NZ_VCBX01000615	1	362	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2284	.	NZ_VCBX01000616	1	361	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2285	.	NZ_VCBX01000617	1	360	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2286	.	NZ_VCBX01000618	1	360	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2287	.	NZ_VCBX01000619	1	360	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2288	.	NZ_VCBX01000620	1	359	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2289	.	NZ_VCBX01000621	1	359	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2290	.	NZ_VCBX01000622	1	358	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2291	.	NZ_VCBX01000623	1	358	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2292	.	NZ_VCBX01000624	1	358	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2293	.	NZ_VCBX01000625	1	357	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2294	.	NZ_VCBX01000626	1	357	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2295	.	NZ_VCBX01000627	1	356	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2296	.	NZ_VCBX01000628	1	356	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2297	.	NZ_VCBX01000629	1	356	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2298	.	NZ_VCBX01000630	1	356	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2299	.	NZ_VCBX01000631	1	356	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2300	.	NZ_VCBX01000632	1	355	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2301	.	NZ_VCBX01000633	1	355	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2302	.	NZ_VCBX01000634	1	355	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2303	.	NZ_VCBX01000635	1	355	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2304	.	NZ_VCBX01000636	1	355	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2305	.	NZ_VCBX01000637	1	355	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2306	.	NZ_VCBX01000638	1	354	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2307	.	NZ_VCBX01000639	1	354	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2308	.	NZ_VCBX01000640	1	354	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2309	.	NZ_VCBX01000641	1	354	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2310	.	NZ_VCBX01000642	1	354	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2311	.	NZ_VCBX01000643	1	353	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2312	.	NZ_VCBX01000644	1	353	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2313	.	NZ_VCBX01000645	1	353	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2314	.	NZ_VCBX01000646	1	353	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2315	.	NZ_VCBX01000647	1	352	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2316	.	NZ_VCBX01000648	1	351	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2317	.	NZ_VCBX01000649	1	351	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2318	.	NZ_VCBX01000650	1	351	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2319	.	NZ_VCBX01000651	1	350	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2320	.	NZ_VCBX01000652	1	350	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2321	.	NZ_VCBX01000653	1	350	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2322	.	NZ_VCBX01000654	1	350	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2323	.	NZ_VCBX01000655	1	350	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2324	.	NZ_VCBX01000656	1	350	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2325	.	NZ_VCBX01000657	1	349	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2326	.	NZ_VCBX01000658	1	349	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2327	.	NZ_VCBX01000659	1	349	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2328	.	NZ_VCBX01000660	1	349	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2329	.	NZ_VCBX01000661	1	349	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2330	.	NZ_VCBX01000662	1	348	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2331	.	NZ_VCBX01000663	1	348	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2332	.	NZ_VCBX01000664	1	348	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2333	.	NZ_VCBX01000665	1	348	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2334	.	NZ_VCBX01000666	1	347	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2335	.	NZ_VCBX01000667	1	347	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2336	.	NZ_VCBX01000668	1	347	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2337	.	NZ_VCBX01000669	1	347	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2338	.	NZ_VCBX01000670	1	347	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2339	.	NZ_VCBX01000671	1	347	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2340	.	NZ_VCBX01000672	1	347	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2341	.	NZ_VCBX01000673	1	346	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2342	.	NZ_VCBX01000674	1	346	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2343	.	NZ_VCBX01000675	1	346	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2344	.	NZ_VCBX01000676	1	346	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2345	.	NZ_VCBX01000677	1	345	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2346	.	NZ_VCBX01000678	1	345	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2347	.	NZ_VCBX01000679	1	345	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2348	.	NZ_VCBX01000680	1	345	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2349	.	NZ_VCBX01000681	1	345	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2350	.	NZ_VCBX01000682	1	344	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2351	.	NZ_VCBX01000683	1	344	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2352	.	NZ_VCBX01000684	1	344	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2353	.	NZ_VCBX01000685	1	344	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2354	.	NZ_VCBX01000686	1	344	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2355	.	NZ_VCBX01000687	1	343	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2356	.	NZ_VCBX01000688	1	343	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2357	.	NZ_VCBX01000689	1	343	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2358	.	NZ_VCBX01000690	1	343	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2359	.	NZ_VCBX01000691	1	343	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2360	.	NZ_VCBX01000692	1	342	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2361	.	NZ_VCBX01000693	1	342	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2362	.	NZ_VCBX01000694	1	342	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2363	.	NZ_VCBX01000695	1	342	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2364	.	NZ_VCBX01000696	1	342	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2365	.	NZ_VCBX01000697	1	342	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2366	.	NZ_VCBX01000698	1	341	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2367	.	NZ_VCBX01000699	1	341	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2368	.	NZ_VCBX01000700	1	341	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2369	.	NZ_VCBX01000701	1	341	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2370	.	NZ_VCBX01000702	1	340	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2371	.	NZ_VCBX01000703	1	340	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2372	.	NZ_VCBX01000704	1	340	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2373	.	NZ_VCBX01000705	1	340	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2374	.	NZ_VCBX01000706	1	340	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2375	.	NZ_VCBX01000707	1	339	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2376	.	NZ_VCBX01000708	1	339	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2377	.	NZ_VCBX01000709	1	339	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2378	.	NZ_VCBX01000710	1	339	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2379	.	NZ_VCBX01000711	1	338	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2380	.	NZ_VCBX01000712	1	338	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2381	.	NZ_VCBX01000713	1	338	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2382	.	NZ_VCBX01000714	1	338	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2383	.	NZ_VCBX01000715	1	338	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2384	.	NZ_VCBX01000716	1	337	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2385	.	NZ_VCBX01000717	1	337	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2386	.	NZ_VCBX01000718	1	337	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2387	.	NZ_VCBX01000719	1	337	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2388	.	NZ_VCBX01000720	1	337	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2389	.	NZ_VCBX01000721	1	337	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2390	.	NZ_VCBX01000722	1	337	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2391	.	NZ_VCBX01000723	1	337	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2392	.	NZ_VCBX01000724	1	336	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2393	.	NZ_VCBX01000725	1	336	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2394	.	NZ_VCBX01000726	1	336	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2395	.	NZ_VCBX01000727	1	336	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2396	.	NZ_VCBX01000728	1	336	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2397	.	NZ_VCBX01000729	1	336	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2398	.	NZ_VCBX01000730	1	335	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2399	.	NZ_VCBX01000731	1	335	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2400	.	NZ_VCBX01000732	1	335	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2401	.	NZ_VCBX01000733	1	335	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2402	.	NZ_VCBX01000734	1	334	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2403	.	NZ_VCBX01000735	1	334	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2404	.	NZ_VCBX01000736	1	334	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2405	.	NZ_VCBX01000737	1	334	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2406	.	NZ_VCBX01000738	1	334	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2407	.	NZ_VCBX01000739	1	334	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2408	.	NZ_VCBX01000740	1	333	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2409	.	NZ_VCBX01000741	1	333	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2410	.	NZ_VCBX01000742	1	333	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2411	.	NZ_VCBX01000743	1	333	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2412	.	NZ_VCBX01000744	1	333	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2413	.	NZ_VCBX01000745	1	332	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2414	.	NZ_VCBX01000746	1	332	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2415	.	NZ_VCBX01000747	1	332	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2416	.	NZ_VCBX01000748	1	332	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2417	.	NZ_VCBX01000749	1	332	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2418	.	NZ_VCBX01000750	1	332	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2419	.	NZ_VCBX01000751	1	331	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2420	.	NZ_VCBX01000752	1	331	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2421	.	NZ_VCBX01000753	1	331	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2422	.	NZ_VCBX01000754	1	331	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2423	.	NZ_VCBX01000755	1	331	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2424	.	NZ_VCBX01000756	1	331	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2425	.	NZ_VCBX01000757	1	330	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2426	.	NZ_VCBX01000758	1	330	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2427	.	NZ_VCBX01000759	1	330	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2428	.	NZ_VCBX01000760	1	329	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2429	.	NZ_VCBX01000761	1	329	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2430	.	NZ_VCBX01000762	1	329	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2431	.	NZ_VCBX01000763	1	329	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2432	.	NZ_VCBX01000764	1	329	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2433	.	NZ_VCBX01000765	1	329	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2434	.	NZ_VCBX01000766	1	329	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2435	.	NZ_VCBX01000767	1	328	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2436	.	NZ_VCBX01000768	1	328	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2437	.	NZ_VCBX01000769	1	328	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2438	.	NZ_VCBX01000770	1	328	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2439	.	NZ_VCBX01000771	1	327	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2440	.	NZ_VCBX01000772	1	327	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2441	.	NZ_VCBX01000773	1	327	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2442	.	NZ_VCBX01000774	1	327	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2443	.	NZ_VCBX01000775	1	327	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2444	.	NZ_VCBX01000776	1	326	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2445	.	NZ_VCBX01000777	1	326	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2446	.	NZ_VCBX01000778	1	326	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2447	.	NZ_VCBX01000779	1	326	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2448	.	NZ_VCBX01000780	1	325	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2449	.	NZ_VCBX01000781	1	324	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2450	.	NZ_VCBX01000782	1	324	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2451	.	NZ_VCBX01000783	1	323	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2452	.	NZ_VCBX01000784	1	322	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2453	.	NZ_VCBX01000785	1	322	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2454	.	NZ_VCBX01000786	1	322	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2455	.	NZ_VCBX01000787	1	322	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2456	.	NZ_VCBX01000788	1	322	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2457	.	NZ_VCBX01000789	1	322	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2458	.	NZ_VCBX01000790	1	322	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2459	.	NZ_VCBX01000791	1	322	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2460	.	NZ_VCBX01000792	1	322	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2461	.	NZ_VCBX01000793	1	321	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2462	.	NZ_VCBX01000794	1	321	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2463	.	NZ_VCBX01000795	1	321	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2464	.	NZ_VCBX01000796	1	321	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2465	.	NZ_VCBX01000797	1	320	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2466	.	NZ_VCBX01000798	1	320	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2467	.	NZ_VCBX01000799	1	320	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2468	.	NZ_VCBX01000800	1	320	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2469	.	NZ_VCBX01000801	1	320	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2470	.	NZ_VCBX01000802	1	320	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2471	.	NZ_VCBX01000803	1	320	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2472	.	NZ_VCBX01000804	1	320	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2473	.	NZ_VCBX01000805	1	319	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2474	.	NZ_VCBX01000806	1	319	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2475	.	NZ_VCBX01000807	1	318	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2476	.	NZ_VCBX01000808	1	318	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2477	.	NZ_VCBX01000809	1	318	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2478	.	NZ_VCBX01000810	1	318	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2479	.	NZ_VCBX01000811	1	318	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2480	.	NZ_VCBX01000812	1	317	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2481	.	NZ_VCBX01000813	1	317	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2482	.	NZ_VCBX01000814	1	317	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2483	.	NZ_VCBX01000815	1	317	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2484	.	NZ_VCBX01000816	1	317	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2485	.	NZ_VCBX01000817	1	316	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2486	.	NZ_VCBX01000818	1	316	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2487	.	NZ_VCBX01000819	1	316	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2488	.	NZ_VCBX01000820	1	316	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2489	.	NZ_VCBX01000821	1	316	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2490	.	NZ_VCBX01000822	1	316	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2491	.	NZ_VCBX01000823	1	315	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2492	.	NZ_VCBX01000824	1	315	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2493	.	NZ_VCBX01000825	1	315	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2494	.	NZ_VCBX01000826	1	314	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2495	.	NZ_VCBX01000827	1	314	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2496	.	NZ_VCBX01000828	1	314	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2497	.	NZ_VCBX01000829	1	314	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2498	.	NZ_VCBX01000830	1	314	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2499	.	NZ_VCBX01000831	1	314	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2500	.	NZ_VCBX01000832	1	314	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2501	.	NZ_VCBX01000833	1	313	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2502	.	NZ_VCBX01000834	1	313	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2503	.	NZ_VCBX01000835	1	313	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2504	.	NZ_VCBX01000836	1	313	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2505	.	NZ_VCBX01000837	1	313	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2506	.	NZ_VCBX01000838	1	312	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2507	.	NZ_VCBX01000839	1	312	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2508	.	NZ_VCBX01000840	1	312	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2509	.	NZ_VCBX01000841	1	312	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2510	.	NZ_VCBX01000842	1	311	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2511	.	NZ_VCBX01000843	1	311	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2512	.	NZ_VCBX01000844	1	311	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2513	.	NZ_VCBX01000845	1	311	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2514	.	NZ_VCBX01000846	1	310	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2515	.	NZ_VCBX01000847	1	310	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2516	.	NZ_VCBX01000848	1	310	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2517	.	NZ_VCBX01000849	1	309	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2518	.	NZ_VCBX01000850	1	309	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2519	.	NZ_VCBX01000851	1	309	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2520	.	NZ_VCBX01000852	1	308	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2521	.	NZ_VCBX01000853	1	308	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2522	.	NZ_VCBX01000854	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2523	.	NZ_VCBX01000855	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2524	.	NZ_VCBX01000856	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2525	.	NZ_VCBX01000857	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2526	.	NZ_VCBX01000858	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2527	.	NZ_VCBX01000859	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2528	.	NZ_VCBX01000860	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2529	.	NZ_VCBX01000861	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2530	.	NZ_VCBX01000862	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2531	.	NZ_VCBX01000863	1	307	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2532	.	NZ_VCBX01000864	1	306	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2533	.	NZ_VCBX01000865	1	306	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2534	.	NZ_VCBX01000866	1	306	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2535	.	NZ_VCBX01000867	1	306	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2536	.	NZ_VCBX01000868	1	306	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2537	.	NZ_VCBX01000869	1	306	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2538	.	NZ_VCBX01000870	1	306	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2539	.	NZ_VCBX01000871	1	306	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2540	.	NZ_VCBX01000872	1	305	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2541	.	NZ_VCBX01000873	1	305	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2542	.	NZ_VCBX01000874	1	305	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2543	.	NZ_VCBX01000875	1	305	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2544	.	NZ_VCBX01000876	1	305	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2545	.	NZ_VCBX01000877	1	305	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2546	.	NZ_VCBX01000878	1	305	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2547	.	NZ_VCBX01000879	1	305	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2548	.	NZ_VCBX01000880	1	304	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2549	.	NZ_VCBX01000881	1	304	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2550	.	NZ_VCBX01000882	1	304	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2551	.	NZ_VCBX01000883	1	304	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2552	.	NZ_VCBX01000884	1	304	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2553	.	NZ_VCBX01000885	1	304	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2554	.	NZ_VCBX01000886	1	304	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2555	.	NZ_VCBX01000887	1	303	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2556	.	NZ_VCBX01000888	1	303	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2557	.	NZ_VCBX01000889	1	303	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2558	.	NZ_VCBX01000890	1	302	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2559	.	NZ_VCBX01000891	1	302	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2560	.	NZ_VCBX01000892	1	302	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2561	.	NZ_VCBX01000893	1	301	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2562	.	NZ_VCBX01000894	1	301	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2563	.	NZ_VCBX01000895	1	301	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2564	.	NZ_VCBX01000896	1	301	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2565	.	NZ_VCBX01000897	1	301	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2566	.	NZ_VCBX01000898	1	301	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2567	.	NZ_VCBX01000899	1	300	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2568	.	NZ_VCBX01000900	1	300	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2569	.	NZ_VCBX01000901	1	300	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2570	.	NZ_VCBX01000902	1	300	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2571	.	NZ_VCBX01000903	1	300	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2572	.	NZ_VCBX01000904	1	300	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2573	.	NZ_VCBX01000905	1	300	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2574	.	NZ_VCBX01000906	1	299	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2575	.	NZ_VCBX01000907	1	299	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2576	.	NZ_VCBX01000908	1	299	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2577	.	NZ_VCBX01000909	1	299	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2578	.	NZ_VCBX01000910	1	299	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2579	.	NZ_VCBX01000911	1	299	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2580	.	NZ_VCBX01000912	1	298	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2581	.	NZ_VCBX01000913	1	298	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2582	.	NZ_VCBX01000914	1	298	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2583	.	NZ_VCBX01000915	1	298	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2584	.	NZ_VCBX01000916	1	298	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2585	.	NZ_VCBX01000917	1	298	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2586	.	NZ_VCBX01000918	1	298	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2587	.	NZ_VCBX01000919	1	297	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2588	.	NZ_VCBX01000920	1	297	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2589	.	NZ_VCBX01000921	1	297	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2590	.	NZ_VCBX01000922	1	297	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2591	.	NZ_VCBX01000923	1	297	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2592	.	NZ_VCBX01000924	1	297	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2593	.	NZ_VCBX01000925	1	296	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2594	.	NZ_VCBX01000926	1	296	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2595	.	NZ_VCBX01000927	1	296	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2596	.	NZ_VCBX01000928	1	296	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2597	.	NZ_VCBX01000929	1	296	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2598	.	NZ_VCBX01000930	1	296	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2599	.	NZ_VCBX01000931	1	295	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2600	.	NZ_VCBX01000932	1	295	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2601	.	NZ_VCBX01000933	1	295	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2602	.	NZ_VCBX01000934	1	295	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2603	.	NZ_VCBX01000935	1	295	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2604	.	NZ_VCBX01000936	1	295	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2605	.	NZ_VCBX01000937	1	295	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2606	.	NZ_VCBX01000938	1	294	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2607	.	NZ_VCBX01000939	1	294	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2608	.	NZ_VCBX01000940	1	294	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2609	.	NZ_VCBX01000941	1	294	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2610	.	NZ_VCBX01000942	1	294	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2611	.	NZ_VCBX01000943	1	293	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2612	.	NZ_VCBX01000944	1	293	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2613	.	NZ_VCBX01000945	1	292	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2614	.	NZ_VCBX01000946	1	292	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2615	.	NZ_VCBX01000947	1	292	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2616	.	NZ_VCBX01000948	1	292	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2617	.	NZ_VCBX01000949	1	292	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2618	.	NZ_VCBX01000950	1	291	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2619	.	NZ_VCBX01000951	1	291	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2620	.	NZ_VCBX01000952	1	291	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2621	.	NZ_VCBX01000953	1	291	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2622	.	NZ_VCBX01000954	1	290	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2623	.	NZ_VCBX01000955	1	290	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2624	.	NZ_VCBX01000956	1	290	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2625	.	NZ_VCBX01000957	1	290	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2626	.	NZ_VCBX01000958	1	289	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2627	.	NZ_VCBX01000959	1	289	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2628	.	NZ_VCBX01000960	1	289	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2629	.	NZ_VCBX01000961	1	289	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2630	.	NZ_VCBX01000962	1	289	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2631	.	NZ_VCBX01000963	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2632	.	NZ_VCBX01000964	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2633	.	NZ_VCBX01000965	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2634	.	NZ_VCBX01000966	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2635	.	NZ_VCBX01000967	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2636	.	NZ_VCBX01000968	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2637	.	NZ_VCBX01000969	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2638	.	NZ_VCBX01000970	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2639	.	NZ_VCBX01000971	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2640	.	NZ_VCBX01000972	1	288	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2641	.	NZ_VCBX01000973	1	287	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2642	.	NZ_VCBX01000974	1	287	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2643	.	NZ_VCBX01000975	1	287	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2644	.	NZ_VCBX01000976	1	287	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2645	.	NZ_VCBX01000977	1	286	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2646	.	NZ_VCBX01000978	1	286	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2647	.	NZ_VCBX01000979	1	286	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2648	.	NZ_VCBX01000980	1	286	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2649	.	NZ_VCBX01000981	1	286	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2650	.	NZ_VCBX01000982	1	286	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2651	.	NZ_VCBX01000983	1	286	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2652	.	NZ_VCBX01000984	1	286	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2653	.	NZ_VCBX01000985	1	285	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2654	.	NZ_VCBX01000986	1	285	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2655	.	NZ_VCBX01000987	1	285	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2656	.	NZ_VCBX01000988	1	285	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2657	.	NZ_VCBX01000989	1	285	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2658	.	NZ_VCBX01000990	1	285	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2659	.	NZ_VCBX01000991	1	285	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2660	.	NZ_VCBX01000992	1	284	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2661	.	NZ_VCBX01000993	1	284	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2662	.	NZ_VCBX01000994	1	284	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2663	.	NZ_VCBX01000995	1	284	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2664	.	NZ_VCBX01000996	1	284	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2665	.	NZ_VCBX01000997	1	284	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2666	.	NZ_VCBX01000998	1	283	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2667	.	NZ_VCBX01000999	1	283	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2668	.	NZ_VCBX01001000	1	283	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2669	.	NZ_VCBX01001001	1	283	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2670	.	NZ_VCBX01001002	1	282	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2671	.	NZ_VCBX01001003	1	282	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2672	.	NZ_VCBX01001004	1	282	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2673	.	NZ_VCBX01001005	1	281	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2674	.	NZ_VCBX01001006	1	281	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2675	.	NZ_VCBX01001007	1	281	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2676	.	NZ_VCBX01001008	1	281	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2677	.	NZ_VCBX01001009	1	280	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2678	.	NZ_VCBX01001010	1	280	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2679	.	NZ_VCBX01001011	1	280	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2680	.	NZ_VCBX01001012	1	280	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2681	.	NZ_VCBX01001013	1	280	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2682	.	NZ_VCBX01001014	1	279	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2683	.	NZ_VCBX01001015	1	279	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2684	.	NZ_VCBX01001016	1	279	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2685	.	NZ_VCBX01001017	1	279	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2686	.	NZ_VCBX01001018	1	279	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2687	.	NZ_VCBX01001019	1	279	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2688	.	NZ_VCBX01001020	1	279	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2689	.	NZ_VCBX01001021	1	279	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2690	.	NZ_VCBX01001022	1	278	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2691	.	NZ_VCBX01001023	1	278	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2692	.	NZ_VCBX01001024	1	278	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2693	.	NZ_VCBX01001025	1	278	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2694	.	NZ_VCBX01001026	1	277	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2695	.	NZ_VCBX01001027	1	277	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2696	.	NZ_VCBX01001028	1	277	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2697	.	NZ_VCBX01001029	1	277	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2698	.	NZ_VCBX01001030	1	276	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2699	.	NZ_VCBX01001031	1	276	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2700	.	NZ_VCBX01001032	1	276	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2701	.	NZ_VCBX01001033	1	276	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2702	.	NZ_VCBX01001034	1	276	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2703	.	NZ_VCBX01001035	1	276	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2704	.	NZ_VCBX01001036	1	276	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2705	.	NZ_VCBX01001037	1	276	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2706	.	NZ_VCBX01001038	1	275	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2707	.	NZ_VCBX01001039	1	275	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2708	.	NZ_VCBX01001040	1	275	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2709	.	NZ_VCBX01001041	1	275	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2710	.	NZ_VCBX01001042	1	275	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2711	.	NZ_VCBX01001043	1	275	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2712	.	NZ_VCBX01001044	1	274	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2713	.	NZ_VCBX01001045	1	274	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2714	.	NZ_VCBX01001046	1	274	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2715	.	NZ_VCBX01001047	1	274	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2716	.	NZ_VCBX01001048	1	274	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2717	.	NZ_VCBX01001049	1	273	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2718	.	NZ_VCBX01001050	1	273	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2719	.	NZ_VCBX01001051	1	273	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2720	.	NZ_VCBX01001052	1	273	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2721	.	NZ_VCBX01001053	1	273	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2722	.	NZ_VCBX01001054	1	272	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2723	.	NZ_VCBX01001055	1	272	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2724	.	NZ_VCBX01001056	1	272	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2725	.	NZ_VCBX01001057	1	271	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2726	.	NZ_VCBX01001058	1	271	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2727	.	NZ_VCBX01001059	1	271	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2728	.	NZ_VCBX01001060	1	271	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2729	.	NZ_VCBX01001061	1	271	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2730	.	NZ_VCBX01001062	1	271	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2731	.	NZ_VCBX01001063	1	271	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2732	.	NZ_VCBX01001064	1	271	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2733	.	NZ_VCBX01001065	1	270	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2734	.	NZ_VCBX01001066	1	270	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2735	.	NZ_VCBX01001067	1	270	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2736	.	NZ_VCBX01001068	1	270	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2737	.	NZ_VCBX01001069	1	270	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2738	.	NZ_VCBX01001070	1	270	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2739	.	NZ_VCBX01001071	1	270	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2740	.	NZ_VCBX01001072	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2741	.	NZ_VCBX01001073	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2742	.	NZ_VCBX01001074	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2743	.	NZ_VCBX01001075	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2744	.	NZ_VCBX01001076	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2745	.	NZ_VCBX01001077	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2746	.	NZ_VCBX01001078	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2747	.	NZ_VCBX01001079	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2748	.	NZ_VCBX01001080	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2749	.	NZ_VCBX01001081	1	269	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2750	.	NZ_VCBX01001082	1	268	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2751	.	NZ_VCBX01001083	1	268	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2752	.	NZ_VCBX01001084	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2753	.	NZ_VCBX01001085	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2754	.	NZ_VCBX01001086	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2755	.	NZ_VCBX01001087	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2756	.	NZ_VCBX01001088	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2757	.	NZ_VCBX01001089	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2758	.	NZ_VCBX01001090	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2759	.	NZ_VCBX01001091	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2760	.	NZ_VCBX01001092	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2761	.	NZ_VCBX01001093	1	267	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2762	.	NZ_VCBX01001094	1	266	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2763	.	NZ_VCBX01001095	1	266	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2764	.	NZ_VCBX01001096	1	266	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2765	.	NZ_VCBX01001097	1	266	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2766	.	NZ_VCBX01001098	1	266	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2767	.	NZ_VCBX01001099	1	266	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2768	.	NZ_VCBX01001100	1	266	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2769	.	NZ_VCBX01001101	1	265	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2770	.	NZ_VCBX01001102	1	265	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2771	.	NZ_VCBX01001103	1	265	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2772	.	NZ_VCBX01001104	1	265	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2773	.	NZ_VCBX01001105	1	265	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2774	.	NZ_VCBX01001106	1	265	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2775	.	NZ_VCBX01001107	1	265	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2776	.	NZ_VCBX01001108	1	265	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2777	.	NZ_VCBX01001109	1	264	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2778	.	NZ_VCBX01001110	1	264	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2779	.	NZ_VCBX01001111	1	264	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2780	.	NZ_VCBX01001112	1	264	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2781	.	NZ_VCBX01001113	1	264	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2782	.	NZ_VCBX01001114	1	264	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2783	.	NZ_VCBX01001115	1	263	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2784	.	NZ_VCBX01001116	1	263	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2785	.	NZ_VCBX01001117	1	263	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2786	.	NZ_VCBX01001118	1	263	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2787	.	NZ_VCBX01001119	1	263	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2788	.	NZ_VCBX01001120	1	262	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2789	.	NZ_VCBX01001121	1	262	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2790	.	NZ_VCBX01001122	1	262	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2791	.	NZ_VCBX01001123	1	262	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2792	.	NZ_VCBX01001124	1	262	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2793	.	NZ_VCBX01001125	1	262	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2794	.	NZ_VCBX01001126	1	262	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2795	.	NZ_VCBX01001127	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2796	.	NZ_VCBX01001128	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2797	.	NZ_VCBX01001129	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2798	.	NZ_VCBX01001130	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2799	.	NZ_VCBX01001131	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2800	.	NZ_VCBX01001132	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2801	.	NZ_VCBX01001133	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2802	.	NZ_VCBX01001134	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2803	.	NZ_VCBX01001135	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2804	.	NZ_VCBX01001136	1	261	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2805	.	NZ_VCBX01001137	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2806	.	NZ_VCBX01001138	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2807	.	NZ_VCBX01001139	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2808	.	NZ_VCBX01001140	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2809	.	NZ_VCBX01001141	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2810	.	NZ_VCBX01001142	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2811	.	NZ_VCBX01001143	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2812	.	NZ_VCBX01001144	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2813	.	NZ_VCBX01001145	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2814	.	NZ_VCBX01001146	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2815	.	NZ_VCBX01001147	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2816	.	NZ_VCBX01001148	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2817	.	NZ_VCBX01001149	1	260	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2818	.	NZ_VCBX01001150	1	259	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2819	.	NZ_VCBX01001151	1	259	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2820	.	NZ_VCBX01001152	1	259	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2821	.	NZ_VCBX01001153	1	259	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2822	.	NZ_VCBX01001154	1	259	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2823	.	NZ_VCBX01001155	1	259	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2824	.	NZ_VCBX01001156	1	258	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2825	.	NZ_VCBX01001157	1	258	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2826	.	NZ_VCBX01001158	1	258	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2827	.	NZ_VCBX01001159	1	258	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2828	.	NZ_VCBX01001160	1	258	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2829	.	NZ_VCBX01001161	1	258	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2830	.	NZ_VCBX01001162	1	257	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2831	.	NZ_VCBX01001163	1	257	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2832	.	NZ_VCBX01001164	1	257	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2833	.	NZ_VCBX01001165	1	257	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2834	.	NZ_VCBX01001166	1	257	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2835	.	NZ_VCBX01001167	1	257	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2836	.	NZ_VCBX01001168	1	257	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2837	.	NZ_VCBX01001169	1	257	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2838	.	NZ_VCBX01001170	1	256	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2839	.	NZ_VCBX01001171	1	256	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2840	.	NZ_VCBX01001172	1	256	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2841	.	NZ_VCBX01001173	1	256	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2842	.	NZ_VCBX01001174	1	255	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2843	.	NZ_VCBX01001175	1	255	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2844	.	NZ_VCBX01001176	1	255	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2845	.	NZ_VCBX01001177	1	255	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2846	.	NZ_VCBX01001178	1	255	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2847	.	NZ_VCBX01001179	1	255	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2848	.	NZ_VCBX01001180	1	255	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2849	.	NZ_VCBX01001181	1	255	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2850	.	NZ_VCBX01001182	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2851	.	NZ_VCBX01001183	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2852	.	NZ_VCBX01001184	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2853	.	NZ_VCBX01001185	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2854	.	NZ_VCBX01001186	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2855	.	NZ_VCBX01001187	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2856	.	NZ_VCBX01001188	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2857	.	NZ_VCBX01001189	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2858	.	NZ_VCBX01001190	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2859	.	NZ_VCBX01001191	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2860	.	NZ_VCBX01001192	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2861	.	NZ_VCBX01001193	1	254	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2862	.	NZ_VCBX01001194	1	253	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2863	.	NZ_VCBX01001195	1	253	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2864	.	NZ_VCBX01001196	1	253	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2865	.	NZ_VCBX01001197	1	253	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2866	.	NZ_VCBX01001198	1	253	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2867	.	NZ_VCBX01001199	1	253	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2868	.	NZ_VCBX01001200	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2869	.	NZ_VCBX01001201	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2870	.	NZ_VCBX01001202	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2871	.	NZ_VCBX01001203	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2872	.	NZ_VCBX01001204	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2873	.	NZ_VCBX01001205	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2874	.	NZ_VCBX01001206	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2875	.	NZ_VCBX01001207	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2876	.	NZ_VCBX01001208	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2877	.	NZ_VCBX01001209	1	252	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2878	.	NZ_VCBX01001210	1	251	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2879	.	NZ_VCBX01001211	1	251	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2880	.	NZ_VCBX01001212	1	251	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2881	.	NZ_VCBX01001213	1	251	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2882	.	NZ_VCBX01001215	1	250	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2883	.	NZ_VCBX01001216	1	250	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2884	.	NZ_VCBX01001217	1	250	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2885	.	NZ_VCBX01001218	1	250	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2886	.	NZ_VCBX01001219	1	249	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2887	.	NZ_VCBX01001220	1	249	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2888	.	NZ_VCBX01001221	1	249	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2889	.	NZ_VCBX01001222	1	249	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2890	.	NZ_VCBX01001223	1	249	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2891	.	NZ_VCBX01001224	1	248	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2892	.	NZ_VCBX01001225	1	248	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2893	.	NZ_VCBX01001226	1	248	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2894	.	NZ_VCBX01001227	1	248	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2895	.	NZ_VCBX01001228	1	248	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2896	.	NZ_VCBX01001229	1	248	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2897	.	NZ_VCBX01001230	1	248	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2898	.	NZ_VCBX01001231	1	247	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2899	.	NZ_VCBX01001232	1	247	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2900	.	NZ_VCBX01001233	1	247	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2901	.	NZ_VCBX01001234	1	247	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2902	.	NZ_VCBX01001235	1	247	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2903	.	NZ_VCBX01001236	1	247	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2904	.	NZ_VCBX01001237	1	246	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2905	.	NZ_VCBX01001238	1	246	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2906	.	NZ_VCBX01001239	1	246	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2907	.	NZ_VCBX01001240	1	246	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2908	.	NZ_VCBX01001241	1	246	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2909	.	NZ_VCBX01001242	1	245	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2910	.	NZ_VCBX01001243	1	245	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2911	.	NZ_VCBX01001244	1	245	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2912	.	NZ_VCBX01001245	1	245	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2913	.	NZ_VCBX01001246	1	245	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2914	.	NZ_VCBX01001247	1	245	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2915	.	NZ_VCBX01001248	1	245	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2916	.	NZ_VCBX01001249	1	245	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2917	.	NZ_VCBX01001250	1	245	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2918	.	NZ_VCBX01001251	1	244	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2919	.	NZ_VCBX01001252	1	244	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2920	.	NZ_VCBX01001253	1	244	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2921	.	NZ_VCBX01001254	1	244	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2922	.	NZ_VCBX01001255	1	244	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2923	.	NZ_VCBX01001256	1	244	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2924	.	NZ_VCBX01001257	1	244	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2925	.	NZ_VCBX01001258	1	244	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2926	.	NZ_VCBX01001259	1	244	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2927	.	NZ_VCBX01001260	1	243	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2928	.	NZ_VCBX01001261	1	243	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2929	.	NZ_VCBX01001262	1	243	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2930	.	NZ_VCBX01001263	1	243	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2931	.	NZ_VCBX01001264	1	243	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2932	.	NZ_VCBX01001265	1	243	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2933	.	NZ_VCBX01001266	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2934	.	NZ_VCBX01001267	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2935	.	NZ_VCBX01001268	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2936	.	NZ_VCBX01001269	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2937	.	NZ_VCBX01001270	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2938	.	NZ_VCBX01001271	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2939	.	NZ_VCBX01001272	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2940	.	NZ_VCBX01001273	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2941	.	NZ_VCBX01001274	1	242	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2942	.	NZ_VCBX01001275	1	241	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2943	.	NZ_VCBX01001276	1	241	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2944	.	NZ_VCBX01001277	1	241	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2945	.	NZ_VCBX01001278	1	241	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2946	.	NZ_VCBX01001279	1	241	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2947	.	NZ_VCBX01001280	1	240	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2948	.	NZ_VCBX01001281	1	240	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2949	.	NZ_VCBX01001282	1	240	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2950	.	NZ_VCBX01001283	1	240	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2951	.	NZ_VCBX01001284	1	240	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2952	.	NZ_VCBX01001285	1	240	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2953	.	NZ_VCBX01001286	1	239	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2954	.	NZ_VCBX01001287	1	239	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2955	.	NZ_VCBX01001288	1	239	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2956	.	NZ_VCBX01001289	1	239	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2957	.	NZ_VCBX01001290	1	239	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2958	.	NZ_VCBX01001291	1	239	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2959	.	NZ_VCBX01001292	1	238	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2960	.	NZ_VCBX01001293	1	238	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2961	.	NZ_VCBX01001294	1	238	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2962	.	NZ_VCBX01001295	1	238	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2963	.	NZ_VCBX01001296	1	238	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2964	.	NZ_VCBX01001297	1	237	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2965	.	NZ_VCBX01001298	1	237	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2966	.	NZ_VCBX01001299	1	237	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2967	.	NZ_VCBX01001300	1	237	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2968	.	NZ_VCBX01001301	1	237	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2969	.	NZ_VCBX01001302	1	237	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2970	.	NZ_VCBX01001303	1	237	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2971	.	NZ_VCBX01001304	1	237	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2972	.	NZ_VCBX01001305	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2973	.	NZ_VCBX01001306	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2974	.	NZ_VCBX01001307	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2975	.	NZ_VCBX01001308	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2976	.	NZ_VCBX01001309	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2977	.	NZ_VCBX01001310	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2978	.	NZ_VCBX01001311	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2979	.	NZ_VCBX01001312	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2980	.	NZ_VCBX01001313	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2981	.	NZ_VCBX01001314	1	236	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2982	.	NZ_VCBX01001315	1	235	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2983	.	NZ_VCBX01001316	1	235	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2984	.	NZ_VCBX01001317	1	235	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2985	.	NZ_VCBX01001318	1	235	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2986	.	NZ_VCBX01001319	1	235	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2987	.	NZ_VCBX01001320	1	235	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2988	.	NZ_VCBX01001321	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2989	.	NZ_VCBX01001322	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2990	.	NZ_VCBX01001323	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2991	.	NZ_VCBX01001324	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2992	.	NZ_VCBX01001325	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2993	.	NZ_VCBX01001326	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2994	.	NZ_VCBX01001327	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2995	.	NZ_VCBX01001328	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2996	.	NZ_VCBX01001329	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2997	.	NZ_VCBX01001330	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2998	.	NZ_VCBX01001331	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	2999	.	NZ_VCBX01001332	1	234	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3000	.	NZ_VCBX01001333	1	233	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3001	.	NZ_VCBX01001334	1	233	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3002	.	NZ_VCBX01001335	1	233	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3003	.	NZ_VCBX01001336	1	233	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3004	.	NZ_VCBX01001337	1	233	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3005	.	NZ_VCBX01001338	1	233	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3006	.	NZ_VCBX01001339	1	233	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3007	.	NZ_VCBX01001340	1	232	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3008	.	NZ_VCBX01001341	1	232	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3009	.	NZ_VCBX01001342	1	232	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3010	.	NZ_VCBX01001343	1	232	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3011	.	NZ_VCBX01001344	1	232	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3012	.	NZ_VCBX01001345	1	231	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3013	.	NZ_VCBX01001346	1	231	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3014	.	NZ_VCBX01001347	1	231	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3015	.	NZ_VCBX01001348	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3016	.	NZ_VCBX01001349	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3017	.	NZ_VCBX01001350	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3018	.	NZ_VCBX01001351	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3019	.	NZ_VCBX01001352	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3020	.	NZ_VCBX01001353	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3021	.	NZ_VCBX01001354	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3022	.	NZ_VCBX01001355	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3023	.	NZ_VCBX01001356	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3024	.	NZ_VCBX01001357	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3025	.	NZ_VCBX01001358	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3026	.	NZ_VCBX01001359	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3027	.	NZ_VCBX01001360	1	230	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3028	.	NZ_VCBX01001361	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3029	.	NZ_VCBX01001362	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3030	.	NZ_VCBX01001363	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3031	.	NZ_VCBX01001364	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3032	.	NZ_VCBX01001365	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3033	.	NZ_VCBX01001366	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3034	.	NZ_VCBX01001367	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3035	.	NZ_VCBX01001368	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3036	.	NZ_VCBX01001369	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3037	.	NZ_VCBX01001370	1	229	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3038	.	NZ_VCBX01001371	1	228	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3039	.	NZ_VCBX01001372	1	228	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3040	.	NZ_VCBX01001373	1	228	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3041	.	NZ_VCBX01001374	1	228	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3042	.	NZ_VCBX01001375	1	228	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3043	.	NZ_VCBX01001376	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3044	.	NZ_VCBX01001377	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3045	.	NZ_VCBX01001378	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3046	.	NZ_VCBX01001379	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3047	.	NZ_VCBX01001380	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3048	.	NZ_VCBX01001381	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3049	.	NZ_VCBX01001382	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3050	.	NZ_VCBX01001383	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3051	.	NZ_VCBX01001384	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3052	.	NZ_VCBX01001385	1	227	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3053	.	NZ_VCBX01001386	1	226	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3054	.	NZ_VCBX01001387	1	226	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3055	.	NZ_VCBX01001388	1	226	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3056	.	NZ_VCBX01001389	1	226	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3057	.	NZ_VCBX01001390	1	226	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3058	.	NZ_VCBX01001391	1	226	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3059	.	NZ_VCBX01001392	1	226	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3060	.	NZ_VCBX01001393	1	225	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3061	.	NZ_VCBX01001394	1	225	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3062	.	NZ_VCBX01001395	1	225	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3063	.	NZ_VCBX01001396	1	225	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3064	.	NZ_VCBX01001397	1	225	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3065	.	NZ_VCBX01001398	1	225	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3066	.	NZ_VCBX01001399	1	225	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3067	.	NZ_VCBX01001400	1	225	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3068	.	NZ_VCBX01001401	1	225	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3069	.	NZ_VCBX01001402	1	224	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3070	.	NZ_VCBX01001403	1	224	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3071	.	NZ_VCBX01001404	1	224	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3072	.	NZ_VCBX01001405	1	224	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3073	.	NZ_VCBX01001406	1	224	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3074	.	NZ_VCBX01001407	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3075	.	NZ_VCBX01001408	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3076	.	NZ_VCBX01001409	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3077	.	NZ_VCBX01001410	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3078	.	NZ_VCBX01001411	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3079	.	NZ_VCBX01001412	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3080	.	NZ_VCBX01001413	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3081	.	NZ_VCBX01001414	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3082	.	NZ_VCBX01001415	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3083	.	NZ_VCBX01001416	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3084	.	NZ_VCBX01001417	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3085	.	NZ_VCBX01001418	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3086	.	NZ_VCBX01001419	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3087	.	NZ_VCBX01001420	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3088	.	NZ_VCBX01001421	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3089	.	NZ_VCBX01001422	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3090	.	NZ_VCBX01001423	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3091	.	NZ_VCBX01001424	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3092	.	NZ_VCBX01001425	1	223	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3093	.	NZ_VCBX01001426	1	222	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3094	.	NZ_VCBX01001427	1	222	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3095	.	NZ_VCBX01001428	1	222	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3096	.	NZ_VCBX01001429	1	222	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3097	.	NZ_VCBX01001430	1	222	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3098	.	NZ_VCBX01001431	1	222	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3099	.	NZ_VCBX01001432	1	222	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3100	.	NZ_VCBX01001433	1	222	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3101	.	NZ_VCBX01001434	1	221	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3102	.	NZ_VCBX01001435	1	221	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3103	.	NZ_VCBX01001436	1	221	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3104	.	NZ_VCBX01001437	1	221	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3105	.	NZ_VCBX01001438	1	221	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3106	.	NZ_VCBX01001439	1	221	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3107	.	NZ_VCBX01001440	1	220	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3108	.	NZ_VCBX01001441	1	220	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3109	.	NZ_VCBX01001442	1	220	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3110	.	NZ_VCBX01001443	1	220	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3111	.	NZ_VCBX01001444	1	220	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3112	.	NZ_VCBX01001445	1	219	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3113	.	NZ_VCBX01001446	1	219	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3114	.	NZ_VCBX01001447	1	219	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3115	.	NZ_VCBX01001448	1	219	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3116	.	NZ_VCBX01001449	1	218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3117	.	NZ_VCBX01001450	1	218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3118	.	NZ_VCBX01001451	1	218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3119	.	NZ_VCBX01001452	1	218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3120	.	NZ_VCBX01001453	1	218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3121	.	NZ_VCBX01001454	1	218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3122	.	NZ_VCBX01001455	1	218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3123	.	NZ_VCBX01001456	1	218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3124	.	NZ_VCBX01001457	1	218	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3125	.	NZ_VCBX01001458	1	217	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3126	.	NZ_VCBX01001459	1	217	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3127	.	NZ_VCBX01001460	1	217	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3128	.	NZ_VCBX01001461	1	217	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3129	.	NZ_VCBX01001462	1	217	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3130	.	NZ_VCBX01001463	1	217	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3131	.	NZ_VCBX01001464	1	217	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3132	.	NZ_VCBX01001465	1	217	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3133	.	NZ_VCBX01001466	1	216	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3134	.	NZ_VCBX01001467	1	216	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3135	.	NZ_VCBX01001468	1	216	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3136	.	NZ_VCBX01001469	1	216	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3137	.	NZ_VCBX01001470	1	216	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3138	.	NZ_VCBX01001471	1	216	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3139	.	NZ_VCBX01001472	1	216	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3140	.	NZ_VCBX01001473	1	215	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3141	.	NZ_VCBX01001474	1	215	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3142	.	NZ_VCBX01001475	1	215	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3143	.	NZ_VCBX01001476	1	215	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3144	.	NZ_VCBX01001477	1	215	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3145	.	NZ_VCBX01001478	1	214	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3146	.	NZ_VCBX01001479	1	214	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3147	.	NZ_VCBX01001480	1	214	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3148	.	NZ_VCBX01001481	1	214	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3149	.	NZ_VCBX01001482	1	213	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3150	.	NZ_VCBX01001483	1	213	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3151	.	NZ_VCBX01001484	1	213	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3152	.	NZ_VCBX01001485	1	213	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3153	.	NZ_VCBX01001486	1	213	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3154	.	NZ_VCBX01001487	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3155	.	NZ_VCBX01001488	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3156	.	NZ_VCBX01001489	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3157	.	NZ_VCBX01001490	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3158	.	NZ_VCBX01001491	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3159	.	NZ_VCBX01001492	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3160	.	NZ_VCBX01001493	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3161	.	NZ_VCBX01001494	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3162	.	NZ_VCBX01001495	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3163	.	NZ_VCBX01001496	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3164	.	NZ_VCBX01001497	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3165	.	NZ_VCBX01001498	1	212	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3166	.	NZ_VCBX01001499	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3167	.	NZ_VCBX01001500	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3168	.	NZ_VCBX01001501	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3169	.	NZ_VCBX01001502	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3170	.	NZ_VCBX01001503	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3171	.	NZ_VCBX01001504	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3172	.	NZ_VCBX01001505	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3173	.	NZ_VCBX01001506	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3174	.	NZ_VCBX01001507	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3175	.	NZ_VCBX01001508	1	211	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3176	.	NZ_VCBX01001509	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3177	.	NZ_VCBX01001510	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3178	.	NZ_VCBX01001511	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3179	.	NZ_VCBX01001512	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3180	.	NZ_VCBX01001513	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3181	.	NZ_VCBX01001514	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3182	.	NZ_VCBX01001515	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3183	.	NZ_VCBX01001516	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3184	.	NZ_VCBX01001517	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3185	.	NZ_VCBX01001518	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3186	.	NZ_VCBX01001519	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3187	.	NZ_VCBX01001520	1	210	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3188	.	NZ_VCBX01001521	1	209	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3189	.	NZ_VCBX01001522	1	209	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3190	.	NZ_VCBX01001523	1	209	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3191	.	NZ_VCBX01001524	1	209	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3192	.	NZ_VCBX01001525	1	209	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3193	.	NZ_VCBX01001526	1	209	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3194	.	NZ_VCBX01001527	1	209	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3195	.	NZ_VCBX01001528	1	209	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3196	.	NZ_VCBX01001529	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3197	.	NZ_VCBX01001530	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3198	.	NZ_VCBX01001531	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3199	.	NZ_VCBX01001532	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3200	.	NZ_VCBX01001533	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3201	.	NZ_VCBX01001534	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3202	.	NZ_VCBX01001535	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3203	.	NZ_VCBX01001536	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3204	.	NZ_VCBX01001537	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3205	.	NZ_VCBX01001538	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3206	.	NZ_VCBX01001539	1	208	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3207	.	NZ_VCBX01001540	1	207	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3208	.	NZ_VCBX01001541	1	207	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3209	.	NZ_VCBX01001542	1	207	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3210	.	NZ_VCBX01001543	1	207	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3211	.	NZ_VCBX01001544	1	207	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3212	.	NZ_VCBX01001545	1	207	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3213	.	NZ_VCBX01001546	1	207	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3214	.	NZ_VCBX01001547	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3215	.	NZ_VCBX01001548	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3216	.	NZ_VCBX01001549	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3217	.	NZ_VCBX01001550	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3218	.	NZ_VCBX01001551	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3219	.	NZ_VCBX01001552	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3220	.	NZ_VCBX01001553	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3221	.	NZ_VCBX01001554	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3222	.	NZ_VCBX01001555	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+MC	3223	.	NZ_VCBX01001556	1	206	0	0	left_inside_cov=0	left_outside_cov=NA	right_inside_cov=0	right_outside_cov=NA
+JC	3224	.	NZ_VCBX01000001	1100751	1	NZ_VCBX01000002	22146	-1	0	alignment_overlap=2	coverage_minus=6	coverage_plus=0	flanking_left=75	flanking_right=75	frequency=2.55135852e-01	junction_possible_overlap_registers=53	key=NZ_VCBX01000001__1100751__1__NZ_VCBX01000002__22148__-1__2____75__75__0__0	max_left=63	max_left_minus=63	max_left_plus=0	max_min_left=0	max_min_left_minus=0	max_min_left_plus=0	max_min_right=22	max_min_right_minus=22	max_min_right_plus=0	max_pos_hash_score=108	max_right=22	max_right_minus=22	max_right_plus=0	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.11	new_junction_read_count=7	polymorphism_frequency=2.55135852e-01	pos_hash_score=4	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.65	side_1_overlap=2	side_1_possible_overlap_registers=55	side_1_read_count=31	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.14	side_2_overlap=0	side_2_possible_overlap_registers=53	side_2_read_count=11	side_2_redundant=0	total_non_overlap_reads=6
+JC	3225	.	NZ_VCBX01000001	1420113	-1	NZ_VCBX01000001	5919880	-1	-29	alignment_overlap=-29	coverage_minus=0	coverage_plus=5	flanking_left=75	flanking_right=75	frequency=1.97415650e-01	junction_possible_overlap_registers=26	key=NZ_VCBX01000001__1420113__-1__NZ_VCBX01000001__5919880__-1__-29__TTTTTTTTTTTATTATTATGCGTCAACTG__75__75__0__0	max_left=36	max_left_minus=0	max_left_plus=36	max_min_left=8	max_min_left_minus=0	max_min_left_plus=8	max_min_right=22	max_min_right_minus=0	max_min_right_plus=22	max_pos_hash_score=54	max_right=37	max_right_minus=0	max_right_plus=37	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.22	new_junction_read_count=5	polymorphism_frequency=1.97415650e-01	pos_hash_score=5	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=0.92	side_1_overlap=0	side_1_possible_overlap_registers=55	side_1_read_count=44	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.88	side_2_overlap=0	side_2_possible_overlap_registers=55	side_2_read_count=42	side_2_redundant=0	total_non_overlap_reads=5	unique_read_sequence=TTTTTTTTTTTATTATTATGCGTCAACTG
+JC	3226	.	NZ_VCBX01000002	371566	-1	NZ_VCBX01000002	373607	1	0	alignment_overlap=14	coverage_minus=1	coverage_plus=6	flanking_left=75	flanking_right=75	frequency=1.46254986e-01	junction_possible_overlap_registers=41	key=NZ_VCBX01000002__371566__-1__NZ_VCBX01000002__373593__1__14____75__75__0__0	max_left=45	max_left_minus=16	max_left_plus=45	max_min_left=26	max_min_left_minus=16	max_min_left_plus=26	max_min_right=26	max_min_right_minus=0	max_min_right_plus=26	max_pos_hash_score=84	max_right=36	max_right_minus=29	max_right_plus=36	neg_log10_pos_hash_p_value=NT	new_junction_coverage=0.15	new_junction_read_count=9	polymorphism_frequency=1.46254986e-01	pos_hash_score=7	prediction=polymorphism	side_1_annotate_key=gene	side_1_continuation=0	side_1_coverage=1.16	side_1_overlap=14	side_1_possible_overlap_registers=55	side_1_read_count=94	side_1_redundant=0	side_2_annotate_key=gene	side_2_continuation=0	side_2_coverage=0.58	side_2_overlap=0	side_2_possible_overlap_registers=41	side_2_read_count=35	side_2_redundant=0	total_non_overlap_reads=7
+UN	3227	.	NZ_VCBX01000001	1	22
+UN	3228	.	NZ_VCBX01000001	206465	206465
+UN	3229	.	NZ_VCBX01000001	206467	206467
+UN	3230	.	NZ_VCBX01000001	206469	206493
+UN	3231	.	NZ_VCBX01000001	206495	206495
+UN	3232	.	NZ_VCBX01000001	367985	368007
+UN	3233	.	NZ_VCBX01000001	395636	395643
+UN	3234	.	NZ_VCBX01000001	395645	395645
+UN	3235	.	NZ_VCBX01000001	395661	395662
+UN	3236	.	NZ_VCBX01000001	470377	470380
+UN	3237	.	NZ_VCBX01000001	470384	470387
+UN	3238	.	NZ_VCBX01000001	502982	502984
+UN	3239	.	NZ_VCBX01000001	502993	502994
+UN	3240	.	NZ_VCBX01000001	502996	502996
+UN	3241	.	NZ_VCBX01000001	502999	503010
+UN	3242	.	NZ_VCBX01000001	503017	503017
+UN	3243	.	NZ_VCBX01000001	542561	542563
+UN	3244	.	NZ_VCBX01000001	581673	581682
+UN	3245	.	NZ_VCBX01000001	844343	845597
+UN	3246	.	NZ_VCBX01000001	863637	864764
+UN	3247	.	NZ_VCBX01000001	867834	867987
+UN	3248	.	NZ_VCBX01000001	868114	868489
+UN	3249	.	NZ_VCBX01000001	868608	868944
+UN	3250	.	NZ_VCBX01000001	896442	896462
+UN	3251	.	NZ_VCBX01000001	920663	920740
+UN	3252	.	NZ_VCBX01000001	979443	979450
+UN	3253	.	NZ_VCBX01000001	979452	979454
+UN	3254	.	NZ_VCBX01000001	1021514	1021530
+UN	3255	.	NZ_VCBX01000001	1036182	1036265
+UN	3256	.	NZ_VCBX01000001	1036392	1041600
+UN	3257	.	NZ_VCBX01000001	1041603	1041606
+UN	3258	.	NZ_VCBX01000001	1110788	1110788
+UN	3259	.	NZ_VCBX01000001	1110791	1110792
+UN	3260	.	NZ_VCBX01000001	1174978	1174983
+UN	3261	.	NZ_VCBX01000001	1182751	1182751
+UN	3262	.	NZ_VCBX01000001	1182756	1182756
+UN	3263	.	NZ_VCBX01000001	1182844	1182847
+UN	3264	.	NZ_VCBX01000001	1182853	1182858
+UN	3265	.	NZ_VCBX01000001	1371707	1371777
+UN	3266	.	NZ_VCBX01000001	1373921	1373923
+UN	3267	.	NZ_VCBX01000001	1373925	1373925
+UN	3268	.	NZ_VCBX01000001	1428923	1428923
+UN	3269	.	NZ_VCBX01000001	1428926	1428927
+UN	3270	.	NZ_VCBX01000001	1428929	1428929
+UN	3271	.	NZ_VCBX01000001	1428931	1428931
+UN	3272	.	NZ_VCBX01000001	1440278	1440279
+UN	3273	.	NZ_VCBX01000001	1440286	1440286
+UN	3274	.	NZ_VCBX01000001	1570400	1570423
+UN	3275	.	NZ_VCBX01000001	1664523	1664583
+UN	3276	.	NZ_VCBX01000001	1716114	1716133
+UN	3277	.	NZ_VCBX01000001	1869190	1869194
+UN	3278	.	NZ_VCBX01000001	1869196	1869197
+UN	3279	.	NZ_VCBX01000001	1869200	1869219
+UN	3280	.	NZ_VCBX01000001	1869221	1869221
+UN	3281	.	NZ_VCBX01000001	1869223	1869225
+UN	3282	.	NZ_VCBX01000001	1874542	1874543
+UN	3283	.	NZ_VCBX01000001	1874545	1874546
+UN	3284	.	NZ_VCBX01000001	1874551	1874551
+UN	3285	.	NZ_VCBX01000001	1874553	1874553
+UN	3286	.	NZ_VCBX01000001	1874556	1874556
+UN	3287	.	NZ_VCBX01000001	1874559	1874559
+UN	3288	.	NZ_VCBX01000001	1950666	1952204
+UN	3289	.	NZ_VCBX01000001	1952206	1952206
+UN	3290	.	NZ_VCBX01000001	1974575	1974905
+UN	3291	.	NZ_VCBX01000001	1975023	1976112
+UN	3292	.	NZ_VCBX01000001	2059310	2059310
+UN	3293	.	NZ_VCBX01000001	2059313	2059313
+UN	3294	.	NZ_VCBX01000001	2059315	2059315
+UN	3295	.	NZ_VCBX01000001	2059325	2059325
+UN	3296	.	NZ_VCBX01000001	2059332	2059332
+UN	3297	.	NZ_VCBX01000001	2069289	2069292
+UN	3298	.	NZ_VCBX01000001	2139376	2139376
+UN	3299	.	NZ_VCBX01000001	2139378	2139378
+UN	3300	.	NZ_VCBX01000001	2139380	2139381
+UN	3301	.	NZ_VCBX01000001	2160844	2164888
+UN	3302	.	NZ_VCBX01000001	2249853	2249878
+UN	3303	.	NZ_VCBX01000001	2433071	2433073
+UN	3304	.	NZ_VCBX01000001	2433076	2433103
+UN	3305	.	NZ_VCBX01000001	2433220	2433222
+UN	3306	.	NZ_VCBX01000001	2433341	2433453
+UN	3307	.	NZ_VCBX01000001	2433617	2433692
+UN	3308	.	NZ_VCBX01000001	2480435	2480436
+UN	3309	.	NZ_VCBX01000001	2480441	2480466
+UN	3310	.	NZ_VCBX01000001	2509972	2509979
+UN	3311	.	NZ_VCBX01000001	2509983	2510005
+UN	3312	.	NZ_VCBX01000001	2522974	2523033
+UN	3313	.	NZ_VCBX01000001	2523036	2523036
+UN	3314	.	NZ_VCBX01000001	2549588	2549642
+UN	3315	.	NZ_VCBX01000001	2549645	2549645
+UN	3316	.	NZ_VCBX01000001	2549647	2549647
+UN	3317	.	NZ_VCBX01000001	2549650	2549653
+UN	3318	.	NZ_VCBX01000001	2549656	2549656
+UN	3319	.	NZ_VCBX01000001	2549891	2549967
+UN	3320	.	NZ_VCBX01000001	2616923	2616935
+UN	3321	.	NZ_VCBX01000001	2622143	2622168
+UN	3322	.	NZ_VCBX01000001	2690683	2690698
+UN	3323	.	NZ_VCBX01000001	2748060	2748061
+UN	3324	.	NZ_VCBX01000001	2748063	2748129
+UN	3325	.	NZ_VCBX01000001	2748131	2748132
+UN	3326	.	NZ_VCBX01000001	2749000	2749106
+UN	3327	.	NZ_VCBX01000001	2855907	2855924
+UN	3328	.	NZ_VCBX01000001	2971616	2971643
+UN	3329	.	NZ_VCBX01000001	2971856	2971916
+UN	3330	.	NZ_VCBX01000001	2992902	2994221
+UN	3331	.	NZ_VCBX01000001	2994321	2994346
+UN	3332	.	NZ_VCBX01000001	2999057	3000378
+UN	3333	.	NZ_VCBX01000001	3000497	3000502
+UN	3334	.	NZ_VCBX01000001	3004137	3004149
+UN	3335	.	NZ_VCBX01000001	3004152	3004152
+UN	3336	.	NZ_VCBX01000001	3004157	3004160
+UN	3337	.	NZ_VCBX01000001	3004168	3004168
+UN	3338	.	NZ_VCBX01000001	3004170	3004172
+UN	3339	.	NZ_VCBX01000001	3058340	3058341
+UN	3340	.	NZ_VCBX01000001	3058345	3058345
+UN	3341	.	NZ_VCBX01000001	3058347	3058347
+UN	3342	.	NZ_VCBX01000001	3058351	3058534
+UN	3343	.	NZ_VCBX01000001	3058987	3059009
+UN	3344	.	NZ_VCBX01000001	3067848	3067866
+UN	3345	.	NZ_VCBX01000001	3106470	3106473
+UN	3346	.	NZ_VCBX01000001	3156530	3156534
+UN	3347	.	NZ_VCBX01000001	3156537	3156537
+UN	3348	.	NZ_VCBX01000001	3192331	3192890
+UN	3349	.	NZ_VCBX01000001	3266015	3266016
+UN	3350	.	NZ_VCBX01000001	3266018	3266021
+UN	3351	.	NZ_VCBX01000001	3266023	3266024
+UN	3352	.	NZ_VCBX01000001	3266026	3266027
+UN	3353	.	NZ_VCBX01000001	3266029	3266030
+UN	3354	.	NZ_VCBX01000001	3266068	3266069
+UN	3355	.	NZ_VCBX01000001	3266071	3266116
+UN	3356	.	NZ_VCBX01000001	3360258	3360262
+UN	3357	.	NZ_VCBX01000001	3360271	3360271
+UN	3358	.	NZ_VCBX01000001	3386213	3386213
+UN	3359	.	NZ_VCBX01000001	3386215	3386734
+UN	3360	.	NZ_VCBX01000001	3386854	3387257
+UN	3361	.	NZ_VCBX01000001	3387261	3387261
+UN	3362	.	NZ_VCBX01000001	3387367	3387583
+UN	3363	.	NZ_VCBX01000001	3387585	3387585
+UN	3364	.	NZ_VCBX01000001	3390473	3394515
+UN	3365	.	NZ_VCBX01000001	3394517	3394517
+UN	3366	.	NZ_VCBX01000001	3415289	3415289
+UN	3367	.	NZ_VCBX01000001	3447476	3448013
+UN	3368	.	NZ_VCBX01000001	3814098	3814299
+UN	3369	.	NZ_VCBX01000001	3814430	3814687
+UN	3370	.	NZ_VCBX01000001	3834868	3835132
+UN	3371	.	NZ_VCBX01000001	3835271	3835459
+UN	3372	.	NZ_VCBX01000001	3841143	3841143
+UN	3373	.	NZ_VCBX01000001	3841145	3841168
+UN	3374	.	NZ_VCBX01000001	3996782	3997516
+UN	3375	.	NZ_VCBX01000001	3997590	3997591
+UN	3376	.	NZ_VCBX01000001	3997593	3998045
+UN	3377	.	NZ_VCBX01000001	3998481	3998746
+UN	3378	.	NZ_VCBX01000001	4002934	4002935
+UN	3379	.	NZ_VCBX01000001	4002939	4004384
+UN	3380	.	NZ_VCBX01000001	4110503	4110503
+UN	3381	.	NZ_VCBX01000001	4273194	4273304
+UN	3382	.	NZ_VCBX01000001	4273475	4273590
+UN	3383	.	NZ_VCBX01000001	4280377	4281586
+UN	3384	.	NZ_VCBX01000001	4303875	4303875
+UN	3385	.	NZ_VCBX01000001	4303878	4303878
+UN	3386	.	NZ_VCBX01000001	4413124	4413124
+UN	3387	.	NZ_VCBX01000001	4426558	4426581
+UN	3388	.	NZ_VCBX01000001	4511165	4511165
+UN	3389	.	NZ_VCBX01000001	4511168	4511168
+UN	3390	.	NZ_VCBX01000001	4511171	4511184
+UN	3391	.	NZ_VCBX01000001	4532235	4532337
+UN	3392	.	NZ_VCBX01000001	4532524	4532607
+UN	3393	.	NZ_VCBX01000001	4592907	4592909
+UN	3394	.	NZ_VCBX01000001	4592915	4592915
+UN	3395	.	NZ_VCBX01000001	4592917	4592918
+UN	3396	.	NZ_VCBX01000001	4592922	4592923
+UN	3397	.	NZ_VCBX01000001	4592926	4592926
+UN	3398	.	NZ_VCBX01000001	4593856	4593900
+UN	3399	.	NZ_VCBX01000001	4594184	4594237
+UN	3400	.	NZ_VCBX01000001	4617281	4617281
+UN	3401	.	NZ_VCBX01000001	4617285	4619380
+UN	3402	.	NZ_VCBX01000001	4619586	4622966
+UN	3403	.	NZ_VCBX01000001	4635128	4635256
+UN	3404	.	NZ_VCBX01000001	4635373	4635373
+UN	3405	.	NZ_VCBX01000001	4635375	4640827
+UN	3406	.	NZ_VCBX01000001	4742647	4742693
+UN	3407	.	NZ_VCBX01000001	4799868	4799873
+UN	3408	.	NZ_VCBX01000001	4810201	4810202
+UN	3409	.	NZ_VCBX01000001	4810205	4810292
+UN	3410	.	NZ_VCBX01000001	4810479	4810563
+UN	3411	.	NZ_VCBX01000001	4843479	4843479
+UN	3412	.	NZ_VCBX01000001	4906798	4906884
+UN	3413	.	NZ_VCBX01000001	4908627	4908742
+UN	3414	.	NZ_VCBX01000001	5104989	5105003
+UN	3415	.	NZ_VCBX01000001	5126743	5126753
+UN	3416	.	NZ_VCBX01000001	5249051	5249055
+UN	3417	.	NZ_VCBX01000001	5249058	5249058
+UN	3418	.	NZ_VCBX01000001	5304452	5304452
+UN	3419	.	NZ_VCBX01000001	5334871	5334977
+UN	3420	.	NZ_VCBX01000001	5604423	5604500
+UN	3421	.	NZ_VCBX01000001	5694844	5694920
+UN	3422	.	NZ_VCBX01000001	5723119	5723119
+UN	3423	.	NZ_VCBX01000001	5730673	5730673
+UN	3424	.	NZ_VCBX01000001	5931761	5931761
+UN	3425	.	NZ_VCBX01000001	5931763	5931764
+UN	3426	.	NZ_VCBX01000001	5931768	5931775
+UN	3427	.	NZ_VCBX01000001	5931782	5931782
+UN	3428	.	NZ_VCBX01000001	5931785	5931785
+UN	3429	.	NZ_VCBX01000001	5931788	5931788
+UN	3430	.	NZ_VCBX01000001	5953855	5953861
+UN	3431	.	NZ_VCBX01000001	5953863	5959506
+UN	3432	.	NZ_VCBX01000001	6058540	6058540
+UN	3433	.	NZ_VCBX01000001	6058546	6058548
+UN	3434	.	NZ_VCBX01000001	6058550	6058550
+UN	3435	.	NZ_VCBX01000001	6058552	6058553
+UN	3436	.	NZ_VCBX01000001	6058556	6058556
+UN	3437	.	NZ_VCBX01000001	6138300	6138413
+UN	3438	.	NZ_VCBX01000001	6138415	6138416
+UN	3439	.	NZ_VCBX01000001	6138485	6138485
+UN	3440	.	NZ_VCBX01000001	6138487	6138675
+UN	3441	.	NZ_VCBX01000001	6138754	6140417
+UN	3442	.	NZ_VCBX01000001	6140599	6143943
+UN	3443	.	NZ_VCBX01000001	6148774	6148964
+UN	3444	.	NZ_VCBX01000001	6149415	6149449
+UN	3445	.	NZ_VCBX01000001	6278824	6278825
+UN	3446	.	NZ_VCBX01000001	6278827	6278828
+UN	3447	.	NZ_VCBX01000001	6278830	6278832
+UN	3448	.	NZ_VCBX01000001	6278836	6278856
+UN	3449	.	NZ_VCBX01000001	6450454	6450454
+UN	3450	.	NZ_VCBX01000001	6477859	6477982
+UN	3451	.	NZ_VCBX01000001	6477988	6477988
+UN	3452	.	NZ_VCBX01000001	6478159	6478160
+UN	3453	.	NZ_VCBX01000001	6478163	6478163
+UN	3454	.	NZ_VCBX01000001	6478165	6478165
+UN	3455	.	NZ_VCBX01000001	6478168	6478169
+UN	3456	.	NZ_VCBX01000001	6568912	6568913
+UN	3457	.	NZ_VCBX01000001	6568915	6568954
+UN	3458	.	NZ_VCBX01000001	6578742	6579391
+UN	3459	.	NZ_VCBX01000001	6579394	6579396
+UN	3460	.	NZ_VCBX01000001	6579464	6580177
+UN	3461	.	NZ_VCBX01000001	6580939	6580974
+UN	3462	.	NZ_VCBX01000001	6582721	6583124
+UN	3463	.	NZ_VCBX01000001	6583541	6584022
+UN	3464	.	NZ_VCBX01000001	6584080	6584815
+UN	3465	.	NZ_VCBX01000001	6585590	6585595
+UN	3466	.	NZ_VCBX01000001	6587345	6587745
+UN	3467	.	NZ_VCBX01000001	6588014	6588230
+UN	3468	.	NZ_VCBX01000001	6588416	6588416
+UN	3469	.	NZ_VCBX01000001	6588424	6588597
+UN	3470	.	NZ_VCBX01000001	6588681	6588681
+UN	3471	.	NZ_VCBX01000001	6588694	6588694
+UN	3472	.	NZ_VCBX01000001	6588696	6588696
+UN	3473	.	NZ_VCBX01000001	6588699	6589327
+UN	3474	.	NZ_VCBX01000001	6589330	6589330
+UN	3475	.	NZ_VCBX01000001	6640167	6640170
+UN	3476	.	NZ_VCBX01000001	6690738	6690750
+UN	3477	.	NZ_VCBX01000002	1	164
+UN	3478	.	NZ_VCBX01000002	171	171
+UN	3479	.	NZ_VCBX01000002	173	173
+UN	3480	.	NZ_VCBX01000002	182	182
+UN	3481	.	NZ_VCBX01000002	253	258
+UN	3482	.	NZ_VCBX01000002	265	265
+UN	3483	.	NZ_VCBX01000002	268	269
+UN	3484	.	NZ_VCBX01000002	313	313
+UN	3485	.	NZ_VCBX01000002	315	316
+UN	3486	.	NZ_VCBX01000002	318	321
+UN	3487	.	NZ_VCBX01000002	327	369
+UN	3488	.	NZ_VCBX01000002	498	509
+UN	3489	.	NZ_VCBX01000002	524	524
+UN	3490	.	NZ_VCBX01000002	528	528
+UN	3491	.	NZ_VCBX01000002	530	530
+UN	3492	.	NZ_VCBX01000002	682	687
+UN	3493	.	NZ_VCBX01000002	746	746
+UN	3494	.	NZ_VCBX01000002	755	758
+UN	3495	.	NZ_VCBX01000002	760	771
+UN	3496	.	NZ_VCBX01000002	4031	5278
+UN	3497	.	NZ_VCBX01000002	5443	5450
+UN	3498	.	NZ_VCBX01000002	5636	6058
+UN	3499	.	NZ_VCBX01000002	6188	10081
+UN	3500	.	NZ_VCBX01000002	10083	10085
+UN	3501	.	NZ_VCBX01000002	10210	10210
+UN	3502	.	NZ_VCBX01000002	10212	10212
+UN	3503	.	NZ_VCBX01000002	10214	10361
+UN	3504	.	NZ_VCBX01000002	10484	10484
+UN	3505	.	NZ_VCBX01000002	10486	11926
+UN	3506	.	NZ_VCBX01000002	12140	12207
+UN	3507	.	NZ_VCBX01000002	16444	17882
+UN	3508	.	NZ_VCBX01000002	22119	22142
+UN	3509	.	NZ_VCBX01000002	42465	43765
+UN	3510	.	NZ_VCBX01000002	52238	53531
+UN	3511	.	NZ_VCBX01000002	111392	111418
+UN	3512	.	NZ_VCBX01000002	115239	116349
+UN	3513	.	NZ_VCBX01000002	120482	120490
+UN	3514	.	NZ_VCBX01000002	122226	122238
+UN	3515	.	NZ_VCBX01000002	122642	122666
+UN	3516	.	NZ_VCBX01000002	123008	123071
+UN	3517	.	NZ_VCBX01000002	125082	125093
+UN	3518	.	NZ_VCBX01000002	125843	125844
+UN	3519	.	NZ_VCBX01000002	125847	125847
+UN	3520	.	NZ_VCBX01000002	125851	125851
+UN	3521	.	NZ_VCBX01000002	126026	126045
+UN	3522	.	NZ_VCBX01000002	126047	126047
+UN	3523	.	NZ_VCBX01000002	126049	126049
+UN	3524	.	NZ_VCBX01000002	150460	151339
+UN	3525	.	NZ_VCBX01000002	174130	174247
+UN	3526	.	NZ_VCBX01000002	174369	174369
+UN	3527	.	NZ_VCBX01000002	174371	174371
+UN	3528	.	NZ_VCBX01000002	174374	175769
+UN	3529	.	NZ_VCBX01000002	176749	177280
+UN	3530	.	NZ_VCBX01000002	180288	180319
+UN	3531	.	NZ_VCBX01000002	181144	181279
+UN	3532	.	NZ_VCBX01000002	194329	194471
+UN	3533	.	NZ_VCBX01000002	194629	194723
+UN	3534	.	NZ_VCBX01000002	194842	195574
+UN	3535	.	NZ_VCBX01000002	196153	196153
+UN	3536	.	NZ_VCBX01000002	196155	198536
+UN	3537	.	NZ_VCBX01000002	198662	198690
+UN	3538	.	NZ_VCBX01000002	198953	200296
+UN	3539	.	NZ_VCBX01000002	204806	204962
+UN	3540	.	NZ_VCBX01000002	205294	205645
+UN	3541	.	NZ_VCBX01000002	205785	205928
+UN	3542	.	NZ_VCBX01000002	210396	210515
+UN	3543	.	NZ_VCBX01000002	210633	212036
+UN	3544	.	NZ_VCBX01000002	248240	248358
+UN	3545	.	NZ_VCBX01000002	249190	249214
+UN	3546	.	NZ_VCBX01000002	249496	250022
+UN	3547	.	NZ_VCBX01000002	250024	250024
+UN	3548	.	NZ_VCBX01000002	264016	264050
+UN	3549	.	NZ_VCBX01000002	264327	264385
+UN	3550	.	NZ_VCBX01000002	264641	265776
+UN	3551	.	NZ_VCBX01000002	266074	266074
+UN	3552	.	NZ_VCBX01000002	266077	266295
+UN	3553	.	NZ_VCBX01000002	266413	267434
+UN	3554	.	NZ_VCBX01000002	267971	267989
+UN	3555	.	NZ_VCBX01000002	268193	268831
+UN	3556	.	NZ_VCBX01000002	268947	269169
+UN	3557	.	NZ_VCBX01000002	281649	284207
+UN	3558	.	NZ_VCBX01000002	284388	285740
+UN	3559	.	NZ_VCBX01000002	289219	289220
+UN	3560	.	NZ_VCBX01000002	289222	290108
+UN	3561	.	NZ_VCBX01000002	292405	292405
+UN	3562	.	NZ_VCBX01000002	292408	292486
+UN	3563	.	NZ_VCBX01000002	292651	292757
+UN	3564	.	NZ_VCBX01000002	292876	292883
+UN	3565	.	NZ_VCBX01000002	293012	293023
+UN	3566	.	NZ_VCBX01000002	296341	297472
+UN	3567	.	NZ_VCBX01000002	338847	339568
+UN	3568	.	NZ_VCBX01000002	339704	339783
+UN	3569	.	NZ_VCBX01000002	339932	340086
+UN	3570	.	NZ_VCBX01000002	345236	345289
+UN	3571	.	NZ_VCBX01000002	345495	345653
+UN	3572	.	NZ_VCBX01000002	345655	345655
+UN	3573	.	NZ_VCBX01000002	345773	349661
+UN	3574	.	NZ_VCBX01000002	349800	350216
+UN	3575	.	NZ_VCBX01000002	351673	351673
+UN	3576	.	NZ_VCBX01000002	351675	352750
+UN	3577	.	NZ_VCBX01000002	352880	353078
+UN	3578	.	NZ_VCBX01000002	365139	365457
+UN	3579	.	NZ_VCBX01000002	365590	365970
+UN	3580	.	NZ_VCBX01000002	366096	366240
+UN	3581	.	NZ_VCBX01000002	367987	368011
+UN	3582	.	NZ_VCBX01000002	368956	368957
+UN	3583	.	NZ_VCBX01000002	370874	370953
+UN	3584	.	NZ_VCBX01000002	371621	371759
+UN	3585	.	NZ_VCBX01000002	373363	373519
+UN	3586	.	NZ_VCBX01000002	425117	425143
+UN	3587	.	NZ_VCBX01000002	425146	425151
+UN	3588	.	NZ_VCBX01000002	425312	425312
+UN	3589	.	NZ_VCBX01000002	425314	425314
+UN	3590	.	NZ_VCBX01000002	425316	425317
+UN	3591	.	NZ_VCBX01000002	425319	425319
+UN	3592	.	NZ_VCBX01000002	439485	439486
+UN	3593	.	NZ_VCBX01000002	439489	439719
+UN	3594	.	NZ_VCBX01000002	439840	440422
+UN	3595	.	NZ_VCBX01000002	480471	480688
+UN	3596	.	NZ_VCBX01000002	480814	481422
+UN	3597	.	NZ_VCBX01000002	488782	489043
+UN	3598	.	NZ_VCBX01000002	489163	489738
+UN	3599	.	NZ_VCBX01000002	489864	489894
+UN	3600	.	NZ_VCBX01000002	490061	490090
+UN	3601	.	NZ_VCBX01000002	492819	492819
+UN	3602	.	NZ_VCBX01000002	493087	493088
+UN	3603	.	NZ_VCBX01000002	493091	493092
+UN	3604	.	NZ_VCBX01000002	493094	493095
+UN	3605	.	NZ_VCBX01000002	493122	493122
+UN	3606	.	NZ_VCBX01000002	493125	493125
+UN	3607	.	NZ_VCBX01000002	493127	493160
+UN	3608	.	NZ_VCBX01000002	493162	493162
+UN	3609	.	NZ_VCBX01000002	493172	493186
+UN	3610	.	NZ_VCBX01000002	493188	493204
+UN	3611	.	NZ_VCBX01000002	493289	493289
+UN	3612	.	NZ_VCBX01000002	493298	493341
+UN	3613	.	NZ_VCBX01000003	1	6
+UN	3614	.	NZ_VCBX01000003	71349	71352
+UN	3615	.	NZ_VCBX01000004	1	7390
+UN	3616	.	NZ_VCBX01001214	1	17
+UN	3617	.	NZ_VCBX01001214	245	250

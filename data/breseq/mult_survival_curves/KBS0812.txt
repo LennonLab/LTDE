@@ -1,0 +1,2 @@
+	Mult	Obs_fract	Null_fract
+0	1.3886350687278577	1.0	1.0
