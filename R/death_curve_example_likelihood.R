@@ -71,8 +71,8 @@ KBS0714.R4.plot <- ggplot(KBS0714.R4.df, aes(x=time, y=N_time)) +
                      labels = trans_format("log", math_format(e^.x))) +
   xlim(-10, 300) +
   theme_bw() +
-  annotate("text", x=250, y=2000000, label=TeX(sprintf("$\\lambda = %g$", round(KBS0714.R4.beta,2))), size = 5) +
-  annotate("text", x=245, y=550000, label=TeX(sprintf("$k = %g$", round(KBS0714.R4.alpha,2))), size = 5) +
+  annotate("text", x=250, y=2000000, label=TeX(sprintf("$\\mathit{\\lambda} = %g$", round(KBS0714.R4.beta,2))), size = 5) +
+  annotate("text", x=245, y=550000, label=TeX(sprintf("$\\mathit{k} = %g$", round(KBS0714.R4.alpha,2))), size = 5) +
   
   theme(axis.title.x = element_text(color="black", size=16), 
         axis.title.y = element_text(color="black", size=16), 
@@ -80,7 +80,6 @@ KBS0714.R4.plot <- ggplot(KBS0714.R4.df, aes(x=time, y=N_time)) +
         panel.grid.minor = element_blank(),
         plot.title = element_text(hjust = 0.5, size=16)) +
   ggtitle(expression(paste(italic("Micrococcus"), " sp. KBS0714")))
-
 
 
 KBS0703.R4.plot <- ggplot(KBS0703.R4.df, aes(x=time, y=N_time)) + 
@@ -94,8 +93,8 @@ KBS0703.R4.plot <- ggplot(KBS0703.R4.df, aes(x=time, y=N_time)) +
                      labels = trans_format("log", math_format(e^.x))) +
   xlim(-10, 1010) +
   theme_bw() +
-  annotate("text", x=850, y=6.5e+08, label=TeX(sprintf("$\\lambda = %g$", round(KBS0703.R4.beta,2))), size = 5) +
-  annotate("text", x=830, y=3.5e+08, label=TeX(sprintf("$k = %g$", round(KBS0703.R4.alpha,2))), size = 5) +
+  annotate("text", x=850, y=6.5e+08, label=TeX(sprintf("$\\mathit{\\lambda} = %g$", round(KBS0703.R4.beta,2))), size = 5) +
+  annotate("text", x=830, y=3.5e+08, label=TeX(sprintf("$\\mathit{k} = %g$", round(KBS0703.R4.alpha,2))), size = 5) +
   
   theme(axis.title.x = element_text(color="black", size=16), 
         axis.title.y = element_text(color="black", size=16), 
@@ -118,8 +117,8 @@ KBS0812.R4.plot <- ggplot(KBS0812.R4.df, aes(x=time, y=N_time)) +
                      labels = trans_format("log", math_format(e^.x))) +
   xlim(-10, 1010) +
   theme_bw() +
-  annotate("text", x=850, y=6.5e+08, label=TeX(sprintf("$\\lambda = 2.68e-07$")), size = 5) +
-  annotate("text", x=780, y=3.5e+08, label=TeX(sprintf("$k = %g$", round(KBS0812.R4.alpha,2))), size = 5) +
+  annotate("text", x=850, y=6.5e+08, label=TeX(sprintf("$\\mathit{\\lambda} = 2.68e-07$")), size = 5) +
+  annotate("text", x=780, y=3.5e+08, label=TeX(sprintf("$\\mathit{k} = %g$", round(KBS0812.R4.alpha,2))), size = 5) +
   
   theme(axis.title.x = element_text(color="black", size=16), 
         axis.title.y = element_text(color="black", size=16), 
@@ -142,7 +141,7 @@ lr.plot <- ggplot(data = df) +
   ylim(-10, 250) +
   coord_flip() +
   theme_bw() + 
-  annotate("text", x=21, y=-10, label= "d", size = 5, fontface =2) +
+  annotate("text", x=20, y=-10, label= "d", size = 8, fontface =2) +
   theme(axis.title.y=element_blank(), 
         axis.text.y=element_text(size = 13), 
         axis.title.x = element_text(color="black", size=20, vjust=0, hjust=0.5), 
@@ -181,7 +180,7 @@ lr.plot <- ggplot(data = df) +
 #               ncol = 3, nrow = 1,
 #               labels = "auto")
 
-g <- ggarrange(ggarrange(KBS0714.R4.plot, KBS0703.R4.plot, KBS0812.R4.plot, ncol = 3, labels = c("a", "b", "c")),
+g <- ggarrange(ggarrange(KBS0714.R4.plot, KBS0703.R4.plot, KBS0812.R4.plot, ncol = 3, labels = c("a", "b", "c"), font.label = list(size = 22, color = "black")),
                # First row with scatter plot
                lr.plot,
                # Second row with box and dot plots

@@ -6,10 +6,11 @@ import ltde_tools as lt
 from scipy import stats
 from decimal import Decimal
 import _pickle as pickle
+from matplotlib.ticker import FormatStrFormatter
 
+taxa_to_plot = ['ATCC13985', 'KBS0711', 'KBS0712', 'KBS0715']
 
 def plot_multiplicity_survival():
-    taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712']
     df_par = pd.read_csv(lt.get_path() + '/data/breseq/total_parallelism.txt', sep = '\t' )
     # taxa with at least five genes with a multiplicity greater than one
     # don't include KBS0707 even though it has a significant G score, sicne there's
@@ -31,6 +32,8 @@ def plot_multiplicity_survival():
         ax.set_xlim([0.25, max(new_x)+1])
 
         taxon_par = df_par.loc[df_par['Taxon'] == taxon]
+
+        print(taxon_par.G_score)
 
         ax.annotate(r'$\Delta \ell= $'+ str(round(float(taxon_par.G_score), 3)), (annotate_x[i], 0.9), fontsize=8)
         if np.log10(float(taxon_par.p_value_BH)) < -3:
@@ -68,6 +71,13 @@ def plot_multiplicity_survival():
 
         ax.title.set_fontsize(8.5)
 
+        ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
+
+
+
+
+        #ax.set_xticklabels(list(map(int, list(ax.get_xticklabels()))))
+
     #fig.tight_layout()
 
     fig.text(0.5, 0.02, 'Gene multiplicity, ' + '$m$', ha='center', fontsize=16)
@@ -79,8 +89,6 @@ def plot_multiplicity_survival():
 
 
 def plot_logpvalue_survival():
-    #taxa_to_plot = ['ATCC13985', 'KBS0711', 'KBS0712']
-    taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0711', 'KBS0712']
     fig = plt.figure()
     fig.subplots_adjust(hspace=0.35, wspace=0.35)
     pstar_dict = pickle.load(open(lt.get_path() + '/data/breseq/p_star.txt', 'rb'))
@@ -137,6 +145,8 @@ def plot_logpvalue_survival():
             print("Taxon not recognized")
 
         ax.title.set_fontsize(8.5)
+        #ax.set_xticklabels(tick_labels.astype(int))
+
 
         #pvalue_axis.step(observed_ps/log(10), null_pvalue_survival(observed_ps),'-',label='Expected',color='k')
 
@@ -153,4 +163,4 @@ def plot_logpvalue_survival():
 
 
 plot_multiplicity_survival()
-#plot_logpvalue_survival()
+plot_logpvalue_survival()
