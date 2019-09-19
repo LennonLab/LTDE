@@ -45,7 +45,6 @@ class NullGeneMultiplicitySurvivalFunction(object):
 
     @classmethod
     def from_parallelism_statistics(cls, gene_parallelism_statistics):
-
         # calculate Ls
         Ls = []
         ntot = 0
@@ -61,10 +60,13 @@ class NullGeneMultiplicitySurvivalFunction(object):
         lower_limits = np.ceil(m[:,None]*self.Ls[None,:]/self.Lavg)-2+0.1
         return (poisson.sf(lower_limits, self.expected_ns[None,:])*self.ps[None,:]).sum(axis=1)
 
+
+
+
+
 # calculate_unnormalized_survival_from_vector function is modified from GitHub repo
 # benjaminhgood/LTEE-metagenomic under GPL v2
 def calculate_unnormalized_survival_from_vector(xs, min_x=None, max_x=None, min_p=1e-10):
-    print(xs)
     if min_x==None:
         min_x = xs.min()-1
 
@@ -168,8 +170,6 @@ def calculate_parallelism_logpvalues(gene_statistics):
 
     ns = np.array(ns)
     expected_ns = np.array(expected_ns)
-
-    #print(list(zip(ns, expected_ns)))
 
     logpvalues = calculate_poisson_log_survival(ns, expected_ns)
 
@@ -329,14 +329,12 @@ def calculate_synonymous_nonsynonymous_target_sizes(taxon):
 
 
 
-def get_final_pop_size(population):
+def get_init_final_pop_size(population):
     taxon = population.split('-')[0]
     rep = rename_rep()[population.split('-')[1]]
-    df = pd.read_csv(get_path() + '/data/demography/longtermdormancy_20190528_nocomments.csv', sep = ',')
-    df_taxon_rep = df[(df['Strain']==taxon) & (df['Rep']==rep)]
-    df_taxon_rep['Firstread_date'] = pd.to_datetime(df_taxon_rep['Firstread_date'])
-    last_sample = df_taxon_rep.loc[df_taxon_rep['Firstread_date'] == df_taxon_rep['Firstread_date'].max()]
-    return int((int(last_sample.Colonies)+1) * (1000/float(last_sample.Inoculum)) * (10**float(last_sample.Dilution)))
+    df = pd.read_csv(get_path() + '/data/demography/weibull_results_clean.csv', sep = ',')
+    df_taxon_rep = df[(df['strain']==taxon) & (df['rep']==rep)]
+    return int(df_taxon_rep.N_0.values[0]), int(df_taxon_rep.N_final.values[0])
 
 
 

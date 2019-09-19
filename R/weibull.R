@@ -145,9 +145,7 @@ for(i in 1:length(strains)){
       summ[counter,16] <- LLR
       summ[counter,17] <- p.value
       summ[counter,18] <- max(repObs["time"]-1)
-      
-      print(max(repObs["time"]-1))
-      
+
       ### *** Comment/Uncomment following code to make pdf figs*** ###
       title=paste(strains[i],"  rep ",reps[j])
       plot(repObs$time,repObs$prop,main=title,ylim=c(min(repObs$prop),0), 
@@ -160,7 +158,7 @@ for(i in 1:length(strains)){
   }
 }
 
-dev.off() 
+dev.off()
 summ=summ[!is.na(summ[,1]),]
 colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0", "N_final", "LR", "p.value", "Last_date")
 write.csv(summ,"data/demography/weibull_results.csv")

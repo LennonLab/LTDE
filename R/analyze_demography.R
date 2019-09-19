@@ -12,6 +12,7 @@ library('gridExtra')
 library('ggpubr')
 library('grid')
 
+library('nlme')
 
 df <- read.csv("data/demography/weibull_results_clean.csv", 
                header = TRUE, stringsAsFactors = FALSE)
@@ -21,6 +22,30 @@ rownames(df.species) <- df.species$Species
 df.species<-df.species[!(df.species$Species=="KBS0727"),]
 
 
+x1 <- c(0.3852022, 0.2563224, 0.2155694, 0.2850271)
+x2 <- c(2.00e+08, 4.50e+08, 1.13e+09, 3.30e+08)
+
+plot(x1, log10(x2))
+summary(lm(df$alpha ~ log10(df$N_0)))
+plot(log10(df$N_0), df$alpha)
+
+df[df$strain == "KBS0715", ]$alpha
+
+summary(lm(df$alpha ~ log10(df$beta) | df$strain) )
+
+gls(alpha ~ log10(N_0)*strain, data = df, random =~ 1|strain)
+
+
+summary.gls(lm(df.species$alpha ~ log10(df.species$N_0)))
+
+plot(log10(df.species$N_0), df.species$alpha)
+
+
+
+
+
+
+plot(x1, log10(x2))
 ###### ggplot KDE
 bw <- bw.CV(df.species$mttf.log10, method="LCV", lower=0, upper=100)
 # mean of means

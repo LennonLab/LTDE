@@ -73,9 +73,6 @@ def plot_multiplicity_survival():
 
         ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
 
-
-
-
         #ax.set_xticklabels(list(map(int, list(ax.get_xticklabels()))))
 
     #fig.tight_layout()
@@ -95,7 +92,7 @@ def plot_logpvalue_survival():
     for i in range(0, len(taxa_to_plot)):
         taxon = taxa_to_plot[i]
         pstar_i = pstar_dict[taxon][1]
-        num_significant_i = pstar_dict[taxon][0]
+        num_significant_i = pstar_dict[taxon][0] -1
         df_path = lt.get_path() + '/data/breseq/logpvalues/' + taxon + '.txt'
         df = pd.read_csv(df_path, sep = '\t', index_col=0)
         new_x = df.P_value.tolist()
@@ -116,8 +113,6 @@ def plot_logpvalue_survival():
             ax.plot([pstar_i, pstar_i],[5e-02,num_significant_i],'k-',linewidth=0.5, zorder=2)
             ax.plot([-3,pstar_i],[num_significant_i, num_significant_i],'k-',linewidth=0.5, zorder=3)
             ax.plot([pstar_i], [num_significant_i], c='r', marker='o', zorder=4)
-
-
 
 
         ax.set_xlim([0.25, max(new_x)+1])
@@ -162,5 +157,5 @@ def plot_logpvalue_survival():
 
 
 
-plot_multiplicity_survival()
+#plot_multiplicity_survival()
 plot_logpvalue_survival()
