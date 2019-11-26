@@ -9,14 +9,13 @@ setwd("~/GitHub/LTDE/")
 library("pmc")
 library("ape")
 
+iter <- 1000
 
 df <- read.table("data/demography/weibull_results_clean_species.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
-df<-df[!(df$Species=="KBS0727" ),]
 df.no812 <- df[!(df$Species=="KBS0812" ),]
 rownames(df) <- df$Species
 rownames(df.no812) <- df.no812$Species
-
 
 # Load ML tree
 ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde")
@@ -36,6 +35,32 @@ is.ultrametric(ml.rooted.no812)
 ml.rooted.no812.um  <- chronos(ml.rooted.no812)
 is.ultrametric(ml.rooted.no812.um)
 
+# phylogenetic signal test
+beta.log10 <- df$beta.log10
+names(beta.log10) <- df$Species
+
+alpha <- df$alpha
+names(alpha) <- df$Species
+
+alpha.log10 <- log10(alpha)
+names(alpha.log10) <- df$Species
+
+
+BM.PL.alpha <- pmc(ml.rooted.um, alpha, "BM", "lambda", nboot = 2)
+
+
+BM.PL.alpha.log10 <- pmc(ml.rooted.um, alpha.log10, "BM", "lambda", nboot = 2)
+BM.PL.beta.log10 <- pmc(ml.rooted.um, beta.log10, "BM", "lambda", nboot = 2)
+
+
+BM.OU.beta.log10 <- pmc(ml.rooted.um, beta.log10, "BM", "OU", nboot = 2)
+BM.OU.alpha.log10 <- pmc(ml.rooted.um, alpha.log10, "BM", "OU", nboot = 2)
+
+
+
+
+
+
 mttf.log10 <- df$mttf.log10
 names(mttf.log10) <- df$Species
 
@@ -43,7 +68,6 @@ names(mttf.log10) <- df$Species
 mttf.log10.no812 <- df.no812$mttf.log10
 names(mttf.log10.no812) <- df.no812$Species
 
-iter <- 1000
 
 BM.OU <- pmc(ml.rooted.um, mttf.log10, "BM", "OU", nboot = iter)
 BM.OU.no812 <- pmc(ml.rooted.no812.um, mttf.log10.no812, "BM", "OU", nboot = iter)

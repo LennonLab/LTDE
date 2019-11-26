@@ -176,7 +176,7 @@ df <- df[!(df$strain == "KBS0711" & df$rep == 10 ),]
 df <- df[!(df$strain == "KBS0711" & df$rep == 11 ),] 
 df <- df[!(df$strain == "KBS0711" & df$rep == 12 ),] 
 df <- df[!(df$strain=="KBS0727"),]
-
+df$N_0_beta <- df$N_0/df$beta
 
 # multiple testing correction 
 df$p.value.BH <- p.adjust(df$p.value, method = "BH", n = length(df$p.value))
@@ -185,11 +185,14 @@ write.csv(df, file = "data/demography/weibull_results_clean.csv")
 
 # get mean time to failure and CIs
 df$beta.log10 <- log10(df$beta)
+df$alpha.log10 <- log10(df$alpha)
 df$mttf.log10 <- log10(df$mttf)
 df$N_0.log10 <- log10(df$N_0)
+df$N_0_beta.log10 <- log10(df$N_0_beta)
+
 df$N_final.log10 <- log10(df$N_final)
 df$delta_N.log10 <- log10(df$N_0 - df$N_final) 
-df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10', 'delta_N.log10', 'Last_date', 'LR', 'p.value.BH', 'N_0.log10', 'N_final.log10')], list(df$strain), mean)
+df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10', 'delta_N.log10', 'Last_date', 'LR', 'p.value.BH', 'N_0.log10', 'N_final.log10', 'N_0_beta.log10', 'alpha.log10')], list(df$strain), mean)
 colnames(df.species.mean)[1] <- "Species"
 
 df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10')], list(df$strain), std.error)

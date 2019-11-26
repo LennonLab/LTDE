@@ -1,0 +1,2 @@
+Gene, Length, Observed, Expected, Multiplicity, -log10(P)
+FFI94_RS15950, 221.3, 2, 0.00, 6.67, 6.16825

@@ -109,11 +109,11 @@ KBS0714.R4.plot <- ggplot(KBS0714.R4.df, aes(x=time, y=N_time)) +
   annotate("text", x=250, y=2000000, label=TeX(sprintf("$\\mathit{\\lambda} = %g$", round(KBS0714.R4.beta,2))), size = 5) +
   annotate("text", x=245, y=550000, label=TeX(sprintf("$\\mathit{k} = %g$", round(KBS0714.R4.alpha,2))), size = 5) +
   
-  theme(axis.title.x = element_text(color="black", size=16), 
-        axis.title.y = element_text(color="black", size=16), 
+  theme(axis.title.x = element_text(color="black", size=18), 
+        axis.title.y = element_text(color="black", size=18), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
-        plot.title = element_text(hjust = 0.5, size=16)) +
+        plot.title = element_text(hjust = 0.5, size=18)) +
   ggtitle(expression(paste(italic("Micrococcus"), " sp. KBS0714")))
 
 
@@ -137,11 +137,11 @@ KBS0703.R4.plot <- ggplot(KBS0703.R4.df, aes(x=time, y=N_time)) +
   annotate("text", x=850, y=6.5e+08, label=TeX(sprintf("$\\mathit{\\lambda} = %g$", round(KBS0703.R4.beta,2))), size = 5) +
   annotate("text", x=830, y=3.5e+08, label=TeX(sprintf("$\\mathit{k} = %g$", round(KBS0703.R4.alpha,2))), size = 5) +
   
-  theme(axis.title.x = element_text(color="black", size=16), 
-        axis.title.y = element_text(color="black", size=16), 
+  theme(axis.title.x = element_text(color="black", size=18), 
+        axis.title.y = element_text(color="black", size=18), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
-        plot.title = element_text(hjust = 0.5, size=14)) +
+        plot.title = element_text(hjust = 0.5, size=18)) +
   ggtitle(expression(paste(italic("Arthrobacter"), " sp. KBS0703")))
 
 
@@ -164,11 +164,11 @@ KBS0812.R4.plot <- ggplot(KBS0812.R4.df, aes(x=time, y=N_time)) +
   annotate("text", x=850, y=6.5e+08, label=TeX(sprintf("$\\mathit{\\lambda} = 2.68e-07$")), size = 5) +
   annotate("text", x=780, y=3.5e+08, label=TeX(sprintf("$\\mathit{k} = %g$", round(KBS0812.R4.alpha,2))), size = 5) +
   
-  theme(axis.title.x = element_text(color="black", size=16), 
-        axis.title.y = element_text(color="black", size=16), 
+  theme(axis.title.x = element_text(color="black", size=18), 
+        axis.title.y = element_text(color="black", size=18), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
-        plot.title = element_text(hjust = 0.5, size=14)) +
+        plot.title = element_text(hjust = 0.5, size=18)) +
   ggtitle(expression(paste(italic("Bacillus"), " sp. KBS0812")))
 
 
@@ -192,7 +192,7 @@ boxplot <- ggplot(data = df.species) +
   annotate("text", x=19, y=0.9, label= "d", size = 9, fontface =2) +
   theme(axis.title.y=element_blank(), 
         axis.text.y=element_text(size = 13), 
-        axis.title.x = element_text(color="black", size=18), 
+        axis.title.x = element_text(color="black", size=24), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank()) +
   scale_x_discrete( position = "top",

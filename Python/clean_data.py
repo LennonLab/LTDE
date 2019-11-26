@@ -407,7 +407,7 @@ def get_diversity_stats():
 
 
 
-def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=50):
+def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=20):
     output_path = lt.get_path() + '/data/breseq/output/'
     # pass nest list with frequency, coverage of major, coverage of minor, taxon
     output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
@@ -693,8 +693,8 @@ def annotate_significant_genes():
 
 
 
-get_diversity_stats()
-#run_parallelism_analysis()
+#get_diversity_stats()
+run_parallelism_analysis()
 #annotate_significant_genes()
 
 

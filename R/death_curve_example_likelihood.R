@@ -13,6 +13,10 @@ library(scales)
 df <- read.table("data/demography/weibull_results_clean.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 
+d <- density(df$alpha)
+plot(d, main="",xlab="Shape parameter")
+abline(v = 1, col="red", lwd=3, lty=2)
+
 
 df$p.value.BH.bin <- df$p.value.BH < 0.05
 lr.plot <- ggplot(data = df) +
