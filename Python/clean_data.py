@@ -327,7 +327,10 @@ def get_diversity_stats():
             pi = lt.get_pi(freq_list, n_c, genome_size)
             theta = lt.get_theta(freq_list, n_c, genome_size)
             mean_freq = np.mean([ float(i[0]) for i in  freq_list])
-            TD = lt.get_TD(freq_list=freq_list, pi=pi, theta=theta, n_c=n_c)
+            # genome size cancels out during the TD calculation
+            TD = lt.get_TD(freq_list=freq_list, pi=pi*genome_size, theta=theta*genome_size, n_c=n_c)
+            print(TD)
+            print(len(freq_list))
             non_total = 0
             syn_total = 0
             non_fixed = 0
@@ -378,7 +381,6 @@ def get_diversity_stats():
         dnds_total_list_all.append(mean_dnds_total)
         binary_divisions_all.append(np.mean(binary_divisions_list))
         b_div_d_all.append(np.mean(b_div_d_list))
-        print(b_div_d_all)
         taxa_all.append(taxon)
 
         tt = (mean_dnds_total-1)/ (np.std(dnds_total_list) / np.sqrt(float(len(dnds_total_list))))
@@ -542,7 +544,6 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=20)
         observed_ps, observed_pvalue_survival = lt.calculate_unnormalized_survival_from_vector(pooled_pvalues, min_x=-4)
         # Pvalue version
         # remove negative minus log p values.
-        #print(observed_ps)
         neg_p_idx = np.where(observed_ps>=0)
         observed_ps_copy = observed_ps[neg_p_idx]
         observed_pvalue_survival_copy = observed_pvalue_survival[neg_p_idx]
@@ -562,7 +563,7 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=20)
 
         output_mult_gene_filename = lt.get_path() + '/data/breseq/mult_genes/' + taxon + '.txt'
         output_mult_gene = open(output_mult_gene_filename,"w")
-        output_mult_gene.write(", ".join(["Gene", "Length", "Observed", "Expected", "Multiplicity", "-log10(P)"]))
+        output_mult_gene.write(",".join(["Gene", "Length", "Observed", "Expected", "Multiplicity", "-log10(P)"]))
         for gene_name in sorted(gene_parallelism_statistics, key=lambda x: gene_parallelism_statistics.get(x)['observed'],reverse=True):
             if gene_logpvalues[gene_name] >= pstar and gene_parallelism_statistics[gene_name]['observed']>=nmin:
                 output_mult_gene.write("\n")
@@ -693,8 +694,8 @@ def annotate_significant_genes():
 
 
 
-#get_diversity_stats()
-run_parallelism_analysis()
+get_diversity_stats()
+#run_parallelism_analysis()
 #annotate_significant_genes()
 
 

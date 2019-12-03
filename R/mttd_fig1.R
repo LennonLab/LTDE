@@ -11,17 +11,12 @@ library('dplyr')
 library('gridExtra')
 library('ggpubr')
 library('grid')
-
 library('scales')
-
 library('viridis')
 library('lmerTest')
-
 library('MuMIn')
-
 library('merTools')
 library('lme4')
-
 library('nlme')
 
 
@@ -187,7 +182,8 @@ boxplot <- ggplot(data = df.species) +
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) +
   coord_flip() +
-  geom_hline(yintercept= 10**mean(df.species$mttf.log10), linetype = "longdash") +
+  geom_hline(yintercept= 10**mean(df.species$mttf.log10), linetype = "longdash", color="black") +
+  geom_hline(yintercept= 100, linetype = "longdash", color = 'grey') +
   theme_bw() + 
   annotate("text", x=19, y=0.9, label= "d", size = 9, fontface =2) +
   theme(axis.title.y=element_blank(), 
@@ -229,12 +225,66 @@ g <- ggarrange(ggarrange(KBS0714.R4.plot, KBS0703.R4.plot, KBS0812.R4.plot, ncol
                labels = NULL)
 
 
-#ggsave(file="figs/mttd_fig1.png", g,  width=4.2,height=4.9, units='in', dpi=600)
-
-
-
-
 ggsave(file="figs/mttd_fig1.png", g, width=12,height=9, units='in', dpi=600)
+
+
+
+######
+# time to extinction plot
+######
+
+
+
+
+
+#### make boxplot ggplot
+boxplot.T_ext <- ggplot(data = df.species) +
+  geom_point(aes(x = reorder(Species, -T_ext.log10), y = (10**T_ext.log10)/365), color=df.species$Color, alpha = 1, size=5.5) +
+  geom_point(aes(x = reorder(Species, -T_ext.log10), y = (10**(T_ext.log10-T_ext.log10.se))/365), shape=124,size=4.5) +
+  geom_point(aes(x = reorder(Species, -T_ext.log10), y = (10**(T_ext.log10+T_ext.log10.se))/365), shape=124,size=4.5) +
+  geom_segment(aes(x = Species, y = (10**T_ext.log10)/365, xend = Species, yend = (10**(T_ext.log10-T_ext.log10.se))/365), size = 1) +
+  geom_segment(aes(x = Species, y = (10**T_ext.log10)/365, xend = Species, yend = (10**(T_ext.log10+T_ext.log10.se))/365), size = 1) +
+  ylab(TeX("Time to extinction, $\\mathit{T_{d}}$ (years)") ) + 
+  scale_y_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  coord_flip() +
+  geom_hline(yintercept= (10**mean(df.species$T_ext.log10))/365, linetype = "longdash", color="black") +
+  geom_hline(yintercept= 1000/365, linetype = "longdash", color = 'grey') +
+  theme_bw() + 
+  theme(axis.title.y=element_blank(), 
+        axis.text.y=element_text(size = 13), 
+        axis.title.x = element_text(color="black", size=24), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()) +
+  scale_x_discrete( position = "top",
+                    labels=c("KBS0707" = expression(paste(italic("Pseudomonas"), " sp. KBS0707")), 
+                             "KBS0702" = expression(paste(italic("Arthrobacter"), " sp. KBS0702")),
+                             "ATCC13985" = expression(paste(italic("Pseudomonas"), " sp. ATCC13985")),
+                             "ATCC43928" = expression(paste(italic("Pseudomonas"), " sp. ATCC43928")),
+                             "KBS0701" = expression(paste(italic("Pedobacter"), " sp. KBS0701")),
+                             "KBS0703" = expression(paste(italic("Arthrobacter"), " sp. KBS0703")),
+                             "KBS0705" = expression(paste(italic("Inquilinus"), " sp. KBS0705")),
+                             "KBS0706" = expression(paste(italic("Mycobacterium"), " sp. KBS0706")),
+                             "KBS0710" = expression(paste(italic("Pseudomonas"), " sp. KBS0710")),
+                             "KBS0711" = expression(paste(italic("Janthinobacterium"), " sp. KBS0711")),
+                             "KBS0712" = expression(paste(italic("Variovorax"), " sp. KBS0712")),
+                             "KBS0713" = expression(paste(italic("Yersinia"), " sp. KBS0713")),
+                             "KBS0714" = expression(paste(italic("Micrococcus"), " sp. KBS0714")),
+                             "KBS0715" = expression(paste(italic("Curtobacterium"), " sp. KBS0715")),
+                             "KBS0721" = expression(paste(italic("Flavobacterium"), " sp. KBS0721")),
+                             "KBS0722" = expression(paste(italic("Oerskovia"), " sp. KBS0722")),
+                             "KBS0724" = expression(paste(italic("Rhodococcus"), " sp. KBS0724")),
+                             "KBS0725" = expression(paste(italic("Bradyrhizobium"), " sp. KBS0725")),
+                             "KBS0727" = expression(paste(italic("Bradyrhizobium"), " sp. KBS0727")),
+                             "KBS0801" = expression(paste(italic("Burkholderia"), " sp. KBS0801")),
+                             "KBS0802" = expression(paste(italic("Pseudomonas"), " sp. KBS0802")),
+                             "KBS0812" = expression(paste(italic("Bacillus"), " sp. KBS0812"))))
+
+
+
+ggsave(file="figs/T_ext.png", boxplot.T_ext, width=12,height=9, units='in', dpi=600)
 
 
 

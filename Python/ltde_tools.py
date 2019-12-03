@@ -417,7 +417,7 @@ def get_theta(nested_list, n_c, size):
 
 
 def get_TD(freq_list, pi, theta, n_c):
-    S = len(freq_list[0])
+    S = len(freq_list)
     a_1 = get_a_1(n_c)
     b_1 = (n_c+1) / (3*(n_c-1))
     c_1 = b_1 - (1/a_1)

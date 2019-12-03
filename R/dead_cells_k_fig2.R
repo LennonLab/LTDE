@@ -11,17 +11,12 @@ library('dplyr')
 library('gridExtra')
 library('ggpubr')
 library('grid')
-
 library('scales')
-
 library('viridis')
 library('lmerTest')
-
 library('MuMIn')
-
 library('merTools')
 library('lme4')
-
 library('nlme')
 
 library('lattice')
@@ -62,15 +57,34 @@ summary(mixed.b0_and_b1)
 
 print(VarCorr(mixed.b0_and_b1),comp="Variance")
 
-coef.df <- as.data.frame(coef(mixed.b0_and_b1))
+# get fit for plm
+# Load ML tree
+ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde")
+# Define the outgroup
+outgroup <- match("NC_005042.1.353331-354795", ml.tree$tip.label)
+# Create a rooted tree {ape} using the outgroup
+ml.rooted <- root(ml.tree, outgroup, resolve.root = TRUE)
+# Keep rooted but drop outgroup branch
+ml.rooted <- drop.tip(ml.rooted, c("NC_005042.1.353331-354795"))
+is.ultrametric(ml.rooted)
+ml.rooted.um  <- chronos(ml.rooted)
+is.ultrametric(ml.rooted.um)
+
+df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
+                         header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
+rownames(df.species) <- df.species$Species
+
+phylolm.fit <- phylolm(log10(alpha) ~ N_0_beta.log10, data=df.species, phy=ml.rooted.um, model = 'lambda', boot=10)
+
+
 # plot distribution of random slopes 
-coef(mixed.b0_and_b1)$strain[,1]
 kde.plot <- ggplot(coef(mixed.b0_and_b1)$strain, aes(coef(mixed.b0_and_b1)$strain[,2])) +
   xlab(TeX("Random slope coefficient") ) + 
   ylab('Density') +
   geom_density(fill = "blue", alpha = 0.2) +
   theme_bw() +
-  geom_vline(xintercept= 0, linetype = "longdash", size=1.5)+
+  geom_vline(xintercept=0, linetype = "longdash", size=1.5, colour = 'grey')+
+  geom_vline(xintercept=mixed.b0_and_b1@beta[2], linetype = "longdash", size=1.5)+
   xlim(-0.3, 0.1)
 
 
@@ -81,9 +95,6 @@ kde.plot <- kde.plot + theme(axis.title.x = element_text(color="black", size=16)
 
 
 r2 <- r.squaredGLMM(mixed.b0_and_b1)
-
-lower.ci <- mixed.b0_and_b1@beta[1] + mixed.b0_and_b1.ci[6,1] * log10(df$N_0_beta)
-upper.ci <- mixed.b0_and_b1@beta[1] + mixed.b0_and_b1.ci[6,2] * log10(df$N_0_beta)
 
 merBoot <- bootMer(mixed.b0_and_b1, predict, nsim = 10000, re.form = NA)
 pred <- predict(mixed.b0_and_b1, re.form = NA)
@@ -101,7 +112,11 @@ cell.shape.plot <- ggplot(data = df, aes(x = N_0_beta, y = alpha)) +
   geom_segment(aes(x = 10**6, xend = 10**14, 
                    y = 10**(mixed.b0_and_b1@beta[1] + log10(10**6)* mixed.b0_and_b1@beta[2]), 
                    yend = 10**(mixed.b0_and_b1@beta[1] + log10(10**14)* mixed.b0_and_b1@beta[2])
-  ), linetype = 'dashed',size=2) +
+                   ), linetype = 'dashed',size=2) +
+  geom_segment(aes(x = 10**6, xend = 10**14, 
+                   y = 10**(phylolm.fit$coefficients[1] + log10(10**6)* phylolm.fit$coefficients[2]), 
+                   yend = 10**(phylolm.fit$coefficients[1] + log10(10**14)* phylolm.fit$coefficients[2])
+  ), linetype = 'dashed',size=2,color='grey') +
   annotate("text", x=10**14.5, y=10**-0.3, label=TeX(sprintf("$\\mathit{r}^{2}_{m} = %g$", round(r2[1],2))), size = 6) +
   #annotate("text", x=10**14, y=10**0.3,
   #         label=TeX(sprintf("$\\mathit{p} = %e$", 
