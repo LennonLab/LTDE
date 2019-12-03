@@ -19,7 +19,6 @@ strains <- sort(unique(obs$Strain))
 #strains <- c('KBS0713')
 obs <- obs[obs$Strain%in%strains,]
 summ <- matrix(NA,length(strains)*max(obs$Rep),20)
-pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
 counter <- 1
 for(i in 1:length(strains)){
   strainObs=obs[obs$Strain==strains[i],]
@@ -153,14 +152,6 @@ for(i in 1:length(strains)){
       dlog10T_extAlpha <- -1* (log10( log(1/S_ext) )) / (alpha**2)
       dlog10T_ext_vector <- c(dlog10T_dBeta, dlog10T_extAlpha)
       summ[counter,20] <- sqrt(t(dlog10T_ext_vector) %*% best.fit@vcov[1:2,1:2] %*% dlog10T_ext_vector)
-      
-      ### *** Comment/Uncomment following code to make pdf figs*** ###
-      title=paste(strains[i],"  rep ",reps[j])
-      plot(repObs$time,repObs$prop,main=title,ylim=c(min(repObs$prop),0), 
-           xlab = 'Time (days)', ylab = 'Proportion surviving, log' )
-      predTime=seq(0,max(repObs$time))
-      lines(repObs$time, (-1 * ((repObs$time /beta )^ alpha )), 
-            lwd=4, lty=2, col = "red")
       counter=counter+1
     }
   }
