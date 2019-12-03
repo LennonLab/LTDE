@@ -10,6 +10,8 @@ from decimal import Decimal
 import statsmodels.stats.multitest as mt
 from scipy.stats import t
 
+import matplotlib.pyplot as plt
+
 
 def make_16S_fasta():
     alignments = ['KBS0710_NR_024911', 'KBS0721_NR_114994']
@@ -256,7 +258,11 @@ def get_diversity_stats():
     p_value_all = []
     n_reps_all = []
     n_syn_non_muts_all = []
+    binary_divisions_all = []
+    b_div_d_all = []
     for taxon in to_keep_taxa:
+        if taxon == 'KBS0727':
+            continue
         print(taxon)
         effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = lt.calculate_synonymous_nonsynonymous_target_sizes(taxon)
         taxon_sites = []
@@ -283,8 +289,12 @@ def get_diversity_stats():
         dnds_total_list = []
         n_muts_list = []
         n_syn_non_muts_list = []
+        binary_divisions_list = []
+        b_div_d_list = []
         for taxon_sample in taxon_samples:
-            n_c = lt.get_final_pop_size(taxon_sample)
+            if taxon_sample == 'KBS0711-K':
+                continue
+            n_0_c, n_c = lt.get_init_final_pop_size(taxon_sample)
             # get SNP identifiers
             SNP_IDs = []
             fixed_SNP_IDs = []
@@ -317,7 +327,10 @@ def get_diversity_stats():
             pi = lt.get_pi(freq_list, n_c, genome_size)
             theta = lt.get_theta(freq_list, n_c, genome_size)
             mean_freq = np.mean([ float(i[0]) for i in  freq_list])
-            TD = lt.get_TD(freq_list=freq_list, pi=pi, theta=theta, n_c=n_c)
+            # genome size cancels out during the TD calculation
+            TD = lt.get_TD(freq_list=freq_list, pi=pi*genome_size, theta=theta*genome_size, n_c=n_c)
+            print(TD)
+            print(len(freq_list))
             non_total = 0
             syn_total = 0
             non_fixed = 0
@@ -350,6 +363,11 @@ def get_diversity_stats():
             theta_list.append(theta)
             TD_list.append(TD)
             dnds_total_list.append(dnds_total)
+            # number divisions
+            binary_divisions = sum([2**i for i in range(int( math.floor(np.log2(n_c*mean_freq)) ))])
+            binary_divisions_list.append(binary_divisions)
+            b_div_d_list.append(binary_divisions / (n_0_c - n_c))
+
             df_out.write('\t'.join([ taxon, taxon_sample, str(pi), str(theta), str(TD), str(dnds_total), str(dnds_fixed), str(mean_freq)]) + '\n')
 
         # get taxon level stats
@@ -361,7 +379,10 @@ def get_diversity_stats():
         TD_list_all.append(np.mean(TD_list))
         mean_dnds_total = np.mean(dnds_total_list)
         dnds_total_list_all.append(mean_dnds_total)
+        binary_divisions_all.append(np.mean(binary_divisions_list))
+        b_div_d_all.append(np.mean(b_div_d_list))
         taxa_all.append(taxon)
+
         tt = (mean_dnds_total-1)/ (np.std(dnds_total_list) / np.sqrt(float(len(dnds_total_list))))
         p_val = t.sf(np.abs(tt), len(dnds_total_list)-1) # left-tailed one-sided t-test, so use CDF
         n_reps_all.append(len(dnds_total_list))
@@ -373,9 +394,9 @@ def get_diversity_stats():
     reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(p_value_all, alpha=0.05, method='fdr_bh')
     # two files, one for dnds one for rest of diversity stats
     df_out_taxa = open(lt.get_path() + '/data/breseq/genetic_diversity_taxa.txt', 'w')
-    df_out_taxa.write('\t'.join(['Species', 'n_muts', 'mean_freq', 'Theta', 'Pi', 'Tajimas_D']) + '\n')
+    df_out_taxa.write('\t'.join(['Species', 'n_muts', 'mean_freq', 'Theta', 'Pi', 'Tajimas_D', 'binary_divisions', 'b_div_d']) + '\n')
     for i in range(len(taxa_all)):
-        df_out_taxa.write('\t'.join([taxa_all[i], str(n_muts_all[i]), str(mean_freq_list_all[i]), str(theta_list_all[i]), str(pi_list_all[i]), str(TD_list_all[i])]) + '\n')
+        df_out_taxa.write('\t'.join([taxa_all[i], str(n_muts_all[i]), str(mean_freq_list_all[i]), str(theta_list_all[i]), str(pi_list_all[i]), str(TD_list_all[i]), str(binary_divisions_all[i]), str(b_div_d_all[i]) ]) + '\n')
     df_out_taxa.close()
 
 
@@ -388,7 +409,7 @@ def get_diversity_stats():
 
 
 
-def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05, n_nonsyn_min=50):
+def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=20):
     output_path = lt.get_path() + '/data/breseq/output/'
     # pass nest list with frequency, coverage of major, coverage of minor, taxon
     output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
@@ -492,11 +513,10 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05, n_nonsyn_min=50)
         pooled_tupe_multiplicities_y = [sum(pooled_tupe_multiplicities_y[i:]) / sum(pooled_tupe_multiplicities_y) for i in range(len(pooled_tupe_multiplicities_y))]
 
         null_multiplicity_survival = lt.NullGeneMultiplicitySurvivalFunction.from_parallelism_statistics( gene_parallelism_statistics )
-        #observed_ms, observed_multiplicity_survival = lt.calculate_unnormalized_survival_from_vector(pooled_multiplicities)
+        #observed_ms_test, observed_multiplicity_survival_test = lt.calculate_unnormalized_survival_from_vector(pooled_multiplicities)
         null_multiplicity_survival_copy = null_multiplicity_survival(pooled_multiplicities)
         null_multiplicity_survival_copy = [sum(null_multiplicity_survival_copy[i:]) / sum(null_multiplicity_survival_copy) for i in range(len(null_multiplicity_survival_copy)) ]
         #threshold_idx = numpy.nonzero((null_multiplicity_survival(observed_ms)*1.0/observed_multiplicity_survival)<FDR)[0][0]
-
         mult_survival_dict = {'Mult': pooled_multiplicities, 'Obs_fract': pooled_tupe_multiplicities_y, 'Null_fract': null_multiplicity_survival_copy}
         mult_survival_df = pd.DataFrame(mult_survival_dict)
         mult_survival_df_out = lt.get_path() + '/data/breseq/mult_survival_curves/' + taxon + '.txt'
@@ -505,7 +525,6 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05, n_nonsyn_min=50)
         # get likelihood score and null test
         observed_G, pvalue = lt.calculate_total_parallelism(gene_parallelism_statistics)
         G_score_list.append((taxon, observed_G, pvalue))
-
         print(observed_G, pvalue)
         if pvalue >= 0.05:
             continue
@@ -513,7 +532,7 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05, n_nonsyn_min=50)
         gene_logpvalues = lt.calculate_parallelism_logpvalues(gene_parallelism_statistics)
         pooled_pvalues = []
         for gene_name in gene_logpvalues.keys():
-            if gene_parallelism_statistics[gene_name]['observed']>= nmin:
+            if (gene_parallelism_statistics[gene_name]['observed']>= nmin) and (float(gene_logpvalues[gene_name]) >= 0):
                 pooled_pvalues.append( gene_logpvalues[gene_name] )
 
         pooled_pvalues = np.array(pooled_pvalues)
@@ -524,8 +543,15 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05, n_nonsyn_min=50)
         null_pvalue_survival = lt.NullGeneLogpSurvivalFunction.from_parallelism_statistics( gene_parallelism_statistics, nmin=nmin)
         observed_ps, observed_pvalue_survival = lt.calculate_unnormalized_survival_from_vector(pooled_pvalues, min_x=-4)
         # Pvalue version
-        threshold_idx = np.nonzero((null_pvalue_survival(observed_ps)*1.0/observed_pvalue_survival)<FDR)[0][0]
-        pstar = observed_ps[threshold_idx] # lowest value where this is true
+        # remove negative minus log p values.
+        neg_p_idx = np.where(observed_ps>=0)
+        observed_ps_copy = observed_ps[neg_p_idx]
+        observed_pvalue_survival_copy = observed_pvalue_survival[neg_p_idx]
+        pvalue_pass_threshold = np.nonzero(null_pvalue_survival(observed_ps_copy)*1.0/observed_pvalue_survival_copy<FDR)[0]
+        if len(pvalue_pass_threshold) == 0:
+            continue
+        threshold_idx = pvalue_pass_threshold[0]
+        pstar = observed_ps_copy[threshold_idx] # lowest value where this is true
         num_significant = observed_pvalue_survival[threshold_idx]
         # make it log base 10
         logpvalues_dict = {'P_value': observed_ps/math.log(10), 'Obs_num': observed_pvalue_survival, 'Null_num': null_pvalue_survival(observed_ps)}
@@ -537,12 +563,12 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 3, FDR = 0.05, n_nonsyn_min=50)
 
         output_mult_gene_filename = lt.get_path() + '/data/breseq/mult_genes/' + taxon + '.txt'
         output_mult_gene = open(output_mult_gene_filename,"w")
-        output_mult_gene.write(", ".join(["Gene", "Length", "Observed", "Expected", "Multiplicity", "-log10(P)"]))
+        output_mult_gene.write(",".join(["Gene", "Length", "Observed", "Expected", "Multiplicity", "-log10(P)"]))
         for gene_name in sorted(gene_parallelism_statistics, key=lambda x: gene_parallelism_statistics.get(x)['observed'],reverse=True):
-            #if gene_name in gene_logpvalues:
             if gene_logpvalues[gene_name] >= pstar and gene_parallelism_statistics[gene_name]['observed']>=nmin:
                 output_mult_gene.write("\n")
-                output_mult_gene.write("%s, %0.1f, %d, %0.2f, %0.2f, %g" % (gene_name, gene_parallelism_statistics[gene_name]['length'],  gene_parallelism_statistics[gene_name]['observed'], gene_parallelism_statistics[gene_name]['expected'], gene_parallelism_statistics[gene_name]['multiplicity'], abs(gene_logpvalues[gene_name])))
+                # log base 10 transform the p-values here as well
+                output_mult_gene.write("%s, %0.1f, %d, %0.2f, %0.2f, %g" % (gene_name, gene_parallelism_statistics[gene_name]['length'],  gene_parallelism_statistics[gene_name]['observed'], gene_parallelism_statistics[gene_name]['expected'], gene_parallelism_statistics[gene_name]['multiplicity'], abs(gene_logpvalues[gene_name])/math.log(10) ))
         output_mult_gene.close()
 
     G_score_list_p_vales = [i[2] for i in G_score_list]
@@ -654,7 +680,6 @@ def annotate_significant_genes():
                                     locus_tag_refseq_dict[gene_name] = [inference.split(':')[-1], product]
 
         # finally get maple annotation for the genes with significant # mutations
-        print(taxon)
         for locus_tag in locus_tags:
             if locus_tag not in locus_tag_refseq_dict:
                 continue
@@ -669,14 +694,10 @@ def annotate_significant_genes():
 
 
 
-
-
-
-
-
-#get_diversity_stats()
+get_diversity_stats()
 #run_parallelism_analysis()
 #annotate_significant_genes()
+
 
 #for strain in lt.strain_list():
 #    merge_maple(strain)

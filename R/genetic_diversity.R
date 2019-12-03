@@ -10,13 +10,20 @@ library('latex2exp')
 library('ggpubr')
 library('plotrix')
 
-plot(c(1,2,3,4), c(3,4,5,6))
 
 df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
                          header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 rownames(df.species) <- df.species$Species
 div <-  read.table("data/breseq/genetic_diversity_taxa.txt",sep = "\t",header = TRUE)
 df.merge <- merge(df.species, div,by="Species")
+
+plot(log10(df.merge$binary_divisions), log10(df.merge$alpha), xlab = "Number of cell divisions, log10", ylab="Shape parameter, k log10")
+
+##### alpha vs. number divisions#####
+
+
+
+
 
 # two sample t-test for beta and alpha b/w taxa with enough and not enough mutations
 rownames(df.merge) <- df.merge$Species

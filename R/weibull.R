@@ -18,8 +18,7 @@ strains <- sort(unique(obs$Strain))
 #strains <- strains[table(obs$Strain)>10]
 #strains <- c('KBS0713')
 obs <- obs[obs$Strain%in%strains,]
-summ <- matrix(NA,length(strains)*max(obs$Rep),18)
-pdf('figs/weibull_fits.pdf') # Uncomment to create pdf that will plot data and fits
+summ <- matrix(NA,length(strains)*max(obs$Rep),20)
 counter <- 1
 for(i in 1:length(strains)){
   strainObs=obs[obs$Strain==strains[i],]
@@ -146,23 +145,21 @@ for(i in 1:length(strains)){
       summ[counter,17] <- p.value
       summ[counter,18] <- max(repObs["time"]-1)
       
-      print(max(repObs["time"]-1))
-      
-      ### *** Comment/Uncomment following code to make pdf figs*** ###
-      title=paste(strains[i],"  rep ",reps[j])
-      plot(repObs$time,repObs$prop,main=title,ylim=c(min(repObs$prop),0), 
-           xlab = 'Time (days)', ylab = 'Proportion surviving, log' )
-      predTime=seq(0,max(repObs$time))
-      lines(repObs$time, (-1 * ((repObs$time /beta )^ alpha )), 
-            lwd=4, lty=2, col = "red")
+      # s.d. for time until extinction
+      summ[counter,19] <- ((-1*log(500 /N_0)) ** (1/alpha)) * beta
+      dlog10T_dBeta <-log10(exp(1)) * (beta**-1)
+      S_ext <- 500 / N_0
+      dlog10T_extAlpha <- -1* (log10( log(1/S_ext) )) / (alpha**2)
+      dlog10T_ext_vector <- c(dlog10T_dBeta, dlog10T_extAlpha)
+      summ[counter,20] <- sqrt(t(dlog10T_ext_vector) %*% best.fit@vcov[1:2,1:2] %*% dlog10T_ext_vector)
       counter=counter+1
     }
   }
 }
 
-dev.off() 
+dev.off()
 summ=summ[!is.na(summ[,1]),]
-colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0", "N_final", "LR", "p.value", "Last_date")
+colnames(summ)=c('strain','rep','beta','alpha','std_dev','AIC', 'N.obs', 'beta.sd', 'alpha.sd', 'z.sd', 'mttf', 'mttf.sd', 'log10.mttf.sd',  "N_0", "N_final", "LR", "p.value", "Last_date", "T_ext", "log10.T_ext.sd")
 write.csv(summ,"data/demography/weibull_results.csv")
 
 
@@ -178,8 +175,7 @@ df <- df[!(df$strain == "KBS0711" & df$rep == 10 ),]
 df <- df[!(df$strain == "KBS0711" & df$rep == 11 ),] 
 df <- df[!(df$strain == "KBS0711" & df$rep == 12 ),] 
 df <- df[!(df$strain=="KBS0727"),]
-
-
+df$N_0_beta <- df$N_0/df$beta
 # multiple testing correction 
 df$p.value.BH <- p.adjust(df$p.value, method = "BH", n = length(df$p.value))
 write.csv(df, file = "data/demography/weibull_results_clean.csv")
@@ -187,17 +183,21 @@ write.csv(df, file = "data/demography/weibull_results_clean.csv")
 
 # get mean time to failure and CIs
 df$beta.log10 <- log10(df$beta)
+df$alpha.log10 <- log10(df$alpha)
 df$mttf.log10 <- log10(df$mttf)
 df$N_0.log10 <- log10(df$N_0)
+df$N_0_beta.log10 <- log10(df$N_0_beta)
+
 df$N_final.log10 <- log10(df$N_final)
 df$delta_N.log10 <- log10(df$N_0 - df$N_final) 
-df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10', 'delta_N.log10', 'Last_date', 'LR', 'p.value.BH', 'N_0.log10', 'N_final.log10')], list(df$strain), mean)
+df$T_ext.log10 <- log10(df$T_ext) 
+
+df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10', 'delta_N.log10', 'Last_date', 'LR', 'p.value.BH', 'N_0.log10', 'N_final.log10', 'N_0_beta.log10', 'alpha.log10', 'T_ext.log10')], list(df$strain), mean)
 colnames(df.species.mean)[1] <- "Species"
 
-df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10')], list(df$strain), std.error)
-colnames(df.species.log10.se) <-  c("Species", "beta.log10.se", "mttf.log10.se")
+df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10', 'T_ext.log10')], list(df$strain), std.error)
+colnames(df.species.log10.se) <-  c("Species", "beta.log10.se", "mttf.log10.se", "T_ext.log10.se")
 df.species <- merge(df.species.mean, df.species.log10.se,by="Species")
-
 # function to calculate pooled standard error
 get.pooled.se <- function(strains){
   df.strain.new <- data.frame()
@@ -210,6 +210,7 @@ get.pooled.se <- function(strains){
     # remove rows with NAs
     if(strain == "KBS0812"){
       pooled.log10.mttf.se <- sd(df.strain$mttf.log10) / sqrt(N.reps)
+      pooled.log10.T_ext.se <- sd(df.strain$T_ext.log10) / sqrt(N.reps)
       pooled.alpha.se <- sd(df.strain$alpha) / sqrt(N.reps)
     }
     else {
@@ -217,12 +218,14 @@ get.pooled.se <- function(strains){
       
       pooled.log10.mttf.var <- sum((df.strain$N.obs-1) * (df.strain$log10.mttf.sd ** 2)) / sum(df.strain$N.obs-1)
       pooled.alpha.var <- sum((df.strain$N.obs-1) * (df.strain$alpha.sd ** 2)) / sum(df.strain$N.obs-1)
+      pooled.log10.T_ext.var <- sum((df.strain$N.obs-1) * (df.strain$log10.T_ext.sd ** 2)) / sum(df.strain$N.obs-1)
       
       pooled.log10.mttf.se <- sqrt(pooled.log10.mttf.var) / sqrt(N.reps)
       pooled.alpha.se <- sqrt(pooled.alpha.var) / sqrt(N.reps)
+      pooled.log10.T_ext.se <- sqrt(pooled.log10.T_ext.var) / sqrt(N.reps)
     }
     
-    df.strain.new.row <- data.frame(strain, pooled.log10.mttf.se, pooled.alpha.se, log10.N_0, log10.N_0.se)
+    df.strain.new.row <- data.frame(strain, pooled.log10.mttf.se, pooled.alpha.se, log10.N_0, log10.N_0.se, pooled.log10.T_ext.se)
     df.strain.new <- rbind(df.strain.new, df.strain.new.row)
   }
   return(df.strain.new)
