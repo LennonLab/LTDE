@@ -23,7 +23,6 @@ lr.plot <- ggplot(data = df) +
   ylim(-10, 250) +
   coord_flip() +
   theme_bw() + 
-  annotate("text", x=20, y=-10, label= "d", size = 8, fontface =2) +
   theme(axis.title.y=element_blank(), 
         axis.text.y=element_text(size = 13), 
         axis.title.x = element_text(color="black", size=20, vjust=0, hjust=0.5), 
@@ -57,20 +56,7 @@ lr.plot <- ggplot(data = df) +
                              "KBS0812" = expression(paste(italic("Bacillus"), " sp. KBS0812"))))
 
 
-#g <- ggarrange(KBS0714.R4.plot, KBS0703.R4.plot, KBS0812.R4.plot,                                              # First row with scatter plot
-#               # Second row with box and dot plots
-#               ncol = 3, nrow = 1,
-#               labels = "auto")
 
-g <- ggarrange(ggarrange(KBS0714.R4.plot, KBS0703.R4.plot, KBS0812.R4.plot, ncol = 3, labels = c("a", "b", "c"), font.label = list(size = 22, color = "black")),
-               # First row with scatter plot
-               lr.plot,
-               # Second row with box and dot plots
-               nrow = 2, 
-               labels = NULL)
-
-
-
-ggsave(file="figs/likelihood.png", g, width=12,height=9, units='in', dpi=600)
+ggsave(file="figs/likelihood.png", lr.plot, width=12,height=9, units='in', dpi=600)
 
 

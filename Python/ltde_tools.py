@@ -1,5 +1,5 @@
 from __future__ import division
-import os, math, decimal
+import os, math
 import numpy as np
 import pandas as pd
 from scipy.stats import poisson
@@ -322,8 +322,8 @@ def calculate_synonymous_nonsynonymous_target_sizes(taxon):
     effective_gene_lengths_synonymous = sum([effective_gene_synonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
     effective_gene_lengths_nonsynonymous = sum([effective_gene_nonsynonymous_sites[gene_name] for gene_name in gene_length_map.keys()])
     effective_gene_lengths_noncoding = get_genome_size_dict()[taxon] - effective_gene_lengths_synonymous-effective_gene_lengths_nonsynonymous
-
-    return effective_gene_lengths, effective_gene_lengths_synonymous, effective_gene_lengths_nonsynonymous, effective_gene_lengths_noncoding
+    # first two objects returned are dicts
+    return effective_gene_lengths, effective_gene_synonymous_sites, effective_gene_lengths_synonymous, effective_gene_lengths_nonsynonymous, effective_gene_lengths_noncoding
 
 
 
@@ -335,6 +335,16 @@ def get_init_final_pop_size(population):
     df = pd.read_csv(get_path() + '/data/demography/weibull_results_clean.csv', sep = ',')
     df_taxon_rep = df[(df['strain']==taxon) & (df['rep']==rep)]
     return int(df_taxon_rep.N_0.values[0]), int(df_taxon_rep.N_final.values[0])
+
+
+def get_total_time(population):
+    taxon = population.split('-')[0]
+    rep = rename_rep()[population.split('-')[1]]
+    df = pd.read_csv(get_path() + '/data/demography/weibull_results_clean.csv', sep = ',')
+    df_taxon_rep = df[(df['strain']==taxon) & (df['rep']==rep)]
+    return int(df_taxon_rep.Last_date.values[0])
+
+
 
 
 
@@ -412,7 +422,7 @@ def get_a_1(n_c):
     return sum( [1/k for k in range(1, n_c)] )
 
 def get_theta(nested_list, n_c, size):
-    return len(nested_list[0]) / (get_a_1(n_c) * size)
+    return len(nested_list) / (get_a_1(n_c) * size)
 
 
 

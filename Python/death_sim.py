@@ -51,10 +51,10 @@ for x in range(t_steps):
 
 fig = plt.figure()
 plt.scatter(T_t, N_t, color = '#175ac6')
+plt.ylim([1, max(N_t)])
 
 plt.yscale('log')
 
-#plt.ylim([min(N_t),N])
 
 
 

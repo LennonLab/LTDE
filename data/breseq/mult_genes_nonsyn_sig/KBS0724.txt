@@ -1,2 +1,4 @@
-Gene, Length, Observed, Expected, Multiplicity, -log10(P)
-FFI94_RS15950, 221.3, 2, 0.00, 6.67, 6.16825
+Gene,Length,Observed,Expected,Multiplicity,-log10(P)
+FFI94_RS15060, 1026.3, 6, 0.01, 4.31, 14.6069
+FFI94_RS00335, 3472.7, 5, 0.04, 1.06, 9.23365
+FFI94_RS16280, 190.3, 3, 0.00, 11.63, 8.84685

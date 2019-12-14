@@ -4,7 +4,6 @@ setwd("~/GitHub/LTDE/")
 
 library('bbmle')
 library('devtools')
-library('plotrix')
 library('pracma')
 #install_github("rmcelreath/rethinking")
 #library('rethinking')
@@ -15,8 +14,8 @@ obs <- read.csv("data/demography/longtermdormancy_20190528_nocomments.csv",
 ## Adding 1 to deal with log(0) observations
 obs$Abund <- (as.numeric(obs$Colonies) +1)* (1000 / as.numeric(obs$Inoculum )) * ( 10 ^  as.numeric(obs$Dilution) )
 strains <- sort(unique(obs$Strain))
-#strains <- strains[table(obs$Strain)>10]
-#strains <- c('KBS0713')
+strains <- strains[table(obs$Strain)>10]
+#strains <- c('KBS0711')
 obs <- obs[obs$Strain%in%strains,]
 summ <- matrix(NA,length(strains)*max(obs$Rep),20)
 counter <- 1
@@ -31,6 +30,7 @@ for(i in 1:length(strains)){
       start=repObs[1,1]
       time<-(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
               as.numeric(strptime(repObs$Dormstart_date,format="%d-%b-%y",tz="EST")))/(3600*24)
+      print(length(time))
       #time=(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
       #        as.numeric(strptime(start,format="%d-%b-%y",tz="EST")))/(3600*24)
       # sort the data
@@ -51,7 +51,7 @@ for(i in 1:length(strains)){
       #beta = Initial death (larger = slower) 
       #alpha = Bend (upper = 1 = first-order decay)
       #Z = Error
-      grids<-list(beta=c(1,10,50,100,200),alpha=c(0.05,0.1,0.5,1,1.1,1.5),z=c(0.1,1,10))
+      grids<-list(beta=c(1,10,50,100,200),alpha=c(0.05,0.1,0.5,1),z=c(0.1,1,10))
       start<-list(beta=NA,alpha=NA,z=NA)
       grid.starts<-as.matrix(expand.grid(grids))
       ncombos<-dim(grid.starts)[[1]]
@@ -69,6 +69,12 @@ for(i in 1:length(strains)){
                     start = new.start, data = repObs,
                     control=list(parscale=pscale, maxit=1000), 
                     method="Nelder-Mead", hessian = T)
+        
+        #fit <- mle2(minuslogl=prop ~ dnorm(mean =  -1 * ((time / beta)^ alpha), sd = z), 
+        #            start = new.start, data = repObs, lower = c(beta = 2, alpha =0.001), upper = c(beta=1000, alpha =1),
+        #            control=list(parscale=pscale, maxit=1000), 
+        #            method="L-BFGS-B", hessian = T)
+        
         res.mat[k,]<-c(coef(fit),AIC(fit))	
         res.mod[[k]]<-fit
       }
@@ -192,10 +198,12 @@ df$N_final.log10 <- log10(df$N_final)
 df$delta_N.log10 <- log10(df$N_0 - df$N_final) 
 df$T_ext.log10 <- log10(df$T_ext) 
 
-df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10', 'delta_N.log10', 'Last_date', 'LR', 'p.value.BH', 'N_0.log10', 'N_final.log10', 'N_0_beta.log10', 'alpha.log10', 'T_ext.log10')], list(df$strain), mean)
+df$delta.mttf.log10 <- log10(df$mttf - df$beta) 
+
+df.species.mean <- aggregate(df[, c('beta', 'alpha', 'mttf', 'N_0', 'N_final', 'beta.log10','mttf.log10', 'delta_N.log10', 'Last_date', 'LR', 'p.value.BH', 'N_0.log10', 'N_final.log10', 'N_0_beta.log10', 'alpha.log10', 'T_ext.log10', 'delta.mttf.log10')], list(df$strain), mean)
 colnames(df.species.mean)[1] <- "Species"
 
-df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10', 'T_ext.log10')], list(df$strain), std.error)
+df.species.log10.se <- aggregate(df[, c('beta.log10', 'mttf.log10', 'T_ext.log10', 'delta.mttf.log10')], list(df$strain), std.error)
 colnames(df.species.log10.se) <-  c("Species", "beta.log10.se", "mttf.log10.se", "T_ext.log10.se")
 df.species <- merge(df.species.mean, df.species.log10.se,by="Species")
 # function to calculate pooled standard error

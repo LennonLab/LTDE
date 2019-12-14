@@ -12,6 +12,8 @@ from scipy.stats import t
 
 import matplotlib.pyplot as plt
 
+output_path = lt.get_path() + '/data/breseq/output/'
+output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
 
 def make_16S_fasta():
     alignments = ['KBS0710_NR_024911', 'KBS0721_NR_114994']
@@ -231,25 +233,54 @@ def get_breseq_samples_to_keep():
     return to_keep
 
 
-
-
-def get_diversity_stats():
-    df_out = open(lt.get_path() + '/data/breseq/genetic_diversity.txt', 'w')
-    df_out.write('\t'.join(['Species', 'Sample', 'Pi', 'Theta', 'Tajimas_D', 'dN_dS_total', 'dN_dS_fixed', 'mean_freq']) + '\n')
-    # pass nest list with frequency, coverage of major, coverage of minor, taxon
-    output_to_keep = ['INS', 'DEL', 'SNP']
+def get_breseq_taxa_to_keep():
     to_keep_samples = get_breseq_samples_to_keep()
-    output_path = lt.get_path() + '/data/breseq/output/'
     # get list of taxa to analyze
     to_keep_taxa = list(set([ x.split('-')[0] for x in to_keep_samples ]))
     for taxon in to_keep_taxa:
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
         if len(taxon_samples) < 3:
             to_keep_taxa.remove(taxon)
+    to_keep_taxa.sort()
+    return to_keep_taxa
+
+def get_sites_to_remove(taxon):
+    to_keep_samples = get_breseq_samples_to_keep()
+    taxon_sites = []
+    taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
+    for taxon_sample in taxon_samples:
+        for i, line in enumerate(open(output_path + taxon_sample + '.gd', 'r')):
+            line_split = line.strip().split('\t')
+            if line_split[0] in output_to_keep:
+                # a lot of mutations at the first base of each contig, ignore these
+                if line_split[4] == '1':
+                    continue
+                taxon_sites.append( line_split[3] + '_' + str(line_split[4]))
+
+    counts_across_reps_dict = Counter(taxon_sites)
+    counts_across_reps = list(counts_across_reps_dict.values())
+    count_dict_to_remove = dict((k, v) for k, v in counts_across_reps_dict.items() if v > 1)
+    sites_to_remove = list(count_dict_to_remove.keys())
+    return sites_to_remove
+
+
+def get_diversity_stats(afs_cutoff=50, mean_cutoff=20):
+    df_out = open(lt.get_path() + '/data/breseq/genetic_diversity.txt', 'w')
+    df_out_header = ['Species', 'sample', 'rep', 'mean_freq', 'max_freq', \
+                    'pi', 'theta', 'tajimas_d', 'dn_ds_total', \
+                    'mean_N_mut', 'mean_binary_divisions', 'mean_gen_per_day', 'mean_birth_per_death', \
+                    'max_N_mut', 'max_binary_divisions', 'max_gen_per_day', 'max_birth_per_death']
+
+    df_out.write('\t'.join(df_out_header) + '\n')
+    # pass nest list with frequency, coverage of major, coverage of minor, taxon
+    #output_to_keep = ['INS', 'DEL', 'SNP']
+    to_keep_samples = get_breseq_samples_to_keep()
+    to_keep_taxa = get_breseq_taxa_to_keep()
     # all the diversity measures
     taxa_all = []
     n_muts_all = []
     mean_freq_list_all = []
+    max_freq_list_all = []
     pi_list_all = []
     theta_list_all = []
     TD_list_all = []
@@ -258,39 +289,42 @@ def get_diversity_stats():
     p_value_all = []
     n_reps_all = []
     n_syn_non_muts_all = []
-    binary_divisions_all = []
-    b_div_d_all = []
+
+    mean_N_mut_all = []
+    max_N_mut_all = []
+    binary_divisions_mean_all = []
+    binary_divisions_max_all = []
+    b_div_d_mean_all = []
+    b_div_d_max_all = []
+    mean_gen_per_day_all =  []
+    max_gen_per_day_all = []
     for taxon in to_keep_taxa:
         if taxon == 'KBS0727':
             continue
         print(taxon)
-        effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = lt.calculate_synonymous_nonsynonymous_target_sizes(taxon)
-        taxon_sites = []
+        #effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = lt.calculate_synonymous_nonsynonymous_target_sizes(taxon)
+        effective_gene_lengths, effective_gene_lengths_syn, Lsyn, Lnon, substitution_specific_synonymous_fraction = lt.calculate_synonymous_nonsynonymous_target_sizes(taxon)
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
-        for taxon_sample in taxon_samples:
-            for i, line in enumerate(open(output_path + taxon_sample + '.gd', 'r')):
-                line_split = line.strip().split('\t')
-                if line_split[0] in output_to_keep:
-                    # a lot of mutations at the first base of each contig, ignore these
-                    if line_split[4] == '1':
-                        continue
-                    taxon_sites.append( line_split[3] + '_' + str(line_split[4]))
-
-        counts_across_reps_dict = Counter(taxon_sites)
-        counts_across_reps = list(counts_across_reps_dict.values())
-        count_dict_to_remove = dict((k, v) for k, v in counts_across_reps_dict.items() if v > 2)
-        sites_to_remove = list(count_dict_to_remove.keys())
+        sites_to_remove = get_sites_to_remove(taxon)
         genome_size = lt.get_genome_size_dict()[taxon]
         # list of diversity statistics
         mean_freq_list = []
+        max_freq_list = []
         pi_list = []
         theta_list = []
         TD_list = []
         dnds_total_list = []
         n_muts_list = []
         n_syn_non_muts_list = []
-        binary_divisions_list = []
-        b_div_d_list = []
+
+        mean_N_mut_list = []
+        max_N_mut_list = []
+        binary_divisions_mean_list = []
+        binary_divisions_max_list = []
+        b_div_mean_d_list = []
+        b_div_max_d_list = []
+        mean_gen_per_day_list =  []
+        max_gen_per_day_list = []
         for taxon_sample in taxon_samples:
             if taxon_sample == 'KBS0711-K':
                 continue
@@ -322,15 +356,29 @@ def get_diversity_stats():
                     freq_list.append([freq, total_cov, major_cov, minor_cov])
                     n_muts += 1
 
-            n_muts_list.append(n_muts)
+            # only look at the AFS in pops with at least 50 mutations
+            if len(freq_list) >= afs_cutoff:
+                #print('keep rep!')
+                # print allele frequencies to a file
+                df_out_freq_taxa = open(lt.get_path() + '/data/breseq/allele_freq_spec/' + str(taxon_sample) + '.txt', 'w')
+                df_out_freq_taxa.write('\t'.join(['freq', 'total_cov', 'major_cov', 'minor_cov']) + '\n')
+                for freq_list_i in freq_list:
+                    df_out_freq_taxa.write('\t'.join([str(freq_list_i[0]), str(freq_list_i[1]), str(freq_list_i[2]), str(freq_list_i[3])]) + '\n')
+                df_out_freq_taxa.close()
 
-            pi = lt.get_pi(freq_list, n_c, genome_size)
-            theta = lt.get_theta(freq_list, n_c, genome_size)
+            # only look at mean properties for pops with at least 20 mutations
+            if len(freq_list) < mean_cutoff:
+                continue
+
+            n_muts_list.append(n_muts)
+            pi = lt.get_pi(freq_list, n_c=n_c, size=genome_size)
+            theta = lt.get_theta(freq_list, n_c=n_c, size=genome_size)
             mean_freq = np.mean([ float(i[0]) for i in  freq_list])
+            max_freq = max([ float(i[0]) for i in  freq_list])
+            # print all frequencies to a file
+
             # genome size cancels out during the TD calculation
-            TD = lt.get_TD(freq_list=freq_list, pi=pi*genome_size, theta=theta*genome_size, n_c=n_c)
-            print(TD)
-            print(len(freq_list))
+            tajimas_d = lt.get_TD(freq_list=freq_list, pi=pi*genome_size, theta=theta*genome_size, n_c=n_c)
             non_total = 0
             syn_total = 0
             non_fixed = 0
@@ -359,28 +407,75 @@ def get_diversity_stats():
             dnds_fixed = ((non_fixed+1)/(syn_fixed+1))/((Lnon+1)/(Lsyn+1))
 
             mean_freq_list.append(mean_freq)
+            max_freq_list.append(max_freq)
             pi_list.append(pi)
             theta_list.append(theta)
-            TD_list.append(TD)
+            TD_list.append(tajimas_d)
             dnds_total_list.append(dnds_total)
             # number divisions
-            binary_divisions = sum([2**i for i in range(int( math.floor(np.log2(n_c*mean_freq)) ))])
-            binary_divisions_list.append(binary_divisions)
-            b_div_d_list.append(binary_divisions / (n_0_c - n_c))
+            mean_N_mut = n_c*mean_freq
+            max_N_mut = n_c*max_freq
+            binary_divisions_mean = sum([2**i for i in range(int( math.floor(np.log2(mean_N_mut)) ))])
+            binary_divisions_max = sum([2**i for i in range(int( math.floor(np.log2(max_N_mut)) ))])
 
-            df_out.write('\t'.join([ taxon, taxon_sample, str(pi), str(theta), str(TD), str(dnds_total), str(dnds_fixed), str(mean_freq)]) + '\n')
+            binary_divisions_mean_list.append(binary_divisions_mean)
+            binary_divisions_max_list.append(binary_divisions_max)
+
+            mean_N_mut_list.append(mean_N_mut)
+            max_N_mut_list.append(max_N_mut)
+
+            b_div_mean_d = binary_divisions_mean / (n_0_c - n_c)
+            b_div_mean_d_list.append(b_div_mean_d)
+            b_div_max_d = binary_divisions_max / (n_0_c - n_c)
+            b_div_max_d_list.append(b_div_max_d)
+
+            rep_num = lt.rename_rep()[taxon_sample.split('-')[1]]
+            time = lt.get_total_time(taxon_sample)
+
+            mean_N_mut = n_c*mean_freq
+            mean_gens_per_day = np.log2(mean_N_mut)/time
+
+            max_N_mut = n_c*max_freq
+            max_gens_per_day = np.log2(max_N_mut)/time
+
+
+
+            mean_gen_per_day_list.append(mean_gens_per_day)
+            max_gen_per_day_list.append(max_gens_per_day)
+
+            df_out_data_list = [taxon, taxon_sample, str(rep_num), str(mean_freq), str(max_freq), \
+                                str(pi), str(theta), str(tajimas_d), str(dnds_total), \
+                                str(mean_N_mut), str(binary_divisions_mean), str(mean_gens_per_day), str(b_div_mean_d),
+                                str(max_N_mut), str(binary_divisions_max), str(max_gens_per_day), str(b_div_max_d)]
+
+            df_out.write('\t'.join(df_out_data_list) + '\n')
 
         # get taxon level stats
+        print(  str(len(dnds_total_list)) + " reps")
+        # only examine dn/ds for taxa with at least three reps
+        if len(dnds_total_list) < 3:
+            continue
+
         n_muts_all.append(np.mean(n_muts_list))
         n_syn_non_muts_all.append(np.mean(n_syn_non_muts_list))
         mean_freq_list_all.append(np.mean(mean_freq_list))
+        max_freq_list_all.append(np.mean(max_freq_list))
+        mean_N_mut_all.append(np.mean(mean_N_mut_list) )
+        max_N_mut_all.append(np.mean(max_N_mut_list) )
+
         pi_list_all.append(np.mean(pi_list))
         theta_list_all.append(np.mean(theta_list))
         TD_list_all.append(np.mean(TD_list))
         mean_dnds_total = np.mean(dnds_total_list)
         dnds_total_list_all.append(mean_dnds_total)
-        binary_divisions_all.append(np.mean(binary_divisions_list))
-        b_div_d_all.append(np.mean(b_div_d_list))
+        binary_divisions_mean_all.append(np.mean(binary_divisions_mean_list))
+        binary_divisions_max_all.append(np.mean(binary_divisions_max_list))
+        b_div_d_mean_all.append(np.mean(b_div_mean_d_list))
+        b_div_d_max_all.append(np.mean(b_div_max_d_list))
+
+        mean_gen_per_day_all.append(np.mean(mean_gen_per_day_list))
+        max_gen_per_day_all.append(np.mean(max_gen_per_day_list))
+
         taxa_all.append(taxon)
 
         tt = (mean_dnds_total-1)/ (np.std(dnds_total_list) / np.sqrt(float(len(dnds_total_list))))
@@ -392,14 +487,21 @@ def get_diversity_stats():
     df_out.close()
 
     reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(p_value_all, alpha=0.05, method='fdr_bh')
+
     # two files, one for dnds one for rest of diversity stats
-    df_out_taxa = open(lt.get_path() + '/data/breseq/genetic_diversity_taxa.txt', 'w')
-    df_out_taxa.write('\t'.join(['Species', 'n_muts', 'mean_freq', 'Theta', 'Pi', 'Tajimas_D', 'binary_divisions', 'b_div_d']) + '\n')
+    df_out_taxa = open(lt.get_path() + '/data/breseq/birth_estimate_taxa.txt', 'w')
+    df_out_taxa_heder = ['Species', 'mean_n_muts', 'mean_freq', 'max_freq', 'Theta', 'Pi', 'Tajimas_D', \
+                        'mean_N_mut', 'mean_binary_divisions', 'mean_gen_per_day', 'mean_birth_per_death' \
+                        'max_N_mut', 'max_binary_divisions', 'max_gen_per_day', 'max_birth_per_death']
+
+    df_out_taxa.write('\t'.join(df_out_taxa_heder) + '\n')
     for i in range(len(taxa_all)):
-        df_out_taxa.write('\t'.join([taxa_all[i], str(n_muts_all[i]), str(mean_freq_list_all[i]), str(theta_list_all[i]), str(pi_list_all[i]), str(TD_list_all[i]), str(binary_divisions_all[i]), str(b_div_d_all[i]) ]) + '\n')
+        out_list_i = [taxa_all[i], str(n_muts_all[i]), str(mean_freq_list_all[i]), \
+            str(max_freq_list_all[i]), str(theta_list_all[i]), str(pi_list_all[i]), str(TD_list_all[i]), \
+            str(mean_N_mut_all[i]), str(binary_divisions_mean_all[i]), str(mean_gen_per_day_all[i]), str(b_div_d_max_all[i]), \
+            str(max_N_mut_all[i]), str(binary_divisions_max_all[i]), str(max_gen_per_day_all[i]), str(b_div_d_mean_all[i]) ]
+        df_out_taxa.write('\t'.join(out_list_i) + '\n')
     df_out_taxa.close()
-
-
 
     df_dNdS_taxa = open(lt.get_path() + '/data/breseq/dN_dS_taxa.txt', 'w')
     df_dNdS_taxa.write('\t'.join(['Species', 'n_reps', 'n_syn_non_muts', 'dN_dS_total', 't_stat', 'p_BH']) + '\n')
@@ -409,76 +511,105 @@ def get_diversity_stats():
 
 
 
-def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=20):
-    output_path = lt.get_path() + '/data/breseq/output/'
+def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=50):
     # pass nest list with frequency, coverage of major, coverage of minor, taxon
-    output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
+    #output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
     to_keep_samples = get_breseq_samples_to_keep()
-    # get list of taxa to analyze
-    to_keep_taxa = list(set([ x.split('-')[0] for x in to_keep_samples ]))
-    for taxon in to_keep_taxa:
-        taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
-        if len(taxon_samples) < nmin_reps:
-            to_keep_taxa.remove(taxon)
-    to_keep_taxa.sort()
-    #to_keep_taxa = ['KBS0722']
+    to_keep_taxa = get_breseq_taxa_to_keep()
     p_star_dict = {}
     G_score_list = []
     for taxon in to_keep_taxa:
         print(taxon)
-        effective_gene_lengths, Lsyn, Lnon, substitution_specific_synonymous_fraction = lt.calculate_synonymous_nonsynonymous_target_sizes(taxon)
+        effective_gene_lengths, effective_gene_lengths_syn, Lsyn, Lnon, substitution_specific_synonymous_fraction = lt.calculate_synonymous_nonsynonymous_target_sizes(taxon)
         taxon_sites = []
         taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
-        for taxon_sample in taxon_samples:
-            for i, line in enumerate(open(output_path + taxon_sample + '.gd', 'r')):
-                line_split = line.strip().split('\t')
-                if line_split[0] in output_to_keep:
-                    # a lot of mutations at the first base of each contig, ignore these
-                    if line_split[4] == '1':
-                        continue
-                    taxon_sites.append( line_split[3] + '_' + str(line_split[4]))
-
-        counts_across_reps_dict = Counter(taxon_sites)
-        counts_across_reps = list(counts_across_reps_dict.values())
-        # only keep mutations that are unique to a population
-        count_dict_to_remove = dict((k, v) for k, v in counts_across_reps_dict.items() if v > 1)
-        sites_to_remove = list(count_dict_to_remove.keys())
+        sites_to_remove = get_sites_to_remove(taxon)
         # keep insertion, deletions, and nonsynonymous SNPs
         # get size_dict
         gene_count_dict = {}
-        for i, line in enumerate(open(lt.get_path() + '/data/breseq/annotated/' + taxon_sample + '.gd', 'r')):
-            line_split = line.strip().split('\t')
-            if (line_split[0] not in output_to_keep): #or ('frequency' in line_split[6]) or (line_split[3] + '_' + line_split[4] in sites_to_remove):
-                continue
-            if line_split[0] == 'SNP':
-                if [s for s in line_split if 'snp_type=' in s][0].split('=')[1] == 'nonsynonymous':
-                    locus_tag = [s for s in line_split if 'locus_tag=' in s][0].split('=')[1]
-                    if ';' in locus_tag:
-                        for locus_tag_j in locus_tag.split(';'):
-                            if locus_tag_j not in gene_count_dict:
-                                gene_count_dict[locus_tag_j] = 1
-                            else:
-                                gene_count_dict[locus_tag_j] += 1
-                    else:
-                        if locus_tag not in gene_count_dict:
-                            gene_count_dict[locus_tag] = 1
-                        else:
-                            gene_count_dict[locus_tag] += 1
-            else:
-                if len([s for s in line_split if 'gene_position=coding' in s]) >= 1:
-                    locus_tag = [s for s in line_split if 'locus_tag=' in s][0].split('=')[1]
-                    if ';' in locus_tag:
-                        for locus_tag_j in locus_tag.split(';'):
-                            if locus_tag_j not in gene_count_dict:
-                                gene_count_dict[locus_tag_j] = 1
-                            else:
-                                gene_count_dict[locus_tag_j] += 1
+        gene_count_syn_dict = {}
+        #print(sites_to_remove)
+        for taxon_sample in taxon_samples:
+            for i, line in enumerate(open(lt.get_path() + '/data/breseq/annotated/' + taxon_sample + '.gd', 'r')):
+                line_split = line.strip().split('\t')
+                if line_split[0] == '#=GENOME_DIFF':
+                    continue
+                if (line_split[3] + '_' + line_split[4] in sites_to_remove):
+                    continue
+                if (line_split[0] not in output_to_keep): #or ('frequency' in line_split[6]) or (line_split[3] + '_' + line_split[4] in sites_to_remove):
+                    continue
+                if line_split[0] == 'SNP':
+                    if [s for s in line_split if 'snp_type=' in s][0].split('=')[1] == 'nonsynonymous':
+                        locus_tag = [s for s in line_split if 'locus_tag=' in s][0].split('=')[1]
+                        frequency = float([s for s in line_split if 'frequency=' in s][0].split('=')[1])
+                        if ';' in locus_tag:
+                            for locus_tag_j in locus_tag.split(';'):
+                                if locus_tag_j not in gene_count_dict:
+                                    gene_count_dict[locus_tag_j] = {}
+                                    gene_count_dict[locus_tag_j]['freqs'] = []
+                                    gene_count_dict[locus_tag_j]['n_mut'] = 0
 
-                    else:
-                        if locus_tag not in gene_count_dict:
-                            gene_count_dict[locus_tag] = 1
+                                gene_count_dict[locus_tag_j]['n_mut'] += 1
+                                gene_count_dict[locus_tag_j]['freqs'].append(frequency)
+
                         else:
-                            gene_count_dict[locus_tag] += 1
+                            if locus_tag not in gene_count_dict:
+                                #gene_count_dict[locus_tag] = 1
+                                gene_count_dict[locus_tag] = {}
+                                gene_count_dict[locus_tag]['freqs'] = []
+                                gene_count_dict[locus_tag]['n_mut'] = 0
+
+                            gene_count_dict[locus_tag]['n_mut'] += 1
+                            gene_count_dict[locus_tag]['freqs'].append(frequency)
+
+
+                    elif [s for s in line_split if 'snp_type=' in s][0].split('=')[1] == 'synonymous':
+                        locus_tag = [s for s in line_split if 'locus_tag=' in s][0].split('=')[1]
+                        frequency = float([s for s in line_split if 'frequency=' in s][0].split('=')[1])
+                        if ';' in locus_tag:
+                            for locus_tag_j in locus_tag.split(';'):
+                                if locus_tag_j not in gene_count_syn_dict:
+                                    gene_count_syn_dict[locus_tag_j] = {}
+                                    gene_count_syn_dict[locus_tag_j]['freqs'] = []
+                                    gene_count_syn_dict[locus_tag_j]['n_mut'] = 0
+
+                                gene_count_syn_dict[locus_tag_j]['n_mut'] += 1
+                                gene_count_syn_dict[locus_tag_j]['freqs'].append(frequency)
+
+                        else:
+                            if locus_tag not in gene_count_syn_dict:
+                                gene_count_syn_dict[locus_tag] = {}
+                                gene_count_syn_dict[locus_tag]['freqs'] = []
+                                gene_count_syn_dict[locus_tag]['n_mut'] = 0
+
+                            gene_count_syn_dict[locus_tag]['n_mut'] += 1
+                            gene_count_syn_dict[locus_tag]['freqs'].append(frequency)
+                    else:
+                        continue
+                else:
+                    if len([s for s in line_split if 'gene_position=coding' in s]) >= 1:
+                        locus_tag = [s for s in line_split if 'locus_tag=' in s][0].split('=')[1]
+                        frequency = float([s for s in line_split if 'frequency=' in s][0].split('=')[1])
+                        if ';' in locus_tag:
+                            for locus_tag_j in locus_tag.split(';'):
+
+                                if locus_tag_j not in gene_count_dict:
+                                    gene_count_dict[locus_tag_j] = {}
+                                    gene_count_dict[locus_tag_j]['freqs'] = []
+                                    gene_count_dict[locus_tag_j]['n_mut'] = 0
+
+                                gene_count_dict[locus_tag_j]['freqs'].append(frequency)
+                                gene_count_dict[locus_tag_j]['n_mut'] += 1
+
+                        else:
+                            if locus_tag not in gene_count_dict:
+                                #gene_count_dict[locus_tag] = 1
+                                gene_count_dict[locus_tag] = {}
+                                gene_count_dict[locus_tag]['freqs'] = []
+                                gene_count_dict[locus_tag]['n_mut'] = 0
+
+                            gene_count_dict[locus_tag]['freqs'].append(frequency)
+                            gene_count_dict[locus_tag]['n_mut'] += 1
 
         gene_parallelism_statistics = {}
         for gene_i, length_i in effective_gene_lengths.items():
@@ -487,21 +618,46 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=20)
             gene_parallelism_statistics[gene_i]['observed'] = 0
             gene_parallelism_statistics[gene_i]['multiplicity'] = 0
 
-        # save number of mutations and multiplicity
-        for locus_tag_i, n_i in gene_count_dict.items():
-            gene_parallelism_statistics[locus_tag_i]['observed'] = n_i
+        gene_parallelism_statistics_syn = {}
+        for gene_i, length_i in effective_gene_lengths_syn.items():
+            gene_parallelism_statistics_syn[gene_i] = {}
+            gene_parallelism_statistics_syn[gene_i]['length'] = length_i
+            gene_parallelism_statistics_syn[gene_i]['observed'] = 0
+            gene_parallelism_statistics_syn[gene_i]['multiplicity'] = 0
+
+        # save number of mutations for multiplicity
+        for locus_tag_i, locus_tag_i_dict in gene_count_dict.items():
+            gene_parallelism_statistics[locus_tag_i]['observed'] = locus_tag_i_dict['n_mut']
+            gene_parallelism_statistics[locus_tag_i]['mean_freq'] = np.mean(locus_tag_i_dict['freqs'])
+
+        # same thing for synonymous
+        for locus_tag_i, locus_tag_i_dict in gene_count_syn_dict.items():
+            gene_parallelism_statistics_syn[locus_tag_i]['observed'] = locus_tag_i_dict['n_mut']
+            gene_parallelism_statistics_syn[locus_tag_i]['mean_freq'] = np.mean(locus_tag_i_dict['freqs'])
+
         L_mean = np.mean(list(effective_gene_lengths.values()))
         L_tot = sum(list(effective_gene_lengths.values()))
-        n_tot = sum(list(gene_count_dict.values()))
+        n_tot = sum([ x['n_mut'] for x in gene_count_dict.values() ])
         # don't include taxa with less than 20 mutations
         print("N_total = " + str(n_tot))
         if n_tot < n_nonsyn_min:
             continue
-        N_genes = len(list(effective_gene_lengths.values()))
         # go back over and calculate multiplicity
         for locus_tag_i in gene_parallelism_statistics.keys():
-            gene_parallelism_statistics[locus_tag_i]['multiplicity'] = gene_parallelism_statistics[locus_tag_i]['observed'] * L_mean / effective_gene_lengths[locus_tag_i]
+            # double check the measurements from this
+            gene_parallelism_statistics[locus_tag_i]['multiplicity'] = gene_parallelism_statistics[locus_tag_i]['observed'] *1.0/ effective_gene_lengths[locus_tag_i] * L_mean
             gene_parallelism_statistics[locus_tag_i]['expected'] = n_tot*gene_parallelism_statistics[locus_tag_i]['length']/L_tot
+
+        # get multiplicity for synonymous mutations
+        L_mean_syn = np.mean(list(effective_gene_lengths_syn.values()))
+        L_tot_syn = sum(list(effective_gene_lengths_syn.values()))
+        n_tot_syn = sum([ x['n_mut'] for x in gene_count_syn_dict.values() ])
+
+        # go back over and calculate multiplicity
+        for locus_tag_i in gene_parallelism_statistics_syn.keys():
+            # double check the measurements from this
+            gene_parallelism_statistics_syn[locus_tag_i]['multiplicity'] = gene_parallelism_statistics_syn[locus_tag_i]['observed'] *1.0/ effective_gene_lengths_syn[locus_tag_i] * L_mean_syn
+            gene_parallelism_statistics_syn[locus_tag_i]['expected'] = n_tot_syn*gene_parallelism_statistics_syn[locus_tag_i]['length']/L_tot_syn
 
         pooled_multiplicities = np.array([gene_parallelism_statistics[gene_name]['multiplicity'] for gene_name in gene_parallelism_statistics.keys() if gene_parallelism_statistics[gene_name]['multiplicity'] >=1])
         pooled_multiplicities.sort()
@@ -561,7 +717,7 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=20)
 
         p_star_dict[taxon] = (num_significant, pstar/math.log(10))
 
-        output_mult_gene_filename = lt.get_path() + '/data/breseq/mult_genes/' + taxon + '.txt'
+        output_mult_gene_filename = lt.get_path() + '/data/breseq/mult_genes_nonsyn_sig/' + taxon + '.txt'
         output_mult_gene = open(output_mult_gene_filename,"w")
         output_mult_gene.write(",".join(["Gene", "Length", "Observed", "Expected", "Multiplicity", "-log10(P)"]))
         for gene_name in sorted(gene_parallelism_statistics, key=lambda x: gene_parallelism_statistics.get(x)['observed'],reverse=True):
@@ -570,6 +726,19 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=20)
                 # log base 10 transform the p-values here as well
                 output_mult_gene.write("%s, %0.1f, %d, %0.2f, %0.2f, %g" % (gene_name, gene_parallelism_statistics[gene_name]['length'],  gene_parallelism_statistics[gene_name]['observed'], gene_parallelism_statistics[gene_name]['expected'], gene_parallelism_statistics[gene_name]['multiplicity'], abs(gene_logpvalues[gene_name])/math.log(10) ))
         output_mult_gene.close()
+
+        output_mult_syn_filename = lt.get_path() + '/data/breseq/mult_genes_all/' + taxon + '.txt'
+        output_mult_syn = open(output_mult_syn_filename,"w")
+        output_mult_syn.write(",".join(["Gene", "mult", "mult_syn", "mean_freq", "mean_freq_syn"]))
+        for locus_tag_i in gene_parallelism_statistics.keys():
+            mult_i = gene_parallelism_statistics[locus_tag_i]['multiplicity']
+            mult_i_syn = gene_parallelism_statistics_syn[locus_tag_i]['multiplicity']
+            if (mult_i > 0) and (mult_i_syn > 0):
+                freq_i = gene_parallelism_statistics[locus_tag_i]['mean_freq']
+                freq_i_syn = gene_parallelism_statistics_syn[locus_tag_i]['mean_freq']
+                output_mult_syn.write("\n")
+                output_mult_syn.write("%s, %f, %f, %f, %f" % (locus_tag_i, mult_i,  mult_i_syn, freq_i, freq_i_syn))
+        output_mult_syn.close()
 
     G_score_list_p_vales = [i[2] for i in G_score_list]
     reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(G_score_list_p_vales, alpha=0.05, method='fdr_bh')
@@ -588,6 +757,8 @@ def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=20)
     total_parallelism.close()
     with open(lt.get_path() + '/data/breseq/p_star.txt', 'wb') as file:
         file.write(pickle.dumps(p_star_dict)) # use `pickle.loads` to do the reverse
+
+
 
 
 
@@ -639,7 +810,7 @@ def annotate_significant_genes():
     taxa = ['ATCC13985', 'KBS0711', 'KBS0712', 'KBS0715']
     for taxon in taxa:
         locus_tags = []
-        for line in open(lt.get_path() + '/data/breseq/mult_genes/' + taxon + '.txt', 'r'):
+        for line in open(lt.get_path() + '/data/breseq/mult_genes_nonsyn_sig/' + taxon + '.txt', 'r'):
             line_split = line.strip().split(',')
             if line_split[0] == 'Gene':
                 continue
@@ -689,7 +860,6 @@ def annotate_significant_genes():
 
             total_parallelism.write("\t".join([taxon, locus_tag, refseq_name, refseq_annotation[1]]) + '\n')
     total_parallelism.close()
-
 
 
 
