@@ -25,7 +25,7 @@ t.test(df.metab.merge.mean$change_fraction_dead, mu=0, alternative="greater")
 
 
 kde.plot <- ggplot(df.metab.merge.mean, aes(df.metab.merge.mean$change_fraction_dead)) +
-  xlab(TeX("Change in fraction of dead cells") ) + 
+  xlab(TeX("Change in proportion of dead cells") ) + 
   ylab('Density') +
   geom_density(fill = "blue", alpha = 0.2) +
   theme_bw() +

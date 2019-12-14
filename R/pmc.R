@@ -9,7 +9,7 @@ setwd("~/GitHub/LTDE/")
 library("pmc")
 library("ape")
 
-iter <- 1000
+iter <- 2
 
 df <- read.table("data/demography/weibull_results_clean_species.csv", 
                  header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
@@ -44,6 +44,31 @@ names(alpha) <- df$Species
 
 alpha.log10 <- log10(alpha)
 names(alpha.log10) <- df$Species
+
+
+
+
+beta.log10.no812 <- df.no812$beta.log10
+names(beta.log10.no812) <- df.no812$Species
+
+alpha.log10.no812 <- df.no812$alpha.log10
+names(alpha.log10.no812) <- df.no812$Species
+
+
+
+tesstttt <- pmc(ml.rooted.no812, alpha.log10.no812, "BM", "lambda", nboot = 2)
+tesstttt <- pmc(ml.rooted, alpha.log10, "BM", "lambda", nboot = 2)
+
+
+
+tesstttt2 <- pmc(ml.rooted.no812, alpha.log10.no812, "BM", "lambda", nboot = 2)
+
+
+
+
+
+
+
 
 
 BM.PL.alpha <- pmc(ml.rooted.um, alpha, "BM", "lambda", nboot = 2)

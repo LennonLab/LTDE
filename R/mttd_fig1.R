@@ -3,22 +3,10 @@ getwd()
 setwd("~/GitHub/LTDE/")
 
 library('ggplot2')
-library('phylolm')
-library('NPCirc')
 library('latex2exp')
-library('rr2')
-library('dplyr')
 library('gridExtra')
 library('ggpubr')
-library('grid')
-library('scales')
 library('viridis')
-library('lmerTest')
-library('MuMIn')
-library('merTools')
-library('lme4')
-library('nlme')
-
 
 obs <- read.csv("data/demography/longtermdormancy_20190528_nocomments.csv", 
                 header = TRUE, stringsAsFactors = FALSE)
@@ -99,10 +87,10 @@ KBS0714.R4.plot <- ggplot(KBS0714.R4.df, aes(x=time, y=N_time)) +
     labels = scales::trans_format("log10", scales::math_format(10^.x))
   ) +
   
-  xlim(-10, 300) +
+  xlim(-10, 1010) +
   theme_bw() +
-  annotate("text", x=250, y=2000000, label=TeX(sprintf("$\\mathit{\\lambda} = %g$", round(KBS0714.R4.beta,2))), size = 5) +
-  annotate("text", x=245, y=550000, label=TeX(sprintf("$\\mathit{k} = %g$", round(KBS0714.R4.alpha,2))), size = 5) +
+  annotate("text", x=850, y=4000000, label=TeX(sprintf("$\\mathit{\\lambda} = %g$", round(KBS0714.R4.beta,2))), size = 5) +
+  annotate("text", x=830, y=950000, label=TeX(sprintf("$\\mathit{k} = %g$", round(KBS0714.R4.alpha,2))), size = 5) +
   
   theme(axis.title.x = element_text(color="black", size=18), 
         axis.title.y = element_text(color="black", size=18), 
@@ -146,7 +134,6 @@ KBS0812.R4.plot <- ggplot(KBS0812.R4.df, aes(x=time, y=N_time)) +
   xlab(TeX("Days, $t$")) + 
   # rate of decay is so high, extinction would almost be instantaneous, so just plot line at zero
   geom_vline(xintercept = 0, linetype="dashed", color="darkgrey", size=1.2) +
-  stat_function(fun = function(x) log10(KBS0812.R4.N0 * exp(-1* x/KBS0812.R4.beta)), linetype="dashed", color="darkgrey", size=1.2) +
   stat_function(fun = function(x) log10(KBS0812.R4.N0 * exp( -1* ((x/KBS0812.R4.beta) ** KBS0812.R4.alpha))), size=1.2 ) +
   scale_y_log10(
     limits = c(10**6, 10**9),
@@ -183,7 +170,6 @@ boxplot <- ggplot(data = df.species) +
   ) +
   coord_flip() +
   geom_hline(yintercept= 10**mean(df.species$mttf.log10), linetype = "longdash", color="black") +
-  geom_hline(yintercept= 100, linetype = "longdash", color = 'grey') +
   theme_bw() + 
   annotate("text", x=19, y=0.9, label= "d", size = 9, fontface =2) +
   theme(axis.title.y=element_blank(), 
