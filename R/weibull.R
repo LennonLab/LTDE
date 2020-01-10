@@ -5,6 +5,7 @@ setwd("~/GitHub/LTDE/")
 library('bbmle')
 library('devtools')
 library('pracma')
+library('plotrix')
 #install_github("rmcelreath/rethinking")
 #library('rethinking')
 
@@ -243,4 +244,7 @@ pooled.se <- get.pooled.se(unique(df$strain))
 colnames(pooled.se)[1] <- "Species"
 df.species.pool <- merge(df.species, pooled.se,by="Species")
 write.csv(df.species.pool, file = "data/demography/weibull_results_clean_species.csv")
+
+
+
 

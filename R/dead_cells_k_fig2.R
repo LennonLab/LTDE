@@ -36,6 +36,16 @@ qqline(resid(mixed.b0_and_b1))
 
 
 
+S_1000 <- df$N_final/df$N_0
+
+log10(df$N_0 - df$N_final)
+
+plot(log10(df$alpha), log10(df$N_0 - log10((df$N_0 - df$N_final) / df$N_0 ) ))
+
+summary(lm(log10((df$N_0 - df$N_final) / df$N_0 )  ~  log10(df$alpha) ))
+
+
+
 # test whether random slopes explain enough variation
 anova(mixed.b0, mixed.b0_and_b1)
 # test whether the fixed effect alpha is significant (slope test)
@@ -145,3 +155,5 @@ merge_plots <- cell.shape.plot + annotation_custom(ggplotGrob(kde.plot), xmin = 
 
 
 ggsave(file="figs/dead_cells_k_fig2.png", merge_plots, width=9,height=9, units='in', dpi=600)
+
+ggsave(file="figs/dead_cells_k_fig2_no_insert.png", cell.shape.plot, width=9,height=9, units='in', dpi=600)
