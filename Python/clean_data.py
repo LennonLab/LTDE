@@ -1,6 +1,6 @@
 from __future__ import division
 import ltde_tools as lt
-import glob, re, os, subprocess, math, json
+import glob, re, os, subprocess, math, json, copy
 import pandas as pd
 import numpy as np
 from collections import Counter
@@ -12,7 +12,6 @@ from scipy.stats import t
 
 import matplotlib.pyplot as plt
 
-output_path = lt.get_path() + '/data/breseq/output/'
 output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
 
 def make_16S_fasta():
@@ -100,7 +99,7 @@ def get_16S_copy_number():
 
 
 
-def clean_iRep():
+def clean_iRep(cutoff=2.5):
     # very low coverage for these taxa
     to_remove = ['KBS0705', 'KBS0706']
     directory = os.fsencode(lt.get_path() + '/data/iRep')
@@ -120,6 +119,8 @@ def clean_iRep():
             if 'W' in strain_rep:
                 continue
             strain_rep = strain_rep[:-1] + str(lt.rename_rep()[strain_rep[-1]])
+            if strain_rep == 'ATCC13985-4':
+                continue
             for i, line in enumerate(open(iRep_path, 'r')):
                 if i == 2:
                     last_item = line.strip().split()[-1]
@@ -211,13 +212,15 @@ def get_assembly_coverage():
     df_out.close()
 
 
-def get_breseq_samples_to_keep():
+def get_breseq_samples_to_keep(cov_min=50):
     json_path = lt.get_path() + '/data/breseq/summary/'
     to_keep = []
     for filename in os.listdir(json_path):
         if filename.endswith(".json") == False:
             continue
         if 'ATCC43928' in filename:
+            continue
+        if 'KBS0727' in filename:
             continue
         with open(json_path + filename) as f:
             data = json.load(f)
@@ -228,7 +231,7 @@ def get_breseq_samples_to_keep():
                     continue
                 coverages.append(data['references']['reference'][contig]['coverage_average'] )
             mean_cov = np.mean(coverages)
-            if mean_cov > 20:
+            if mean_cov > cov_min:
                 to_keep.append(filename.split('.')[0])
     return to_keep
 
@@ -244,27 +247,63 @@ def get_breseq_taxa_to_keep():
     to_keep_taxa.sort()
     return to_keep_taxa
 
+
 def get_sites_to_remove(taxon):
     to_keep_samples = get_breseq_samples_to_keep()
     taxon_sites = []
     taxon_samples = [ x for x in to_keep_samples if x.startswith(taxon) ]
+    fixed = []
+    # first list all sites that are fixed in all replicate populations
+    # these are most likely fixed in the ancestor
     for taxon_sample in taxon_samples:
-        for i, line in enumerate(open(output_path + taxon_sample + '.gd', 'r')):
+        taxon_sample_sites = []
+        for i, line in enumerate(open(lt.get_path() + '/data/breseq/annotated/' + taxon_sample + '.gd', 'r')):
             line_split = line.strip().split('\t')
             if line_split[0] in output_to_keep:
                 # a lot of mutations at the first base of each contig, ignore these
                 if line_split[4] == '1':
                     continue
-                taxon_sites.append( line_split[3] + '_' + str(line_split[4]))
+                freq = float([x for x in line_split if 'frequency=' in x][0].split('=')[1])
+                if freq == 1:
+                    fixed.append(line_split[3] + '_' + str(line_split[4]))
+                taxon_sample_sites.append( line_split[3] + '_' + str(line_split[4]))
 
-    counts_across_reps_dict = Counter(taxon_sites)
-    counts_across_reps = list(counts_across_reps_dict.values())
-    count_dict_to_remove = dict((k, v) for k, v in counts_across_reps_dict.items() if v > 1)
+        taxon_sites.extend(list(set( taxon_sample_sites )))
+
+    count_fixed = Counter(fixed)
+    count_fixed_all_reps = dict((k, v) for k, v in count_fixed.items() if v == len(taxon_samples))
+    sites_to_remove_all_fixed = list(count_fixed_all_reps.keys())
+
+    # see how many fixations have VARIANT_STRAND_COVERAGE flag
+    # copy dict
+    flag_fixed = copy.deepcopy(count_fixed)
+    flag_fixed = {key:val for key, val in flag_fixed.items() if val < len(taxon_samples)-1}
+
+    #print(flag_fixed)
+    for taxon_sample in taxon_samples:
+        taxon_sample_sites = []
+        for i, line in enumerate(open(lt.get_path() + '/data/breseq/annotated/' + taxon_sample + '.gd', 'r')):
+            line_split = line.strip().split('\t')
+            if line_split[0] == 'RA':
+                freq = float([x for x in line_split if 'frequency=' in x][0].split('=')[1])
+                if ('VARIANT_STRAND_COVERAGE' in line) or ('SURROUNDING_HOMOPOLYMER' in line):
+                    contig_site = line_split[3] + '_' + str(line_split[4])
+                    if contig_site in flag_fixed:
+                        del flag_fixed[contig_site]
+
+    #print(flag_fixed)
+    # everything breseq is calling as a fixed mutation has
+
+    counts_all = Counter(taxon_sites)
+    count_dict_to_remove = dict((k, v) for k, v in counts_all.items() if (v == len(taxon_samples)) )
     sites_to_remove = list(count_dict_to_remove.keys())
-    return sites_to_remove
+    sites_to_remove_all = list(set(sites_to_remove + sites_to_remove_all_fixed))
+    #print(taxon + ' proportion sites removed ' + str(round(len(sites_to_remove)/ len(counts_all.keys()), 3 )) )
+    return sites_to_remove_all
 
 
-def get_diversity_stats(afs_cutoff=50, mean_cutoff=20):
+
+def get_diversity_stats(afs_cutoff=30, mean_mut_cutoff=30):
     df_out = open(lt.get_path() + '/data/breseq/genetic_diversity.txt', 'w')
     df_out_header = ['Species', 'sample', 'rep', 'mean_freq', 'max_freq', \
                     'pi', 'theta', 'tajimas_d', 'dn_ds_total', \
@@ -289,6 +328,12 @@ def get_diversity_stats(afs_cutoff=50, mean_cutoff=20):
     p_value_all = []
     n_reps_all = []
     n_syn_non_muts_all = []
+
+    # for tajimas d file
+    n_reps_td_all = []
+    tt_td_all = []
+    p_value_td_all = []
+
 
     mean_N_mut_all = []
     max_N_mut_all = []
@@ -367,7 +412,7 @@ def get_diversity_stats(afs_cutoff=50, mean_cutoff=20):
                 df_out_freq_taxa.close()
 
             # only look at mean properties for pops with at least 20 mutations
-            if len(freq_list) < mean_cutoff:
+            if len(freq_list) < mean_mut_cutoff:
                 continue
 
             n_muts_list.append(n_muts)
@@ -466,6 +511,7 @@ def get_diversity_stats(afs_cutoff=50, mean_cutoff=20):
         pi_list_all.append(np.mean(pi_list))
         theta_list_all.append(np.mean(theta_list))
         TD_list_all.append(np.mean(TD_list))
+
         mean_dnds_total = np.mean(dnds_total_list)
         dnds_total_list_all.append(mean_dnds_total)
         binary_divisions_mean_all.append(np.mean(binary_divisions_mean_list))
@@ -478,20 +524,34 @@ def get_diversity_stats(afs_cutoff=50, mean_cutoff=20):
 
         taxa_all.append(taxon)
 
+        # t > 0, right-tailed t test, use survival function
+        # t < 0, left-tailed t test, use CDF
+        # or just take absolute value of t and use SF
+
         tt = (mean_dnds_total-1)/ (np.std(dnds_total_list) / np.sqrt(float(len(dnds_total_list))))
         p_val = t.sf(np.abs(tt), len(dnds_total_list)-1) # left-tailed one-sided t-test, so use CDF
         n_reps_all.append(len(dnds_total_list))
         tt_all.append(tt)
         p_value_all.append(p_val)
 
+
+        tt_td = (np.mean(TD_list))/ (np.std(TD_list) / np.sqrt(float(len(TD_list))))
+        p_val_td = t.sf(np.abs(tt_td), len(TD_list)-1) # left-tailed one-sided t-test, so use CDF
+        n_reps_td_all.append(len(dnds_total_list))
+        tt_td_all.append(tt_td)
+        p_value_td_all.append(p_val_td)
+
+
     df_out.close()
 
     reject, pvals_corrected, alphacSidak, alphacBonf = mt.multipletests(p_value_all, alpha=0.05, method='fdr_bh')
 
+    reject_td, pvals_corrected_td, alphacSidak_td, alphacBonf_td = mt.multipletests(p_value_td_all, alpha=0.05, method='fdr_bh')
+
     # two files, one for dnds one for rest of diversity stats
     df_out_taxa = open(lt.get_path() + '/data/breseq/birth_estimate_taxa.txt', 'w')
     df_out_taxa_heder = ['Species', 'mean_n_muts', 'mean_freq', 'max_freq', 'Theta', 'Pi', 'Tajimas_D', \
-                        'mean_N_mut', 'mean_binary_divisions', 'mean_gen_per_day', 'mean_birth_per_death' \
+                        'mean_N_mut', 'mean_binary_divisions', 'mean_gen_per_day', 'mean_birth_per_death', \
                         'max_N_mut', 'max_binary_divisions', 'max_gen_per_day', 'max_birth_per_death']
 
     df_out_taxa.write('\t'.join(df_out_taxa_heder) + '\n')
@@ -509,6 +569,12 @@ def get_diversity_stats(afs_cutoff=50, mean_cutoff=20):
         df_dNdS_taxa.write('\t'.join([taxa_all[i], str(n_reps_all[i]), str(n_syn_non_muts_all[i]), str(dnds_total_list_all[i]), str(tt_all[i]), str(pvals_corrected[i])]) + '\n')
     df_dNdS_taxa.close()
 
+
+    df_td_taxa = open(lt.get_path() + '/data/breseq/tajimas_d_taxa.txt', 'w')
+    df_td_taxa.write('\t'.join(['Species', 'n_reps', 'n_muts', 'tajimas_d', 't_stat', 'p_BH']) + '\n')
+    for i in range(len(taxa_all)):
+        df_td_taxa.write('\t'.join([taxa_all[i], str(n_reps_td_all[i]), str(n_muts_all[i]), str(TD_list_all[i]), str(tt_td_all[i]), str(pvals_corrected_td[i])]) + '\n')
+    df_td_taxa.close()
 
 
 def run_parallelism_analysis(nmin_reps=3, nmin = 2, FDR = 0.05, n_nonsyn_min=50):
@@ -807,7 +873,8 @@ def KO_to_module(strain, modules_to_keep = None):
 def annotate_significant_genes():
     total_parallelism = open(lt.get_path() + '/data/breseq/gene_annotation.txt', "w")
     total_parallelism.write("\t".join(["Species", "locus_tag", "refseq_id", "annotation"]) +"\n" )
-    taxa = ['ATCC13985', 'KBS0711', 'KBS0712', 'KBS0715']
+    taxa = ['ATCC13985', 'KBS0702', 'KBS0707', 'KBS0711', 'KBS0715',
+                    'KBS0721', 'KBS0722', 'KBS0724', 'KBS0801']
     for taxon in taxa:
         locus_tags = []
         for line in open(lt.get_path() + '/data/breseq/mult_genes_nonsyn_sig/' + taxon + '.txt', 'r'):
@@ -861,10 +928,17 @@ def annotate_significant_genes():
             total_parallelism.write("\t".join([taxon, locus_tag, refseq_name, refseq_annotation[1]]) + '\n')
     total_parallelism.close()
 
+    df_traits = pd.read_csv(lt.get_path() + '/data/breseq/gene_annotation.txt', sep = '\t')
+    print(Counter(df_traits.refseq_id.to_list()))
+
+    # only one annotated gene is acquired in more than one taxon
 
 
 
-get_diversity_stats()
+
+#get_sites_to_remove('KBS0801')
+#get_diversity_stats()
+
 #run_parallelism_analysis()
 #annotate_significant_genes()
 

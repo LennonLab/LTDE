@@ -8,8 +8,9 @@ rm(list = ls())
 library(xtable)
 library(dplyr)
 
-df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/breseq/dN_dS_taxa.txt", 
+df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/breseq/birth_estimate_taxa.txt", 
                  header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+df$max_gen_per_day <- 1/ df$max_gen_per_day
 name.df <- data.frame(
           Species = c("KBS0707", "KBS0702", "ATCC13985", "ATCC43928", "KBS0701",
                       "KBS0703", "KBS0705", "KBS0706", "KBS0710", "KBS0711",
@@ -45,12 +46,12 @@ drops <- c("Species")
 
 df.merge <- df.merge[ , !(names(df.merge) %in% drops)]
 
-df.merge.reorder <- select(df.merge, "FullSpecies", "n_reps", "n_syn_non_muts", "dN_dS_total", "t_stat", "p_BH") 
+df.merge.reorder <- select(df.merge, "FullSpecies", "mean_n_muts", "mean_freq", "max_freq", "max_binary_divisions", "max_gen_per_day", "max_birth_per_death") 
 
-colnames(df.merge.reorder) <- c("$\\mathrm{Taxon}$", "$N_{reps}$", "$N_{mut}$", 
-                                "$dN/dS$", "$t$", "$p_{BH}$")
+colnames(df.merge.reorder) <- c("$\\mathrm{Taxon}$", "$n_{mut}$", "$\\bar{f}$", 
+                                "$f_{max}$", "$b_{max}$", "$T_{2, max} \\, \\textrm{days}$", "$b_{max}/d$")
                                 
-mat <- xtable(df.merge.reorder, display = c("s", "s", "f","f", "f", "f", "g"), align=c("c","l","c","c", "c","c","c"), digits=c(0, 0, 0, 2, 2, 2, 2))
+mat <- xtable(df.merge.reorder, display = c("s", "s", "f","f", "f", "g", "g", "g"), align=c("c","l","c","c", "c","c","c","c"), digits=c(0, 0, 0, 2, 2, 2, 2, 2))
 
 
 print(mat, comment=FALSE, include.rownames=FALSE, latex.environments="flushleft", math.style.exponents = TRUE,  sanitize.text.function = function(x) {x})
