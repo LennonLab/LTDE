@@ -190,6 +190,32 @@ def fig2():
 
 
 
+import pwlf
+def piecewise_regression():
 
-fig1()
+    df = pd.read_csv(lt.get_path() + '/data/demography/longtermdormancy_20190528_nocomments.csv', sep = ',')
+    # KBS0721 rep 3
+    df['N'] = (df['Colonies']+1) * (1000 / df['Inoculum']) * (10 ** (df['Dilution'] ))
+
+    df['Dormstart_date'] =  pd.to_datetime(df['Dormstart_date'], format='%d-%b-%y')
+    df['Firstread_date'] =  pd.to_datetime(df['Firstread_date'], format='%d-%b-%y')
+    df['Days'] = df['Firstread_date'].sub(df['Dormstart_date'], axis=0)
+    df['Days'] = df['Days'].dt.days.astype('int')
+
+    df_test = df[(df["Strain"] > 'KBS0721') & (df["Rep"] == 3)]
+
+    x = df_test.Days.values
+    y = np.log10(df_test.N.values)
+    my_pwlf = pwlf.PiecewiseLinFit(x, y)
+
+    # fit the data for four line segments
+    res = my_pwlf.fit(2)
+
+    # predict for the determined points
+    xHat = np.linspace(min(x), max(x), num=10000)
+    yHat = my_pwlf.predict(xHat)
+
+
+
+#fig1()
 #fig2()

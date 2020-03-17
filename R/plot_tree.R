@@ -52,6 +52,6 @@ tree.plot <- ggtree(pruned.tree, branch.length='none') +
   geom_treescale(x = 0.2, y = -1.3) + xlim(0, 11)
 
 
-ggsave(file="figs/tree.png", tree.plot, units='in', dpi=600)
+ggsave(file="figs/tree.pdf", tree.plot, device='pdf', units='in', dpi=600)
 
 

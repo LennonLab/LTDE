@@ -211,7 +211,7 @@ g <- ggarrange(ggarrange(KBS0714.R4.plot, KBS0703.R4.plot, KBS0812.R4.plot, ncol
                labels = NULL)
 
 
-ggsave(file="figs/mttd_fig1.png", g, width=12,height=9, units='in', dpi=600)
+ggsave(file="figs/mttd_fig1.pdf", g, width=12,height=9, device='pdf', units='in', dpi=180)
 
 
 
@@ -270,8 +270,9 @@ boxplot.T_ext <- ggplot(data = df.species) +
 
 
 
-ggsave(file="figs/T_ext.png", boxplot.T_ext, width=12,height=9, units='in', dpi=600)
+ggsave(file="figs/T_ext.pdf", boxplot.T_ext, device='pdf', width=12,height=9, units='in', dpi=600)
 
 
+#ggsave(file="figs/dead_cells_k_fig2.eps", merge_plots, device='eps', width=9,height=9, units='in', dpi=180)
 
 

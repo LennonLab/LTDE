@@ -1,20 +1,23 @@
 from __future__ import division
+
 import glob, math, os, re
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import ltde_tools as lt
 from scipy import stats
+from scipy.stats import t
+from scipy.integrate import odeint
 from decimal import Decimal
 import _pickle as pickle
 from matplotlib.ticker import FormatStrFormatter
 import matplotlib.ticker
 import datetime as dt
 
-from sklearn.model_selection import GridSearchCV
-from sklearn.neighbors import KernelDensity
-from scipy.stats import t
+#from sklearn.model_selection import GridSearchCV
+#from sklearn.neighbors import KernelDensity
 import statsmodels.stats.multitest as mt
+import statsmodels.formula.api as smf
 
 from Bio import SeqIO
 
@@ -95,8 +98,8 @@ def plot_multiplicity_survival():
     fig.text(0.5, 0.02, 'Gene multiplicity, ' + '$m$', ha='center', fontsize=16)
     fig.text(0.02, 0.5, 'Fraction mutations ' + '$\geq m$', va='center', rotation='vertical', fontsize=16)
 
-    fig_name = lt.get_path() + '/figs/mult_survival.png'
-    fig.savefig(fig_name, bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig_name = lt.get_path() + '/figs/mult_survival.pdf'
+    fig.savefig(fig_name, format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
 
@@ -141,8 +144,8 @@ def plot_logpvalue_survival():
     fig.text(0.5, 0.02, '$-\mathrm{log}_{10}P$', ha='center', fontsize=16)
     fig.text(0.02, 0.5, 'Number of genes', va='center', rotation='vertical', fontsize=16)
 
-    fig_name = lt.get_path() + '/figs/logpvalue_survival.png'
-    fig.savefig(fig_name, bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig_name = lt.get_path() + '/figs/logpvalue_survival.pdf'
+    fig.savefig(fig_name, format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
 
@@ -253,9 +256,13 @@ def plot_weib_indiv_taxon():
             else:
                 scale_plot = round(scale, 2)
 
-            ax.text(last_day*0.6, 10**(np.log10(4*N_0 - 0.2*min(df_counts_taxon_rep.Abund.values))*0.9), 'Replicate ' + str(rep), fontsize=axis_text_font)
-            ax.text(last_day*0.6, 10**(np.log10(4*N_0 - 0.2*min(df_counts_taxon_rep.Abund.values))*0.83),  r'$\lambda=$' + str(scale_plot), fontsize=axis_text_font)
-            ax.text(last_day*0.6, 10**(np.log10(4*N_0 - 0.2*min(df_counts_taxon_rep.Abund.values))*0.76),  r'$k=$' + str(round(shape, 2)), fontsize=axis_text_font)
+            #ax.text(last_day*0.6, 10**(np.log10(4*N_0 - 0.2*min(df_counts_taxon_rep.Abund.values))*0.9), 'Replicate ' + str(rep), fontsize=axis_text_font, transform=ax.transAxes)
+            ax.text(0.6, 0.9, 'Replicate ' + str(rep), fontsize=axis_text_font, transform=ax.transAxes)
+            ax.text(0.6, 0.77,  r'$\lambda=$' + str(scale_plot), fontsize=axis_text_font, transform=ax.transAxes)
+            ax.text(0.6, 0.64,  r'$k=$' + str(round(shape, 2)), fontsize=axis_text_font, transform=ax.transAxes)
+
+            #ax.text(last_day*0.6, 10**(np.log10(4*N_0 - 0.2*min(df_counts_taxon_rep.Abund.values))*0.83),  r'$\lambda=$' + str(scale_plot), fontsize=axis_text_font, transform=ax.transAxes)
+            #ax.text(last_day*0.6, 10**(np.log10(4*N_0 - 0.2*min(df_counts_taxon_rep.Abund.values))*0.76),  r'$k=$' + str(round(shape, 2)), fontsize=axis_text_font, transform=ax.transAxes)
 
             ax.set_yscale('log')
 
@@ -264,7 +271,10 @@ def plot_weib_indiv_taxon():
         fig.text(0.5, 0.02, 'Days, ' + r'$t$', ha='center', fontsize=16)
         fig.text(0.02, 0.5, 'Population size, ' + '$N(t)$', va='center', rotation='vertical', fontsize=16)
 
-        fig.savefig(lt.get_path() + '/figs/taxon_weibull_100/'+taxon+'.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+        #fig.savefig(lt.get_path() + '/figs/taxon_weibull_100/'+taxon+'.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+        fig.savefig(lt.get_path() + '/figs/taxon_weibull/'+taxon+'.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+        #plt.savefig('destination_path.eps', format='eps')
+
         plt.close()
 
 
@@ -335,6 +345,10 @@ def mult_syn_nonsyn():
         ax.plot(10**x_log10_range, 10**lcb, color='k', linestyle=':', linewidth=2)
         ax.plot(10**x_log10_range, 10**ucb, color='k', linestyle=':', linewidth=2)
 
+        ax.text(0.65, 0.35, r'$\beta_{1}=$' + str(round(slope, 2 )), fontsize=6, transform=ax.transAxes)
+        ax.text(0.65, 0.23, r'$r^{2}=$' + str(round(r_value**2, 2 )), fontsize=6, transform=ax.transAxes)
+        ax.text(0.65, 0.11, r'$p< 0.05$' , fontsize=6, transform=ax.transAxes)
+
         # get mean deviation of the data from the linear model given
         # residual sum of squares
 
@@ -342,7 +356,7 @@ def mult_syn_nonsyn():
 
     fig.text(0.5, 0.02, 'Synonymous multiplicity', ha='center', fontsize=16)
     fig.text(0.02, 0.5, 'Non-synonymous multiplicity', va='center', rotation='vertical', fontsize=16)
-    fig.savefig(lt.get_path() + '/figs/mult_syn.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/mult_syn.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
 
@@ -407,15 +421,14 @@ def mult_freq():
         ax.plot(10**x_log10_range, 10**lcb, color='red', linestyle=':', linewidth=2)
         ax.plot(10**x_log10_range, 10**ucb, color='red', linestyle=':', linewidth=2)
 
-        # get mean deviation of the data from the linear model given
-        # residual sum of squares
-
-
+        ax.text(0.65, 0.4, r'$\beta_{1}=$' + str(round(slope, 2 )), fontsize=6, transform=ax.transAxes)
+        ax.text(0.65, 0.28, r'$r^{2}=$' + str(round(r_value**2, 2 )), fontsize=6, transform=ax.transAxes)
+        ax.text(0.65, 0.16, r'$p< 0.05$' , fontsize=6, transform=ax.transAxes)
 
 
     fig.text(0.5, 0.02, 'Mean mutation frequency', ha='center', fontsize=16)
     fig.text(0.02, 0.5, 'Multiplicity', va='center', rotation='vertical', fontsize=16)
-    fig.savefig(lt.get_path() + '/figs/mult_freq.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/mult_freq.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
 
@@ -449,38 +462,42 @@ def plot_afs():
         for taxon_rep in taxon_reps:
             df = pd.read_csv(lt.get_path() + '/data/breseq/allele_freq_spec/' + taxon + '-'+taxon_rep +'.txt', sep = '\t')
             freqs = df.freq.values
-            grid_ = GridSearchCV(KernelDensity(),
-                            {'bandwidth': np.linspace(0.001, 1, 50)},
-                            cv=2) # 20-fold cross-validation
-            grid_.fit(freqs[:, None])
+            #grid_ = GridSearchCV(KernelDensity(),
+            #                {'bandwidth': np.linspace(0.001, 1, 50)},
+            #                cv=2) # 20-fold cross-validation
+            #grid_.fit(freqs[:, None])
             #x_grid_ = np.linspace(-2, 0, 1000)
-            x_grid_ = np.linspace(0, 1, 1000)
+            #x_grid_ = np.linspace(0, 1, 1000)
             #print(grid_.best_params_)
-            kde_ = grid_.best_estimator_
-            pdf_ = np.exp(kde_.score_samples(x_grid_[:, None]))
+            #kde_ = grid_.best_estimator_
+            #pdf_ = np.exp(kde_.score_samples(x_grid_[:, None]))
             #pdf_ = kde_.score_samples(x_grid_[:, None])
-            pdf_ = [x / sum(pdf_) for x in pdf_]
+            #pdf_ = [x / sum(pdf_) for x in pdf_]
+            ax.hist(freqs, bins=30, alpha=0.8,  color = taxon_color, weights=np.zeros_like(freqs) + 1. / len(freqs))
 
-            ax.plot(x_grid_, pdf_, alpha=0.8, lw = 2, color = taxon_color) #, marker='o')
+            #ax.plot(x_grid_, pdf_, alpha=0.8, lw = 2, color = taxon_color) #, marker='o')
             #ax.plot(10**x_grid_, pdf_, alpha=0.8, lw = 2, color = taxon_color) #, marker='o')
             taxon_means.append(np.mean(freqs))
             taxons_max.append(max(freqs))
             #ax.set_xscale('log')
-            ax.axvline(x=np.mean(freqs), color='black', linestyle='--', lw = 1.5, alpha=0.8)
-            ax.axvline(x=max(freqs), color='red', linestyle='--', lw = 1.5, alpha=0.8)
 
 
         ax.title.set_text(latex_dict[taxon])
         ax.title.set_fontsize(7)
 
+        ax.axvline(x=np.mean(taxon_means), color='black', linestyle='--', lw = 1.5, alpha=0.8)
+        ax.axvline(x=np.mean(taxons_max), color='red', linestyle='--', lw = 1.5, alpha=0.8)
+
         ax.tick_params(axis='both', which='major', labelsize=7)
         ax.tick_params(axis='both', which='minor', labelsize=5)
+
+        ax.set_xlim([0.05, 0.82])
 
 
     fig.text(0.5, 0.02, 'Mutation frequency', ha='center', fontsize=16)
     fig.text(0.02, 0.5, 'Frequency', va='center', rotation='vertical', fontsize=16)
 
-    fig.savefig(lt.get_path() + '/figs/afs.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/afs.pdf', format = 'pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
 
@@ -519,8 +536,268 @@ def plot_dnds():
     plt.xlabel('Ratio of nonsynonymous to synonymous mutations, ' + r'$\frac{dN}{dS}$', fontsize = 12)
 
     plt.yticks(y1, latex_labels, rotation=0)
-    fig.savefig(lt.get_path() + '/figs/dn_ds.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/dn_ds.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
+
+
+
+def plot_dn_ds_tajimas_d():
+    df_taxa = pd.read_csv(lt.get_path() + '/data/breseq/dN_dS_taxa.txt', sep = '\t')
+    df_taxa = df_taxa.sort_values(by=['dN_dS_total'])
+    taxa_to_keep = df_taxa.Species.to_list()
+    df_diversity = pd.read_csv(lt.get_path() + '/data/breseq/genetic_diversity.txt', sep = '\t', index_col=None)
+    df_diversity['mean_birth_per_death_log10'] = np.log10(df_diversity['mean_birth_per_death'].values)
+
+    df_demographic = pd.read_csv(lt.get_path() + '/data/demography/weibull_results_clean.csv', sep = ',', index_col=None)
+    df_demographic.rename(columns={'strain':'Species'}, inplace=True)
+
+    df_merged = pd.merge(df_diversity, df_demographic,  how='left', on=['Species','rep'])#, right_on = ['Species','c2'])
+    df_merged['N_0_beta_log10'] = np.log10(df_merged['N_0_beta'].values)
+    df_merged['alpha_log10'] = np.log10(df_merged['alpha'].values)
+    df_merged['N_delta_log10'] = np.log10(df_merged['N_0'].values - df_merged['N_final'].values)
+    df_merged['mean_binary_divisions_log10'] = np.log10(df_merged['mean_binary_divisions'].values)
+
+
+    print("N_delta log10 vs dNdS ")
+    N_delta_dnds = smf.mixedlm("dn_ds_total ~ N_delta_log10", df_merged, groups=df_merged["Species"])
+    N_delta_dnds_fit = N_delta_dnds.fit()
+    print(N_delta_dnds_fit.summary())
+
+    print()
+
+    print("N_0_beta_log10 vs dNdS ")
+    N_0_beta_dnds = smf.mixedlm("dn_ds_total ~ N_0_beta_log10", df_merged, groups=df_merged["Species"])
+    N_0_beta_dnds_fit = N_0_beta_dnds.fit()
+    print(N_0_beta_dnds_fit.summary())
+
+    print()
+
+    print("alpha vs dNdS ")
+    alpha_dnds = smf.mixedlm("dn_ds_total ~ alpha", df_merged, groups=df_merged["Species"])
+    alpha_dnds_fit = alpha_dnds.fit()
+    print(alpha_dnds_fit.summary())
+
+
+    print()
+
+    print("mean_binary_divisions_log10 vs dNdS ")
+    b_dnds = smf.mixedlm("dn_ds_total ~ mean_binary_divisions_log10", df_merged, groups=df_merged["Species"])
+    b_dnds_fit = b_dnds.fit()
+    print(b_dnds_fit.summary())
+
+
+    print()
+
+
+    print("N_delta log10 vs Tajimas D  ")
+    N_delta_TD = smf.mixedlm("tajimas_d ~ N_delta_log10", df_merged, groups=df_merged["Species"])
+    N_delta_TD_fit = N_delta_TD.fit()
+    print(N_delta_TD_fit.summary())
+
+    print()
+
+    print("N_0_beta_log10 vs Tajimas D  ")
+    N_0_beta_TD = smf.mixedlm("tajimas_d ~ N_0_beta_log10", df_merged, groups=df_merged["Species"])
+    N_0_beta_TD_fit = N_0_beta_TD.fit()
+    print(N_0_beta_TD_fit.summary())
+
+    print()
+
+    print("alpha vs Tajimas D  ")
+    alpha_TD = smf.mixedlm("tajimas_d ~ alpha", df_merged, groups=df_merged["Species"])
+    alpha_TD_fit = alpha_TD.fit()
+    print(alpha_TD_fit.summary())
+
+
+    print()
+
+    print("mean_binary_divisions_log10 vs Tajimas D ")
+    b_TD = smf.mixedlm("tajimas_d ~ mean_binary_divisions_log10", df_merged, groups=df_merged["Species"])
+    b_TD_fit = b_TD.fit()
+    print(b_TD_fit.summary())
+
+
+
+    #print(t_N_delta_fit.params)
+
+    #covb = t_N_delta_fit.cov_params()
+    #prediction_var = t_N_delta_fit.mse_resid + (df_merged.mean_binary_divisions_log10.values * np.dot(covb,df_merged.mean_binary_divisions_log10.values.T).T).sum(1)
+
+    #print(t_N_delta.predict(t_N_delta_fit.params))
+
+    #print(t_N_delta.get_prediction(df_merged.mean_binary_divisions_log10.values))
+    #fixed effects variance
+    #print(t_N_delta_fit.params)
+    #f_var = np.var(t_N_delta.predict(t_N_delta_fit.params))
+
+
+    fig = plt.figure(figsize = (6, 3))
+    fig.tight_layout(pad = 2.8)
+
+    ax1 = plt.subplot2grid((2, 4), (0, 0), colspan=1)
+    ax2 = plt.subplot2grid((2, 4), (0, 1), colspan=1)
+    ax3 = plt.subplot2grid((2, 4), (0, 2), colspan=1)
+    ax4 = plt.subplot2grid((2, 4), (0, 3), colspan=1)
+
+    ax5 = plt.subplot2grid((2, 4), (1, 0), colspan=1)
+    ax6 = plt.subplot2grid((2, 4), (1, 1), colspan=1)
+    ax7 = plt.subplot2grid((2, 4), (1, 2), colspan=1)
+    ax8 = plt.subplot2grid((2, 4), (1, 3), colspan=1)
+
+    for i, taxon in enumerate(taxa_to_keep):
+        df_taxon_samples = df_merged.loc[df_merged['Species'] == taxon]
+
+        dn_ds = df_merged.loc[df_merged['Species'] == taxon].dn_ds_total.values
+        dn_ds_mean = np.mean(dn_ds)
+        dn_ds_sem = np.std(dn_ds)/ np.sqrt(len(dn_ds))
+
+        t_d = df_merged.loc[df_merged['Species'] == taxon].tajimas_d.values
+        t_d_mean = np.mean(t_d)
+        t_d_sem = np.std(t_d)/ np.sqrt(len(t_d))
+
+        N_delta_log10 = df_merged.loc[df_merged['Species'] == taxon].N_delta_log10.values
+        N_delta_mean = 10 ** np.mean(N_delta_log10)
+        N_delta_sem = 10 ** (2*np.std(N_delta_log10)/ np.sqrt(len(N_delta_log10)))
+
+        alpha = df_merged.loc[df_merged['Species'] == taxon].alpha.values
+        alpha_mean = np.mean(alpha)
+        alpha_sem = (2*np.std(alpha)/ np.sqrt(len(alpha)))
+
+        N_0_beta_log10 = df_merged.loc[df_merged['Species'] == taxon].N_0_beta_log10.values
+        N_0_beta_mean = 10 ** np.mean(N_0_beta_log10)
+        N_0_beta_sem = 10 ** (2*np.std(N_0_beta_log10)/ np.sqrt(len(alpha)))
+
+        N_births = df_merged.loc[df_merged['Species'] == taxon].mean_binary_divisions.values
+        N_births_mean = 10 ** np.mean(np.log10(N_births))
+        N_births_sem = 10 ** (2*np.std(np.log10(N_births))/ np.sqrt(len(alpha)))
+
+        taxon_color = df_colors.loc[df_colors['strain'] == taxon].Color.to_list()[0]
+
+        ax1.errorbar(N_delta_mean, dn_ds_mean, xerr= N_delta_sem, yerr = dn_ds_sem*2, \
+            fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+            mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+        ax1.scatter(N_delta_mean, dn_ds_mean, c=taxon_color, s=12, zorder=2)
+
+
+        ax2.errorbar(N_0_beta_mean, dn_ds_mean, xerr= N_0_beta_sem, yerr = dn_ds_sem*2, \
+            fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+            mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+        ax2.scatter(N_0_beta_mean, dn_ds_mean, c=taxon_color, s=12, zorder=2)
+
+
+        ax3.errorbar(alpha_mean, dn_ds_mean, xerr= alpha_sem, yerr = dn_ds_sem*2, \
+            fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+            mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+        ax3.scatter(alpha_mean, dn_ds_mean, c=taxon_color, s=12, zorder=2)
+
+
+        ax4.errorbar(N_births_mean, dn_ds_mean, xerr= N_births_sem, yerr = dn_ds_sem*2, \
+            fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+            mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+        ax4.scatter(N_births_mean, dn_ds_mean, c=taxon_color, s=12, zorder=2)
+
+
+
+        ax5.errorbar(N_delta_mean, t_d_mean, xerr= N_delta_sem, yerr = t_d_sem*2, \
+            fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+            mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+        ax5.scatter(N_delta_mean, t_d_mean, c=taxon_color, s=12, zorder=2)
+
+
+        ax6.errorbar(N_0_beta_mean, t_d_mean, xerr= N_0_beta_sem, yerr = t_d_sem*2, \
+            fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+            mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+        ax6.scatter(N_0_beta_mean, t_d_mean, c=taxon_color, s=12, zorder=2)
+
+
+        ax7.errorbar(alpha_mean, t_d_mean, xerr= alpha_sem, yerr = t_d_sem*2, \
+            fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+            mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+        ax7.scatter(alpha_mean, t_d_mean, c=taxon_color, s=12, zorder=2)
+
+
+        ax8.errorbar(N_births_mean, t_d_mean, xerr= N_births_sem, yerr = t_d_sem*2, \
+            fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+            mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+        ax8.scatter(N_births_mean, t_d_mean, c=taxon_color, s=12, zorder=2)
+
+
+
+    #p<0.0001
+    x_ax8= np.linspace(4, 5.6, num=500)
+    y_pred_ax8 = b_TD_fit.params[0] + x_ax8 * b_TD_fit.params[1]
+    ax8.plot(10**x_ax8, y_pred_ax8, c='k')
+
+    ax8.text(0.07, 0.9, r'$\beta_{1}=$' + str(round(b_TD_fit.params[1], 2)), fontsize=5, transform=ax8.transAxes)
+    ax8.text(0.07, 0.8, r'$p\ll0.001$', fontsize=5, transform=ax8.transAxes)
+
+
+
+    ax7.text(0.07, 0.9, r'$\beta_{1}=$' + str(round(alpha_TD_fit.params[1], 2)), fontsize=5, transform=ax7.transAxes)
+    ax7.text(0.07, 0.8, r'$p=$' + str(round(alpha_TD_fit.pvalues[1], 3)), fontsize=5, transform=ax7.transAxes)
+
+    x_ax7 = np.linspace(0.2, 0.65, num=500)
+    y_pred_ax7 = alpha_TD_fit.params[0] + x_ax7 * alpha_TD_fit.params[1]
+    ax7.plot(x_ax7, y_pred_ax7, c='k')
+
+
+
+    ax6.text(0.6, 0.9, r'$\beta_{1}=$' + str(round(N_0_beta_TD_fit.params[1], 2)), fontsize=5, transform=ax6.transAxes)
+    ax6.text(0.6, 0.8, r'$p=$' + str(round(N_0_beta_TD_fit.pvalues[1], 3)), fontsize=5, transform=ax6.transAxes)
+
+    x_ax6 = np.linspace(7, 11.5, num=500)
+    y_pred_ax8 = N_0_beta_TD_fit.params[0] + x_ax6 * N_0_beta_TD_fit.params[1]
+    ax6.plot(10**x_ax6, y_pred_ax8, c='k')
+
+    #y1 = list(range(len(taxa_to_keep)))
+    #latex_labels = [latex_dict[x] for x in taxa_to_keep]
+    ax1.set_xscale('log', basex=10)
+    ax2.set_xscale('log', basex=10)
+    #ax3.set_xscale('log', basex=10)
+    ax4.set_xscale('log', basex=10)
+    ax5.set_xscale('log', basex=10)
+    ax6.set_xscale('log', basex=10)
+    #ax7.set_xscale('log', basex=10)
+    ax8.set_xscale('log', basex=10)
+
+
+    ax1.set_xlim([int(8e6), int(7e9)])
+    ax5.set_xlim([int(8e6), int(7e9)])
+
+
+
+
+    ax1.tick_params(axis='x', labelsize=5)
+    ax2.tick_params(axis='x', labelsize=5)
+    ax3.tick_params(axis='x', labelsize=5)
+    ax4.tick_params(axis='x', labelsize=5)
+    ax5.tick_params(axis='x', labelsize=5)
+    ax6.tick_params(axis='x', labelsize=5)
+    ax7.tick_params(axis='x', labelsize=5)
+    ax8.tick_params(axis='x', labelsize=5)
+
+    ax1.tick_params(axis='y', labelsize=4)
+    ax2.tick_params(axis='y', labelsize=4)
+    ax3.tick_params(axis='y', labelsize=4)
+    ax4.tick_params(axis='y', labelsize=4)
+    ax5.tick_params(axis='y', labelsize=5)
+    ax6.tick_params(axis='y', labelsize=5)
+    ax7.tick_params(axis='y', labelsize=5)
+    ax8.tick_params(axis='y', labelsize=5)
+
+
+    ax5.set_xlabel('Change in population size, ' + r'$\Delta N$', fontsize = 6)
+    ax6.set_xlabel('Initial death rate, ' + r'$N(0)/ \lambda$', fontsize = 6)
+    ax7.set_xlabel('Shape parameter, ' + r'$k$', fontsize = 6)
+    ax8.set_xlabel('Total birth events, ' + r'$n_{births}$', fontsize = 6)
+
+    ax1.set_ylabel('Ratio of nonsynonymous\nto synonymous mutations, ' + r'$\frac{dN}{dS}$', fontsize = 6)
+    ax5.set_ylabel("Tajima's D, " + r'$D_{T}$', fontsize = 6)
+
+
+    fig.savefig(lt.get_path() + '/figs/dn_ds_tajimas_d.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    plt.close()
+
 
 
 def plot_prop_dead_cells():
@@ -567,8 +844,8 @@ def plot_prop_dead_cells():
 
     plt.xlabel('Change in proportion of dead cells', fontsize = 12)
     plt.xlim(-1,1.2)
-    plt.yticks(y1, squad, rotation=0)
-    fig.savefig(lt.get_path() + '/figs/prop_dead.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    plt.yticks(y1, latex_labels, rotation=0)
+    fig.savefig(lt.get_path() + '/figs/prop_dead.pdf', format= 'pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
 
@@ -578,6 +855,13 @@ def plot_irep_shape():
     df_weib = pd.read_csv(lt.get_path() + '/data/demography/weibull_results_clean.csv', sep = ',')
     df_merged = df_weib.merge(df_irep, on=['strain','rep'])
     taxa = list(set(df_merged.strain.to_list()))
+
+
+    df_merged['alpha_log10'] = np.log10(df_merged.alpha)
+
+    mf = smf.mixedlm("alpha_log10 ~ iRep", df_merged, groups=df_merged["strain"])
+    mf_fit = mf.fit()
+    print(mf_fit.summary())
 
     irep_mean_list = []
     shape_mean_list = []
@@ -600,15 +884,22 @@ def plot_irep_shape():
 
         plt.errorbar(irep_mean, shape_mean, xerr = irep_sem*2, yerr = shape_sem*2, \
             fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
-            mfc = 'k', mec = 'k', c = 'k', zorder=3, ms=17)
-        plt.scatter(irep, shape, c=taxon_color, marker = 'o', s = 80, \
-            edgecolors='#244162', linewidth = 0, alpha = 1, zorder=2)
+            mfc = 'k', mec = 'k', c = 'k', zorder=2, ms=17)
+        plt.scatter(irep_mean, shape_mean, c=taxon_color, marker = 'o', s = 93, \
+            edgecolors='none', linewidth = 0, alpha = 1, zorder=3)
+
+
+        #plt.errorbar(irep_mean, shape_mean, xerr= alpha_sem, yerr = dn_ds_sem*2, \
+        #    fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+        #    mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+        #plt.scatter(alpha_mean, dn_ds_mean, c=taxon_color, s=17, zorder=2)
+
 
     plt.ylim(0.03, 1.1)
     plt.yscale('log',basey=10)
     plt.xlabel('Index of replication (iRep)', fontsize = 12)
     plt.ylabel('Shape paramter, ' r'$k$', fontsize = 12)
-    fig.savefig(lt.get_path() + '/figs/irep_shape.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/irep_shape.pdf', format = 'pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
     slope, intercept, r_value, p_value, std_err = stats.linregress(irep_mean_list, shape_mean_list)
@@ -668,13 +959,11 @@ def plot_lag_shape():
         plt.scatter(lag, shape, c=taxon_color, marker = 'o', s = 80, \
             edgecolors='#244162', linewidth = 0, alpha = 1, zorder=4)
 
-
-
     plt.xscale('log',basex=10)
     plt.yscale('log',basey=10)
     plt.xlabel('Lag time (hrs.)', fontsize = 12)
     plt.ylabel('Shape paramter, ' r'$k$', fontsize = 12)
-    fig.savefig(lt.get_path() + '/figs/lag_shape.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/lag_shape.pdf', format='pdf',bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
     print("D.F. = " + str(N-2))
@@ -741,7 +1030,7 @@ def plot_tajimas_d():
     plt.xlabel("Tajima's D, " + r'$D_{T}$', fontsize = 12)
 
     plt.yticks(y1, latex_labels, rotation=0)
-    fig.savefig(lt.get_path() + '/figs/tajimas_d.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/tajimas_d.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
 
@@ -791,10 +1080,101 @@ def plot_bacillus_aa():
     plt.xlabel("Blank-corrected molar concentration, mol/L" , fontsize = 12)
 
     plt.yticks(y1, latex_labels, rotation=0)
-    fig.savefig(lt.get_path() + '/figs/bacillus_aa.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/bacillus_aa.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
     plt.close()
 
 
+
+def plot_flux_first_100():
+
+    df = pd.read_csv(lt.get_path() + '/data/demography/weibull_results.csv', sep = ',')
+    print(df)
+
+    N_dead_100 = df['N_0'].values*np.exp(-10 / df['beta'].values)
+
+    fig = plt.figure()
+    plt.scatter(df['beta'].values, df.alpha.values, c='b')
+    #plt.scatter(df['beta'].values, df.N_0.values, c='r')
+    print(N_dead_100)
+
+    plt.xscale('log',basex=10)
+    plt.yscale('log',basey=10)
+    plt.xlim(10**-4,10**4)
+    #plt.xlabel('births-per-deaths (hrs.)', fontsize = 12)
+    #plt.ylabel('Shape paramter, ' r'$k$', fontsize = 12)
+    fig.savefig(lt.get_path() + '/figs/scale_vs_shape.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    plt.close()
+
+
+    fig = plt.figure()
+    plt.scatter(df['beta'].values, df.N_0.values, c='r')
+    print(N_dead_100)
+
+    plt.xscale('log',basex=10)
+    plt.yscale('log',basey=10)
+    plt.xlim(10**-4,10**4)
+    #plt.xlabel('births-per-deaths (hrs.)', fontsize = 12)
+    #plt.ylabel('Shape paramter, ' r'$k$', fontsize = 12)
+    fig.savefig(lt.get_path() + '/figs/scale_vs_N.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    plt.close()
+
+
+
+
+
+
+
+
+def dP_dt(P, t, d):
+    v = 220
+    K = 140
+    c = 100
+    m = 5
+    r = 0.005
+
+    uptake=v*(P[2]/(K+P[2]))*P[0] # substrate uptake capacity of viable cells
+    cellsMaintained=uptake/(c*m) # how many cells can meet maintenance costs based on substrate uptqke
+    cells2die=d*P[0] # how many cells would die if no maintenance costs were met
+
+    dVdt=cellsMaintained-cells2die
+
+    if (cellsMaintained-cells2die) < 0:
+        dDdt = cells2die-cellsMaintained
+    else:
+        dDdt = 0
+
+    dDdt = dDdt - r*P[1]
+    dSdt=r*P[1]*c-uptake     #resource
+
+    #dDdt=ifelse((cellsMaintained-cells2die)<0,(cells2die-cellsMaintained),0)-r*D               #cells
+    return [dVdt, dDdt, dSdt]
+
+
+
+
+def plot_ode():
+    ts = np.linspace(0, 1000, 10000)
+    N_0 = int(1e9)
+    P0 = [N_0, 0, 0]
+    colors = ['#FF6347', '#FFA500', '#87CEEB']
+    labels = [r'$N(0)\cdot d = 10^{6}$', r'$N(0)\cdot d = 10^{7}$', r'$N(0)\cdot d = 10^{8}$']
+    fig = plt.figure()
+
+    for i, d in enumerate([ 0.001, 0.01, 0.1 ]):
+        Ps = odeint(dP_dt, P0, ts, args=(d,))
+        # Ps = odeint(dP_dt, P0, ts)
+        N = Ps[:,0]
+
+        plt.plot(ts, N, "-", c = colors[i], label=labels[i])
+
+    plt.legend(loc='lower left', prop={'size': 8})
+
+    plt.yscale('log',basey=10)
+
+    plt.xlabel('Time, ' + r'$t$' , fontsize = 14)
+    plt.ylabel('Number of cells, ' + r'$N(t)$' , fontsize = 14)
+
+    fig.savefig(lt.get_path() + '/figs/ode_example.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
 
 
 
@@ -805,10 +1185,12 @@ def plot_bacillus_aa():
 
 #plot_tajimas_d()
 
-plot_bacillus_aa()
+#plot_bacillus_aa()
 #plot_irep_shape()
 #plot_logpvalue_survival()
 #plot_dnds()
+
+#plot_dn_ds_tajimas_d()
 
 #plot_multiplicity_survival()
 
@@ -820,3 +1202,6 @@ plot_bacillus_aa()
 
 #plot_prop_dead_cells()
 #plot_lag_shape()
+
+
+#plot_weib_indiv_taxon()

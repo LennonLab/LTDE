@@ -78,6 +78,6 @@ scale_color_manual(values=c("#999999",  "#BBDF27FF", "#482576FF", "#481467FF", "
 xlab("Time (seconds)")+ylab("Base Peak Chromatogram")+scale_x_continuous(limits=c(360,1600))+scale_y_continuous(label=scientific)+
 facet_grid(rows=vars(sample), labeller = label_parsed)
 
-ggsave(file="figs/metabolomics.png", metab.fig, width=12,height=9, units='in', dpi=600)
+ggsave(file="figs/metabolomics.pdf", metab.fig, device='pdf', width=12,height=9, units='in', dpi=600)
 
 

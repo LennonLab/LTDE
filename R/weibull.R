@@ -20,6 +20,17 @@ strains <- strains[table(obs$Strain)>10]
 obs <- obs[obs$Strain%in%strains,]
 summ <- matrix(NA,length(strains)*max(obs$Rep),20)
 counter <- 1
+
+strainObs=obs[obs$Strain==strains[1],]
+reps=unique(strainObs$Rep)
+repObs=strainObs[strainObs$Rep==reps[1],]
+
+time<-(as.numeric(strptime(repObs$Firstread_date,format="%d-%b-%y",tz="EST"))-
+         as.numeric(strptime(repObs$Dormstart_date,format="%d-%b-%y",tz="EST")))/(3600*24)
+
+index <- order(time)
+time <- time[index]
+abund <- repObs$Abund[index]
 for(i in 1:length(strains)){
   strainObs=obs[obs$Strain==strains[i],]
   reps=unique(strainObs$Rep)

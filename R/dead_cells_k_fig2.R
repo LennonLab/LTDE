@@ -154,6 +154,6 @@ merge_plots <- cell.shape.plot + annotation_custom(ggplotGrob(kde.plot), xmin = 
 
 
 
-ggsave(file="figs/dead_cells_k_fig2.png", merge_plots, width=9,height=9, units='in', dpi=600)
+ggsave(file="figs/dead_cells_k_fig2.pdf", merge_plots, device='pdf', width=9,height=9, units='in', dpi=600)
 
-ggsave(file="figs/dead_cells_k_fig2_no_insert.png", cell.shape.plot, width=9,height=9, units='in', dpi=600)
+#ggsave(file="figs/dead_cells_k_fig2_no_insert.png", cell.shape.plot, width=9,height=9, units='in', dpi=600)
