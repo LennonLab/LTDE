@@ -57,6 +57,6 @@ lr.plot <- ggplot(data = df) +
 
 
 
-ggsave(file="figs/likelihood.png", lr.plot, width=12,height=9, units='in', dpi=600)
+ggsave(file="figs/likelihood.pdf", lr.plot, device='pdf', width=12,height=9, units='in', dpi=600)
 
 

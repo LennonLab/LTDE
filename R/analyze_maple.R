@@ -96,11 +96,15 @@ ggplot(data = rda.plot, aes(RDA1, RDA2)) +
                arrow = arrow(angle = 20,
                              length = unit(.1, "inches"),
                              type = "open")) +
-  annotate("text", x=(rda.vecs[4,1]*scale.arrows) + 0.3, y=(rda.vecs[4,2]*scale.arrows-0.5), label=TeX("$\\mu_{max}^{*}$"), size = 4) +
-  annotate("text", x=(rda.vecs[3,1]*scale.arrows) - 0.2, y=(rda.vecs[3,2]*scale.arrows)+0.6, label=TeX("$Yield$"), size = 4) +
-  annotate("text", x=(rda.vecs[2,1]*scale.arrows) + 0.1, y=(rda.vecs[2,2]*scale.arrows)-0.3, label=TeX("$\\log_{10} (\\lambda) $"), size = 4) +
-  annotate("text", x=(rda.vecs[1,1]*scale.arrows) + 0.2, y=rda.vecs[1,2]*scale.arrows, label=TeX("$k$"), size = 4) +
-  annotate("text", x=(rda.vecs[5,1]*scale.arrows) - 0.3, y=rda.vecs[5,2]*scale.arrows, label=TeX("$\\log_{10} (Lag \\, time) $"), size = 4) +
-  ggsave("figs/RDA.png", width = 84, height = 84, units = "mm", dpi = 500)
+  ggplot2::annotate("text", x=(rda.vecs[4,1]*scale.arrows) + 0.3, y=(rda.vecs[4,2]*scale.arrows-0.5), label=TeX("$\\mu_{max}^{*}$"), size = 4) +
+  ggplot2::annotate("text", x=(rda.vecs[3,1]*scale.arrows) - 0.2, y=(rda.vecs[3,2]*scale.arrows)+0.6, label=TeX("$Yield$"), size = 4) +
+  ggplot2::annotate("text", x=(rda.vecs[2,1]*scale.arrows) + 0.1, y=(rda.vecs[2,2]*scale.arrows)-0.3, label=TeX("$\\log_{10} (\\lambda) $"), size = 4) +
+  ggplot2::annotate("text", x=(rda.vecs[1,1]*scale.arrows) + 0.2, y=rda.vecs[1,2]*scale.arrows, label=TeX("$k$"), size = 4) +
+  ggplot2::annotate("text", x=(rda.vecs[5,1]*scale.arrows) - 0.3, y=rda.vecs[5,2]*scale.arrows, label=TeX("$\\log_{10} (Lag \\, time) $"), size = 4) +
+  ggsave("figs/RDA.pdf", device='pdf', width = 84, height = 84, units = "mm", dpi = 500)
 
+
+
+
+  
 
