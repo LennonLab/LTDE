@@ -279,7 +279,6 @@ def get_sites_to_remove(taxon):
     flag_fixed = copy.deepcopy(count_fixed)
     flag_fixed = {key:val for key, val in flag_fixed.items() if val < len(taxon_samples)-1}
 
-    #print(flag_fixed)
     for taxon_sample in taxon_samples:
         taxon_sample_sites = []
         for i, line in enumerate(open(lt.get_path() + '/data/breseq/annotated/' + taxon_sample + '.gd', 'r')):
@@ -291,7 +290,6 @@ def get_sites_to_remove(taxon):
                     if contig_site in flag_fixed:
                         del flag_fixed[contig_site]
 
-    #print(flag_fixed)
     # everything breseq is calling as a fixed mutation has
 
     counts_all = Counter(taxon_sites)
@@ -469,9 +467,11 @@ def get_diversity_stats(afs_cutoff=30, mean_mut_cutoff=30):
             mean_N_mut_list.append(mean_N_mut)
             max_N_mut_list.append(max_N_mut)
 
-            b_div_mean_d = binary_divisions_mean / (n_0_c - n_c)
+            #b_div_mean_d = binary_divisions_mean / (n_0_c - n_c)
+            b_div_mean_d = binary_divisions_mean /  n_c
             b_div_mean_d_list.append(b_div_mean_d)
-            b_div_max_d = binary_divisions_max / (n_0_c - n_c)
+            #b_div_max_d = binary_divisions_max / (n_0_c - n_c)
+            b_div_max_d = binary_divisions_max /  n_c
             b_div_max_d_list.append(b_div_max_d)
 
             rep_num = lt.rename_rep()[taxon_sample.split('-')[1]]
@@ -555,6 +555,7 @@ def get_diversity_stats(afs_cutoff=30, mean_mut_cutoff=30):
                         'max_N_mut', 'max_binary_divisions', 'max_gen_per_day', 'max_birth_per_death']
 
     df_out_taxa.write('\t'.join(df_out_taxa_heder) + '\n')
+    print(b_div_d_max_all)
     for i in range(len(taxa_all)):
         out_list_i = [taxa_all[i], str(n_muts_all[i]), str(mean_freq_list_all[i]), \
             str(max_freq_list_all[i]), str(theta_list_all[i]), str(pi_list_all[i]), str(TD_list_all[i]), \
@@ -942,7 +943,6 @@ def annotate_significant_genes():
 
 
 
-piecewise_regression()
 #get_sites_to_remove('KBS0801')
 #get_diversity_stats()
 

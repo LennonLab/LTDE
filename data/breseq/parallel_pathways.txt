@@ -1,0 +1,4 @@
+Module ID, Module type, Description, ATCC13985, KBS0702, KBS0707, KBS0711, KBS0715, KBS0721, KBS0722, KBS0724, KBS0801
+M00016, Pathway, Lysine biosynthesis, -, +, +, -, -, -, -, -, -
+M00053, Pathway, Pyrimidine biosynthesis, -, -, +, +, -, -, -, -, -
+M00237, Complex, Branched-chain amino acid transport system, -, -, -, +, -, -, -, -, +
