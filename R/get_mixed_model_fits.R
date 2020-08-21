@@ -10,6 +10,10 @@ library('lme4')
 
 df <- read.csv("data/demography/weibull_results_clean.csv", 
                header = TRUE, stringsAsFactors = FALSE)
+
+#df.sub <- df[df$strain %in% c('ATCC13985', 'ATCC43928', 'KBS0702', 'KBS0703', 'KBS0705', 'KBS0706', 'KBS0711', 'KBS0712', 'KBS0713', 'KBS0721', 'KBS0725', 'KBS0801'),]
+
+
 df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
                          header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 rownames(df.species) <- df.species$Species
@@ -66,7 +70,8 @@ CI.upper <- pred + std.err*1.96
 
 # output CI as txt
 CI.df <- data.frame(merBoot$data$`log10(N_0_beta)`, CI.lower, CI.upper)
-
+colnames(CI.df) <- c('x', 'CI_lower', 'CI_upper')
+CI.df <- CI.df[order(CI.df$x),]
 # output coefficients as txt
 coef.df <- coef(mixed.b0_and_b1)$strain
 

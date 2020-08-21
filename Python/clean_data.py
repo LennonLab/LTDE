@@ -293,7 +293,7 @@ def get_sites_to_remove(taxon):
     # everything breseq is calling as a fixed mutation has
 
     counts_all = Counter(taxon_sites)
-    count_dict_to_remove = dict((k, v) for k, v in counts_all.items() if (v == len(taxon_samples)) )
+    count_dict_to_remove = dict((k, v) for k, v in counts_all.items() if (v > 1 ) )
     sites_to_remove = list(count_dict_to_remove.keys())
     sites_to_remove_all = list(set(sites_to_remove + sites_to_remove_all_fixed))
     #print(taxon + ' proportion sites removed ' + str(round(len(sites_to_remove)/ len(counts_all.keys()), 3 )) )
@@ -389,24 +389,32 @@ def get_diversity_stats(afs_cutoff=30, mean_mut_cutoff=30):
             # go back through the file again and get the coverage info from RA lines
             freq_list = []
             n_muts = 0
-            for i, line in enumerate(open(lt.get_path() + '/data/breseq/output/' + taxon_sample + '.gd', 'r')):
+            print(taxon_sample, len(fixed_SNP_IDs), fixed_SNP_IDs)
+            #for i, line in enumerate(open(lt.get_path() + '/data/breseq/output/' + taxon_sample + '.gd', 'r')):
+            for i, line in enumerate(open(lt.get_path() + '/data/breseq/annotated/' + taxon_sample + '.gd', 'r')):
                 line_split = line.strip().split('\t')
-                if (line_split[0] == 'RA') and (line_split[1] in SNP_IDs):
-                    major_cov = int(line_split[15].split('=')[1].split('/')[0]) + int(line_split[15].split('=')[1].split('/')[1])
-                    minor_cov = int(line_split[18].split('=')[1].split('/')[0]) + int(line_split[18].split('=')[1].split('/')[1])
-                    total_cov = int(line_split[-1].split('=')[1].split('/')[0]) + int(line_split[-1].split('=')[1].split('/')[1])
-                    freq = float(line_split[20].split('=')[1])
-                    freq_list.append([freq, total_cov, major_cov, minor_cov])
+                #if (line_split[0] == 'RA') and (line_split[1] in SNP_IDs):
+                if (line_split[0] in output_to_keep) and (line_split[2] in SNP_IDs):
+                    #major_cov = int(line_split[15].split('=')[1].split('/')[0]) + int(line_split[15].split('=')[1].split('/')[1])
+                    #minor_cov = int(line_split[18].split('=')[1].split('/')[0]) + int(line_split[18].split('=')[1].split('/')[1])
+                    #total_cov = int(line_split[-1].split('=')[1].split('/')[0]) + int(line_split[-1].split('=')[1].split('/')[1])
+                    #freq = float(line_split[20].split('=')[1])
+                    #freq_list.append([freq, type, total_cov, major_cov, minor_cov])
+
+                    freq = float([j for j in line_split if 'frequency=' in j][0].split('=')[1])
+                    type = [j for j in line_split if 'mutation_category=' in j][0].split('=')[1]
+                    freq_list.append([freq, type])
                     n_muts += 1
 
             # only look at the AFS in pops with at least 50 mutations
             if len(freq_list) >= afs_cutoff:
-                #print('keep rep!')
                 # print allele frequencies to a file
                 df_out_freq_taxa = open(lt.get_path() + '/data/breseq/allele_freq_spec/' + str(taxon_sample) + '.txt', 'w')
-                df_out_freq_taxa.write('\t'.join(['freq', 'total_cov', 'major_cov', 'minor_cov']) + '\n')
+                #df_out_freq_taxa.write('\t'.join(['freq', 'total_cov', 'major_cov', 'minor_cov']) + '\n')
+                df_out_freq_taxa.write('\t'.join(['frequency', 'mutation_category']) + '\n')
                 for freq_list_i in freq_list:
-                    df_out_freq_taxa.write('\t'.join([str(freq_list_i[0]), str(freq_list_i[1]), str(freq_list_i[2]), str(freq_list_i[3])]) + '\n')
+                    #df_out_freq_taxa.write('\t'.join([str(freq_list_i[0]), str(freq_list_i[1]), str(freq_list_i[2]), str(freq_list_i[3])]) + '\n')
+                    df_out_freq_taxa.write('\t'.join([str(freq_list_i[0]), str(freq_list_i[1])]) + '\n')
                 df_out_freq_taxa.close()
 
             # only look at mean properties for pops with at least 20 mutations
@@ -458,8 +466,8 @@ def get_diversity_stats(afs_cutoff=30, mean_mut_cutoff=30):
             # number divisions
             mean_N_mut = n_c*mean_freq
             max_N_mut = n_c*max_freq
-            binary_divisions_mean = sum([2**i for i in range(int( math.floor(np.log2(mean_N_mut)) ))])
-            binary_divisions_max = sum([2**i for i in range(int( math.floor(np.log2(max_N_mut)) ))])
+            binary_divisions_mean = sum([2**i for i in range(int( math.floor(np.log2(mean_N_mut)) ))]) / 2
+            binary_divisions_max = sum([2**i for i in range(int( math.floor(np.log2(max_N_mut)) ))]) / 2
 
             binary_divisions_mean_list.append(binary_divisions_mean)
             binary_divisions_max_list.append(binary_divisions_max)
@@ -555,7 +563,6 @@ def get_diversity_stats(afs_cutoff=30, mean_mut_cutoff=30):
                         'max_N_mut', 'max_binary_divisions', 'max_gen_per_day', 'max_birth_per_death']
 
     df_out_taxa.write('\t'.join(df_out_taxa_heder) + '\n')
-    print(b_div_d_max_all)
     for i in range(len(taxa_all)):
         out_list_i = [taxa_all[i], str(n_muts_all[i]), str(mean_freq_list_all[i]), \
             str(max_freq_list_all[i]), str(theta_list_all[i]), str(pi_list_all[i]), str(TD_list_all[i]), \
@@ -943,8 +950,7 @@ def annotate_significant_genes():
 
 
 
-#get_sites_to_remove('KBS0801')
-#get_diversity_stats()
+get_diversity_stats()
 
 #run_parallelism_analysis()
 #annotate_significant_genes()

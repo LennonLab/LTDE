@@ -14,7 +14,7 @@ library('treeio')
 library('latex2exp')
 library('gridExtra')
 
-ml.tree <- ggtree::read.raxml("data/tree/RAxML_bipartitionsBranchLabels.ltde")
+ml.tree <- ggtree::read.raxml("data/tree/RAxML_bipartitionsBranchLabels.ltde_new_labels")
 df.species <- read.table("data/demography/weibull_results_clean_species.csv", 
                          header = TRUE, sep = ",", row.names = 1, stringsAsFactors = FALSE)
 to.keep <- df.species$Species
@@ -52,6 +52,6 @@ tree.plot <- ggtree(pruned.tree, branch.length='none') +
   geom_treescale(x = 0.2, y = -1.3) + xlim(0, 11)
 
 
-ggsave(file="figs/tree.pdf", tree.plot, device='pdf', units='in', dpi=600)
+ggsave(file="figs/tree_no_contamination.pdf", tree.plot, device='pdf', units='in', dpi=600)
 
 

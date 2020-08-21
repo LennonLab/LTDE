@@ -101,8 +101,8 @@ def plot_multiplicity_survival():
         ax.yaxis.set_tick_params(labelsize=6)
 
 
-    fig.text(0.5, 0.02, 'Gene multiplicity, ' + '$m$', ha='center', fontsize=16)
-    fig.text(0.02, 0.5, 'Fraction mutations ' + '$\geq m$', va='center', rotation='vertical', fontsize=16)
+    fig.text(0.5, 0.02, 'Gene multiplicity, ' + r'$m$', ha='center', fontsize=16)
+    fig.text(0.02, 0.5, 'Fraction mutations ' + r'$\geq m$', va='center', rotation='vertical', fontsize=16)
 
     fig_name = lt.get_path() + '/figs/mult_survival.pdf'
     fig.savefig(fig_name, format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
@@ -479,8 +479,8 @@ def plot_afs():
             #pdf_ = np.exp(kde_.score_samples(x_grid_[:, None]))
             #pdf_ = kde_.score_samples(x_grid_[:, None])
             #pdf_ = [x / sum(pdf_) for x in pdf_]
-            ax.hist(freqs, bins=30, alpha=0.8,  color = taxon_color, weights=np.zeros_like(freqs) + 1. / len(freqs))
-
+            ax.hist(freqs, bins= np.logspace(np.log10(0.1),np.log10(1.0), 50), alpha=0.8,  color = taxon_color, weights=np.zeros_like(freqs) + 1. / len(freqs))
+            #print(min(freqs))
             #ax.plot(x_grid_, pdf_, alpha=0.8, lw = 2, color = taxon_color) #, marker='o')
             #ax.plot(10**x_grid_, pdf_, alpha=0.8, lw = 2, color = taxon_color) #, marker='o')
             taxon_means.append(np.mean(freqs))
@@ -498,6 +498,8 @@ def plot_afs():
         ax.tick_params(axis='both', which='minor', labelsize=5)
 
         ax.set_xlim([0.05, 0.82])
+
+        #ax.set_xscale('log', basex=10)
 
 
     fig.text(0.5, 0.02, 'Mutation frequency', ha='center', fontsize=16)
@@ -922,8 +924,10 @@ def plot_lag_shape():
     df_merged = df_weib.merge(df_traits, on=['Species'])
     taxa = list(set(df_merged.Species.to_list()))
 
-    fig = plt.figure()
-    plt.axhline(1, color = 'dimgrey', lw = 2, ls = '--', zorder=1)
+    #fig = plt.figure()
+    fig, ax = plt.subplots(figsize=(4,4))
+
+    ax.axhline(1, color = 'dimgrey', lw = 2, ls = '--', zorder=1)
 
     x_log10 = np.log10(df_merged['Lag'].values)
     y_log10 = df_merged['alpha.log10'].values
@@ -934,7 +938,7 @@ def plot_lag_shape():
 
     x_log10_range = np.linspace( np.log10(min_range), np.log10(max_range), num=1000)
     y_log10_range_pred = np.asarray([ intercept + (x_i*slope) for x_i in  x_log10_range])
-    plt.plot(10**x_log10_range, 10**y_log10_range_pred, color='k', linestyle='--', linewidth=2, zorder=2)
+    ax.plot(10**x_log10_range, 10**y_log10_range_pred, color='k', linestyle='--', linewidth=2, zorder=2)
 
     y_log10_pred = np.asarray([intercept + (slope*x_log_10_i) for x_log_10_i in x_log10])
     SSE = sum((y_log10 - y_log10_pred) ** 2)
@@ -953,8 +957,8 @@ def plot_lag_shape():
     # Lower confidence band
     lcb = y_log10_range_pred - dy
 
-    plt.plot(10**x_log10_range, 10**lcb, color='red', linestyle=':', linewidth=2, zorder=3)
-    plt.plot(10**x_log10_range, 10**ucb, color='red', linestyle=':', linewidth=2, zorder=3)
+    ax.plot(10**x_log10_range, 10**lcb, color='red', linestyle=':', linewidth=2, zorder=3)
+    ax.plot(10**x_log10_range, 10**ucb, color='red', linestyle=':', linewidth=2, zorder=3)
 
 
     for i, taxon in enumerate(taxa):
@@ -962,20 +966,31 @@ def plot_lag_shape():
 
         lag = df_merged.loc[df_merged['Species'] == taxon]['Lag'].values
         shape = 10**df_merged.loc[df_merged['Species'] == taxon]['alpha.log10'].values
-        plt.scatter(lag, shape, c=taxon_color, marker = 'o', s = 80, \
+        ax.scatter(lag, shape, c=taxon_color, marker = 'o', s = 80, \
             edgecolors='#244162', linewidth = 0, alpha = 1, zorder=4)
 
-    plt.xscale('log',basex=10)
-    plt.yscale('log',basey=10)
-    plt.xlabel('Lag time (hrs.)', fontsize = 12)
-    plt.ylabel('Shape paramter, ' r'$k$', fontsize = 12)
-    fig.savefig(lt.get_path() + '/figs/lag_shape.pdf', format='pdf',bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
-    plt.close()
 
     print("D.F. = " + str(N-2))
     print("t = " + str(round((slope-0)/std_err, 4)))
     print("r^2 = " + str(round(r_value**2, 4)))
     print("p-value = " + str(round(p_value, 4)))
+
+    ax.set_xlim([0.2,80])
+    ax.set_ylim([0.06,1.2])
+
+    ax.text(0.06, 0.8, r'$\beta_{1}=$' + str(round(slope, 3)) , fontsize=9, transform=ax.transAxes)
+    ax.text(0.06, 0.74, r'$r^{2}=$' + str(round(r_value**2, 3)) , fontsize=9, transform=ax.transAxes)
+    ax.text(0.06, 0.68, r'$P=$' + str(round(p_value, 3)) , fontsize=9, transform=ax.transAxes)
+
+
+    ax.set_xscale('log',basex=10)
+    ax.set_yscale('log',basey=10)
+    ax.set_xlabel('Lag time (hrs.)', fontsize = 16)
+    ax.set_ylabel('Shape paramter, ' r'$k$', fontsize = 16)
+    fig.savefig(lt.get_path() + '/figs/lag_shape.pdf', format='pdf',bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    plt.close()
+
+
 
 
 def plot_birth_per_death_vs_shape():
@@ -1209,15 +1224,16 @@ def plot_spoIIE():
     df_wt = df[(df['strain'] == 'wt')]
     df_spoiie = df[(df['strain'] == 'SpoIIE')]
 
-    model_wt = log_weibull_model(df_wt.days.values, np.log(df_wt.N_viable.values/ df_wt.N_viable.values[0]))
+
+    model_wt = log_weibull_model(df_wt.days.values, np.log(df_wt.N_total.values/ df_wt.N_total.values[0]))
     result_wt = model_wt.fit(method="lbfgs", disp = False,  bounds= [(0.000001,50), (0.001,100), (0.001, 100)])
 
-    model_spoiie = log_weibull_model(df_spoiie.days.values, np.log(df_spoiie.N_viable.values/ df_spoiie.N_viable.values[0]))
+    model_spoiie = log_weibull_model(df_spoiie.days.values, np.log(df_spoiie.N_total.values/ df_spoiie.N_total.values[0]))
     result_spoiie = model_spoiie.fit(method="lbfgs", disp = False,  bounds= [(0.000001,50), (0.001,100), (0.001, 100)])
 
-    x_weibull = np.linspace(0, 20)
-    wt_weibull = df_wt.N_viable.values[0] * np.exp( -1 * (( x_weibull* result_wt.params[0]) ** result_wt.params[1]) )
-    spoiie_weibull = df_spoiie.N_viable.values[0] * np.exp( -1 * (( x_weibull* result_spoiie.params[0]) ** result_spoiie.params[1]) )
+    x_weibull = np.linspace(0, max(df['days'].values))
+    wt_weibull = df_wt.N_total.values[0] * np.exp( -1 * (( x_weibull* result_wt.params[0]) ** result_wt.params[1]) )
+    spoiie_weibull = df_spoiie.N_total.values[0] * np.exp( -1 * (( x_weibull* result_spoiie.params[0]) ** result_spoiie.params[1]) )
 
 
     fig = plt.figure()
@@ -1225,7 +1241,7 @@ def plot_spoIIE():
     taxon_color = df_colors.loc[df_colors['strain'] == 'KBS0812'].Color.to_list()[0]
     taxon_color = lt.lighten_color(taxon_color, amount=1.2)
 
-    plt.scatter(df_spoiie.days, df_spoiie.N_viable, facecolors='none', edgecolors=taxon_color, s=80, lw=2, alpha=0.7, label=latex_dict['KBS0812'] + ' ' + r'$\Delta \mathrm{spoIIE}$',zorder=1)
+    plt.scatter(df_spoiie.days, df_spoiie.N_total, facecolors='none', edgecolors=taxon_color, s=80, lw=2, alpha=0.7, label=latex_dict['KBS0812'] + ' ' + r'$\Delta \mathrm{spoIIE}$',zorder=1)
     plt.scatter(df_wt.days, df_wt.N_total, facecolors=taxon_color, edgecolors=taxon_color, s=80, lw=2, alpha=0.7, label=latex_dict['KBS0812'] + ' wt',zorder=1)
 
     plt.plot(x_weibull, wt_weibull, '--', c='k', lw=2, label=latex_dict['KBS0812'] + ' Weibull fit',zorder=2)
@@ -1237,7 +1253,7 @@ def plot_spoIIE():
     #plt.ylim(0.5*(10**7), 10**9)
     plt.legend(loc='upper right', prop={'size': 8})
 
-    fig.savefig(lt.get_path() + '/figs/scale_vs_N.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/spoiie_death_curve.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
 
     plt.close()
 
@@ -1290,7 +1306,7 @@ def plot_fig2():
     ax_regression.text(0.7, 0.8,  r'$r_{m}^{2}=$' + str(round(model_features_dict['r2_m'], 2)), fontsize=9, transform=ax_regression.transAxes)
     ax_regression.text(0.7, 0.72,  r'$P<10^{-4}$', fontsize=9, transform=ax_regression.transAxes)
 
-    ax_regression.set_xlabel('Initial number of dead cells, ' + r'$d_{0} \cdot N(0) $', fontsize=12)
+    ax_regression.set_xlabel('Initial number of dead cells, ' + r'$d_{0} \cdot N_{v}(0) $', fontsize=12)
     ax_regression.set_ylabel('Degree that growth rate changes, ' + r'$k$', fontsize=13)
 
     #ax_regression.text(-0.03, 0.5,  "Growth rate decreases time  No chance in growth rate", va='center', rotation='vertical', fontsize=9, transform=ax_regression.transAxes)
@@ -1299,7 +1315,7 @@ def plot_fig2():
     N_0 = int(1e9)
     P0 = [N_0, 0, 0]
     colors = ['#FF6347', '#FFA500', '#87CEEB']
-    labels = [r'$d_{0} \cdot N(0) = 10^{6}$', r'$d_{0} \cdot N(0) = 10^{7}$', r'$d_{0} \cdot N(0) = 10^{8}$']
+    labels = [r'$d_{0} \cdot N_{v}(0) = 10^{6}$', r'$d_{0} \cdot N_{v}(0) = 10^{7}$', r'$d_{0} \cdot N_{v}(0) = 10^{8}$']
 
     for i, d in enumerate([ 0.001, 0.01, 0.1 ]):
         Ps = odeint(dP_dt, P0, ts, args=(d,))
@@ -1311,7 +1327,7 @@ def plot_fig2():
     ax_model.legend(loc='lower left', prop={'size': 9})
     ax_model.set_yscale('log',basey=10)
     ax_model.set_xlabel('Time, ' + r'$t$' , fontsize = 14)
-    ax_model.set_ylabel('Number of cells, ' + r'$N(t)$' , fontsize = 13)
+    ax_model.set_ylabel('Number of cells, ' + r'$N_{v}(t)$' , fontsize = 13)
 
     # mttd figure
     df_weibull_species = pd.read_csv(lt.get_path() + '/data/demography/weibull_results_clean_species.csv', sep=',')
@@ -1353,6 +1369,10 @@ def plot_fig1():
     ax_KBS0703 = plt.subplot2grid((3, 3), (0, 1), colspan=1, rowspan=1)
     ax_KBS0812 = plt.subplot2grid((3, 3), (0, 2), colspan=1, rowspan=1)
     ax_likelihood = plt.subplot2grid((3, 3), (1, 0), colspan=2, rowspan=1)
+
+    ax_KBS0714.set_xlim(-30,1030)
+    ax_KBS0703.set_xlim(-30,1030)
+    ax_KBS0812.set_xlim(-30,1030)
 
     ax_KBS0714.text(-0.1, 1.07, 'a', fontsize=13, fontweight='bold', ha='center', va='center', transform=ax_KBS0714.transAxes)
     ax_KBS0703.text(-0.1, 1.07, 'b', fontsize=13, fontweight='bold', ha='center', va='center', transform=ax_KBS0703.transAxes)
@@ -1410,13 +1430,13 @@ def plot_fig1():
     ax_KBS0812.scatter(df_counts_KBS0812.Days.dt.days, df_counts_KBS0812.Abund.values, c=KBS0812_color, marker = 'o', s = 70, \
         linewidth = 0.6, alpha = 0.5, zorder=1, edgecolors='none')
 
-    ax_KBS0714.plot(KBS0714_time, KBS0714_exp_pred, zorder=2, c='darkgrey',ls='--', lw=2)
-    ax_KBS0703.plot(KBS0703_time, KBS0703_exp_pred, zorder=2, c='darkgrey',ls='--', lw=2)
-    ax_KBS0812.plot(KBS0812_time, KBS0812_exp_pred, zorder=2, c='darkgrey',ls='--', lw=2)
+    #ax_KBS0714.plot(KBS0714_time, KBS0714_exp_pred, zorder=2, c='darkgrey',ls='--', lw=2)
+    #ax_KBS0703.plot(KBS0703_time, KBS0703_exp_pred, zorder=2, c='darkgrey',ls='--', lw=2)
+    #ax_KBS0812.plot(KBS0812_time, KBS0812_exp_pred, zorder=2, c='darkgrey',ls='--', lw=2)
 
-    ax_KBS0714.plot(KBS0714_time, KBS0714_weib_pred, zorder=2, c='k',ls='--', lw=2)
-    ax_KBS0703.plot(KBS0703_time, KBS0703_weib_pred, zorder=2, c='k',ls='--', lw=2)
-    ax_KBS0812.plot(KBS0812_time, KBS0812_weib_pred, zorder=2, c='k',ls='--', lw=2)
+    #ax_KBS0714.plot(KBS0714_time, KBS0714_weib_pred, zorder=2, c='k',ls='--', lw=2)
+    #ax_KBS0703.plot(KBS0703_time, KBS0703_weib_pred, zorder=2, c='k',ls='--', lw=2)
+    #ax_KBS0812.plot(KBS0812_time, KBS0812_weib_pred, zorder=2, c='k',ls='--', lw=2)
 
     ax_KBS0714.set_ylim([0.2*min(df_counts_KBS0714.Abund.values), 4*KBS0714_N_0])
     ax_KBS0703.set_ylim([0.2*min(df_counts_KBS0703.Abund.values), 4*KBS0703_N_0])
@@ -1434,19 +1454,19 @@ def plot_fig1():
     ax_KBS0703.set_xlabel('Days, ' + r'$t$', fontsize=12)
     ax_KBS0812.set_xlabel('Days, ' + r'$t$', fontsize=12)
 
-    ax_KBS0714.set_ylabel('Population size, ' + '$N(t)$', fontsize=12)
-    ax_KBS0703.set_ylabel('Population size, ' + '$N(t)$', fontsize=12)
-    ax_KBS0812.set_ylabel('Population size, ' + '$N(t)$', fontsize=12)
+    ax_KBS0714.set_ylabel('Population size, ' + '$N_{v}(t)$', fontsize=12)
+    ax_KBS0703.set_ylabel('Population size, ' + '$N_{v}(t)$', fontsize=12)
+    ax_KBS0812.set_ylabel('Population size, ' + '$N_{v}(t)$', fontsize=12)
 
-    ax_KBS0714.text(0.65, 0.8,  r'$k=$' + str(round(KBS0714_shape, 2)) , fontsize=9, transform=ax_KBS0714.transAxes)
-    ax_KBS0703.text(0.65, 0.8,  r'$k=$' + str(round(KBS0703_shape, 2)) , fontsize=9, transform=ax_KBS0703.transAxes)
-    ax_KBS0812.text(0.65, 0.8,  r'$k=$' + str(round(KBS0812_shape, 2)) , fontsize=9, transform=ax_KBS0812.transAxes)
+    #ax_KBS0714.text(0.65, 0.8,  r'$k=$' + str(round(KBS0714_shape, 2)) , fontsize=9, transform=ax_KBS0714.transAxes)
+    #ax_KBS0703.text(0.65, 0.8,  r'$k=$' + str(round(KBS0703_shape, 2)) , fontsize=9, transform=ax_KBS0703.transAxes)
+    #ax_KBS0812.text(0.65, 0.8,  r'$k=$' + str(round(KBS0812_shape, 2)) , fontsize=9, transform=ax_KBS0812.transAxes)
 
 
-    legend_elements_KBS0714 = [Line2D([0], [0], ls='--', color='k', lw=1.5, label='Weibull'),
-                    Line2D([0], [0], ls='--', color='grey', lw=1.5, label='Exponential')]
+    legend_elements_KBS0714 = [Line2D([0], [0], ls='--', color='k', lw=1.5, label='Weibull, ' + r'$k \neq 1$'),
+                    Line2D([0], [0], ls='--', color='grey', lw=1.5, label= 'Exponen., ' + r'$k = 1$')]
 
-    ax_KBS0714.legend(handles=legend_elements_KBS0714, loc='lower left', fontsize=9)
+    #ax_KBS0714.legend(handles=legend_elements_KBS0714, loc='lower right', fontsize=8)
 
 
     # plot likelihood
@@ -1468,9 +1488,9 @@ def plot_fig1():
                 color_LR = 'red'
             ax_likelihood.scatter(row['LR'], taxon_idx, marker = 'o', s = 70, alpha = 0.9, c=color_LR, zorder=2)
 
-    legend_elements = [Line2D([0], [0], color = 'none', marker='o', label=r'$P<0.05$',
+    legend_elements = [Line2D([0], [0], color = 'none', marker='o', label=r'$P_{\mathrm{BH}}<0.05$',
                         markerfacecolor='b', markeredgecolor='none', markersize=11),
-                    Line2D([0], [0], marker='o', color='none', label=r'$P\, \nless 0.05$',
+                    Line2D([0], [0], marker='o', color='none', label=r'$P_{\mathrm{BH}} \, \nless 0.05$',
                         markerfacecolor='r', markersize=11, markeredgecolor='none', markeredgewidth=2)]
 
     ax_likelihood.legend(handles=legend_elements, loc='lower right')
@@ -1492,13 +1512,87 @@ def plot_fig1():
 
 
 
+def plot_arthro():
+
+
+    fig = plt.figure(figsize = (9, 9))
+
+    ax_KBS0703 = plt.subplot2grid((1, 1), (0, 0), colspan=1, rowspan=1)
+
+    ax_KBS0703.set_xlim(-30,1030)
+
+    df_counts = pd.read_csv(lt.get_path() + '/data/demography/longtermdormancy_20190528_nocomments.csv', sep = ',')
+    df_counts['Abund'] = (df_counts.Colonies.values+1) * (1000 / df_counts.Inoculum.values) * ( 10 ** df_counts.Dilution.values )
+    df_counts['Dormstart_date'] = pd.to_datetime(df_counts['Dormstart_date'])
+    df_counts['Firstread_date'] = pd.to_datetime(df_counts['Firstread_date'])
+    df_counts['Days'] = df_counts['Firstread_date'] - df_counts['Dormstart_date'] + dt.timedelta(days=1)
+    df_stats = pd.read_csv(lt.get_path() + '/data/demography/weibull_results_clean.csv', sep = ',')
+
+    df_counts_KBS0703 = df_counts.loc[((df_counts['Strain'] == 'KBS0703') &  (df_counts['Rep'] == 4))]
+
+    df_stats_KBS0703 = df_stats.loc[((df_stats['strain'] == 'KBS0703') &  (df_stats['rep'] == 4))]
+
+    KBS0703_N_0 = df_stats_KBS0703.N_0.to_list()[0]
+
+
+    KBS0703_time = list(range(0, max(df_counts_KBS0703.Days.dt.days), 1))
+
+    KBS0714_exp_pred = [ KBS0714_N_0* math.exp(-1* (t / KBS0714_scale) ) for t in KBS0714_time]
+    KBS0703_exp_pred = [ KBS0703_N_0* math.exp(-1* (t / KBS0703_scale) ) for t in KBS0703_time]
+    KBS0812_exp_pred = [ KBS0812_N_0* math.exp(-1* (t / KBS0812_scale) ) for t in KBS0812_time]
+
+    KBS0714_weib_pred = [ KBS0714_N_0* (math.exp(-1* (t / KBS0714_scale)** KBS0714_shape ) )  for t in KBS0714_time]
+    KBS0703_weib_pred = [ KBS0703_N_0* (math.exp(-1* (t / KBS0703_scale)** KBS0703_shape ) )  for t in KBS0703_time]
+    KBS0812_weib_pred = [ KBS0812_N_0* (math.exp(-1* (t / KBS0812_scale)** KBS0812_shape ) )  for t in KBS0812_time]
+
+    KBS0714_color = df_colors.loc[df_colors['strain'] == 'KBS0714'].Color.to_list()[0]
+    KBS0703_color = df_colors.loc[df_colors['strain'] == 'KBS0703'].Color.to_list()[0]
+    KBS0812_color = df_colors.loc[df_colors['strain'] == 'KBS0812'].Color.to_list()[0]
+
+
+    ax_KBS0714.scatter(df_counts_KBS0714.Days.dt.days, df_counts_KBS0714.Abund.values, c=KBS0714_color, marker = 'o', s = 70, \
+        linewidth = 0.6, alpha = 0.5, zorder=1, edgecolors='none')
+    ax_KBS0703.scatter(df_counts_KBS0703.Days.dt.days, df_counts_KBS0703.Abund.values, c=KBS0703_color, marker = 'o', s = 70, \
+        linewidth = 0.6, alpha = 0.5, zorder=1, edgecolors='none')
+    ax_KBS0812.scatter(df_counts_KBS0812.Days.dt.days, df_counts_KBS0812.Abund.values, c=KBS0812_color, marker = 'o', s = 70, \
+        linewidth = 0.6, alpha = 0.5, zorder=1, edgecolors='none')
+
+    #ax_KBS0714.plot(KBS0714_time, KBS0714_exp_pred, zorder=2, c='darkgrey',ls='--', lw=2)
+    #ax_KBS0703.plot(KBS0703_time, KBS0703_exp_pred, zorder=2, c='darkgrey',ls='--', lw=2)
+    #ax_KBS0812.plot(KBS0812_time, KBS0812_exp_pred, zorder=2, c='darkgrey',ls='--', lw=2)
+
+    #ax_KBS0714.plot(KBS0714_time, KBS0714_weib_pred, zorder=2, c='k',ls='--', lw=2)
+    #ax_KBS0703.plot(KBS0703_time, KBS0703_weib_pred, zorder=2, c='k',ls='--', lw=2)
+    #ax_KBS0812.plot(KBS0812_time, KBS0812_weib_pred, zorder=2, c='k',ls='--', lw=2)
+
+    ax_KBS0714.set_ylim([0.2*min(df_counts_KBS0714.Abund.values), 4*KBS0714_N_0])
+    ax_KBS0703.set_ylim([0.2*min(df_counts_KBS0703.Abund.values), 4*KBS0703_N_0])
+    ax_KBS0812.set_ylim([0.2*min(df_counts_KBS0812.Abund.values), 4*KBS0812_N_0])
+
+    ax_KBS0714.set_yscale('log',basey=10)
+    ax_KBS0703.set_yscale('log',basey=10)
+    ax_KBS0812.set_yscale('log',basey=10)
+
+    ax_KBS0714.set_title(latex_dict['KBS0714'], fontsize=11)
+    ax_KBS0703.set_title(latex_dict['KBS0703'], fontsize=11)
+    ax_KBS0812.set_title(latex_dict['KBS0812'], fontsize=11)
+
+    ax_KBS0714.set_xlabel('Days, ' + r'$t$', fontsize=12)
+    ax_KBS0703.set_xlabel('Days, ' + r'$t$', fontsize=12)
+    ax_KBS0812.set_xlabel('Days, ' + r'$t$', fontsize=12)
+
+    ax_KBS0714.set_ylabel('Population size, ' + '$N_{v}(t)$', fontsize=12)
+    ax_KBS0703.set_ylabel('Population size, ' + '$N_{v}(t)$', fontsize=12)
+    ax_KBS0812.set_ylabel('Population size, ' + '$N_{v}(t)$', fontsize=12)
+
+
 
 
 
 #plot_fig2()
 
-plot_fig1()
-#plot_spoIIE()
+#plot_fig1()
+plot_spoIIE()
 
 
 #plot_dnds()
