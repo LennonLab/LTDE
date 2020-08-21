@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -k o
-#PBS -l nodes=1:ppn=8,vmem=100gb,walltime=24:00:00
+#PBS -l nodes=1:ppn=8,vmem=10gb,walltime=24:00:00
 #PBS -M wrshoema@iu.edu
 #PBS -m abe
 #PBS -j oe
@@ -8,9 +8,9 @@
 # version 8.2.11
 module load raxml
 
-raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o NC_005042.1.353331-354795 -# autoMRE \
-    -s ~/GitHub/LTDE/data/align/arb-silva.de_2019-04-07_id632669.fasta \
-    -n ltde -w ~/GitHub/LTDE/data/tree
+#raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o NC_005042.1.353331-354795 -# autoMRE \
+#    -s ~/GitHub/LTDE/data/align/arb-silva.de_2019-04-07_id632669.fasta \
+#    -n ltde -w ~/GitHub/LTDE/data/tree
 
 
 
@@ -23,3 +23,8 @@ raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o NC_005042.1.353331-
 # -#  = determines number of bootstrap replicates
 # -s = aligned fasta file to be analyzed
 # -n = name of output file
+
+
+raxmlHPC-PTHREADS -T 4 -f a -m GTRGAMMA -p 12345 -x 12345 -o NC_005042.1.353331-354795 -# autoMRE \
+    -s /N/dc2/projects/muri2/Task2/LTDE/arb-silva.de_2020-06-18_id841017.fasta \
+    -n ltde_no_contamination -w /N/dc2/projects/muri2/Task2/LTDE

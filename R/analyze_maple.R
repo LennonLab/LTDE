@@ -16,7 +16,7 @@ library('ggrepel')
 
 df.met <- read.table("data/genomes/genomes_ncbi_maple.txt", 
                      header = TRUE, sep = "\t", row.names = 1)
-df.met <- subset(df.met, select = -c( KBS0727))#, KBS0710, KBS0721))
+df.met <- subset(df.met, select = -c( KBS0727, KBS0706, KBS0705))#, KBS0710, KBS0721))
 # remove rows with all ones
 df.met<- t(df.met[apply(df.met[,-1], 1, function(x) !all(x==1)),])
 
@@ -31,6 +31,9 @@ df.species <- read.table("data/traits/traits_weibull.txt",
 rownames(df.species) <- df.species$Species
 rownames(df.species) <- lapply(rownames(df.species), as.character)
 df.species.subset <- df.species[,c("alpha", "beta.log10","A","umax", "Lag")]
+
+df.species.subset <- df.species.subset[!(row.names(df.species.subset) %in% c( "KBS0706", "KBS0705")), ]
+
 df.species.subset$Lag <- log10(df.species.subset$Lag)
 
 # rda
@@ -52,9 +55,9 @@ m.rda.noKBS0812 <- step(m0.rda.noKBS0812, scope=formula(m1.rda.noKBS0812), test=
 # reduced model
 m.rda.reduced.noKBS0812 <- vegan::rda(df.met.no0or1.noKBS0812 ~ umax, as.data.frame(df.species.subset.noKBS0812))
 
-anova.cca(m.rda.reduced.noKBS0812, by="term", permutations = how(nperm=9999))
+#cca <- anova.cca(m.rda.reduced.noKBS0812, by="term", permutations = how(nperm=9999))
 
-
+#cca
 
 # make plot
 # the code for this plot was adapted from the GitHub repo HJA-streams

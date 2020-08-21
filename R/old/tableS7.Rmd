@@ -1,0 +1,26 @@
+---
+output: pdf_document
+---
+
+```{r, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+rm(list = ls()) 
+#setwd("~/GitHub/LTDE/")
+library(xtable)
+library(dplyr)
+
+df <- read.table("/Users/WRShoemaker/GitHub/LTDE/data/genomes_info.txt", 
+                 header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+
+         
+mat <- xtable(df, display = c("s", "s", "s", "s","s", "s", "s"), align=c("c","l","l", "l", "l","l", "l"), digits=c(0, 0, 0, 0, 0, 0, 0))
+
+
+print(mat, comment=FALSE, include.rownames=FALSE, size="\\fontsize{8pt}{9pt}\\selectfont", latex.environments="flushleft", math.style.exponents = TRUE,  sanitize.text.function = function(x) {x})
+
+```
+
+
+
+
+
+

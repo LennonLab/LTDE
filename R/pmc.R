@@ -18,7 +18,7 @@ rownames(df) <- df$Species
 rownames(df.no812) <- df.no812$Species
 
 # Load ML tree
-ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde")
+ml.tree <- read.tree("data/tree/RAxML_bipartitionsBranchLabels.ltde_no_contamination")
 # Define the outgroup
 outgroup <- match("NC_005042.1.353331-354795", ml.tree$tip.label)
 # Create a rooted tree {ape} using the outgroup
