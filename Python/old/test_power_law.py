@@ -142,7 +142,6 @@ for taxon in taxa:
     result = model2.fit(start_params = [0.01, 0.1, 0.1], method="bfgs", disp = False)
 
 
-    print(result.params)
 
     fig = plt.figure()
     ax = fig.add_subplot(111)

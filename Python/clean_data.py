@@ -10,7 +10,6 @@ from decimal import Decimal
 import statsmodels.stats.multitest as mt
 from scipy.stats import t
 
-import matplotlib.pyplot as plt
 
 output_to_keep = ['INS', 'DEL', 'SNP', 'SUB']
 
@@ -301,7 +300,7 @@ def get_sites_to_remove(taxon):
 
 
 
-def get_diversity_stats(afs_cutoff=30, mean_mut_cutoff=30):
+def get_diversity_stats(afs_cutoff=30, mean_mut_cutoff=20):
     df_out = open(lt.get_path() + '/data/breseq/genetic_diversity.txt', 'w')
     df_out_header = ['Species', 'sample', 'rep', 'mean_freq', 'max_freq', \
                     'pi', 'theta', 'tajimas_d', 'dn_ds_total', \
@@ -380,6 +379,8 @@ def get_diversity_stats(afs_cutoff=30, mean_mut_cutoff=30):
                 if line_split[0] == 'SNP':
                     if line_split[3] + '_' + line_split[4] in sites_to_remove:
                         continue
+
+                    # these are fixed in the ancestor, don't count as real fixations
                     # fixed mutations don't count towards polymorphisms
                     if float(line_split[6].split('=')[1]) == float(1):
                         fixed_SNP_IDs.append(line_split[2])
@@ -936,184 +937,25 @@ def annotate_significant_genes():
             total_parallelism.write("\t".join([taxon, locus_tag, refseq_name, refseq_annotation[1]]) + '\n')
     total_parallelism.close()
 
-    df_traits = pd.read_csv(lt.get_path() + '/data/breseq/gene_annotation.txt', sep = '\t')
-    print(Counter(df_traits.refseq_id.to_list()))
+    #df_traits = pd.read_csv(lt.get_path() + '/data/breseq/gene_annotation.txt', sep = '\t')
+    #print(Counter(df_traits.refseq_id.to_list()))
 
     # only one annotated gene is acquired in more than one taxon
 
 
 
 
-def clean_SpoIIE_DC_data():
-    file = open(lt.get_path() + '/data/demography/SpoIIE_DC_assay.csv', "w")
-    header = ','.join(['strain', 'replicate', 'NT', 'HT', 'hours', 'dilution_V', 'dilution_S']) + '\n'
-    file.write(header)
 
-    to_ignore = ['Bacillus', 'strains', 'medium', 'temp', '', 'strain', 'avg', 'temp - 30C']
+get_diversity_stats()
 
-    time_spo_all = None
-    time_wt_all = None
-
-    dilution_V_spo_all = None
-    dilution_V_wt_all = None
-    dilution_S_spo_all = None
-    dilution_S_wt_all = None
-
-    for line in open(lt.get_path() + '/data/demography/SpoIIE_DC.csv', 'r'):
-
-        line_split = line.strip().split(',')
-
-        if ('strains' in line_split[0]) or (line_split[1] == '') or ('SpoIIE' not in line_split[0]):
-            continue
-
-
-        #print(line_split[8])
-        type_spo = 'SpoIIE'
-        rep_spo = line_split[0].split(' ')[1]
-        type_wt = 'wt'
-        rep_wt = line_split[8].split(' ')[1]
-
-        NT_spo = line_split[1]
-        NT_wt = line_split[9]
-
-        HT_spo = line_split[2]
-        HT_wt = line_split[10]
-
-
-
-        time_spo = line_split[3].replace('hr', '')
-        time_wt = line_split[11].replace('hr', '')
-
-        if time_spo != '':
-            time_spo_all = time_spo
-            time_wt_all = time_wt
-
-        dilution_V_spo = line_split[5].replace('10^', '')
-        dilution_V_spo = dilution_V_spo.replace('-', '')
-        if (dilution_V_spo != '') and (dilution_V_spo != "CFU's"):
-            dilution_V_spo_all = dilution_V_spo
-
-        dilution_V_wt = line_split[13].replace('10^', '')
-        dilution_V_wt = dilution_V_wt.replace('-', '')
-        if (dilution_V_wt != '') and (dilution_V_wt != "CFU's"):
-            dilution_V_wt_all = dilution_V_wt
-
-        dilution_S_spo = line_split[6].replace('10^', '')
-        dilution_S_spo = dilution_S_spo.replace('-', '')
-        if (dilution_S_spo != '') and (dilution_S_spo != "CFU's"):
-            dilution_S_spo_all = dilution_S_spo
-
-        dilution_S_wt = line_split[14].replace('10^', '')
-        dilution_S_wt = dilution_S_wt.replace('-', '')
-        if (dilution_S_wt != '') and (dilution_S_wt != "CFU's"):
-            dilution_S_wt_all = dilution_S_wt
-
-        line_spo = ','.join([type_spo, rep_spo, NT_spo, HT_spo, time_spo_all, dilution_V_spo_all, dilution_S_spo_all ])
-        line_wt = ','.join([type_wt, rep_wt, NT_wt, HT_wt, time_wt_all, dilution_V_wt_all, dilution_S_wt_all ])
-
-        file.write(line_spo+'\n')
-        # one bad data point, don't know why don't care
-        if '4.30E+06' not in line_wt:
-            file.write(line_wt+'\n')
-
-    file.close()
-
-
-
-
-
-def clean_SpoIIE_GC_data():
-    file = open(lt.get_path() + '/data/demography/SpoIIE_GC_assay.csv', "w")
-    header = ','.join(['strain', 'replicate', 'NT', 'HT', 'hours', 'dilution_V', 'dilution_S']) + '\n'
-    file.write(header)
-
-    to_ignore = ['Bacillus', 'strains', 'medium', 'temp', '', 'strain', 'avg', 'temp - 30C']
-
-    time_spo_all = None
-    time_wt_all = None
-
-    dilution_V_spo_all = None
-    dilution_V_wt_all = None
-    dilution_S_spo_all = None
-    dilution_S_wt_all = None
-
-    for line in open(lt.get_path() + '/data/demography/SpoIIE_GC.csv', 'r'):
-
-        line_split = line.strip().split(',')
-
-        if ('strains' in line_split[0]) or (line_split[1] == '') or ('SpoIIE' not in line_split[0]):
-            continue
-
-        print(line_split)
-
-
-        #print(line_split[8])
-        type_spo = 'SpoIIE'
-        rep_spo = line_split[0].split(' ')[1]
-        type_wt = 'wt'
-        rep_wt = line_split[8].split(' ')[1]
-
-        NT_spo = line_split[1]
-        NT_wt = line_split[9]
-
-        HT_spo = line_split[2]
-        HT_wt = line_split[10]
-
-
-
-        time_spo = line_split[3].replace('hr', '')
-        time_wt = line_split[11].replace('hr', '')
-
-        if time_spo != '':
-            time_spo_all = time_spo
-            time_wt_all = time_wt
-
-        dilution_V_spo = line_split[5].replace('10^', '')
-        dilution_V_spo = dilution_V_spo.replace('-', '')
-        if (dilution_V_spo != '') and (dilution_V_spo != "CFU's"):
-            dilution_V_spo_all = dilution_V_spo
-
-        dilution_V_wt = line_split[13].replace('10^', '')
-        dilution_V_wt = dilution_V_wt.replace('-', '')
-        if (dilution_V_wt != '') and (dilution_V_wt != "CFU's"):
-            dilution_V_wt_all = dilution_V_wt
-
-        dilution_S_spo = line_split[6].replace('10^', '')
-        dilution_S_spo = dilution_S_spo.replace('-', '')
-        if (dilution_S_spo != '') and (dilution_S_spo != "CFU's"):
-            dilution_S_spo_all = dilution_S_spo
-
-        dilution_S_wt = line_split[14].replace('10^', '')
-        dilution_S_wt = dilution_S_wt.replace('-', '')
-        if (dilution_S_wt != '') and (dilution_S_wt != "CFU's"):
-            dilution_S_wt_all = dilution_S_wt
-
-        line_spo = ','.join([type_spo, rep_spo, NT_spo, HT_spo, time_spo_all, dilution_V_spo_all, dilution_S_spo_all ])
-        line_wt = ','.join([type_wt, rep_wt, NT_wt, HT_wt, time_wt_all, dilution_V_wt_all, dilution_S_wt_all ])
-
-        file.write(line_spo+'\n')
-        file.write(line_wt+'\n')
-        # one bad data point, don't know why don't care
-        #if '4.30E+06' not in line_wt:
-        #    file.write(line_wt+'\n')
-
-    file.close()
-
-
-
-
-
-clean_SpoIIE_GC_data()
-
-
-#get_diversity_stats()
-
-#run_parallelism_analysis()
-#annotate_significant_genes()
 
 
 #for strain in lt.strain_list():
 #    merge_maple(strain)
 #merge_maple_all_strains()
+
+#get_diversity_stats()
+#run_parallelism_analysis()
+#annotate_significant_genes()
 
 #clean_iRep()
