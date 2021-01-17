@@ -439,7 +439,7 @@ def mult_freq():
 
 
 
-def plot_afs():
+def plot_afs(n_bins=20):
     afs_taxa_reps = [x.split('.')[0] for x in os.listdir(lt.get_path() + '/data/breseq/allele_freq_spec/') if x.endswith(".txt")]
     afs_taxa = list(set([x.split('.')[0].split('-')[0] for x in os.listdir(lt.get_path() + '/data/breseq/allele_freq_spec/') if x.endswith(".txt")]))
     _nsre = re.compile('([0-9]+)')
@@ -465,9 +465,12 @@ def plot_afs():
         ax = fig.add_subplot(3, 3, i+1)
         taxon_means = []
         taxons_max = []
+        freqs_all = []
         for taxon_rep in taxon_reps:
             df = pd.read_csv(lt.get_path() + '/data/breseq/allele_freq_spec/' + taxon + '-'+taxon_rep +'.txt', sep = '\t')
-            freqs = df.freq.values
+            #print(df)
+            freqs = df.frequency.tolist()
+            freqs_all.extend(freqs)
             #grid_ = GridSearchCV(KernelDensity(),
             #                {'bandwidth': np.linspace(0.001, 1, 50)},
             #                cv=2) # 20-fold cross-validation
@@ -479,17 +482,30 @@ def plot_afs():
             #pdf_ = np.exp(kde_.score_samples(x_grid_[:, None]))
             #pdf_ = kde_.score_samples(x_grid_[:, None])
             #pdf_ = [x / sum(pdf_) for x in pdf_]
-            ax.hist(freqs, bins= np.logspace(np.log10(0.1),np.log10(1.0), 50), alpha=0.8,  color = taxon_color, weights=np.zeros_like(freqs) + 1. / len(freqs))
-            #print(min(freqs))
+
+
+            #ax.hist(freqs_all, bins= np.logspace(np.log10(0.1),np.log10(1.0), 50), alpha=0.8,  color = taxon_color, weights=np.zeros_like(freqs) + 1. / len(freqs))
             #ax.plot(x_grid_, pdf_, alpha=0.8, lw = 2, color = taxon_color) #, marker='o')
             #ax.plot(10**x_grid_, pdf_, alpha=0.8, lw = 2, color = taxon_color) #, marker='o')
             taxon_means.append(np.mean(freqs))
             taxons_max.append(max(freqs))
             #ax.set_xscale('log')
 
+        freqs_all = np.asarray(freqs_all)
+        #hist, bins, _ = plt.hist(freqs_all, bins=40)
+        #hist, bins = np.histogram(freqs_all, bins=n_bins)
+        #logbins = np.logspace(np.log10(bins[0]),np.log10(bins[-1]),len(bins))
+        # histogram on log scale.
+        # Use non-equal bin sizes, such that they look equal on log scale.
+        #logbins = np.logspace(np.log10(bins[0]),np.log10(bins[-1]),len(bins))
+
+        ax.hist(freqs_all, bins=40, alpha=1,  color = taxon_color, weights=np.zeros_like(freqs_all) + 1. / len(freqs_all))
 
         ax.title.set_text(latex_dict[taxon])
         ax.title.set_fontsize(7)
+
+        #ax.axvline(x=np.mean(taxon_means), color='black', linestyle='--', lw = 1.5, alpha=0.8)
+        #ax.axvline(x=np.mean(taxons_max), color='red', linestyle='--', lw = 1.5, alpha=0.8)
 
         ax.axvline(x=np.mean(taxon_means), color='black', linestyle='--', lw = 1.5, alpha=0.8)
         ax.axvline(x=np.mean(taxons_max), color='red', linestyle='--', lw = 1.5, alpha=0.8)
@@ -497,11 +513,13 @@ def plot_afs():
         ax.tick_params(axis='both', which='major', labelsize=7)
         ax.tick_params(axis='both', which='minor', labelsize=5)
 
-        ax.set_xlim([0.05, 0.82])
+        print(max(freqs_all))
+
+        ax.set_xlim([min(freqs_all), 0.65])
 
         #ax.set_xscale('log', basex=10)
 
-
+    fig.subplots_adjust(wspace=0.3, hspace=0.4)
     fig.text(0.5, 0.02, 'Mutation frequency', ha='center', fontsize=16)
     fig.text(0.02, 0.5, 'Frequency', va='center', rotation='vertical', fontsize=16)
 
@@ -1110,32 +1128,6 @@ def plot_bacillus_aa():
 
 
 
-def dP_dt(P, t, d):
-    v = 220
-    K = 140
-    c = 100
-    m = 5
-    r = 0.005
-
-    uptake=v*(P[2]/(K+P[2]))*P[0] # substrate uptake capacity of viable cells
-    cellsMaintained=uptake/(c*m) # how many cells can meet maintenance costs based on substrate uptqke
-    cells2die=d*P[0] # how many cells would die if no maintenance costs were met
-
-    dVdt=cellsMaintained-cells2die
-
-    if (cellsMaintained-cells2die) < 0:
-        dDdt = cells2die-cellsMaintained
-    else:
-        dDdt = 0
-
-    dDdt = dDdt - r*P[1]
-    dSdt=r*P[1]*c-uptake     #resource
-
-    #dDdt=ifelse((cellsMaintained-cells2die)<0,(cells2die-cellsMaintained),0)-r*D               #cells
-    return [dVdt, dDdt, dSdt]
-
-
-
 
 def plot_ode():
     ts = np.linspace(0, 1000, 10000)
@@ -1164,7 +1156,7 @@ def plot_ode():
 
 
 
-# Modified Gompertz Equation
+#  weibull
 def log_weibull(t, d_0, k):
     t = np.asarray(t)
     return -1*  ((t * d_0) ** k)
@@ -1213,7 +1205,10 @@ class log_weibull_model(GenericLikelihoodModel):
 def plot_spoIIE():
     # innocula 100uL
     inoccula = 100
-    df = pd.read_csv(lt.get_path() + '/data/demography/spo0IIE_assay.csv', sep = ',')
+    df = pd.read_csv(lt.get_path() + '/data/demography/spoIIE_DC_assay.csv', sep = ',')
+
+    #df = pd.read_csv(lt.get_path() + '/data/demography/spo0IIE_assay.csv', sep = ',')
+
     df['N_spores'] = df['HT'] * (1000 / inoccula) * (10 ** (df['dilution_S'] )) * 50 #(mL)
     df['N_total'] = df['NT'] * (1000 / inoccula) * (10 ** (df['dilution_V'] )) * 50 #(mL)
     df['N_viable'] = df['N_total'] - df['N_spores']
@@ -1226,10 +1221,19 @@ def plot_spoIIE():
 
 
     model_wt = log_weibull_model(df_wt.days.values, np.log(df_wt.N_total.values/ df_wt.N_total.values[0]))
-    result_wt = model_wt.fit(method="lbfgs", disp = False,  bounds= [(0.000001,50), (0.001,100), (0.001, 100)])
+    result_wt = model_wt.fit(method="lbfgs", disp = False,  bounds= [(0.000001,10000000), (0.00001,100), (0.001, 100)])
+
 
     model_spoiie = log_weibull_model(df_spoiie.days.values, np.log(df_spoiie.N_total.values/ df_spoiie.N_total.values[0]))
-    result_spoiie = model_spoiie.fit(method="lbfgs", disp = False,  bounds= [(0.000001,50), (0.001,100), (0.001, 100)])
+    result_spoiie = model_spoiie.fit(method="lbfgs", disp = False,  bounds= [(0.000001,10000000), (0.00001,100), (0.001, 100)])
+
+    # percent difference in mean time to death
+    mttd_wt = lt.get_mttd(result_wt.params[0], result_wt.params[1])
+    mttd_spoiie = lt.get_mttd(result_spoiie.params[0], result_spoiie.params[1])
+
+    percent_difference = (mttd_spoiie - mttd_wt)/ mttd_wt
+    print(mttd_spoiie,mttd_wt,  percent_difference)
+
 
     x_weibull = np.linspace(0, max(df['days'].values))
     wt_weibull = df_wt.N_total.values[0] * np.exp( -1 * (( x_weibull* result_wt.params[0]) ** result_wt.params[1]) )
@@ -1253,109 +1257,8 @@ def plot_spoIIE():
     #plt.ylim(0.5*(10**7), 10**9)
     plt.legend(loc='upper right', prop={'size': 8})
 
-    fig.savefig(lt.get_path() + '/figs/spoiie_death_curve.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
-
-    plt.close()
-
-
-
-def plot_fig2():
-
-    fig = plt.figure(figsize = (9, 9))
-
-    ax_regression = plt.subplot2grid((4, 4), (0, 0), colspan=2, rowspan=2)
-    ax_model = plt.subplot2grid((4, 4), (0, 2), colspan=2, rowspan=2)
-    ax_mttd = plt.subplot2grid((4, 4), (2, 0), colspan=3, rowspan=2)
-
-    ax_regression.text(-0.1, 1.07, 'a', fontsize=13, fontweight='bold', ha='center', va='center', transform=ax_regression.transAxes)
-    ax_model.text(-0.1, 1.07, 'b', fontsize=13, fontweight='bold', ha='center', va='center', transform=ax_model.transAxes)
-    ax_mttd.text(-0.1, 1.07, 'c', fontsize=13, fontweight='bold', ha='center', va='center', transform=ax_mttd.transAxes)
-
-    df_weibull = pd.read_csv(lt.get_path() + '/data/demography/weibull_results_clean.csv', sep=',')
-    df_CIs = pd.read_csv(lt.get_path() + '/data/demography/model_CIs.csv', sep=',')
-
-    model_features = open(lt.get_path() + '/data/demography/model_features.csv', 'r')
-    model_features.readline()
-    model_features_dict = {}
-    for line in model_features:
-        line = line.strip().replace('"', '').split(',')
-        model_features_dict[line[0]] = float(line[1])
-    model_features.close()
-
-    taxa = list(set(df_weibull.strain.to_list()))
-
-    for taxon in taxa:
-        color_taxon = df_colors.loc[df_colors['strain'] == taxon].Color.to_list()[0]
-        df_taxon = df_weibull.loc[df_weibull['strain'] == taxon]
-
-        ax_regression.axhline(1, lw=1.5, ls=':',color='grey', zorder=1)
-        ax_regression.plot(10**df_CIs.x.values, 10**df_CIs.CI_lower.values, ls=':', c='k',zorder=2)
-        ax_regression.plot(10**df_CIs.x.values, 10**df_CIs.CI_upper.values, ls=':', c='k',zorder=2)
-        ax_regression.scatter( df_taxon.N_0_beta.values,  df_taxon.alpha.values, c=color_taxon, s=80, alpha=0.8)
-
-    x_log10 = np.log10(np.logspace(6, 14, num=100, endpoint=True, base=10))
-    ax_regression.plot(10**x_log10, 10**(model_features_dict['phylom_intercept'] + (x_log10 * model_features_dict['phylom_slope'])), ls='--', c='grey', lw=3)
-    ax_regression.plot(10**x_log10, 10**(model_features_dict['lmm_intercept'] + (x_log10 * model_features_dict['lmm_slope'])), ls='--', c='k', lw=3)
-
-    ax_regression.set_xscale('log', basex=10)
-    ax_regression.set_yscale('log', basey=10)
-    #ax_regression.set_xlim([0.05,1.1])
-    ax_regression.set_ylim([0.05,1.2])
-
-    ax_regression.text(0.7, 0.88,  r'$\beta_{1}=$' + str(round(model_features_dict['lmm_slope'], 2)), fontsize=9, transform=ax_regression.transAxes)
-    ax_regression.text(0.7, 0.8,  r'$r_{m}^{2}=$' + str(round(model_features_dict['r2_m'], 2)), fontsize=9, transform=ax_regression.transAxes)
-    ax_regression.text(0.7, 0.72,  r'$P<10^{-4}$', fontsize=9, transform=ax_regression.transAxes)
-
-    ax_regression.set_xlabel('Initial number of dead cells, ' + r'$d_{0} \cdot N_{v}(0) $', fontsize=12)
-    ax_regression.set_ylabel('Degree that growth rate changes, ' + r'$k$', fontsize=13)
-
-    #ax_regression.text(-0.03, 0.5,  "Growth rate decreases time  No chance in growth rate", va='center', rotation='vertical', fontsize=9, transform=ax_regression.transAxes)
-    # second figure
-    ts = np.linspace(0, 1000, 10000)
-    N_0 = int(1e9)
-    P0 = [N_0, 0, 0]
-    colors = ['#FF6347', '#FFA500', '#87CEEB']
-    labels = [r'$d_{0} \cdot N_{v}(0) = 10^{6}$', r'$d_{0} \cdot N_{v}(0) = 10^{7}$', r'$d_{0} \cdot N_{v}(0) = 10^{8}$']
-
-    for i, d in enumerate([ 0.001, 0.01, 0.1 ]):
-        Ps = odeint(dP_dt, P0, ts, args=(d,))
-        # Ps = odeint(dP_dt, P0, ts)
-        N = Ps[:,0]
-
-        ax_model.plot(ts, N, "-", c = colors[i], label=labels[i])
-
-    ax_model.legend(loc='lower left', prop={'size': 9})
-    ax_model.set_yscale('log',basey=10)
-    ax_model.set_xlabel('Time, ' + r'$t$' , fontsize = 14)
-    ax_model.set_ylabel('Number of cells, ' + r'$N_{v}(t)$' , fontsize = 13)
-
-    # mttd figure
-    df_weibull_species = pd.read_csv(lt.get_path() + '/data/demography/weibull_results_clean_species.csv', sep=',')
-    df_weibull_species = df_weibull_species.sort_values('mttf.log10')
-    mttf_taxa = df_weibull_species.Species.values[::-1]
-    for taxon_idx, taxon in enumerate(mttf_taxa):
-        taxon_color =  df_colors.loc[df_colors['strain'] == taxon].Color.to_list()[0]
-        mttf_taxon = df_weibull_species[ df_weibull_species['Species'] ==  taxon].mttf.values[0]
-        mttf_log10_taxon = np.log10(mttf_taxon)
-        mttf_log10_se_taxon = df_weibull_species[ df_weibull_species['Species'] ==  taxon]['pooled.log10.mttf.se'].values[0]
-
-
-        l = mlines.Line2D([ 10**(mttf_log10_taxon - (2*mttf_log10_se_taxon)),  10**(mttf_log10_taxon+(2*mttf_log10_se_taxon))], [taxon_idx,taxon_idx],lw=3, c = 'k',zorder=2)
-        ax_mttd.add_line(l)
-        ax_mttd.scatter(10**mttf_log10_taxon, taxon_idx, marker='o', s = 110, \
-                c=taxon_color, alpha=1, zorder=3)
-
-    ax_mttd.axvline( 10**np.mean(df_weibull_species['mttf.log10'].values ), ls = '--', c='grey', lw=2, zorder=1 )
-
-    mttf_taxa_latex = [latex_dict[mttf_taxon] for mttf_taxon in mttf_taxa]
-    ax_mttd.yaxis.tick_right()
-    ax_mttd.set_yticks(list(range(len(mttf_taxa))))
-    ax_mttd.set_yticklabels(mttf_taxa_latex, fontsize=9)
-    ax_mttd.set_xlabel('Mean time to death, ' + r'$\bar{T}_{d}$' + ' (days)', fontsize = 18)
-    ax_mttd.set_xscale('log', basex=10)
-
-    fig.subplots_adjust(wspace=0.55, hspace=0.45)
-    fig.savefig(lt.get_path() + '/figs/fig2.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    #fig.savefig(lt.get_path() + '/figs/spoiie_death_curve.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/spoiie_DC_death_curve.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
 
     plt.close()
 
@@ -1588,11 +1491,274 @@ def plot_arthro():
 
 
 
+def fd_weights_all(x, x0=0, n=1):
+    """
+    Return finite difference weights for derivatives of all orders up to n.
 
-#plot_fig2()
+    Parameters
+    ----------
+    x : vector, length m
+        x-coordinates for grid points
+    x0 : scalar
+        location where approximations are to be accurate
+    n : scalar integer
+        highest derivative that we want to find weights for
+
+    Returns
+    -------
+    weights :  array, shape n+1 x m
+        contains coefficients for the j'th derivative in row j (0 <= j <= n)
+
+    Notes
+    -----
+    The x values can be arbitrarily spaced but must be distinct and len(x) > n.
+
+    The Fornberg algorithm is much more stable numerically than regular
+    vandermonde systems for large values of n.
+
+    See also
+    --------
+    fd_weights
+
+    References
+    ----------
+    B. Fornberg (1998)
+    "Calculation of weights_and_points in finite difference formulas",
+    SIAM Review 40, pp. 685-691.
+
+    http://www.scholarpedia.org/article/Finite_difference_method
+    """
+    m = len(x)
+    _assert(n < m, 'len(x) must be larger than n')
+
+    weights = np.zeros((m, n + 1))
+    _fd_weights_all(weights, x, x0, n)
+    return weights.T
+
+
+# from numba import jit, float64, int64, int32, int8, void
+# @jit(void(float64[:,:], float64[:], float64, int64))
+def _fd_weights_all(weights, x, x0, n):
+    m = len(x)
+    c1, c4 = 1, x[0] - x0
+    weights[0, 0] = 1
+    for i in range(1, m):
+        j = np.arange(0, min(i, n) + 1)
+        c2, c5, c4 = 1, c4, x[i] - x0
+        for v in range(i):
+            c3 = x[i] - x[v]
+            c2, c6, c7 = c2 * c3, j * weights[v, j - 1], weights[v, j]
+            weights[v, j] = (c4 * c7 - c6) / c3
+        weights[i, j] = c1 * (c6 - c5 * c7) / c2
+        c1 = c2
+
+
+def fd_weights(x, x0=0, n=1):
+    """
+    Return finite difference weights for the n'th derivative.
+
+    Parameters
+    ----------
+    x : vector
+        abscissas used for the evaluation for the derivative at x0.
+    x0 : scalar
+        location where approximations are to be accurate
+    n : scalar integer
+        order of derivative. Note for n=0 this can be used to evaluate the
+        interpolating polynomial itself.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> import numdifftools.fornberg as ndf
+    >>> x = np.linspace(-1, 1, 5) * 1e-3
+    >>> w = ndf.fd_weights(x, x0=0, n=1)
+    >>> df = np.dot(w, np.exp(x))
+    >>> np.allclose(df, 1)
+    True
+
+    See also
+    --------
+    fd_weights_all
+    """
+    return fd_weights_all(x, x0, n)[-1]
+
+
+
+def _assert(cond, msg):
+    if not cond:
+        raise ValueError(msg)
+
+
+def fd_derivative(fx, x, n=1, m=2):
+    """
+    Return the n'th derivative for all points using Finite Difference method.
+
+    Parameters
+    ----------
+    fx : vector
+        function values which are evaluated on x i.e. fx[i] = f(x[i])
+    x : vector
+        abscissas on which fx is evaluated.  The x values can be arbitrarily
+        spaced but must be distinct and len(x) > n.
+    n : scalar integer
+        order of derivative.
+    m : scalar integer
+        defines the stencil size. The stencil size is of 2 * mm + 1
+        points in the interior, and 2 * mm + 2 points for each of the 2 * mm
+        boundary points where mm = n // 2 + m.
+
+    fd_derivative evaluates an approximation for the n'th derivative of the
+    vector function f(x) using the Fornberg finite difference method.
+    Restrictions: 0 < n < len(x) and 2*mm+2 <= len(x)
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> import numdifftools.fornberg as ndf
+    >>> x = np.linspace(-1, 1, 25)
+    >>> fx = np.exp(x)
+    >>> df = ndf.fd_derivative(fx, x, n=1)
+    >>> np.allclose(df, fx)
+    True
+
+    See also
+    --------
+    fd_weights
+    """
+    num_x = len(x)
+    _assert(n < num_x, 'len(x) must be larger than n')
+    _assert(num_x == len(fx), 'len(x) must be equal len(fx)')
+
+    du = np.zeros_like(fx)
+
+    mm = n // 2 + m
+    size = 2 * mm + 2  # stencil size at boundary
+    # 2 * mm boundary points
+    for i in range(mm):
+        du[i] = np.dot(fd_weights(x[:size], x0=x[i], n=n), fx[:size])
+        du[-i - 1] = np.dot(fd_weights(x[-size:], x0=x[-i - 1], n=n), fx[-size:])
+
+    # interior points
+    for i in range(mm, num_x - mm):
+        du[i] = np.dot(fd_weights(x[i - mm:i + mm + 1], x0=x[i], n=n),
+                       fx[i - mm:i + mm + 1])
+
+    return du
+
+
+
+def plot_first_vs_second_order_difference():
+
+    to_remove_KBS0711 = [10,11,12]
+    all_taxa = ['KBS0703', 'ATCC13985', 'ATCC43928', 'KBS0701', 'KBS0702',
+                'KBS0705', 'KBS0706', 'KBS0707', 'KBS0710', 'KBS0711',
+                'KBS0712', 'KBS0713', 'KBS0714', 'KBS0715', 'KBS0721',
+                'KBS0722', 'KBS0724', 'KBS0725', 'KBS0801', 'KBS0802',
+                'KBS0812']
+    df_counts = pd.read_csv(lt.get_path() + '/data/demography/longtermdormancy_20190528_nocomments.csv', sep = ',')
+    df_counts['Abund'] = (df_counts.Colonies.values+1) * (1000 / df_counts.Inoculum.values) * ( 10 ** df_counts.Dilution.values )
+    df_counts['Dormstart_date'] = pd.to_datetime(df_counts['Dormstart_date'])
+    df_counts['Firstread_date'] = pd.to_datetime(df_counts['Firstread_date'])
+    df_counts['Days'] = df_counts['Firstread_date'] - df_counts['Dormstart_date'] + dt.timedelta(days=1)
+
+    fig, ax = plt.subplots(figsize=(4,4))
+    fig.subplots_adjust(hspace=0.35, wspace=0.35)
+
+    for taxon in all_taxa:
+        #taxon = 'KBS0812'
+        taxon_color = df_colors.loc[df_colors['strain'] == taxon].Color.to_list()[0]
+        taxon_genus = df_colors.loc[df_colors['strain'] == taxon].Genus.to_list()[0]
+        df_counts_taxon = df_counts.loc[(df_counts['Strain'] == taxon)]
+        # ignore 10,11,12
+        reps = list(set(df_counts_taxon.Rep.to_list()))
+        if taxon == 'KBS0711':
+            reps = [j for j in reps if j not in to_remove_KBS0711]
+        reps.sort()
+        plot_dim = len(reps)/2
+        if len(reps) == 4:
+            plot_dim_x = 2
+            plot_dim_y = 2
+            axis_text_font = 8
+        elif len(reps) == 6:
+            plot_dim_x = 2
+            plot_dim_y = 3
+            axis_text_font = 6
+        else:
+            print('Number of reps not recognized')
+
+        for rep in reps:
+            df_counts_taxon_rep = df_counts_taxon.loc[(df_counts_taxon['Rep'] == rep)]
+            df_counts_taxon_rep = df_counts_taxon_rep.sort_values('Days')
+
+            N_t = df_counts_taxon_rep.Abund.values[2:]
+            t = df_counts_taxon_rep.Days.dt.days.values[2:]
+
+            #delta_N_t = N_t[1:] - N_t[:-1]
+
+            #delta_t = t[1:] - t[:-1]
+
+            #delta_N_t_div_t = delta_N_t/delta_t
+            ##delta_N_t_div_t = delta_N_t_div_t[np.logical_not(np.isnan(delta_N_t_div_t))]
+
+
+            #delta_deleta_N_t = delta_N_t[1:] - delta_N_t[:-1]
+
+            #delta_deleta_N_t = delta_N_t_div_t[2:] - 2*delta_N_t_div_t[1:-1] + delta_N_t_div_t[:-2]
+            #delta_delta_t = delta_t[1:] - delta_t[:-1]
+
+
+            #delta_deleta_N_t_div_t = delta_deleta_N_t/(delta_t**2)
+            #delta_deleta_N_t_div_t = delta_deleta_N_t_div_t[np.logical_not(np.isnan(delta_deleta_N_t_div_t))]
+
+
+            #min_delta_N_t = min(delta_N_t_div_t)
+            #max_delta_deleta_N_t = max(delta_deleta_N_t_div_t)
+
+
+            delta_N_t = fd_derivative(N_t, t, n=1, m=2)
+
+            delta_delta_N_t = fd_derivative(N_t, t, n=2, m=2)
+
+            print(np.where(delta_N_t == min(delta_N_t)), np.where(delta_delta_N_t == max(delta_delta_N_t)))
+
+            ax.scatter(abs(min(delta_N_t)), max(delta_delta_N_t), c=taxon_color, marker = 'o', s = 70, \
+                linewidth = 0.6, alpha = 0.8, zorder=1, edgecolors='none')
+
+            if taxon == 'KBS0714':
+
+                print(abs(min(delta_N_t)), max(delta_delta_N_t))
+
+
+            #ax.set_ylim([0.2*min(df_counts_taxon_rep.Abund.values), 4*N_0])
+
+    ax.set_xscale('log', base=10)
+    ax.set_yscale('log', base=10)
+
+    ax.set_xlabel('Maximum first-order decrease in ' + r'$N(t)$' + '\nbetween two timepoints, ' + r'$\frac{\left | \Delta N \right |}{ \Delta t}$', fontsize = 12)
+    ax.set_ylabel('Maximum second-order increase in ' + r'$N(t)$' + '\nbetween two timepoints, ' + r'$\frac{ \Delta^{2} N}{ \Delta t^{2}}$', fontsize = 12)
+
+
+    #fig.text(0.5, 0.02, 'Days, ' + r'$t$', ha='center', fontsize=16)
+    #fig.text(0.02, 0.5, 'Population size, ' + '$N(t)$', va='center', rotation='vertical', fontsize=16)
+
+    #fig.savefig(lt.get_path() + '/figs/taxon_weibull_100/'+taxon+'.png', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    fig.savefig(lt.get_path() + '/figs/first_vs_second_order_difference.pdf', format='pdf', bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
+    #plt.savefig('destination_path.eps', format='eps')
+
+    plt.close()
+
+
+
 
 #plot_fig1()
-plot_spoIIE()
+
+#plot_first_vs_second_order_difference()
+
+#plot_fig2()
+#plot_afs()
+#plot_fig1()
+#plot_spoIIE()
 
 
 #plot_dnds()
