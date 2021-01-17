@@ -3,8 +3,10 @@ import os, math
 import numpy as np
 import pandas as pd
 from scipy.stats import poisson
-from scipy.special import gammaln
+from scipy.special import gammaln, gamma
 from Bio import SeqIO
+
+import scipy
 
 import matplotlib.colors as mc
 import colorsys
@@ -13,6 +15,41 @@ np.random.seed(123456789)
 
 def get_path():
     return os.path.expanduser("~/GitHub/LTDE")
+
+
+
+
+latex_dict = {  'ATCC13985': r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{ATCC13985}$',
+                'ATCC43928': r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{ATCC43928}$',
+                'KBS0701': r'$\mathit{Pedobacter} \, \mathrm{sp.} \, \mathrm{KBS0701}$',
+                'KBS0702': r'$\mathit{Arthrobacter} \, \mathrm{sp.} \, \mathrm{KBS0702}$',
+                'KBS0703': r'$\mathit{Arthrobacter} \, \mathrm{sp.} \, \mathrm{KBS0703}$',
+                'KBS0705': r'$\mathit{Inquilinus} \, \mathrm{sp.} \, \mathrm{KBS0705}$',
+                'KBS0706': r'$\mathit{Mycobacterium} \, \mathrm{sp.} \, \mathrm{KBS0706}$',
+                'KBS0707': r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{KBS0707}$',
+                'KBS0710': r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{KBS0710}$',
+                'KBS0711': r'$\mathit{Janthinobacterium} \, \mathrm{sp.} \, \mathrm{KBS0711}$',
+                'KBS0712': r'$\mathit{Variovorax} \, \mathrm{sp.} \, \mathrm{KBS0712}$',
+                'KBS0713': r'$\mathit{Yersinia} \, \mathrm{sp.} \, \mathrm{KBS0713}$',
+                'KBS0714': r'$\mathit{Micrococcus} \, \mathrm{sp.} \, \mathrm{KBS0714}$',
+                'KBS0715': r'$\mathit{Curtobacterium} \, \mathrm{sp.} \, \mathrm{KBS0715}$',
+                'KBS0721': r'$\mathit{Flavobacterium} \, \mathrm{sp.} \, \mathrm{KBS0721}$',
+                'KBS0722': r'$\mathit{Oerskovia} \, \mathrm{sp.} \, \mathrm{KBS0722}$',
+                'KBS0724': r'$\mathit{Rhodococcus} \, \mathrm{sp.} \, \mathrm{KBS0724}$',
+                'KBS0725': r'$\mathit{Bradyrhizobium} \, \mathrm{sp.} \, \mathrm{KBS0725}$',
+                'KBS0801': r'$\mathit{Burkholderia} \, \mathrm{sp.} \, \mathrm{KBS0801}$',
+                'KBS0802': r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{KBS0802}$',
+                'KBS0812': r'$\mathit{Bacillus} \, \mathrm{sp.} \, \mathrm{KBS0812}$'
+                }
+
+
+
+def get_mttd(d_0, k):
+
+    return (1/d_0) * gamma(1 + (1/k))
+
+
+df_colors = pd.read_csv(get_path() + '/data/colors.csv', sep = ',')
 
 
 def get_strain_genus_dict():
