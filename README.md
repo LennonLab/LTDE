@@ -27,7 +27,3 @@ Assembled genomes are available on NCBI and accession numbers are available in `
 ## Running the analyses
 
 Once you have downloaded the data, just run `run_everything.sh`. This script contains commands for all data processing and analyses, including mutation calling.
-
-
-
-File paths will need to be changes on your end, since
