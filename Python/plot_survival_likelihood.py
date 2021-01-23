@@ -129,10 +129,10 @@ ax_KBS0812.set_ylabel('Population size, ' + '$N_{v}(t)$', fontsize=12)
 #ax_KBS0812.text(0.65, 0.8,  r'$k=$' + str(round(KBS0812_shape, 2)) , fontsize=9, transform=ax_KBS0812.transAxes)
 
 
-legend_elements_KBS0714 = [Line2D([0], [0], ls='--', color='k', lw=1.5, label='Weibull, ' + r'$k \neq 1$'),
-                Line2D([0], [0], ls='--', color='grey', lw=1.5, label= 'Exponen., ' + r'$k = 1$')]
+legend_elements_KBS0714 = [Line2D([0], [0], ls='--', color='k', lw=1.5, label='Weibull'),
+                Line2D([0], [0], ls='--', color='grey', lw=1.5, label= 'Exponential')]
 
-#ax_KBS0714.legend(handles=legend_elements_KBS0714, loc='lower right', fontsize=8)
+ax_KBS0714.legend(handles=legend_elements_KBS0714, loc='upper right', fontsize=8)
 
 
 # plot likelihood

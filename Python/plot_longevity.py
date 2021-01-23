@@ -108,7 +108,9 @@ ax_regression.text(0.7, 0.88,  r'$\beta_{1}=$' + str(round(model_features_dict['
 ax_regression.text(0.7, 0.8,  r'$r_{m}^{2}=$' + str(round(model_features_dict['r2_m'], 2)), fontsize=9, transform=ax_regression.transAxes)
 ax_regression.text(0.7, 0.72,  r'$P<10^{-4}$', fontsize=9, transform=ax_regression.transAxes)
 
-ax_regression.set_xlabel('Initial number of dead cells, ' + r'$d_{0} \cdot N_{v}(0) $', fontsize=12)
+#ax_regression.set_xlabel('Initial number of dead cells, ' + r'$d_{0} \cdot N_{v}(0) $', fontsize=12)
+ax_regression.set_xlabel('Initial number of dead cells, ' + r'$d_{0} \cdot N(0) $', fontsize=12)
+
 ax_regression.set_ylabel('Degree that growth rate changes, ' + r'$k$', fontsize=13)
 
 #ax_regression.text(-0.03, 0.5,  "Growth rate decreases time  No chance in growth rate", va='center', rotation='vertical', fontsize=9, transform=ax_regression.transAxes)
@@ -117,7 +119,8 @@ ts = np.linspace(0, 1000, 10000)
 N_0 = int(1e9)
 P0 = [N_0, 0, 0]
 colors = ['#FF6347', '#FFA500', '#87CEEB']
-labels = [r'$d_{0} \cdot N_{v}(0) = 10^{6}$', r'$d_{0} \cdot N_{v}(0) = 10^{7}$', r'$d_{0} \cdot N_{v}(0) = 10^{8}$']
+#labels = [r'$d_{0} \cdot N_{v}(0) = 10^{6}$', r'$d_{0} \cdot N_{v}(0) = 10^{7}$', r'$d_{0} \cdot N_{v}(0) = 10^{8}$']
+labels = [r'$d_{0} \cdot N(0) = 10^{6}$', r'$d_{0} \cdot N(0) = 10^{7}$', r'$d_{0} \cdot N(0) = 10^{8}$']
 
 for i, d in enumerate([ 0.001, 0.01, 0.1 ]):
     Ps = odeint(dP_dt, P0, ts, args=(d,))
@@ -129,7 +132,8 @@ for i, d in enumerate([ 0.001, 0.01, 0.1 ]):
 ax_model.legend(loc='lower left', prop={'size': 9})
 ax_model.set_yscale('log',base=10)
 ax_model.set_xlabel('Time, ' + r'$t$' , fontsize = 14)
-ax_model.set_ylabel('Number of cells, ' + r'$N_{v}(t)$' , fontsize = 13)
+#ax_model.set_ylabel('Number of cells, ' + r'$N_{v}(t)$' , fontsize = 13)
+ax_model.set_ylabel('Number of cells, ' + r'$N(t)$' , fontsize = 13)
 
 
 

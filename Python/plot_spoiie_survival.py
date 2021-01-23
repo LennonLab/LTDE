@@ -125,9 +125,9 @@ percent_difference_t_ext = (t_ext_spoiie - t_ext_wt)/ t_ext_wt
 
 
 
-sys.stdout.write("spoIIE mutant, MTTD (days) = %.3f; percent difference = %.3f\n" % (mttd_spoiie, percent_difference_mttd))
+sys.stdout.write("spoIIE mutant MTTD percent difference = %.3f\n" % (percent_difference_mttd))
 
-sys.stdout.write("spoIIE mutant, time to extinction (years) = %.3f; percent difference = %.3f\n" % (t_ext_spoiie, percent_difference_t_ext))
+sys.stdout.write("spoIIE mutant time to extinction (years) percent difference = %.3f\n" % ( percent_difference_t_ext))
 
 
 
