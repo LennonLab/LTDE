@@ -39,8 +39,12 @@ taxa_to_keep = df_taxa.Species.to_list()
 df_diversity = pd.read_csv(lt.get_path() + '/data/breseq/genetic_diversity.txt', sep = '\t', index_col=None)
 df_diversity['mean_birth_per_death_log10'] = np.log10(df_diversity['mean_birth_per_death'].values)
 
+
 df_demographic = pd.read_csv(lt.get_path() + '/data/demography/weibull_results_clean.csv', sep = ',', index_col=None)
 df_demographic.rename(columns={'strain':'Species'}, inplace=True)
+
+print(df_diversity)
+print(df_demographic)
 
 df_merged = pd.merge(df_diversity, df_demographic,  how='left', on=['Species','rep'])#, right_on = ['Species','c2'])
 df_merged['N_0_beta_log10'] = np.log10(df_merged['N_0_beta'].values)
@@ -69,12 +73,12 @@ alpha_dnds_fit = alpha_dnds.fit()
 print(alpha_dnds_fit.summary())
 
 
-print()
+#print()
 
-print("mean_binary_divisions_log10 vs dNdS ")
-b_dnds = smf.mixedlm("dn_ds_total ~ mean_binary_divisions_log10", df_merged, groups=df_merged["Species"])
-b_dnds_fit = b_dnds.fit()
-print(b_dnds_fit.summary())
+#print("mean_binary_divisions_log10 vs dNdS ")
+#b_dnds = smf.mixedlm("dn_ds_total ~ mean_binary_divisions_log10", df_merged, groups=df_merged["Species"])
+#b_dnds_fit = b_dnds.fit()
+#print(b_dnds_fit.summary())
 
 
 print()
@@ -100,12 +104,12 @@ alpha_TD_fit = alpha_TD.fit()
 print(alpha_TD_fit.summary())
 
 
-print()
+#print()
 
-print("mean_binary_divisions_log10 vs Tajimas D ")
-b_TD = smf.mixedlm("tajimas_d ~ mean_binary_divisions_log10", df_merged, groups=df_merged["Species"])
-b_TD_fit = b_TD.fit()
-print(b_TD_fit.summary())
+#print("mean_binary_divisions_log10 vs Tajimas D ")
+#b_TD = smf.mixedlm("tajimas_d ~ mean_binary_divisions_log10", df_merged, groups=df_merged["Species"])
+#b_TD_fit = b_TD.fit()
+#print(b_TD_fit.summary())
 
 
 
@@ -125,15 +129,15 @@ print(b_TD_fit.summary())
 fig = plt.figure(figsize = (6, 3))
 fig.tight_layout(pad = 2.8)
 
-ax1 = plt.subplot2grid((2, 4), (0, 0), colspan=1)
-ax2 = plt.subplot2grid((2, 4), (0, 1), colspan=1)
-ax3 = plt.subplot2grid((2, 4), (0, 2), colspan=1)
-ax4 = plt.subplot2grid((2, 4), (0, 3), colspan=1)
+ax1 = plt.subplot2grid((2, 3), (0, 0), colspan=1)
+ax2 = plt.subplot2grid((2, 3), (0, 1), colspan=1)
+ax3 = plt.subplot2grid((2, 3), (0, 2), colspan=1)
+#ax4 = plt.subplot2grid((2, 4), (0, 3), colspan=1)
 
-ax5 = plt.subplot2grid((2, 4), (1, 0), colspan=1)
-ax6 = plt.subplot2grid((2, 4), (1, 1), colspan=1)
-ax7 = plt.subplot2grid((2, 4), (1, 2), colspan=1)
-ax8 = plt.subplot2grid((2, 4), (1, 3), colspan=1)
+ax5 = plt.subplot2grid((2, 3), (1, 0), colspan=1)
+ax6 = plt.subplot2grid((2, 3), (1, 1), colspan=1)
+ax7 = plt.subplot2grid((2, 3), (1, 2), colspan=1)
+#ax8 = plt.subplot2grid((2, 4), (1, 3), colspan=1)
 
 for i, taxon in enumerate(taxa_to_keep):
     df_taxon_samples = df_merged.loc[df_merged['Species'] == taxon]
@@ -182,10 +186,10 @@ for i, taxon in enumerate(taxa_to_keep):
     ax3.scatter(alpha_mean, dn_ds_mean, c=taxon_color, s=12, zorder=2)
 
 
-    ax4.errorbar(N_births_mean, dn_ds_mean, xerr= N_births_sem, yerr = dn_ds_sem*2, \
-        fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
-        mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
-    ax4.scatter(N_births_mean, dn_ds_mean, c=taxon_color, s=12, zorder=2)
+    #ax4.errorbar(N_births_mean, dn_ds_mean, xerr= N_births_sem, yerr = dn_ds_sem*2, \
+    #    fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+    #    mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+    #ax4.scatter(N_births_mean, dn_ds_mean, c=taxon_color, s=12, zorder=2)
 
 
 
@@ -207,20 +211,20 @@ for i, taxon in enumerate(taxa_to_keep):
     ax7.scatter(alpha_mean, t_d_mean, c=taxon_color, s=12, zorder=2)
 
 
-    ax8.errorbar(N_births_mean, t_d_mean, xerr= N_births_sem, yerr = t_d_sem*2, \
-        fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
-        mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
-    ax8.scatter(N_births_mean, t_d_mean, c=taxon_color, s=12, zorder=2)
+    #ax8.errorbar(N_births_mean, t_d_mean, xerr= N_births_sem, yerr = t_d_sem*2, \
+    #    fmt = 'o', alpha = 0.9, barsabove = True, marker = '.', \
+    #    mfc = 'none', mec = 'none', ecolor = 'k', zorder=1, ms=15)
+    #ax8.scatter(N_births_mean, t_d_mean, c=taxon_color, s=12, zorder=2)
 
 
 
 #p<0.0001
-x_ax8= np.linspace(4, 5.6, num=500)
-y_pred_ax8 = b_TD_fit.params[0] + x_ax8 * b_TD_fit.params[1]
-ax8.plot(10**x_ax8, y_pred_ax8, c='k')
+#x_ax8= np.linspace(4, 5.6, num=500)
+#y_pred_ax8 = b_TD_fit.params[0] + x_ax8 * b_TD_fit.params[1]
+#ax8.plot(10**x_ax8, y_pred_ax8, c='k')
 
-ax8.text(0.07, 0.9, r'$\beta_{1}=$' + str(round(b_TD_fit.params[1], 2)), fontsize=5, transform=ax8.transAxes)
-ax8.text(0.07, 0.8, r'$p\ll0.001$', fontsize=5, transform=ax8.transAxes)
+#ax8.text(0.07, 0.9, r'$\beta_{1}=$' + str(round(b_TD_fit.params[1], 2)), fontsize=5, transform=ax8.transAxes)
+#ax8.text(0.07, 0.8, r'$p\ll0.001$', fontsize=5, transform=ax8.transAxes)
 
 
 
@@ -245,11 +249,11 @@ ax6.plot(10**x_ax6, y_pred_ax8, c='k')
 ax1.set_xscale('log', base=10)
 ax2.set_xscale('log', base=10)
 #ax3.set_xscale('log', basex=10)
-ax4.set_xscale('log', base=10)
+#ax4.set_xscale('log', base=10)
 ax5.set_xscale('log', base=10)
 ax6.set_xscale('log', base=10)
 #ax7.set_xscale('log', basex=10)
-ax8.set_xscale('log', base=10)
+#ax8.set_xscale('log', base=10)
 
 
 ax1.set_xlim([int(8e6), int(7e9)])
@@ -261,26 +265,26 @@ ax5.set_xlim([int(8e6), int(7e9)])
 ax1.tick_params(axis='x', labelsize=5)
 ax2.tick_params(axis='x', labelsize=5)
 ax3.tick_params(axis='x', labelsize=5)
-ax4.tick_params(axis='x', labelsize=5)
+#ax4.tick_params(axis='x', labelsize=5)
 ax5.tick_params(axis='x', labelsize=5)
 ax6.tick_params(axis='x', labelsize=5)
 ax7.tick_params(axis='x', labelsize=5)
-ax8.tick_params(axis='x', labelsize=5)
+#ax8.tick_params(axis='x', labelsize=5)
 
 ax1.tick_params(axis='y', labelsize=4)
 ax2.tick_params(axis='y', labelsize=4)
 ax3.tick_params(axis='y', labelsize=4)
-ax4.tick_params(axis='y', labelsize=4)
+#ax4.tick_params(axis='y', labelsize=4)
 ax5.tick_params(axis='y', labelsize=5)
 ax6.tick_params(axis='y', labelsize=5)
 ax7.tick_params(axis='y', labelsize=5)
-ax8.tick_params(axis='y', labelsize=5)
+#ax8.tick_params(axis='y', labelsize=5)
 
 
 ax5.set_xlabel('Change in population size, ' + r'$\Delta N$', fontsize = 6)
 ax6.set_xlabel('Initial death rate, ' + r'$d_{0} \cdot N(0)$', fontsize = 6)
 ax7.set_xlabel('Shape parameter, ' + r'$k$', fontsize = 6)
-ax8.set_xlabel('Total birth events, ' + r'$n_{births}$', fontsize = 6)
+#ax8.set_xlabel('Total birth events, ' + r'$n_{births}$', fontsize = 6)
 
 ax1.set_ylabel('Ratio of nonsynonymous\nto synonymous mutations, ' + r'$\frac{dN}{dS}$', fontsize = 6)
 ax5.set_ylabel("Tajima's D, " + r'$D_{T}$', fontsize = 6)

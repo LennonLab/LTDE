@@ -5,7 +5,7 @@
 #sh ~/GitHub/LTDE/bash/reads_clean.sh
 
 # run breseq
-#sh r~/GitHub/LTDE/bash/un_breseq.sh
+#sh r~/GitHub/LTDE/bash/run_breseq.sh
 
 # get breseq
 #sh ~/GitHub/LTDE/bash/get_breseq.sh
