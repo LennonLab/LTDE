@@ -5,7 +5,9 @@
 
 
 
-Repository for code associated with the preprint:
+Repository for code associated with the preprint: "Microbial population dynamics and evolutionary outcomes under extreme energy-limitation"
+
+https://doi.org/10.1101/2021.01.25.428163
 
 
 
@@ -21,7 +23,7 @@ Set up the repo under a folder named Github: `~/GitHub/LTDE/`
 
 ## Getting the data
 
-Assembled genomes are available on NCBI and accession numbers are available in `genomes_info.txt`. Raw reads are available on SRA under BioProject PRJNA561216. All other data is on Zenodo data repository XXX.
+Assembled genomes are available on NCBI and accession numbers are available in `genomes_info.txt`. Raw reads are available on SRA under BioProject PRJNA561216. All other data is on Zenodo data repository doi:10.5281/zenodo.4458917.
 
 
 ## Running the analyses
