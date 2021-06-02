@@ -43,6 +43,54 @@ latex_dict = {  'ATCC13985': r'$\mathit{Pseudomonas} \, \mathrm{sp.} \, \mathrm{
                 }
 
 
+genus_dict = {'ATCC13985': 'Pseudomonas',
+                'ATCC43928': 'Pseudomonas',
+                'KBS0701': 'Pedobacter',
+                'KBS0702': 'Arthrobacter',
+                'KBS0703': 'Arthrobacter',
+                'KBS0705': 'Inquilinus',
+                'KBS0706': 'Mycobacterium',
+                'KBS0707': 'Pseudomonas',
+                'KBS0710': 'Pseudomonas',
+                'KBS0711': 'Janthinobacterium',
+                'KBS0712': 'Variovorax',
+                'KBS0713': 'Yersinia',
+                'KBS0714': 'Micrococcus',
+                'KBS0715': 'Curtobacterium',
+                'KBS0721': 'Flavobacterium',
+                'KBS0722': 'Oerskovia',
+                'KBS0724': 'Rhodococcus',
+                'KBS0725': 'Bradyrhizobium',
+                'KBS0801': 'Burkholderia',
+                'KBS0802': 'Pseudomonas',
+                'KBS0812': 'Bacillus'
+                }
+
+
+taxon_space_dict = {'ATCC13985': 25,
+                'ATCC43928': 22,
+                'KBS0701': 21,
+                'KBS0702': 10,
+                'KBS0703': 10,
+                'KBS0705': 10,
+                'KBS0706': 10,
+                'KBS0707': 10,
+                'KBS0710': 10,
+                'KBS0711': 10,
+                'KBS0712': 10,
+                'KBS0713': 10,
+                'KBS0714': 10,
+                'KBS0715': 10,
+                'KBS0721': 10,
+                'KBS0722': 10,
+                'KBS0724': 10,
+                'KBS0725': 10,
+                'KBS0801': 10,
+                'KBS0802': 10,
+                'KBS0812': 23
+                }
+
+
 taxa_to_plot = ['ATCC13985', 'KBS0702', 'KBS0707', 'KBS0711', 'KBS0715',
                 'KBS0721', 'KBS0722', 'KBS0724', 'KBS0801']
 

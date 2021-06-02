@@ -61,7 +61,7 @@ def dP_dt(P, t, d):
 
 
 
-fig = plt.figure(figsize = (9, 14))
+fig = plt.figure(figsize = (9, 17))
 
 ax_regression = plt.subplot2grid((6, 4), (0, 0), colspan=2, rowspan=2)
 ax_model = plt.subplot2grid((6, 4), (0, 2), colspan=2, rowspan=2)
@@ -104,14 +104,14 @@ ax_regression.set_yscale('log', base=10)
 #ax_regression.set_xlim([0.05,1.1])
 ax_regression.set_ylim([0.05,1.2])
 
-ax_regression.text(0.7, 0.88,  r'$\beta_{1}=$' + str(round(model_features_dict['lmm_slope'], 2)), fontsize=9, transform=ax_regression.transAxes)
-ax_regression.text(0.7, 0.8,  r'$r_{m}^{2}=$' + str(round(model_features_dict['r2_m'], 2)), fontsize=9, transform=ax_regression.transAxes)
-ax_regression.text(0.7, 0.72,  r'$P<10^{-4}$', fontsize=9, transform=ax_regression.transAxes)
+ax_regression.text(0.7, 0.88,  r'$\beta_{1}=$' + str(round(model_features_dict['lmm_slope'], 2)), fontsize=11, transform=ax_regression.transAxes)
+ax_regression.text(0.7, 0.8,  r'$r_{m}^{2}=$' + str(round(model_features_dict['r2_m'], 2)), fontsize=11, transform=ax_regression.transAxes)
+ax_regression.text(0.7, 0.72,  r'$P<10^{-4}$', fontsize=11, transform=ax_regression.transAxes)
 
 #ax_regression.set_xlabel('Initial number of dead cells, ' + r'$d_{0} \cdot N_{v}(0) $', fontsize=12)
-ax_regression.set_xlabel('Initial number of dead cells, ' + r'$d_{0} \cdot N(0) $', fontsize=12)
+ax_regression.set_xlabel('Initial number of dead cells, ' + r'$d_{0} \cdot N(0) $', fontsize=14)
 
-ax_regression.set_ylabel('Degree that growth rate changes, ' + r'$k$', fontsize=13)
+ax_regression.set_ylabel('Degree that growth rate changes, ' + r'$k$', fontsize=14)
 
 #ax_regression.text(-0.03, 0.5,  "Growth rate decreases time  No chance in growth rate", va='center', rotation='vertical', fontsize=9, transform=ax_regression.transAxes)
 # second figure
@@ -131,9 +131,9 @@ for i, d in enumerate([ 0.001, 0.01, 0.1 ]):
 
 ax_model.legend(loc='lower left', prop={'size': 9})
 ax_model.set_yscale('log',base=10)
-ax_model.set_xlabel('Time, ' + r'$t$' , fontsize = 14)
+ax_model.set_xlabel('Time, ' + r'$t$' , fontsize = 15)
 #ax_model.set_ylabel('Number of cells, ' + r'$N_{v}(t)$' , fontsize = 13)
-ax_model.set_ylabel('Number of cells, ' + r'$N(t)$' , fontsize = 13)
+ax_model.set_ylabel('Number of cells, ' + r'$N(t)$' , fontsize = 14)
 
 
 
@@ -162,7 +162,7 @@ ax_mttd.axvline( 10**np.mean(df_weibull_species['mttf.log10'].values ), ls = '--
 mttf_taxa_latex = [lt.latex_dict[mttf_taxon] for mttf_taxon in mttf_taxa]
 ax_mttd.yaxis.tick_right()
 ax_mttd.set_yticks(list(range(len(mttf_taxa))))
-ax_mttd.set_yticklabels(mttf_taxa_latex, fontsize=9)
+ax_mttd.set_yticklabels(mttf_taxa_latex, fontsize=12)
 ax_mttd.set_xlabel('Mean time to death, ' + r'$\bar{T}_{d}$' + ' (days)', fontsize = 18)
 ax_mttd.set_xscale('log', base=10)
 
@@ -187,7 +187,7 @@ ax_ext.axvline( (10**np.mean(df_weibull_species['T_ext.log10'].values ))/365, ls
 t_ext_taxa_latex = [lt.latex_dict[mttf_taxon] for mttf_taxon in t_ext_taxa]
 ax_ext.yaxis.tick_right()
 ax_ext.set_yticks(list(range(len(t_ext_taxa))))
-ax_ext.set_yticklabels(t_ext_taxa_latex, fontsize=9)
+ax_ext.set_yticklabels(t_ext_taxa_latex, fontsize=12)
 ax_ext.set_xlabel('Time to extinction, ' + r'$T_{ext}$' + ' (years)', fontsize = 18)
 ax_ext.set_xscale('log', base=10)
 
