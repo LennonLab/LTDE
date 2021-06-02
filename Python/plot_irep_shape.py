@@ -84,6 +84,10 @@ fig.savefig(lt.get_path() + '/figs/irep_shape.pdf', format = 'pdf', bbox_inches 
 plt.close()
 
 slope, intercept, r_value, p_value, std_err = stats.linregress(irep_mean_list, shape_mean_list)
+
+
+print("Mean iRep across taxa = " + str(round(np.mean(irep_mean_list), 4)))
+
 print("D.F. = " + str(len(irep_mean_list)-2))
 print("t = " + str(round((slope-0)/std_err, 4)))
 print("r^2 = " + str(round(r_value**2, 4)))

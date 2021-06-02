@@ -1,0 +1,1 @@
+Species	rep	N0	slope1	slope2	time_split	N_split

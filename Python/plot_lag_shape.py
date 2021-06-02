@@ -97,6 +97,6 @@ ax.text(0.06, 0.68, r'$P=$' + str(round(p_value, 3)) , fontsize=9, transform=ax.
 ax.set_xscale('log',base=10)
 ax.set_yscale('log',base=10)
 ax.set_xlabel('Lag time (hrs.)', fontsize = 16)
-ax.set_ylabel('Shape paramter, ' r'$k$', fontsize = 16)
+ax.set_ylabel('Shape parameter, ' r'$k$', fontsize = 16)
 fig.savefig(lt.get_path() + '/figs/lag_shape.pdf', format='pdf',bbox_inches = "tight", pad_inches = 0.4, dpi = 600)
 plt.close()

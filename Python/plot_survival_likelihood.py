@@ -29,7 +29,7 @@ from statsmodels.base.model import GenericLikelihoodModel
 
 
 
-fig = plt.figure(figsize = (9, 9))
+fig = plt.figure(figsize = (10, 12))
 
 ax_KBS0714 = plt.subplot2grid((3, 3), (0, 0), colspan=1, rowspan=1)
 ax_KBS0703 = plt.subplot2grid((3, 3), (0, 1), colspan=1, rowspan=1)
@@ -144,9 +144,15 @@ df_stats_mean = df_stats_mean.sort_values(by=['LR'])
 ax_likelihood.axvline(0, ls='--', c='k', zorder=1)
 
 latex_labels = []
+
+reps_dict = {}
 for taxon_idx, taxon in enumerate(df_stats_mean['strain'].values):
-    latex_labels.append(lt.latex_dict[taxon])
+
     taxon_df = df_stats.loc[(df_stats['strain'] == taxon)]
+
+    #label = lt.latex_dict[taxon] + '(' + r'$n=$' + str(taxon_df.shape[0]) + ')'
+    reps_dict[taxon] = taxon_df.shape[0]
+    #latex_labels.append(label)
     for index, row in taxon_df.iterrows():
         if row['p.value.BH'] < 0.05:
             color_LR = 'blue'
@@ -161,12 +167,36 @@ legend_elements = [Line2D([0], [0], color = 'none', marker='o', label=r'$P_{\mat
 
 ax_likelihood.legend(handles=legend_elements, loc='lower right')
 
-mttf_taxa_latex = [lt.latex_dict[mttf_taxon] for mttf_taxon in df_stats_mean['strain'].values]
+max = 40
+
+
+mttf_taxa_latex = []
+rep_labels = []
+y_space = 0.046
+for mttf_taxon_idx, mttf_taxon in enumerate(df_stats_mean['strain'].values):
+
+    str_space = (" " * lt.taxon_space_dict[mttf_taxon] )
+
+    mttf_taxon_label = lt.latex_dict[mttf_taxon]
+    mttf_taxa_latex.append(mttf_taxon_label)
+
+    rep_label = '(' + r'$n=$' + str(reps_dict[mttf_taxon]) + ')'
+
+
+    ax_likelihood.text(1.47, 0.99-(y_space * (mttf_taxon_idx+1)), rep_label, fontsize=9, transform=ax_likelihood.transAxes)
+
+
+
+
+#mttf_taxa_latex = [] +  +  for mttf_taxon in df_stats_mean['strain'].values]
+
+
+#mttf_taxa_latex = [lt.latex_dict[mttf_taxon] + (" " * max - len(lt.latex_dict[mttf_taxon] ) )+  '(' + r'$n=$' + str(reps_dict[mttf_taxon]) + ')' for mttf_taxon in df_stats_mean['strain'].values]
 ax_likelihood.yaxis.tick_right()
 ax_likelihood.set_yticks(list(range(len(mttf_taxa_latex))))
-ax_likelihood.set_yticklabels(mttf_taxa_latex, fontsize=7)
+ax_likelihood.set_yticklabels(mttf_taxa_latex, fontsize=9)
 
-ax_likelihood.set_xlabel('Log-likelihood ratio of the Weibull vs the exponential')
+ax_likelihood.set_xlabel('Log-likelihood ratio of the Weibull vs the exponential', fontsize=12)
 
 
 
